@@ -1,53 +1,131 @@
 # Memory Analysis Program — Plan
 
-## Where we left off (2026-05-06)
+## Where we left off (2026-05-06, evening pass)
 
-The `landscape.html` catalog is at ~510 entries across 22+ sections / sub-groups
-with tier badges (T1–T5), explainers, and source links. Built across multiple
-sessions of research and ~27 parallel research-agent sweeps.
+The `landscape.html` catalog is at **~520 entries** across 23+ sections /
+sub-groups with tier badges (T1–T5), explainers, and source links. Recent
+integrations completed in this session:
 
-We just finished the third "exhaustive" push (browser agents, education AI,
-last-30-days launches), and three sets of results are still pending integration:
+- **Pros & Cons columns added** (6th and 7th) — structural change applied to
+  all 490 prior rows + 30 new rows. CSS placeholder ("—") shows for empty cells.
+- **Education AI memory sub-group** added under "Vertical / domain-specific
+  AI memory" — 9 entries (ELSA Speak, Duolingo Max, Quizlet, MagicSchool,
+  Khanmigo, SchoolAI, Speak, Synthesis Tutor, ChatGPT Study Mode) with full
+  Pros/Cons populated.
+- **Last-30-days launches** (10 entries) integrated across Platform-provider,
+  Method papers (experiential), Memory benchmarks, Theoretical/informal,
+  Voice-first/wearable. Pros/Cons populated.
+- **Wave-4 + industrial-lab papers** (11 NEW; 5 already present; 1 unresolved)
+  integrated across Method papers (parametric & latent, continual learning,
+  experiential), Platform-provider, Personal AI / PKM. Pros/Cons populated.
+- **Categorisation cleanup**: Limitless moved from PKM to Voice-first/wearable;
+  Memvid claude-brain entry reframed to cross-reference the Memvid library row
+  rather than duplicate its description.
 
-1. **Browser-agent memory** (8 entries) — Perplexity Comet, Dia, Edge Copilot Mode,
-   Brave Leo, Opera AI, Sigma, Fellou, Browserbase. **Already integrated as a new
-   top-level group.**
-2. **Education AI memory** (9 entries) — Khanmigo, Synthesis Tutor, SchoolAI,
-   Duolingo Max, ELSA Speak, Speak, Quizlet, ChatGPT Study Mode, MagicSchool.
-   **Not yet integrated** — would go as a new sub-group under "Vertical / domain-
-   specific AI memory".
-3. **Last-30-days launches** (10 entries, April 6 – May 6 2026) — Anthropic
-   Managed Agents Memory, MemMachine paper (separate from framework), MIA, Memory
-   in the LLM Era, ImplicitMemBench, MemEvoBench, Memory as Metabolism, Era
-   Computer ($11M), ICLR 2026 MemAgents Workshop, Externalization in LLM Agents.
-   **Not yet integrated** — goes across multiple sections (platform-provider for
-   Anthropic, parametric / continual / benchmarks for the papers, dedicated for
-   Era Computer).
+Verified no items lost: 520 data rows total, 30 with populated Pros/Cons (the
+new entries), 490 with empty placeholder. TR/TD balance clean. Agent-result
+batches preserved at `.agent-results/batch-{1,2,3}-*.md` for durability.
 
-Plus wave-4 leftovers from the prior session that never made it in:
+### Outstanding integration caveat
 
-4. **Sakana CTM, NAVER Provence/PISCO, NAVER trajectory memory, RIKEN tensor
-   decomposition, Mistral Agents API** — five papers / framework features that
-   should be added to method-paper sub-groups + framework-embedded.
+The wave-4 batch flagged "NAVER trajectory memory" as **UNRESOLVABLE** — no
+specific NAVER Labs paper canonically titled "trajectory memory" was found. The
+closest candidate is RANa (arxiv 2504.03524, NAVER Labs Europe robot navigation
+with episodic retrieval). Skipped to avoid misattribution; user should supply
+the exact title/arxiv ID if the intended paper is something else.
 
-Plus content from earlier industrial-labs research that was attempted but failed
-silently mid-edit:
+## Status (in-depth analysis pass complete)
 
-5. **IBM Meta-Tokens, NVIDIA Nemotron 3, Anthropic Circuit Tracing, MemoryLLM
-   (different from M+), SELF-PARAM, ShadowKV (ByteDance), Tencent ima.copilot,
-   MemoryBench (Tsinghua, distinct from Renmin's MemBench), MemR³, Engram
-   (DeepSeek), AutoGLM (Zhipu), M3-Agent (ByteDance)** — some of these may
-   already be in the file; others may have been lost in failed edits. **Re-verify
-   each before adding to avoid duplicates.**
+All seven background agents returned. Outputs:
 
-## Major next-session task: Pros & Cons columns
+- `taxonomy/schema.md` — 6-axis schema
+- `taxonomy/tags.json` — 520 rows tagged
+- `.agent-results/data-{1..6}-*.{md,csv}` — six data passes (GitHub adoption,
+  arxiv volume, conferences, funding, cross-references, benchmarks)
+- `analysis.md` — first synthesis pass written, 8 sections
 
-User decision: add **two new columns** to the table (6th and 7th):
-- **Pros** — what makes this system distinctive / where it wins
-- **Cons** — known weaknesses / where it loses
+## Major findings now in analysis.md
 
-Plan:
-- Structurally add both columns; update `<thead>`, group-row colspans (`colspan="7"`),
+- **Cross-section pattern reuse**: 3 architectural patterns recur across
+  many sections (commodity vector-extraction, bi-temporal KG, file-as-memory).
+  Several sections collapse into structurally-one pattern across vendors.
+- **4 architectural lineages traced**: World-model RSSM family,
+  KV-cache eviction family, Graph-RAG hierarchy, Files-as-memory thread.
+- **Mem0 = central hub** (14 inbound integrations); MCP = transport layer.
+- **Vocabulary-then-funding pattern**: arxiv "agent memory" terminology
+  crystallized late Q3 2025; funding wave for dedicated layers followed
+  Q1 2026 (1-quarter lag).
+- **60× valuation gap** between coding-agent products ($6.6B–$10B) and
+  dedicated memory layers ($150M peak). Capital is betting memory becomes
+  a vertical-product feature, not horizontal infrastructure.
+- **Two memory products with cross-pass anomaly signals** (MemPalace,
+  Mem0 vs Zep dispute) — flagged in analysis.md §5.
+- **ConvoMem 150-interaction threshold**: long-context LLM beats
+  RAG-based memory below it; memory layer wins above it.
+- **5 white-space gaps identified** in §8.
+
+## Table-grounded analysis (final)
+
+`landscape.html` now has 20 columns including 6 taxonomy axes + 7 signal
+columns (GitHub, Created, Funding, Customers, Performance, Mindshare,
+Citations). 9 data passes populated cells. `analysis.md` rewritten so
+every numeric claim cites the column you can verify in the row.
+
+## (Earlier — now superseded) In-depth analysis update
+
+`taxonomy/pivots.json` added — programmatic pivots of `tags.json` produce:
+- 21 cross-section recurring fingerprints (3+ sections)
+- 9 domain-specific single-section fingerprints
+- Per-section architectural diversity ratios
+- Per-axis distributions across 520 rows
+
+`analysis.md` expanded substantially. Now 11 numbered sections including:
+
+- **§1**: 8 cross-section pattern subsections (was 3) + new inverse
+  domain-specific subsection (§1.9)
+- **§2**: architectural lineages + 3 fork chains
+- **§3**: velocity-by-category, language distribution, per-company
+  funding trajectories with specific dates and rounds
+- **§5**: full LongMemEval leadership timeline; benchmarks-without-
+  competition phenomenon; governance-null-rate-as-academic-gap finding
+- **§6**: sharpened with defensible argument — "memory becomes
+  horizontal at substrate/integration, vertical at value-capture"
+- **§7**: new Quantitative summary (storage, persistence, section
+  diversity, tier distribution)
+- **§10**: new Anti-patterns section (8 anti-patterns enumerated)
+- **§11**: forward-looking questions to track
+
+## Remaining work
+
+1. **Human review of T1 taxonomy tags** — agent did first-pass; spot-check
+   would catch any axis-tagging mistakes that affected the §1 pivots.
+2. Optional: claims population pass for older T2/T3 framework rows where
+   the Claims column is still empty (~70%).
+3. Quarterly tracking — re-run the data-pass agents in 3–6 months to
+   measure trajectory of the §11 forward-looking questions.
+
+## Pros & Cons populate — DONE (all tiers)
+
+Done 2026-05-06. **All 520 rows across T1–T5 now have populated Pros/Cons.**
+
+Per-tier counts:
+- T1 (battle-tested): 140/140 populated
+- T2 (established / mature OSS): 134/134 populated
+- T3 (peer-reviewed): 100/100 populated
+- T4 (preprint): 133/133 populated
+- T5 (theoretical / informal): 13/13 populated
+
+Pros/Cons quality varies by depth of available source material. T1/T2 entries
+have specific architectural / market comparisons. T3 entries focus on the
+paper's contribution and known limitations. T4 entries (preprints) typically
+have shorter Pros/Cons since the field has not yet evaluated them deeply —
+a "preprint stage / narrow eval" caveat is the dominant Cons note for many.
+
+## Pros & Cons column add — DONE
+
+Done 2026-05-06. Structural change:
+- Updated `<thead>` to 7 columns with adjusted widths.
+- Replaced all 68 instances of `colspan="5"` with `colspan="7"`.
   section-explainer colspans, and the empty placeholder rows.
 - Populate T1 entries (~50 rows, the highest-impact production / battle-tested
   systems) in the first pass. T2/T3 in subsequent passes; T4/T5 may stay

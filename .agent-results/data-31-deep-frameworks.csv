@@ -1,0 +1,201 @@
+system_name,field_name,value,source_url
+LangMem (LangChain),pricing,"OSS library free; LangSmith (observability/platform) Free 5k traces/mo; Plus $39/mo; Enterprise custom. LangGraph Platform deployment pricing separate.",https://www.langchain.com/pricing
+LangMem (LangChain),deployment,"Both (LangSmith cloud managed + self-hosted Kubernetes; LangGraph Platform cloud or self-hosted)",https://docs.langchain.com/langsmith/deployment
+LangMem (LangChain),hq,"US (San Francisco, CA)",https://blog.langchain.com/series-b/
+LangMem (LangChain),compliance,"SOC 2 Type II (July 2024); GDPR compliant; HIPAA compliant",https://changelog.langchain.com/announcements/langsmith-is-now-soc-2-type-ii-compliant
+LangMem (LangChain),data_handling,"Data encrypted in transit and at rest; EU and US regions; enterprise self-hosted option for data residency",https://docs.langchain.com/langsmith/regions-faq
+LangMem (LangChain),funding,"$160M total; $1.2B valuation; Series B Oct 2025",https://blog.langchain.com/series-b/
+LangMem (LangChain),customers,"no data — searched not found (no named enterprise customer list publicly published for LangMem specifically)",https://www.langchain.com/
+LangMem (LangChain),mindshare,"no data — below detection threshold; 1.4k GitHub stars for langmem repo; ~1.7M/mo PyPI downloads for langchain-core",https://github.com/langchain-ai/langmem
+CrewAI Memory,compliance,"no data — searched not found (no SOC 2 / GDPR cert page found for CrewAI OSS framework; CrewAI cloud may differ)",https://crewai.com/
+CrewAI Memory,data_handling,"no data — searched not found (no public data-handling policy for CrewAI OSS; cloud tier data handling not published)",https://crewai.com/
+LlamaIndex Memory,data_handling,"no data — searched not found (LlamaCloud SOC 2 Type II published; OSS library data handling left to deployer)",https://www.llamaindex.ai/security
+AutoGen Memory,funding,"Microsoft-backed; AutoGen is an open-source Microsoft Research project with no independent funding; merged into Microsoft Agent Framework (public preview Oct 2025)",https://visualstudiomagazine.com/articles/2025/10/01/semantic-kernel-autogen--open-source-microsoft-agent-framework.aspx
+AutoGen Memory,customers,"10,000+ organizations using Azure AI Foundry Agent Service (Microsoft umbrella); no AutoGen-specific customer count",https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-oct-nov-2025/
+AutoGen Memory,pricing,"OSS (MIT); no direct cost for library; Azure AI Foundry Agent Service for managed hosting uses Azure consumption pricing",https://github.com/microsoft/autogen
+AutoGen Memory,compliance,"Inherits Microsoft/Azure compliance posture (SOC 2, ISO 27001, HIPAA, GDPR etc.) when deployed on Azure",https://learn.microsoft.com/en-us/agent-framework/overview/
+AutoGen Memory,data_handling,"Inherits Azure data handling when deployed on Azure; OSS self-hosted: data handling left to deployer",https://github.com/microsoft/autogen
+AutoGen Memory,deployment,"Both (OSS self-hosted Python; Azure AI Foundry managed runtime with GA Q1 2026)",https://visualstudiomagazine.com/articles/2025/10/01/semantic-kernel-autogen--open-source-microsoft-agent-framework.aspx
+AutoGen Memory,hq,"US (Redmond, WA — Microsoft HQ)",https://www.microsoft.com/en-us/research/project/autogen/
+Mastra Memory,data_handling,"no data — searched not found (no public Mastra data-handling or DPA page found; SOC 2 Type II claimed on mastra.ai/security but details not verified)",https://mastra.ai/security
+Mastra Memory,founders,"Sam Bhagwat (CEO, Stanford, ex-Zenefits/PlanGrid); Abhi Aiyer (CTO); Shane Thomas (CPO, ex-Gatsby, Audiofeed); all three previously built Gatsby.js (acquired by Netlify); YC W25",https://mastra.ai/about
+Semantic Kernel Memory,funding,"Microsoft-owned open-source project; no independent funding — part of Microsoft",https://github.com/microsoft/semantic-kernel
+Semantic Kernel Memory,customers,"Microsoft enterprise ecosystem; BMW, KPMG, Fujitsu among Azure AI Foundry users (broader Microsoft agent platform)",https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-oct-nov-2025/
+Semantic Kernel Memory,pricing,"OSS (MIT); no direct cost for library; pay only for Azure/model consumption when using managed Azure infrastructure",https://learn.microsoft.com/en-us/semantic-kernel/overview/
+Semantic Kernel Memory,compliance,"Inherits Azure compliance posture: SOC 2 Type II, ISO 27001, HIPAA, PCI DSS, GDPR; compliance templates built into framework for HIPAA/SOX/PCI-DSS regulated industries",https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-roadmap-h1-2025-accelerating-agents-processes-and-integration/
+Semantic Kernel Memory,data_handling,"Runs in-process within deployer's application; Azure-hosted path: encrypted agent-to-agent comms, audit logging, RBAC; data residency controlled by Azure region selection",https://learn.microsoft.com/en-us/semantic-kernel/overview/
+Semantic Kernel Memory,deployment,"Both (on-prem, containers, any cloud, or Azure AI Foundry managed)",https://learn.microsoft.com/en-us/semantic-kernel/overview/
+Semantic Kernel Memory,hq,"US (Redmond, WA — Microsoft HQ)",https://github.com/microsoft/semantic-kernel
+Pydantic-AI + Hindsight,funding,"Pydantic (company) raised $17.2M total; Series A $12.5M Oct 2024; investors include Sequoia Capital and Partech Partners",https://pitchbook.com/profiles/company/520055-83
+Pydantic-AI + Hindsight,customers,"no data — searched not found (no named customer list for pydantic-ai; Pydantic OSS framework has very wide usage but no enterprise customer disclosures)",https://pydantic.dev/pydantic-ai
+Pydantic-AI + Hindsight,compliance,"Pydantic Logfire (observability product): SOC 2 Type II, HIPAA, GDPR / EU Data Region; pydantic-ai OSS library itself: no compliance posture",https://pydantic.dev/docs/logfire/deploy/compliance/
+Pydantic-AI + Hindsight,data_handling,"pydantic-ai OSS: data handling left to deployer; Pydantic Logfire: encrypted in transit and at rest; BAAs available; EU data region for GDPR",https://logfire.pydantic.dev/docs/compliance/
+LangGraph Persistence,funding,"$160M total (LangChain parent); $1.2B valuation; Series B Oct 2025",https://blog.langchain.com/series-b/
+LangGraph Persistence,customers,"no data — searched not found (no named customer list for LangGraph specifically; LangChain ecosystem widely used but no customer disclosures for LangGraph)",https://www.langchain.com/langgraph
+LangGraph Persistence,pricing,"OSS free (MIT); LangGraph Platform (now LangSmith Deployment as of Oct 2025): Free Developer plan 100k nodes/mo; Plus/Enterprise tiers; seat+usage pricing",https://www.zenml.io/blog/langgraph-pricing
+LangGraph Persistence,compliance,"SOC 2 Type II; GDPR; HIPAA (inherits LangChain/LangSmith compliance posture)",https://changelog.langchain.com/announcements/langsmith-is-now-soc-2-type-ii-compliant
+LangGraph Persistence,data_handling,"Same as LangSmith: encrypted in transit/at rest; EU and US regions; enterprise self-hosted option",https://docs.langchain.com/langsmith/regions-faq
+LangGraph Persistence,deployment,"Both (LangGraph OSS self-hosted; LangSmith Deployment cloud managed or self-hosted)",https://blog.langchain.com/langgraph-platform-ga/
+LangGraph Persistence,hq,"US (San Francisco, CA)",https://blog.langchain.com/series-b/
+LangGraph Persistence,created,"2024-01 (LangGraph v0.1 released Jan 2024; long-term memory persistence added Oct 2024)",https://blog.langchain.com/langgraph-cloud/
+smolagents Memory,funding,"Hugging Face (parent) raised $400M total across 8 rounds from 34 investors",https://sacra.com/c/hugging-face/
+smolagents Memory,customers,"no data — searched not found (Hugging Face serves millions of developers but no named smolagents-specific customers)",https://huggingface.co/docs/smolagents/tutorials/memory
+smolagents Memory,pricing,"OSS free (Apache-2.0); Hugging Face Enterprise Hub starts at $20/user/mo for managed services",https://huggingface.co/pricing
+smolagents Memory,compliance,"Hugging Face Enterprise: SOC 2 Type II; GDPR premium coverage; continuous security scanning via VirusTotal",https://huggingface.co/pricing
+smolagents Memory,data_handling,"OSS self-hosted: data handling left to deployer; Hugging Face Inference Endpoints: standard HF data processing terms apply",https://huggingface.co/pricing
+smolagents Memory,deployment,"Both (OSS self-hosted; Hugging Face Inference Endpoints / Enterprise Hub managed)",https://huggingface.co/pricing
+smolagents Memory,hq,"US (New York, NY — Hugging Face HQ)",https://sacra.com/c/hugging-face/
+Agno (Phidata) Memory,pricing,"OSS free (Apache-2.0); Agno Cloud: usage-based, free tier; no per-event fees; no egress costs",https://www.agno.com/pricing
+Agno (Phidata) Memory,compliance,"no data — searched not found (no SOC 2 or specific compliance certification page found for Agno/Phidata)",https://www.agno.com/
+Agno (Phidata) Memory,data_handling,"User controls data; no data leaves system in self-hosted mode; deploy to own cloud for data sovereignty",https://www.agno.com/pricing
+Agno (Phidata) Memory,deployment,"Both (self-hosted open source; Agno Cloud managed)",https://www.agno.com/pricing
+Agno (Phidata) Memory,founders,"Ashpreet Bedi (founder & CEO); ex-Airbnb, Facebook/Instagram, Cisco; 15+ years ML/data infrastructure; founded Phidata 2023, rebranded to Agno 2025",https://www.ashpreetbedi.com/about
+Strands Agents Memory (AWS),funding,"Amazon Web Services (subsidiary of Amazon); no independent funding",https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/
+Strands Agents Memory (AWS),customers,"AWS enterprise customer base; no Strands-specific customer disclosures; AgentCore used by AWS enterprise clients",https://aws.amazon.com/bedrock/agentcore/
+Strands Agents Memory (AWS),pricing,"Strands SDK OSS free; memory via Bedrock AgentCore Memory: $0.25 per 1,000 short-term memory events; Runtime priced per second CPU/memory",https://aws.amazon.com/bedrock/agentcore/pricing/
+Strands Agents Memory (AWS),compliance,"Inherits AWS/Bedrock compliance: SOC 1/2/3, ISO 27001, HIPAA, PCI DSS, GDPR, FedRAMP; VPC, PrivateLink, CloudFormation support",https://aws.amazon.com/bedrock/agentcore/
+Strands Agents Memory (AWS),data_handling,"AWS data handling posture: encryption in transit/at rest; VPC isolation; Cedar policy language for fine-grained access controls; data residency by AWS region",https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/
+Strands Agents Memory (AWS),deployment,"Both (OSS self-hosted; AWS Bedrock AgentCore managed cloud)",https://aws.amazon.com/bedrock/agentcore/
+Strands Agents Memory (AWS),hq,"US (Seattle, WA — AWS/Amazon HQ)",https://aws.amazon.com/
+Strands Agents Memory (AWS),created,"2025-05 (Strands Agents SDK open-sourced May 2025)",https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/
+OpenAI Agents SDK Memory,funding,"OpenAI raised $40B+ total funding across multiple rounds; $300B+ valuation; no independent funding for SDK",https://openai.com/
+OpenAI Agents SDK Memory,customers,"no data — searched not found (no named customer list for Agents SDK specifically; OpenAI serves millions of API customers)",https://openai.github.io/openai-agents-python/ref/memory/
+OpenAI Agents SDK Memory,pricing,"SDK OSS free; pay for OpenAI API model usage at standard token pricing (e.g. GPT-5.4: $2.50/$15 per M tokens)",https://openai.com/api/pricing/
+OpenAI Agents SDK Memory,compliance,"OpenAI enterprise plans: SOC 2 Type II, GDPR, HIPAA BAA available; Azure OpenAI adds government/FedRAMP compliance",https://openai.com/security/
+OpenAI Agents SDK Memory,data_handling,"Enterprise/API: data not used for training by default; encrypted in transit/at rest; admin controls and dedicated workspaces on enterprise plans",https://openai.com/security/
+OpenAI Agents SDK Memory,deployment,"Both (OSS library self-hosted; relies on OpenAI or Azure OpenAI API endpoints; no dedicated SDK hosting)",https://openai.github.io/openai-agents-python/
+OpenAI Agents SDK Memory,hq,"US (San Francisco, CA)",https://openai.com/
+OpenAI Agents SDK Memory,created,"2025-03 (launched March 2025 as production-ready evolution of Swarm)",https://openai.com/index/new-tools-for-building-agents/
+Google ADK Memory,funding,"Google (subsidiary of Alphabet); no independent funding",https://google.github.io/adk-docs/
+Google ADK Memory,customers,"Google enterprise customer base; no ADK-specific customer disclosures",https://docs.cloud.google.com/agent-builder/agent-development-kit/overview
+Google ADK Memory,pricing,"ADK OSS free; Vertex AI Memory Bank and Agent Engine: consumption-based pay-per-use cloud pricing (serverless); standard GCP pricing applies",https://docs.cloud.google.com/agent-builder/agent-development-kit/overview
+Google ADK Memory,compliance,"Inherits Google Cloud compliance: SOC 2, SOC 3, ISO 27001, HIPAA, PCI DSS, GDPR; IAM integration, encryption in transit/at rest, audit logging",https://adk.dev/
+Google ADK Memory,data_handling,"Google Cloud data handling: end-to-end encryption; Vertex AI Memory Bank data stored in GCP region of choice; IAM-controlled access",https://docs.cloud.google.com/agent-builder/agent-engine/develop/adk
+Google ADK Memory,deployment,"Both (ADK OSS self-hosted; one-command deploy to Google Cloud Agent Engine / Cloud Run / GKE)",https://google.github.io/adk-docs/deploy/agent-engine/deploy/
+Google ADK Memory,hq,"US (Mountain View, CA — Google/Alphabet HQ)",https://adk.dev/
+Google ADK Memory,created,"2025-04 (launched at Google Cloud NEXT, April 9 2025)",https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/
+Haystack Memory (deepset),funding,"$45.2M total; Series B $30M Aug 2023 led by Balderton Capital; Series A $14M Apr 2022 led by GV",https://www.deepset.ai/blog/introducing-haystack-enterprise
+Haystack Memory (deepset),customers,"European Commission, The Economist, Oxford University Press, German Federal Ministry of Research (BMFTR), Manz Verlag, German Armed Forces, Airbus",https://en.wikipedia.org/wiki/Deepset
+Haystack Memory (deepset),pricing,"OSS free (Apache-2.0); Haystack Enterprise Platform: custom licensing + runtime fees + optional expert services; no public price list",https://www.deepset.ai/products-and-services/haystack-enterprise-platform
+Haystack Memory (deepset),compliance,"no data — searched not found (enterprise platform implied compliance coverage but no specific SOC 2 / ISO 27001 certs found on public pages)",https://www.deepset.ai/products-and-services/haystack-enterprise-platform
+Haystack Memory (deepset),data_handling,"Enterprise: fully managed cloud, VPC, or on-prem deployment; data stays in customer environment in VPC/on-prem models",https://www.deepset.ai/products-and-services/haystack-enterprise-platform
+Haystack Memory (deepset),deployment,"Both (OSS self-hosted; Haystack Enterprise Platform: SaaS cloud, VPC, or on-prem)",https://www.deepset.ai/products-and-services/haystack-enterprise-platform
+Haystack Memory (deepset),hq,"Germany (Berlin)",https://en.wikipedia.org/wiki/Deepset
+Haystack Memory (deepset),founders,"Milos Rusic (CEO), Malte Pietsch (CTO), Timo Möller (CPO) — co-founded Berlin 2018; met at TU Munich; Pietsch and Möller previously at Plista (adtech); bootstrapped to break-even before first funding in 2021",https://ai.berlin/news/detail/milos-rusic-and-malte-pietsch-co-founders-deepset
+Haystack Memory (deepset),mindshare,"below detection threshold as standalone memory product; 18k+ GitHub stars for haystack repo; notable enterprise NLP/RAG heritage",https://github.com/deepset-ai/haystack
+Haystack Memory (deepset),created,"2019 (Haystack OSS first released 2019; deepset founded 2018)",https://ai.berlin/news/detail/milos-rusic-and-malte-pietsch-co-founders-deepset
+Spring AI ChatMemory,funding,"Part of Spring / VMware Tanzu (now Broadcom); no independent funding — corporate Broadcom product",https://spring.io/projects/spring-ai/
+Spring AI ChatMemory,customers,"Nine of the top 10 Fortune 500 committed to VMware Cloud Foundation (Broadcom umbrella); no Spring AI-specific customer disclosures",https://news.broadcom.com/releases/broadcom-announces-vmware-cloud-foundation-9-1
+Spring AI ChatMemory,pricing,"OSS free (Apache-2.0); Tanzu Spring Enterprise subscription available for commercial support",https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/tanzu-spring/commercial/spring-tanzu/spring-enterprise-subscription.html
+Spring AI ChatMemory,compliance,"Inherits Broadcom/VMware compliance posture; Spring AI compliance templates for HIPAA, SOX, PCI-DSS available in framework",https://blogs.vmware.com/tanzu/spring-ai-transforms-java-for-genai-app-delivery/
+Spring AI ChatMemory,data_handling,"Library runs in-process; data handling entirely under deployer control; Spring framework adds no telemetry by default",https://spring.io/projects/spring-ai/
+Spring AI ChatMemory,deployment,"Both (on-prem, any cloud, or VMware Tanzu managed platform)",https://spring.io/projects/spring-ai/
+Spring AI ChatMemory,hq,"US (San Jose, CA — Broadcom HQ)",https://news.broadcom.com/
+Spring AI ChatMemory,founders,"Mark Pollack (Spring AI creator; Broadcom/VMware Spring team); part of the broader Spring open-source community under Broadcom",https://softwareengineeringdaily.com/2024/04/05/spring-ai-and-java-in-2024/
+Spring AI ChatMemory,created,"2023-09 (announced at SpringOne Sept 2023; 0.8.0 released Feb 2024; 1.0 GA May 2025)",https://spring.io/blog/2025/05/20/spring-ai-1-0-GA-released/
+Spring AI ChatMemory,license,"Apache-2.0",https://github.com/spring-projects/spring-ai
+Spring AI ChatMemory,latest_release,"1.0 GA (2025-05-20)",https://spring.io/blog/2025/05/20/spring-ai-1-0-GA-released/
+DSPy History,funding,"Stanford NLP academic project (Hazy Research group); Omar Khattab also affiliated with Databricks; dspy.ai commercial arm reported ~$110K ARR 2025 (1-person team); no traditional VC funding found",https://getlatka.com/companies/dspy.ai/funding
+DSPy History,customers,"no data — searched not found (academic/OSS project; no named enterprise customer disclosures)",https://dspy.ai/
+DSPy History,pricing,"OSS free (Apache-2.0); dspy.ai commercial services ~$110K ARR but pricing details not publicly listed",https://getlatka.com/companies/dspy.ai/funding
+DSPy History,compliance,"no data — searched not found (academic OSS project; no compliance certifications)",https://dspy.ai/
+DSPy History,data_handling,"Library runs in-process; data handling entirely under deployer control; no telemetry",https://github.com/stanfordnlp/dspy
+DSPy History,deployment,"Both (OSS self-hosted; dspy.ai cloud services if applicable)",https://dspy.ai/
+DSPy History,hq,"US (Stanford, CA — Stanford NLP / Hazy Research; Omar Khattab also at MIT as of 2025)",https://omarkhattab.com/
+DSPy History,founders,"Omar Khattab (Stanford PhD, advised by Matei Zaharia & Christopher Potts; now at MIT); mentors include Chris Potts (Stanford), Matei Zaharia (UC Berkeley & Databricks), Heather Miller (CMU)",https://omarkhattab.com/
+DSPy History,created,"2023-10 (arXiv:2310.03714 posted Oct 2023; grew from DSP framework research started Feb 2022)",https://arxiv.org/pdf/2310.03714
+DSPy History,license,"Apache-2.0",https://github.com/stanfordnlp/dspy
+Pydantic-AI MemoryTool,funding,"Pydantic (company) raised $17.2M total; Series A $12.5M Oct 2024; investors include Sequoia Capital and Partech Partners",https://pitchbook.com/profiles/company/520055-83
+Pydantic-AI MemoryTool,customers,"no data — searched not found (no named customer list for pydantic-ai)",https://pydantic.dev/pydantic-ai
+Pydantic-AI MemoryTool,pricing,"OSS free (MIT for pydantic-ai); pay for model provider API usage; Pydantic Logfire observability has separate pricing",https://pydantic.dev/pydantic-ai
+Pydantic-AI MemoryTool,compliance,"Pydantic Logfire: SOC 2 Type II, HIPAA, GDPR / EU data region; pydantic-ai OSS: no compliance posture",https://pydantic.dev/docs/logfire/deploy/compliance/
+Pydantic-AI MemoryTool,data_handling,"OSS library: data handling left to deployer; Pydantic Logfire: encrypted in transit/at rest, BAAs available, EU data region",https://logfire.pydantic.dev/docs/compliance/
+Pydantic-AI MemoryTool,deployment,"Both (OSS self-hosted; Pydantic Logfire cloud for observability)",https://pydantic.dev/pydantic-ai
+Pydantic-AI MemoryTool,hq,"UK (London — Pydantic company founded UK, registered London; Samuel Colvin UK-based)",https://pitchbook.com/profiles/company/520055-83
+Pydantic-AI MemoryTool,created,"2024-12 (pydantic-ai launched December 2024)",https://cuttlesoft.com/blog/2024/12/11/pydantic-ai-building-smarter-type-safe-ai-agents/
+AGiXT Adaptive Memory,funding,"no data — searched not found (community open-source project by Josh Turner; no institutional funding found)",https://github.com/Josh-XT/AGiXT
+AGiXT Adaptive Memory,customers,"no data — searched not found (open-source community project; no enterprise customer disclosures)",https://agixt.com/
+AGiXT Adaptive Memory,pricing,"OSS free (MIT); agixt.com offers hosted service but pricing not publicly listed",https://agixt.com/
+AGiXT Adaptive Memory,compliance,"Enterprise-ready features claimed (OAuth, multi-tenancy, advanced security) but no SOC 2 / GDPR / HIPAA certifications found",https://agixt.com/
+AGiXT Adaptive Memory,data_handling,"Self-hosted by default; agixt.com cloud data handling policies not published",https://github.com/Josh-XT/AGiXT
+AGiXT Adaptive Memory,deployment,"Both (OSS self-hosted; agixt.com managed cloud implied)",https://agixt.com/
+AGiXT Adaptive Memory,hq,"no data — searched not found (Josh Turner individual maintainer; no registered company HQ found)",https://github.com/Josh-XT/AGiXT
+n8n AI Agent Memory,pricing,"Free self-hosted Community Edition; Cloud: Starter €20/mo; Pro €50/mo; Business $800/mo (40k executions); Enterprise custom",https://n8n.io/pricing/
+n8n AI Agent Memory,compliance,"SOC 2 Type II (n8n 2.0, Dec 2025); GDPR compliant; self-hosted for data sovereignty in healthcare/finance/govt",https://blog.n8n.io/introducing-n8n-2-0/
+n8n AI Agent Memory,data_handling,"Self-hosted: all data on your infrastructure; Cloud: data handled per n8n DPA; v2.0 introduced secure-by-default isolated task runners",https://blog.n8n.io/introducing-n8n-2-0/
+n8n AI Agent Memory,funding,"$253.5M total; Series C $180M Oct 2025 led by Accel (NVentures/Nvidia participating); prior Series B €55M Mar 2025 led by Highland Europe; $2.5B valuation",https://sacra.com/c/n8n/
+n8n AI Agent Memory,customers,"3,000+ enterprise customers including Vodafone, Delivery Hero, Microsoft; ~$40M ARR (Jul 2025 estimate)",https://sacra.com/c/n8n/
+n8n AI Agent Memory,modalities,"text (workflow automation; no native multimodal memory — image/audio inputs processed via connected nodes, not natively in memory layer)",https://docs.n8n.io/advanced-ai/examples/understand-memory/
+n8n AI Agent Memory,created,"2019-10 (n8n platform launched Oct 2019; AI Agent node added in n8n 1.x era 2023-2024)",https://en.wikipedia.org/wiki/N8n
+Voiceflow Memory,funding,"$39.8M total; Series B ~$20M 2021; Series A $15M Aug 2023 led by OpenView VP",https://www.crunchbase.com/organization/storyflow-20c9
+Voiceflow Memory,compliance,"SOC 2 Type II; ISO/IEC 27001; GDPR compliant; 6-month transcript retention on all plans",https://www.voiceflow.com/blog/ai-agent-builder-security-compliance-enterprise-guide
+Voiceflow Memory,data_handling,"Standard Contractual Clauses for GDPR data transfers; all plans retain transcripts 6 months only; enterprise: custom data residency/retention policies",https://www.voiceflow.com/legal/dpa
+Voiceflow Memory,modalities,"text + voice (chatbot and voice agent platforms)",https://docs.voiceflow.com/docs/memory
+Voiceflow Memory,created,"2018-2019 (Storyflow project 2018; Voiceflow formally launched 2019)",https://www.crunchbase.com/organization/storyflow-20c9
+Flowise Memory,pricing,"Pre-acquisition: Free OSS; Starter $35/mo; Pro $65/mo; Enterprise custom. Post-Workday acquisition Aug 2025: pricing under review",https://newsroom.workday.com/2025-08-14-Workday-Acquires-Flowise,-Bringing-Powerful-AI-Agent-Builder-Capabilities-to-the-Workday-Platform
+Flowise Memory,compliance,"Enterprise-grade observability, HITL human-in-the-loop checkpoints; Workday (acquirer) adds enterprise compliance posture; self-hosted air-gapped option available",https://newsroom.workday.com/2025-08-14-Workday-Acquires-Flowise,-Bringing-Powerful-AI-Agent-Builder-Capabilities-to-the-Workday-Platform
+Flowise Memory,data_handling,"Self-hosted and air-gapped deployment for full data sovereignty; Workday cloud option with Workday's enterprise data handling",https://siliconangle.com/2025/08/15/workday-acquires-flowise-boost-ai-powered-workflows/
+Flowise Memory,deployment,"Both (OSS self-hosted; Flowise Cloud managed; air-gapped deployment supported)",https://aimojo.io/tools/flowise-ai/
+Flowise Memory,modalities,"text (LangChain pipeline-based; text inputs/outputs)",https://docs.flowiseai.com/integrations/langchain/memory
+Flowise Memory,created,"2023 (Flowise launched 2023; YC S23)",https://www.ycombinator.com/companies/flowiseai
+Langflow Memory,funding,"Acquired by DataStax Apr 2024; DataStax being acquired by IBM (announced Feb 2025); Langflow original company (Logspace) self-funded",https://techcrunch.com/2024/04/04/datastax-acquires-logspace-the-startup-behind-the-langflow-low-code-tool-for-building-rag-based-chatbots/
+Langflow Memory,customers,"no data — searched not found (DataStax Langflow cloud deprecated March 2026; no named enterprise customers for Langflow memory specifically)",https://www.langflow.org/blog/big-news-for-langflow
+Langflow Memory,pricing,"OSS free (MIT); DataStax Langflow cloud was free tier + paid; DataStax cloud deprecated Mar 2026. Self-host infra: ~$30-100/mo hobby, $2k+/mo enterprise",https://www.miniloop.ai/blog/langflow-pricing-2026
+Langflow Memory,compliance,"no data — searched not found (DataStax Langflow cloud deprecated; OSS self-hosted: compliance under deployer control)",https://docs.langflow.org/
+Langflow Memory,data_handling,"OSS: data handling left to deployer; DataStax cloud deprecated Apr 2026 with data deletion",https://docs.datastax.com/en/langflow/index.html
+Langflow Memory,deployment,"OSS self-hosted (all major clouds); DataStax cloud deprecated; IBM acquisition path unclear",https://github.com/langflow-ai/langflow
+Langflow Memory,hq,"Brazil (Uberlândia, MG — original Logspace HQ); DataStax parent US-based",https://www.crunchbase.com/organization/langflow
+Langflow Memory,modalities,"text (LangChain-based visual pipeline; text in/out)",https://docs.langflow.org/memory
+Langflow Memory,created,"2023 (launched 2023 by Logspace; acquired DataStax Apr 2024)",https://thenuancedperspective.substack.com/p/from-6000-lines-of-code-in-two-days
+Botpress LLMz,pricing,"Free 500 msgs/mo; Plus $89/mo 1GB Vector DB; Team $495/mo 2GB; Enterprise custom; AI Spend billed separately per LLM usage",https://botpress.com/pricing
+Botpress LLMz,compliance,"SOC 2 Type II; GDPR (DPA, DPO appointed, EU representative); enterprise SSO + RBAC + audit logs",https://botpress.com/legal/privacy-statement
+Botpress LLMz,data_handling,"On-prem, private cloud, or managed SaaS; GDPR standard contractual clauses; data processing restricted per DPA; LLM costs passed through directly",https://botpress.com/legal/privacy-statement
+Botpress LLMz,deployment,"Both (OSS self-hosted; Botpress Cloud SaaS; private cloud option)",https://botpress.com/pricing
+Botpress LLMz,funding,"$40M total; Series A $15M 2021; Series B $25M Jun 2025; Inovia Capital backed",https://botpress.com/blog/botpress-raises-25m-series-b-to-scale-ai-agent-infrastructure
+Botpress LLMz,created,"2017 (Botpress open-sourced on GitHub January 2017, founded by Sylvain Perron and Justin Watson)",https://www.linkedin.com/posts/slvnperron_when-we-started-botpress-the-idea-that-autonomous-activity-7342884199822946305-T0Qt
+Relevance AI Memory,funding,"$24M Series B May 2025 led by Bessemer VP; total ~$30M+ raised; Series A ~$6M prior",https://techcrunch.com/2025/05/06/relevance-ai-raises-24m-series-b-to-help-anyone-build-teams-of-ai-agents/
+Relevance AI Memory,pricing,"Free 200 actions/mo; Pro $19/mo; Team $234/mo; Business/Enterprise: 2 credits per run (vs 4 for free). Actions + Vendor Credits split billing since Sept 2025; BYO API keys on paid plans",https://relevanceai.com/pricing
+Relevance AI Memory,compliance,"Enterprise: SSO via SAML, RBAC, audit logs, multi-org management; data stays within region (multi-region support on Enterprise); strict data protection compliance claimed",https://www.bvp.com/news/meet-the-founders-of-relevance-ai
+Relevance AI Memory,data_handling,"Multi-region hosting; encryption; enterprise RBAC; no specific BAA / SOC 2 cert found publicly; BYO API keys means model calls can bypass Vendor Credits",https://relevanceai.com/pricing
+Relevance AI Memory,deployment,"Managed cloud only (SaaS); multi-region on enterprise tier",https://relevanceai.com/pricing
+Relevance AI Memory,created,"2020 (Relevance AI founded 2020)",https://tracxn.com/d/companies/relevance-ai/__GcnNqHYzkszu5Cqnv3GUOXxUAPJ0AGlKnzFyOXHCE70
+Relevance AI Memory,mindshare,"below detection threshold — searched not found for standalone memory product; 40,000 agents registered Jan 2025 on platform",https://techcrunch.com/2025/05/06/relevance-ai-raises-24m-series-b-to-help-anyone-build-teams-of-ai-agents/
+Lindy AI Memory,funding,"$49.9M total; Series B $35M Jan 2023; Battery Ventures key investor; YC W23",https://www.texau.com/profiles/lindy
+Lindy AI Memory,pricing,"Free plan; Plus $49.99/mo; Pro $99.99/mo; Max $199.99/mo; Enterprise custom with SSO/SCIM/audit logs",https://www.lindy.ai/pricing
+Lindy AI Memory,compliance,"SOC 2 Type II; HIPAA; GDPR; PIPEDA",https://www.lindy.ai/security
+Lindy AI Memory,data_handling,"Data encrypted in transit and at rest; never sold or used to train models; full audit logs; cloud-only deployment (no self-hosted)",https://www.lindy.ai/security
+Lindy AI Memory,deployment,"Managed cloud only (SaaS)",https://www.lindy.ai/
+Lindy AI Memory,created,"no data — searched not found (Lindy launched ~2022; YC W23 batch; no specific first-release date found)",https://www.ycombinator.com/companies/lindy
+Vapi (voice agents),compliance,"SOC 2 Type II; HIPAA (hipaaEnabled flag; only HIPAA-compliant services used when enabled); PCI DSS (pciEnabled flag); GDPR; 2025 independent pen-test executive summary published",https://docs.vapi.ai/security-and-privacy/hipaa
+Vapi (voice agents),data_handling,"PHI processed but not stored when HIPAA mode enabled; PCI-compliant masking of payment data; recording consent plan for audit compliance; real-time data injection via secure API",https://docs.vapi.ai/security-and-privacy/hipaa
+Retell AI,data_handling,"SOC 2 Type II; HIPAA; GDPR; PCI DSS compliance; 31+ language support with consistent security posture; CRM webhook integration for long-term data",https://www.retellai.com/blog/enterprise-ai-calling-security
+Stack AI,funding,"$16.6M total; Series A 2025 from Lobby Capital; YC W23",https://tracxn.com/d/companies/stackai/__pd7f2cdpIZMb6oJbES5FnR72cL_T9PpuDNfsYRPgYGY
+Stack AI,customers,"HP, SmartAsset, Red Bull, IBM among named customers; 200+ enterprise customers in first 6 months; finance, insurance, education, government verticals",https://www.voiceflow.com/blog/stack-ai
+Stack AI,data_handling,"SOC 2 Type II; HIPAA; GDPR; on-premise deploy available on Enterprise tier; enterprise dedicated infrastructure",https://www.stackai.com/
+Inngest AgentKit — Network State,funding,"$34M total; Series B $20.5M May 2025; Series A $6.1M Jan 2024 led by a16z; investors include Notable Capital, a16z, GGV, Tom Preston-Werner",https://www.inngest.com/blog/announcing-funding-from-a16z
+Inngest AgentKit — Network State,customers,"no data — searched not found (no named customer disclosures for AgentKit specifically)",https://agentkit.inngest.com/
+Inngest AgentKit — Network State,pricing,"Free tier; Pro; Enterprise custom; exact pricing not published — contact for enterprise",https://www.inngest.com/pricing
+Inngest AgentKit — Network State,compliance,"SOC 2 Type II; end-to-end encryption; SSO/SAML for enterprise",https://agentkit.inngest.com/
+Inngest AgentKit — Network State,data_handling,"End-to-end encryption for all data in transit; durable infrastructure with retries; enterprise SSO/SAML",https://agentkit.inngest.com/
+Inngest AgentKit — Network State,deployment,"Both (deploy AgentKit to preferred cloud provider; Inngest platform manages durable state)",https://agentkit.inngest.com/concepts/deployment
+Inngest AgentKit — Network State,hq,"US (San Francisco, CA — 600 California St)",https://www.cbinsights.com/company/inngest
+Inngest AgentKit — Network State,created,"no data — searched not found (AgentKit specific first-release date not found; Inngest platform founded ~2021)",https://www.inngest.com/
+Rivet Memory Node (Ironclad),funding,"Ironclad (parent): backed by Accel, Sequoia, Y Combinator, BOND; $200M+ ARR; no Rivet-specific funding",https://research.contrary.com/company/ironclad
+Rivet Memory Node (Ironclad),customers,"Ironclad internal teams; used by Ironclad's legal AI products; no external named customers for open-source Rivet specifically",https://ironcladapp.com/resources/articles/meet-rivet
+Rivet Memory Node (Ironclad),pricing,"OSS free (MIT)",https://github.com/Ironclad/rivet
+Rivet Memory Node (Ironclad),compliance,"no data — searched not found (Ironclad enterprise product has compliance posture but open-source Rivet has no independent compliance certifications)",https://rivet.ironcladapp.com/
+Rivet Memory Node (Ironclad),data_handling,"OSS: data handling entirely under deployer control; no Rivet-specific data handling policy",https://github.com/Ironclad/rivet
+Rivet Memory Node (Ironclad),deployment,"Both (OSS desktop app or self-hosted; remote executor for cloud/production deployment)",https://rivet.ironcladapp.com/
+Rivet Memory Node (Ironclad),hq,"US (San Francisco, CA — Ironclad HQ)",https://research.contrary.com/company/ironclad
+Rivet Memory Node (Ironclad),license,"MIT",https://github.com/Ironclad/rivet/blob/main/LICENSE
+Rivet Memory Node (Ironclad),latest_release,"v1.11.3 (2025-08-08)",https://github.com/Ironclad/rivet/releases/tag/app-v1.11.3
+Rivet Memory Node (Ironclad),created,"2023 (Rivet launched 2023 by Ironclad)",https://ironcladapp.com/resources/articles/meet-rivet
+Lindy AI Memory,created,"2023-01 (Lindy AI founded and launched January 2023 by Flo Crivello; YC W23)",https://tracxn.com/d/companies/lindy/__FJe0QVe6UcRHtdiPJpmyRG3livSd4eIGsIxMxz-kNPI
+Inngest AgentKit — Network State,created,"no data — searched not found (AgentKit TypeScript library first released ~2024; exact date not found in public sources)",https://github.com/inngest/agent-kit
+Voiceflow Memory,volume,"no data — searched not found (no public volume/scale claim for vf_memory specifically; platform claims 500k+ teams)",https://www.voiceflow.com/about
+Flowise Memory,mindshare,"below detection threshold — searched not found (Flowise acquired by Workday Aug 2025; no separate mindshare metrics found post-acquisition)",https://newsroom.workday.com/2025-08-14-Workday-Acquires-Flowise,-Bringing-Powerful-AI-Agent-Builder-Capabilities-to-the-Workday-Platform
+Langflow Memory,mindshare,"below detection threshold — searched not found (DataStax Langflow cloud deprecated Mar 2026; OSS fork continues but no mindshare metrics found)",https://www.langflow.org/blog/big-news-for-langflow
+n8n AI Agent Memory,conflict_resolution,"append-only for conversation buffer; Simple Memory: last-write-wins KV for persistent state; no published eviction/conflict-resolution policy",https://docs.n8n.io/advanced-ai/examples/understand-memory/
+Voiceflow Memory,conflict_resolution,"last-write-wins for vf_memory string variable; no published conflict resolution policy",https://docs.voiceflow.com/docs/memory
+Flowise Memory,conflict_resolution,"append-only for Buffer/Buffer-Window; Summary Buffer consolidates older turns via LLM compression; no explicit conflict resolution",https://docs.flowiseai.com/integrations/langchain/memory
+Langflow Memory,conflict_resolution,"append-only for session-keyed SQLite buffer; no explicit conflict resolution policy published",https://docs.langflow.org/memory

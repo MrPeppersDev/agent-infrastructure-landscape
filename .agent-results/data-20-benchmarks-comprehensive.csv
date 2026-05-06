@@ -1,0 +1,59 @@
+system_name,benchmark,score,score_metric,backbone_model,date_claimed,source_url,notes
+Mem0,LoCoMo,91.6,J-score (F1),gpt-4.1-mini,2026,https://mem0.ai/research,Vendor self-reported on research page. Disputed by Zep — see Zep row.
+Mem0,ConvoMem,30,accuracy (preferences),unspecified,2026,https://mem0.ai/research,Vendor self-reported. RAG significantly underperforms long-context approach per ConvoMem paper.
+Mem0,LongMemEval-S,~26% improvement over OpenAI,relative improvement,unspecified,2025,https://mem0.ai/research,"Vendor claim: 26% improvement over OpenAI baseline. Absolute score not published by vendor. Disputed context: Zep counter-analysis showed Mem0 misconfigured adversarial category."
+Letta / MemGPT,LongMemEval-S,83.2%,accuracy,gpt-4o-mini (files-as-memory),2025,https://www.letta.com/blog/benchmarking-ai-agent-memory,Vendor self-reported. Uses files-as-memory approach.
+Letta / MemGPT,LoCoMo,74.0%,accuracy,gpt-4o-mini,2025,https://www.letta.com/blog/benchmarking-ai-agent-memory,Vendor self-reported.
+Zep & Graphiti,LoCoMo,84%,accuracy (J-score variant),unspecified,2025,https://blog.getzep.com/lies-damn-lies-statistics-is-mem0-really-sota-in-agent-memory/,DISPUTED — Mem0 disputes methodology; Zep counter-disputes back. Both scores contested.
+Hindsight (Vectorize),LongMemEval-S,91%,accuracy,unspecified,2025-10,https://venturebeat.com/2025/10/,Vendor self-reported per VentureBeat post. Claimed highest among standalone memory services at launch.
+Supermemory,LongMemEval-S (Multi-Session),71.43%,accuracy,unspecified,2025,https://supermemory.ai/research/,Self-reported. Claims #1 on LongMemEval / LoCoMo / ConvoMem overall; sub-scores published.
+Supermemory,LongMemEval-S (Temporal Reasoning),76.69%,accuracy,unspecified,2025,https://supermemory.ai/research/,Self-reported sub-score from research page.
+Memvid,LoCoMo,+35% over baseline,relative improvement,unspecified,2025,https://github.com/memvid/memvid,Vendor claim: +35% on LoCoMo. No absolute score published.
+OMEGA,LongMemEval-S,95.4% (466/500),accuracy,unspecified,2026-02,https://omegamax.co/benchmarks,Vendor self-reported. Claims highest published score on leaderboard. 50ms retrieval latency.
+ByteRover,LongMemEval-S,92.8%,accuracy,unspecified,2025,https://www.byterover.dev/blog/benchmark_ai_agent_memory_real_production_byterover_top_market_accuracy_longmemeval,Vendor self-reported. Not independently verified.
+ByteRover,LoCoMo,92.2%,accuracy,unspecified,2025,https://www.byterover.dev/blog/benchmark-ai-agent-memory,ByteRover 2.0. Vendor claims to "rewrite the leaderboard".
+Mastra Memory (Observational Memory),LongMemEval-S,94.87%,accuracy,gpt-5-mini,2026-02-09,https://mastra.ai/research/observational-memory,Vendor-reported. Claimed highest openly reproducible score at announcement; gpt-4o variant 84.23%.
+Mastra Memory (Observational Memory),LongMemEval-S,84.23%,accuracy,gpt-4o,2026-02-09,https://mastra.ai/research/observational-memory,Official gpt-4o score. Claimed highest openly reproducible score on that backbone.
+MemPalace,LongMemEval-S,96.6%,Recall@5 (NOT QA accuracy),unspecified,2026-04,https://www.mempalace.tech/benchmarks,"DISPUTED: Figure is retrieval recall not QA accuracy — not comparable to accuracy scores from other systems. Updated to 98.4% on held-out data after controversy. See Vectorize/Gamgee analyses."
+MemMachine (paper; arxiv 2604.04853),LoCoMo,0.9169,composite (J-score),gpt-4.1-mini,2026-04,https://arxiv.org/html/2604.04853,Academic paper. Claims above Mem0 / Zep / Memobase / LangMem.
+MemMachine (paper; arxiv 2604.04853),LongMemEval-S,93.0%,accuracy,gpt-4.1-mini,2026-04,https://arxiv.org/html/2604.04853,Academic paper. Also claims ~80% fewer input tokens than Mem0.
+SuperLocalMemory,LoCoMo (Mode A — zero LLM),74.8%,accuracy,none (zero LLM),2025,https://www.superlocalmemory.com/,Vendor self-reported. Mode A uses Fisher-Rao + BM25 + entity graph only — claimed only system >70% on LoCoMo with zero API calls.
+SuperLocalMemory,LoCoMo (Mode C — LLM-assisted),87.7%,accuracy,unspecified LLM,2025,https://www.superlocalmemory.com/,Vendor self-reported. arxiv 2603.14588.
+Memoria (MatrixOrigin),LongMemEval-S,88.78%,accuracy (overall),unspecified,2025,https://medium.com/@matrixorigin-database/benchmarking-memoria-on-longmemeval-strong-memory-retrieval-clear-reader-separation-ee6c89c75d76,Vendor self-reported in Medium post. Near-perfect single-session recall; strong temporal reasoning.
+EverMemOS,LongMemEval-S,83.0%,accuracy,unspecified,2026-01,https://arxiv.org/abs/2601.02163,Academic preprint. Self-organizing memory OS.
+TiMem,LoCoMo,75.30%,accuracy,gpt-4o-mini,2026-01,https://arxiv.org/abs/2601.02845,Academic preprint. 5-layer Temporal Memory Tree.
+TiMem,LongMemEval-S,76.88%,accuracy,gpt-4o-mini,2026-01,https://arxiv.org/abs/2601.02845,Academic preprint. Also claims 52.20% context reduction on LoCoMo via recall planning + gating.
+LiCoMemory,LongMemEval (Llama-3.1-70B),73.8% accuracy / 76.6% recall,accuracy + recall,Llama-3.1-70B,2025-11,https://arxiv.org/abs/2511.01448,Academic preprint. Beats Zep by ~9% accuracy and ~9.7% recall on LongMemEval (Llama backbone). 10-40% lower latency than Mem0/Zep/A-MEM.
+LiCoMemory,LongMemEval (GPT-4o-mini),73.8% accuracy / 76.6% recall,accuracy + recall,gpt-4o-mini,2025-11,https://arxiv.org/abs/2511.01448,Academic preprint. Published GPT-4o-mini sub-score.
+BAI-LAB MemoryOS,LoCoMo,+48.36% F1 / +46.18% BLEU-1 over baselines,relative improvement,gpt-4o-mini,2025,https://aclanthology.org/2025.emnlp-main.1318/,EMNLP 2025 Oral. Relative improvement over unspecified baselines; absolute scores not stated.
+EVOLVE-MEM,LoCoMo,58.3%,accuracy,unspecified,2025,https://openreview.net/forum?id=dfPQrg1WA5,NeurIPS 2025 workshop paper. Claims SOTA across five reasoning categories at that score.
+MemInsight,LoCoMo,+34% retrieval recall over RAG baseline,relative recall improvement,unspecified,2025,https://aclanthology.org/2025.emnlp-main.1683/,EMNLP 2025 Main. Relative improvement; absolute score not provided.
+SYNAPSE,LoCoMo,+7.2 F1 over baselines,relative F1 improvement,unspecified,2026-01,https://arxiv.org/abs/2601.02744,Academic preprint. 95% fewer tokens than full-context methods alongside the improvement.
+GAM (General Agentic Memory),RULER (Multi-Hop Tracing),>90%,accuracy,unspecified,2025-11,https://arxiv.org/abs/2511.18423,Academic preprint. Competing methods reported below 60%.
+Engram (DeepSeek),MMLU,+3.4 points over baseline,relative improvement vs iso-FLOPs MoE,unspecified,2026-01,https://arxiv.org/abs/2601.07372,Academic preprint (DeepSeek + PKU). All scores relative to iso-FLOPs MoE baseline.
+Engram (DeepSeek),CMMLU,+4.0 points over baseline,relative improvement vs iso-FLOPs MoE,unspecified,2026-01,https://arxiv.org/abs/2601.07372,Academic preprint. Chinese-language benchmark.
+Engram (DeepSeek),BBH,+5.0 points over baseline,relative improvement vs iso-FLOPs MoE,unspecified,2026-01,https://arxiv.org/abs/2601.07372,Academic preprint.
+Engram (DeepSeek),ARC-Challenge,+3.7 points over baseline,relative improvement vs iso-FLOPs MoE,unspecified,2026-01,https://arxiv.org/abs/2601.07372,Academic preprint.
+Engram (DeepSeek),NIAH (Multi-Query),84.2 → 97.0,accuracy,unspecified,2026-01,https://arxiv.org/abs/2601.07372,Academic preprint. Baseline → Engram score on Multi-Query NIAH.
+RMM (Reflective Memory Management),LongMemEval,>10% accuracy improvement over no-memory baseline,relative improvement,unspecified,2025,https://aclanthology.org/2025.acl-long.413/,ACL 2025 long paper. Absolute score not specified.
+CDMem,ALFWorld,85.8%,success rate,unspecified,2025,https://aclanthology.org/2025.naacl-industry.80/,NAACL 2025 Industry track.
+CDMem,ScienceWorld,56.0%,success rate,unspecified,2025,https://aclanthology.org/2025.naacl-industry.80/,NAACL 2025 Industry track.
+ATLAS,BABILong,+80% accuracy at 10M context,relative accuracy vs Transformer baselines,unspecified,2025-05,https://arxiv.org/abs/2505.23735,Academic preprint. Surpasses Transformers + linear-recurrent models.
+ShadowKV,RULER,no accuracy loss (6x batch / 3.04x throughput),throughput + accuracy,Llama-3.1 / GLM-4 / Yi / Phi-3 / Qwen2,2024-10,https://arxiv.org/abs/2410.21465,ICML 2025 Spotlight. Efficiency metric — not a benchmark score improvement claim but validated on RULER / LongBench / NIAH.
+ShadowKV,LongBench,no accuracy loss (6x batch / 3.04x throughput),throughput,Llama-3.1 / GLM-4 / Yi / Phi-3 / Qwen2,2024-10,https://arxiv.org/abs/2410.21465,ICML 2025 Spotlight. Validated with no accuracy degradation.
+ShadowKV,NIAH,no accuracy loss,accuracy,Llama-3.1 / GLM-4 / Yi / Phi-3 / Qwen2,2024-10,https://arxiv.org/abs/2410.21465,ICML 2025 Spotlight.
+KAG,HotpotQA,+33.5% F1 (relative),relative F1 improvement,unspecified,2025,https://arxiv.org/abs/2409.13731,ACM Web Conf 2025. Deployed at Ant Group. Relative improvement over unspecified baseline.
+KAG,2WikiMultiHopQA,+19.6% F1 (relative),relative F1 improvement,unspecified,2025,https://arxiv.org/abs/2409.13731,ACM Web Conf 2025. Relative improvement.
+LongRAG,NaturalQuestions,Recall@1 52→71%; EM 62.7%,Recall@1 + EM,GPT-4o (reader),2024-06,https://arxiv.org/abs/2406.15319,Academic preprint. Long-unit RAG reduces NQ corpus 22M→600K retrieval units.
+LongRAG,HotpotQA,Recall@2 47→72%; EM 64.3%,Recall@2 + EM,GPT-4o (reader),2024-06,https://arxiv.org/abs/2406.15319,Academic preprint.
+Speculative RAG,PubHealth,+12.97% accuracy,absolute accuracy improvement,unspecified,2024,https://arxiv.org/abs/2407.08223,Academic preprint. 51% latency reduction vs conventional RAG.
+Speculative RAG,TriviaQA,SOTA (score not specified),rank/SOTA claim,unspecified,2024,https://arxiv.org/abs/2407.08223,Claims SOTA on TriviaQA / MuSiQue / ARC-Challenge; absolute scores not stated.
+ImplicitMemBench,ImplicitMemBench (overall),DeepSeek-R1 65.3%,accuracy,DeepSeek-R1,2026-04,https://arxiv.org/abs/2604.08064,New benchmark; 17 models evaluated. Top-3: DeepSeek-R1 65.3% / Qwen3-32B 64.1% / GPT-5 63.0%.
+ImplicitMemBench,ImplicitMemBench (overall),64.1%,accuracy,Qwen3-32B,2026-04,https://arxiv.org/abs/2604.08064,No model exceeds 66%. Inhibition sub-task only 17.6% vs preference 75.0%.
+ImplicitMemBench,ImplicitMemBench (overall),63.0%,accuracy,GPT-5,2026-04,https://arxiv.org/abs/2604.08064,Third-ranked model on this benchmark.
+LongMemEval (benchmark itself),LongMemEval-S (commercial LLM baseline),~30% accuracy drop vs oracle,relative drop,GPT-4o (vanilla),2024-10,https://arxiv.org/abs/2410.10813,Benchmark paper baseline result. Oracle provides only relevant sessions; full-context drop indicates memory is essential.
+LoCoMo (benchmark itself),LoCoMo (human ceiling),F1 87.9,F1,human,2024-02,https://arxiv.org/abs/2402.17753,From original LoCoMo paper. GPT-4 vanilla baseline ~32.1 F1.
+LoCoMo (benchmark itself),LoCoMo (GPT-4 vanilla),F1 ~32.1,F1,GPT-4,2024-02,https://arxiv.org/abs/2402.17753,From original paper. Establishes the floor.
+RULER (benchmark itself),RULER (GPT-4-1M context),~75%,average score across 13 tasks,GPT-4,2024,https://arxiv.org/abs/2404.06654,COLM 2024. Benchmark paper result — all models degrade sharply vs NIAH scores.
+MemR³,LoCoMo,outperforms strong baselines (LLM-as-Judge),rank claim,unspecified,2025-12,https://arxiv.org/abs/2512.20237,Academic preprint. Explicit evidence-gap tracking for post-hoc explainability.
+MemoryAgentBench (benchmark),MemoryAgentBench (agents w/ high LoCoMo perf),fail badly on agentic tasks,qualitative,various,2026-02,https://arxiv.org/abs/2507.05257,ICLR 2026 benchmark paper. Near-saturated LoCoMo agents fail on true multi-session agentic tasks (avg 57 action steps / >40k tokens).

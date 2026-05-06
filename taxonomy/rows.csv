@@ -1,0 +1,521 @@
+name,tier,section,memory_model,desc_first
+Mem0,T1,Dedicated memory layers,Vector + graph + KV (hybrid),Universal memory layer for AI agents.
+Letta / MemGPT,T1,Dedicated memory layers,Tiered: core / recall / archival,"LLM-as-Operating-System paradigm — model manages its own memory, paging between core context, recall buffer, and archival store."
+Zep & Graphiti,T1,Dedicated memory layers,Bi-temporal knowledge graph,Bi-temporal knowledge graph (event time + ingestion time).
+Cognee,T1,Dedicated memory layers,Knowledge graph + ECL pipeline,"""Extract–Cognify–Load"" pipeline that turns raw input into a typed, queryable knowledge graph for agent recall."
+Hindsight (Vectorize),T1,Dedicated memory layers,Vector + reflection / summarisation,Standalone memory service from Vectorize.
+Supermemory,T1,Dedicated memory layers,Memory graph + extraction + RAG,"Memory engine with API, app, browser extension, and MCP server."
+Memvid,T2,Dedicated memory layers,Single-file append-only Smart Frames,Single-file memory layer (one .mv2 file).
+Memobase,T2,Dedicated memory layers,User profile + event timeline,User-profile-based long-term memory.
+OMEGA,T2,Dedicated memory layers,Memory engine + 50ms retrieval,Memory engine product.
+ByteRover,T2,Dedicated memory layers,Agent memory product,Agent-memory product.
+Backboard,T2,Dedicated memory layers,Memory + LoCoMo evaluation harness,Agent memory product evaluated against LoCoMo.
+Hyperspell,T2,Dedicated memory layers,Workplace agent memory connectors,"Connects Slack, Gmail, Notion, Drive so agents can recall and reason across company knowledge."
+Memoria (MatrixOrigin),T2,Dedicated memory layers,Retrieval-strong memory layer,Memory layer from MatrixOrigin.
+OpenMemory,T2,Dedicated memory layers,Cognitive memory engine,Open-source cognitive memory engine for LLMs and agents.
+Memori,T2,Dedicated memory layers,Structured persistent memory layer,"Structured, persistent memory layer for AI agents."
+MemMachine,T2,Dedicated memory layers,Multi-layered memory system,Multi-layered open-source memory system for AI agents.
+Memary,T2,Dedicated memory layers,Long-term memory for autonomous agents,Open-source long-term memory framework for autonomous agents.
+Anda Hippocampus,T2,Dedicated memory layers,Bio-inspired sleep consolidation,Native graph-based memory for autonomous AI agents.
+O-Mem,T2,Dedicated memory layers,Omni / self-evolving memory,"Omni memory system for personalised, long-horizon, self-evolving agents."
+SuperLocalMemory,T1,Dedicated memory layers,Local-geometric / privacy-first / no LLM scoring,Cloud-free agent memory using information-geometric retrieval (Fisher-Rao distance + BM25 + entity graph + temporal fusion via 4-channel RRF) instead of LLM calls for scoring and lifecycle.
+VEKTOR Memory,T2,Dedicated memory layers,Local-SQLite + AUDN-loop + TypeScript-native,Node.js/TypeScript-native memory layer.
+Memory Store,T2,Dedicated memory layers,Cross-agent shared episodic + preference memory,YC P26 (Spring 2026).
+Interloom,T1,Dedicated memory layers,Enterprise tacit-knowledge memory,German startup.
+Nyne,T2,Dedicated memory layers,Human-profile / people-graph memory,"Deploys agents across the web to build structured profiles of individuals from public digital footprint, then feeds the people graph into AI agents as contextual memory so they understand users before any conversation starts."
+NeoCognition,T1,Dedicated memory layers,World-model / experiential self-learning memory,"Builds agents that learn from experience by constructing a ""world model"" of the micro-environment they operate in."
+MemoraX AI,T2,Dedicated memory layers,Endogenous / in-model memory (no external bank),Shenzhen.
+Trace,T2,Dedicated memory layers,Context-graph / KG memory,YC S25 + $3M seed (Feb 2026).
+Cellon (Memory.inc),T2,Dedicated memory layers,Cross-service context stitching / retrieval memory,Korean startup.
+MemWal (Walrus),T2,Dedicated memory layers,Decentralised / verifiable on-chain agent memory,"Walrus is a Sui-blockchain decentralised storage protocol; MemWal is its AI-facing SDK that stores encrypted agent memory on-chain — portable, verifiable, shareable across agent systems with no single-vendor lock-in."
+Jamba (AI21 Labs),T1,Dedicated memory layers,SSM-Transformer hybrid + 256K KV-bypass context,Israeli production model.
+Aleph Alpha PhariaAI / PhariaCatch,T1,Dedicated memory layers,Sovereign governed-document memory,German enterprise stack.
+AI Singapore SEA-LION,T2,Dedicated memory layers,SE-Asian cross-lingual semantic-retrieval memory,SEA-LION-Embedding (March 2026): retrieval + reranking models contrastively trained on 245M text pairs across 10 SE Asian languages.
+Krutrim Kruti (Ola),T2,Dedicated memory layers,Cross-session multimodal agentic memory,India's first agentic AI assistant.
+NAVER HyperCLOVA X THINK,T1,Dedicated memory layers,Korean sovereign 128K reasoning LLM,Reasoning-focused successor to HyperCLOVA X.
+M3-Agent (ByteDance),T2,Dedicated memory layers,Episodic + semantic multimodal memory graph,ByteDance Seed + Zhejiang Univ + SJTU.
+AutoGLM (Zhipu AI),T2,Dedicated memory layers,GUI agent + cross-session task memory,Tsinghua spinout.
+LangMem (LangChain),T2,Framework-embedded memory,Episodic / semantic / procedural,First-class memory module inside LangChain — explicit cognitive-science-style typing of memories.
+CrewAI Memory,T2,Framework-embedded memory,Short-term + long-term + entity,Memory subsystem inside the CrewAI orchestration framework; integrates with Mem0 for the long-term tier.
+LlamaIndex Memory,T2,Framework-embedded memory,FIFO short-term + Memory Blocks,Two-tier model: ChatMessage FIFO queue with overflow flushed into long-term Memory Block objects.
+AutoGen Memory,T2,Framework-embedded memory,List + teachable vectors,ListMemory chronological context + teachable agents that vectorise corrections.
+Mastra Memory,T2,Framework-embedded memory,LibSQL + semantic recall,TypeScript-first agent framework.
+Semantic Kernel Memory,T2,Framework-embedded memory,Memory plugin for SK agents,Microsoft Semantic Kernel's memory plugin (Microsoft.SemanticKernel.Plugins.Memory).
+Pydantic-AI + Hindsight,T2,Framework-embedded memory,External memory bolted on,Pydantic-AI ships no native persistent memory; agents start fresh each run.
+LangGraph Persistence,T2,Framework-embedded memory,Checkpoints + Store System,Distinct from LangMem.
+smolagents Memory,T2,Framework-embedded memory,In-process Python list (no persistence),Hugging Face barebones agent framework.
+Agno (Phidata) Memory,T2,Framework-embedded memory,AgentStorage + AgentMemory + DBs,Agno (formerly Phidata).
+Strands Agents Memory (AWS),T2,Framework-embedded memory,Mem0 + AgentCore-backed,AWS code-first agent framework.
+OpenAI Agents SDK Memory,T2,Framework-embedded memory,Sessions + RunContextWrapper + categorised long-term,OpenAI's agent SDK.
+Google ADK Memory,T2,Framework-embedded memory,SessionService tiers + VertexAIMemoryBank,Google's Agent Development Kit.
+Haystack Memory (deepset),T3,Framework-embedded memory,Pipeline-native ChatMessageStore,Haystack 2.x: InMemoryChatMessageStore (experimental) + ChatMessageRetriever + ChatMessageWriter components in declarative pipelines.
+Spring AI ChatMemory,T3,Framework-embedded memory,Advisor-pattern Java-native memory,Wraps conversation memory behind an Advisor abstraction.
+DSPy History,T3,Framework-embedded memory,Signature-field / prompt-injection contract,dspy.History primitive — typed field holding messages: list[dict] that slots into any Signature.
+Pydantic-AI MemoryTool,T3,Framework-embedded memory,Tool-delegated to model provider,Memory exposed via Anthropic SDK's BetaAbstractMemoryTool when Anthropic provider is active.
+Inngest AgentKit — Network State,T3,Framework-embedded memory,Durable-network-state / event-driven,"Memory as Network State — shared key-value store owned by the multi-agent network, readable by router / agents / tools."
+Rivet Memory Node (Ironclad),T3,Framework-embedded memory,Visual-graph first-class memory node,Open-source visual AI programming environment.
+AGiXT Adaptive Memory,T2,Framework-embedded memory,Adaptive provider-spanning + plugin storage,Open-source AI automation platform.
+n8n AI Agent Memory,T1,Framework-embedded memory,Pluggable buffer + Postgres/Redis + vector,Low-code workflow platform.
+Voiceflow Memory,T1,Framework-embedded memory,Sliding-window buffer (vf_memory),Chatbot platform.
+Flowise Memory,T1,Framework-embedded memory,Buffer + Buffer-Window + Conversation-Summary nodes,Visual LangChain canvas.
+Langflow Memory,T1,Framework-embedded memory,SQLite buffer + Mem0/Redis integrations,"Agent component has built-in chat memory enabled by default, keyed by session ID."
+Botpress LLMz,T1,Framework-embedded memory,Vector DB + LLMz engine + KB,Per-plan vector-DB storage quota + LLMz autonomous engine (in-session working memory) + Knowledge Base (semantic search over uploaded docs).
+Relevance AI Memory,T1,Framework-embedded memory,Short-term metadata + persistent KV store,Two memory scopes: conversation metadata (KV per-conversation) and persistent memory (cross-session).
+Lindy AI Memory,T1,Framework-embedded memory,Selective KV memory injected into prompt,"Saves high-signal facts (scheduling preferences, communication patterns, recurring rules) selectively rather than raw transcripts."
+Vapi (voice agents),T2,Framework-embedded memory,Structured workflow state during call,Voice agents.
+Retell AI,T2,Framework-embedded memory,In-call + integration-based long-term,Voice agents.
+Stack AI,T2,Framework-embedded memory,Enterprise-KB RAG (no agent memory store),"Connects enterprise knowledge sources (SharePoint, Confluence, Notion, Drive, DBs) as memory layer with access controls, versioning, citations."
+Mistral Agents API,T1,Platform-provider memory,Platform-managed stateful conversation memory,Mistral's Agents API provides persistent conversation state across turns and sessions; runtime maintains branching conversation trees.
+Anthropic Managed Agents — Memory,T3,Platform-provider memory,Filesystem-backed cross-session persistent memory,Mounts memory as files on a managed filesystem; Claude reads and writes via the same bash/code-execution tools used for agentic tasks.
+Anthropic Claude Memory,T1,Platform-provider memory,File-backed + tool-driven + Auto Dream,"Memory tool API + consumer ""Memory"" feature + Auto Dream consolidation."
+OpenAI ChatGPT Memory,T1,Platform-provider memory,User-scoped persistent facts,First-party memory in ChatGPT; auto-extracts persistent facts about the user across sessions.
+Google Gemini Memory,T1,Platform-provider memory,Personal Context + Personal Intelligence,Personal Context setting + Personal Intelligence packing.
+Microsoft Copilot Memory,T1,Platform-provider memory,Org / tenant-scoped (Exchange-backed),Microsoft 365 Copilot memory stored in user's Exchange mailbox with compliance alignment.
+LinkedIn Cognitive Memory Agent,T1,Platform-provider memory,Episodic + semantic + procedural (shared),Production memory infrastructure powering LinkedIn's Hiring Assistant and other GenAI apps.
+Cloudflare Agent Memory,T2,Platform-provider memory,Managed persistent memory service,Managed persistent memory service for AI agents on Cloudflare's edge.
+AWS Bedrock AgentCore Memory,T2,Platform-provider memory,Managed memory in Bedrock AgentCore,AWS managed memory service for agents running on Bedrock AgentCore.
+Vertex AI Memory Bank,T2,Platform-provider memory,Managed Vertex memory service,Google Cloud managed memory service (Preview).
+Perplexity Memory,T1,Platform-provider memory,Auto-distillation across model swaps,Auto-infers facts from conversations and surfaces them in future responses (Pro subscribers).
+Grok Memory (xAI),T1,Platform-provider memory,Preference-distillation + user-deletable,Extracts and persists facts from past conversations; applies them to future responses.
+Mistral Le Chat — Memories,T1,Platform-provider memory,Graph-contextual + explicit + implicit,"Le Chat Memories — graph-based, context-aware."
+Meta AI Memory,T1,Platform-provider memory,Cross-platform via Accounts Center,"Stores facts from one-on-one chats and shares them across Instagram, WhatsApp, Messenger, Facebook when accounts are linked via Accounts Center."
+Devin (Cognition),T1,Coding-agent memory,Server-side Knowledge + auto-Repo Knowledge,Structured Knowledge items stored server-side.
+Augment Code,T1,Coding-agent memory,Real-time semantic Context Engine + curated Agent Memory,Real-time knowledge graph indexed from connected repos + commit history + CI/CD + tickets + docs.
+OpenAI Codex (cloud agent),T1,Coding-agent memory,File-backed ~/.codex/memories + Chronicle,"Memory under ~/.codex/memories/: summaries, durable entries, recent-input logs, supporting evidence — generated in background after sessions go idle."
+Aider,T2,Coding-agent memory,Per-repo chat history file + YAML config,Appends conversation turns to .aider.chat.history.md in project root.
+Continue.dev Memory MCP,T2,Coding-agent memory,KG-backed memory via MCP,Official Memory MCP (Mar 2025) backed by a knowledge graph.
+Lovable,T2,Coding-agent memory,/docs folder + Knowledge Panel,Long-term context stored as files in /docs that the agent reads on each session.
+Bolt.new (StackBlitz),T2,Coding-agent memory,WebContainer file system,In-browser WebContainer (Rust-backed shared memory) is the implicit state store.
+Tabnine,T2,Coding-agent memory,Org-level Context Engine + Tabnine Agents,Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level.
+Replit Agent,T1,Coding-agent memory,Project-files-as-memory + Temporal orchestration,No documented built-in persistent semantic memory store.
+Sweep AI,T2,Coding-agent memory,GitHub-thread-as-implicit-memory,No dedicated persistent memory layer.
+Perplexity Comet,T1,Browser-agent memory,Conversation across pages + browser-history memory,AI-native Chromium-based browser.
+Dia (Atlassian),T1,Browser-agent memory,Local-first browser-history + @history queries,The Browser Company's AI-native browser; acquired by Atlassian for $610M (Sept 2025).
+Microsoft Edge Copilot Mode + Journeys,T1,Browser-agent memory,Tab-context + Journeys session-grouping,Copilot Mode (Oct 2025): Journeys groups related browsing across sessions into resumable project cards with AI summaries.
+Fellou,T1,Browser-agent memory,Spatial agentic browser + Agentic Memory,Silicon Valley.
+Browserbase,T1,Browser-agent memory,Programmatic session persistence (dev infra),Cloud browser infrastructure for AI agents.
+Brave Leo,T2,Browser-agent memory,User-curated local-only memory,Privacy-focused integrated assistant.
+Opera AI (formerly Aria),T2,Browser-agent memory,User-declared preferences + tab management,Memory feature stores user-declared preferences and facts; injected into future prompts.
+Sigma (Private AI Browser),T2,Browser-agent memory,Fully-local LLM browser memory,Standalone browser with fully on-device LLM.
+Tencent ima.copilot,T1,Personal AI / PKM / lifelogging memory,Four-module self-evolving personal memory,"Tencent's knowledge-management productivity AI, powered by Hunyuan."
+Notion AI,T1,Personal AI / PKM / lifelogging memory,Workspace-scoped context + custom instructions,Notion's first-party AI.
+Obsidian Smart Connections,T2,Personal AI / PKM / lifelogging memory,Local-first semantic search over notes,Obsidian community plugin.
+Tana,T2,Personal AI / PKM / lifelogging memory,Supertag-based PKM with AI,Outliner + structured-data hybrid (Roam/Logseq + Notion-database influences).
+Logseq,T2,Personal AI / PKM / lifelogging memory,Local Markdown outliner + AI plugins,Open-source local-first outliner.
+RemNote AI,T1,Personal AI / PKM / lifelogging memory,Outline + bidirectional + spaced repetition,Hierarchical outline + bidirectional links + spaced-repetition flashcards.
+Capacities,T2,Personal AI / PKM / lifelogging memory,Object-graph PKM (typed objects),"Object-graph (people, books, projects as typed objects); daily notes; bidirectional links."
+Heptabase,T2,Personal AI / PKM / lifelogging memory,Visual whiteboard + cards + AI chat with citations,Visual whiteboard canvas + nested cards + bidirectional links + journal.
+Craft AI,T1,Personal AI / PKM / lifelogging memory,Block-based docs + AI assistant,Hierarchical block-based documents + nested pages (no native graph).
+Mymind,T2,Personal AI / PKM / lifelogging memory,Tag-free auto-clustering visual mind,"No tags, no folders, no manual organisation."
+Supernotes AI,T2,Personal AI / PKM / lifelogging memory,Notecards + tags + AI tagging,Flat notecards + tags + collections; bidirectional references.
+Saner.ai,T2,Personal AI / PKM / lifelogging memory,AI-auto-tagged + ADHD focus mode,Auto-tagged flat notes; semantic clusters (no folders).
+Amplenote,T2,Personal AI / PKM / lifelogging memory,Tags + bidirectional + Task Score,Tags + bidirectional links + task/calendar integration.
+Scrintal,T2,Personal AI / PKM / lifelogging memory,Whiteboard + linked cards (spatial graph),Infinite whiteboard + bidirectional-linked cards (spatial + networked hybrid).
+Apple Notes + Apple Intelligence,T1,Personal AI / PKM / lifelogging memory,Folder + tag hierarchy + Writing Tools,Folder + tag hierarchy; iCloud sync.
+Heyday,T2,Personal AI / PKM / lifelogging memory,Browser-based research memory,AI memory and research assistant.
+Mem.ai,T2,Personal AI / PKM / lifelogging memory,AI-first note-taking,Note-taking with no folders; AI-chat over notes.
+Reflect,T2,Personal AI / PKM / lifelogging memory,Apple-ecosystem second brain,Networked-thought note app with AI features.
+Microsoft Recall,T1,Personal AI / PKM / lifelogging memory,OS-level screen-recall timeline,Windows-native screen-recording memory.
+Personal.ai,T2,Personal AI / PKM / lifelogging memory,Personal AI with unique memory,Personal AI product.
+Era Computer,T5,Voice-first / wearable AI memory,User-sovereign pluggable memory layer for wearable OS,"Software platform / OS layer for AI wearables (glasses, rings, pendants, speakers) that abstracts hardware from AI orchestration."
+Limitless,T1,Voice-first / wearable AI memory,Wearable pendant + screen capture lifelog,Continuously captures screen + audio + wearable input; AI search across the timeline.
+Plaud NotePin,T1,Voice-first / wearable AI memory,Magnetic clip-on + AI transcription,Magnetic clip-on wearable.
+Omi,T1,Voice-first / wearable AI memory,Open-source wearable orb + memory graph,Wearable orb (necklace or clip) with open-source hardware + firmware.
+Bee,T1,Voice-first / wearable AI memory,Audio pendant — never stores raw audio,Small wearable (pendant / clip / bracelet).
+Friend,T1,Voice-first / wearable AI memory,Always-on AI companion pendant,Pendant necklace (~2 inches).
+Sandbar Stream,T2,Voice-first / wearable AI memory,Smart ring + voice-activated capture,"Smart ring with voice-activated capture (tap to record, not always-on)."
+Granola,T1,Voice-first / wearable AI memory,Mac/iOS meeting notepad — system-audio tap,Mac/iOS app (no hardware).
+Otter.ai,T1,Voice-first / wearable AI memory,Meeting bot + browser extension + app,Joins Zoom / Meet / Teams as a meeting bot.
+Read.ai,T1,Voice-first / wearable AI memory,Meeting bot + analytics + Ada digital twin,Meeting bot + browser extension.
+MemOS (MemTensor),T3,Research / specialised systems,"""Memory operating system"" + MemCubes",Treats memory as an OS-managed resource with explicit allocation and process-like scoping.
+A-MEM,T3,Research / specialised systems,Atomic-note / Zettelkasten-style,Treats memories as atomic linkable notes — explicit nod to Zettelkasten knowledge management.
+BAI-LAB MemoryOS,T3,Research / specialised systems,Hierarchical: short / mid / long-term,"Hierarchical ""OS"" with Storage / Updating / Retrieval / Generation modules."
+Titans (Google),T4,Research / specialised systems,Neural fast/slow + surprise gating,Neural long-term memory module that learns to memorise at test time.
+MemoRAG,T3,Research / specialised systems,Global memory-enhanced RAG,RAG framework on top of a long-context memory model.
+EVOLVE-MEM,T3,Research / specialised systems,Self-adaptive 3-level hierarchy,Dynamic Memory Network + Hierarchical Memory Manager + Self-Improvement Engine.
+MemPalace,T2,Research / specialised systems,Verbatim chunks + spatial metaphor,Spatial-metaphor memory (wings / rooms / halls) on top of verbatim chunked storage.
+EverMemOS,T4,Research / specialised systems,Episodic + semantic + reconstructive,Self-organizing memory OS for structured long-horizon reasoning.
+TiMem,T4,Research / specialised systems,Temporal Memory Tree (5-layer),Temporal-Hierarchical Memory Consolidation.
+LiCoMemory,T4,Research / specialised systems,CogniGraph + temporal/hierarchy-aware retrieval,Lightweight hierarchical graph (CogniGraph) with entities and relations as semantic indexing layers.
+MAGMA,T4,— Factual & long-term memory (token-level),Multi-graph agentic memory,Multi-graph agentic memory architecture for AI agents.
+MemVerse,T4,— Factual & long-term memory (token-level),Multimodal lifelong learning,Multimodal memory system for lifelong learning agents.
+MMAG,T4,— Factual & long-term memory (token-level),Mixed memory-augmented generation,Mixed memory-augmented generation for LLM applications.
+D-SMART,T4,— Factual & long-term memory (token-level),Dynamic structured memory,Enhances dialogue consistency via dynamic structured memory and reasoning.
+WebWeaver,T4,— Factual & long-term memory (token-level),Web-scale evidence + dynamic outlines,Structures web-scale evidence with dynamic outlines for research agents.
+CAM,T4,— Factual & long-term memory (token-level),Constructivist agentic memory,Constructivist view of agentic memory for reading comprehension.
+LightMem,T4,— Factual & long-term memory (token-level),Lightweight memory-augmented,"Lightweight, efficient memory-augmented generation."
+RGMem,T4,— Factual & long-term memory (token-level),Renormalisation-group profile evolution,Renormalization-group-based memory evolution for user profiles.
+Mem-α,T4,— Factual & long-term memory (token-level),RL-learned memory construction,Learning memory construction via reinforcement learning.
+SGMem,T4,— Factual & long-term memory (token-level),Sentence-graph memory,Sentence-graph memory for long-term conversational agents.
+Nemori,T4,— Factual & long-term memory (token-level),Self-organising cognitive-inspired,Self-organising agent memory inspired by cognitive science.
+ComoRAG,T4,— Factual & long-term memory (token-level),Cognitive-inspired narrative RAG,Cognitive-inspired memory-organised RAG for stateful narrative reasoning.
+MIRIX,T4,— Factual & long-term memory (token-level),Multi-agent memory system,Multi-agent memory system for LLM-based agents.
+G-Memory,T4,— Factual & long-term memory (token-level),Hierarchical multi-agent memory,Tracing hierarchical memory for multi-agent systems.
+MemGuide,T4,— Factual & long-term memory (token-level),Intent-driven memory selection,Intent-driven memory selection for goal-oriented multi-session agents.
+SeCom,T3,— Factual & long-term memory (token-level),Personalised memory construction + retrieval,Memory construction and retrieval for personalised conversational agents.
+R³Mem,T4,— Factual & long-term memory (token-level),Reversible compression memory,Bridging memory retention and retrieval via reversible compression.
+AI PERSONA,T4,— Factual & long-term memory (token-level),Life-long LLM personalisation,Life-long personalisation of LLMs.
+OASIS,T4,— Factual & long-term memory (token-level),Million-agent social simulation,Open agent social interaction simulations with one million agents.
+Memolet,T3,— Factual & long-term memory (token-level),User-AI conversational memory reuse,Reifies the reuse of user-AI conversational memories.
+Arigraph,T4,— Factual & long-term memory (token-level),KG world model + episodic memory,Learning knowledge-graph world models with episodic memory.
+Knowledge Graph Tuning,T4,— Factual & long-term memory (token-level),Real-time KG personalisation,Real-time LLM personalisation based on human feedback.
+Memoro,T3,— Factual & long-term memory (token-level),Real-time memory augmentation UI,Concise interface for real-time memory augmentation.
+MetaGPT,T2,— Factual & long-term memory (token-level),Multi-agent collaborative framework,Meta-programming for a multi-agent collaborative framework.
+Lyfe Agents,T4,— Factual & long-term memory (token-level),Generative social agents,Generative agents for low-cost real-time social interactions.
+MemoChat,T4,— Factual & long-term memory (token-level),Memos for long-range conversation,Tunes LLMs to use memos for consistent long-range conversation.
+S³,T4,— Factual & long-term memory (token-level),LLM social-network simulation,Social-network simulation system with LLM-empowered agents.
+RecurrentGPT,T4,— Factual & long-term memory (token-level),Long-text interactive generation,Interactive generation of arbitrarily long text.
+MemoryBank,T3,— Factual & long-term memory (token-level),Long-term memory enhancement,Enhances LLMs with long-term memory.
+RET-LLM,T4,— Factual & long-term memory (token-level),General read-write memory,General read-write memory for large language models.
+Generative Agents,T3,— Factual & long-term memory (token-level),Interactive simulacra of human behavior,Park et al.
+SCM,T4,— Factual & long-term memory (token-level),Self-controlled memory framework,Enhances LLMs with self-controlled memory framework.
+Memoria (cognitive),T4,— Factual & long-term memory (token-level),Human-inspired memory architecture,Resolves fateful forgetting through human-inspired memory architecture.
+ReadAgent,T4,— Factual & long-term memory (token-level),Gist-episodic compression + on-demand lookup,Google Research / DeepMind.
+GAM (General Agentic Memory),T4,— Factual & long-term memory (token-level),JIT runtime research over immutable page-store,Separates offline memory (lightweight Memorizer highlighting key facts) from online runtime (Researcher agent that queries the full raw page-store at inference).
+TierMem,T4,— Factual & long-term memory (token-level),Provenance-linked summary→raw escalation,"Two-tier: fast compressed summary index (Tier 1) + immutable raw-log store (Tier 2), with explicit provenance pointers linking summary units to source pages."
+MemInsight,T3,— Factual & long-term memory (token-level),Autonomous semantic augmentation,Autonomously augments semantic representations of historical interactions to improve retrieval quality without manual curation.
+Engram (DeepSeek),T1,— Factual & long-term memory (token-level),Conditional-memory N-gram lookup module,DeepSeek + PKU.
+MemoryBench (Tsinghua THUIR),T3,— Factual & long-term memory (token-level),Declarative + procedural continual-learning bench,Tsinghua THUIR.
+MemR³,T4,— Factual & long-term memory (token-level),Closed-loop retrieve / reflect / answer router,Closed-loop retrieval controller replacing single-shot retrieve-then-answer.
+MemMachine (paper),T4,— Experiential & procedural memory (agent learning from experience),Ground-truth-preserving episodic + cluster-expansion retrieval,"Stores raw conversational episodes without LLM-driven extraction, indexing at sentence level; retrieval expands nucleus matches into neighboring-context clusters to address the embedding-dissimilarity problem in dialogue data."
+MIA — Memory Intelligence Agent,T4,— Experiential & procedural memory (agent learning from experience),Manager-Planner-Executor with bidirectional parametric/non-parametric loop,Manager stores compressed non-parametric search trajectories; Planner is a parametric memory agent producing search plans; Executor acts on plans.
+MemRL,T4,— Experiential & procedural memory (agent learning from experience),Runtime RL on episodic memory,Self-evolving agents via runtime reinforcement learning on episodic memory.
+MemEvolve,T4,— Experiential & procedural memory (agent learning from experience),Meta-evolution of memory systems,Meta-evolution of agent memory systems.
+FLEX,T4,— Experiential & procedural memory (agent learning from experience),Forward learning from experience,Continuous agent evolution via forward learning from experience.
+UFO2,T4,— Experiential & procedural memory (agent learning from experience),Desktop AgentOS,Desktop AgentOS with memory-driven task automation.
+PRINCIPLES,T4,— Experiential & procedural memory (agent learning from experience),Synthetic strategy memory,Synthetic strategy memory for proactive dialogue agents.
+ToolMem,T4,— Experiential & procedural memory (agent learning from experience),Learnable tool-capability memory,Enhances multimodal agents with learnable tool capability memory.
+H²R,T4,— Experiential & procedural memory (agent learning from experience),Hierarchical hindsight reflection,Hierarchical hindsight reflection for multi-task LLM agents.
+BrowserAgent,T4,— Experiential & procedural memory (agent learning from experience),Human-inspired web browsing,Builds web agents with human-inspired web-browsing actions.
+LEGOMem,T4,— Experiential & procedural memory (agent learning from experience),Modular procedural memory,Modular procedural memory for multi-agent LLM systems.
+Alita-G,T4,— Experiential & procedural memory (agent learning from experience),Self-evolving generative agent,Self-evolving generative agent for agent generation.
+ReasoningBank,T4,— Experiential & procedural memory (agent learning from experience),Reasoning-memory self-evolution,Scales agent self-evolution with reasoning memory.
+Memento,T4,— Experiential & procedural memory (agent learning from experience),Behavior tuning without weight updates,Fine-tunes LLM-agent behavior without fine-tuning the underlying model.
+Memp,T4,— Experiential & procedural memory (agent learning from experience),Agent procedural memory,Explores agent procedural memory.
+SEAgent,T4,— Experiential & procedural memory (agent learning from experience),Self-evolving computer-use agent,Self-evolving computer-use agent with autonomous learning.
+Agent KB,T4,— Experiential & procedural memory (agent learning from experience),Cross-domain experience KB,Leverages cross-domain experience for agentic problem solving.
+MemTool,T4,— Experiential & procedural memory (agent learning from experience),Short-term memory for tool calling,Optimises short-term memory management for dynamic tool calling.
+Darwin Gödel Machine,T4,— Experiential & procedural memory (agent learning from experience),Open-ended self-improvement,Open-ended evolution of self-improving agents.
+Alita,T4,— Experiential & procedural memory (agent learning from experience),Generalist agentic reasoning,Generalist agent enabling scalable agentic reasoning.
+SkillWeaver,T4,— Experiential & procedural memory (agent learning from experience),Self-improving web agents,Web agents self-improve by discovering and honing skills.
+LearnAct,T4,— Experiential & procedural memory (agent learning from experience),Few-shot mobile GUI agent,Few-shot mobile GUI agent with unified demonstration benchmark.
+Dynamic Cheatsheet,T4,— Experiential & procedural memory (agent learning from experience),Test-time adaptive memory,Test-time learning with adaptive memory.
+Inducing Programmatic Skills,T4,— Experiential & procedural memory (agent learning from experience),Programmatic skill induction,Inducing programmatic skills for agentic task enhancement.
+COLA,T4,— Experiential & procedural memory (agent learning from experience),Multi-agent Windows UI automation,Scalable multi-agent framework for Windows UI task automation.
+Planning from Imagination,T4,— Experiential & procedural memory (agent learning from experience),Episodic simulation memory,Episodic simulation and memory for vision-language navigation.
+RepairAgent,T4,— Experiential & procedural memory (agent learning from experience),Autonomous program repair agent,Autonomous LLM-based agent for program repair.
+SAGE,T3,— Experiential & procedural memory (agent learning from experience),Reflective memory-augmented agent,Self-evolving agents with reflective and memory-augmented abilities.
+Agent Workflow Memory,T3,— Experiential & procedural memory (agent learning from experience),Workflow as memory,Workflow-based memory framework component.
+Fincon,T4,— Experiential & procedural memory (agent learning from experience),Conceptual verbal reinforcement,Synthesised LLM multi-agent system with conceptual verbal reinforcement.
+Buffer of Thoughts,T3,— Experiential & procedural memory (agent learning from experience),Thought-augmented reasoning,Thought-augmented reasoning with LLMs.
+JARVIS-1,T3,— Experiential & procedural memory (agent learning from experience),Open-world memory-augmented agents,Open-world multi-task agents with memory-augmented multimodal LLMs.
+ExpeL,T3,— Experiential & procedural memory (agent learning from experience),LLM agents as experiential learners,LLM agents are experiential learners.
+ToolLLM,T3,— Experiential & procedural memory (agent learning from experience),16k+ real-world API mastery,"Facilitates LLMs mastering 16,000+ real-world APIs."
+CREATOR,T3,— Experiential & procedural memory (agent learning from experience),Tool creation for reasoning,Tool creation for disentangling abstract and concrete reasoning.
+Reflexion,T3,— Experiential & procedural memory (agent learning from experience),Verbal reinforcement learning,Language agents with verbal reinforcement learning.
+Toolformer,T3,— Experiential & procedural memory (agent learning from experience),Self-taught tool use,Language models teach themselves to use tools.
+AgentEvolver,T4,— Experiential & procedural memory (agent learning from experience),Efficient self-evolving agent system,Towards an efficient self-evolving agent system.
+ToolGen,T4,— Experiential & procedural memory (agent learning from experience),Tool retrieval + calling via generation,Unified tool retrieval and calling via generation.
+Retroformer,T4,— Experiential & procedural memory (agent learning from experience),Retrospective policy-gradient agents,Retrospective LLM agents with policy-gradient optimisation.
+MoT (Memory-of-Thought),T3,— Experiential & procedural memory (agent learning from experience),Pre-test self-reflection cache,"Before test time, LLM reasons over unlabeled data and stores high-confidence intermediate thoughts as external memory."
+RMM (Reflective Memory Management),T3,— Experiential & procedural memory (agent learning from experience),Prospective + retrospective dual reflection,Combines forward-looking Prospective Reflection (multi-granularity summarisation into personalised memory bank) with backward-looking Retrospective Reflection (RL-driven retrieval refinement guided by cited evidence).
+Agentic Plan Caching (APC),T3,— Experiential & procedural memory (agent learning from experience),Test-time plan-template memory,"Extracts, stores, adapts, and reuses structured plan templates from planning stages of agent applications."
+MPO,T3,— Experiential & procedural memory (agent learning from experience),Meta plan optimisation,Boosts LLM agents with meta plan optimisation.
+Agentic Memory,T4,— Working memory & context management,Unified short + long-term management,Learning unified long-term and short-term memory management.
+Memory as Action,T4,— Working memory & context management,Autonomous context curation,Autonomous context curation for long-horizon agentic tasks.
+IterResearch,T4,— Working memory & context management,Markovian state reconstruction,Rethinks long-horizon agents via Markovian state reconstruction.
+MemSearcher,T4,— Working memory & context management,RL memory + search + reasoning,"Trains LLMs to reason, search, and manage memory via RL."
+AgentFold,T4,— Working memory & context management,Proactive context management,Long-horizon web agents with proactive context management.
+PRIME,T4,— Working memory & context management,Planning + retrieval-integrated memory,Planning- and retrieval-integrated memory for enhanced reasoning.
+DeepAgent,T4,— Working memory & context management,General reasoning with scalable tools,General reasoning agent with scalable toolsets.
+ACON,T4,— Working memory & context management,Context-compression optimisation,Optimises context compression for long-horizon LLM agents.
+ReSum,T4,— Working memory & context management,Long-horizon search via summarisation,Unlocks long-horizon search intelligence via context summarisation.
+Sculptor,T4,— Working memory & context management,Active context management,Empowers LLMs with cognitive agency via active context management.
+MemAgent,T4,— Working memory & context management,RL multi-conv memory agent,Reshapes long-context LLM with multi-conv RL-based memory agent.
+Agent S,T4,— Working memory & context management,Open agentic computer-use framework,Open agentic framework that uses computers like a human.
+MemoBrain,T4,— Working memory & context management,Dependency-aware working-context compaction,Co-pilot alongside reasoning agent.
+Recurrent Memory Transformer (RMT),T3,— Working memory & context management,Segment-level recurrence + memory tokens,Bulatov / Kuratov / Burtsev.
+ARMT (Associative RMT),T4,— Working memory & context management,Hopfield-style energy basins,Associative Recurrent Memory Transformer.
+Infini-attention,T4,— Working memory & context management,Compressive memory + linear attention,Google.
+Transformer-XL,T3,— Working memory & context management,Segment-level recurrence + cached states,Extends context through segment-level recurrence + caching of hidden states from prior segments.
+Compressive Transformer,T3,— Working memory & context management,Recent full-res + compressed older,Maintains recent states in full resolution while compressing older memories with learned compression functions.
+TransformerFAM,T4,— Working memory & context management,Feedback Attention Memory,Google.
+ATLAS,T4,— Working memory & context management,Omega rule + polynomial features + Muon,Long-term memory module that learns to memorise the context at test time.
+LongMem,T4,— Working memory & context management,Trainable SideNet over memory bank,Trainable SideNet module selectively retrieves relevant cached key-value pairs from memory banks during decoding.
+MemLong,T4,— Working memory & context management,Retrieval-causal attention + pruning,Retrieval Causal Attention actively prunes less important cached entries.
+EM-LLM,T4,— Working memory & context management,Bayesian-surprise episodic partition,Uses Bayesian surprise detection to partition the cache into meaningful episodes for coherent retrieval.
+NVIDIA Nemotron 3,T1,— Parametric & latent memory (memory in weights / KV / hidden states),"Hybrid Mamba + sparse KV-cache, 1M-token context",Interleaves sparse MoE layers with Mamba-2 layers; Mamba layers maintain a fixed-size recurrent state (constant memory during generation) rather than a growing KV cache.
+Sakana CTM,T2,— Parametric & latent memory (memory in weights / KV / hidden states),Per-neuron history + neural synchronization as latent,Continuous Thought Machines.
+NAVER Provence + PISCO,T2,— Parametric & latent memory (memory in weights / KV / hidden states),RAG context pruning + soft compression,Two complementary NAVER Labs Europe papers (Jan 2025).
+ShadowKV (ByteDance),T2,— Parametric & latent memory (memory in weights / KV / hidden states),Low-rank CPU-offloaded KV cache + sparse reconstruction,"During prefill, value caches are offloaded to CPU and only low-rank pre-RoPE keys plus compressed landmarks and outliers are kept on GPU."
+IBM Meta-Tokens,T2,— Parametric & latent memory (memory in weights / KV / hidden states),Lossless context compression via learned placeholders,Meta-tokens are learned vocabulary entries that act as placeholders for recurring token subsequences — the model is fine-tuned to understand compressed input where meta-tokens stand in for their corresponding subsequences without any information loss.
+MemoryLLM (original),T2,— Parametric & latent memory (memory in weights / KV / hidden states),Fixed-size in-weights memory pool with online self-update,"Augments a transformer with a fixed-size 1B-parameter memory pool distributed across all layers; new knowledge is injected by updating the pool parameters during inference, not via context extension."
+SELF-PARAM,T2,— Parametric & latent memory (memory in weights / KV / hidden states),KL-distillation experience internalization,Encodes new experiences directly into the LLM's existing parameters by minimizing KL divergence between a teacher model (with context access) and a student model (without).
+Anthropic Circuit Tracing,T2,— Parametric & latent memory (memory in weights / KV / hidden states),Mechanistic interpretability of parametric storage,"Replaces MLP layers with sparse cross-layer transcoders to produce ""replacement models"" where activations correspond to interpretable features; traces attribution graphs showing which features causally influenced which outputs."
+MemLoRA,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Distilled expert adapters,Distils expert adapters for on-device memory systems.
+Larimar,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Distributed hippocampal episodic memory for editing,IBM Research.
+Memory Decoder,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Pretrained plug-and-play memory,"Pretrained, plug-and-play memory for LLMs."
+MLP Memory,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Retriever-pretrained external memory,Language modeling with retriever-pretrained external memory.
+AlphaEdit,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Null-space knowledge editing,Null-space-constrained knowledge editing for language models.
+ELDER,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Mixture-of-LoRA model editing,Enhances lifelong model editing with mixture-of-LoRA.
+WISE,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Knowledge memory for lifelong editing,Rethinks knowledge memory for lifelong model editing.
+SDM Activations,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Similarity-Distance-Magnitude activations,Novel activation approach for memory.
+M+ (MemoryLLM),T4,— Parametric & latent memory (memory in weights / KV / hidden states),Scalable long-term latent memory,Extends MemoryLLM with scalable long-term memory.
+Memory³,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Explicit memory in LLM,Language modeling with explicit memory.
+MemGen,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Generative latent memory,Weaves generative latent memory for self-evolving agents.
+MEM1,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Synergised memory + reasoning,Learns to synergise memory and reasoning for efficient agents.
+RazorAttention,T3,— Parametric & latent memory (memory in weights / KV / hidden states),KV-cache compression via retrieval heads,Efficient KV-cache compression through retrieval heads.
+SnapKV,T3,— Parametric & latent memory (memory in weights / KV / hidden states),KV-cache pre-selection,LLM knows what you're seeking before generation.
+LM2,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Large memory models,Large memory models — explicit external memory module within transformer.
+SoftCoT,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Soft chain of thought,Soft chain-of-thought for efficient reasoning with LLMs.
+H2O,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Heavy-hitter oracle KV eviction,Heavy-hitter oracle for efficient generative inference.
+Memorizing Transformers,T3,— Parametric & latent memory (memory in weights / KV / hidden states),External memory in transformers,Architecture with external retrieval memory in the transformer.
+Memformer,T3,— Parametric & latent memory (memory in weights / KV / hidden states),External KV + Memory Replay Backprop,External key-value stores with similarity-based cache management; trained with Memory Replay Backpropagation.
+EMAT,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Sub-ms KV memory for QA pairs,Efficient Memory-Augmented Transformer.
+MATTER,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Heterogeneous-source neural memory,Memory-Augmented Transformer Using Heterogeneous Knowledge Sources.
+MemReasoner,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Iterative bidirectional-GRU re-read,IBM Research.
+CDMem,T3,— Parametric & latent memory (memory in weights / KV / hidden states),3-stage encoding + graph indexing,Context-Dependent Memory framework.
+Transformer²,T4,— Parametric & latent memory (memory in weights / KV / hidden states),SVD + dynamic expert blending,Encodes procedural expertise using SVD decomposition with dynamic expert-vector blending.
+NAMMs,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Evolution-trained KV-cache memory,Sakana AI.
+Memory Layers at Scale,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Trainable KV layers + product-key,Meta.
+Differentiable Search Index (DSI),T3,— Parametric & latent memory (memory in weights / KV / hidden states),Corpus encoded into model weights,Encodes entire document corpora directly into Transformer parameters; the model itself becomes the index.
+MemBART,T4,— Parametric & latent memory (memory in weights / KV / hidden states),Memory states across dialogue turns,Preserves memory states across dialogue turns for coherent long-term interactions.
+AiT (Associative Transformer),T3,— Parametric & latent memory (memory in weights / KV / hidden states),Hopfield + low-rank explicit memory,Global Workspace Layer combining low-rank explicit memory + bottleneck attention + Hopfield-style associative memory.
+Memformers (gradient memory),T4,— Parametric & latent memory (memory in weights / KV / hidden states),Past-gradient memory registers,Treats past optimisation gradients as memory registers for procedural computation.
+WorkMATe,T3,— Parametric & latent memory (memory in weights / KV / hidden states),Bio-inspired RL-gated memory slots,Kruijne et al.
+I-JEPA,T3,— World-model & imagination memory,Joint-embedding predictive arch (image),Meta.
+V-JEPA 2,T4,— World-model & imagination memory,Video-JEPA + understanding/prediction/planning,Meta.
+DreamerV3,T3,— World-model & imagination memory,Model-based RL with imagination,Hafner et al.
+Dreamer 4,T4,— World-model & imagination memory,Scalable agent in fast world model,Hafner / Yan.
+R2I,T4,— World-model & imagination memory,DreamerV3 + S4 long-range memory,Memory-enhanced model-based RL agent built on DreamerV3.
+Genie,T3,— World-model & imagination memory,Foundation world model from video,DeepMind.
+V-JEPA (original),T4,— World-model & imagination memory,Non-generative video world model,Meta AI.
+DIAMOND,T3,— World-model & imagination memory,Diffusion world model for RL,DIffusion As a Model Of eNvironment Dreams.
+PWM (Policy Learning with Large World Models),T4,— World-model & imagination memory,Multi-task world-model + first-order gradient policies,"Pre-trains a large multi-task world model on offline data across many continuous-control tasks, then extracts task-specific policies by differentiating through the model with first-order gradient optimisation."
+RIKEN Tensor Decomposition Incremental Learning,T3,— Continual learning & catastrophic forgetting,Tensor-decomposed exemplar compression,"Uses tensor decomposition to exploit low intrinsic dimensionality and pixel correlation of stored exemplar images, achieving high compression while preserving discriminative information for class-incremental learning."
+EWC (Elastic Weight Consolidation),T3,— Continual learning & catastrophic forgetting,Quadratic constraint per weight,Kirkpatrick et al.
+CL of LLMs Survey,T3,— Continual learning & catastrophic forgetting,Continual learning of LLMs (survey),Comprehensive survey.
+FOREVER,T4,— Continual learning & catastrophic forgetting,Forgetting-curve memory replay,"Replay scheduler inspired by the Ebbinghaus forgetting curve, plus intensity-aware regularisation to control replay strength."
+SERS,T4,— Continual learning & catastrophic forgetting,Self-evolving pseudo-rehearsal,Dynamic regulariser driven by Wasserstein distance between task distributions; automatically relaxes or strengthens constraints in proportion to task similarity.
+Neural Episodic Control,T3,— Memory-augmented reinforcement learning,Differentiable episodic dictionary,Pritzel et al.
+EMU (Efficient Episodic Memory Utilization),T3,— Memory-augmented reinforcement learning,Coherent-memory MARL,Multi-agent RL with semantically coherent episodic buffer; selectively promotes desirable transitions to avoid local convergence.
+HAMI,T3,— Memory-augmented reinforcement learning,Hippocampus-inspired RL framework,"Symbolic indexing + hierarchical memory refinement + structured episodic retrieval, inspired by hippocampal mechanisms."
+LLM-ACTR / Cognitive LLMs,T3,— Cognitive-architecture-inspired memory,ACT-R latent representations injected into LLM,Neuro-symbolic architecture for manufacturing decision-making.
+Human-Like Remembering and Forgetting,T3,— Cognitive-architecture-inspired memory,ACT-R Base-Level Activation over vector store,"Re-implements ACT-R's retrieval probability model — temporal decay, prior-access frequency, stochastic noise — as scoring on top of a vector store."
+SYNAPSE,T4,— Cognitive-architecture-inspired memory,Spreading-activation graph + episodic-semantic split,Memory is a dynamic graph; retrieval fires spreading activation across edges rather than vector similarity.
+HeLa-Mem,T4,— Cognitive-architecture-inspired memory,Hebbian distillation + hippocampal-cortical consolidation,Co-activation strengthens associative edges (Hebbian Distillation); separate consolidation pass periodically extracts semantic summaries from the episodic graph — directly modelling slow-wave hippocampal-to-cortical consolidation.
+NL2GenSym,T4,— Cognitive-architecture-inspired memory,Soar production-rule generation + Execution-Grounded Critic,First end-to-end pipeline translating natural language into executable Soar rules.
+AriGraph,T3,— Cognitive-architecture-inspired memory,CLS dual-layer episodic + semantic KG,Episodic observations as timestamped vertices; LLM extracts relational triplets into a semantic knowledge graph; episodic edges connect semantic nodes — structural equivalent of hippocampal index binding cortical representations.
+Dual-Process Agent (DPA),T3,— Cognitive-architecture-inspired memory,Kahneman System 1 / System 2,"System 1: fast retrieval path that pulls compressed, relevant memories and conditions generation."
+Episodic Memory Is the Missing Piece,T4,— Cognitive-architecture-inspired memory,CLS framework as design requirement,Pink et al.
+RAPTOR,T3,Retrieval-as-memory hybrids,Recursive abstractive summary tree,"Recursively embeds, clusters, and summarises chunks into a tree of abstractions."
+GraphRAG (Microsoft),T1,Retrieval-as-memory hybrids,Community summary + Leiden detection,Modular graph-based RAG.
+LazyGraphRAG,T3,Retrieval-as-memory hybrids,Deferred-indexing GraphRAG variant,Performs minimal up-front indexing; defers LLM use until query time.
+HippoRAG / HippoRAG2,T3,Retrieval-as-memory hybrids,Personalised PageRank over KG,Hippocampus-inspired RAG.
+LightRAG,T3,Retrieval-as-memory hybrids,Dual-level graph retrieval,Entity-relationship graph + broader-theme retrieval.
+PathRAG,T4,Retrieval-as-memory hybrids,Path-pruned graph retrieval,Retrieves key relational paths from knowledge graph; flow-based pruning + reliability scoring; path-based prompting.
+HyDE,T3,Retrieval-as-memory hybrids,Hypothetical document embeddings,LLM generates a hypothetical answer document; embeds that instead of the query.
+Adaptive-RAG,T3,Retrieval-as-memory hybrids,Query-complexity routing,"Smaller classifier LM predicts query complexity, then routes to no-retrieval / single-step / iterative retrieval as appropriate."
+RouteRAG,T4,Retrieval-as-memory hybrids,RL-routed text + graph + hybrid,End-to-end RL-trained RAG.
+RAFT,T3,Retrieval-as-memory hybrids,Retrieval-augmented fine-tuning,UC Berkeley.
+GraphRAFT,T4,Retrieval-as-memory hybrids,RAG fine-tuning over KGs,Retrieval-augmented fine-tuning for knowledge graphs on graph databases.
+Beyond RAG for Agent Memory,T4,Retrieval-as-memory hybrids,Decoupled-aggregate memory retrieval,"Argues standard RAG breaks on bounded agent conversation streams (highly correlated, redundant spans)."
+Generative Semantic Workspace (GSW),T3,Retrieval-as-memory hybrids,Episodic memory for RAG,Replaces chunk-retrieval with neuro-inspired generative memory.
+TC-RAG,T3,Retrieval-as-memory hybrids,Turing-complete state-variable RAG,"Frames RAG as Turing-complete with explicit monitored state variables, enabling adaptive retrieval halting and convergence control."
+KAG,T3,Retrieval-as-memory hybrids,KG-grounded hybrid reasoning,Knowledge-Augmented Generation.
+Speculative RAG,T4,Retrieval-as-memory hybrids,"Small-model draft, large-model verify",Smaller distilled specialist generates multiple RAG drafts in parallel from distinct document subsets.
+CRAG,T4,Retrieval-as-memory hybrids,Retrieval self-correction with web fallback,"Lightweight retrieval evaluator scores docs and triggers different actions: use, supplement with web search, or discard."
+Self-RAG,T4,Retrieval-as-memory hybrids,Reflection-token self-critique,"Trains an LLM end-to-end to emit reflection tokens that decide whether to retrieve, assess passage relevance, and critique output quality — all within a single model."
+FLARE,T3,Retrieval-as-memory hybrids,Confidence-triggered forward retrieval,Forward-Looking Active Retrieval.
+ITER-RETGEN,T3,Retrieval-as-memory hybrids,Output-conditioned iterative retrieval,Uses model's generated output as a rich context signal for the next retrieval round rather than just the original query.
+StructRAG,T4,Retrieval-as-memory hybrids,Task-adaptive structurisation,"Identifies optimal structure (table, catalog, algorithm, graph) per task; converts source documents into that structure at inference time and reasons over the structured form."
+HiRAG,T3,Retrieval-as-memory hybrids,Hierarchical KG indexing + retrieval,Multi-layer knowledge graph: higher layers hold coarse summary entities improving connectivity between similar lower-layer entities (HiIndex).
+CAG (Cache-Augmented Generation),T3,Retrieval-as-memory hybrids,KV-cache preloading replaces retrieval,"""Don't Do RAG."" Preloads all relevant documents into context, caches the resulting KV state; at inference the model answers from cache with no retrieval step — eliminates retrieval latency + retrieval-error failure modes."
+LongRAG,T4,Retrieval-as-memory hybrids,Long retrieval-unit grouping,Groups related Wikipedia documents into 4K-token units.
+Multi-Head RAG (MHRAG),T4,Retrieval-as-memory hybrids,Attention-head multi-aspect embeddings,"Uses transformer multi-head attention activations (not decoder-layer embeddings) as retrieval keys, yielding multi-aspect embeddings that independently capture different semantic facets for heterogeneous queries."
+BGE-M3,T4,Retrieval-as-memory hybrids,Unified dense-sparse-multi-vector embedding,"Single embedding model supporting dense, sparse, and multi-vector (ColBERT-style) retrieval simultaneously."
+ChunkRAG,T4,Retrieval-as-memory hybrids,LLM-scored chunk-level filtering,"Semantic chunking divides documents into coherent sections; LLM-based relevance scorer filters each chunk against the query before generation, pruning irrelevant chunks and reducing hallucination."
+AutoRAG,T4,Retrieval-as-memory hybrids,AutoML-style greedy RAG pipeline,"Applies AutoML to RAG: greedy algorithm evaluates and selects best-performing module at each pipeline stage (query expansion, retrieval, reranking, generation)."
+WeKnow-RAG,T4,Retrieval-as-memory hybrids,Sparse-dense web + KG self-assessment,Domain KGs + multi-stage web-page retrieval (sparse + dense) + LLM self-assessment of trustworthiness before finalising answer.
+REALM,T3,Retrieval-as-memory hybrids,Retrieval-augmented LM pre-training,Foundational paper.
+RETRO,T3,Retrieval-as-memory hybrids,Trillion-token retrieval transformer,DeepMind.
+Atlas,T3,Retrieval-as-memory hybrids,Few-shot retrieval-augmented LM,Meta AI.
+CLAUDE.md,T1,File-backed / editor paradigms,Git-backed persistent instructions,Markdown file injected at session start; reloaded post-compaction.
+Cursor Rules,T1,File-backed / editor paradigms,IDE-embedded code memory,.cursorrules + project rules.
+Windsurf Rules & Memories,T1,File-backed / editor paradigms,Codebase semantic + auto-memory,Rules files plus Cascade auto-generated memories.
+AGENTS.md,T1,File-backed / editor paradigms,Cross-tool open standard,AGENTS.md at repo root (and ~/.codex/AGENTS.md for global); hierarchical concatenation from root to cwd.
+GitHub Copilot custom instructions,T1,File-backed / editor paradigms,.github/copilot-instructions.md + path-scoped,.github/copilot-instructions.md repo-wide; .github/instructions/<name>.instructions.md for path-scoped rules with YAML frontmatter (applyTo glob).
+Aider CONVENTIONS.md / .aider.conf.yml,T2,File-backed / editor paradigms,Multi-file convention pattern,"CONVENTIONS.md (any name, loaded via --read or read: in config); .aider.conf.yml (home / git-root / cwd, last wins); .aiderignore (gitignore-syntax)."
+Cline .clinerules,T2,File-backed / editor paradigms,"Version-controlled, AI-editable rules",.clinerules single file or .clinerules/ directory of numbered .md files (e.g.
+Cline Memory Bank,T2,File-backed / editor paradigms,Session-spanning state pattern,"memory-bank/ directory of Markdown: projectBrief.md, productContext.md, activeContext.md, systemPatterns.md, techContext.md, progress.md."
+Roo Code .roorules,T2,File-backed / editor paradigms,Per-mode rules + workspace overrides,.roo/rules/ (recursive .md/.txt alphabetic load); .roorules single-file fallback.
+Continue.dev .continue/rules,T2,File-backed / editor paradigms,Path-glob-scoped rules,.continue/rules/*.md at workspace root.
+Zed .rules,T2,File-backed / editor paradigms,Reads competitors as fallback,.rules at project root.
+Replit replit.md,T2,File-backed / editor paradigms,Project-level Replit Agent context,replit.md at project root.
+Sourcegraph Cody — cody.json,T2,File-backed / editor paradigms,Custom command templates,.vscode/cody.json (workspace-scoped).
+Claude Code auto-memory,T1,Claude Code memory mechanisms,Per-project file directory,Persistent file-based memory at ~/.claude/projects/<project>/memory/ with a MEMORY.md index plus typed memory files (user / feedback / project / reference).
+Superpowers episodic-memory plugin,T2,Claude Code memory mechanisms,MCP semantic search over conversations,Claude Code plugin that indexes prior conversations at session end and exposes search/show tools via MCP.
+claude-mem,T1,Claude Code memory mechanisms,Episodic / session-log compression,Hooks into Claude Code's session lifecycle; compresses tool outputs into ~500-token observations via Claude's agent SDK.
+Mem0 MCP (official),T1,Claude Code memory mechanisms,Hybrid vector + graph via cloud API,Mem0's managed cloud API exposed as MCP tools.
+Graphiti MCP Server (Zep),T1,Claude Code memory mechanisms,Temporal KG with bi-temporal edges,Tracks how facts change over time; maintains provenance; supports prescribed and learned ontology.
+mcp-memory-service (doobidoo),T2,Claude Code memory mechanisms,KG + vector hybrid + autonomous consolidation,"SQLite-Vec default, Cloudflare hybrid for production."
+OpenMemory MCP,T2,Claude Code memory mechanisms,Local Postgres + Qdrant cross-tool memory,Local-first self-hosted Mem0 variant.
+Cognee MCP,T2,Claude Code memory mechanisms,Multi-layer KG with rule extraction,"""Cognify"" extracts entities and relationships into a structured graph."
+Hindsight MCP,T2,Claude Code memory mechanisms,Four-network episodic memory,"World (facts), Experiences (agent actions), Opinion (beliefs with confidence scores), Observation (mental models)."
+Memobase MCP,T2,Claude Code memory mechanisms,Profile + timeline injected into prompt,Structured JSON user profile + chronological event timeline.
+claude-supermemory,T2,Claude Code memory mechanisms,Team-scope memory plugin,Wraps Supermemory cloud API.
+mcp-memory (Puliczek),T2,Claude Code memory mechanisms,Cloudflare-native vector memory,Embeddings via @cf/baai/bge-m3; Vectorize + D1; per-user namespace isolation.
+local-memory-mcp,T2,Claude Code memory mechanisms,SQLite + FTS5 with decision-tracking,SQLite + FTS5 + BM25 ranking.
+claude-brain,T2,Claude Code memory mechanisms,Memvid → Claude Code plugin,Claude Code plugin packaging of Memvid (see Dedicated memory layers).
+engram,T2,Claude Code memory mechanisms,"Static Go binary, agent-agnostic",SQLite + FTS5; agent decides what to save (not firehose capture).
+mcp-knowledge-graph,T2,Claude Code memory mechanisms,Stable local fork of official MCP memory,KG-based local fork of @modelcontextprotocol/server-memory.
+Claude-CursorMemoryMCP,T2,Claude Code memory mechanisms,PostgreSQL + pgvector with RBAC,FastAPI server.
+Official MCP Memory server,T1,Claude Code memory mechanisms,KG-based persistent memory MCP,Knowledge-graph-based persistent memory MCP server — the canonical reference implementation.
+Stardog,T1,Knowledge-graph platforms,RDF semantic platform + Voicebox AI,"RDF-native semantic platform with SHACL validation, virtual graphs, and the Voicebox AI assistant."
+TopQuadrant (TopBraid EDG),T1,Knowledge-graph platforms,Ontology-native governance,Ontology-native semantic governance suite.
+Neo4j,T1,Knowledge-graph platforms,Property graph + vectors + Aura Agent,Property graph DB with Cypher; native vector search; Aura Agent + MCP server for graph-as-memory.
+TigerGraph,T1,Knowledge-graph platforms,Massively parallel graph + GSQL,Parallel graph DB with GSQL/GQL.
+AllegroGraph (Franz),T1,Knowledge-graph platforms,RDF triple/quad store + reasoning,RDF triple/quad store with RDFS++ / OWL reasoning.
+Ontotext GraphDB / Graphwise,T1,Knowledge-graph platforms,RDF store + real-time inference,RDF store with real-time inference.
+PoolParty (now Graphwise),T1,Knowledge-graph platforms,SKOS-based taxonomy + LLM advisor,Taxonomy and knowledge organisation.
+Palantir Ontology,T1,Knowledge-graph platforms,Operational digital twin,Proprietary operational ontology — semantic objects + kinetic actions wired to microservices.
+Diffbot,T1,Knowledge-graph platforms,Auto-extracted KG from web crawl,Auto-built knowledge graph from web crawl.
+FalkorDB,T2,Knowledge-graph platforms,"GraphRAG-native, sub-140ms multi-hop",Native GraphRAG SDK.
+Memgraph,T2,Knowledge-graph platforms,In-memory GraphRAG + native vector search,In-memory GraphRAG engine.
+Amazon Neptune Analytics,T1,Knowledge-graph platforms,Vector + graph in one managed service,Vector index on graph nodes queryable via openCypher.
+Apache AGE,T2,Knowledge-graph platforms,PostgreSQL graph extension,openCypher over Postgres.
+Kuzu,T2,Knowledge-graph platforms,Embedded graph DB + sub-3ms recall,Embedded graph DB with built-in vector index + full-text search.
+ArangoDB,T1,Knowledge-graph platforms,Multi-model: graph + doc + KV + vector,"HybridGraphRAG combines vector search, graph traversal, full-text in one AQL query."
+Dgraph,T2,Knowledge-graph platforms,Graph + vector + Hypermode cloud,Vector indexing on any node.
+NebulaGraph,T2,Knowledge-graph platforms,Graph + vector + text hybrid retrieval,v5.2 adds graph-vector-text hybrid retrieval natively.
+Pinecone,T1,Vector-database infrastructure,Managed vector DB + cascading retrieval,Managed vector DB.
+Weaviate,T1,Vector-database infrastructure,Hybrid vector DB + learned ranking,Hybrid Search 2.0 with learned ranking.
+Qdrant,T1,Vector-database infrastructure,Vector DB + DBSF + RRF,Distribution-Based Score Fusion + RRF.
+Chroma,T1,Vector-database infrastructure,Embedded vector DB (Rust core),Limited native hybrid (users build RRF custom).
+Milvus,T1,Vector-database infrastructure,Multi-vector + hybrid + GPU,Multi-vector columns (10 simultaneous).
+LanceDB,T1,Vector-database infrastructure,Embedded Arrow-columnar vector DB,Embedded vector DB (Arrow columnar).
+Turbopuffer,T1,Vector-database infrastructure,Object-storage-first vector DB,Object-storage-first vector DB.
+Elasticsearch / OpenSearch,T1,Vector-database infrastructure,Mature hybrid search,Mature hybrid (BM25 + vector) implementations.
+Vespa,T1,Vector-database infrastructure,Unified vector + lexical + structured + ranking,"Combines vector ANN, lexical, structured filtering, and ML-learned ranking in one distributed system."
+Activeloop Deep Lake,T2,Vector-database infrastructure,Multimodal vector + serverless Postgres,Deep Memory feature optimises embedding space per use-case (+22% retrieval accuracy).
+MongoDB Atlas Vector Search,T1,Vector-database infrastructure,Vector embedded in document DB,Agent memory store for both short-term (document) and long-term (vector).
+pgvector,T1,Vector-database infrastructure,PostgreSQL vector extension,Stores embeddings alongside relational + full-text data.
+Marqo,T2,Vector-database infrastructure,Multimodal vector via single API,End-to-end multimodal (text + image) vector search via single API.
+Snowflake Cortex Search,T1,Vector-database infrastructure,Hybrid vector + keyword + semantic rerank,Hybrid vector + keyword + semantic reranking.
+Databricks Vector Search,T1,Vector-database infrastructure,Storage-optimised + Unity Catalog governance,Storage-optimised index scaling to billions of vectors.
+Glean,T1,Enterprise-search adjacencies,Enterprise search + per-user KG,Enterprise search with 100+ connectors.
+SearchUnify,T1,Enterprise-search adjacencies,Agentic enterprise search + KCS,Agentic enterprise search with Knowbler — quality checks via the KCS (Knowledge-Centered Service) standard.
+Clarivate,T1,Enterprise-search adjacencies,Curated bibliographic metadata,"Bibliographic metadata curation (Web of Science, Derwent, Cortellis)."
+Coveo,T1,Enterprise-search adjacencies,RAG-as-a-Service via hosted MCP,RAG-as-a-Service for AWS (Dec 2025) via hosted MCP server grounding Amazon Bedrock agents in enterprise knowledge.
+Sinequa,T1,Enterprise-search adjacencies,Hybrid retrieval + agentic RAG,Hybrid retrieval combining dense vector + keyword + graph traversal + multimodal.
+Mindbreeze InSpire,T2,Enterprise-search adjacencies,Hybrid + entitlement-aware + KG,Hybrid keyword + vector retrieval with entitlement-aware filtering.
+Meilisearch,T2,Enterprise-search adjacencies,Open-source semantic + hybrid search,Semantic + hybrid search GA (2025).
+Algolia (NeuralSearch),T1,Enterprise-search adjacencies,Neural-hash hybrid (vector + keyword),NeuralSearch combines vector + keyword via neural hashing — compresses to 1/10th size while retaining 99% info.
+FutureHouse,T1,— Scientific / research AI memory,Cross-experiment + organism-scale factbase,Full autonomous-scientist loop.
+Causaly,T1,— Scientific / research AI memory,Persistent causal knowledge graph,Drug discovery / target identification / causal mechanism tracing.
+BenevolentAI,T1,— Scientific / research AI memory,Continuously-refreshed biological KG,Target identification / drug repurposing / mechanism tracing.
+LabGenius,T1,— Scientific / research AI memory,Autonomous experiment memory (EVA platform),Therapeutic-antibody discovery in a closed Design-Build-Test-Learn loop.
+Elicit,T2,— Scientific / research AI memory,Session-persistent claim-to-sentence provenance,Systematic literature review + data extraction + meta-analysis.
+Scite.ai,T2,— Scientific / research AI memory,Intent-classified citation context index,Stores surrounding textual context of every citation plus a deep-learning classification (supports / disputes / mentions).
+Iris.ai,T2,— Scientific / research AI memory,Researcher Workspace + persistent extraction,Enterprise R&D document processing.
+ResearchRabbit,T2,— Scientific / research AI memory,"Iterative paper-graph ""rabbit-hole"" checkpoints",Literature discovery + citation mapping.
+Hippocratic AI Polaris,T1,— Healthcare AI memory,Longitudinal multi-call patient memory store,Patient-conversation / chronic-care staffing model.
+K Health,T1,— Healthcare AI memory,EMR-filtered two-agent pipeline,Primary care / virtual physician intake.
+Nabla + Navina,T1,— Healthcare AI memory,Ambient + historical real-time reconciliation,Ambient scribe + longitudinal clinical intelligence (strategic partnership Jul 2025).
+Suki AI,T1,— Healthcare AI memory,Pre-visit summary + prior-note synthesis,Doctor-assist ambient documentation.
+DeepScribe,T1,— Healthcare AI memory,Longitudinal oncology pull-forward,Specialty-care ambient scribe (oncology focus).
+Abridge,T1,— Healthcare AI memory,Grounded-transcript provenance,Clinician-assist ambient documentation.
+OpenEvidence (DeepConsult + Visits),T2,— Healthcare AI memory,Encounter-grounded evidence synthesis,Clinical decision support.
+Heidi Health,T2,— Healthcare AI memory,Clinician-voice / provider-side personalisation,Ambient documentation with clinician-profile learning.
+Harvey Memory,T1,— Legal AI memory,4-tier matter / firm / client-institution memory,Personal lawyer memory + matter memory + institutional firm memory + client-institution memory.
+Luminance Institutional Memory,T1,— Legal AI memory,Persistent negotiation history + accepted-risk registry,Jan 2026 platform relaunch.
+Filevine LOIS,T1,— Legal AI memory,Whole-matter context as live LLM input,Embedded in case-management platform.
+Eve — Shared Firm Knowledge + Auditor,T1,— Legal AI memory,Firm-level store + nightly autonomous case auditor,Plaintiff litigation.
+Spellbook Library,T1,— Legal AI memory,Firm-precedent corpus memory,Transactional / contract drafting.
+Clio Duo / Manage AI,T2,— Legal AI memory,Matter-scoped PMS-native context retrieval,SMB law firms.
+CoCounsel Legal (Thomson Reuters),T2,— Legal AI memory,Session-scoped agentic context,Aug 2025 relaunch added agentic deep-research workflows (plan-execute-cite).
+Hebbia Matrix,T2,— Legal AI memory,Firm-specific configuration over multi-agent synthesis,Corporate / transactional due diligence.
+Sierra,T1,— Customer support / voice agent memory,Unified customer graph (Agent Data Platform),Bret Taylor + Clay Bavor.
+Decagon,T1,— Customer support / voice agent memory,Cross-channel conversation graph,"Autonomous support agents resolving end-to-end (refunds, cancellations)."
+Cognigy,T1,— Customer support / voice agent memory,"Two-tier short + long-term, shared across agents",Enterprise contact centre (voice + chat).
+ASAPP GenerativeAgent,T1,— Customer support / voice agent memory,Long-term interaction memory + preference,Treats memory as first-class architecture.
+Cresta,T2,— Customer support / voice agent memory,Shared memory across human/AI handoffs,Sales + contact centre.
+PolyAI,T2,— Customer support / voice agent memory,Runtime context-orchestration framework,Enterprise voice agents.
+Intercom Fin,T2,— Customer support / voice agent memory,CRM attributes + roadmap lifecycle memory,CX support.
+Replicant,T2,— Customer support / voice agent memory,Session context + structured handoff,"Voice automation (payment, scheduling, order status)."
+LivePerson Conversation Context Service,T2,— Customer support / voice agent memory,Named cloud-based shared session-state KV,"Architecturally notable — a named, documented service."
+Salesforce Agentforce / Einstein,T2,— Customer support / voice agent memory,Customer 360 + Data Cloud as context layer,Agentforce agents grounded in Data Cloud — unified customer record across silos.
+Inworld AI,T1,— Gaming / NPC character memory,Long-term character memory + Character Brain,Leading purpose-built NPC engine.
+Convai (Mimir),T1,— Gaming / NPC character memory,3-tier hierarchical memory + scene awareness,"Mimir hierarchical memory: short-term (verbatim), medium-term (summaries + emotion), long-term (cross-session)."
+Charisma.ai,T1,— Gaming / NPC character memory,Author-controlled memory nodes + lying / misremembering,No-code interactive narrative platform.
+Latitude / Voyage,T1,— Gaming / NPC character memory,World Engine — separate state-management AI,AI Dungeon's maker.
+Character.ai,T1,— Gaming / NPC character memory,Layered: chat memories + auto-memories + pinned,"Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention."
+Replika,T2,— Gaming / NPC character memory,Memory bank + diary entries,Decade-old AI companion.
+Nomi AI,T2,— Gaming / NPC character memory,Mind Map 2.0 — navigable memory graph,AI companion built around long-term memory as primary differentiator.
+Soul Machines,T2,— Gaming / NPC character memory,Patented Digital Brain + cross-session memory,NZ/US digital-humans company.
+Spirit AI Character Engine,T2,— Gaming / NPC character memory,Author-defined character knowledge graph,Authoring toolkit + SDK for narrative designers.
+Figure Helix,T1,— Robotics / autonomous-driving / embodied memory,Temporal vision memory + tactile buffer,System 2 (7B VLM) feeds tokens to System 1 (80M visuomotor policy at 200 Hz).
+π0.5 (Physical Intelligence),T1,— Robotics / autonomous-driving / embodied memory,Multi-Scale Embodied Memory (short + long episodic),"Extends π0 with MEM layer giving the policy short-term (within-task) + long-term (cross-task, >10-min horizon) memory."
+NVIDIA Isaac GR00T N1.7,T3,— Robotics / autonomous-driving / embodied memory,Slow VLM planner + fast diffusion action model,"Dual-system (VLM ""System 2"" + Diffusion Transformer ""System 1"") jointly trained end-to-end; planner outputs persist as conditioning context across action generation."
+NVIDIA ReMEmbR,T3,— Robotics / autonomous-driving / embodied memory,Spatio-temporal episodic store (vector DB + coordinates),"Builds long-horizon memory by captioning video segments with VILA, storing captions with timestamps + 3D position coordinates in MilvusDB."
+MemoryVLA,T3,— Robotics / autonomous-driving / embodied memory,Perceptual + Cognitive Memory Bank (ICLR 2026),Two-tier memory bank on a VLA backbone.
+SG-Nav,T3,— Robotics / autonomous-driving / embodied memory,Online 3D scene graph (incremental spatial memory),"Incrementally constructs hierarchical 3D scene graph during navigation — nodes for objects/groups/rooms, edges for spatial relations."
+Meta-Memory,T4,— Robotics / autonomous-driving / embodied memory,Semantic-spatial dual-modality memory + multi-hop retrieval,Formalises spatial localisation question answering (SLQA).
+GWM (Gaussian World Models),T3,— Robotics / autonomous-driving / embodied memory,3D Gaussian Splatting latent world model,Encodes scene into 3D Gaussian Splat representations via 3D VAE; latent Diffusion Transformer predicts future Gaussian Splat states conditioned on robot actions.
+Wayve GAIA-2 / GAIA-3,T1,— Robotics / autonomous-driving / embodied memory,Multi-view latent diffusion world model,All surround-camera views encoded through video tokeniser to continuous latent; past latent sequences serve as explicit temporal context via space-time factorised transformer.
+Tesla FSD V13 — Occupancy + 4D World,T1,— Robotics / autonomous-driving / embodied memory,3D occupancy network + temporal multi-modal fusion,Single end-to-end neural network ingesting multi-camera video + navigation + ego-motion.
+Sanctuary AI Carbon (Phoenix Gen 7/8),T1,— Robotics / autonomous-driving / embodied memory,Cognitive architecture with explicit task memory,"Mirrors human cognitive functions: explicit memory, vision, hearing, tactile."
+Skild Brain,T1,— Robotics / autonomous-driving / embodied memory,In-context real-time memory + live data collection,Real-time simultaneous inference + data collection — dynamically updates in-context representation as the robot encounters new situations.
+ELSA Speak,T1,— Education AI memory,Evolving phoneme-level pronunciation profile,"Persistent pronunciation profile per user, tracking which sounds, words, and patterns the learner consistently mispronounces."
+Duolingo Max,T1,— Education AI memory,SRS state + GPT-4 roleplay continuity,"Adds GPT-4-powered Roleplay (character conversations, with cross-call memory for ""Lily"") and Explain My Answer on top of Duolingo's existing spaced-repetition engine, which tracks per-word and per-skill mastery state across all sessions."
+Quizlet — AI Study Tools / Magic Notes,T1,— Education AI memory,Per-set Memory Score (SRS) + Magic Notes generation,Tracks per-card answer history within a study set; computes a Memory Score for SRS scheduling.
+MagicSchool,T1,— Education AI memory,Teacher tooling — no student-facing memory by design,"Teacher productivity platform (80+ teacher tools, 50+ student tools) for planning, differentiation, IEP generation, feedback."
+Khanmigo,T2,— Education AI memory,Chat history + Khan Academy mastery state,Stores full chat transcripts per student (visible to learner and teacher via dashboard).
+SchoolAI,T2,— Education AI memory,Teacher-configured Spaces with observable session logs,"Teacher-created ""Spaces"" (structured AI workspaces) where Dot, the student-facing assistant, guides learners through agendas."
+Speak,T2,— Education AI memory,Onboarding curriculum + per-session conversation,Onboarding assessment builds an initial learner profile and generates a personalized curriculum; AI supports open-ended conversational practice with real-time speech recognition.
+Synthesis Tutor,T3,— Education AI memory,Real-time micro-assessment adaptation,"Embeds micro-assessments into every lesson to track understanding in real time, adjusting difficulty and teaching approach within session."
+ChatGPT Study Mode,T3,— Education AI memory,Socratic mode + general ChatGPT Memory,"Activates a Socratic interaction style — guiding questions, scaffolded concepts, knowledge checks rather than direct answers."
+ImplicitMemBench,T3,Memory benchmarks & evaluation,Implicit / procedural memory benchmark,"300 items across three paradigms: procedural memory (one-shot skill retention after interference), priming (theme-driven response biases), classical conditioning (CS-US exposure shaping first decisions)."
+MemEvoBench,T4,Memory benchmarks & evaluation,Adversarial memory-evolution safety benchmark,QA tasks across 7 domains / 36 risk types plus workflow tasks adapted from 20 Agent-SafetyBench environments with noisy tool returns; both use mixed benign-and-misleading memory pools in multi-round interactions.
+ICLR 2026 MemAgents Workshop,T2,Memory benchmarks & evaluation,Workshop venue — RL + cognitive psychology + LLM memory,"Full-day hybrid workshop held April 27, 2026, Rio de Janeiro."
+LongMemEval,T3,Memory benchmarks & evaluation,Long-term chat-assistant memory across sessions,"5 core memory abilities — info extraction, multi-session reasoning, temporal reasoning, knowledge updates, abstention — via 500 curated questions in synthetic chat histories."
+LoCoMo,T3,Memory benchmarks & evaluation,Very long-term multi-session dialogue memory,"Conversations spanning up to 35 sessions / 300 turns / ~9K tokens, built from LLM-agent personas grounded on temporal event graphs and verified by human annotators."
+NIAH (Needle in a Haystack),T4,Memory benchmarks & evaluation,Single-fact verbatim retrieval from long context,"Places a known sentence (""needle"") at varying positions inside a long irrelevant document (""haystack"") and prompts the model to retrieve it."
+BABILong,T3,Memory benchmarks & evaluation,Distributed multi-fact reasoning across long docs,"Extends 20 bAbI reasoning tasks (fact chaining, induction, deduction, counting, lists) by scattering relevant sentences across PG-19 book text."
+RULER,T3,Memory benchmarks & evaluation,Configurable multi-task long-context stress test,NVIDIA.
+HELMET,T3,Memory benchmarks & evaluation,Holistic downstream-task long-context eval,Princeton NLP.
+InfiniteBench (∞Bench),T3,Memory benchmarks & evaluation,100K+ token realistic long-context comprehension,Tsinghua / OpenBMB.
+LongBench,T3,Memory benchmarks & evaluation,Bilingual multitask long-context suite,Tsinghua THUDM.
+MemBench,T3,Memory benchmarks & evaluation,Multi-dim agent memory mechanism comparison,Renmin University.
+MemoryAgentBench,T3,Memory benchmarks & evaluation,4-competency agent memory benchmark,HUST.
+MemoryArena,T4,Memory benchmarks & evaluation,Multi-session agentic memory eval gym,Stanford Digital Economy Lab et al.
+MemoryBench (Tsinghua THUIR),T3,Memory benchmarks & evaluation,Declarative + procedural continual-learning bench,Tsinghua THUIR.
+Zep / Graphiti,T1,Memory observability & monitoring,Bi-temporal KG with provenance,Memory and observability in one.
+Galileo (galileo.ai),T1,Memory observability & monitoring,Real-time intent / belief drift detection,Treats memory as first-class in multi-agent tracing.
+Langfuse,T1,Memory observability & monitoring,Memory ops as named spans + Agent Graphs,Memory module reads/writes captured as named spans.
+Mem0 (with AgentOps),T1,Memory observability & monitoring,Memory Operation Timeline + Search Analytics,"When integrated with AgentOps, surfaces Memory Operation Timeline, Search Analytics (query patterns, hit rates), Memory Growth curves, Cost Attribution per memory op."
+Ratine,T2,Memory observability & monitoring,Offline scanner — memory poisoning detector,Only tool found that scans the persistent memory layer on disk rather than runtime tracing.
+AgentOps,T2,Memory observability & monitoring,Operational metrics for agent memory,"When Mem0 is connected, gains Memory Operation Timeline, Search Analytics, Memory Growth tracking, Error Tracking per memory call."
+LangSmith,T1,Memory observability & monitoring,Memory mutations as distinct span types,"Memory reads, vector DB retrievals, state changes are distinct span types in traces."
+Lakera Guard / Lakera Red,T1,"Memory governance, privacy & safety",Real-time prompt-injection + poisoning screen,"Screens every prompt, response, and retrieved document for indirect prompt injection — primary vector for memory poisoning."
+OWASP Agent Memory Guard,T3,"Memory governance, privacy & safety",Declarative YAML policies + SHA-256 baselines,Open-source runtime defense.
+Microsoft Agent Governance Toolkit,T2,"Memory governance, privacy & safety",Cross-Model Verification Kernel + Agent OS,Cross-Model Verification Kernel (CMVK) requires majority-voting agreement across multiple model calls before a memory-influenced action.
+Mem0 Security / OpenMemory,T1,"Memory governance, privacy & safety",SOC 2 + HIPAA + zero-trust + BYOK,"Commercial Mem0 ships SOC 2 / HIPAA, zero-trust access controls, BYOK encryption, real-time monitoring, audit logs, workspace governance as defaults."
+Enkrypt AI,T1,"Memory governance, privacy & safety",Three-point RAG / memory pipeline guardrails,"Applies guardrails at three points: (1) before write to vector DB, (2) before query reaches embedding model, (3) before response."
+Acuvity (now Proofpoint),T1,"Memory governance, privacy & safety",MCP / Shadow-AI runtime enforcement,"Runtime enforcement targeting memory poisoning, unauthorised execution, identity spoofing per the OWASP LLM threat list."
+HiddenLayer AISec Platform 2.0,T1,"Memory governance, privacy & safety",Model Genealogy + AIBOM (supply-chain layer),Targets the supply-chain / lineage layer rather than runtime memory writes.
+Zep — governance posture,T1,"Memory governance, privacy & safety",Bi-temporal KG = structural provenance,"Bi-temporal knowledge graph preserves full lineage of every stored fact — every memory write traceable and auditable by graph schema, not bolted-on logging."
+From Human Memory to AI Memory (survey),T4,Theoretical / informal — ideas without a paper,3D taxonomy: object × form × time,"Eight-quadrant classification grid across personal/system, parametric/non-parametric, and short-term/long-term axes."
+Externalization in LLM Agents,T4,Theoretical / informal — ideas without a paper,Memory + skills + protocols as coupled externalization,"Traces the shift from weights-as-capability to harness-as-capability; analyzes memory, skills, and protocols as three coupled forms of externalization and examines how they interact."
+Memory as Metabolism,T5,Theoretical / informal — ideas without a paper,Metabolic governance cycle for companion knowledge,Argues that companion AI knowledge systems must treat memory as a continuous metabolic process rather than a static store.
+LLM as OS Kernel,T5,Theoretical / informal — ideas without a paper,Architectural metaphor,"LLM is ""the kernel process of a new Operating System"" orchestrating I/O, code interpreter, browser, and an embedding store for files / internal memory."
+LLM OS Specs,T5,Theoretical / informal — ideas without a paper,Memory in hardware terms,"Operationalises the kernel analogy: 256-core processor at 20 Hz (tokens/sec), RAM = 128K tokens of context, filesystem = Ada-002 embedding store."
+Context Engineering,T5,Theoretical / informal — ideas without a paper,Discipline rename,"""+1 for 'context engineering' over 'prompt engineering' … the delicate art and science of filling the context window with just the right information for the next step."" The LLM is ""a coworker with anterograde amnesia"" — cannot consolidate or build long-running knowledge once training ends."
+LLM Wiki — compiled memory,T5,Theoretical / informal — ideas without a paper,Compilation over RAG,"Three-layer directory: raw/ (immutable sources), wiki/ (LLM-maintained compiled pages), CLAUDE.md (schema)."
+Four-Type Agent Memory Taxonomy,T5,Theoretical / informal — ideas without a paper,Cognitive-science → LLM mapping,"""Agent = LLM + memory + planning + tools."" Maps cognitive memory types to LLM machinery: sensory (learned embeddings), short-term / in-context (the context window), long-term (external vector store with fast retrieval)."
+Context Expansion Law,T5,Theoretical / informal — ideas without a paper,Parkinson's-Law analogue for context,"""Application context tends to expand to fill the context limits supported by the model."" Treats agent memory as a first-class unresolved design problem rather than a solved component; explicitly defers a memory deep-dive to a future post."
+Files Are All You Need,T5,Theoretical / informal — ideas without a paper,Filesystem as memory interface,"Coding agents (Claude Code, Cursor) converge on the filesystem as their primary memory abstraction: conversation histories as searchable files, skills as files, retrieval via file search rather than vector DBs."
+RL-Based Continual Learning as Memory,T5,Theoretical / informal — ideas without a paper,Memory-in-weights via on-policy RL,On-policy RL is naturally more resistant to catastrophic forgetting than supervised fine-tuning — its online nature biases learning toward low-distribution-shift updates.
+Memory Poisoning as Attack Surface,T5,Theoretical / informal — ideas without a paper,Security framing,"Agent persistent memory is an attack surface: an adversarial document in the environment can instruct the agent's memory tool to write malicious facts, poisoning the long-term store."
+Context Engineering — naming event,T5,Theoretical / informal — ideas without a paper,Discipline crystallisation,"Endorses ""context engineering"" as a distinct discipline from prompt engineering — what agents do with their context window (routing, compression, tool output formatting, memory retrieval injection) is engineering, not just prompting."
+JEPA Six-Module World Model (informal),T5,Theoretical / informal — ideas without a paper,Memory as architecturally peer module,"Six-module cognitive architecture (perception, world model, cost, memory, action, configurator)."

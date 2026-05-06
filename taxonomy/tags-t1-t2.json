@@ -1,0 +1,5205 @@
+{
+  "Mem0": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector",
+      "graph",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": ""
+  },
+  "Letta / MemGPT": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection",
+      "agentic"
+    ],
+    "persistence": "long-term",
+    "update": "agent-controlled",
+    "unit": [
+      "episode",
+      "summary",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Tiered core/recall/archival; model manages its own memory paging"
+  },
+  "Zep & Graphiti": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Bi-temporal KG \u2014 event time + ingestion time"
+  },
+  "Cognee": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Extract-Cognify-Load pipeline"
+  },
+  "Hindsight (Vectorize)": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "consolidation",
+    "unit": [
+      "episode",
+      "summary"
+    ],
+    "governance": "opaque",
+    "notes": ""
+  },
+  "Supermemory": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Memory graph + extraction + RAG; API, app, browser extension, MCP server"
+  },
+  "SuperLocalMemory": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Cloud-free; Fisher-Rao + BM25 + entity graph + temporal fusion via RRF; no LLM scoring"
+  },
+  "Interloom": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": null,
+    "retrieval": null,
+    "persistence": "long-term",
+    "update": null,
+    "unit": null,
+    "governance": null,
+    "notes": "Enterprise tacit-knowledge memory; limited detail in CSV"
+  },
+  "NeoCognition": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": null,
+    "retrieval": null,
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": null,
+    "notes": "World-model / experiential self-learning; builds world model from experience"
+  },
+  "Jamba (AI21 Labs)": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "kv-cache",
+      "parametric"
+    ],
+    "retrieval": [
+      "attention",
+      "cache-lookup"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": [
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "SSM-Transformer hybrid; 256K KV-bypass context"
+  },
+  "Aleph Alpha PhariaAI / PhariaCatch": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector",
+      "file"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Sovereign governed-document memory; German enterprise"
+  },
+  "NAVER HyperCLOVA X THINK": {
+    "tier": "T1",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "parametric",
+      "kv-cache"
+    ],
+    "retrieval": [
+      "attention",
+      "parametric-recall"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": [
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "Korean sovereign 128K reasoning LLM"
+  },
+  "n8n AI Agent Memory": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "exact-match"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Pluggable buffer + Postgres/Redis + vector"
+  },
+  "Voiceflow Memory": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Sliding-window buffer (vf_memory)"
+  },
+  "Flowise Memory": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "session",
+    "update": [
+      "append-only",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "summary"
+    ],
+    "governance": "inspectable",
+    "notes": "Buffer + Buffer-Window + Conversation-Summary nodes"
+  },
+  "Langflow Memory": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "SQLite buffer + Mem0/Redis integrations; session-ID keyed"
+  },
+  "Botpress LLMz": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Vector DB + LLMz engine + KB"
+  },
+  "Relevance AI Memory": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection",
+      "exact-match"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Short-term metadata + persistent KV store"
+  },
+  "Lindy AI Memory": {
+    "tier": "T1",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Selective KV memory injected into prompt; high-signal facts only"
+  },
+  "Mistral Agents API": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Platform-managed stateful conversation; branching conversation trees"
+  },
+  "Anthropic Claude Memory": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "consolidation",
+      "agent-controlled"
+    ],
+    "unit": [
+      "fact",
+      "summary"
+    ],
+    "governance": "user-controllable",
+    "notes": "File-backed + tool-driven + Auto Dream consolidation"
+  },
+  "OpenAI ChatGPT Memory": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Auto-extracts persistent facts about user across sessions"
+  },
+  "Google Gemini Memory": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "profile"
+    ],
+    "governance": "user-controllable",
+    "notes": "Personal Context + Personal Intelligence packing"
+  },
+  "Microsoft Copilot Memory": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Org/tenant-scoped; Exchange-backed; compliance alignment"
+  },
+  "LinkedIn Cognitive Memory Agent": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact",
+      "skill"
+    ],
+    "governance": "opaque",
+    "notes": "Episodic + semantic + procedural; shared production infra"
+  },
+  "Perplexity Memory": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Auto-distillation across model swaps"
+  },
+  "Grok Memory (xAI)": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Preference-distillation; user-deletable"
+  },
+  "Mistral Le Chat \u2014 Memories": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "graph",
+      "kv"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "consolidation"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Graph-contextual + explicit + implicit"
+  },
+  "Meta AI Memory": {
+    "tier": "T1",
+    "section": "Platform-provider memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Cross-platform via Accounts Center (Instagram, WhatsApp, Messenger, Facebook)"
+  },
+  "Devin (Cognition)": {
+    "tier": "T1",
+    "section": "Coding-agent memory",
+    "storage": [
+      "kv",
+      "file"
+    ],
+    "retrieval": [
+      "injection",
+      "extraction-pull"
+    ],
+    "persistence": "cross-session",
+    "update": "agent-controlled",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Structured Knowledge items + auto-Repo Knowledge"
+  },
+  "Augment Code": {
+    "tier": "T1",
+    "section": "Coding-agent memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Real-time KG from repos + CI/CD + tickets + docs + curated Agent Memory"
+  },
+  "OpenAI Codex (cloud agent)": {
+    "tier": "T1",
+    "section": "Coding-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "consolidation",
+      "append-only"
+    ],
+    "unit": [
+      "summary",
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "~/.codex/memories/; background generation after session idle"
+  },
+  "Replit Agent": {
+    "tier": "T1",
+    "section": "Coding-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Project-files-as-memory; no dedicated semantic memory"
+  },
+  "Perplexity Comet": {
+    "tier": "T1",
+    "section": "Browser-agent memory",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "opaque",
+    "notes": "AI-native Chromium browser; conversation + browser-history memory"
+  },
+  "Dia (Atlassian)": {
+    "tier": "T1",
+    "section": "Browser-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Local-first browser-history + @history queries; acquired by Atlassian"
+  },
+  "Microsoft Edge Copilot Mode + Journeys": {
+    "tier": "T1",
+    "section": "Browser-agent memory",
+    "storage": [
+      "kv",
+      "file"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "consolidation",
+      "append-only"
+    ],
+    "unit": [
+      "episode",
+      "summary"
+    ],
+    "governance": "user-controllable",
+    "notes": "Tab-context + Journeys session-grouping with AI summaries"
+  },
+  "Fellou": {
+    "tier": "T1",
+    "section": "Browser-agent memory",
+    "storage": null,
+    "retrieval": [
+      "agentic"
+    ],
+    "persistence": "long-term",
+    "update": null,
+    "unit": null,
+    "governance": null,
+    "notes": "Spatial agentic browser + Agentic Memory; limited detail in CSV"
+  },
+  "Browserbase": {
+    "tier": "T1",
+    "section": "Browser-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Programmatic session persistence; dev infra for AI agents"
+  },
+  "Tencent ima.copilot": {
+    "tier": "T1",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact",
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Four-module self-evolving personal memory; Hunyuan"
+  },
+  "Notion AI": {
+    "tier": "T1",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Workspace-scoped context + custom instructions"
+  },
+  "RemNote AI": {
+    "tier": "T1",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "graph",
+      "relational"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "append-only",
+      "overwrite"
+    ],
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Outline + bidirectional + spaced repetition"
+  },
+  "Craft AI": {
+    "tier": "T1",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Block-based docs + AI assistant; no native graph"
+  },
+  "Apple Notes + Apple Intelligence": {
+    "tier": "T1",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "file",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Folder + tag hierarchy; iCloud sync; Writing Tools"
+  },
+  "Microsoft Recall": {
+    "tier": "T1",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "OS-level screen-recall timeline"
+  },
+  "Limitless": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "lifelong",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Wearable pendant + screen capture lifelog"
+  },
+  "Plaud NotePin": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Magnetic clip-on wearable + AI transcription"
+  },
+  "Omi": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "lifelong",
+    "update": [
+      "append-only",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Open-source wearable orb + memory graph"
+  },
+  "Bee": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "lifelong",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Audio pendant; never stores raw audio"
+  },
+  "Friend": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "lifelong",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Always-on AI companion pendant"
+  },
+  "Granola": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Mac/iOS meeting notepad; system-audio tap"
+  },
+  "Otter.ai": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Meeting bot + browser extension + app"
+  },
+  "Read.ai": {
+    "tier": "T1",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Meeting bot + analytics + Ada digital twin"
+  },
+  "Engram (DeepSeek)": {
+    "tier": "T1",
+    "section": "\u2014 Factual & long-term memory (token-level)",
+    "storage": [
+      "parametric"
+    ],
+    "retrieval": [
+      "parametric-recall"
+    ],
+    "persistence": "parametric-permanent",
+    "update": "read-only",
+    "unit": [
+      "chunk"
+    ],
+    "governance": "opaque",
+    "notes": "Conditional-memory N-gram lookup module; DeepSeek + PKU"
+  },
+  "GraphRAG (Microsoft)": {
+    "tier": "T1",
+    "section": "Retrieval-as-memory hybrids",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "summary"
+    ],
+    "governance": "inspectable",
+    "notes": "Community summary + Leiden detection; modular graph-based RAG"
+  },
+  "CLAUDE.md": {
+    "tier": "T1",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Git-backed; injected at session start; reloaded post-compaction"
+  },
+  "Cursor Rules": {
+    "tier": "T1",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "IDE-embedded code memory; .cursorrules + project rules"
+  },
+  "Windsurf Rules & Memories": {
+    "tier": "T1",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Rules files + Cascade auto-generated memories"
+  },
+  "AGENTS.md": {
+    "tier": "T1",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Cross-tool open standard; hierarchical concatenation from root to cwd"
+  },
+  "GitHub Copilot custom instructions": {
+    "tier": "T1",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": ".github/copilot-instructions.md + path-scoped with YAML frontmatter"
+  },
+  "Claude Code auto-memory": {
+    "tier": "T1",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection",
+      "extraction-pull"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "append-only",
+      "overwrite"
+    ],
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Per-project file directory at ~/.claude/projects/<project>/memory/"
+  },
+  "claude-mem": {
+    "tier": "T1",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "consolidation",
+    "unit": [
+      "summary",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Episodic/session-log compression; ~500-token observations"
+  },
+  "Mem0 MCP (official)": {
+    "tier": "T1",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Hybrid vector + graph via cloud API"
+  },
+  "Graphiti MCP Server (Zep)": {
+    "tier": "T1",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Temporal KG with bi-temporal edges; tracks how facts change over time"
+  },
+  "Official MCP Memory server": {
+    "tier": "T1",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "KG-based persistent memory MCP; canonical reference implementation"
+  },
+  "Stardog": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "RDF semantic platform; SHACL validation; Voicebox AI"
+  },
+  "TopQuadrant (TopBraid EDG)": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Ontology-native governance"
+  },
+  "Neo4j": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Property graph + vectors + Aura Agent + MCP server"
+  },
+  "TigerGraph": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Massively parallel graph + GSQL"
+  },
+  "AllegroGraph (Franz)": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "RDF triple/quad store + RDFS++/OWL reasoning"
+  },
+  "Ontotext GraphDB / Graphwise": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "RDF store + real-time inference"
+  },
+  "PoolParty (now Graphwise)": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "SKOS-based taxonomy + LLM advisor"
+  },
+  "Palantir Ontology": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "agentic"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Operational digital twin; semantic objects + kinetic actions"
+  },
+  "Diffbot": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Auto-extracted KG from web crawl"
+  },
+  "Amazon Neptune Analytics": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Vector + graph in one managed service; openCypher queryable"
+  },
+  "ArangoDB": {
+    "tier": "T1",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Multi-model: graph + doc + KV + vector; HybridGraphRAG"
+  },
+  "Pinecone": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Managed vector DB + cascading retrieval"
+  },
+  "Weaviate": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Hybrid vector DB + learned ranking"
+  },
+  "Qdrant": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "DBSF + RRF"
+  },
+  "Chroma": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Embedded vector DB; Rust core"
+  },
+  "Milvus": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Multi-vector + hybrid + GPU"
+  },
+  "LanceDB": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "column"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Embedded Arrow-columnar vector DB"
+  },
+  "Turbopuffer": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Object-storage-first vector DB"
+  },
+  "Elasticsearch / OpenSearch": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "column"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Mature hybrid (BM25 + vector)"
+  },
+  "Vespa": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Unified vector + lexical + structured + ML-learned ranking"
+  },
+  "MongoDB Atlas Vector Search": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Vector embedded in document DB; short-term + long-term agent memory"
+  },
+  "pgvector": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "PostgreSQL vector extension; embeddings alongside relational + full-text"
+  },
+  "Snowflake Cortex Search": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "column"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Hybrid vector + keyword + semantic rerank"
+  },
+  "Databricks Vector Search": {
+    "tier": "T1",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "column"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "auditable",
+    "notes": "Storage-optimised; Unity Catalog governance"
+  },
+  "Glean": {
+    "tier": "T1",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Enterprise search + per-user KG; 100+ connectors"
+  },
+  "SearchUnify": {
+    "tier": "T1",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "agentic"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Agentic enterprise search + KCS standard"
+  },
+  "Clarivate": {
+    "tier": "T1",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Curated bibliographic metadata (Web of Science, Derwent, Cortellis)"
+  },
+  "Coveo": {
+    "tier": "T1",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "RAG-as-a-Service via hosted MCP"
+  },
+  "Sinequa": {
+    "tier": "T1",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Hybrid retrieval: dense vector + keyword + graph traversal + multimodal"
+  },
+  "Algolia (NeuralSearch)": {
+    "tier": "T1",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Neural-hash hybrid; vector + keyword via neural hashing"
+  },
+  "FutureHouse": {
+    "tier": "T1",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "opaque",
+    "notes": "Cross-experiment + organism-scale factbase; full autonomous-scientist loop"
+  },
+  "Causaly": {
+    "tier": "T1",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "overwrite"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Persistent causal knowledge graph; drug discovery"
+  },
+  "BenevolentAI": {
+    "tier": "T1",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Continuously-refreshed biological KG"
+  },
+  "LabGenius": {
+    "tier": "T1",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": null,
+    "retrieval": [
+      "agentic"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Autonomous experiment memory (EVA platform); closed Design-Build-Test-Learn loop"
+  },
+  "Hippocratic AI Polaris": {
+    "tier": "T1",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Longitudinal multi-call patient memory store"
+  },
+  "K Health": {
+    "tier": "T1",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "EMR-filtered two-agent pipeline"
+  },
+  "Nabla + Navina": {
+    "tier": "T1",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Ambient + historical real-time reconciliation"
+  },
+  "Suki AI": {
+    "tier": "T1",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Pre-visit summary + prior-note synthesis"
+  },
+  "DeepScribe": {
+    "tier": "T1",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Longitudinal oncology pull-forward"
+  },
+  "Abridge": {
+    "tier": "T1",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Grounded-transcript provenance"
+  },
+  "Harvey Memory": {
+    "tier": "T1",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "4-tier: personal lawyer + matter + institutional firm + client-institution"
+  },
+  "Luminance Institutional Memory": {
+    "tier": "T1",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "overwrite"
+    ],
+    "unit": [
+      "episode",
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Persistent negotiation history + accepted-risk registry"
+  },
+  "Filevine LOIS": {
+    "tier": "T1",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Whole-matter context as live LLM input; embedded in case-management platform"
+  },
+  "Eve \u2014 Shared Firm Knowledge + Auditor": {
+    "tier": "T1",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "agent-controlled"
+    ],
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Firm-level store + nightly autonomous case auditor"
+  },
+  "Spellbook Library": {
+    "tier": "T1",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Firm-precedent corpus memory"
+  },
+  "Sierra": {
+    "tier": "T1",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "profile",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Unified customer graph (Agent Data Platform)"
+  },
+  "Decagon": {
+    "tier": "T1",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Cross-channel conversation graph"
+  },
+  "Cognigy": {
+    "tier": "T1",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "exact-match",
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "append-only",
+      "overwrite"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Two-tier short + long-term; shared across agents"
+  },
+  "ASAPP GenerativeAgent": {
+    "tier": "T1",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Long-term interaction memory + preference; memory as first-class architecture"
+  },
+  "Inworld AI": {
+    "tier": "T1",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Long-term character memory + Character Brain"
+  },
+  "Convai (Mimir)": {
+    "tier": "T1",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "consolidation",
+      "extraction"
+    ],
+    "unit": [
+      "episode",
+      "summary",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "3-tier hierarchical: short-term verbatim + medium-term summaries/emotion + long-term cross-session"
+  },
+  "Charisma.ai": {
+    "tier": "T1",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Author-controlled memory nodes + lying/misremembering support"
+  },
+  "Latitude / Voyage": {
+    "tier": "T1",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "agent-controlled",
+    "unit": [
+      "episode",
+      "scene-graph"
+    ],
+    "governance": "opaque",
+    "notes": "World Engine \u2014 separate state-management AI; AI Dungeon maker"
+  },
+  "Character.ai": {
+    "tier": "T1",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "overwrite"
+    ],
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Layered: chat memories + auto-memories + pinned"
+  },
+  "Figure Helix": {
+    "tier": "T1",
+    "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "attention",
+      "cache-lookup"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "episode",
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "Temporal vision memory + tactile buffer; System 2 VLM + System 1 visuomotor policy"
+  },
+  "\u03c00.5 (Physical Intelligence)": {
+    "tier": "T1",
+    "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "attention",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "append-only",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "trajectory"
+    ],
+    "governance": "opaque",
+    "notes": "Multi-Scale Embodied Memory: short-term within-task + long-term cross-task >10-min horizon"
+  },
+  "Wayve GAIA-2 / GAIA-3": {
+    "tier": "T1",
+    "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+    "storage": [
+      "vector",
+      "kv-cache"
+    ],
+    "retrieval": [
+      "attention",
+      "cache-lookup"
+    ],
+    "persistence": "session",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "Multi-view latent diffusion world model; past latent sequences as temporal context"
+  },
+  "Tesla FSD V13 \u2014 Occupancy + 4D World": {
+    "tier": "T1",
+    "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+    "storage": [
+      "vector",
+      "kv-cache"
+    ],
+    "retrieval": [
+      "attention"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "episode",
+      "scene-graph"
+    ],
+    "governance": "opaque",
+    "notes": "3D occupancy network + temporal multi-modal fusion; single end-to-end network"
+  },
+  "Sanctuary AI Carbon (Phoenix Gen 7/8)": {
+    "tier": "T1",
+    "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "agentic",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "skill",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Cognitive architecture with explicit task memory"
+  },
+  "Skild Brain": {
+    "tier": "T1",
+    "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "attention",
+      "similarity"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "In-context real-time memory + live data collection; dynamically updates in-context representation"
+  },
+  "ELSA Speak": {
+    "tier": "T1",
+    "section": "\u2014 Education AI memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "lifelong",
+    "update": [
+      "extraction",
+      "overwrite"
+    ],
+    "unit": [
+      "profile",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Evolving phoneme-level pronunciation profile"
+  },
+  "Duolingo Max": {
+    "tier": "T1",
+    "section": "\u2014 Education AI memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "lifelong",
+    "update": "overwrite",
+    "unit": [
+      "profile",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "SRS state + GPT-4 roleplay continuity; tracks per-word and per-skill mastery"
+  },
+  "Quizlet \u2014 AI Study Tools / Magic Notes": {
+    "tier": "T1",
+    "section": "\u2014 Education AI memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "lifelong",
+    "update": "overwrite",
+    "unit": [
+      "profile",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Per-card answer history + Memory Score for SRS scheduling"
+  },
+  "MagicSchool": {
+    "tier": "T1",
+    "section": "\u2014 Education AI memory",
+    "storage": null,
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": null,
+    "governance": "opaque",
+    "notes": "Teacher tooling; no student-facing persistent memory by design"
+  },
+  "Zep / Graphiti": {
+    "tier": "T1",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Bi-temporal KG with provenance; memory and observability in one"
+  },
+  "Galileo (galileo.ai)": {
+    "tier": "T1",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Real-time intent / belief drift detection"
+  },
+  "Langfuse": {
+    "tier": "T1",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Memory ops as named spans + Agent Graphs"
+  },
+  "Mem0 (with AgentOps)": {
+    "tier": "T1",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Memory Operation Timeline + Search Analytics + Memory Growth curves"
+  },
+  "NVIDIA Nemotron 3": {
+    "tier": "T1",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "kv-cache",
+      "parametric"
+    ],
+    "retrieval": [
+      "attention",
+      "cache-lookup"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": [
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "Hybrid Mamba + sparse KV-cache; 1M-token context; fixed-size recurrent state"
+  },
+  "Memvid": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "chunk",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Single-file append-only Smart Frames (.mv2)"
+  },
+  "Memobase": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "append-only"
+    ],
+    "unit": [
+      "profile",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "User-profile-based long-term memory + event timeline"
+  },
+  "OMEGA": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": null,
+    "retrieval": null,
+    "persistence": "long-term",
+    "update": null,
+    "unit": null,
+    "governance": null,
+    "notes": "Memory engine product; 50ms retrieval claim; insufficient detail"
+  },
+  "ByteRover": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": null,
+    "retrieval": null,
+    "persistence": "long-term",
+    "update": null,
+    "unit": null,
+    "governance": null,
+    "notes": "Agent-memory product; insufficient detail"
+  },
+  "Backboard": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": null,
+    "unit": [
+      "episode"
+    ],
+    "governance": null,
+    "notes": "Memory + LoCoMo evaluation harness"
+  },
+  "Hyperspell": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Workplace agent memory connectors: Slack, Gmail, Notion, Drive"
+  },
+  "Memoria (MatrixOrigin)": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": null,
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": null,
+    "unit": null,
+    "governance": null,
+    "notes": "Retrieval-strong memory layer; insufficient detail"
+  },
+  "OpenMemory": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Open-source cognitive memory engine"
+  },
+  "Memori": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Structured persistent memory layer"
+  },
+  "MemMachine": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Multi-layered open-source memory system"
+  },
+  "Memary": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Long-term memory framework for autonomous agents"
+  },
+  "Anda Hippocampus": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "consolidation",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Bio-inspired sleep consolidation; native graph-based"
+  },
+  "O-Mem": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "lifelong",
+    "update": [
+      "extraction",
+      "consolidation"
+    ],
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Omni / self-evolving memory; personalised long-horizon"
+  },
+  "VEKTOR Memory": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Local-SQLite + AUDN-loop + TypeScript-native"
+  },
+  "Memory Store": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Cross-agent shared episodic + preference memory; YC P26"
+  },
+  "Nyne": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "profile",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Human-profile / people-graph memory; builds profiles from public digital footprint"
+  },
+  "MemoraX AI": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "parametric"
+    ],
+    "retrieval": [
+      "parametric-recall"
+    ],
+    "persistence": "parametric-permanent",
+    "update": "parametric-edit",
+    "unit": [
+      "weight"
+    ],
+    "governance": "opaque",
+    "notes": "Endogenous / in-model memory (no external bank)"
+  },
+  "Trace": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Context-graph / KG memory; YC S25"
+  },
+  "Cellon (Memory.inc)": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Cross-service context stitching / retrieval memory; Korean startup"
+  },
+  "MemWal (Walrus)": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "proprietary"
+    ],
+    "retrieval": [
+      "exact-match"
+    ],
+    "persistence": "lifelong",
+    "update": "append-only",
+    "unit": [
+      "document",
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Decentralised / verifiable on-chain agent memory; Sui blockchain"
+  },
+  "AI Singapore SEA-LION": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "parametric-permanent",
+    "update": "read-only",
+    "unit": [
+      "chunk"
+    ],
+    "governance": "opaque",
+    "notes": "SE-Asian cross-lingual semantic-retrieval; contrastively trained on 245M text pairs"
+  },
+  "Krutrim Kruti (Ola)": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Cross-session multimodal agentic memory; India"
+  },
+  "M3-Agent (ByteDance)": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Episodic + semantic multimodal memory graph"
+  },
+  "AutoGLM (Zhipu AI)": {
+    "tier": "T2",
+    "section": "Dedicated memory layers",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "GUI agent + cross-session task memory"
+  },
+  "LangMem (LangChain)": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact",
+      "skill"
+    ],
+    "governance": "inspectable",
+    "notes": "Episodic / semantic / procedural cognitive-science-style typing"
+  },
+  "CrewAI Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Short-term + long-term + entity; integrates with Mem0 for long-term"
+  },
+  "LlamaIndex Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "append-only",
+      "consolidation"
+    ],
+    "unit": [
+      "episode",
+      "summary"
+    ],
+    "governance": "inspectable",
+    "notes": "FIFO short-term + Memory Blocks; overflow flushed into long-term objects"
+  },
+  "AutoGen Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "append-only",
+      "extraction"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "ListMemory chronological + teachable agents that vectorise corrections"
+  },
+  "Mastra Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "LibSQL + semantic recall; TypeScript-first"
+  },
+  "Semantic Kernel Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Memory plugin for SK agents; Microsoft"
+  },
+  "Pydantic-AI + Hindsight": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "consolidation",
+    "unit": [
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "External memory bolted on; Pydantic-AI ships no native persistent memory"
+  },
+  "LangGraph Persistence": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "relational",
+      "kv"
+    ],
+    "retrieval": [
+      "exact-match",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Checkpoints + Store System; distinct from LangMem"
+  },
+  "smolagents Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "In-process Python list; no persistence"
+  },
+  "Agno (Phidata) Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "AgentStorage + AgentMemory + DBs"
+  },
+  "Strands Agents Memory (AWS)": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "opaque",
+    "notes": "Mem0 + AgentCore-backed; AWS code-first agent framework"
+  },
+  "OpenAI Agents SDK Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Sessions + RunContextWrapper + categorised long-term"
+  },
+  "Google ADK Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "SessionService tiers + VertexAIMemoryBank"
+  },
+  "AGiXT Adaptive Memory": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "overwrite"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Adaptive provider-spanning + plugin storage"
+  },
+  "Vapi (voice agents)": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Structured workflow state during call"
+  },
+  "Retell AI": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "kv",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "In-call + integration-based long-term"
+  },
+  "Stack AI": {
+    "tier": "T2",
+    "section": "Framework-embedded memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Enterprise-KB RAG; no agent memory store"
+  },
+  "Cloudflare Agent Memory": {
+    "tier": "T2",
+    "section": "Platform-provider memory",
+    "storage": null,
+    "retrieval": null,
+    "persistence": "cross-session",
+    "update": null,
+    "unit": null,
+    "governance": "opaque",
+    "notes": "Managed persistent memory service; edge deployment"
+  },
+  "AWS Bedrock AgentCore Memory": {
+    "tier": "T2",
+    "section": "Platform-provider memory",
+    "storage": null,
+    "retrieval": null,
+    "persistence": "cross-session",
+    "update": null,
+    "unit": null,
+    "governance": "opaque",
+    "notes": "AWS managed memory service for Bedrock agents"
+  },
+  "Vertex AI Memory Bank": {
+    "tier": "T2",
+    "section": "Platform-provider memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Google Cloud managed memory service (Preview)"
+  },
+  "Aider": {
+    "tier": "T2",
+    "section": "Coding-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Per-repo chat history file (.aider.chat.history.md) + YAML config"
+  },
+  "Continue.dev Memory MCP": {
+    "tier": "T2",
+    "section": "Coding-agent memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "KG-backed memory via MCP"
+  },
+  "Lovable": {
+    "tier": "T2",
+    "section": "Coding-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "/docs folder + Knowledge Panel; agent reads on each session"
+  },
+  "Bolt.new (StackBlitz)": {
+    "tier": "T2",
+    "section": "Coding-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "WebContainer file system (Rust-backed shared memory)"
+  },
+  "Tabnine": {
+    "tier": "T2",
+    "section": "Coding-agent memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Org-level Context Engine; multi-dimensional KG from repos + CI/CD + PRs"
+  },
+  "Sweep AI": {
+    "tier": "T2",
+    "section": "Coding-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "GitHub-thread-as-implicit-memory; no dedicated persistent layer"
+  },
+  "Brave Leo": {
+    "tier": "T2",
+    "section": "Browser-agent memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "user-controllable",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "User-curated local-only memory; privacy-focused"
+  },
+  "Opera AI (formerly Aria)": {
+    "tier": "T2",
+    "section": "Browser-agent memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "User-declared preferences + tab management; injected into future prompts"
+  },
+  "Sigma (Private AI Browser)": {
+    "tier": "T2",
+    "section": "Browser-agent memory",
+    "storage": [
+      "vector",
+      "file"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Fully-local LLM browser memory; on-device"
+  },
+  "Sandbar Stream": {
+    "tier": "T2",
+    "section": "Voice-first / wearable AI memory",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Smart ring + voice-activated capture; tap to record not always-on"
+  },
+  "Obsidian Smart Connections": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector",
+      "file"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "user-controllable",
+    "notes": "Local-first semantic search over notes"
+  },
+  "Tana": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "relational",
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Supertag-based PKM with AI; outliner + structured-data hybrid"
+  },
+  "Logseq": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "file",
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Local Markdown outliner + AI plugins"
+  },
+  "Capacities": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "graph",
+      "relational"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Object-graph PKM; typed objects (people, books, projects)"
+  },
+  "Heptabase": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "graph",
+      "file"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Visual whiteboard + cards + AI chat with citations"
+  },
+  "Mymind": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Tag-free auto-clustering visual mind; no manual organisation"
+  },
+  "Supernotes AI": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Flat notecards + tags + collections + bidirectional references"
+  },
+  "Saner.ai": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "AI-auto-tagged + semantic clusters; ADHD focus mode"
+  },
+  "Amplenote": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "graph",
+      "relational"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Tags + bidirectional + Task Score"
+  },
+  "Scrintal": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Whiteboard + linked cards; spatial graph"
+  },
+  "Heyday": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Browser-based research memory"
+  },
+  "Mem.ai": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "AI-first note-taking; no folders; AI-chat over notes"
+  },
+  "Reflect": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Apple-ecosystem second brain; networked-thought"
+  },
+  "Personal.ai": {
+    "tier": "T2",
+    "section": "Personal AI / PKM / lifelogging memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "lifelong",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "user-controllable",
+    "notes": "Personal AI with unique memory"
+  },
+  "MetaGPT": {
+    "tier": "T2",
+    "section": "\u2014 Factual & long-term memory (token-level)",
+    "storage": [
+      "file",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "document",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Multi-agent collaborative framework; meta-programming"
+  },
+  "MemPalace": {
+    "tier": "T2",
+    "section": "Research / specialised systems",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Verbatim chunks + spatial metaphor (wings/rooms/halls)"
+  },
+  "ICLR 2026 MemAgents Workshop": {
+    "tier": "T2",
+    "section": "Memory benchmarks & evaluation",
+    "storage": null,
+    "retrieval": null,
+    "persistence": null,
+    "update": null,
+    "unit": null,
+    "governance": null,
+    "notes": "Workshop venue \u2014 not a memory system"
+  },
+  "Sakana CTM": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "parametric"
+    ],
+    "retrieval": [
+      "parametric-recall",
+      "attention"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": [
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "Per-neuron history + neural synchronization as latent memory; Continuous Thought Machines"
+  },
+  "NAVER Provence + PISCO": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "kv-cache"
+    ],
+    "retrieval": [
+      "cache-lookup",
+      "attention"
+    ],
+    "persistence": "session",
+    "update": "evict-oldest",
+    "unit": [
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "RAG context pruning + soft compression; two complementary papers"
+  },
+  "ShadowKV (ByteDance)": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "kv-cache"
+    ],
+    "retrieval": [
+      "cache-lookup",
+      "attention"
+    ],
+    "persistence": "session",
+    "update": "evict-oldest",
+    "unit": [
+      "kv-token"
+    ],
+    "governance": "opaque",
+    "notes": "Low-rank CPU-offloaded KV cache + sparse reconstruction; GPU memory optimization"
+  },
+  "IBM Meta-Tokens": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "parametric",
+      "kv-cache"
+    ],
+    "retrieval": [
+      "attention",
+      "cache-lookup"
+    ],
+    "persistence": "parametric-permanent",
+    "update": "parametric-edit",
+    "unit": [
+      "kv-token",
+      "weight"
+    ],
+    "governance": "opaque",
+    "notes": "Lossless context compression via learned placeholder vocab entries"
+  },
+  "MemoryLLM (original)": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "parametric"
+    ],
+    "retrieval": [
+      "parametric-recall",
+      "attention"
+    ],
+    "persistence": "cross-session",
+    "update": "parametric-edit",
+    "unit": [
+      "weight"
+    ],
+    "governance": "opaque",
+    "notes": "Fixed-size in-weights memory pool with online self-update during inference"
+  },
+  "SELF-PARAM": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "parametric"
+    ],
+    "retrieval": [
+      "parametric-recall"
+    ],
+    "persistence": "parametric-permanent",
+    "update": "parametric-edit",
+    "unit": [
+      "weight"
+    ],
+    "governance": "opaque",
+    "notes": "KL-distillation experience internalization; teacher-student KL divergence"
+  },
+  "Anthropic Circuit Tracing": {
+    "tier": "T2",
+    "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+    "storage": [
+      "parametric"
+    ],
+    "retrieval": [
+      "parametric-recall"
+    ],
+    "persistence": "parametric-permanent",
+    "update": "read-only",
+    "unit": [
+      "weight"
+    ],
+    "governance": "auditable",
+    "notes": "Mechanistic interpretability; sparse cross-layer transcoders; attribution graphs"
+  },
+  "FalkorDB": {
+    "tier": "T2",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "GraphRAG-native; sub-140ms multi-hop"
+  },
+  "Memgraph": {
+    "tier": "T2",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "session",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "In-memory GraphRAG + native vector search"
+  },
+  "Apache AGE": {
+    "tier": "T2",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "relational"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "PostgreSQL graph extension; openCypher over Postgres"
+  },
+  "Kuzu": {
+    "tier": "T2",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Embedded graph DB + sub-3ms recall; built-in vector + full-text"
+  },
+  "Dgraph": {
+    "tier": "T2",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Graph + vector + Hypermode cloud"
+  },
+  "NebulaGraph": {
+    "tier": "T2",
+    "section": "Knowledge-graph platforms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Graph + vector + text hybrid retrieval natively"
+  },
+  "Activeloop Deep Lake": {
+    "tier": "T2",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector",
+      "column"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Multimodal vector + serverless Postgres; Deep Memory feature"
+  },
+  "Marqo": {
+    "tier": "T2",
+    "section": "Vector-database infrastructure",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Multimodal vector (text + image) via single API"
+  },
+  "Mindbreeze InSpire": {
+    "tier": "T2",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Hybrid + entitlement-aware + KG; knowledge graph enrichment"
+  },
+  "Meilisearch": {
+    "tier": "T2",
+    "section": "Enterprise-search adjacencies",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "hybrid-rerank"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "document",
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Open-source semantic + hybrid search GA 2025"
+  },
+  "Elicit": {
+    "tier": "T2",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Session-persistent claim-to-sentence provenance"
+  },
+  "Scite.ai": {
+    "tier": "T2",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Intent-classified citation context index; supports/disputes/mentions classification"
+  },
+  "Iris.ai": {
+    "tier": "T2",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Researcher Workspace + persistent extraction; enterprise R&D"
+  },
+  "ResearchRabbit": {
+    "tier": "T2",
+    "section": "\u2014 Scientific / research AI memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Iterative paper-graph rabbit-hole checkpoints"
+  },
+  "OpenEvidence (DeepConsult + Visits)": {
+    "tier": "T2",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": [
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "Encounter-grounded evidence synthesis; clinical decision support"
+  },
+  "Heidi Health": {
+    "tier": "T2",
+    "section": "\u2014 Healthcare AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "profile"
+    ],
+    "governance": "auditable",
+    "notes": "Clinician-voice / provider-side personalisation"
+  },
+  "Clio Duo / Manage AI": {
+    "tier": "T2",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "document",
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Matter-scoped PMS-native context retrieval; SMB law firms"
+  },
+  "CoCounsel Legal (Thomson Reuters)": {
+    "tier": "T2",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Session-scoped agentic context; plan-execute-cite workflows"
+  },
+  "Hebbia Matrix": {
+    "tier": "T2",
+    "section": "\u2014 Legal AI memory",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "document"
+    ],
+    "governance": "auditable",
+    "notes": "Firm-specific configuration over multi-agent synthesis"
+  },
+  "Cresta": {
+    "tier": "T2",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Shared memory across human/AI handoffs; sales + contact centre"
+  },
+  "PolyAI": {
+    "tier": "T2",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection",
+      "agentic"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Runtime context-orchestration framework; enterprise voice agents"
+  },
+  "Intercom Fin": {
+    "tier": "T2",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "injection",
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "CRM attributes + roadmap lifecycle memory"
+  },
+  "Replicant": {
+    "tier": "T2",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Session context + structured handoff; voice automation"
+  },
+  "LivePerson Conversation Context Service": {
+    "tier": "T2",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "kv"
+    ],
+    "retrieval": [
+      "exact-match"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Named cloud-based shared session-state KV; architecturally notable named service"
+  },
+  "Salesforce Agentforce / Einstein": {
+    "tier": "T2",
+    "section": "\u2014 Customer support / voice agent memory",
+    "storage": [
+      "relational",
+      "vector"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "overwrite",
+    "unit": [
+      "fact",
+      "profile"
+    ],
+    "governance": "auditable",
+    "notes": "Customer 360 + Data Cloud as context layer"
+  },
+  "Replika": {
+    "tier": "T2",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "lifelong",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Memory bank + diary entries; decade-old AI companion"
+  },
+  "Nomi AI": {
+    "tier": "T2",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "lifelong",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Mind Map 2.0 \u2014 navigable memory graph; primary differentiator"
+  },
+  "Soul Machines": {
+    "tier": "T2",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "vector",
+      "kv"
+    ],
+    "retrieval": [
+      "similarity",
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "extraction",
+    "unit": [
+      "episode",
+      "fact"
+    ],
+    "governance": "opaque",
+    "notes": "Patented Digital Brain + cross-session memory"
+  },
+  "Spirit AI Character Engine": {
+    "tier": "T2",
+    "section": "\u2014 Gaming / NPC character memory",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Author-defined character knowledge graph; authoring toolkit + SDK"
+  },
+  "Khanmigo": {
+    "tier": "T2",
+    "section": "\u2014 Education AI memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Chat history + Khan Academy mastery state; visible to learner and teacher"
+  },
+  "SchoolAI": {
+    "tier": "T2",
+    "section": "\u2014 Education AI memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Teacher-configured Spaces with observable session logs"
+  },
+  "Speak": {
+    "tier": "T2",
+    "section": "\u2014 Education AI memory",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": [
+      "overwrite",
+      "extraction"
+    ],
+    "unit": [
+      "profile",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Onboarding curriculum + per-session conversation; AI speech recognition"
+  },
+  "Superpowers episodic-memory plugin": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "cross-session",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "MCP semantic search over conversations; indexes prior conversations at session end"
+  },
+  "mcp-memory-service (doobidoo)": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "graph",
+      "vector"
+    ],
+    "retrieval": [
+      "graph-traversal",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "extraction",
+      "consolidation"
+    ],
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "KG + vector hybrid + autonomous consolidation; SQLite-Vec default"
+  },
+  "OpenMemory MCP": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "user-controllable",
+    "notes": "Local Postgres + Qdrant cross-tool memory; local-first self-hosted Mem0"
+  },
+  "Cognee MCP": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Multi-layer KG with rule extraction; Cognify extracts entities/relationships"
+  },
+  "Hindsight MCP": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Four-network: World, Experiences, Opinion, Observation"
+  },
+  "Memobase MCP": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "profile",
+      "episode"
+    ],
+    "governance": "inspectable",
+    "notes": "Profile + timeline injected into prompt; structured JSON user profile"
+  },
+  "claude-supermemory": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "opaque",
+    "notes": "Team-scope memory plugin; wraps Supermemory cloud API"
+  },
+  "mcp-memory (Puliczek)": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "vector"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Cloudflare-native vector memory; per-user namespace isolation"
+  },
+  "local-memory-mcp": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match",
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "inspectable",
+    "notes": "SQLite + FTS5 with decision-tracking; BM25 ranking"
+  },
+  "claude-brain": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "chunk"
+    ],
+    "governance": "inspectable",
+    "notes": "Memvid -> Claude Code plugin packaging"
+  },
+  "engram": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": "agent-controlled",
+    "unit": [
+      "fact",
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Static Go binary; SQLite + FTS5; agent decides what to save"
+  },
+  "mcp-knowledge-graph": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "fact"
+    ],
+    "governance": "inspectable",
+    "notes": "Stable local fork of official MCP memory; KG-based"
+  },
+  "Claude-CursorMemoryMCP": {
+    "tier": "T2",
+    "section": "Claude Code memory mechanisms",
+    "storage": [
+      "vector",
+      "relational"
+    ],
+    "retrieval": [
+      "similarity"
+    ],
+    "persistence": "long-term",
+    "update": [
+      "overwrite",
+      "append-only"
+    ],
+    "unit": [
+      "chunk"
+    ],
+    "governance": "auditable",
+    "notes": "PostgreSQL + pgvector with RBAC; FastAPI server"
+  },
+  "Aider CONVENTIONS.md / .aider.conf.yml": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Multi-file convention pattern; .aider.conf.yml hierarchical"
+  },
+  "Cline .clinerules": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Version-controlled, AI-editable rules; .clinerules file or directory"
+  },
+  "Cline Memory Bank": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Session-spanning state pattern; memory-bank/ directory of Markdown"
+  },
+  "Roo Code .roorules": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Per-mode rules + workspace overrides; .roo/rules/ recursive load"
+  },
+  "Continue.dev .continue/rules": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Path-glob-scoped rules; .continue/rules/*.md"
+  },
+  "Zed .rules": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": ".rules at project root; reads competitors as fallback"
+  },
+  "Replit replit.md": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Project-level Replit Agent context; replit.md at project root"
+  },
+  "Sourcegraph Cody \u2014 cody.json": {
+    "tier": "T2",
+    "section": "File-backed / editor paradigms",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "cross-session",
+    "update": "overwrite",
+    "unit": [
+      "document"
+    ],
+    "governance": "user-controllable",
+    "notes": "Custom command templates; .vscode/cody.json workspace-scoped"
+  },
+  "Ratine": {
+    "tier": "T2",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "file"
+    ],
+    "retrieval": [
+      "extraction-pull"
+    ],
+    "persistence": "cross-session",
+    "update": "read-only",
+    "unit": [
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "Offline scanner \u2014 memory poisoning detector; scans persistent memory layer on disk"
+  },
+  "AgentOps": {
+    "tier": "T2",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Operational metrics for agent memory; Memory Operation Timeline + Search Analytics"
+  },
+  "LangSmith": {
+    "tier": "T1",
+    "section": "Memory observability & monitoring",
+    "storage": [
+      "relational"
+    ],
+    "retrieval": [
+      "exact-match"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Memory mutations as distinct span types; memory reads, vector DB retrievals, state changes captured in traces"
+  },
+  "Lakera Guard / Lakera Red": {
+    "tier": "T1",
+    "section": "Memory governance, privacy & safety",
+    "storage": null,
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": null,
+    "governance": "auditable",
+    "notes": "Real-time prompt-injection + memory poisoning screen; screens every prompt, response, and retrieved document"
+  },
+  "Microsoft Agent Governance Toolkit": {
+    "tier": "T2",
+    "section": "Memory governance, privacy & safety",
+    "storage": null,
+    "retrieval": [
+      "agentic"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": null,
+    "governance": "auditable",
+    "notes": "Cross-Model Verification Kernel (CMVK); majority-voting across multiple model calls before memory-influenced action"
+  },
+  "Mem0 Security / OpenMemory": {
+    "tier": "T1",
+    "section": "Memory governance, privacy & safety",
+    "storage": [
+      "vector",
+      "graph"
+    ],
+    "retrieval": [
+      "similarity",
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "extraction",
+    "unit": [
+      "fact"
+    ],
+    "governance": "auditable",
+    "notes": "SOC 2 + HIPAA + zero-trust + BYOK; real-time monitoring, audit logs, workspace governance as defaults"
+  },
+  "Enkrypt AI": {
+    "tier": "T1",
+    "section": "Memory governance, privacy & safety",
+    "storage": null,
+    "retrieval": [
+      "injection"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": null,
+    "governance": "auditable",
+    "notes": "Three-point RAG/memory pipeline guardrails: (1) before write to vector DB, (2) before query, (3) before response"
+  },
+  "Acuvity (now Proofpoint)": {
+    "tier": "T1",
+    "section": "Memory governance, privacy & safety",
+    "storage": null,
+    "retrieval": [
+      "agentic"
+    ],
+    "persistence": "session",
+    "update": "read-only",
+    "unit": null,
+    "governance": "auditable",
+    "notes": "MCP / Shadow-AI runtime enforcement; targets memory poisoning, unauthorised execution, identity spoofing"
+  },
+  "HiddenLayer AISec Platform 2.0": {
+    "tier": "T1",
+    "section": "Memory governance, privacy & safety",
+    "storage": null,
+    "retrieval": null,
+    "persistence": null,
+    "update": "read-only",
+    "unit": null,
+    "governance": "auditable",
+    "notes": "Model Genealogy + AIBOM; targets supply-chain/lineage layer, not runtime memory writes"
+  },
+  "Zep \u2014 governance posture": {
+    "tier": "T1",
+    "section": "Memory governance, privacy & safety",
+    "storage": [
+      "graph"
+    ],
+    "retrieval": [
+      "graph-traversal"
+    ],
+    "persistence": "long-term",
+    "update": "append-only",
+    "unit": [
+      "fact",
+      "episode"
+    ],
+    "governance": "auditable",
+    "notes": "Bi-temporal KG = structural provenance; every memory write traceable by graph schema, not bolted-on logging"
+  }
+}

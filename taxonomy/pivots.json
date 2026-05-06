@@ -1,0 +1,1222 @@
+{
+  "cross_section_patterns": [
+    {
+      "fingerprint": "vector/hybrid-rerank+similarity/read-only/chunk",
+      "sections": [
+        "Dedicated memory layers",
+        "Research / specialised systems",
+        "Retrieval-as-memory hybrids"
+      ],
+      "system_count": 8,
+      "systems": [
+        {
+          "name": "AI Singapore SEA-LION",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        },
+        {
+          "name": "Adaptive-RAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        },
+        {
+          "name": "BGE-M3",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        },
+        {
+          "name": "CRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        },
+        {
+          "name": "ChunkRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        },
+        {
+          "name": "MemoRAG",
+          "section": "Research / specialised systems",
+          "tier": "T3"
+        },
+        {
+          "name": "RAPTOR",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        },
+        {
+          "name": "Speculative RAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/append-only/episode",
+      "sections": [
+        "Claude Code memory mechanisms",
+        "Memory observability & monitoring",
+        "Voice-first / wearable AI memory",
+        "\u2014 Experiential & procedural memory (agent learning from experience)",
+        "\u2014 Factual & long-term memory (token-level)",
+        "\u2014 Robotics / autonomous-driving / embodied memory"
+      ],
+      "system_count": 7,
+      "systems": [
+        {
+          "name": "Bee",
+          "section": "Voice-first / wearable AI memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Friend",
+          "section": "Voice-first / wearable AI memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Galileo (galileo.ai)",
+          "section": "Memory observability & monitoring",
+          "tier": "T1"
+        },
+        {
+          "name": "Generative Agents",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T3"
+        },
+        {
+          "name": "MemMachine (paper)",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T4"
+        },
+        {
+          "name": "NVIDIA ReMEmbR",
+          "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+          "tier": "T3"
+        },
+        {
+          "name": "Superpowers episodic-memory plugin",
+          "section": "Claude Code memory mechanisms",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph+vector/graph-traversal+similarity/extraction/episode+fact",
+      "sections": [
+        "Claude Code memory mechanisms",
+        "Dedicated memory layers",
+        "Framework-embedded memory",
+        "Memory observability & monitoring"
+      ],
+      "system_count": 7,
+      "systems": [
+        {
+          "name": "M3-Agent (ByteDance)",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        },
+        {
+          "name": "Mem0 (with AgentOps)",
+          "section": "Memory observability & monitoring",
+          "tier": "T1"
+        },
+        {
+          "name": "Mem0 MCP (official)",
+          "section": "Claude Code memory mechanisms",
+          "tier": "T1"
+        },
+        {
+          "name": "MemMachine",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        },
+        {
+          "name": "Memary",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        },
+        {
+          "name": "Strands Agents Memory (AWS)",
+          "section": "Framework-embedded memory",
+          "tier": "T2"
+        },
+        {
+          "name": "SuperLocalMemory",
+          "section": "Dedicated memory layers",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "file+vector/extraction-pull+similarity/append-only/document+episode",
+      "sections": [
+        "Browser-agent memory",
+        "Personal AI / PKM / lifelogging memory",
+        "Voice-first / wearable AI memory",
+        "\u2014 Healthcare AI memory"
+      ],
+      "system_count": 6,
+      "systems": [
+        {
+          "name": "Abridge",
+          "section": "\u2014 Healthcare AI memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Limitless",
+          "section": "Voice-first / wearable AI memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Microsoft Recall",
+          "section": "Personal AI / PKM / lifelogging memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Otter.ai",
+          "section": "Voice-first / wearable AI memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Perplexity Comet",
+          "section": "Browser-agent memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Read.ai",
+          "section": "Voice-first / wearable AI memory",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "parametric/parametric-recall/parametric-edit/weight",
+      "sections": [
+        "Dedicated memory layers",
+        "Theoretical / informal \u2014 ideas without a paper",
+        "\u2014 Continual learning & catastrophic forgetting",
+        "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)"
+      ],
+      "system_count": 6,
+      "systems": [
+        {
+          "name": "EWC (Elastic Weight Consolidation)",
+          "section": "\u2014 Continual learning & catastrophic forgetting",
+          "tier": "T3"
+        },
+        {
+          "name": "M+ (MemoryLLM)",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T4"
+        },
+        {
+          "name": "MemGen",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T4"
+        },
+        {
+          "name": "MemoraX AI",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        },
+        {
+          "name": "RL-Based Continual Learning as Memory",
+          "section": "Theoretical / informal \u2014 ideas without a paper",
+          "tier": "T5"
+        },
+        {
+          "name": "SELF-PARAM",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/extraction/document",
+      "sections": [
+        "Personal AI / PKM / lifelogging memory",
+        "\u2014 Legal AI memory",
+        "\u2014 Scientific / research AI memory"
+      ],
+      "system_count": 5,
+      "systems": [
+        {
+          "name": "Hebbia Matrix",
+          "section": "\u2014 Legal AI memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Iris.ai",
+          "section": "\u2014 Scientific / research AI memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Mymind",
+          "section": "Personal AI / PKM / lifelogging memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Saner.ai",
+          "section": "Personal AI / PKM / lifelogging memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Spellbook Library",
+          "section": "\u2014 Legal AI memory",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal+similarity/extraction/episode",
+      "sections": [
+        "Research / specialised systems",
+        "\u2014 Cognitive-architecture-inspired memory",
+        "\u2014 Factual & long-term memory (token-level)"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "AriGraph",
+          "section": "\u2014 Cognitive-architecture-inspired memory",
+          "tier": "T3"
+        },
+        {
+          "name": "Arigraph",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "LiCoMemory",
+          "section": "Research / specialised systems",
+          "tier": "T4"
+        },
+        {
+          "name": "MAGMA",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph+vector/graph-traversal+similarity/extraction/document+fact",
+      "sections": [
+        "Coding-agent memory",
+        "Enterprise-search adjacencies",
+        "\u2014 Scientific / research AI memory"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "Augment Code",
+          "section": "Coding-agent memory",
+          "tier": "T1"
+        },
+        {
+          "name": "FutureHouse",
+          "section": "\u2014 Scientific / research AI memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Glean",
+          "section": "Enterprise-search adjacencies",
+          "tier": "T1"
+        },
+        {
+          "name": "Tabnine",
+          "section": "Coding-agent memory",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/extraction/fact",
+      "sections": [
+        "Platform-provider memory",
+        "\u2014 Education AI memory",
+        "\u2014 Factual & long-term memory (token-level)"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "ChatGPT Study Mode",
+          "section": "\u2014 Education AI memory",
+          "tier": "T3"
+        },
+        {
+          "name": "LightMem",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "MemGuide",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "Vertex AI Memory Bank",
+          "section": "Platform-provider memory",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "kv+vector/injection+similarity/extraction/episode+fact",
+      "sections": [
+        "Framework-embedded memory",
+        "\u2014 Customer support / voice agent memory",
+        "\u2014 Gaming / NPC character memory"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "Cresta",
+          "section": "\u2014 Customer support / voice agent memory",
+          "tier": "T2"
+        },
+        {
+          "name": "CrewAI Memory",
+          "section": "Framework-embedded memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Replika",
+          "section": "\u2014 Gaming / NPC character memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Soul Machines",
+          "section": "\u2014 Gaming / NPC character memory",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/consolidation/episode",
+      "sections": [
+        "Framework-embedded memory",
+        "\u2014 Continual learning & catastrophic forgetting",
+        "\u2014 Factual & long-term memory (token-level)",
+        "\u2014 Memory-augmented reinforcement learning"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "EMU (Efficient Episodic Memory Utilization)",
+          "section": "\u2014 Memory-augmented reinforcement learning",
+          "tier": "T3"
+        },
+        {
+          "name": "FOREVER",
+          "section": "\u2014 Continual learning & catastrophic forgetting",
+          "tier": "T4"
+        },
+        {
+          "name": "MemoryBank",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T3"
+        },
+        {
+          "name": "Pydantic-AI + Hindsight",
+          "section": "Framework-embedded memory",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "parametric/parametric-recall/parametric-edit/episode",
+      "sections": [
+        "\u2014 Continual learning & catastrophic forgetting",
+        "\u2014 Experiential & procedural memory (agent learning from experience)",
+        "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "Larimar",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T4"
+        },
+        {
+          "name": "RIKEN Tensor Decomposition Incremental Learning",
+          "section": "\u2014 Continual learning & catastrophic forgetting",
+          "tier": "T3"
+        },
+        {
+          "name": "Retroformer",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T4"
+        },
+        {
+          "name": "SERS",
+          "section": "\u2014 Continual learning & catastrophic forgetting",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "kv/injection/overwrite/fact",
+      "sections": [
+        "Browser-agent memory",
+        "Framework-embedded memory",
+        "\u2014 Customer support / voice agent memory"
+      ],
+      "system_count": 4,
+      "systems": [
+        {
+          "name": "Opera AI (formerly Aria)",
+          "section": "Browser-agent memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Replicant",
+          "section": "\u2014 Customer support / voice agent memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Vapi (voice agents)",
+          "section": "Framework-embedded memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Voiceflow Memory",
+          "section": "Framework-embedded memory",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/overwrite/document",
+      "sections": [
+        "Framework-embedded memory",
+        "Personal AI / PKM / lifelogging memory",
+        "\u2014 Legal AI memory"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "CoCounsel Legal (Thomson Reuters)",
+          "section": "\u2014 Legal AI memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Mem.ai",
+          "section": "Personal AI / PKM / lifelogging memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Stack AI",
+          "section": "Framework-embedded memory",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal/extraction/episode",
+      "sections": [
+        "\u2014 Cognitive-architecture-inspired memory",
+        "\u2014 Customer support / voice agent memory",
+        "\u2014 Factual & long-term memory (token-level)"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "Decagon",
+          "section": "\u2014 Customer support / voice agent memory",
+          "tier": "T1"
+        },
+        {
+          "name": "SGMem",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "SYNAPSE",
+          "section": "\u2014 Cognitive-architecture-inspired memory",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal/append-only/episode+fact",
+      "sections": [
+        "Claude Code memory mechanisms",
+        "Memory governance, privacy & safety",
+        "Memory observability & monitoring"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "Graphiti MCP Server (Zep)",
+          "section": "Claude Code memory mechanisms",
+          "tier": "T1"
+        },
+        {
+          "name": "Zep / Graphiti",
+          "section": "Memory observability & monitoring",
+          "tier": "T1"
+        },
+        {
+          "name": "Zep \u2014 governance posture",
+          "section": "Memory governance, privacy & safety",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal/extraction/episode+fact",
+      "sections": [
+        "Claude Code memory mechanisms",
+        "Dedicated memory layers",
+        "\u2014 Gaming / NPC character memory"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "Hindsight MCP",
+          "section": "Claude Code memory mechanisms",
+          "tier": "T2"
+        },
+        {
+          "name": "Nomi AI",
+          "section": "\u2014 Gaming / NPC character memory",
+          "tier": "T2"
+        },
+        {
+          "name": "Trace",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph+vector/graph-traversal+similarity/consolidation+extraction/episode+fact",
+      "sections": [
+        "Claude Code memory mechanisms",
+        "Dedicated memory layers",
+        "\u2014 Gaming / NPC character memory"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "Inworld AI",
+          "section": "\u2014 Gaming / NPC character memory",
+          "tier": "T1"
+        },
+        {
+          "name": "O-Mem",
+          "section": "Dedicated memory layers",
+          "tier": "T2"
+        },
+        {
+          "name": "mcp-memory-service (doobidoo)",
+          "section": "Claude Code memory mechanisms",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal/overwrite/fact",
+      "sections": [
+        "Knowledge-graph platforms",
+        "\u2014 Factual & long-term memory (token-level)",
+        "\u2014 Gaming / NPC character memory"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "Knowledge Graph Tuning",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "PoolParty (now Graphwise)",
+          "section": "Knowledge-graph platforms",
+          "tier": "T1"
+        },
+        {
+          "name": "Spirit AI Character Engine",
+          "section": "\u2014 Gaming / NPC character memory",
+          "tier": "T2"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/append-only/chunk",
+      "sections": [
+        "Research / specialised systems",
+        "\u2014 Experiential & procedural memory (agent learning from experience)",
+        "\u2014 Factual & long-term memory (token-level)"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "MemPalace",
+          "section": "Research / specialised systems",
+          "tier": "T2"
+        },
+        {
+          "name": "Memolet",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T3"
+        },
+        {
+          "name": "MoT (Memory-of-Thought)",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T3"
+        }
+      ]
+    },
+    {
+      "fingerprint": "kv/injection/append-only/episode",
+      "sections": [
+        "Framework-embedded memory",
+        "Platform-provider memory",
+        "\u2014 Experiential & procedural memory (agent learning from experience)"
+      ],
+      "system_count": 3,
+      "systems": [
+        {
+          "name": "Mistral Agents API",
+          "section": "Platform-provider memory",
+          "tier": "T1"
+        },
+        {
+          "name": "Reflexion",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T3"
+        },
+        {
+          "name": "smolagents Memory",
+          "section": "Framework-embedded memory",
+          "tier": "T2"
+        }
+      ]
+    }
+  ],
+  "section_diversity": [
+    {
+      "section": "Memory benchmarks & evaluation",
+      "system_count": 15,
+      "distinct_fingerprints": 2,
+      "diversity_ratio": 0.13333333333333333
+    },
+    {
+      "section": "File-backed / editor paradigms",
+      "system_count": 13,
+      "distinct_fingerprints": 2,
+      "diversity_ratio": 0.15384615384615385
+    },
+    {
+      "section": "\u2014 World-model & imagination memory",
+      "system_count": 9,
+      "distinct_fingerprints": 3,
+      "diversity_ratio": 0.3333333333333333
+    },
+    {
+      "section": "Theoretical / informal \u2014 ideas without a paper",
+      "system_count": 14,
+      "distinct_fingerprints": 5,
+      "diversity_ratio": 0.35714285714285715
+    },
+    {
+      "section": "Retrieval-as-memory hybrids",
+      "system_count": 32,
+      "distinct_fingerprints": 15,
+      "diversity_ratio": 0.46875
+    },
+    {
+      "section": "Knowledge-graph platforms",
+      "system_count": 17,
+      "distinct_fingerprints": 10,
+      "diversity_ratio": 0.5882352941176471
+    },
+    {
+      "section": "Voice-first / wearable AI memory",
+      "system_count": 10,
+      "distinct_fingerprints": 6,
+      "diversity_ratio": 0.6
+    },
+    {
+      "section": "Vector-database infrastructure",
+      "system_count": 15,
+      "distinct_fingerprints": 10,
+      "diversity_ratio": 0.6666666666666666
+    },
+    {
+      "section": "Coding-agent memory",
+      "system_count": 10,
+      "distinct_fingerprints": 7,
+      "diversity_ratio": 0.7
+    },
+    {
+      "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+      "system_count": 44,
+      "distinct_fingerprints": 31,
+      "diversity_ratio": 0.7045454545454546
+    },
+    {
+      "section": "Platform-provider memory",
+      "system_count": 14,
+      "distinct_fingerprints": 10,
+      "diversity_ratio": 0.7142857142857143
+    },
+    {
+      "section": "Memory observability & monitoring",
+      "system_count": 7,
+      "distinct_fingerprints": 5,
+      "diversity_ratio": 0.7142857142857143
+    },
+    {
+      "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+      "system_count": 39,
+      "distinct_fingerprints": 28,
+      "diversity_ratio": 0.717948717948718
+    },
+    {
+      "section": "Memory governance, privacy & safety",
+      "system_count": 8,
+      "distinct_fingerprints": 6,
+      "diversity_ratio": 0.75
+    },
+    {
+      "section": "\u2014 Education AI memory",
+      "system_count": 9,
+      "distinct_fingerprints": 7,
+      "diversity_ratio": 0.7777777777777778
+    },
+    {
+      "section": "Research / specialised systems",
+      "system_count": 10,
+      "distinct_fingerprints": 8,
+      "diversity_ratio": 0.8
+    },
+    {
+      "section": "\u2014 Continual learning & catastrophic forgetting",
+      "system_count": 5,
+      "distinct_fingerprints": 4,
+      "diversity_ratio": 0.8
+    },
+    {
+      "section": "Dedicated memory layers",
+      "system_count": 36,
+      "distinct_fingerprints": 29,
+      "diversity_ratio": 0.8055555555555556
+    },
+    {
+      "section": "Framework-embedded memory",
+      "system_count": 30,
+      "distinct_fingerprints": 25,
+      "diversity_ratio": 0.8333333333333334
+    },
+    {
+      "section": "\u2014 Factual & long-term memory (token-level)",
+      "system_count": 40,
+      "distinct_fingerprints": 34,
+      "diversity_ratio": 0.85
+    },
+    {
+      "section": "\u2014 Healthcare AI memory",
+      "system_count": 8,
+      "distinct_fingerprints": 7,
+      "diversity_ratio": 0.875
+    },
+    {
+      "section": "Enterprise-search adjacencies",
+      "system_count": 8,
+      "distinct_fingerprints": 7,
+      "diversity_ratio": 0.875
+    },
+    {
+      "section": "\u2014 Legal AI memory",
+      "system_count": 8,
+      "distinct_fingerprints": 7,
+      "diversity_ratio": 0.875
+    },
+    {
+      "section": "\u2014 Gaming / NPC character memory",
+      "system_count": 9,
+      "distinct_fingerprints": 8,
+      "diversity_ratio": 0.8888888888888888
+    },
+    {
+      "section": "Personal AI / PKM / lifelogging memory",
+      "system_count": 20,
+      "distinct_fingerprints": 18,
+      "diversity_ratio": 0.9
+    },
+    {
+      "section": "\u2014 Working memory & context management",
+      "system_count": 23,
+      "distinct_fingerprints": 21,
+      "diversity_ratio": 0.9130434782608695
+    },
+    {
+      "section": "Claude Code memory mechanisms",
+      "system_count": 18,
+      "distinct_fingerprints": 17,
+      "diversity_ratio": 0.9444444444444444
+    },
+    {
+      "section": "\u2014 Customer support / voice agent memory",
+      "system_count": 10,
+      "distinct_fingerprints": 10,
+      "diversity_ratio": 1.0
+    },
+    {
+      "section": "\u2014 Cognitive-architecture-inspired memory",
+      "system_count": 8,
+      "distinct_fingerprints": 8,
+      "diversity_ratio": 1.0
+    },
+    {
+      "section": "\u2014 Scientific / research AI memory",
+      "system_count": 8,
+      "distinct_fingerprints": 8,
+      "diversity_ratio": 1.0
+    },
+    {
+      "section": "Browser-agent memory",
+      "system_count": 8,
+      "distinct_fingerprints": 8,
+      "diversity_ratio": 1.0
+    },
+    {
+      "section": "\u2014 Memory-augmented reinforcement learning",
+      "system_count": 3,
+      "distinct_fingerprints": 3,
+      "diversity_ratio": 1.0
+    },
+    {
+      "section": "\u2014 Robotics / autonomous-driving / embodied memory",
+      "system_count": 12,
+      "distinct_fingerprints": 12,
+      "diversity_ratio": 1.0
+    }
+  ],
+  "axis_distributions": {
+    "storage": {
+      "vector": 204,
+      "graph": 93,
+      "kv": 62,
+      "file": 55,
+      "parametric": 49,
+      "relational": 48,
+      "null": 47,
+      "hybrid": 37,
+      "kv-cache": 33,
+      "column": 5,
+      "proprietary": 3
+    },
+    "retrieval": {
+      "similarity": 284,
+      "injection": 105,
+      "graph-traversal": 99,
+      "attention": 43,
+      "parametric-recall": 41,
+      "null": 39,
+      "hybrid-rerank": 37,
+      "agentic": 30,
+      "exact-match": 28,
+      "extraction-pull": 26,
+      "cache-lookup": 12
+    },
+    "persistence": {
+      "long-term": 248,
+      "cross-session": 82,
+      "session": 81,
+      "null": 55,
+      "parametric-permanent": 40,
+      "lifelong": 14
+    },
+    "update": {
+      "extraction": 138,
+      "overwrite": 122,
+      "append-only": 102,
+      "read-only": 80,
+      "consolidation": 51,
+      "parametric-edit": 36,
+      "agent-controlled": 26,
+      "null": 24,
+      "evict-oldest": 9,
+      "user-controllable": 1
+    },
+    "unit": {
+      "episode": 157,
+      "fact": 142,
+      "document": 115,
+      "chunk": 67,
+      "null": 41,
+      "kv-token": 36,
+      "summary": 28,
+      "skill": 26,
+      "profile": 16,
+      "weight": 12,
+      "trajectory": 12,
+      "file": 7,
+      "scene-graph": 7
+    },
+    "governance": {
+      "null": 237,
+      "inspectable": 103,
+      "user-controllable": 68,
+      "auditable": 56,
+      "opaque": 54,
+      "editable": 1,
+      "deterministic": 1
+    }
+  },
+  "governance_null_by_tier": {
+    "T3": {
+      "null": 89,
+      "total": 100,
+      "pct": 89.0
+    },
+    "T4": {
+      "null": 130,
+      "total": 133,
+      "pct": 97.7
+    },
+    "T1": {
+      "null": 3,
+      "total": 140,
+      "pct": 2.1
+    },
+    "T2": {
+      "null": 5,
+      "total": 134,
+      "pct": 3.7
+    },
+    "T5": {
+      "null": 10,
+      "total": 13,
+      "pct": 76.9
+    }
+  },
+  "domain_specific_patterns": [
+    {
+      "fingerprint": "graph+vector/graph-traversal+similarity/append-only+overwrite/fact",
+      "section": "Knowledge-graph platforms",
+      "systems": [
+        {
+          "name": "Amazon Neptune Analytics",
+          "section": "Knowledge-graph platforms",
+          "tier": "T1"
+        },
+        {
+          "name": "Dgraph",
+          "section": "Knowledge-graph platforms",
+          "tier": "T2"
+        },
+        {
+          "name": "FalkorDB",
+          "section": "Knowledge-graph platforms",
+          "tier": "T2"
+        },
+        {
+          "name": "Kuzu",
+          "section": "Knowledge-graph platforms",
+          "tier": "T2"
+        },
+        {
+          "name": "Memgraph",
+          "section": "Knowledge-graph platforms",
+          "tier": "T2"
+        },
+        {
+          "name": "Neo4j",
+          "section": "Knowledge-graph platforms",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "vector/similarity/extraction/skill",
+      "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+      "systems": [
+        {
+          "name": "CREATOR",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T3"
+        },
+        {
+          "name": "MPO",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T3"
+        },
+        {
+          "name": "PRINCIPLES",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T4"
+        },
+        {
+          "name": "SkillWeaver",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T4"
+        },
+        {
+          "name": "ToolMem",
+          "section": "\u2014 Experiential & procedural memory (agent learning from experience)",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "parametric/parametric-recall/parametric-edit/trajectory",
+      "section": "\u2014 World-model & imagination memory",
+      "systems": [
+        {
+          "name": "DIAMOND",
+          "section": "\u2014 World-model & imagination memory",
+          "tier": "T3"
+        },
+        {
+          "name": "Dreamer 4",
+          "section": "\u2014 World-model & imagination memory",
+          "tier": "T4"
+        },
+        {
+          "name": "DreamerV3",
+          "section": "\u2014 World-model & imagination memory",
+          "tier": "T3"
+        },
+        {
+          "name": "PWM (Policy Learning with Large World Models)",
+          "section": "\u2014 World-model & imagination memory",
+          "tier": "T4"
+        },
+        {
+          "name": "R2I",
+          "section": "\u2014 World-model & imagination memory",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "relational/exact-match/append-only/episode",
+      "section": "Memory observability & monitoring",
+      "systems": [
+        {
+          "name": "AgentOps",
+          "section": "Memory observability & monitoring",
+          "tier": "T2"
+        },
+        {
+          "name": "LangSmith",
+          "section": "Memory observability & monitoring",
+          "tier": "T1"
+        },
+        {
+          "name": "Langfuse",
+          "section": "Memory observability & monitoring",
+          "tier": "T1"
+        }
+      ]
+    },
+    {
+      "fingerprint": "parametric/parametric-recall/parametric-edit/fact",
+      "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+      "systems": [
+        {
+          "name": "AlphaEdit",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T3"
+        },
+        {
+          "name": "ELDER",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T3"
+        },
+        {
+          "name": "WISE",
+          "section": "\u2014 Parametric & latent memory (memory in weights / KV / hidden states)",
+          "tier": "T3"
+        }
+      ]
+    },
+    {
+      "fingerprint": "hybrid/hybrid-rerank+similarity/read-only/chunk",
+      "section": "Retrieval-as-memory hybrids",
+      "systems": [
+        {
+          "name": "AutoRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        },
+        {
+          "name": "Beyond RAG for Agent Memory",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        },
+        {
+          "name": "TC-RAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal+similarity/read-only/chunk",
+      "section": "Retrieval-as-memory hybrids",
+      "systems": [
+        {
+          "name": "HiRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        },
+        {
+          "name": "HippoRAG / HippoRAG2",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        },
+        {
+          "name": "LightRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        }
+      ]
+    },
+    {
+      "fingerprint": "graph/graph-traversal+hybrid-rerank/read-only/chunk",
+      "section": "Retrieval-as-memory hybrids",
+      "systems": [
+        {
+          "name": "KAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        },
+        {
+          "name": "LazyGraphRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T3"
+        },
+        {
+          "name": "PathRAG",
+          "section": "Retrieval-as-memory hybrids",
+          "tier": "T4"
+        }
+      ]
+    },
+    {
+      "fingerprint": "hybrid/similarity/consolidation/episode",
+      "section": "\u2014 Factual & long-term memory (token-level)",
+      "systems": [
+        {
+          "name": "MemVerse",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "Memoria (cognitive)",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        },
+        {
+          "name": "Nemori",
+          "section": "\u2014 Factual & long-term memory (token-level)",
+          "tier": "T4"
+        }
+      ]
+    }
+  ]
+}

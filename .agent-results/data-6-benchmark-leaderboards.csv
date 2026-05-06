@@ -1,0 +1,28 @@
+benchmark,system,score,score_metric,date_claimed,source_url,notes
+LongMemEval-S,GPT-4o (oracle offline),87-92%,accuracy,2024-10,https://arxiv.org/abs/2410.10813,Original paper; oracle = only relevant sessions given. Not a memory system score.
+LongMemEval-S,GPT-4o (full-context),60-64%,accuracy,2024-10,https://arxiv.org/abs/2410.10813,Original paper baseline. Full history provided.
+LongMemEval-S,Llama 3.1-8B,42-45%,accuracy,2024-10,https://arxiv.org/abs/2410.10813,Original paper baseline.
+LongMemEval-S,Phi-3-Medium,34-38%,accuracy,2024-10,https://arxiv.org/abs/2410.10813,Original paper baseline.
+LongMemEval-S,EmergenceMem Simple,82.4%,accuracy,2025-06,https://www.emergence.ai/blog/sota-on-longmemeval-with-rag,Publicly reproducible config.
+LongMemEval-S,EmergenceMem Internal,86.0%,accuracy,2025-06,https://www.emergence.ai/blog/sota-on-longmemeval-with-rag,Non-reproducible internal config. Claimed SOTA Jun 2025. Surpassed oracle GPT-4o.
+LongMemEval-S,EmergenceMem Simple Fast,79.0%,accuracy,2025-06,https://www.emergence.ai/blog/sota-on-longmemeval-with-rag,Public fast variant.
+LongMemEval-S,ByteRover,92.8%,accuracy,2025,https://www.byterover.dev/blog/benchmark_ai_agent_memory_real_production_byterover_top_market_accuracy_longmemeval,Vendor self-reported. Not independently verified.
+LongMemEval-S,Mastra Observational Memory,94.87%,accuracy,2026-02-09,https://mastra.ai/research/observational-memory,gpt-5-mini backbone. Open-source. Claimed highest score at announcement.
+LongMemEval-S,OMEGA,95.4% (466/500),accuracy,2026-02,https://omegamax.co/benchmarks,Local-first pip-installable system. Timing vs Mastra not fully resolved.
+LongMemEval-S,MemPalace,96.6%,recall_any@5,2026-04,https://www.mempalace.tech/benchmarks,DISPUTED: figure is retrieval recall not QA accuracy. Not comparable to other entries per Vectorize/Gamgee reviews.
+LoCoMo,GPT-4 (vanilla),F1 32.1,F1,2024-02,https://arxiv.org/abs/2402.17753,Original paper baseline. Human ceiling 87.9 F1.
+LoCoMo,GPT-4-turbo RAG augmented,F1 ~37-42,F1,2024-02,https://arxiv.org/abs/2402.17753,Best augmented baselines from original paper.
+LoCoMo,Zep,84% (disputed),accuracy/J-score,2024,https://blog.getzep.com/lies-damn-lies-statistics-is-mem0-really-sota-in-agent-memory/,DISPUTED: Mem0 claims correct score is 58.44% due to adversarial category inclusion error. Zep counter-claims 75.14% after correcting Mem0 misconfiguration.
+LoCoMo,Mem0 Graph,~65%,J-score,2025-04-28,https://arxiv.org/abs/2504.19413,Mem0 paper ECAI 2025. Claimed SOTA at time; disputed by Zep.
+LoCoMo,Letta (file-based),74.0%,accuracy,2025,https://www.letta.com/blog/benchmarking-ai-agent-memory,gpt-4o-mini backbone. Simple file storage approach.
+LoCoMo,Zep (Zep-corrected score),75.14%,J-score,2025,https://blog.getzep.com/lies-damn-lies-statistics-is-mem0-really-sota-in-agent-memory/,Zep's own corrected number after Mem0 dispute. Claimed ~10% above Mem0 Graph.
+LoCoMo,MemMachine v1,0.8487 overall,composite,2025-09,https://memmachine.ai/blog/2025/09/memmachine-reaches-new-heights-on-locomo/,Claimed to outperform Mem0/Zep/Memobase.
+LoCoMo,MemMachine v0.2,not specified precisely,composite,2025-12,https://memmachine.ai/blog/2025/12/memmachine-v0.2-delivers-top-scores-and-efficiency-on-locomo-benchmark/,Described as industry-leading.
+LoCoMo,MemMachine (gpt-4.1-mini),0.9169,composite,2026-03,https://arxiv.org/html/2604.04853,Among strongest published as of search date.
+LoCoMo,Mem0 (token-efficient),91.6,J-score,2026,https://mem0.ai/research,gpt-4.1-mini backbone. Mem0 research page.
+LoCoMo,ByteRover 2.0,92.2% (later 96.1%),accuracy,2025,https://www.byterover.dev/blog/benchmark-ai-agent-memory,Vendor self-reported. 96.1% in later revised claim.
+ConvoMem,Full-context (long-context approach),70-82%,accuracy,2025-11,https://arxiv.org/abs/2511.10523,Original paper result. No external leaderboard exists.
+ConvoMem,Mem0 (RAG),30-45% (preferences),accuracy,2025-11,https://arxiv.org/abs/2511.10523,Same paper. RAG significantly underperforms long-context for under-150-conversation histories.
+MemoryAgentBench,N/A,N/A,N/A,2025,https://github.com/HUST-AI-HYZ/MemoryAgentBench,ICLR 2026 paper. No competitive leaderboard found.
+MemBench,N/A,N/A,N/A,2025,https://arxiv.org/abs/2506.21605,ACL 2025 Findings. No competitive leaderboard found.
+MemoryBench,N/A,N/A,N/A,2025,https://arxiv.org/abs/2510.17281,Continual learning focus. No competitive leaderboard found.
