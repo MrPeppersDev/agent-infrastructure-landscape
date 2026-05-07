@@ -1,0 +1,81 @@
+use_case,rank,tier,system_name,system_tier,section,section_bonus,pref_score,soft_penalty,raw_score,confidence,final_score,anti_passed,hard_bucket,notes
+UC-01 Personal AI assistant,1,verified-pass,Letta / MemGPT,T1,Dedicated memory layers,5.0,19.00,0.0,24.000,0.871,20.903,True,verified-pass,
+UC-01 Personal AI assistant,2,verified-pass,Cognee,T1,Dedicated memory layers,5.0,19.00,0.0,24.000,0.839,20.129,True,verified-pass,
+UC-01 Personal AI assistant,3,verified-pass,Memobase,T2,Dedicated memory layers,5.0,19.00,0.0,24.000,0.823,19.742,True,verified-pass,
+UC-01 Personal AI assistant,4,verified-pass,Mistral Le Chat — Memories,T1,Platform-provider memory,5.0,19.00,1.0,23.000,0.855,19.661,True,verified-pass,R-soft penalty: api_surface undeclared
+UC-01 Personal AI assistant,5,verified-pass,OpenMemory,T2,Dedicated memory layers,5.0,19.00,0.0,24.000,0.806,19.355,True,verified-pass,
+UC-01 Personal AI assistant,6,verified-pass,MemMachine,T2,Dedicated memory layers,5.0,19.00,0.0,24.000,0.758,18.194,True,verified-pass,
+UC-01 Personal AI assistant,7,verified-pass,Mem0,T1,Dedicated memory layers,5.0,14.00,0.0,19.000,0.919,17.468,True,verified-pass,
+UC-01 Personal AI assistant,8,verified-pass,OpenAI Agents SDK Memory,T2,Framework-embedded memory,0.0,19.00,0.0,19.000,0.887,16.855,True,verified-pass,
+UC-01 Personal AI assistant,9,verified-pass,Personal.ai,T2,Personal AI / PKM / lifelogging memory,5.0,16.00,0.0,21.000,0.790,16.597,True,verified-pass,
+UC-01 Personal AI assistant,10,verified-pass,Memvid,T2,Dedicated memory layers,5.0,16.00,1.0,20.000,0.823,16.452,True,verified-pass,R-soft penalty: api_surface undeclared
+UC-02 PKM / lifelogger,1,verified-pass,Microsoft Recall,T1,Personal AI / PKM / lifelogging memory,5.0,11.00,0.0,16.000,0.823,13.161,True,verified-pass,
+UC-02 PKM / lifelogger,2,verified-pass,Logseq,T2,Personal AI / PKM / lifelogging memory,5.0,11.00,0.0,16.000,0.790,12.645,True,verified-pass,
+UC-02 PKM / lifelogger,3,verified-pass,Obsidian Smart Connections,T2,Personal AI / PKM / lifelogging memory,5.0,11.00,0.0,16.000,0.742,11.871,True,verified-pass,
+UC-02 PKM / lifelogger,4,verified-pass,Otter.ai,T1,Voice-first / wearable AI memory,5.0,8.00,0.0,13.000,0.855,11.113,True,verified-pass,
+UC-02 PKM / lifelogger,5,verified-pass,Limitless,T1,Voice-first / wearable AI memory,5.0,8.00,0.0,13.000,0.806,10.484,True,verified-pass,
+UC-02 PKM / lifelogger,6,verified-pass,Omi,T1,Voice-first / wearable AI memory,5.0,8.00,0.0,13.000,0.790,10.274,True,verified-pass,
+UC-02 PKM / lifelogger,7,verified-pass,Read.ai,T1,Voice-first / wearable AI memory,5.0,8.00,1.0,12.000,0.839,10.065,True,verified-pass,R-soft penalty: import_export undeclared
+UC-02 PKM / lifelogger,8,verified-pass,Plaud NotePin,T1,Voice-first / wearable AI memory,5.0,8.00,1.0,12.000,0.823,9.871,True,verified-pass,R-soft penalty: import_export undeclared
+UC-02 PKM / lifelogger,9,verified-pass,Bee,T1,Voice-first / wearable AI memory,5.0,8.00,1.0,12.000,0.823,9.871,True,verified-pass,R-soft penalty: import_export undeclared
+UC-02 PKM / lifelogger,10,verified-pass,Heptabase,T2,Personal AI / PKM / lifelogging memory,5.0,8.00,1.0,12.000,0.806,9.677,True,verified-pass,R-soft penalty: import_export undeclared
+UC-03 Coding agent (IDE),1,verified-pass,Langflow Memory,T1,Framework-embedded memory,5.0,13.00,1.0,17.000,0.903,15.355,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),2,verified-pass,Mastra Memory,T2,Framework-embedded memory,5.0,13.00,1.0,17.000,0.887,15.081,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),3,verified-pass,OpenAI Agents SDK Memory,T2,Framework-embedded memory,5.0,13.00,1.0,17.000,0.887,15.081,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),4,verified-pass,Letta / MemGPT,T1,Dedicated memory layers,5.0,13.00,1.0,17.000,0.871,14.806,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),5,verified-pass,Google ADK Memory,T2,Framework-embedded memory,5.0,13.00,1.0,17.000,0.855,14.532,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),6,verified-pass,Cognee,T1,Dedicated memory layers,5.0,13.00,1.0,17.000,0.839,14.258,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),7,verified-pass,Memvid,T2,Dedicated memory layers,5.0,13.00,1.0,17.000,0.823,13.984,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),8,verified-pass,Memobase,T2,Dedicated memory layers,5.0,13.00,1.0,17.000,0.823,13.984,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),9,verified-pass,Flowise Memory,T1,Framework-embedded memory,5.0,10.00,1.0,14.000,0.935,13.097,True,verified-pass,R-soft penalty: latency undeclared
+UC-03 Coding agent (IDE),10,verified-pass,MemMachine,T2,Dedicated memory layers,5.0,13.00,1.0,17.000,0.758,12.887,True,verified-pass,R-soft penalty: latency undeclared
+UC-04 Enterprise coding team,1,verified-pass,Zep & Graphiti,T1,Dedicated memory layers,5.0,16.80,1.0,20.800,0.887,18.452,True,verified-pass,R-soft penalty: deployment lacks self-host/VPC
+UC-04 Enterprise coding team,2,verified-pass,Galileo (galileo.ai),T1,Memory observability & monitoring,5.0,16.00,0.0,21.000,0.839,17.613,True,verified-pass,
+UC-04 Enterprise coding team,3,verified-pass,Mem0 (with AgentOps),T1,Memory observability & monitoring,5.0,16.00,0.0,21.000,0.839,17.613,True,verified-pass,
+UC-04 Enterprise coding team,4,verified-pass,Mem0 Security / OpenMemory,T1,"Memory governance, privacy & safety",5.0,13.00,0.0,18.000,0.839,15.097,True,verified-pass,
+UC-04 Enterprise coding team,5,verified-pass,Langfuse,T1,Memory observability & monitoring,5.0,11.00,0.0,16.000,0.839,13.419,True,verified-pass,
+UC-04 Enterprise coding team,6,verified-pass,Zep — governance posture,T1,"Memory governance, privacy & safety",5.0,10.00,0.0,15.000,0.855,12.823,True,verified-pass,
+UC-04 Enterprise coding team,7,verified-pass,LangSmith,T1,Memory observability & monitoring,5.0,11.00,1.0,15.000,0.823,12.339,True,verified-pass,R-soft penalty: deployment lacks self-host/VPC
+UC-04 Enterprise coding team,8,verified-pass,Stardog,T1,Knowledge-graph platforms,0.0,13.00,1.0,12.000,0.823,9.871,True,verified-pass,R-soft penalty: deployment lacks self-host/VPC
+UC-04 Enterprise coding team,9,verified-pass,Lakera Guard / Lakera Red,T1,"Memory governance, privacy & safety",5.0,8.00,0.0,13.000,0.758,9.855,True,verified-pass,
+UC-04 Enterprise coding team,10,verified-pass,Microsoft Copilot Memory,T1,Platform-provider memory,0.0,11.00,1.0,10.000,0.806,8.065,True,verified-pass,R-soft penalty: deployment lacks self-host/VPC
+UC-06 Contact-center,1,verified-pass,Otter.ai,T1,Voice-first / wearable AI memory,5.0,10.00,2.0,13.000,0.855,11.113,True,verified-pass,R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,2,verified-pass,Read.ai,T1,Voice-first / wearable AI memory,5.0,10.00,2.0,13.000,0.839,10.903,True,verified-pass,R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,3,verified-pass,Plaud NotePin,T1,Voice-first / wearable AI memory,5.0,10.00,2.0,13.000,0.823,10.694,True,verified-pass,R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,4,candidate,Vapi (voice agents),T2,Framework-embedded memory,5.0,13.00,2.0,16.000,0.839,13.419,True,candidate,candidate-reasons: multi_tenancy undeclared | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,5,candidate,Voiceflow Memory,T1,Framework-embedded memory,5.0,10.00,2.0,13.000,0.839,10.903,True,candidate,candidate-reasons: multi_tenancy undeclared | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,6,candidate,Limitless,T1,Voice-first / wearable AI memory,5.0,10.00,2.0,13.000,0.806,10.484,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}) | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,7,candidate,PolyAI,T2,— Customer support / voice agent memory,5.0,8.00,2.0,11.000,0.710,7.806,True,candidate,candidate-reasons: multi_tenancy undeclared | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,8,candidate,Omi,T1,Voice-first / wearable AI memory,5.0,5.00,2.0,8.000,0.790,6.323,True,candidate,candidate-reasons: multi_tenancy undeclared | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,9,candidate,Retell AI,T2,Framework-embedded memory,5.0,5.00,2.0,8.000,0.790,6.323,True,candidate,candidate-reasons: multi_tenancy undeclared | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-06 Contact-center,10,candidate,Cognigy,T1,— Customer support / voice agent memory,5.0,5.00,2.0,8.000,0.758,6.065,True,candidate,candidate-reasons: multi_tenancy undeclared | R-soft penalty: throughput undeclared | R-soft penalty: latency undeclared
+UC-08 Legal research,1,verified-pass,Zep — governance posture,T1,"Memory governance, privacy & safety",5.0,18.00,0.0,23.000,0.855,19.661,True,verified-pass,
+UC-08 Legal research,2,verified-pass,Zep & Graphiti,T1,Dedicated memory layers,5.0,13.00,1.0,17.000,0.887,15.081,True,verified-pass,R-soft penalty: deployment lacks VPC/self-host
+UC-08 Legal research,3,candidate,Zep / Graphiti,T1,Memory observability & monitoring,0.0,18.00,0.0,18.000,0.871,15.677,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}); data_handling unknown
+UC-08 Legal research,4,candidate,Graphiti MCP Server (Zep),T1,Claude Code memory mechanisms,0.0,13.00,0.0,13.000,0.806,10.484,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}); data_handling unknown
+UC-08 Legal research,5,candidate,Stardog,T1,Knowledge-graph platforms,0.0,13.00,1.0,12.000,0.823,9.871,True,candidate,candidate-reasons: conflict_res undeclared; data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-08 Legal research,6,candidate,SearchUnify,T1,Enterprise-search adjacencies,5.0,8.00,1.0,12.000,0.790,9.484,True,candidate,candidate-reasons: conflict_res undeclared | R-soft penalty: deployment lacks VPC/self-host
+UC-08 Legal research,7,candidate,Mindbreeze InSpire,T2,Enterprise-search adjacencies,5.0,8.00,1.0,12.000,0.758,9.097,True,candidate,candidate-reasons: conflict_res undeclared; data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-08 Legal research,8,candidate,Hebbia Matrix,T2,— Legal AI memory,5.0,8.00,1.0,12.000,0.726,8.710,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}); conflict_res undeclared; data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-08 Legal research,9,candidate,TopQuadrant (TopBraid EDG),T1,Knowledge-graph platforms,0.0,8.00,0.0,8.000,0.758,6.065,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}); conflict_res undeclared; data_handling unknown
+UC-08 Legal research,10,candidate,Suki AI,T1,— Healthcare AI memory,0.0,8.00,1.0,7.000,0.742,5.194,True,candidate,candidate-reasons: multi_tenancy undeclared; conflict_res undeclared; data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-09 Financial analyst,1,verified-pass,Zep — governance posture,T1,"Memory governance, privacy & safety",5.0,20.00,0.0,25.000,0.855,21.371,True,verified-pass,
+UC-09 Financial analyst,2,verified-pass,Zep & Graphiti,T1,Dedicated memory layers,5.0,15.00,1.0,19.000,0.887,16.855,True,verified-pass,R-soft penalty: deployment lacks VPC/self-host
+UC-09 Financial analyst,3,candidate,Galileo (galileo.ai),T1,Memory observability & monitoring,5.0,15.00,0.0,20.000,0.839,16.774,True,candidate,candidate-reasons: data_handling unknown
+UC-09 Financial analyst,4,candidate,Langfuse,T1,Memory observability & monitoring,5.0,15.00,0.0,20.000,0.839,16.774,True,candidate,candidate-reasons: data_handling unknown
+UC-09 Financial analyst,5,candidate,Graphiti MCP Server (Zep),T1,Claude Code memory mechanisms,0.0,20.00,0.0,20.000,0.806,16.129,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}); encryption undeclared; sso_rbac undeclared; data_handling unknown
+UC-09 Financial analyst,6,candidate,Mem0 (with AgentOps),T1,Memory observability & monitoring,5.0,10.00,0.0,15.000,0.839,12.581,True,candidate,candidate-reasons: versioning undeclared; data_handling unknown
+UC-09 Financial analyst,7,candidate,Mem0 Security / OpenMemory,T1,"Memory governance, privacy & safety",5.0,10.00,0.0,15.000,0.839,12.581,True,candidate,candidate-reasons: versioning undeclared; data_handling unknown
+UC-09 Financial analyst,8,candidate,LangSmith,T1,Memory observability & monitoring,5.0,10.00,1.0,14.000,0.823,11.516,True,candidate,candidate-reasons: data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-09 Financial analyst,9,candidate,AgentOps,T2,Memory observability & monitoring,5.0,10.00,1.0,14.000,0.806,11.290,True,candidate,candidate-reasons: compliance undeclared (need ⊇ {'SOC 2'}); data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-09 Financial analyst,10,candidate,Nabla + Navina,T1,— Healthcare AI memory,5.0,10.00,1.0,14.000,0.758,10.613,True,candidate,candidate-reasons: encryption undeclared; sso_rbac undeclared; data_handling unknown | R-soft penalty: deployment lacks VPC/self-host
+UC-11 Multi-agent coordination,1,verified-pass,Langflow Memory,T1,Framework-embedded memory,5.0,16.00,1.0,20.000,0.903,18.065,True,verified-pass,R-soft penalty: a2a_support undeclared
+UC-11 Multi-agent coordination,2,verified-pass,Letta / MemGPT,T1,Dedicated memory layers,5.0,16.00,1.0,20.000,0.871,17.419,True,verified-pass,R-soft penalty: a2a_support undeclared
+UC-11 Multi-agent coordination,3,verified-pass,LangGraph Persistence,T2,Framework-embedded memory,5.0,13.00,0.0,18.000,0.887,15.968,True,verified-pass,
+UC-11 Multi-agent coordination,4,verified-pass,Flowise Memory,T1,Framework-embedded memory,5.0,13.00,1.0,17.000,0.935,15.903,True,verified-pass,R-soft penalty: a2a_support undeclared
+UC-11 Multi-agent coordination,5,verified-pass,smolagents Memory,T2,Framework-embedded memory,5.0,13.00,1.0,17.000,0.887,15.081,True,verified-pass,R-soft penalty: a2a_support undeclared
+UC-11 Multi-agent coordination,6,verified-pass,Zep & Graphiti,T1,Dedicated memory layers,5.0,11.00,1.0,15.000,0.887,13.306,True,verified-pass,R-soft penalty: a2a_support undeclared
+UC-11 Multi-agent coordination,7,verified-pass,LangMem (LangChain),T2,Framework-embedded memory,5.0,10.00,0.0,15.000,0.871,13.065,True,verified-pass,
+UC-11 Multi-agent coordination,8,verified-pass,Mem0,T1,Dedicated memory layers,5.0,11.00,2.0,14.000,0.919,12.871,True,verified-pass,R-soft penalty: a2a_support undeclared | R-soft penalty: consistency=eventual without explicit reconciliation
+UC-11 Multi-agent coordination,9,verified-pass,Zep / Graphiti,T1,Memory observability & monitoring,5.0,11.00,2.0,14.000,0.871,12.194,True,verified-pass,R-soft penalty: a2a_support undeclared | R-soft penalty: consistency=eventual without explicit reconciliation
+UC-11 Multi-agent coordination,10,verified-pass,Cognee,T1,Dedicated memory layers,5.0,11.00,2.0,14.000,0.839,11.742,True,verified-pass,R-soft penalty: a2a_support undeclared | R-soft penalty: consistency=eventual without explicit reconciliation

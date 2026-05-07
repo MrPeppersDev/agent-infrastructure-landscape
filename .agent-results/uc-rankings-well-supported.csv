@@ -1,0 +1,41 @@
+use_case,rank,system_name,tier,section,total_score,anti_passed,hard_passed,weighted_score,tiebreaker_score,notes
+UC-01 Personal AI assistant,1,Letta / MemGPT,T1,Dedicated memory layers,17.060,True,True,19.000,24000,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,2,LlamaIndex Memory,T2,Framework-embedded memory,16.506,True,True,19.000,49700,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,3,AutoGen Memory,T2,Framework-embedded memory,16.506,True,True,19.000,1001,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,4,LangMem (LangChain),T2,Framework-embedded memory,16.229,True,True,19.000,2400,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,5,Memobase,T2,Dedicated memory layers,15.952,True,True,19.000,1001,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,6,OpenAI Agents SDK Memory,T2,Framework-embedded memory,15.952,True,True,19.000,2,
+UC-01 Personal AI assistant,7,Google ADK Memory,T2,Framework-embedded memory,15.675,True,True,19.000,1002,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,8,CrewAI Memory,T2,Framework-embedded memory,15.121,True,True,19.000,3501,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,9,MemMachine,T2,Dedicated memory layers,14.844,True,True,19.000,533,unknowns=1; data-handling unknown
+UC-01 Personal AI assistant,10,Mastra Memory,T2,Framework-embedded memory,14.367,True,True,16.000,21,unknowns=1; data-handling unknown
+UC-02 PKM / lifelogger,1,Microsoft Recall,T1,Personal AI / PKM / lifelogging memory,13.537,True,True,19.000,48,unknowns=1
+UC-02 PKM / lifelogger,2,Obsidian Smart Connections,T2,Personal AI / PKM / lifelogging memory,12.627,True,True,19.000,504,
+UC-02 PKM / lifelogger,3,Logseq,T2,Personal AI / PKM / lifelogging memory,12.141,True,True,17.500,10,
+UC-02 PKM / lifelogger,4,Letta / MemGPT,T1,Dedicated memory layers,11.673,True,True,13.000,24000,
+UC-02 PKM / lifelogger,5,Mistral Le Chat — Memories,T1,Platform-provider memory,11.281,True,True,16.000,2051,unknowns=1
+UC-02 PKM / lifelogger,6,Memvid,T2,Dedicated memory layers,11.137,True,True,14.500,1501,unknowns=1
+UC-02 PKM / lifelogger,7,Cognee,T1,Dedicated memory layers,11.104,True,True,13.000,1513,
+UC-02 PKM / lifelogger,8,OpenMemory,T2,Dedicated memory layers,10.915,True,True,13.000,169,unknowns=1
+UC-02 PKM / lifelogger,9,Neo4j,T1,Knowledge-graph platforms,10.535,True,True,13.000,3221,
+UC-02 PKM / lifelogger,10,Heptabase,T2,Personal AI / PKM / lifelogging memory,10.406,True,True,16.000,10,unknowns=2
+UC-03 Coding agent (IDE),1,Memvid,T2,Dedicated memory layers,17.325,True,True,21.000,1501,unknowns=1
+UC-03 Coding agent (IDE),2,smolagents Memory,T2,Framework-embedded memory,13.900,True,True,16.000,583484,unknowns=1
+UC-03 Coding agent (IDE),3,LangGraph Persistence,T2,Framework-embedded memory,13.900,True,True,16.000,5005,unknowns=1
+UC-03 Coding agent (IDE),4,AutoGen Memory,T2,Framework-embedded memory,13.900,True,True,16.000,1001,unknowns=1
+UC-03 Coding agent (IDE),5,Flowise Memory,T1,Framework-embedded memory,13.900,True,True,16.000,0,unknowns=1
+UC-03 Coding agent (IDE),6,LangMem (LangChain),T2,Framework-embedded memory,13.667,True,True,16.000,2400,unknowns=1
+UC-03 Coding agent (IDE),7,Langflow Memory,T1,Framework-embedded memory,13.667,True,True,16.000,0,unknowns=1
+UC-03 Coding agent (IDE),8,Agno (Phidata) Memory,T2,Framework-embedded memory,13.433,True,True,16.000,1791248,unknowns=1
+UC-03 Coding agent (IDE),9,Memobase,T2,Dedicated memory layers,13.433,True,True,16.000,1001,unknowns=1
+UC-03 Coding agent (IDE),10,OpenAI Agents SDK Memory,T2,Framework-embedded memory,13.433,True,True,16.000,2,unknowns=1
+UC-11 Multi-agent coordination,1,Browserbase,T1,Browser-agent memory,14.666,True,True,21.000,0,
+UC-11 Multi-agent coordination,2,Letta / MemGPT,T1,Dedicated memory layers,13.918,True,True,16.000,24000,unknowns=1
+UC-11 Multi-agent coordination,3,Mastra Memory,T2,Framework-embedded memory,11.673,True,True,13.000,21,unknowns=1
+UC-11 Multi-agent coordination,4,Mem0,T1,Dedicated memory layers,11.475,True,True,12.500,14573,
+UC-11 Multi-agent coordination,5,LangGraph Persistence,T2,Framework-embedded memory,11.294,True,True,13.000,5005,unknowns=1
+UC-11 Multi-agent coordination,6,LangMem (LangChain),T2,Framework-embedded memory,11.104,True,True,13.000,2400,unknowns=2
+UC-11 Multi-agent coordination,7,smolagents Memory,T2,Framework-embedded memory,10.859,True,True,13.000,583484,unknowns=1
+UC-11 Multi-agent coordination,8,Flowise Memory,T1,Framework-embedded memory,10.859,True,True,13.000,0,unknowns=1
+UC-11 Multi-agent coordination,9,Langflow Memory,T1,Framework-embedded memory,10.677,True,True,13.000,0,unknowns=1
+UC-11 Multi-agent coordination,10,Botpress LLMz,T1,Framework-embedded memory,9.401,True,True,13.000,101,unknowns=2
