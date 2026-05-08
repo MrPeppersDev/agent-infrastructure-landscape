@@ -1,0 +1,82 @@
+row_name,column_class,new_value,citation_url,status
+ACON,perf,"<span class=""signal-num"">54.5%</span> 8-objective QA peak-token reduction",https://arxiv.org/abs/2510.00615,deepened
+Agent KB,perf,"<span class=""signal-num"">+18.7pp</span> smolagents pass@3 (GAIA/HLE/GPQA)<br><span class=""signal-num"">+4.0pp</span> OpenHands SWE-bench",https://arxiv.org/abs/2507.06229,deepened
+Agent S,perf,"<span class=""signal-num"">20.58%</span> OSWorld success<br><span class=""signal-num"">+9.37pp</span> OSWorld vs GPT-4o",https://arxiv.org/abs/2410.08164,deepened
+Agent Workflow Memory,perf,"<span class=""signal-num"">+24.6%</span> Mind2Web<br><span class=""signal-num"">+51.1%</span> WebArena (relative)",https://arxiv.org/abs/2409.07429,deepened
+AgentEvolver,perf,no headline number — claims relative gain on AppWorld / BFCL-v3 vs Vanilla GRPO,https://arxiv.org/abs/2511.10395,no-empirical-benchmarks
+AgentFold,perf,"<span class=""signal-num"">36.2%</span> BrowseComp<br><span class=""signal-num"">47.3%</span> BrowseComp-ZH",https://arxiv.org/abs/2510.24699,deepened
+Agentic Memory,perf,"<span class=""signal-num"">54.31%</span> ALFWorld/SciWorld/PDDL/BabyAI/HotpotQA avg (Qwen3-4B)<br><span class=""signal-num"">+23.52pp</span> vs Mem0/A-Mem",https://arxiv.org/abs/2601.01885,deepened
+Agentic Plan Caching (APC),perf,"<span class=""signal-num"">50.31%</span> serving-cost reduction<br><span class=""signal-num"">96.61%</span> of optimal performance",https://arxiv.org/abs/2506.14852,deepened
+AI PERSONA,perf,"<span class=""signal-num"">8.29</span> PersonaBench helpfulness (k=3)<br><span class=""signal-num"">7.63</span> PersonaBench personalization",https://arxiv.org/abs/2412.13103,deepened
+AiT (Associative Transformer),perf,no headline number — beats Coordination on Sort-of-CLEVR with fewer params,https://arxiv.org/abs/2309.12862,no-empirical-benchmarks
+Alita,perf,"<span class=""signal-num"">75.15%</span> GAIA pass@1<br><span class=""signal-num"">87.27%</span> GAIA pass@3",https://arxiv.org/abs/2505.20286,deepened
+Alita-G,perf,"<span class=""signal-num"">83.03%</span> GAIA pass@1<br><span class=""signal-num"">89.09%</span> GAIA pass@3",https://arxiv.org/abs/2510.23601,deepened
+AlphaEdit,perf,"<span class=""signal-num"">32.85%</span> Counterfact Efficacy (LLaMA3)<br><span class=""signal-num"">30.60%</span> Generalization<br><span class=""signal-num"">+36.7%</span> avg over baselines",https://arxiv.org/abs/2410.02355,deepened
+Arigraph,perf,no headline number — outperforms RL/memory baselines on text games,https://arxiv.org/abs/2407.04363,no-empirical-benchmarks
+AriGraph,perf,no headline number — outperforms RL/memory baselines on text games,https://arxiv.org/abs/2407.04363,no-empirical-benchmarks
+ARMT (Associative RMT),perf,"<span class=""signal-num"">79.9%</span> BABILong @ 50M tokens (single-fact QA)",https://arxiv.org/abs/2407.04841,deepened
+ATLAS,perf,"<span class=""signal-num"">+80% acc</span> BABILong",https://arxiv.org/abs/2505.23735,unchanged-already-specific
+BrowserAgent,perf,"<span class=""signal-num"">0.484</span> multi-hop QA avg LLM-judge (vs Search-R1 0.348)",https://arxiv.org/abs/2510.10666,deepened
+Buffer of Thoughts,perf,"<span class=""signal-num"">+11%</span> Game of 24<br><span class=""signal-num"">+20%</span> Geometric Shapes<br><span class=""signal-num"">+51%</span> Checkmate-in-One",https://arxiv.org/abs/2406.04271,deepened
+CAM,perf,"<span class=""signal-num"">+3.0%</span> avg over RAPTOR/GraphRAG (NovelQA/QMSum/FABLES/MultiHop-RAG)",https://arxiv.org/abs/2510.05520,deepened
+CDMem,perf,"<span class=""signal-num"">85.8%</span> ALFWorld<br><span class=""signal-num"">56.0%</span> ScienceWorld",https://aclanthology.org/2025.naacl-industry.80/,unchanged-already-specific
+CL of LLMs Survey,perf,position paper / no quantitative eval (survey of continual learning of LLMs),https://dl.acm.org/doi/10.1145/3735633,no-empirical-benchmarks
+COLA,perf,"<span class=""signal-num"">31.89%</span> GAIA avg score",https://arxiv.org/abs/2503.09263,deepened
+ComoRAG,perf,"<span class=""signal-num"">+11%</span> vs strongest RAG baseline (long-context narrative)",https://arxiv.org/abs/2508.10419,deepened
+Compressive Transformer,perf,"<span class=""signal-num"">17.1</span> WikiText-103 perplexity<br><span class=""signal-num"">0.97 bpc</span> Enwik8",https://arxiv.org/abs/1911.05507,deepened
+CREATOR,perf,"<span class=""signal-num"">59.7%</span> MATH<br><span class=""signal-num"">94.7%</span> TabMWP<br><span class=""signal-num"">75.5%</span> Creation Challenge",https://arxiv.org/abs/2305.14318,deepened
+D-SMART,perf,"<span class=""signal-num"">+48%</span> DER (dialogue consistency, Qwen-8B)<br><span class=""signal-num"">+10.1%</span> GPT score (MT-Bench-101)",https://arxiv.org/abs/2510.13363,deepened
+Darwin Gödel Machine,perf,"<span class=""signal-num"">20.0%→50.0%</span> SWE-bench Verified<br><span class=""signal-num"">14.2%→30.7%</span> Polyglot",https://arxiv.org/abs/2505.22954,deepened
+DeepAgent,perf,"<span class=""signal-num"">89.0%</span> TMDB (DeepAgent-32B-RL)<br><span class=""signal-num"">75.4%</span> Spotify",https://arxiv.org/abs/2510.21618,deepened
+DIAMOND,perf,"<span class=""signal-num"">1.46</span> Atari-100k mean human-normalized",https://arxiv.org/abs/2405.12399,deepened
+Differentiable Search Index (DSI),perf,no headline number — beats dual-encoders / BM25 zero-shot on Natural Questions,https://arxiv.org/abs/2202.06991,no-empirical-benchmarks
+Dreamer 4,perf,no headline number — first agent to obtain Minecraft diamonds from offline data,https://arxiv.org/abs/2509.24527,no-empirical-benchmarks
+DreamerV3,perf,no headline number — collects Minecraft diamonds from scratch; SOTA across 150+ tasks,https://arxiv.org/abs/2301.04104,no-empirical-benchmarks
+Dual-Process Agent (DPA),perf,no headline number — MDPI source; benchmarks not extractable,https://www.mdpi.com/2079-9292/15/6/1232,no-empirical-benchmarks
+Dynamic Cheatsheet,perf,"<span class=""signal-num"">23.3%→50.0%</span> AIME-2024 (Claude 3.5 Sonnet)<br><span class=""signal-num"">10%→99%</span> Game of 24 (GPT-4o)",https://arxiv.org/abs/2504.07952,deepened
+ELDER,perf,"<span class=""signal-num"">96.08</span> ZsRE generalization (GPT2-XL)<br><span class=""signal-num"">+10%</span> over 8 sequential-edit baselines",https://arxiv.org/abs/2408.11869,deepened
+EM-LLM,perf,"<span class=""signal-num"">100%</span> Passkey.Retrieval up to 10.2M tokens<br><span class=""signal-num"">+40%</span> LongBench retrieval (best subgroup)",https://arxiv.org/abs/2407.09450,deepened
+EMAT,perf,"<span class=""signal-num"">44.3 EM</span> Natural Questions (T5-base, 25.8→44.3)",https://arxiv.org/abs/2210.16773,deepened
+EMU (Efficient Episodic Memory Utilization),perf,no headline number — accelerates convergence on SMAC super-hard maps vs EMC/QMIX/QPLEX/CDS,https://arxiv.org/abs/2403.01112,no-empirical-benchmarks
+Episodic Memory Is the Missing Piece,perf,position paper / no quantitative eval,https://arxiv.org/abs/2502.06975,no-empirical-benchmarks
+EWC (Elastic Weight Consolidation),perf,no headline number — sequential learning on permuted-MNIST and Atari without forgetting,https://arxiv.org/abs/1612.00796,no-empirical-benchmarks
+ExpeL,perf,"<span class=""signal-num"">59%</span> ALFWorld success (vs ReAct 40%)",https://arxiv.org/abs/2308.10144,deepened
+Fincon,perf,"<span class=""signal-num"">82.871%</span> TSLA cumulative return<br><span class=""signal-num"">1.972</span> Sharpe ratio",https://arxiv.org/abs/2407.06567,deepened
+FLEX,perf,"<span class=""signal-num"">40%→63.3%</span> AIME25 (Claude-Sonnet-4)<br><span class=""signal-num"">+14%</span> ProteinGym",https://arxiv.org/abs/2511.06449,deepened
+FOREVER,perf,"<span class=""signal-num"">72.9%</span> Standard CL Benchmark OP (Qwen3-0.6B)<br><span class=""signal-num"">-4.7%</span> Backward Transfer",https://arxiv.org/abs/2601.03938,deepened
+G-Memory,perf,"<span class=""signal-num"">+20.89%</span> embodied action success<br><span class=""signal-num"">+10.12%</span> knowledge-QA accuracy",https://arxiv.org/abs/2506.07398,deepened
+GAM (General Agentic Memory),perf,"<span class=""signal-num"">&gt;90%</span> RULER (Multi-Hop Tracing)",https://arxiv.org/abs/2511.18423,unchanged-already-specific
+Generative Agents,perf,no headline number — qualitative case study (25-agent Smallville sandbox),https://arxiv.org/abs/2304.03442,no-empirical-benchmarks
+Genie,perf,"<span class=""signal-num"">40.1</span> Platformers FVD<br><span class=""signal-num"">1.91</span> Δ_t PSNR action controllability",https://arxiv.org/abs/2402.15391,deepened
+H2O,perf,"<span class=""signal-num"">29x</span> OPT-6.7B/30B throughput (20% heavy hitters)<br><span class=""signal-num"">1.9x</span> latency reduction",https://arxiv.org/abs/2306.14048,deepened
+HAMI,perf,no headline number — Nature Sci. Reports preview not extractable,https://www.nature.com/articles/s41598-025-10586-x,no-empirical-benchmarks
+HeLa-Mem,perf,no headline number — outperforms baselines on LoCoMo with fewer context tokens,https://arxiv.org/abs/2604.16839,no-empirical-benchmarks
+Human-Like Remembering and Forgetting,perf,no headline number — ACM paywall blocked extraction,https://dl.acm.org/doi/10.1145/3765766.3765803,no-empirical-benchmarks
+H²R,perf,"<span class=""signal-num"">75.9%</span> AlfWorld<br><span class=""signal-num"">80.5%</span> PDDLGame",https://arxiv.org/abs/2509.12810,deepened
+I-JEPA,perf,no headline number — ViT-Huge/14 ImageNet pretraining in <72h on 16 A100s,https://arxiv.org/abs/2301.08243,no-empirical-benchmarks
+Inducing Programmatic Skills,perf,"<span class=""signal-num"">40.4%</span> WebArena success (vs vanilla 32.7%)<br><span class=""signal-num"">-15.3%</span> steps",https://arxiv.org/abs/2504.06821,deepened
+Infini-attention,perf,"<span class=""signal-num"">9.67 ppl</span> PG19 (114x compression)<br><span class=""signal-num"">1M-token</span> passkey retrieval after 5K fine-tune",https://arxiv.org/abs/2404.07143,deepened
+IterResearch,perf,"<span class=""signal-num"">+14.5pp</span> avg over six benchmarks<br><span class=""signal-num"">+19.2pp</span> vs ReAct (frontier models)",https://arxiv.org/abs/2511.07327,deepened
+JARVIS-1,perf,"<span class=""signal-num"">12.5%</span> ObtainDiamondPickaxe in 60min (5x SOTA)",https://arxiv.org/abs/2311.05997,deepened
+Knowledge Graph Tuning,perf,"<span class=""signal-num"">+39%–61%</span> efficacy on Llama3-8B over 6 baselines",https://arxiv.org/abs/2405.19686,deepened
+Larimar,perf,"<span class=""signal-num"">8-10x</span> speed-up vs ROME/MEMIT/MEND/IKE on sequential editing",https://arxiv.org/abs/2403.11901,deepened
+LearnAct,perf,"<span class=""signal-num"">19.3%→51.7%</span> LearnGUI-Offline (Gemini-1.5-Pro)<br><span class=""signal-num"">+14.7%</span> online (UI-TARS-7B-SFT)",https://arxiv.org/abs/2504.13805,deepened
+LEGOMem,perf,"<span class=""signal-num"">+12.61pp</span> OfficeBench LLM team<br><span class=""signal-num"">+13.38pp</span> SLM team",https://arxiv.org/abs/2510.04851,deepened
+LightMem,perf,"<span class=""signal-num"">+2.09–6.40%</span> LongMemEval-S/LoCoMo (GPT)<br><span class=""signal-num"">38x</span> token reduction",https://arxiv.org/abs/2510.18866,deepened
+LLM-ACTR / Cognitive LLMs,perf,no headline number — outperforms LLM-only CoT on Design for Manufacturing tasks,https://arxiv.org/abs/2408.09176,no-empirical-benchmarks
+LM2,perf,"<span class=""signal-num"">+86.3%</span> BABILong avg vs Llama-3.2<br><span class=""signal-num"">+5.0%</span> MMLU",https://arxiv.org/abs/2502.06049,deepened
+LongMem,perf,"<span class=""signal-num"">40.5%</span> ChapterBreak (vs GPT-3 28%, 313x fewer params)",https://arxiv.org/abs/2306.07174,deepened
+Lyfe Agents,perf,"<span class=""signal-num"">60%+</span> Murder Mystery suspect ID (9 agents, 15min)<br><span class=""signal-num"">10-100x</span> lower compute vs Park et al.",https://arxiv.org/abs/2310.02172,deepened
+M+ (MemoryLLM),perf,no headline number — extends knowledge retention from <20K to >160K tokens (LongBook-QA),https://arxiv.org/abs/2502.00592,no-empirical-benchmarks
+MAGMA,perf,"<span class=""signal-num"">0.700</span> LoCoMo overall (vs Full-Context 0.481)<br><span class=""signal-num"">+18.6–45.5%</span> relative gains",https://arxiv.org/abs/2601.03236,deepened
+MATTER,perf,"<span class=""signal-num"">56.0 EM</span> TriviaQA (100x throughput vs FiD)",https://arxiv.org/abs/2406.04670,deepened
+Mem-α,perf,"<span class=""signal-num"">0.642</span> MemoryAgentBench avg (vs RAG-Top2 0.567)",https://arxiv.org/abs/2509.25911,deepened
+MEM1,perf,"<span class=""signal-num"">3.5x</span> performance vs Qwen2.5-14B (16-objective multi-hop QA)<br><span class=""signal-num"">3.7x</span> memory reduction",https://arxiv.org/abs/2506.15841,deepened
+MemAgent,perf,"<span class=""signal-num"">95%+</span> RULER @ 512K<br><span class=""signal-num"">3.5M tokens</span> extrapolation from 8K training (<5% loss)",https://arxiv.org/abs/2507.02259,deepened
+MemBART,perf,no headline number — superior efficiency vs vanilla BART on 3 dialogue + 2 LM datasets,https://arxiv.org/abs/2209.07634,no-empirical-benchmarks
+Memento,perf,"<span class=""signal-num"">87.88%</span> GAIA validation pass@3<br><span class=""signal-num"">79.40%</span> GAIA test",https://arxiv.org/abs/2508.16153,deepened
+MemEvolve,perf,"<span class=""signal-num"">+17.06%</span> SmolAgent / Flash-Searcher gains (4 agentic benchmarks)",https://arxiv.org/abs/2512.18746,deepened
+Memformer,perf,"<span class=""signal-num"">8.1x</span> less memory<br><span class=""signal-num"">3.2x</span> faster inference vs Transformer",https://arxiv.org/abs/2010.06891,deepened
+Memformers (gradient memory),perf,no headline number — competitive with CGD/Nesterov AGM on synthetic linear regression,https://arxiv.org/abs/2410.07263,no-empirical-benchmarks
+MemGen,perf,"<span class=""signal-num"">+38.22%</span> vs ExpeL/AWM (8 benchmarks, max gain)",https://arxiv.org/abs/2509.24704,deepened
+MemGuide,perf,"<span class=""signal-num"">88%→99%</span> MS-TOD task success<br><span class=""signal-num"">-2.84 turns</span> dialogue length",https://arxiv.org/abs/2505.20231,deepened
