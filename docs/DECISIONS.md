@@ -876,6 +876,142 @@ deletable the moment GH Pages can serve from a non-root path.
 
 ---
 
+## 2026-05-07: Issue #9 — sentinel-based virtualisation, fixed-height rows
+
+**What.** The table view (`web/src/lib/components/Table.svelte`) renders 523
+records via a hand-rolled virtualisation: track `scrollTop` on the scroll
+container, compute `firstVisible = floor(scrollTop / ROW_HEIGHT) - OVERSCAN`
+and `lastVisible = ceil((scrollTop + viewportHeight) / ROW_HEIGHT) + OVERSCAN`,
+slice `records[firstVisible:lastVisible]`, and translate the `<tbody>` by
+`firstVisible * ROW_HEIGHT` pixels. A spacer `<div>` inside the scroll
+container provides the full `records.length * ROW_HEIGHT` virtual height so
+the scrollbar is correctly sized. `ROW_HEIGHT = 56`, `OVERSCAN = 8`.
+
+**Why.** Three options were on the table:
+
+1. *Render all 523 rows.* Easy; works at 67 columns × 523 rows = 35 k cells
+   on a fast laptop. Stutters on mid-tier hardware (per the Phase 2 perf
+   gate of 60 fps scrolling) once the cells include `{@html}` formatting.
+2. *Take a `svelte-virtual-list` dep.* Adds a runtime dep, locks us into
+   that lib's row-rendering API for issues #10-#12.
+3. *Sentinel-based virtualisation.* What we did. Plain Svelte, ~30 lines of
+   logic, fixed-height rows so the math is trivial. Renders ~23 rows at a
+   time (visible window + 16 overscan) regardless of dataset size.
+
+The fixed-height assumption is the trade. Cells with very long `desc` /
+`claims` text get truncated visually via `overflow: hidden` on the row.
+The full text is still in the DOM and accessible via title / hover (issue
+#13 will add a detail modal). Going variable-height would mean either
+two-pass measurement (slow) or `IntersectionObserver`-driven re-layout
+(complex), neither worth it for a table where the user's primary task is
+column-comparison sort, not deep prose reading.
+
+**Reversal cost.** Low. The virtualisation is contained to `Table.svelte`;
+swapping in `svelte-virtual-list` or going render-all is a 50-line change
+with no consumer impact.
+
+---
+
+## 2026-05-07: Issue #9 — `{@html cell.value}` is a deliberate trust boundary
+
+**What.** `TableCell.svelte` renders `real-data` cell values using
+`{@html cell.value}` — the markup is passed through verbatim, not escaped.
+We rely on the data pipeline (`extract.py` → `landscape.json`) to produce
+trusted markup only.
+
+**Why.** The schema (SCHEMA.md §3) describes cells as potentially
+containing HTML — `<span class="signal-num">`, `<br>`, `<span class="sub">`,
+`<span class="pill">` constructs in the `links` cell. Rendering those
+verbatim is what makes the rich landscape.html visual style reproducible
+in the SvelteKit app. Escaping would turn them into literal text.
+
+The trust chain:
+
+1. The producer is `extract.py`, run on a hand-curated `landscape.html`
+   that we (and only we) edit.
+2. The intermediate is `landscape.json`, regenerable byte-stably from
+   the HTML and validated by `scripts/validate.py` on every commit.
+3. The consumer is the SvelteKit build, which imports the JSON at build
+   time and ships it as a static asset.
+
+There is no path for untrusted user input to reach a cell value. If that
+ever changes (e.g. a future "submit a system" form), the cell value path
+must be re-evaluated — either re-escape, or split into `value` (text) and
+`valueHtml` (markup) per the long-deferred SCHEMA upgrade in
+"render.py — escape `<`, `>`, `&` in cell `value` strings" above.
+
+In today's `landscape.json` produced by `extract.py`, the cells are
+plain text (BeautifulSoup `get_text()` strips markup), so the
+`{@html}` is mostly defensive — the moment extract.py is upgraded to
+preserve markup, the table view will benefit without code changes.
+
+**Reversal cost.** Low. `{@html cell.value}` → `{cell.value}` is a
+one-line change in `TableCell.svelte`. Doing so loses the markup-richness
+benefit but keeps everything else intact.
+
+---
+
+## 2026-05-07: Issue #9 — column-band colour scheme: 13 groups at L≈22 % S≈18 %
+
+**What.** Column-group bands in the table header use a 13-colour palette
+chosen from a single base (HSL `(_, 18%, 22%)`) by varying hue around the
+wheel. All bands sit on the same dark base; only hue differentiates them.
+Adjacent groups in the table differ by ≤ 8 % saturation. Group identifiers:
+identity / taxonomy / substance / activity / adoption / commercial /
+operational / semantics / standards / section-deep / architecture /
+research / judgement.
+
+**Why.** The issue spec asked for "max ~8 % saturation difference between
+groups so the eye can find groups without being overwhelmed". Empirically
+the best way to hit that is to fix L and S and let H do the work. A
+candidate palette using one pastel per group (varying L and S) was tried
+first and washed out the table — too many colours competing for attention.
+
+The 13 groups roughly mirror the conceptual buckets in
+`landscape.html`'s column-key legend (Identity, Substance, Activity,
+Adoption, Commercial, Operational, Memory semantics, Standards,
+Section-deep, Architecture, Research, Judgement) plus an explicit
+"taxonomy" band for the seven axis columns that the legend treated as
+their own block.
+
+**Reversal cost.** Low. Group→colour mapping lives in `GROUP_META` in
+`web/src/lib/columns.ts`; one-file change to retune.
+
+---
+
+## 2026-05-07: Issue #9 — sort/search/filter stores split into three files
+
+**What.** Three separate stores under `web/src/lib/stores/`:
+
+- `sort.ts`: `sortColumns: Writable<SortEntry[]>` + `cycleSort()` helper.
+  Click rules implemented and tested in `Table.svelte`.
+- `search.ts`: `searchQuery: Writable<string>` + `applySearch()` no-op.
+  #10 fills in the matcher.
+- `filters.ts`: `filters: Writable<FilterState>` + `applyFilters()` no-op.
+  Type kept deliberately empty (`{}`); #11 fills in facet shape.
+
+The `+page.svelte` reactive expression composes them:
+
+```ts
+const visibleRecords = $derived(
+  sortRecords(applyFilters(applySearch(records, $searchQuery), $filters), $sortColumns)
+);
+```
+
+**Why.** Three downstream issues want to fill in different parts. Splitting
+the stores means #10 touches one file, #11 touches another, #12 just reads
+all three. If they shared a state object, #10 and #11 would have merge
+conflicts; this way the integration points are file-level isolated.
+
+The contract for each store is documented in its file header — what
+`applySearch` should do, what shape `FilterState` should grow into, where
+URL state plumbing should hook in (#12).
+
+**Reversal cost.** Low. Combining the three files into one is a 20-line
+mechanical edit; splitting was the cheaper bet for parallel implementation.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add

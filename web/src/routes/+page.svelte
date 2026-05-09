@@ -1,136 +1,84 @@
 <script lang="ts">
-  let { data } = $props();
+  import Table from '$lib/components/Table.svelte';
+  import { sortColumns } from '$lib/stores/sort';
+  import { searchQuery, applySearch } from '$lib/stores/search';
+  import { filters, applyFilters } from '$lib/stores/filters';
+  import { sortRecords } from '$lib/sortRecords';
+  import type { LandscapeRecord } from '$lib/types';
+
+  let { data }: { data: { records: LandscapeRecord[]; recordCount: number; edgeCount: number } } =
+    $props();
+
+  // Reactive pipeline: search → filters → sort.
+  // search() and filters() are no-ops until #10 / #11 wire them up.
+  const visibleRecords = $derived(
+    sortRecords(applyFilters(applySearch(data.records, $searchQuery), $filters), $sortColumns)
+  );
 </script>
 
 <svelte:head>
-  <title>Memory Systems Landscape</title>
+  <title>Memory Systems Landscape — Table</title>
 </svelte:head>
 
-<header>
-  <h1>Memory Systems Landscape</h1>
-  <p class="subtitle">
-    A navigable catalog of AI memory systems, frameworks, papers, products,
-    and theoretical proposals — built as the foundation for downstream
-    comparative and trend analysis.
-  </p>
-</header>
+<div class="app">
+  <header class="toolbar">
+    <div class="title-block">
+      <h1>Memory Systems Landscape</h1>
+      <p class="subtitle">
+        {data.recordCount.toLocaleString()} systems · {data.edgeCount.toLocaleString()} edges
+        · {visibleRecords.length.toLocaleString()} visible
+        {#if $sortColumns.length}
+          · sorted by {$sortColumns
+            .map((s) => `${s.column} ${s.direction === 'asc' ? '↑' : '↓'}`)
+            .join(', ')}
+        {/if}
+      </p>
+    </div>
+    <div class="hint">
+      Click a column header to sort · shift-click to add a secondary sort
+    </div>
+  </header>
 
-<section class="stats" aria-label="Catalog statistics">
-  <div class="stat">
-    <span class="num">{data.recordCount.toLocaleString()}</span>
-    <span class="label">systems catalogued</span>
-  </div>
-  <div class="stat">
-    <span class="num">{data.edgeCount.toLocaleString()}</span>
-    <span class="label">edges between systems</span>
-  </div>
-</section>
-
-<section class="teaser">
-  <h2>Under construction</h2>
-  <p>
-    Table view, filters, knowledge graph — the navigability layer is being
-    built phase by phase. This page is a proof-of-life that the data wiring
-    works; the table arrives in <a
-      href="https://github.com/MrPeppersDev/memory-analysis-program/issues/9"
-      >issue #9</a
-    >.
-  </p>
-  <ul>
-    <li>Phase 2 — virtualised table, search, filters, multi-sort</li>
-    <li>Phase 3 — created-date timeline, top-N leaderboards</li>
-    <li>Phase 4 — Cytoscape force-directed knowledge graph</li>
-    <li>Phase 5 — detail/compare modals, CSV export, GitHub Pages deploy</li>
-  </ul>
-</section>
-
-<footer>
-  <p>
-    <a href="https://github.com/MrPeppersDev/memory-analysis-program">
-      Source on GitHub
-    </a>
-    ·
-    <a
-      href="https://github.com/MrPeppersDev/memory-analysis-program/blob/main/docs/SCHEMA.md"
-    >
-      Schema
-    </a>
-    ·
-    <a
-      href="https://github.com/MrPeppersDev/memory-analysis-program/blob/main/docs/BUILD-PLAN.md"
-    >
-      Build plan
-    </a>
-  </p>
-</footer>
+  <main class="table-shell">
+    <Table records={visibleRecords} />
+  </main>
+</div>
 
 <style>
-  header {
-    margin-bottom: var(--space-5);
-  }
-
-  h1 {
-    font-size: 2.25rem;
-    letter-spacing: -0.02em;
-  }
-
-  .subtitle {
-    color: var(--c-muted);
-    font-size: 1.05rem;
-    max-width: 60ch;
-  }
-
-  .stats {
+  /* Override the layout's narrow .page padding for the table view so
+     the table fills the viewport. The layout still wraps everything in
+     a centered .page div but we expand inside it. */
+  .app {
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
     flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
   }
-
-  .stat {
-    flex: 1 1 220px;
-    padding: var(--space-3) var(--space-4);
-    background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius);
+  h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    letter-spacing: -0.01em;
   }
-
-  .stat .num {
-    display: block;
-    font-size: 2.25rem;
-    font-weight: 600;
+  .subtitle {
+    color: #8b949e;
+    font-size: 0.85rem;
+    margin: 4px 0 0 0;
     font-variant-numeric: tabular-nums;
-    line-height: 1.1;
   }
-
-  .stat .label {
-    display: block;
-    color: var(--c-muted);
-    margin-top: var(--space-1);
+  .hint {
+    color: #6e7681;
+    font-size: 0.8rem;
+    font-style: italic;
   }
-
-  .teaser h2 {
-    font-size: 1.15rem;
-    color: var(--c-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-  }
-
-  .teaser ul {
-    padding-left: var(--space-3);
-    color: var(--c-muted);
-  }
-
-  .teaser li {
-    margin: var(--space-1) 0;
-  }
-
-  footer {
-    margin-top: var(--space-6);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--c-border);
-    color: var(--c-muted);
-    font-size: 0.9rem;
+  .table-shell {
+    flex: 1;
+    min-height: 0;
   }
 </style>
