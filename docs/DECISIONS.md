@@ -244,6 +244,115 @@ would force adding a sidecar file or moving to an object later anyway.
 
 ---
 
+## 2026-05-07: extract.py — silently drop non-URL citation hrefs
+
+**What.** When `<a class="cite" href="X">` has an `href` that is not an
+`http(s)://` URL — e.g. `href="N/A"`, `href="taxonomy/tags.json"`,
+`href="inferred from primary tags ..."`, `href="searched 2026-05-06 — ..."`,
+`href="no funding — academic research"` — the extractor sets the cell's
+`citation` to `null` rather than passing the placeholder through.
+
+**Why.** SCHEMA.md §7.1.11 requires `citation` to be either `null` or an
+`http(s)://` URL — the validator rejects anything else, and consumers that
+treat `citation` as a click target would break on these strings. The
+placeholders are bookkeeping the researchers used to record provenance
+inline; they aren't real URLs. We carry the same information through the
+cell's `value` (most of the time) and via `status` (e.g. `not-applicable`,
+`depth-floor-reached`), so dropping the bogus `citation` doesn't lose
+signal that downstream needs.
+
+**Reversal cost.** Low. The extraction can be rerun at any time; if a
+future consumer wants the placeholders, add a `citationNotes` field and
+re-emit.
+
+---
+
+## 2026-05-07: extract.py — `type` is the first cell, not a separate top-level field
+
+**What.** The HTML row layout is `name | type | tax-storage | tax-retrieval
+| tax-persistence | tax-update | tax-unit | tax-governance | tax-conflict
+| desc | claims | …`. The extractor stores `type` (Memory model) inside
+the `cells` object as the first key, even though it visually sits between
+`name` and the taxonomy axes in the HTML.
+
+**Why.** SCHEMA.md §2.5 lists `type` as cell #1 of the 60 cell columns.
+Keeping it inside `cells` (and using the same `{value, citation, status}`
+shape as every other cell) means consumers don't need to special-case a
+67th top-level field; iterating `record.cells` covers every non-taxonomy,
+non-name column uniformly.
+
+**Reversal cost.** Low. Promoting `type` to a top-level field would
+require updating the schema, the extractor, and every consumer — but
+nothing else is keyed on the choice, so the migration is mechanical.
+
+---
+
+## 2026-05-07: extract.py — taxonomy axis values from free-text fall back to first-token
+
+**What.** Most tax-* cells use `<span class="tax-pill tax-<value>">` pills
+(easy to extract). Some — older NVIDIA-style rows, plus the tax-conflict
+column which is mostly free-text descriptions — have bare text instead
+(e.g. `<td class="tax-storage">kv ↗</td>` or `<td class="tax-conflict">
+LLM-arbitrate via fact-extraction prompt: extracts facts, …</td>`). For
+these the extractor takes the first `[a-z0-9-]+` token of the cell text
+as the canonical `value` and stores the full text in `reason` if the two
+differ.
+
+**Why.** The schema requires every taxonomy axis to be a non-empty array
+with exactly one primary value. Pulling the first token preserves the
+single-value invariant for downstream consumers, and stashing the full
+text in `reason` keeps the human-written nuance available for the table
+view. The reconciliation pass (#3) and any future taxonomy-vocabulary
+audit can clean up tokens that aren't in the controlled vocabulary list.
+
+**Reversal cost.** Low. Re-running the extractor after vocabularly
+fixes is mechanical.
+
+---
+
+## 2026-05-07: extract.py — `<span class="no-data">` content drives status detection
+
+**What.** The four `status` values (`real-data`, `not-applicable`,
+`depth-floor-reached`, `no-data`) are detected by inspecting the *text
+content* of any `<span class="no-data">` inside a cell. A cell with no
+such span is `real-data`; a span containing "not applicable" or starting
+with "n/a" is `not-applicable`; a span containing "searched not found",
+"depth-floor reached", "not specified", "position paper", or any of a few
+other documented good-faith-search annotations is `depth-floor-reached`;
+an empty span or one containing only "no data" is `no-data`. Anything
+else inside a `no-data` span defaults to `depth-floor-reached`.
+
+**Why.** SCHEMA.md §3 documents the detection rules at a high level but
+deliberately stops short of enumerating every researcher-written
+annotation phrase. The HTML accumulated several stylistic variants over
+the five rounds of fill ("no public funding", "parent is public",
+"position paper / no quantitative eval", …); detecting them robustly via
+substring matching avoids re-fighting the formatting once the JSON is
+the source of truth.
+
+**Reversal cost.** Low. New phrasings can be added to the substring
+table; the test is that the per-status counts (printed at the end of
+`extract.py`) move in the expected direction.
+
+---
+
+## 2026-05-07: extract.py — fixed `generatedAt` for byte-stable round-trips
+
+**What.** `extract.py` writes `generatedAt: "2026-05-07T00:00:00Z"` by
+default (overridable via `EXTRACT_GENERATED_AT` env var). It does *not*
+use `datetime.utcnow()`.
+
+**Why.** Issue #2's acceptance gate is "running extract twice produces
+byte-identical JSON". A clock-driven timestamp would defeat that gate
+and pollute every git commit with a timestamp diff even when the data
+is unchanged. The extractor is meant to run on demand; a CI/release
+script can override the env var when a real timestamp matters.
+
+**Reversal cost.** Low. Set the env var, or change the default constant
+on a release commit.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add
