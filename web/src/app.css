@@ -1,0 +1,65 @@
+/* Hand-written global CSS. No framework. */
+
+:root {
+  --c-bg: #0e1116;
+  --c-surface: #161b22;
+  --c-border: #30363d;
+  --c-text: #e6edf3;
+  --c-muted: #8b949e;
+  --c-accent: #58a6ff;
+  --c-accent-bg: rgba(88, 166, 255, 0.12);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  --radius: 6px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--space-3) 0;
+  line-height: 1.25;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 1px 5px;
+  background: var(--c-accent-bg);
+  border-radius: 3px;
+}

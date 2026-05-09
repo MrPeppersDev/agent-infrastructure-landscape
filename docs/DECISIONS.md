@@ -811,6 +811,71 @@ None of those touch the schema or downstream consumers.
 
 ---
 
+## 2026-05-07: Issue #8 — SvelteKit bootstrap, TypeScript, build-time JSON import, server load
+
+**What.** The Phase 2 SvelteKit project at `web/` uses TypeScript (not plain
+JS), imports `landscape.json` and `landscape.edges.json` at build time via
+relative-path JSON imports (not runtime `fetch`), and uses a server-only
+`+page.server.ts` load function so the landing page's *client* bundle does
+not contain the 4.3 MB compiled JSON. The `web/` directory layout follows
+the suggested structure exactly: `landscape.json` and `landscape.edges.json`
+stay at the root of `web/`; SvelteKit source lives under `web/src/`.
+
+**Why — TypeScript.** The schema in `docs/SCHEMA.md` is non-trivial (60 cell
+column slugs, 9 edge types, 4 status values, 3 levels of nested arrays in
+the taxonomy / sections / cells shape). Surfacing those as TypeScript types
+in `src/lib/types.ts` is a load-bearing artefact for issues #9-#12 — every
+downstream agent gets compile-time-checked access to the schema instead of
+hand-rolling object-shape assumptions. Plain JS would defer that cost to
+runtime.
+
+**Why — build-time JSON import over `fetch`.** Three reasons. (1) The data
+is content-addressed: the same JSON ships to all clients, so there's no
+reason to pay an extra network round-trip on every page load. (2) The
+build pipeline (Vite) tree-shakes unused properties from JSON imports
+into `+page.server.ts`, so the landing page's client bundle ends up at
+~75 KB instead of 4.3 MB. (3) Vite's import path is statically analysable
+— if `landscape.json` is missing or malformed at build time the build
+fails loudly, instead of a 404 at runtime in production.
+
+**Why — `+page.server.ts` not `+page.ts`.** A universal `+page.ts` runs
+the loader on both server (prerender) and client (hydration), pulling
+the full JSON import into the client bundle even when only counts are
+referenced. Switching to `+page.server.ts` restricts the import to the
+prerender step; the resulting `index.html` contains the prerendered
+counts, and the `__data.json` sidecar contains only `{recordCount: 523,
+edgeCount: 247}`. Issue #9 (table view) will need the full records[]
+array on the client and will use a universal loader there.
+
+**Why — `web/build/` staging dir + `sync-to-docs.mjs` postbuild.** The
+project's `docs/` directory predates the GitHub Pages build target — it's
+where `BUILD-PLAN.md`, `DECISIONS.md`, and `SCHEMA.md` live. SvelteKit's
+adapter-static wipes its output directory before writing, which would
+delete the markdown on every build. Two alternatives: (a) move the
+markdown elsewhere (breaks every `docs/*.md` reference in the repo), or
+(b) build into a staging dir and copy into `docs/` without clobbering
+markdown. We took (b). The staging dir is `web/build/` (gitignored); the
+postbuild script `web/scripts/sync-to-docs.mjs` removes only the known
+build artefact paths (`_app/`, `index.html`, `__data.json`) from `docs/`
+before copying. This is the deviation from the issue spec's "build
+output to `docs/`" — semantically identical end state, just plumbed via
+a staging copy.
+
+**Layout deviation from the suggested structure.** None substantive.
+`vite.config.ts` instead of `vite.config.js` because we use TypeScript;
+`+layout.ts` (not `.svelte`-only) because we needed somewhere to set
+`prerender = true`, `ssr = true`, `csr = true`; `static/.nojekyll`
+added so Pages doesn't ignore the `_app/` directory once issue #20
+turns on the deploy.
+
+**Reversal cost.** Low. TypeScript → JS is mechanical (rename `.ts` to
+`.js`, drop type annotations). Build-time → fetch is a single-file
+edit in `src/lib/data.ts`. Move docs/ markdown elsewhere is a one-time
+mechanical move. The staging-dir trick is one ~50-line script —
+deletable the moment GH Pages can serve from a non-root path.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add

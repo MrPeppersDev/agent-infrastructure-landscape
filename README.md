@@ -75,6 +75,25 @@ The catalog is comprehensive enough for use as a reference. Honest confidence on
 landscape coverage: ~88-92% as of 2026-05-06. The known gaps and the plan to close
 them are in `PLAN.md`.
 
+## Web app
+
+A SvelteKit static-export landing page lives in `web/` (Phase 2). Today it's
+proof-of-life — the row and edge counts are wired to `web/landscape.json` and
+`web/landscape.edges.json` at build time. Phase 2 issues #9-#12 will fill in
+the table view, search, filters, and URL state.
+
+```
+cd web
+npm install
+npm run dev      # local dev server at http://localhost:5173/
+npm run build    # static export → ../docs/ (committed for GitHub Pages)
+```
+
+The build output is checked in under `docs/` (alongside the project markdown
+in the same directory). Issue #20 wires up the actual GitHub Pages deploy in
+Phase 5; until then `docs/index.html` can be opened directly from a fresh
+checkout to verify a build.
+
 ## Editing the catalog
 
 Phase 1 (issues #1–#7) shipped a structured mirror of the catalog in
