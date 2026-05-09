@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# pre-commit — run `make validate` before allowing a commit.
+#
+# Issue #7. Install via `make install-hooks` (which is `cp scripts/git-hooks/pre-commit
+# .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit`).
+#
+# Skip the hook for a single commit with `git commit --no-verify`. Don't make
+# that the default — the gates exist to catch out-of-sync data before it
+# lands on main.
+
+set -euo pipefail
+
+# Only run if there are staged changes touching files the validator cares
+# about. Editing CLAUDE.md or PLAN.md shouldn't trigger a 25-second pipeline run.
+RELEVANT_PATHS_RE='^(scripts/|web/landscape\.json|web/landscape\.edges\.json|landscape\.html|extraction/s2-cache/|docs/SCHEMA\.md)'
+if ! git diff --cached --name-only | grep -qE "$RELEVANT_PATHS_RE"; then
+    echo "pre-commit: no data/pipeline files in this commit, skipping make validate."
+    exit 0
+fi
+
+echo "pre-commit: running make validate..."
+if ! make validate; then
+    echo
+    echo "pre-commit: validation failed. Fix the issues above, or commit with"
+    echo "            git commit --no-verify if you know what you're doing."
+    exit 1
+fi

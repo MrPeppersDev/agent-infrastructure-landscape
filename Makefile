@@ -1,0 +1,73 @@
+# Memory Analysis Program — build & validation targets.
+#
+# Phase 1 deliverable (issue #7). The data pipeline is:
+#
+#   extract.py  →  reconcile.py  →  build_edges.py  →  fetch_citations.py  →  render.py
+#                                                                              (Phase 2+)
+#
+# `make build` runs the cheap, deterministic, network-free steps.
+# `make refresh-citations` runs the slow, network-dependent S2 fetch.
+# `make validate` runs the four cheap correctness gates from scripts/validate.py.
+
+PYTHON ?= python3
+ROOT   := $(CURDIR)
+
+.PHONY: all build validate refresh-citations render install-hooks help
+
+help:
+	@echo "Targets:"
+	@echo "  make build              — extract → reconcile → build_edges → fetch_citations --offline"
+	@echo "  make validate           — schema + determinism + round-trip + cache gates (~25s)"
+	@echo "  make all                — build then validate"
+	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
+	@echo "  make render             — re-render landscape.html from web/landscape.json"
+	@echo "  make install-hooks      — install scripts/git-hooks/pre-commit into .git/hooks/"
+	@echo
+	@echo "Edit workflow (Path B — see docs/DECISIONS.md): edit landscape.html by hand"
+	@echo "as the source of authority for now; treat web/landscape.json as the queryable"
+	@echo "mirror. Run \`make build\` to refresh the JSON mirror after HTML edits, then"
+	@echo "\`make validate\` before committing. Path A (JSON-as-source) activates when"
+	@echo "extract.py loses less markup."
+
+# `build` re-runs the full pipeline against the committed S2 cache.
+#
+# fetch_citations.py runs in --offline mode here: it reads from the committed
+# extraction/s2-cache/ instead of hitting the Semantic Scholar API, so the
+# cited-edges output is reproducible in seconds, not the ~15 minutes a cold
+# fetch would take. When fresh S2 data IS wanted, run `make refresh-citations`
+# explicitly — that one DOES hit the network.
+build:
+	$(PYTHON) scripts/extract.py        --output web/landscape.json
+	$(PYTHON) scripts/reconcile.py      --input  web/landscape.json --output web/landscape.json
+	$(PYTHON) scripts/build_edges.py
+	$(PYTHON) scripts/fetch_citations.py --offline
+	@echo
+	@echo "build: ran fetch_citations.py --offline (cache-only). For fresh S2"
+	@echo "       data, run \`make refresh-citations\` (slow, network-dependent)."
+	@echo
+
+# Cheap round-trip validation gates. <30s.
+validate:
+	$(PYTHON) scripts/validate.py
+
+# Convenience.
+all: build validate
+
+# Slow / network-dependent. NOT run as part of `build` or CI.
+refresh-citations:
+	@echo "Refreshing Semantic Scholar citation data — this can take ~15 minutes."
+	@echo "Cached responses live in extraction/s2-cache/ and are committed to git."
+	$(PYTHON) scripts/fetch_citations.py
+
+# Re-render only — useful when iterating on render.py output without rebuilding
+# the JSON. Writes to landscape.html (which is the existing template; render.py
+# slices its head/tail so this is safe to repeat).
+render:
+	$(PYTHON) scripts/render.py --input web/landscape.json --output landscape.html
+
+# Install the pre-commit hook that runs `make validate` before each commit.
+# The hook lives under scripts/git-hooks/ (tracked); .git/hooks/ is not tracked.
+install-hooks:
+	cp scripts/git-hooks/pre-commit .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+	@echo "pre-commit hook installed. Bypass with \`git commit --no-verify\` if needed."

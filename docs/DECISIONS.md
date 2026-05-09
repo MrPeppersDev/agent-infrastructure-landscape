@@ -748,6 +748,69 @@ the markup-bearing field and stops escaping.
 
 ---
 
+## 2026-05-07: Issue #7 — Path B (defer JSON-as-source until extract.py loses less markup)
+
+**What.** The structured mirror (`web/landscape.json` + `web/landscape.edges.json`)
+ships now, with a CI-enforced four-gate validator (`scripts/validate.py`),
+but **`landscape.html` remains the hand-maintained source of authority for
+the catalog itself**. We do *not* regenerate `landscape.html` from the JSON
+on every commit. Phase 2's table app and Phase 3+'s analyses consume the
+JSON mirror; the HTML stays as the no-JS reference view.
+
+The cycle-stability gate validates `render.py(json) → extract.py(html) →
+render.py(json) ≤ 16-line drift` (the four cross-listing markers we
+intentionally inject). It does **not** compare render.py's output to
+the current `landscape.html`.
+
+**Why.** Two paths were on the table when issue #7 landed:
+
+- **Path A.** Activate "JSON is the source, HTML is a build artefact"
+  immediately. Run `render.py` on every commit and check the result in.
+- **Path B.** Keep the hand-maintained HTML as authoritative for now.
+  Use `make build` to refresh the JSON mirror after HTML edits. Activate
+  Path A later, after `extract.py` is upgraded.
+
+`render.py`'s first-pass output diffs from the current `landscape.html`
+by ~50k lines. Most of that diff is two things:
+
+1. **Row ordering.** `landscape.html` rows are in document-add order;
+   `render.py` emits them tier-sorted to match the post-JS view (the
+   inline `<script>` at the bottom of `landscape.html` re-sorts client-side).
+   Documented in `docs/DECISIONS.md` "render.py — within-section ordering
+   is (tier ASC, id ASC)".
+2. **Markup richness.** `extract.py` uses BeautifulSoup `get_text()` which
+   collapses `<span class="signal-num">`, `<br>`, `<span class="sub">`,
+   custom `title=` attributes, and the pill-anchor constructs in
+   `td.links` to plain text. `render.py` therefore can't reproduce them
+   even with a perfect template. Documented in `docs/DECISIONS.md`
+   "render.py — escape `<`, `>`, `&` in cell `value` strings".
+
+Activating Path A now would mean replacing the user's six-rounds-of-research
+HTML with a structurally-correct but markup-poorer version — net negative
+on the human-facing artifact even though the data is preserved.
+
+**Options rejected.**
+
+- *Path A — regenerate `landscape.html` and commit it as canonical.*
+  Loses the markup richness above; downgrades the user-visible view to
+  pay forward a future maintainability win. Postpone until extract.py
+  is upgraded to preserve the spans / `<br>` / pill structure.
+- *Compare render.py output directly against current `landscape.html`
+  and fail if they differ.* Would block every commit until Path A is
+  paid for; defeats the point of shipping the validator now.
+- *Skip the round-trip gate entirely.* Loses the most useful guarantee
+  — that the JSON mirror is structurally sound enough to be the
+  authority once extract.py is upgraded.
+
+**Reversal cost.** Low to activate Path A later. The flip is:
+(a) upgrade `extract.py` to preserve markup into a `valueHtml` field;
+(b) update `render.py` to prefer `valueHtml` over `value`;
+(c) regenerate `landscape.html` once and commit; (d) tighten the
+cycle-stability gate to compare render output against `landscape.html`.
+None of those touch the schema or downstream consumers.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add
