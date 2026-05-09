@@ -1,0 +1,904 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "8861257",
+        "name": "Junru Lu"
+      },
+      {
+        "authorId": "2190499674",
+        "name": "Siyu An"
+      },
+      {
+        "authorId": "49352079",
+        "name": "Mingbao Lin"
+      },
+      {
+        "authorId": "46922295",
+        "name": "Gabriele Pergola"
+      },
+      {
+        "authorId": "1390509967",
+        "name": "Yulan He"
+      },
+      {
+        "authorId": "2168284967",
+        "name": "Di Yin"
+      },
+      {
+        "authorId": "2231625098",
+        "name": "Xing Sun"
+      },
+      {
+        "authorId": "2108408865",
+        "name": "Yunsheng Wu"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2308.08239, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": "GREEN",
+      "url": "https://arxiv.org/pdf/2308.08239"
+    },
+    "title": "MemoChat: Tuning LLMs to Use Memos for Consistent Long-Range Open-Domain Conversation"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.tacl-1.9",
+          "ArXiv": "2307.03172",
+          "CorpusId": 259360665,
+          "DBLP": "journals/tacl/LiuLHPBPL24",
+          "DOI": "10.1162/tacl_a_00638"
+        },
+        "paperId": "1733eb7792f7a43dd21f51f4d1017a1bffd217b5",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.03170",
+          "CorpusId": 259360592,
+          "DBLP": "conf/nips/TworkowskiSPWMM23",
+          "DOI": "10.48550/arXiv.2307.03170"
+        },
+        "paperId": "b069c32fcd77160f944ab3ba71ab6f0cfb782c68",
+        "title": "Focused Transformer: Contrastive Training for Context Scaling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.02053",
+          "CorpusId": 259342582,
+          "DBLP": "journals/corr/abs-2307-02053",
+          "DOI": "10.48550/arXiv.2307.02053"
+        },
+        "paperId": "f356e977c5ba1c5341a48d18db2d8c1658bd98ed",
+        "title": "Flacuna: Unleashing the Problem Solving Power of Vicuna using FLAN Fine-Tuning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.02486",
+          "CorpusId": 259341682,
+          "DBLP": "journals/corr/abs-2307-02486"
+        },
+        "paperId": "c12db2c60e8989f646a29ad4f4d24475e860ad91",
+        "title": "LongNet: Scaling Transformers to 1, 000, 000, 000 Tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.17563",
+          "CorpusId": 259309299,
+          "DBLP": "journals/corr/abs-2306-17563",
+          "DOI": "10.48550/arXiv.2306.17563"
+        },
+        "paperId": "2d3bc530d8f1ed36932a70bc362ea94d988adec9",
+        "title": "Large Language Models are Effective Text Rankers with Pairwise Ranking Prompting"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.00119",
+          "CorpusId": 259316419,
+          "DBLP": "conf/acl/MuellerNMWF23",
+          "DOI": "10.48550/arXiv.2307.00119"
+        },
+        "paperId": "f25f0489c31b680aabc295d826c1ca4f9a7ffd59",
+        "title": "Meta-training with Demonstration Retrieval for Efficient Few-shot Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.15595",
+          "CorpusId": 259262376,
+          "DBLP": "journals/corr/abs-2306-15595",
+          "DOI": "10.48550/arXiv.2306.15595"
+        },
+        "paperId": "f5afaccfe90268485a9961c5771ec5e71e9b806c",
+        "title": "Extending Context Window of Large Language Models via Positional Interpolation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.10543",
+          "CorpusId": 259203869,
+          "DBLP": "journals/corr/abs-2306-10543",
+          "DOI": "10.48550/arXiv.2306.10543"
+        },
+        "paperId": "c40d26830646699aa93ddc5b4a00fa1f6e75a015",
+        "title": "UniMC: A Unified Framework for Long-Term Memory Conversation via Relevance Representation Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.07906",
+          "CorpusId": 259144903,
+          "DBLP": "conf/kdd/LiuLYXZDZDT23",
+          "DOI": "10.1145/3580305.3599931"
+        },
+        "paperId": "07bfba1087176d862c953a55df389e3d5b3d38ac",
+        "title": "WebGLM: Towards An Efficient Web-Enhanced Question Answering System with Human Preferences"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.05685",
+          "CorpusId": 259129398,
+          "DBLP": "journals/corr/abs-2306-05685",
+          "DOI": "10.52202/075280-2020"
+        },
+        "paperId": "a0a79dad89857a96f8f71b14238e5237cbfc4787",
+        "title": "Judging LLM-as-a-judge with MT-Bench and Chatbot Arena"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.03901",
+          "CorpusId": 259088875,
+          "DBLP": "journals/corr/abs-2306-03901",
+          "DOI": "10.48550/arXiv.2306.03901"
+        },
+        "paperId": "50f44ef10335d59cec145b15effae20ff22c1fdb",
+        "title": "ChatDB: Augmenting LLMs with Databases as Their Symbolic Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.13735",
+          "CorpusId": 258841835,
+          "DBLP": "journals/corr/abs-2305-13735",
+          "DOI": "10.48550/arXiv.2305.13735"
+        },
+        "paperId": "5b8f0460d408a8688d9ee0cba127c779d3291d99",
+        "title": "Aligning Large Language Models through Synthetic Feedback"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10250",
+          "CorpusId": 258741194,
+          "DBLP": "journals/corr/abs-2305-10250",
+          "DOI": "10.48550/arXiv.2305.10250"
+        },
+        "paperId": "c3a59e1e405e7c28319e5a1c5b5241f9b340cf63",
+        "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10403",
+          "CorpusId": 258740735,
+          "DBLP": "journals/corr/abs-2305-10403"
+        },
+        "paperId": "b6d6c33298b852cf63edac233deca70530d69a2a",
+        "title": "PaLM 2 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.04533",
+          "CorpusId": 258557761,
+          "DBLP": "journals/corr/abs-2305-04533",
+          "DOI": "10.18653/v1/2023.findings-acl.277"
+        },
+        "paperId": "700da3f3758e053c379f905bebee261ba69f1073",
+        "title": "Prompted LLMs as Chatbot Modules for Long Open-domain Conversation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.13712",
+          "CorpusId": 258331833,
+          "DBLP": "journals/corr/abs-2304-13712",
+          "DOI": "10.1145/3649506"
+        },
+        "paperId": "131c6f328c11706de2c43cd16e0b7c5d5e610b6a",
+        "title": "Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.09542",
+          "CorpusId": 258212638,
+          "DBLP": "conf/emnlp/0001YMWRCYR23",
+          "DOI": "10.48550/arXiv.2304.09542"
+        },
+        "paperId": "459c82205d2a27a8542bba7a4d478a8a23be2f5d",
+        "title": "Is ChatGPT Good at Search? Investigating Large Language Models as Re-Ranking Agent"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.03439",
+          "CorpusId": 258041354,
+          "DBLP": "journals/corr/abs-2304-03439",
+          "DOI": "10.48550/arXiv.2304.03439"
+        },
+        "paperId": "85cc48276c69924d3e92ddb38facb7d92be9a4a6",
+        "title": "Evaluating the Logical Reasoning Ability of ChatGPT and GPT-4"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.03279",
+          "CorpusId": 257985073,
+          "DBLP": "conf/icml/PanCZLBWZEH23",
+          "DOI": "10.48550/arXiv.2304.03279"
+        },
+        "paperId": "5da2d404d789aeff266b63a760d07fe8bc31ba23",
+        "title": "Do the Rewards Justify the Means? Measuring Trade-Offs Between Rewards and Ethical Behavior in the MACHIAVELLI Benchmark"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.18223",
+          "CorpusId": 257900969,
+          "DBLP": "journals/corr/abs-2303-18223"
+        },
+        "paperId": "36709000a9272e941338244ef80ff5ab1dd2bba1",
+        "title": "A Survey of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.13971",
+          "CorpusId": 257219404,
+          "DBLP": "journals/corr/abs-2302-13971"
+        },
+        "paperId": "57e849d0de13ed5f91d086936296721d4ff75a75",
+        "title": "LLaMA: Open and Efficient Foundation Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.64",
+          "ArXiv": "2301.00234",
+          "CorpusId": 255372865,
+          "DBLP": "conf/emnlp/Dong0DZMLXX0C0S24",
+          "DOI": "10.18653/v1/2024.emnlp-main.64"
+        },
+        "paperId": "30c0cdc414f68211d5d0514df027cec22e005174",
+        "title": "A Survey on In-context Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.05100",
+          "CorpusId": 253420279,
+          "DBLP": "journals/corr/abs-2211-05100"
+        },
+        "paperId": "964bd39b546f0f6625ff3b9ef1083f797807ef2e",
+        "title": "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.11416",
+          "CorpusId": 253018554,
+          "DBLP": "journals/corr/abs-2210-11416",
+          "DOI": "10.48550/arXiv.2210.11416"
+        },
+        "paperId": "cdbd4f9b6ab2e2fd1ddf5400d5ed2c18960635d1",
+        "title": "Scaling Instruction-Finetuned Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2208.03188",
+          "CorpusId": 251371589,
+          "DBLP": "journals/corr/abs-2208-03188",
+          "DOI": "10.48550/arXiv.2208.03188"
+        },
+        "paperId": "a3076ecfed0571fbbb5217a5cc6b4b6f24f6f7dd",
+        "title": "BlenderBot 3: a deployed conversational agent that continually learns to responsibly engage"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2205.14135",
+          "CorpusId": 249151871,
+          "DBLP": "journals/corr/abs-2205-14135",
+          "DOI": "10.52202/068431-1189"
+        },
+        "paperId": "87c5b281fa43e6f27191b20a8dd694eda1126336",
+        "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.emnlp-main.33",
+          "ArXiv": "2205.12673",
+          "CorpusId": 249062857,
+          "DBLP": "conf/emnlp/GuptaJYMEB22",
+          "DOI": "10.18653/v1/2022.emnlp-main.33"
+        },
+        "paperId": "8f926c0c3f1557a9241b7e75609082a1f207a75e",
+        "title": "InstructDial: Improving Zero and Few-shot Generalization in Dialogue through Instruction Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.13224",
+          "CorpusId": 247627671,
+          "DBLP": "journals/corr/abs-2203-13224",
+          "DOI": "10.48550/arXiv.2203.13224"
+        },
+        "paperId": "f8292d4ddf7a6dfe240eeaa9685f5d18eed9a3f6",
+        "title": "Language Models that Seek for Knowledge: Modular Search & Generation for Dialogue and Prompt Completion"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.findings-acl.207",
+          "ArXiv": "2203.05797",
+          "CorpusId": 247411350,
+          "DBLP": "journals/corr/abs-2203-05797",
+          "DOI": "10.48550/arXiv.2203.05797"
+        },
+        "paperId": "081edae651e709e448bdd8a1f1b5760c7c7e1f53",
+        "title": "Long Time No See! Open-Domain Conversation with Long-Term Persona Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.02155",
+          "CorpusId": 246426909,
+          "DBLP": "journals/corr/abs-2203-02155",
+          "DOI": "10.52202/068431-2011"
+        },
+        "paperId": "d766bffc357127e0dc86dd69561d5aeb520d6f4c",
+        "title": "Training language models to follow instructions with human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.11903",
+          "CorpusId": 246411621,
+          "DBLP": "conf/nips/Wei0SBIXCLZ22",
+          "DOI": "10.52202/068431-1800"
+        },
+        "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+        "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.08207",
+          "CorpusId": 239009562,
+          "DBLP": "journals/corr/abs-2110-08207"
+        },
+        "paperId": "17dd3555fd1ccf1141cf984347fa1b3fd6b009ca",
+        "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.tacl-1.27",
+          "ArXiv": "2110.00768",
+          "CorpusId": 238259221,
+          "DBLP": "journals/tacl/AdlakhaDSVR22",
+          "DOI": "10.1162/tacl_a_00471"
+        },
+        "paperId": "82d60ef4c9439ff24a4ebdd1b6eab59396a6a2ce",
+        "title": "TopiOCQA: Open-domain Conversational Question Answering with Topic Switching"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2109.01652",
+          "CorpusId": 237416585,
+          "DBLP": "journals/corr/abs-2109-01652"
+        },
+        "paperId": "ff0b2681d7b05e16c46dfb71d980cc2f605907cd",
+        "title": "Finetuned Language Models Are Zero-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.356",
+          "ArXiv": "2107.07567",
+          "CorpusId": 236034497,
+          "DBLP": "journals/corr/abs-2107-07567",
+          "DOI": "10.18653/v1/2022.acl-long.356"
+        },
+        "paperId": "88064de690af282dbdf222774f03ff070b9df22b",
+        "title": "Beyond Goldfish Memory: Long-Term Open-Domain Conversation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.579",
+          "ArXiv": "2107.07566",
+          "CorpusId": 236034557,
+          "DBLP": "journals/corr/abs-2107-07566",
+          "DOI": "10.18653/v1/2022.acl-long.579"
+        },
+        "paperId": "de549c1592a62c129b8d49c8c0137aa6859b103f",
+        "title": "Internet-Augmented Dialogue Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2106.09685",
+          "CorpusId": 235458009,
+          "DBLP": "conf/iclr/HuSWALWWC22"
+        },
+        "paperId": "a8ca46b171467ceb2d7652fbfb67fe701ad86092",
+        "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.248",
+          "ArXiv": "2105.07464",
+          "CorpusId": 234742165,
+          "DBLP": "journals/corr/abs-2105-07464",
+          "DOI": "10.18653/v1/2021.acl-long.248"
+        },
+        "paperId": "e1cb1ff6965525380b41b9971aed71edbb393703",
+        "title": "Few-NERD: A Few-shot Named Entity Recognition Dataset"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2104.09864",
+          "CorpusId": 233307138,
+          "DBLP": "journals/ijon/SuALPBL24",
+          "DOI": "10.1016/j.neucom.2023.127063"
+        },
+        "paperId": "66c10bf1f11bc1b2d92204d8f8391d087f6de1c4",
+        "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.26",
+          "ArXiv": "2103.10360",
+          "CorpusId": 247519241,
+          "DBLP": "conf/acl/DuQLDQY022",
+          "DOI": "10.18653/v1/2022.acl-long.26"
+        },
+        "paperId": "50796b0f3edf9cb5ff1e447c298b33755378aa4f",
+        "title": "GLM: General Language Model Pretraining with Autoregressive Blank Infilling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2101.06840",
+          "CorpusId": 231632857,
+          "DBLP": "conf/usenix/0015RARYZ0H21",
+          "MAG": "3121562065"
+        },
+        "paperId": "12b71736392209b4292471b7da0aed71ba2aa545",
+        "title": "ZeRO-Offload: Democratizing Billion-Scale Model Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.652",
+          "ArXiv": "2011.06623",
+          "CorpusId": 226262425,
+          "DBLP": "conf/emnlp/FengWGPJL20",
+          "DOI": "10.18653/v1/2020.emnlp-main.652",
+          "MAG": "3099590177"
+        },
+        "paperId": "206dad0b40920a68d0223e3721626ae0e6e12faa",
+        "title": "Doc2Dial: A Goal-Oriented Document-Grounded Dialogue Dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.550",
+          "ArXiv": "2004.04906",
+          "CorpusId": 215737187,
+          "DBLP": "conf/emnlp/KarpukhinOMLWEC20",
+          "DOI": "10.18653/v1/2020.emnlp-main.550",
+          "MAG": "3015883388"
+        },
+        "paperId": "b26f2037f769d5ffc5f7bdcec2de8da28ec14bee",
+        "title": "Dense Passage Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2004.05150",
+          "CorpusId": 215737171,
+          "DBLP": "journals/corr/abs-2004-05150",
+          "MAG": "3015468748"
+        },
+        "paperId": "925ad2897d1b5decbea320d07e99afa9110e09b2",
+        "title": "Longformer: The Long-Document Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.acl-main.635",
+          "ArXiv": "2004.04100",
+          "CorpusId": 215415968,
+          "DBLP": "journals/corr/abs-2004-04100",
+          "DOI": "10.18653/v1/2020.acl-main.635",
+          "MAG": "3015364215"
+        },
+        "paperId": "4980093337f6b4a3a960ba95a54689ee491bc8ca",
+        "title": "KdConv: A Chinese Multi-domain Dialogue Dataset Towards Multi-turn Knowledge-driven Conversation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2001.04451",
+          "CorpusId": 209315300,
+          "DBLP": "journals/corr/abs-2001-04451",
+          "MAG": "2994673210"
+        },
+        "paperId": "055fd6a9f7293269f1b22c1470e63bd02d8d9500",
+        "title": "Reformer: The Efficient Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1904.09675",
+          "CorpusId": 127986044,
+          "DBLP": "journals/corr/abs-1904-09675",
+          "MAG": "2936695845"
+        },
+        "paperId": "295065d942abca0711300b2b4c39829551060578",
+        "title": "BERTScore: Evaluating Text Generation with BERT"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1902.00098",
+          "CorpusId": 59553505,
+          "DBLP": "journals/corr/abs-1902-00098",
+          "DOI": "10.1007/978-3-030-29135-8_7",
+          "MAG": "2913443447"
+        },
+        "paperId": "9ae17b09c59f06f02ef824b856a440de663471d0",
+        "title": "The Second Conversational Intelligence Challenge (ConvAI2)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1811.01241",
+          "CorpusId": 53218829,
+          "DBLP": "conf/iclr/DinanRSFAW19",
+          "MAG": "2898875342"
+        },
+        "paperId": "227458886343b86bd15adf58c769be326b4b058a",
+        "title": "Wizard of Wikipedia: Knowledge-Powered Conversational agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P18-2124",
+          "ArXiv": "1806.03822",
+          "CorpusId": 47018994,
+          "DBLP": "journals/corr/abs-1806-03822",
+          "DOI": "10.18653/v1/P18-2124",
+          "MAG": "2963323070"
+        },
+        "paperId": "4d1c856275744c0284312a3a50efb6ca9dc4cd4c",
+        "title": "Know What You Don’t Know: Unanswerable Questions for SQuAD"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 53592270,
+          "DBLP": "conf/iclr/LoshchilovH19",
+          "MAG": "2950541952"
+        },
+        "paperId": "d07284a6811f1b2745d91bdb06b040b57f226882",
+        "title": "Decoupled Weight Decay Regularization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1706.02677",
+          "CorpusId": 13905106,
+          "DBLP": "journals/corr/GoyalDGNWKTJH17",
+          "MAG": "2622263826"
+        },
+        "paperId": "0d57ba12a6d958e178d83be4c84513f7e42b24e5",
+        "title": "Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1702.08734",
+          "CorpusId": 926364,
+          "DBLP": "journals/tbd/JohnsonDJ21",
+          "DOI": "10.1109/tbdata.2019.2921572",
+          "MAG": "2998702515"
+        },
+        "paperId": "2cbb8de53759e75411bc528518947a3094fbce3a",
+        "title": "Billion-Scale Similarity Search with GPUs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 243635459,
+          "DBLP": "journals/interactions/BlevisHO15",
+          "DOI": "10.1145/2755534",
+          "MAG": "2051189708"
+        },
+        "paperId": "2152cfbc4c281e04176974e21811e3ce724c16d4",
+        "title": "Sharing the hidden treasure in pictorials"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 13712948,
+          "DOI": "10.7748/NOP.14.3.6.S4",
+          "MAG": "2413010632",
+          "PubMed": "27702208"
+        },
+        "paperId": "abe6a7ae73295927c1324aab15326c05008776d1",
+        "title": "Wasting time?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 263870349,
+          "DBLP": "journals/corr/abs-2307-02738",
+          "DOI": "10.48550/arXiv.2307.02738"
+        },
+        "paperId": "8b5e200df664176a8b07cedff84c40aa3929166d",
+        "title": "RecallM: An Architecture for Temporal Context Understanding and Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "How long can opensource llms truly promise on context length"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 263883838,
+          "DBLP": "journals/corr/abs-2205-12673",
+          "DOI": "10.48550/arXiv.2205.12673"
+        },
+        "paperId": "426235b80b11b9910334c19fad55e0f9be1e6bac",
+        "title": "Improving Zero and Few-shot Generalization in Dialogue through Instruction Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 276421109,
+          "DBLP": "conf/iclr/SanhWRBSACSRDBX22"
+        },
+        "paperId": "fe0825f9ddb1cccb545f4249da55b6b55e577bbd",
+        "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.findings-acl.449",
+          "ArXiv": "2105.06762",
+          "CorpusId": 234681504,
+          "DBLP": "conf/acl/ChenLCZ21",
+          "DOI": "10.18653/v1/2021.findings-acl.449"
+        },
+        "paperId": "8d2891737045f3610c027997b8b58705899e8922",
+        "title": "DialogSum: A Real-Life Scenario Dialogue Summarization Dataset"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 13490401,
+          "DBLP": "journals/tkde/XunJGZ17",
+          "DOI": "10.1109/TKDE.2016.2614508",
+          "MAG": "2527310337"
+        },
+        "paperId": "0c0a778e6fdf7e36b1750c533dcc916f86608607",
+        "title": "A Survey on Context Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Stanford alpaca: An instruction-following llama model"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "OpenAI. 2023."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Involved Prompts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Table 8: A complete typical example of Chat w/ Memo instruction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "A Basic Published Datasets"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "User: Make a list of behaviors that show leadership"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

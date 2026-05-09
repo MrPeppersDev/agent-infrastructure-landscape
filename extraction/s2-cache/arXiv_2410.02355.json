@@ -1,0 +1,843 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2159830802",
+        "name": "Junfeng Fang"
+      },
+      {
+        "authorId": "2324067622",
+        "name": "Houcheng Jiang"
+      },
+      {
+        "authorId": "2283296635",
+        "name": "Kun Wang"
+      },
+      {
+        "authorId": "51487414",
+        "name": "Yunshan Ma"
+      },
+      {
+        "authorId": "2260296919",
+        "name": "Xiang Wang"
+      },
+      {
+        "authorId": "2240825631",
+        "name": "Xiangnan He"
+      },
+      {
+        "authorId": "2270722858",
+        "name": "Tat-Seng Chua"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2410.02355, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "AlphaEdit: Null-Space Constrained Knowledge Editing for Language Models"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.05759",
+          "CorpusId": 276249447,
+          "DBLP": "journals/corr/abs-2502-05759",
+          "DOI": "10.48550/arXiv.2502.05759"
+        },
+        "paperId": "25eeafa6bf11950caadf09d400f081839b00ccb8",
+        "title": "Reinforced Lifelong Editing for Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.05628",
+          "CorpusId": 276249265,
+          "DBLP": "conf/icml/JiangF0WM00C25",
+          "DOI": "10.48550/arXiv.2502.05628"
+        },
+        "paperId": "53d6719e20dec6af0b1f2de159f916efb545877b",
+        "title": "AnyEdit: Edit Any Knowledge Encoded in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.04045",
+          "CorpusId": 273186810,
+          "DBLP": "journals/corr/abs-2410-04045",
+          "DOI": "10.48550/arXiv.2410.04045"
+        },
+        "paperId": "4328072499e76298db1b3ad7c033c61298badd1e",
+        "title": "Neuron-Level Sequential Editing for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.07497",
+          "CorpusId": 272600127,
+          "DBLP": "conf/vldb/0001XL0TYZDSL0Z24",
+          "DOI": "10.48550/arXiv.2409.07497"
+        },
+        "paperId": "7ec21f9d85b9ecee22e0190f97a5b510f42901d1",
+        "title": "OneEdit: A Neural-Symbolic Collaboratively Knowledge Editing System"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 268716962,
+          "DBLP": "journals/tkde/GaoLWHFZ24",
+          "DOI": "10.1109/TKDE.2024.3380709"
+        },
+        "paperId": "70e4451cd67945515adac5f864b59aa88e7dc95b",
+        "title": "Revisiting Attack-Caused Structural Distribution Shift in Graph Anomaly Detection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.16821",
+          "CorpusId": 270063606,
+          "DBLP": "journals/corr/abs-2405-16821",
+          "DOI": "10.48550/arXiv.2405.16821"
+        },
+        "paperId": "19d55f4cab6de8d9b1ae9aa1541f0bf969994ba3",
+        "title": "Perturbation-Restrained Sequential Model Editing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.14768",
+          "CorpusId": 269982715,
+          "DBLP": "conf/nips/0104L0XY0X0C24",
+          "DOI": "10.48550/arXiv.2405.14768"
+        },
+        "paperId": "8ce5f6e28d49e1bc00804fa2fa3e917deb203388",
+        "title": "WISE: Rethinking the Knowledge Memory for Lifelong Model Editing of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.1210",
+          "ArXiv": "2403.07175",
+          "CorpusId": 268363302,
+          "DBLP": "journals/corr/abs-2403-07175",
+          "DOI": "10.48550/arXiv.2403.07175"
+        },
+        "paperId": "a91e6515a73b06bb1e30dce418e00c961775a46a",
+        "title": "Rebuilding ROME : Resolving Model Collapse during Sequential Model Editing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.16123",
+          "CorpusId": 267938839,
+          "DBLP": "journals/corr/abs-2402-16123",
+          "DOI": "10.48550/arXiv.2402.16123"
+        },
+        "paperId": "0a88726548d4ab50c3b28f1ce839220997875cf6",
+        "title": "InstructEdit: Instruction-based Knowledge Editing for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.1261",
+          "ArXiv": "2402.13593",
+          "CorpusId": 267770652,
+          "DBLP": "journals/corr/abs-2402-13593",
+          "DOI": "10.48550/arXiv.2402.13593"
+        },
+        "paperId": "9acb2df43927a2df64a4b9d39d68ab0a482d05f5",
+        "title": "Knowledge Graph Enhanced Large Language Model Editing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.10987",
+          "CorpusId": 267751068,
+          "DBLP": "journals/corr/abs-2402-10987",
+          "DOI": "10.48550/arXiv.2402.10987"
+        },
+        "paperId": "dfbbc9373a575fb3031cd195c7aa616e183f0b60",
+        "title": "WilKE: Wise-Layer Knowledge Editor for Lifelong Knowledge Editing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.09656",
+          "CorpusId": 267682284,
+          "DBLP": "journals/corr/abs-2402-09656",
+          "DOI": "10.48550/arXiv.2402.09656"
+        },
+        "paperId": "b8ffaec3e8e64a246ac4b9e4016e4efea0e156ac",
+        "title": "The Butterfly Effect of Model Editing: Few Edits Can Trigger Large Language Models Collapse"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.naacl-long.208",
+          "ArXiv": "2402.09394",
+          "CorpusId": 267657629,
+          "DBLP": "conf/naacl/RosatiGCYKR024",
+          "DOI": "10.48550/arXiv.2402.09394"
+        },
+        "paperId": "cc5818e9876afe967eded191165804ada000c2b1",
+        "title": "Long-form evaluation of model editing"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.07453",
+          "CorpusId": 266999650,
+          "DBLP": "conf/acl/GuptaRA24",
+          "DOI": "10.48550/arXiv.2401.07453"
+        },
+        "paperId": "3a716fc45fe6233a29f58ad492e21d690d9054a0",
+        "title": "Model Editing at Scale leads to Gradual and Catastrophic Forgetting"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.934",
+          "ArXiv": "2401.04700",
+          "CorpusId": 266899568,
+          "DBLP": "conf/emnlp/GuXMLLCP24",
+          "DOI": "10.18653/v1/2024.emnlp-main.934"
+        },
+        "paperId": "d2b48bcee27974c10025422b76c8943ed524722c",
+        "title": "Model Editing Harms General Abilities of Large Language Models: Regularization to the Rescue"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.01286",
+          "CorpusId": 266725300,
+          "DBLP": "journals/corr/abs-2401-01286",
+          "DOI": "10.48550/arXiv.2401.01286"
+        },
+        "paperId": "0251bb95be75d472c8d5b873751615e7fe2feb1d",
+        "title": "A Comprehensive Study of Knowledge Editing for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.11795",
+          "CorpusId": 266362196,
+          "DBLP": "journals/corr/abs-2312-11795",
+          "DOI": "10.48550/arXiv.2312.11795"
+        },
+        "paperId": "0b9eea26e5818981c173d03209adb472b8e3a38e",
+        "title": "MELO: Enhancing Model Editing with Neuron-Indexed Dynamic LoRA"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.16218",
+          "CorpusId": 264487359,
+          "DBLP": "journals/csur/WangZLZCL25",
+          "DOI": "10.1145/3698590"
+        },
+        "paperId": "42016f91e5b1da63174d45acb96bc89b64aa124d",
+        "title": "Knowledge Editing for Large Language Models: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.05463",
+          "CorpusId": 261696657,
+          "DBLP": "journals/corr/abs-2309-05463",
+          "DOI": "10.48550/arXiv.2309.05463"
+        },
+        "paperId": "e26888285436bc7998e5c95102a9beb60144be5e",
+        "title": "Textbooks Are All You Need II: phi-1.5 technical report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.08742",
+          "CorpusId": 261030625,
+          "DBLP": "journals/corr/abs-2308-08742",
+          "DOI": "10.48550/arXiv.2308.08742"
+        },
+        "paperId": "a95ee02fd85a3734bf19bb4bbc6ef3ea22c96cc9",
+        "title": "PMET: Precise Model Editing in a Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.14795",
+          "CorpusId": 258865984,
+          "DBLP": "conf/emnlp/ZhongWMPC23",
+          "DOI": "10.48550/arXiv.2305.14795"
+        },
+        "paperId": "56e952fd463accff09cf2e35432aaabd7c7c57f3",
+        "title": "MQuAKE: Assessing Knowledge Editing in Language Models via Multi-Hop Questions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.12740",
+          "CorpusId": 258832407,
+          "DBLP": "journals/corr/abs-2305-12740",
+          "DOI": "10.48550/arXiv.2305.12740"
+        },
+        "paperId": "ff2a0fb125e7f03428420230c6ecbeafd4cf07a8",
+        "title": "Can We Edit Factual Knowledge by In-Context Learning?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.13172",
+          "CorpusId": 258833129,
+          "DBLP": "conf/emnlp/YaoWT0LDC023",
+          "DOI": "10.48550/arXiv.2305.13172"
+        },
+        "paperId": "f5c73d9e6641b018b633690102121f5605d34fb0",
+        "title": "Editing Large Language Models: Problems, Methods, and Opportunities"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2301.09785",
+          "CorpusId": 256194369,
+          "DBLP": "journals/corr/abs-2301-09785",
+          "DOI": "10.48550/arXiv.2301.09785"
+        },
+        "paperId": "a9be51698e7c2247853b7b6f1f70fc4d6d7ef605",
+        "title": "Transformer-Patcher: One Mistake worth One Neuron"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2301.04213",
+          "CorpusId": 255595518,
+          "DBLP": "conf/nips/HaseBKG23",
+          "DOI": "10.48550/arXiv.2301.04213"
+        },
+        "paperId": "9c0a434b240299cec0029a1be93ab263d7ec9963",
+        "title": "Does Localization Inform Editing? Surprising Differences in Causality-Based Localization vs. Knowledge Editing in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.11031",
+          "CorpusId": 253735429,
+          "DBLP": "conf/nips/HartvigsenSPKG23",
+          "DOI": "10.48550/arXiv.2211.11031"
+        },
+        "paperId": "560b1bc012588731b26748e33236570df777baa0",
+        "title": "Aging with GRACE: Lifelong Model Editing with Discrete Key-Value Adaptors"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.07229",
+          "CorpusId": 252873467,
+          "DBLP": "conf/iclr/MengSABB23",
+          "DOI": "10.48550/arXiv.2210.07229"
+        },
+        "paperId": "2fe1ac0b09cc0f50eb83eef6c7c6b45ac8b12413",
+        "title": "Mass-Editing Memory in a Transformer"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2206.06520",
+          "CorpusId": 249642147,
+          "DBLP": "conf/icml/MitchellLBMF22"
+        },
+        "paperId": "1d650f1afd45c59ff907396fe8b678595dcb85ea",
+        "title": "Memory-Based Model Editing at Scale"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2202.05262",
+          "CorpusId": 255825985,
+          "DBLP": "conf/nips/MengBAB22",
+          "DOI": "10.52202/068431-1262"
+        },
+        "paperId": "996445d847f06e99b0bd259345408a0cf1bce87e",
+        "title": "Locating and Editing Factual Associations in GPT"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2202.02931",
+          "CorpusId": 246634117,
+          "DBLP": "journals/corr/abs-2202-02931"
+        },
+        "paperId": "b895a5c79406c8db2807e78b00fdeadc80e5a774",
+        "title": "TRGP: Trust Region Gradient Projection for Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.11309",
+          "CorpusId": 239050360,
+          "DBLP": "journals/corr/abs-2110-11309"
+        },
+        "paperId": "9286ac6e9b1aacd7d93496eb4615ae7678876d2a",
+        "title": "Fast Model Editing at Scale"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.522",
+          "ArXiv": "2104.08164",
+          "CorpusId": 233289412,
+          "DBLP": "journals/corr/abs-2104-08164",
+          "DOI": "10.18653/v1/2021.emnlp-main.522"
+        },
+        "paperId": "240b0caabb415578bdea4da7d0a32bdff2e8163f",
+        "title": "Editing Factual Knowledge in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2103.09762",
+          "CorpusId": 232257725,
+          "DBLP": "journals/corr/abs-2103-09762"
+        },
+        "paperId": "dd41d2d8fd2d3ea2c6ec74d07b456db942bfa8de",
+        "title": "Gradient Projection Memory for Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2103.07113",
+          "CorpusId": 232257263,
+          "DBLP": "journals/corr/abs-2103-07113",
+          "DOI": "10.1109/CVPR46437.2021.00025"
+        },
+        "paperId": "ea5f7e806d870f237d9556d37a307ef0d9905ac7",
+        "title": "Training Networks in Null Space of Feature Covariance for Continual Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.446",
+          "ArXiv": "2012.14913",
+          "CorpusId": 229923720,
+          "DBLP": "conf/emnlp/GevaSBL21",
+          "DOI": "10.18653/v1/2021.emnlp-main.446"
+        },
+        "paperId": "4a54d58a4b20e4f3af25cea3c188a12082a95e02",
+        "title": "Transformer Feed-Forward Layers Are Key-Value Memories"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2012.00363",
+          "CorpusId": 227238659,
+          "DBLP": "journals/corr/abs-2012-00363",
+          "MAG": "3107969673"
+        },
+        "paperId": "5270b626feb66c8c363e93ba6608daae93c5003b",
+        "title": "Modifying Memories in Transformer Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2010.11635",
+          "CorpusId": 225040673,
+          "DBLP": "journals/corr/abs-2010-11635",
+          "MAG": "3094314265"
+        },
+        "paperId": "0eba72fc44c68b54cedb27d5fd5cf9b90432636d",
+        "title": "Continual Learning in Low-rank Orthogonal Subspaces"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2009.03300",
+          "CorpusId": 221516475,
+          "DBLP": "journals/corr/abs-2009-03300",
+          "MAG": "3083410900"
+        },
+        "paperId": "814a4f680b9ba6baba23b93499f4b48af1a27678",
+        "title": "Measuring Massive Multitask Language Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.437",
+          "ArXiv": "2002.08910",
+          "CorpusId": 211205183,
+          "DBLP": "journals/corr/abs-2002-08910",
+          "DOI": "10.18653/v1/2020.emnlp-main.437",
+          "MAG": "3102659883"
+        },
+        "paperId": "80376bdec5f534be78ba82821f540590ebce5559",
+        "title": "How Much Knowledge Can You Pack into the Parameters of a Language Model?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1910.07104",
+          "CorpusId": 204734380,
+          "DBLP": "journals/corr/abs-1910-07104",
+          "MAG": "2980753060"
+        },
+        "paperId": "841c970f7ef35e28dbbe054d0a7c5df252533a4e",
+        "title": "Orthogonal Gradient Descent for Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1910.03771",
+          "CorpusId": 283227281,
+          "DBLP": "journals/corr/abs-1910-03771",
+          "MAG": "2979826702"
+        },
+        "paperId": "53c8b98eb9180ed9f46820627715c7ae2803cee7",
+        "title": "HuggingFace's Transformers: State-of-the-art Natural Language Processing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D19-1250",
+          "ArXiv": "1909.01066",
+          "CorpusId": 202539551,
+          "DBLP": "journals/corr/abs-1909-01066",
+          "DOI": "10.18653/v1/D19-1250",
+          "MAG": "2996758945"
+        },
+        "paperId": "d0086b86103a620a86bc918746df0aa642e2a8a3",
+        "title": "Language Models as Knowledge Bases?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1810.01256",
+          "CorpusId": 52908642,
+          "DBLP": "journals/natmi/ZengCCY19",
+          "DOI": "10.1038/s42256-019-0080-x",
+          "MAG": "2967821093"
+        },
+        "paperId": "d06072070019989e7654b97ad51a5d40a10aca78",
+        "title": "Continual learning of context-dependent processing in neural networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1805.12471",
+          "CorpusId": 44072099,
+          "DBLP": "journals/tacl/WarstadtSB19",
+          "DOI": "10.1162/tacl_a_00290",
+          "MAG": "2978670439"
+        },
+        "paperId": "cb0f3ee1e98faf92429d601cdcd76c69c1e484eb",
+        "title": "Neural Network Acceptability Judgments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "W18-5446",
+          "ArXiv": "1804.07461",
+          "CorpusId": 5034059,
+          "DBLP": "conf/emnlp/WangSMHLB18",
+          "DOI": "10.18653/v1/W18-5446",
+          "MAG": "2963310665"
+        },
+        "paperId": "451d4a16e425ecbf38c4b1cca0dcf5d9bec8255c",
+        "title": "GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "K17-1034",
+          "ArXiv": "1706.04115",
+          "CorpusId": 793385,
+          "DBLP": "conf/conll/LevySCZ17",
+          "DOI": "10.18653/v1/K17-1034",
+          "MAG": "2962881743"
+        },
+        "paperId": "fa025e5d117929361bcf798437957762eb5bb6d4",
+        "title": "Zero-Shot Relation Extraction via Reading Comprehension"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "N18-1101",
+          "ArXiv": "1704.05426",
+          "CorpusId": 3432876,
+          "DBLP": "journals/corr/WilliamsNB17",
+          "DOI": "10.18653/v1/N18-1101",
+          "MAG": "2963846996"
+        },
+        "paperId": "5ded2b8c64491b4a67f6d39ce473d4b9347a672e",
+        "title": "A Broad-Coverage Challenge Corpus for Sentence Understanding through Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D13-1170",
+          "CorpusId": 990233,
+          "DBLP": "conf/emnlp/SocherPWCMNP13",
+          "DOI": "10.18653/v1/d13-1170",
+          "MAG": "2251939518"
+        },
+        "paperId": "687bac2d3320083eb4530bf18bb8f8f721477600",
+        "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 11759366,
+          "DOI": "10.1136/ebmh.11.4.102",
+          "PubMed": "22365577"
+        },
+        "paperId": "bc6dff14a130c57a91d5a21339c23471faf1d46f",
+        "title": "Et al"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 274024020,
+          "DBLP": "journals/corr/abs-2406-11263",
+          "DOI": "10.48550/arXiv.2406.11263"
+        },
+        "paperId": "cadad3350d18281befc143ba6b71f9fc719ea088",
+        "title": "The Fall of ROME: Understanding the Collapse of LLMs in Model Editing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 275118643,
+          "DBLP": "journals/corr/abs-2412-19437"
+        },
+        "paperId": "5b6fdb2aea424d02c141da81d62b04d739d62b96",
+        "title": "DeepSeek-V3 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 268096211,
+          "DBLP": "conf/nips/FangLGLZW023",
+          "DOI": "10.52202/075280-3168"
+        },
+        "paperId": "5ba6b1b25ddbe3a94140a852cfce0a4effc00711",
+        "title": "Evaluating Post-hoc Explanations for Graph Neural Networks via Robustness Analysis"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 246016194,
+          "DBLP": "conf/emnlp/MadaanTCY22",
+          "DOI": "10.18653/v1/2022.emnlp-main.183"
+        },
+        "paperId": "448e1493034dafe35699ae054ff4480b31dcf64a",
+        "title": "Memory-assisted prompt editing to improve GPT-3 after deployment"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 160025533,
+          "MAG": "2955855238"
+        },
+        "paperId": "9405cc0d6169988371b2755e573cc28650d14dfe",
+        "title": "Language Models are Unsupervised Multitask Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 62429855,
+          "MAG": "2242645598"
+        },
+        "paperId": "3c906195e300e82da75146426fdfc388afc88eb3",
+        "title": "Introduction to linear Algebra"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 858065,
+          "DBLP": "conf/tac/BentivogliCDG10"
+        },
+        "paperId": "db8885a0037fe47d973ade79d696586453710233",
+        "title": "The Sixth PASCAL Recognizing Textual Entailment Challenge"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 5855042,
+          "MAG": "2187089797"
+        },
+        "paperId": "1c46943103bd7b7a2c7be86859995a4144d1938b",
+        "title": "Visualizing Data using t-SNE"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "I05-5002",
+          "CorpusId": 16639476,
+          "DBLP": "conf/acl-iwp/DolanB05",
+          "MAG": "131533222"
+        },
+        "paperId": "475354f10798f110d34792b6d88f31d6d5cb099e",
+        "title": "Automatically Constructing a Corpus of Sentential Paraphrases"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "is a well-known benchmark for text matching and semantic similarity assessment"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Consecutive model editing with batch alongside hook layers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": ": A new chinese knowledge editing dataset for linguistics, facts, and logic error"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "E XAMPLES To help readers unfamiliar with model editing tasks"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

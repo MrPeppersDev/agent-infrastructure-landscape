@@ -1,0 +1,808 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2280286886",
+        "name": "Ling Yang"
+      },
+      {
+        "authorId": "2280285892",
+        "name": "Zhaochen Yu"
+      },
+      {
+        "authorId": "1993655237",
+        "name": "Tianjun Zhang"
+      },
+      {
+        "authorId": "2265490669",
+        "name": "Shiyi Cao"
+      },
+      {
+        "authorId": "2257420991",
+        "name": "Minkai Xu"
+      },
+      {
+        "authorId": "2277807793",
+        "name": "Wentao Zhang"
+      },
+      {
+        "authorId": "2305157338",
+        "name": "Joseph E. Gonzalez"
+      },
+      {
+        "authorId": "2277742543",
+        "name": "Bin Cui"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2406.04271, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "Buffer of Thoughts: Thought-Augmented Reasoning with Large Language Models"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2604.12231",
+          "CorpusId": 279032166
+        },
+        "paperId": "b9289d621416cf7e7a3c560cff65d49c114041ef",
+        "title": "Thought-Retriever: Don't Just Retrieve Raw Data, Retrieve Thoughts for Memory-Augmented Agentic Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.19473",
+          "CorpusId": 268091298,
+          "DBLP": "journals/dase/ZhaoZYWGFYZJC26",
+          "DOI": "10.48550/arXiv.2402.19473"
+        },
+        "paperId": "ab15463babf98fffc6f683fe2026de0725b5e1a9",
+        "title": "Retrieval-Augmented Generation for AI-Generated Content: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.03620",
+          "CorpusId": 267500375,
+          "DBLP": "conf/nips/ZhouP0CCLCZMZ24",
+          "DOI": "10.48550/arXiv.2402.03620"
+        },
+        "paperId": "d2a01f9b2a565070ce64ff38eb7cdc26f3ed992a",
+        "title": "Self-Discover: Large Language Models Self-Compose Reasoning Structures"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.12954",
+          "CorpusId": 267094917,
+          "DBLP": "journals/corr/abs-2401-12954",
+          "DOI": "10.48550/arXiv.2401.12954"
+        },
+        "paperId": "59eeb8a259ef2a9c981868470480f53b67854060",
+        "title": "Meta-Prompting: Enhancing Language Models with Task-Agnostic Scaffolding"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.04088",
+          "CorpusId": 266844877,
+          "DBLP": "journals/corr/abs-2401-04088",
+          "DOI": "10.48550/arXiv.2401.04088"
+        },
+        "paperId": "411114f989a3d1083d90afd265103132fee94ebe",
+        "title": "Mixtral of Experts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.10997",
+          "CorpusId": 266359151,
+          "DBLP": "journals/corr/abs-2312-10997"
+        },
+        "paperId": "46f9f7b8f88f72e12cbdb21e3311f995eb6e65c5",
+        "title": "Retrieval-Augmented Generation for Large Language Models: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.06117",
+          "CorpusId": 263830368,
+          "DBLP": "journals/corr/abs-2310-06117",
+          "DOI": "10.48550/arXiv.2310.06117"
+        },
+        "paperId": "0786c88990235414611478099e43611542d973b0",
+        "title": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.03965",
+          "CorpusId": 263831197,
+          "DBLP": "conf/iclr/Yu0Y24",
+          "DOI": "10.48550/arXiv.2310.03965"
+        },
+        "paperId": "3784fd84b61d482b52f7ef72aac66bcb886b892b",
+        "title": "Thought Propagation: An Analogical Approach to Complex Reasoning with Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.01714",
+          "CorpusId": 263608847,
+          "DBLP": "conf/iclr/YasunagaCLPLLCZ24",
+          "DOI": "10.48550/arXiv.2310.01714"
+        },
+        "paperId": "d4bf36cbc5855ea87235d7a64f406717ac6aa3c9",
+        "title": "Large Language Models as Analogical Reasoners"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.17288",
+          "CorpusId": 263310605,
+          "DBLP": "conf/ijcai/ChenDSZS00024",
+          "DOI": "10.48550/arXiv.2309.17288"
+        },
+        "paperId": "63fb7814c6257158ecb20f390be51d5bb8969be3",
+        "title": "AutoAgents: A Framework for Automatic Agent Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.09687",
+          "CorpusId": 261030303,
+          "DBLP": "conf/aaai/BestaBKGPGGLNNH24",
+          "DOI": "10.1609/aaai.v38i16.29720"
+        },
+        "paperId": "aade40af0d85b0b4fe15c97f6222d5c2e4d6d9b3",
+        "title": "Graph of Thoughts: Solving Elaborate Problems with Large Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.09288",
+          "CorpusId": 259950998,
+          "DBLP": "journals/corr/abs-2307-09288"
+        },
+        "paperId": "104b0bb1da562d53cbda87aec79ef6a2827d191a",
+        "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.14688",
+          "CorpusId": 258865458,
+          "DBLP": "journals/corr/abs-2305-14688",
+          "DOI": "10.48550/arXiv.2305.14688"
+        },
+        "paperId": "763eb8d43e2f8a5d9da26269a4985efd1c099a5b",
+        "title": "ExpertPrompting: Instructing Large Language Models to be Distinguished Experts"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10601",
+          "CorpusId": 258762525,
+          "DBLP": "journals/corr/abs-2305-10601",
+          "DOI": "10.48550/arXiv.2305.10601"
+        },
+        "paperId": "2f3822eb380b5e753a6d579f31dfc3ec4c4a0820",
+        "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10403",
+          "CorpusId": 258740735,
+          "DBLP": "journals/corr/abs-2305-10403"
+        },
+        "paperId": "b6d6c33298b852cf63edac233deca70530d69a2a",
+        "title": "PaLM 2 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 258333885,
+          "DBLP": "conf/www/BhavyaXZ23",
+          "DOI": "10.1145/3543507.3587431"
+        },
+        "paperId": "ad6a1ef3f75bcfda9f7a3567d45f0b5ac108e431",
+        "title": "CAM: A Large Language Model-based Creative Analogy Mining Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.08774",
+          "CorpusId": 257532815
+        },
+        "paperId": "163b4d6a79a5b19af88b8585456363340d9efd04",
+        "title": "GPT-4 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.13971",
+          "CorpusId": 257219404,
+          "DBLP": "journals/corr/abs-2302-13971"
+        },
+        "paperId": "57e849d0de13ed5f91d086936296721d4ff75a75",
+        "title": "LLaMA: Open and Efficient Foundation Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.07842",
+          "CorpusId": 256868474,
+          "DBLP": "journals/tmlr/MialonDLNPRRSDC23"
+        },
+        "paperId": "2029349c55c1dba3493c5b3bd25152f18ba21ae2",
+        "title": "Augmented Language Models: a Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.naacl-long.463",
+          "ArXiv": "2301.12652",
+          "CorpusId": 256389797,
+          "DBLP": "conf/naacl/ShiMYS0LZY24",
+          "DOI": "10.48550/arXiv.2301.12652"
+        },
+        "paperId": "07b14c24833400b79978b0a5f084803337e30a15",
+        "title": "REPLUG: Retrieval-Augmented Black-Box Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 255655783,
+          "DBLP": "journals/chinaf/ZhangZGZZ23",
+          "DOI": "10.1007/s11432-020-3419-4"
+        },
+        "paperId": "5551c77f003db219d1fda0610a57074d4ec39509",
+        "title": "Communication-efficient federated continual learning for distributed learning system with Non-IID data"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2212.09196",
+          "CorpusId": 254854575,
+          "DBLP": "journals/corr/abs-2212-09196",
+          "DOI": "10.1038/s41562-023-01659-w",
+          "PubMed": "37524930"
+        },
+        "paperId": "3cbffab9d7981da6662d474aaa056dcbd3c1701e",
+        "title": "Emergent analogical reasoning in large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.12588",
+          "CorpusId": 253801709,
+          "DBLP": "journals/tmlr/ChenM0C23"
+        },
+        "paperId": "6c943670dca38bfc7c8b477ae7c2d1fba1ad3691",
+        "title": "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.10435",
+          "CorpusId": 253708270,
+          "DBLP": "journals/corr/abs-2211-10435",
+          "DOI": "10.48550/arXiv.2211.10435"
+        },
+        "paperId": "6c1e1cc1e0e1f8fd026fe517607b2d4535565fa7",
+        "title": "PAL: Program-aided Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.emnlp-main.232",
+          "ArXiv": "2210.12197",
+          "CorpusId": 253098624,
+          "DBLP": "journals/corr/abs-2210-12197",
+          "DOI": "10.48550/arXiv.2210.12197"
+        },
+        "paperId": "750477d9c63652e8d5124e10952895863d5c5df5",
+        "title": "Life is a Circus and We are the Clowns: Automatically Finding Analogies between Situations and Processes"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.09261",
+          "CorpusId": 252917648,
+          "DBLP": "conf/acl/SuzgunSSGTCCLCZ23",
+          "DOI": "10.48550/arXiv.2210.09261"
+        },
+        "paperId": "663a41c866d49ce052801fbc88947d39764cad29",
+        "title": "Challenging BIG-Bench Tasks and Whether Chain-of-Thought Can Solve Them"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.04186",
+          "CorpusId": 247581541,
+          "DBLP": "journals/corr/abs-2210-04186",
+          "DOI": "10.48550/arXiv.2210.04186"
+        },
+        "paperId": "e8795958aad9c8514d5d7d28b022d42ca4a3a243",
+        "title": "Analogy Generation by Prompting Large Language Models: A Case Study of InstructGPT"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.03350",
+          "CorpusId": 252762102,
+          "DBLP": "conf/emnlp/PressZMSSL23",
+          "DOI": "10.48550/arXiv.2210.03350"
+        },
+        "paperId": "e070ff286709db28312e08b52b05539debe88146",
+        "title": "Measuring and Narrowing the Compositionality Gap in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.03493",
+          "CorpusId": 252762275,
+          "DBLP": "journals/corr/abs-2210-03493"
+        },
+        "paperId": "90350aa626bed47b02d0c162462e5b0ca82be6b2",
+        "title": "Automatic Chain of Thought Prompting in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.03057",
+          "CorpusId": 252735112,
+          "DBLP": "conf/iclr/ShiSF0SVCTRZ0W23",
+          "DOI": "10.48550/arXiv.2210.03057"
+        },
+        "paperId": "62f0db3a5ad5c795ec18fc7a6e7b01836809df57",
+        "title": "Language Models are Multilingual Chain-of-Thought Reasoners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.02406",
+          "CorpusId": 252715485,
+          "DBLP": "conf/iclr/KhotTFF0CS23",
+          "DOI": "10.48550/arXiv.2210.02406"
+        },
+        "paperId": "07955e96cbd778d0ae2a68f09d073b866dd84c2a",
+        "title": "Decomposed Prompting: A Modular Approach for Solving Complex Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.02441",
+          "CorpusId": 252716013,
+          "DBLP": "journals/corr/abs-2210-02441",
+          "DOI": "10.48550/arXiv.2210.02441"
+        },
+        "paperId": "fb49e88c6bd676516898e911e42b4f8479e6f1bf",
+        "title": "Ask Me Anything: A simple strategy for prompting language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.00720",
+          "CorpusId": 252683303,
+          "DBLP": "journals/corr/abs-2210-00720",
+          "DOI": "10.48550/arXiv.2210.00720"
+        },
+        "paperId": "c88cafa3e980765a64febe369ceb7c2aa7261d2a",
+        "title": "Complexity-Based Prompting for Multi-Step Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.00312",
+          "CorpusId": 252683295,
+          "DBLP": "conf/iclr/000100LDC23",
+          "DOI": "10.48550/arXiv.2210.00312"
+        },
+        "paperId": "8c43cbe3dff3f556bf09462a7bdbbb8a292af7f9",
+        "title": "Multimodal Analogical Reasoning over Knowledge Graphs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2208.11126",
+          "CorpusId": 251765079,
+          "DBLP": "journals/corr/abs-2208-11126",
+          "DOI": "10.48550/arXiv.2208.11126"
+        },
+        "paperId": "ea4ff70180e4563fe12b51dfce0f57b36639aacf",
+        "title": "Retrieval-based Controllable Molecule Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2208.03299",
+          "CorpusId": 251371732,
+          "DBLP": "journals/jmlr/IzacardLLHPSDJRG23"
+        },
+        "paperId": "916be31cbf847faa65cad0549e153f0c25b9f424",
+        "title": "Few-shot Learning with Retrieval Augmented Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.14502",
+          "CorpusId": 251197051,
+          "DBLP": "journals/corr/abs-2207-14502",
+          "DOI": "10.48550/arXiv.2207.14502"
+        },
+        "paperId": "ff9a0d405e3afd88552e35a0255ddf9e10c28e36",
+        "title": "Language Models Can Teach Themselves to Program Better"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2206.07682",
+          "CorpusId": 249674500,
+          "DBLP": "journals/corr/abs-2206-07682",
+          "DOI": "10.48550/arXiv.2206.07682"
+        },
+        "paperId": "dac3a172b504f4e33c029655e9befb3386e5f63a",
+        "title": "Emergent Abilities of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2206.04615",
+          "CorpusId": 263625818,
+          "DBLP": "journals/corr/abs-2206-04615"
+        },
+        "paperId": "bd1331b233e84bab7eba503abc60b31ac08e7881",
+        "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 252222747,
+          "DBLP": "journals/dase/XuCDW22",
+          "DOI": "10.1007/s41019-022-00187-3"
+        },
+        "paperId": "5cfa418ba07ac5d253d46d9dab274cc80b86c73f",
+        "title": "A Survey of Cross-lingual Sentiment Analysis: Methodologies, Models and Evaluations"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2205.11916",
+          "CorpusId": 249017743,
+          "DBLP": "journals/corr/abs-2205-11916",
+          "DOI": "10.52202/068431-1613"
+        },
+        "paperId": "e7ad08848d5d7c5c47673ffe0da06af443643bda",
+        "title": "Large Language Models are Zero-Shot Reasoners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2205.10625",
+          "CorpusId": 248986239,
+          "DBLP": "conf/iclr/ZhouSHWS0SCBLC23",
+          "DOI": "10.48550/arXiv.2205.10625"
+        },
+        "paperId": "5437e8adab596d7294124c0e798708e050e25321",
+        "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.11171",
+          "CorpusId": 247595263,
+          "DBLP": "conf/iclr/0002WSLCNCZ23"
+        },
+        "paperId": "5f19ae1135a9500940978104ec15a5b8751bc7d2",
+        "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.findings-acl.311",
+          "ArXiv": "2203.08480",
+          "CorpusId": 247475874,
+          "DBLP": "conf/acl/ChenXFSLZSLXZ22",
+          "DOI": "10.18653/v1/2022.findings-acl.311"
+        },
+        "paperId": "cdaa895850578d495c0837d70b811dc53241f4c8",
+        "title": "E-KAR: A Benchmark for Rationalizing Natural Language Analogical Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 247580663,
+          "DBLP": "journals/chinaf/GuoCJ22",
+          "DOI": "10.1007/s11432-020-3162-4"
+        },
+        "paperId": "1153a297bc7c5e5e5c0a5a7be2786fd5cfafd6c2",
+        "title": "Knowledge transferred adaptive filter pruning for CNN compression and acceleration"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 246654129,
+          "DBLP": "journals/dase/KhopeE22",
+          "DOI": "10.1007/s41019-022-00176-6"
+        },
+        "paperId": "f27361a7ebd1c171e19bdfe7b92987c81a6a76e2",
+        "title": "Critical Correlation of Predictors for an Efficient Risk Prediction Framework of ICU Patient Using Correlation and Transformation of MIMIC-III Dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.11903",
+          "CorpusId": 246411621,
+          "DBLP": "conf/nips/Wei0SBIXCLZ22",
+          "DOI": "10.52202/068431-1800"
+        },
+        "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+        "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.04426",
+          "CorpusId": 244954723,
+          "DBLP": "journals/corr/abs-2112-04426"
+        },
+        "paperId": "002c256d30d6be4b23d365a8de8ae0e67e4c9641",
+        "title": "Improving language models by retrieving from trillions of tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.14168",
+          "CorpusId": 239998651,
+          "DBLP": "journals/corr/abs-2110-14168"
+        },
+        "paperId": "d6045d2ccc9c09ca1671348de86d07da6bc28eea",
+        "title": "Training Verifiers to Solve Math Word Problems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2106.05784",
+          "CorpusId": 235390706,
+          "DBLP": "journals/corr/abs-2106-05784"
+        },
+        "paperId": "f7664102a451332ed7e1286561b2f621eaff128d",
+        "title": "Programming Puzzles"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.26",
+          "ArXiv": "2103.10360",
+          "CorpusId": 247519241,
+          "DBLP": "conf/acl/DuQLDQY022",
+          "DOI": "10.18653/v1/2022.acl-long.26"
+        },
+        "paperId": "50796b0f3edf9cb5ff1e447c298b33755378aa4f",
+        "title": "GLM: General Language Model Pretraining with Autoregressive Blank Infilling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2103.03874",
+          "CorpusId": 232134851,
+          "DBLP": "conf/nips/HendrycksBKABTS21"
+        },
+        "paperId": "57d1e7ac339e783898f2c3b1af55737cbeee9fc5",
+        "title": "Measuring Mathematical Problem Solving With the MATH Dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 273323361,
+          "DBLP": "journals/corr/abs-2410-09008",
+          "DOI": "10.48550/arXiv.2410.09008"
+        },
+        "paperId": "c7cb597cfa87981277529f69b7c1b7d0ef7e5e05",
+        "title": "SuperCorrect: Supervising and Correcting Language Models with Error-Driven Insights"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 260925901,
+          "DBLP": "journals/corr/abs-2308-08155"
+        },
+        "paperId": "1a4c6856292b8c64d19a812a77f0aa6fd47cb96c",
+        "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-tutorials.6",
+          "CorpusId": 263866951,
+          "DBLP": "conf/acm/AsaiMZC23",
+          "DOI": "10.18653/v1/2023.acl-tutorials.6"
+        },
+        "paperId": "277dd00ab02f122133bf56b485dfb7c730acdcde",
+        "title": "Retrieval-based Language Models and Applications"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 260315904,
+          "DBLP": "journals/corr/abs-2307-15337",
+          "DOI": "10.48550/arXiv.2307.15337"
+        },
+        "paperId": "3d473cbb7a377cf960abff31748a1a39bb6c7d7c",
+        "title": "Skeleton-of-Thought: Large Language Models Can Do Parallel Decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.12561",
+          "CorpusId": 253802096,
+          "DBLP": "conf/icml/YasunagaAS0LLLZ23",
+          "DOI": "10.48550/arXiv.2211.12561"
+        },
+        "paperId": "a37153a5f42ee2951ad8a2c9ec86b52c4bf81c77",
+        "title": "Retrieval-Augmented Multimodal Language Modeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 286087920,
+          "DBLP": "journals/corr/abs-2311-11482",
+          "DOI": "10.48550/arXiv.2311.11482"
+        },
+        "paperId": "be130fe97c15048dd91cad438894fbed5a05365a",
+        "title": "Meta Prompting for AGI Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "“Prompt-based 3d molecular diffusion models for structure-based drug design,”"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "If the contribution is primarily a new model architecture, the paper should describe the architecture clearly and fully"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

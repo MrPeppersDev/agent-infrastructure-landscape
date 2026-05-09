@@ -1,0 +1,983 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2340212538",
+        "name": "Gui-Min Zhang"
+      },
+      {
+        "authorId": "2366675572",
+        "name": "Muxin Fu"
+      },
+      {
+        "authorId": "2367752546",
+        "name": "Shuicheng Yan"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2509.24704, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "MemGen: Weaving Generative Latent Memory for Self-Evolving Agents"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.06433",
+          "CorpusId": 280561810,
+          "DBLP": "journals/corr/abs-2508-06433",
+          "DOI": "10.48550/arXiv.2508.06433"
+        },
+        "paperId": "e2d3e8abe0fad7210a16be02528370ea03299d64",
+        "title": "Memp: Exploring Agent Procedural Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.21046",
+          "CorpusId": 280323947
+        },
+        "paperId": "74deef6100e5d9baf2eaa86e20618fa34d02c678",
+        "title": "A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve on the Path to Artificial Super Intelligence"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.06203",
+          "CorpusId": 280148411,
+          "DBLP": "journals/corr/abs-2507-06203",
+          "DOI": "10.48550/arXiv.2507.06203"
+        },
+        "paperId": "0ba7e537a1728d6b40d9ff16105f6207900fbb01",
+        "title": "A Survey on Latent Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.02259",
+          "CorpusId": 280047896,
+          "DBLP": "journals/corr/abs-2507-02259",
+          "DOI": "10.48550/arXiv.2507.02259"
+        },
+        "paperId": "80a0548be8c857421aaf0602c6d83d3ef934a251",
+        "title": "MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.22694",
+          "CorpusId": 280010825,
+          "DBLP": "journals/corr/abs-2506-22694",
+          "DOI": "10.48550/arXiv.2506.22694"
+        },
+        "paperId": "0174af65a96902b94f76beba2032c70c087790c9",
+        "title": "VOCABTRIM: Vocabulary Pruning for Efficient Speculative Decoding in LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.15841",
+          "CorpusId": 279465470,
+          "DBLP": "journals/corr/abs-2506-15841",
+          "DOI": "10.48550/arXiv.2506.15841"
+        },
+        "paperId": "6c5f3dd82ee674d929a8eb4b256ca2045e02ae60",
+        "title": "MEM1: Learning to Synergize Memory and Reasoning for Efficient Long-Horizon Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.14728",
+          "CorpusId": 279410888,
+          "DBLP": "journals/corr/abs-2506-14728",
+          "DOI": "10.48550/arXiv.2506.14728"
+        },
+        "paperId": "e740a5a9687f770a840505305cf20d6f974eaab3",
+        "title": "AgentDistill: Training-Free Agent Distillation with Generalizable MCP Boxes"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.07398",
+          "CorpusId": 279250852,
+          "DBLP": "journals/corr/abs-2506-07398",
+          "DOI": "10.48550/arXiv.2506.07398"
+        },
+        "paperId": "daa9bcf3ffefdfa8c0f25654aa0512a19ff08157",
+        "title": "G-Memory: Tracing Hierarchical Memory for Multi-Agent Systems"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.00641",
+          "CorpusId": 279075247,
+          "DBLP": "journals/corr/abs-2506-00641",
+          "DOI": "10.48550/arXiv.2506.00641"
+        },
+        "paperId": "03a93e2e7f57d3e1d1c1aee921ccf2161ac03872",
+        "title": "AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.20286",
+          "CorpusId": 278911023,
+          "DBLP": "journals/corr/abs-2505-20286",
+          "DOI": "10.48550/arXiv.2505.20286"
+        },
+        "paperId": "8a8249936da1f4fbebd878244a317829968db3f6",
+        "title": "Alita: Generalist Agent Enabling Scalable Agentic Reasoning with Minimal Predefinition and Maximal Self-Evolution"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.19092",
+          "CorpusId": 278905774,
+          "DBLP": "journals/corr/abs-2505-19092",
+          "DOI": "10.48550/arXiv.2505.19092"
+        },
+        "paperId": "8829ae159bed1946bf36c217c28b2dbc63b757a2",
+        "title": "Reinforced Latent Reasoning for LLM-based Recommendation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.19255",
+          "CorpusId": 278904571,
+          "DBLP": "journals/corr/abs-2505-19255",
+          "DOI": "10.48550/arXiv.2505.19255"
+        },
+        "paperId": "731861e42ed3743c46f511c5b8dc303d7cca636f",
+        "title": "VTool-R1: VLMs Learn to Think with Images via Reinforcement Learning on Multimodal Tool Use"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.16552",
+          "CorpusId": 278789424,
+          "DBLP": "journals/corr/abs-2505-16552",
+          "DOI": "10.48550/arXiv.2505.16552"
+        },
+        "paperId": "ab4800a924508f49d644ced8ba236ec92f54f566",
+        "title": "Think Silently, Think Fast: Dynamic Latent Compression of LLM Reasoning Chains"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.16067",
+          "CorpusId": 278788765,
+          "DBLP": "journals/corr/abs-2505-16067",
+          "DOI": "10.48550/arXiv.2505.16067"
+        },
+        "paperId": "7a40273098359b3f25989768bb2555ebb79ec3be",
+        "title": "How Memory Management Impacts LLM Agents: An Empirical Study of Experience-Following Behavior"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.13308",
+          "CorpusId": 278768446,
+          "DBLP": "journals/corr/abs-2505-13308",
+          "DOI": "10.48550/arXiv.2505.13308"
+        },
+        "paperId": "0576c5be53db2c04d644637308763a4fc2db3a36",
+        "title": "Seek in the Dark: Reasoning via Test-Time Instance-Level Policy Gradient in Latent Space"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.12629",
+          "CorpusId": 278740914,
+          "DBLP": "journals/corr/abs-2505-12629",
+          "DOI": "10.48550/arXiv.2505.12629"
+        },
+        "paperId": "af9ea3343dee7dc2f3aba49add81dee89c2191e7",
+        "title": "Enhancing Latent Computation in Transformers with Latent Tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.11484",
+          "CorpusId": 278714770,
+          "DBLP": "journals/corr/abs-2505-11484",
+          "DOI": "10.48550/arXiv.2505.11484"
+        },
+        "paperId": "b2eb44f524bd0cd7d0d131200aa87e574069037d",
+        "title": "SoftCoT++: Test-Time Scaling with Soft Chain-of-Thought Reasoning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.10554",
+          "CorpusId": 278636628,
+          "DBLP": "journals/corr/abs-2505-10554",
+          "DOI": "10.48550/arXiv.2505.10554"
+        },
+        "paperId": "3592cf332a58796d18e3d1cc359f09043a30b6bc",
+        "title": "Beyond 'Aha!': Toward Systematic Meta-Abilities Alignment in Large Reasoning Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.01441",
+          "CorpusId": 278327533,
+          "DBLP": "journals/corr/abs-2505-01441",
+          "DOI": "10.48550/arXiv.2505.01441"
+        },
+        "paperId": "d804b6420700e5e72fe571316d922bef9dfaa8ca",
+        "title": "Agentic Reasoning and Tool Integration for LLMs via Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.15965",
+          "CorpusId": 277993681,
+          "DBLP": "journals/corr/abs-2504-15965",
+          "DOI": "10.48550/arXiv.2504.15965"
+        },
+        "paperId": "18ee9dcd91f50f62973425947b1abd34cc283dbb",
+        "title": "From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.07079",
+          "CorpusId": 277634081,
+          "DBLP": "journals/corr/abs-2504-07079",
+          "DOI": "10.48550/arXiv.2504.07079"
+        },
+        "paperId": "69768fdcb8c2bbf5c658c737b33d9c95ea98f60f",
+        "title": "SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.24047",
+          "CorpusId": 277467270,
+          "DBLP": "journals/corr/abs-2503-24047",
+          "DOI": "10.48550/arXiv.2503.24047"
+        },
+        "paperId": "95154330d74be6c79ac45e97b38ef0038e2b8e2a",
+        "title": "Towards Scientific Intelligence: A Survey of LLM-based Scientific Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.05854",
+          "CorpusId": 276903398,
+          "DBLP": "journals/corr/abs-2503-05854",
+          "DOI": "10.3389/frai.2025.1674927",
+          "PubMed": "41312024",
+          "PubMedCentral": "12647001"
+        },
+        "paperId": "973eed2ad54fdb551b88b114355bdc53ce0b808b",
+        "title": "Accelerating earth science discovery via multi-agent LLM systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.02951",
+          "CorpusId": 276782338,
+          "DBLP": "journals/corr/abs-2503-02951",
+          "DOI": "10.48550/arXiv.2503.02951"
+        },
+        "paperId": "3ff44c2de70d779aacc766ee148d6df465f53e01",
+        "title": "KodCode: A Diverse, Challenging, and Verifiable Synthetic Dataset for Coding"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.02197",
+          "CorpusId": 276774869,
+          "DBLP": "conf/acl/ChenLH0F025",
+          "DOI": "10.48550/arXiv.2503.02197"
+        },
+        "paperId": "6e15f76e13756478975bb20adfa1e0b9351d6758",
+        "title": "ATLaS: Agent Tuning via Learning Critical Steps"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.21074",
+          "CorpusId": 276725056,
+          "DBLP": "conf/emnlp/ShenYZHDH25",
+          "DOI": "10.48550/arXiv.2502.21074"
+        },
+        "paperId": "bf04a4f09c19ec0ebaeadff5f78832626673fc00",
+        "title": "CODI: Compressing Chain-of-Thought into Continuous Space via Self-Distillation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.12134",
+          "CorpusId": 276421775,
+          "DBLP": "journals/corr/abs-2502-12134",
+          "DOI": "10.48550/arXiv.2502.12134"
+        },
+        "paperId": "49ac4b6cdb2db61c575e246c360259937a27ce81",
+        "title": "SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.12110",
+          "CorpusId": 276421617,
+          "DBLP": "journals/corr/abs-2502-12110",
+          "DOI": "10.48550/arXiv.2502.12110"
+        },
+        "paperId": "1f35a15fe9df43d24ec6ea551ec6c9766c17eccf",
+        "title": "A-MEM: Agentic Memory for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.00592",
+          "CorpusId": 276094378,
+          "DBLP": "conf/icml/0170KH0ZMGFH25",
+          "DOI": "10.48550/arXiv.2502.00592"
+        },
+        "paperId": "8a85ef6b1063972f873d99ce19fe31a0c02657bf",
+        "title": "M+: Extending MemoryLLM with Scalable Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.15915",
+          "CorpusId": 275920817,
+          "DBLP": "conf/sigir/SuTAYWWY0025",
+          "DOI": "10.1145/3726302.3729957"
+        },
+        "paperId": "7bd78700829c69a480895346a8d916cf4e93f435",
+        "title": "Parametric Retrieval Augmented Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.12948",
+          "CorpusId": 275789950,
+          "DBLP": "journals/nature/GuoYZSWZXZMBZY025",
+          "DOI": "10.1038/s41586-025-09422-z",
+          "PubMed": "40962978",
+          "PubMedCentral": "12443585"
+        },
+        "paperId": "2eed1fad9bbf887d4395de40f20144c4fafefd7f",
+        "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.11733",
+          "CorpusId": 275757225,
+          "DBLP": "journals/corr/abs-2501-11733",
+          "DOI": "10.48550/arXiv.2501.11733"
+        },
+        "paperId": "52babb057c4c6493bef95ae7a67984d7f365e2a8",
+        "title": "Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.01702",
+          "CorpusId": 275323978,
+          "DBLP": "journals/corr/abs-2501-01702",
+          "DOI": "10.48550/arXiv.2501.01702"
+        },
+        "paperId": "6946078dc0fa801139f23168b4e3d62b5848c46b",
+        "title": "AgentRefine: Enhancing Agent Generalization through Refinement Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.17747",
+          "CorpusId": 274992824,
+          "DBLP": "journals/corr/abs-2412-17747",
+          "DOI": "10.48550/arXiv.2412.17747"
+        },
+        "paperId": "ce35908e466fd5c9cb475fdc34a6d1e3543266fc",
+        "title": "Deliberation in Latent Space via Differentiable Cache Augmentation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.15115",
+          "CorpusId": 274859421,
+          "DBLP": "journals/corr/abs-2412-15115",
+          "DOI": "10.48550/arXiv.2412.15115"
+        },
+        "paperId": "88aa6b1f37d1fd8e0a40499ce9bb87873f03aaa8",
+        "title": "Qwen2.5 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.12094",
+          "CorpusId": 274788900,
+          "DBLP": "journals/corr/abs-2412-12094",
+          "DOI": "10.48550/arXiv.2412.12094"
+        },
+        "paperId": "0749c4edb3751474ed96bcb0af94a4eb1444da02",
+        "title": "SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.06769",
+          "CorpusId": 274610816,
+          "DBLP": "journals/corr/abs-2412-06769",
+          "DOI": "10.48550/arXiv.2412.06769"
+        },
+        "paperId": "673fbdd957cada770d10dffca5e45b53da43a3c6",
+        "title": "Training Large Language Models to Reason in a Continuous Latent Space"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 273160850,
+          "DOI": "10.1038/s41467-025-61807-w",
+          "PubMed": "40645990",
+          "PubMedCentral": "12254300"
+        },
+        "paperId": "54ec5290f6744752d68ebff285cf07cf7a8f2018",
+        "title": "Neural dynamics of spontaneous memory recall and future thinking in the continuous flow of thoughts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.01178",
+          "CorpusId": 270870116,
+          "DBLP": "journals/corr/abs-2407-01178",
+          "DOI": "10.4208/jml.240708"
+        },
+        "paperId": "2c4f702a4bbb733e1abfb722c5c74fa15aa85ee5",
+        "title": "Memory3: Language Modeling with Explicit Memory"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.14768",
+          "CorpusId": 269982715,
+          "DBLP": "conf/nips/0104L0XY0X0C24",
+          "DOI": "10.48550/arXiv.2405.14768"
+        },
+        "paperId": "8ce5f6e28d49e1bc00804fa2fa3e917deb203388",
+        "title": "WISE: Rethinking the Knowledge Memory for Lifelong Model Editing of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.15793",
+          "CorpusId": 270063685,
+          "DBLP": "journals/corr/abs-2405-15793",
+          "DOI": "10.48550/arXiv.2405.15793"
+        },
+        "paperId": "1c3c531fc0fbe79f97f367ed3648de8467caeeaa",
+        "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.13501",
+          "CorpusId": 269293320,
+          "DBLP": "journals/corr/abs-2404-13501",
+          "DOI": "10.1145/3748302"
+        },
+        "paperId": "b6ab16c8eade03a39830493071d99fc48a736fac",
+        "title": "A Survey on the Memory Mechanism of Large Language Model-based Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.12457",
+          "CorpusId": 269283058,
+          "DBLP": "journals/tocs/JinZJLLLJ26",
+          "DOI": "10.1145/3768628"
+        },
+        "paperId": "7326329c09c11aac423ef4910222a16952bb01dc",
+        "title": "RAGCache: Efficient Knowledge Caching for Retrieval-Augmented Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.12881",
+          "CorpusId": 268532485,
+          "DBLP": "journals/corr/abs-2403-12881",
+          "DOI": "10.48550/arXiv.2403.12881"
+        },
+        "paperId": "8bb527c332b133e52bb7b6c5da84375888f41c05",
+        "title": "Agent-FLAN: Designing Data and Methods of Effective Agent Tuning for Large Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.07974",
+          "CorpusId": 268379413,
+          "DBLP": "conf/iclr/JainHGLYZWSSS25",
+          "DOI": "10.48550/arXiv.2403.07974"
+        },
+        "paperId": "afe0998d191f3ea8490c7df100a3ffc5dcc62c5e",
+        "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.04317",
+          "CorpusId": 268264809,
+          "DBLP": "conf/nips/Tack0MSTS24",
+          "DOI": "10.48550/arXiv.2403.04317"
+        },
+        "paperId": "366441034ec03b2fd72e29c246c49389a50b8ad8",
+        "title": "Online Adaptation of Language Models with a Memory of Amortized Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.04624",
+          "CorpusId": 267523037,
+          "DBLP": "conf/icml/WangGCJLYYLLYSM24",
+          "DOI": "10.48550/arXiv.2402.04624"
+        },
+        "paperId": "12c27a40fbcc9dfbf483185291e7c80114a2a9ae",
+        "title": "MEMORYLLM: Towards Self-Updatable Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.02057",
+          "CorpusId": 267412730,
+          "DBLP": "conf/icml/FuBS024",
+          "DOI": "10.48550/arXiv.2402.02057"
+        },
+        "paperId": "f1a9e0830bc36c048fa4659beaa62609869895b5",
+        "title": "Break the Sequential Dependency of LLM Inference Using Lookahead Decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.15077",
+          "CorpusId": 267301131,
+          "DBLP": "journals/corr/abs-2401-15077",
+          "DOI": "10.48550/arXiv.2401.15077"
+        },
+        "paperId": "1b5db3170c195508ff24fee8eda0d4987e806f0b",
+        "title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.10774",
+          "CorpusId": 267061277,
+          "DBLP": "journals/corr/abs-2401-10774",
+          "DOI": "10.48550/arXiv.2401.10774"
+        },
+        "paperId": "57e7af0b69325fafb371ef5d502e39ef9c90ef7e",
+        "title": "Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.09979",
+          "CorpusId": 266335873
+        },
+        "paperId": "9d793e542b757f234431d209e711c6ef88aa29de",
+        "title": "LoRAMoE: Alleviate World Knowledge Forgetting in Large Language Models via MoE-Style Plugin"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2311.04934",
+          "CorpusId": 265067391,
+          "DBLP": "journals/corr/abs-2311-04934",
+          "DOI": "10.48550/arXiv.2311.04934"
+        },
+        "paperId": "bc5c73c101da795cfa44e4ac7751cdedca9b6d93",
+        "title": "Prompt Cache: Modular Attention Reuse for Low-Latency Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 256107150,
+          "DOI": "10.1038/s41562-023-01799-z",
+          "PubMed": "38242925",
+          "PubMedCentral": "10963272"
+        },
+        "paperId": "8eccb1c0dd3d82a59f1c90ceb5a0951a22a3ef16",
+        "title": "A generative model of memory construction and consolidation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10250",
+          "CorpusId": 258741194,
+          "DBLP": "journals/corr/abs-2305-10250",
+          "DOI": "10.48550/arXiv.2305.10250"
+        },
+        "paperId": "c3a59e1e405e7c28319e5a1c5b5241f9b340cf63",
+        "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.546",
+          "ArXiv": "2212.10511",
+          "CorpusId": 254877603,
+          "DBLP": "conf/acl/MallenAZDKH23",
+          "DOI": "10.18653/v1/2023.acl-long.546"
+        },
+        "paperId": "c6ee979c2da4b55a8486abae4cd720422ab09b26",
+        "title": "When Not to Trust Language Models: Investigating Effectiveness of Parametric and Non-Parametric Memories"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.11903",
+          "CorpusId": 246411621,
+          "DBLP": "conf/nips/Wei0SBIXCLZ22",
+          "DOI": "10.52202/068431-1800"
+        },
+        "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+        "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.14168",
+          "CorpusId": 239998651,
+          "DBLP": "journals/corr/abs-2110-14168"
+        },
+        "paperId": "d6045d2ccc9c09ca1671348de86d07da6bc28eea",
+        "title": "Training Verifiers to Solve Math Word Problems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2103.03874",
+          "CorpusId": 232134851,
+          "DBLP": "conf/nips/HendrycksBKABTS21"
+        },
+        "paperId": "57d1e7ac339e783898f2c3b1af55737cbeee9fc5",
+        "title": "Measuring Mathematical Problem Solving With the MATH Dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2010.03768",
+          "CorpusId": 222208810,
+          "DBLP": "journals/corr/abs-2010-03768",
+          "MAG": "3092516542"
+        },
+        "paperId": "398a0625e8707a0b41ac58eaec51e8feb87dd7cb",
+        "title": "ALFWorld: Aligning Text and Embodied Environments for Interactive Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "N18-1074",
+          "ArXiv": "1803.05355",
+          "CorpusId": 4711425,
+          "DBLP": "conf/naacl/ThorneVCM18",
+          "DOI": "10.18653/v1/N18-1074",
+          "MAG": "2789566302"
+        },
+        "paperId": "b1d24e8e08435b7c52335485a0d635abf9bc604c",
+        "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P17-1015",
+          "ArXiv": "1705.04146",
+          "CorpusId": 12777818,
+          "DBLP": "conf/acl/LingYDB17",
+          "DOI": "10.18653/v1/P17-1015",
+          "MAG": "2613312549"
+        },
+        "paperId": "b123a0d46ad917b79c43c5ae981e03ed2458ed11",
+        "title": "Program Induction by Rationale Generation: Learning to Solve and Explain Algebraic Word Problems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P17-1147",
+          "ArXiv": "1705.03551",
+          "CorpusId": 26501419,
+          "DBLP": "journals/corr/JoshiCWZ17",
+          "DOI": "10.18653/v1/P17-1147",
+          "MAG": "2612431505"
+        },
+        "paperId": "f010affab57b5fcf1cd6be23df79d8ec98c7289c",
+        "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 5656844,
+          "DOI": "10.1037/1089-2680.5.2.100",
+          "MAG": "2113915320"
+        },
+        "paperId": "6b45c1ffd379b145fdd12a375fdf84ee8f1560c4",
+        "title": "The Psychology of Life Stories"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 266149351,
+          "DBLP": "journals/corr/abs-2312-04684",
+          "DOI": "10.48550/arXiv.2312.04684"
+        },
+        "paperId": "e40b8729a9da1ff24aeaa81518305350a2c375cf",
+        "title": "Latent Skill Discovery for Chain-of-Thought Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 5855042,
+          "MAG": "2187089797"
+        },
+        "paperId": "1c46943103bd7b7a2c7be86859995a4144d1938b",
+        "title": "Visualizing Data using t-SNE"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 2332513,
+          "DOI": "10.1023/A:1022672621406"
+        },
+        "paperId": "4c915c1eecb217c123a36dc6d3ce52d12c742614",
+        "title": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 275342265
+        },
+        "paperId": "a4735b3bfe3231cde53969460930e5cf03da48bc",
+        "title": "REINFORCE++: An Efficient RLHF Algorithm with Robust-ness to Both Prompt and Reward Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Autotir: Autonomous tools"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Solve the math problem with proper reasoning, and make sure to put the FINAL ANSWER inside \\boxed{}"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Retrospective large language agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Deepswe: Training a state-of-the-art coding agent from scratch by scaling rl"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "eveneven"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": ": Enabling generalized agent abilities for"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Leveraging cross-domain experience"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "A graduate-level google-proof"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "HuggingFace"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Unified and modular"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Anthropic"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

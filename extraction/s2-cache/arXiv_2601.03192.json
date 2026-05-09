@@ -1,0 +1,992 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2357216890",
+        "name": "Shengtao Zhang"
+      },
+      {
+        "authorId": "2374914625",
+        "name": "Jiaqian Wang"
+      },
+      {
+        "authorId": "2257377292",
+        "name": "Ruiwen Zhou"
+      },
+      {
+        "authorId": "2306757036",
+        "name": "Junwei Liao"
+      },
+      {
+        "authorId": "2362927104",
+        "name": "Yuchen Feng"
+      },
+      {
+        "authorId": "2315940339",
+        "name": "Weinan Zhang"
+      },
+      {
+        "authorId": "2289902495",
+        "name": "Ying Wen"
+      },
+      {
+        "authorId": "2268429641",
+        "name": "Zhiyu Li"
+      },
+      {
+        "authorId": "2268399953",
+        "name": "Feiyu Xiong"
+      },
+      {
+        "authorId": "2376151922",
+        "name": "Yutao Qi"
+      },
+      {
+        "authorId": "2268400606",
+        "name": "Bo Tang"
+      },
+      {
+        "authorId": "2111875607",
+        "name": "Muning Wen"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2601.03192, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "MemRL: Self-Evolving Agents via Runtime Reinforcement Learning on Episodic Memory"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2511.20857",
+          "CorpusId": 283261706,
+          "DBLP": "journals/corr/abs-2511-20857",
+          "DOI": "10.48550/arXiv.2511.20857"
+        },
+        "paperId": "87dc9cf7adf0a6446c07231c6ff2ae71d48235d3",
+        "title": "Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2511.01448",
+          "CorpusId": 282739912,
+          "DBLP": "journals/corr/abs-2511-01448",
+          "DOI": "10.48550/arXiv.2511.01448"
+        },
+        "paperId": "d5ee263f57d97aa3800b7bdf58667e824776362b",
+        "title": "LiCoMemory: Lightweight and Cognitive Agentic Memory for Efficient Long-Term Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.17862",
+          "CorpusId": 280711669,
+          "DBLP": "journals/corr/abs-2508-17862",
+          "DOI": "10.48550/arXiv.2508.17862"
+        },
+        "paperId": "3229ca9ff615238167ef27bc7ee60266c3ef9bd5",
+        "title": "Retrieval Feedback Memory Enhancement Large Model Retrieval Generation Method"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.16153",
+          "CorpusId": 280708996,
+          "DBLP": "journals/corr/abs-2508-16153",
+          "DOI": "10.48550/arXiv.2508.16153"
+        },
+        "paperId": "36baccf77336559bdc37853566f1e4121c66f9e8",
+        "title": "Memento: Fine-tuning LLM Agents without Fine-tuning LLMs"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.16629",
+          "CorpusId": 280711822,
+          "DBLP": "journals/corr/abs-2508-16629",
+          "DOI": "10.48550/arXiv.2508.16629"
+        },
+        "paperId": "0c1a49375e861e6fb110c9a8dee2befae41c76c7",
+        "title": "Learn to Memorize: Optimizing LLM-based Agents with Adaptive Memory Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.06433",
+          "CorpusId": 280561810,
+          "DBLP": "journals/corr/abs-2508-06433",
+          "DOI": "10.48550/arXiv.2508.06433"
+        },
+        "paperId": "e2d3e8abe0fad7210a16be02528370ea03299d64",
+        "title": "Memp: Exploring Agent Procedural Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.22101",
+          "CorpusId": 278960153,
+          "DBLP": "journals/corr/abs-2505-22101",
+          "DOI": "10.48550/arXiv.2505.22101"
+        },
+        "paperId": "a739c14146ec40d8e08eb945d457a1f72258f3f9",
+        "title": "MemOS: An Operating System for Memory-Augmented Generation (MAG) in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.19436",
+          "CorpusId": 278905054,
+          "DBLP": "journals/corr/abs-2505-19436",
+          "DOI": "10.48550/arXiv.2505.19436"
+        },
+        "paperId": "02461c008dd24fea55952267af1e3c47ec134b19",
+        "title": "Task Memory Engine: Spatial Memory for Robust Multi-Step LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.11942",
+          "CorpusId": 278739762,
+          "DBLP": "journals/corr/abs-2505-11942",
+          "DOI": "10.48550/arXiv.2505.11942"
+        },
+        "paperId": "9e9e4e9c5a7c6307598a9b63c9e255d6c7eb10a0",
+        "title": "LifelongAgentBench: Evaluating LLM Agents as Lifelong Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.01441",
+          "CorpusId": 278327533,
+          "DBLP": "journals/corr/abs-2505-01441",
+          "DOI": "10.48550/arXiv.2505.01441"
+        },
+        "paperId": "d804b6420700e5e72fe571316d922bef9dfaa8ca",
+        "title": "Agentic Reasoning and Tool Integration for LLMs via Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.19413",
+          "CorpusId": 278165315,
+          "DBLP": "journals/corr/abs-2504-19413",
+          "DOI": "10.48550/arXiv.2504.19413"
+        },
+        "paperId": "1d9c21a0fdb1cc16a32c5d490ebaf98436a23382",
+        "title": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.21760",
+          "CorpusId": 277349587,
+          "DBLP": "conf/emnlp/SalamaCYCSZB25",
+          "DOI": "10.48550/arXiv.2503.21760"
+        },
+        "paperId": "c6661578fea389a909644ba51dddeb692fed075f",
+        "title": "MemInsight: Autonomous Memory Augmentation for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.14476",
+          "CorpusId": 277104124,
+          "DBLP": "journals/corr/abs-2503-14476",
+          "DOI": "10.48550/arXiv.2503.14476"
+        },
+        "paperId": "dd4cfde3e135f799a9a71b4f57e13a29de89f7e3",
+        "title": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.12110",
+          "CorpusId": 276421617,
+          "DBLP": "journals/corr/abs-2502-12110",
+          "DOI": "10.48550/arXiv.2502.12110"
+        },
+        "paperId": "1f35a15fe9df43d24ec6ea551ec6c9766c17eccf",
+        "title": "A-MEM: Agentic Memory for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.15877",
+          "CorpusId": 270702705,
+          "DBLP": "journals/corr/abs-2406-15877",
+          "DOI": "10.48550/arXiv.2406.15877"
+        },
+        "paperId": "f2e0b3d6a02dac33872f0a0b42affdcf454715cb",
+        "title": "BigCodeBench: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.04836",
+          "CorpusId": 270357611,
+          "DBLP": "conf/emnlp/Li0FT24",
+          "DOI": "10.48550/arXiv.2406.04836"
+        },
+        "paperId": "d3767fa551f15ca6967db1f55562cee902c747ab",
+        "title": "Revisiting Catastrophic Forgetting in Large Language Model Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.19893",
+          "CorpusId": 270123776,
+          "DBLP": "journals/corr/abs-2405-19893",
+          "DOI": "10.48550/arXiv.2405.19893"
+        },
+        "paperId": "43d35e1c866bbcfa3c573d69df217c35fcec27b2",
+        "title": "Similarity is Not All You Need: Endowing Retrieval Augmented Generation with Multi Layered Thoughts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.06221",
+          "CorpusId": 268357759,
+          "DBLP": "journals/corr/abs-2403-06221",
+          "DOI": "10.1145/3626772.3657788"
+        },
+        "paperId": "dcd4d6f2f1b128bf5602b003ebc534206be2a7b9",
+        "title": "TRAD: Enhancing LLM Agents with Step-Wise Thought Retrieval and Aligned Decision"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.01306",
+          "CorpusId": 267406810,
+          "DBLP": "journals/corr/abs-2402-01306"
+        },
+        "paperId": "c0d8e5ee66c279299012cc3b8d0519011b3f4998",
+        "title": "KTO: Model Alignment as Prospect Theoretic Optimization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.14887",
+          "CorpusId": 267301416,
+          "DBLP": "conf/sigir/CuconasuTSFCMTS24",
+          "DOI": "10.1145/3626772.3657834"
+        },
+        "paperId": "77179e5ff669452b9bea479a4236a6e2009ee422",
+        "title": "The Power of Noise: Redefining Retrieval for RAG Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.10997",
+          "CorpusId": 266359151,
+          "DBLP": "journals/corr/abs-2312-10997"
+        },
+        "paperId": "46f9f7b8f88f72e12cbdb21e3311f995eb6e65c5",
+        "title": "Retrieval-Augmented Generation for Large Language Models: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.11511",
+          "CorpusId": 264288947,
+          "DBLP": "conf/iclr/AsaiWWSH24"
+        },
+        "paperId": "ddbd8fe782ac98e9c64dd98710687a962195dd9b",
+        "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.18290",
+          "CorpusId": 258959321,
+          "DBLP": "journals/corr/abs-2305-18290",
+          "DOI": "10.52202/075280-2338"
+        },
+        "paperId": "0d1c76d45afa012ded7ab741194baf142117c495",
+        "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.16291",
+          "CorpusId": 258887849,
+          "DBLP": "journals/tmlr/WangX0MXZFA24",
+          "DOI": "10.48550/arXiv.2305.16291"
+        },
+        "paperId": "f197bf0fc2f228483f6af3285000d54d8d97f9eb",
+        "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.15361",
+          "CorpusId": 257767040,
+          "DBLP": "journals/ijcv/LiangHT25",
+          "DOI": "10.1007/s11263-024-02181-w"
+        },
+        "paperId": "d8632779d4c292555c9c3e471f790169805dacc3",
+        "title": "A Comprehensive Survey on Test-Time Adaptation Under Distribution Shifts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.11366",
+          "CorpusId": 258833055,
+          "DBLP": "conf/nips/ShinnCGNY23",
+          "DOI": "10.52202/075280-0377"
+        },
+        "paperId": "0671fd553dd670a4e820553a974bc48040ba0819",
+        "title": "Reflexion: language agents with verbal reinforcement learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.04761",
+          "CorpusId": 256697342,
+          "DBLP": "journals/corr/abs-2302-04761",
+          "DOI": "10.48550/arXiv.2302.04761"
+        },
+        "paperId": "53d128ea815bcc0526856eb5a9c42cc977cb36a7",
+        "title": "Toolformer: Language Models Can Teach Themselves to Use Tools"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.02155",
+          "CorpusId": 246426909,
+          "DBLP": "journals/corr/abs-2203-02155",
+          "DOI": "10.52202/068431-2011"
+        },
+        "paperId": "d766bffc357127e0dc86dd69561d5aeb520d6f4c",
+        "title": "Training language models to follow instructions with human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.11903",
+          "CorpusId": 246411621,
+          "DBLP": "conf/nips/Wei0SBIXCLZ22",
+          "DOI": "10.52202/068431-1800"
+        },
+        "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+        "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2010.03768",
+          "CorpusId": 222208810,
+          "DBLP": "journals/corr/abs-2010-03768",
+          "MAG": "3092516542"
+        },
+        "paperId": "398a0625e8707a0b41ac58eaec51e8feb87dd7cb",
+        "title": "ALFWorld: Aligning Text and Embodied Environments for Interactive Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2009.01325",
+          "CorpusId": 221665105,
+          "DBLP": "journals/corr/abs-2009-01325",
+          "MAG": "3082115681"
+        },
+        "paperId": "053b1d7b97eb2c91fc3921d589c160b0923c70b1",
+        "title": "Learning to summarize from human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.11401",
+          "CorpusId": 218869575,
+          "DBLP": "conf/nips/LewisPPPKGKLYR020",
+          "MAG": "3027879771"
+        },
+        "paperId": "659bf9ce7175e1ec266ff54359e2bd76e0b7ff31",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.550",
+          "ArXiv": "2004.04906",
+          "CorpusId": 215737187,
+          "DBLP": "conf/emnlp/KarpukhinOMLWEC20",
+          "DOI": "10.18653/v1/2020.emnlp-main.550",
+          "MAG": "3015883388"
+        },
+        "paperId": "b26f2037f769d5ffc5f7bdcec2de8da28ec14bee",
+        "title": "Dense Passage Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2003.08839",
+          "CorpusId": 213176860,
+          "DBLP": "journals/corr/abs-2003-08839",
+          "MAG": "2963762747"
+        },
+        "paperId": "3f5f13c6f5c659754086a7faa51d6bc60f577cd1",
+        "title": "Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 220301705,
+          "DBLP": "conf/icml/SunWLMEH20",
+          "MAG": "3038628659"
+        },
+        "paperId": "a436e41141a9d9c5dfc44d16fade67b9a3b76778",
+        "title": "Test-Time Training with Self-Supervision for Generalization under Distribution Shifts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1805.00909",
+          "CorpusId": 19077536,
+          "DBLP": "journals/corr/abs-1805-00909",
+          "MAG": "2799151646"
+        },
+        "paperId": "6ecc4b1ab05f3ec12484a0ea36abfd6271c5c5ba",
+        "title": "Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1802.07569",
+          "CorpusId": 73497737,
+          "DBLP": "journals/nn/ParisiKPKW19",
+          "DOI": "10.1016/j.neunet.2019.01.012.",
+          "MAG": "2788388592",
+          "PubMed": "30780045"
+        },
+        "paperId": "9ea50b3408f993853f1c5e374690e5fbe73c2a3c",
+        "title": "Continual Lifelong Learning with Neural Networks: A Review"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1706.05296",
+          "CorpusId": 25026734,
+          "DBLP": "journals/corr/SunehagLGCZJLSL17",
+          "MAG": "2626637010"
+        },
+        "paperId": "250bf5e1d40a619080dec553914c2905db6008c7",
+        "title": "Value-Decomposition Networks For Cooperative Multi-Agent Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1706.08840",
+          "CorpusId": 37308416,
+          "DBLP": "conf/nips/Lopez-PazR17",
+          "MAG": "2734314755"
+        },
+        "paperId": "118fae4b4d07453561f1eded88654f812c7c61ec",
+        "title": "Gradient Episodic Memory for Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1703.03400",
+          "CorpusId": 6719686,
+          "DBLP": "journals/corr/FinnAL17",
+          "MAG": "2604763608"
+        },
+        "paperId": "c889d6f98e6d79b89c3a6adf8a921f88fa6ba518",
+        "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1703.01988",
+          "CorpusId": 15938338,
+          "DBLP": "journals/corr/PritzelUSBVHWB17",
+          "MAG": "2594466397"
+        },
+        "paperId": "37088dec26231bc5a4937054ebc862bb83a3db4d",
+        "title": "Neural Episodic Control"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1612.00796",
+          "CorpusId": 4704285,
+          "DBLP": "journals/corr/KirkpatrickPRVD16",
+          "DOI": "10.1073/pnas.1611835114",
+          "MAG": "2560647685",
+          "PubMed": "28292907"
+        },
+        "paperId": "2e55ba6c97ce5eb55abd959909403fe8da7e9fe9",
+        "title": "Overcoming catastrophic forgetting in neural networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 514983,
+          "DOI": "10.1016/j.tics.2016.05.004",
+          "MAG": "2424347275",
+          "PubMed": "27315762"
+        },
+        "paperId": "84dccdefebec40941af9d0cd4d415d7f2e5f1959",
+        "title": "What Learning Systems do Intelligent Agents Need? Complementary Learning Systems Theory Updated."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1606.09282",
+          "CorpusId": 4853851,
+          "DBLP": "journals/corr/LiH16e",
+          "DOI": "10.1007/978-3-319-46493-0_37",
+          "MAG": "2949808626",
+          "PubMed": "29990101"
+        },
+        "paperId": "8f3b80ddc0dd62e6c3369fabb1715990c29e9b9a",
+        "title": "Learning without Forgetting"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 3778315,
+          "DOI": "10.1016/j.neuron.2012.11.001",
+          "MAG": "2166620359",
+          "PubMed": "23177955"
+        },
+        "paperId": "4a6472998c8da1a20213877cca72d9966aea08e7",
+        "title": "The future of memory: remembering, imagining, and the brain."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 13939288,
+          "DOI": "10.1016/J.TICS.2007.05.001",
+          "MAG": "2073840350",
+          "PubMed": "17548229"
+        },
+        "paperId": "d068d12947b36e4777c317f71f93176f0bbc443d",
+        "title": "Deconstructing episodic memory with construction."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 1618114,
+          "DOI": "10.1017/S0140525X07002178",
+          "MAG": "2088931581"
+        },
+        "paperId": "4a2efb614c1b7b82561c1505c359e6814fb21864",
+        "title": "On the constructive episodic simulation of past and future events"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 3053661,
+          "DOI": "10.1038/nature03005",
+          "MAG": "1996129448",
+          "PubMed": "15496925"
+        },
+        "paperId": "542db12803eb81627001b16b5e043adeb8003043",
+        "title": "Neural correlates of mental rehearsal in dorsal premotor cortex"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 4420637,
+          "DOI": "10.1038/35021052",
+          "MAG": "1608785134",
+          "PubMed": "10963596"
+        },
+        "paperId": "1a672844fa4e25fc90b5b7888231f72d72cfb0c5",
+        "title": "Fear memories require protein synthesis in the amygdala for reconsolidation after retrieval"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 17947141,
+          "DBLP": "books/sp/12/NealH98",
+          "DOI": "10.1007/978-94-011-5014-9_12",
+          "MAG": "152982065"
+        },
+        "paperId": "9f87a11a523e4680e61966e36ea2eac516096f23",
+        "title": "A View of the Em Algorithm that Justifies Incremental, Sparse, and other Variants"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 2832081,
+          "DOI": "10.1037/0033-295X.102.3.419",
+          "MAG": "2047057213",
+          "PubMed": "7624455"
+        },
+        "paperId": "2ebf18e7892e660a833152ddc6cf8f1d21a7b881",
+        "title": "Why there are complementary learning systems in the hippocampus and neocortex: insights from the successes and failures of connectionist models of learning and memory."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 122678161,
+          "DOI": "10.2307/2291177",
+          "MAG": "2119567691"
+        },
+        "paperId": "a9cd8efe9184dddb1bedbbec3a356c4dfb22fe63",
+        "title": "Markov Decision Processes: Discrete Stochastic Dynamic Programming"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 208910339,
+          "DBLP": "journals/ml/WatkinsD92",
+          "DOI": "10.1007/BF00992698",
+          "MAG": "2625787351"
+        },
+        "paperId": "03b7e51c52084ac1db5118342a00b5fbcfc587aa",
+        "title": "Q-learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 153629957,
+          "DOI": "10.1017/CBO9780511528446.003",
+          "MAG": "1562353621"
+        },
+        "paperId": "19088a582f2eb657ac1803f1ea1b79058d5c3dc7",
+        "title": "A Value for n-person Games"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 3349598,
+          "DBLP": "journals/ml/Sutton88",
+          "DOI": "10.1023/A:1022633531479",
+          "MAG": "2100677568"
+        },
+        "paperId": "a91635f8d0e7fb804efd1c38d9c24ee952ba7076",
+        "title": "Learning to predict by the methods of temporal differences"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 14313793,
+          "DOI": "10.1016/0010-0285(80)90013-4",
+          "MAG": "1980169328"
+        },
+        "paperId": "02c43f91ee87bf2968b57159d1cdc33dc3b1ed10",
+        "title": "Analogical problem solving"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 4193919,
+          "DOI": "10.1111/J.2517-6161.1977.TB01600.X",
+          "MAG": "2049633694"
+        },
+        "paperId": "d36efb9ad91e00faa334b549ce989bfae7e2907a",
+        "title": "Maximum likelihood from incomplete data via the EM - algorithm plus discussions on the paper"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 282902587,
+          "DBLP": "conf/emnlp/WuVLH25",
+          "DOI": "10.18653/v1/2025.emnlp-tutorials.7"
+        },
+        "paperId": "73bcbf60b9ea369fdc396e532c2a9bd371fbeb4b",
+        "title": "Continual Learning of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 284488789,
+          "DBLP": "journals/corr/abs-2501-12948",
+          "DOI": "10.48550/arXiv.2501.12948"
+        },
+        "paperId": "bf76cb3bd7a54c60138f9523ffb462a486c4807b",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 256808523,
+          "DBLP": "journals/corr/abs-2302-05326",
+          "DOI": "10.48550/arXiv.2302.05326"
+        },
+        "paperId": "9065f86922b719951ce267ae20f3565443054ebd",
+        "title": "Online Real-Time Recurrent Learning Using Sparse Connections and Selective Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 252762395
+        },
+        "paperId": "99832586d55f540f603637e458a292406a0ed75d",
+        "title": "LANGUAGE MODELS"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 232278031,
+          "DBLP": "conf/iclr/WangSLOD21"
+        },
+        "paperId": "180c78b132f6369a384d22a9529551d86c8788d3",
+        "title": "Tent: Fully Test-Time Adaptation by Entropy Minimization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 4403652,
+          "DOI": "10.1007/7854_2016_463",
+          "PubMed": "27885549"
+        },
+        "paperId": "3d0bffc0759ab934fcc5ee1df78a192ce558aefb",
+        "title": "Memory Reconsolidation."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 265160155,
+          "DBLP": "journals/nn/Grossberg13",
+          "DOI": "10.1016/j.neunet.2012.09.017",
+          "MAG": "2131140847",
+          "PubMed": "23149242"
+        },
+        "paperId": "71bc18bcafe1f4909a97b0b17a522dffe306ee6a",
+        "title": "Adaptive Resonance Theory: How a brain learns to consciously attend, learn, and recognize a changing world"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 5339065
+        },
+        "paperId": "9b13e4862e7e914bdaf4928b3fe1e6dcecbc0155",
+        "title": "The Monte-Carlo Method"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 60035920,
+          "DBLP": "journals/tnn/SuttonB98",
+          "DOI": "10.1109/TNN.1998.712192",
+          "MAG": "2121863487"
+        },
+        "paperId": "97efafdb4a3942ab3efba53ded7413199f79c054",
+        "title": "Reinforcement Learning: An Introduction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 37334395,
+          "DOI": "10.1016/0010-0285(83)90002-6",
+          "MAG": "1994925058"
+        },
+        "paperId": "7030688c1bd73740c5b588dc75a74c4db0bd4972",
+        "title": "Schema induction and analogical transfer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 140830322,
+          "DOI": "10.4135/9781446212967.n15",
+          "MAG": "3041214984"
+        },
+        "paperId": "d792562462dbb687015954805d31620240db57a1",
+        "title": "Episodic and semantic memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 277919528
+        },
+        "paperId": "9b608a6c80271cc996f22f584f9da4c43e354f45",
+        "title": "Welcome to the Era of Experience"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "-ROOTCAUSE: The initial assumption that the group ‘configgroup‘ and the user ‘ appuser‘ already existed led to errors when attempting to set ownership and modify group membership"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "PATTERN TO AVOID: Avoid executing commands in a loop or without proper checks, which can lead to unintended repeated executions and failures to capture necessary outputs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "The PID file was not created because the command to capture the PID may not have executed correctly, leading to multiple executions of the sleep process without proper PID storage"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "PATTERN TO AVOID: Avoid making assumptions about the existence of users or groups in the system without verifying first"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Self-Evolving Agents via Runtime Reinforcement Learning on Episodic Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "A benchmark for rule-guided reasoning with llms in real-world scenarios"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

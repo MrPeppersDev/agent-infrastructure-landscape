@@ -1,0 +1,614 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "144447820",
+        "name": "Yi Tay"
+      },
+      {
+        "authorId": "2057663102",
+        "name": "Vinh Q. Tran"
+      },
+      {
+        "authorId": "3226635",
+        "name": "Mostafa Dehghani"
+      },
+      {
+        "authorId": "2148023",
+        "name": "Jianmo Ni"
+      },
+      {
+        "authorId": "2119725651",
+        "name": "Dara Bahri"
+      },
+      {
+        "authorId": "18138802",
+        "name": "Harsh Mehta"
+      },
+      {
+        "authorId": "145144957",
+        "name": "Zhen Qin"
+      },
+      {
+        "authorId": "47214884",
+        "name": "Kai Hui"
+      },
+      {
+        "authorId": "48634137",
+        "name": "Zhe Zhao"
+      },
+      {
+        "authorId": "143702064",
+        "name": "Jai Gupta"
+      },
+      {
+        "authorId": "32303439",
+        "name": "Tal Schuster"
+      },
+      {
+        "authorId": "50056360",
+        "name": "William W. Cohen"
+      },
+      {
+        "authorId": "1680617",
+        "name": "Donald Metzler"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2202.06991, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "Transformer Memory as a Differentiable Search Index"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.08239",
+          "CorpusId": 246063428,
+          "DBLP": "journals/corr/abs-2201-08239"
+        },
+        "paperId": "b3848d32f7294ec708627897833c4097eb4d8778",
+        "title": "LaMDA: Language Models for Dialog Applications"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.09332",
+          "CorpusId": 245329531,
+          "DBLP": "journals/corr/abs-2112-09332"
+        },
+        "paperId": "2f3efe44083af91cef562c1a3451eee2f8601d22",
+        "title": "WebGPT: Browser-assisted question-answering with human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.naacl-main.342",
+          "ArXiv": "2112.08340",
+          "CorpusId": 245144839,
+          "DBLP": "journals/corr/abs-2112-08340",
+          "DOI": "10.18653/v1/2022.naacl-main.342"
+        },
+        "paperId": "df4d715898e04038a3a367b977fe82e479dcb291",
+        "title": "GenIE: Generative Information Extraction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.06905",
+          "CorpusId": 245124124,
+          "DBLP": "journals/corr/abs-2112-06905"
+        },
+        "paperId": "80d0116d77beeded0c23cf48946d9d10d4faee14",
+        "title": "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.04426",
+          "CorpusId": 244954723,
+          "DBLP": "journals/corr/abs-2112-04426"
+        },
+        "paperId": "002c256d30d6be4b23d365a8de8ae0e67e4c9641",
+        "title": "Improving language models by retrieving from trillions of tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2111.10952",
+          "CorpusId": 244478674,
+          "DBLP": "journals/corr/abs-2111-10952"
+        },
+        "paperId": "cbf98ebe967e0f3f3236e7932f37013b98244e94",
+        "title": "ExT5: Towards Extreme Multi-Task Scaling for Transfer Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.02095",
+          "CorpusId": 238354065,
+          "DBLP": "journals/corr/abs-2110-02095"
+        },
+        "paperId": "c206a6e7f51f5e1b6bfc479a174b66ad88ada2db",
+        "title": "Exploring the Limits of Large Scale Pre-training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2109.10686",
+          "CorpusId": 237592821,
+          "DBLP": "journals/corr/abs-2109-10686"
+        },
+        "paperId": "2d4f66046bb436864cd6bf589e3a931c405f9f44",
+        "title": "Scale Efficiently: Insights from Pre-training and Fine-tuning Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.findings-acl.146",
+          "ArXiv": "2108.08877",
+          "CorpusId": 237260023,
+          "DBLP": "conf/acl/NiACMHCY22",
+          "DOI": "10.18653/v1/2022.findings-acl.146"
+        },
+        "paperId": "dbe87b171bfb789e1d22a047aeeee69105e6fd02",
+        "title": "Sentence-T5: Scalable Sentence Encoders from Pre-trained Text-to-Text Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.552",
+          "ArXiv": "2104.08821",
+          "CorpusId": 233296292,
+          "DBLP": "journals/corr/abs-2104-08821",
+          "DOI": "10.18653/v1/2021.emnlp-main.552"
+        },
+        "paperId": "c26759e6c701201af2f62f7ee4eb68742b5bf085",
+        "title": "SimCSE: Simple Contrastive Learning of Sentence Embeddings"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2101.03961",
+          "CorpusId": 231573431,
+          "DBLP": "journals/jmlr/FedusZS22"
+        },
+        "paperId": "fdacf2a732f55befdc410ea927091cad3b791f13",
+        "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.446",
+          "ArXiv": "2012.14913",
+          "CorpusId": 229923720,
+          "DBLP": "conf/emnlp/GevaSBL21",
+          "DOI": "10.18653/v1/2021.emnlp-main.446"
+        },
+        "paperId": "4a54d58a4b20e4f3af25cea3c188a12082a95e02",
+        "title": "Transformer Feed-Forward Layers Are Key-Value Memories"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2012.12501",
+          "CorpusId": 229363593,
+          "DBLP": "journals/corr/abs-2012-12501"
+        },
+        "paperId": "da689f6ea7ec87eb5e2ff7237ea140c6a82361d8",
+        "title": "Learned Indexes for a Google-scale Disk-based Database"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2010.00904",
+          "CorpusId": 222125277,
+          "DBLP": "journals/corr/abs-2010-00904",
+          "MAG": "3091432621"
+        },
+        "paperId": "572c12e81319ccd47cc0c637c82efadd03fd05ab",
+        "title": "Autoregressive Entity Retrieval"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.316",
+          "ArXiv": "2009.08553",
+          "CorpusId": 221802772,
+          "DBLP": "conf/acl/MaoHLSG0C20",
+          "DOI": "10.18653/v1/2021.acl-long.316",
+          "MAG": "3087273879"
+        },
+        "paperId": "a64fbcf815a4f7e4d8b2d97be86451dca0a10d2f",
+        "title": "Generation-Augmented Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2008.02217",
+          "CorpusId": 220968978,
+          "DBLP": "journals/corr/abs-2008-02217",
+          "MAG": "3047517563"
+        },
+        "paperId": "804a6d7c23335bbca6eec3b7d3c8366dcbe395a5",
+        "title": "Hopfield Networks is All You Need"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.16668",
+          "CorpusId": 220265858,
+          "DBLP": "conf/iclr/LepikhinLXCFHKS21",
+          "MAG": "3040573126"
+        },
+        "paperId": "1882f194cb43828852cc052887671e55a80f945a",
+        "title": "GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.findings-emnlp.171",
+          "ArXiv": "2005.00700",
+          "CorpusId": 218487109,
+          "DBLP": "conf/emnlp/KhashabiMKSTCH20",
+          "DOI": "10.18653/v1/2020.findings-emnlp.171",
+          "MAG": "3099655892"
+        },
+        "paperId": "ad5970584754cc7a1d91c95ab84a1e210258183a",
+        "title": "UnifiedQA: Crossing Format Boundaries With a Single QA System"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.550",
+          "ArXiv": "2004.04906",
+          "CorpusId": 215737187,
+          "DBLP": "conf/emnlp/KarpukhinOMLWEC20",
+          "DOI": "10.18653/v1/2020.emnlp-main.550",
+          "MAG": "3015883388"
+        },
+        "paperId": "b26f2037f769d5ffc5f7bdcec2de8da28ec14bee",
+        "title": "Dense Passage Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 226096901,
+          "MAG": "3033156098"
+        },
+        "paperId": "43f2ad297941db230c089ba353efc3f281ab678c",
+        "title": "5分で分かる!? 有名論文ナナメ読み：Jacob Devlin et al. : BERT : Pre-training of Deep Bidirectional Transformers for Language Understanding"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2002.08909",
+          "CorpusId": 211204736,
+          "DBLP": "conf/icml/GuuLTPC20",
+          "MAG": "3034671305"
+        },
+        "paperId": "832fff14d2ed50eb7969c4c4b976c35776548f56",
+        "title": "REALM: Retrieval-Augmented Language Model Pre-Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.437",
+          "ArXiv": "2002.08910",
+          "CorpusId": 211205183,
+          "DBLP": "journals/corr/abs-2002-08910",
+          "DOI": "10.18653/v1/2020.emnlp-main.437",
+          "MAG": "3102659883"
+        },
+        "paperId": "80376bdec5f534be78ba82821f540590ebce5559",
+        "title": "How Much Knowledge Can You Pack into the Parameters of a Language Model?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2001.08361",
+          "CorpusId": 210861095,
+          "DBLP": "journals/corr/abs-2001-08361",
+          "MAG": "3001279689"
+        },
+        "paperId": "e6c561d02500b2596a230b341a8eb8b921ca5bf2",
+        "title": "Scaling Laws for Neural Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1910.10683",
+          "CorpusId": 204838007,
+          "DBLP": "journals/corr/abs-1910-10683",
+          "MAG": "2981852735"
+        },
+        "paperId": "6c4b76232bb72897685d19b3d264c6ee3005bc2b",
+        "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 220301705,
+          "DBLP": "conf/icml/SunWLMEH20",
+          "MAG": "3038628659"
+        },
+        "paperId": "a436e41141a9d9c5dfc44d16fade67b9a3b76778",
+        "title": "Test-Time Training with Self-Supervision for Generalization under Distribution Shifts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D19-1250",
+          "ArXiv": "1909.01066",
+          "CorpusId": 202539551,
+          "DBLP": "journals/corr/abs-1909-01066",
+          "DOI": "10.18653/v1/D19-1250",
+          "MAG": "2996758945"
+        },
+        "paperId": "d0086b86103a620a86bc918746df0aa642e2a8a3",
+        "title": "Language Models as Knowledge Bases?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 218614141,
+          "DBLP": "conf/icml/GuoSLGSCK20",
+          "MAG": "3034696692"
+        },
+        "paperId": "37ea01066a563c661587b7c3f50fbf64d1bf311a",
+        "title": "Accelerating Large-Scale Inference with Anisotropic Vector Quantization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "Q19-1026",
+          "CorpusId": 86611921,
+          "DBLP": "journals/tacl/KwiatkowskiPRCP19",
+          "DOI": "10.1162/tacl_a_00276",
+          "MAG": "2912924812"
+        },
+        "paperId": "17dbd7b72029181327732e4d11b52a08ed4630d0",
+        "title": "Natural Questions: A Benchmark for Question Answering Research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1904.08375",
+          "CorpusId": 119314259,
+          "DBLP": "journals/corr/abs-1904-08375",
+          "MAG": "2937036051"
+        },
+        "paperId": "b092b6b843e9421bf42bf96f57ed4658a3e0bdf7",
+        "title": "Document Expansion by Query Prediction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1811.08008",
+          "CorpusId": 53735999,
+          "DBLP": "journals/corr/abs-1811-08008",
+          "MAG": "2901894078"
+        },
+        "paperId": "5f486a757893e7761482294227ff91808f15432c",
+        "title": "End-to-End Retrieval in Continuous Space"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1712.01208",
+          "CorpusId": 6038777,
+          "DBLP": "conf/sigmod/KraskaBCDP18",
+          "DOI": "10.1145/3183713.3196909",
+          "MAG": "2773466258"
+        },
+        "paperId": "0539535989147bc7033f4a34931c7b8e17f1c650",
+        "title": "The Case for Learned Index Structures"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1706.03762",
+          "CorpusId": 13756489,
+          "DBLP": "journals/corr/VaswaniSPUJGKP17",
+          "MAG": "2963403868"
+        },
+        "paperId": "204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+        "title": "Attention is All you Need"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1704.08803",
+          "CorpusId": 3666085,
+          "DBLP": "journals/corr/DehghaniZSKC17",
+          "DOI": "10.1145/3077136.3080832",
+          "MAG": "2952146642"
+        },
+        "paperId": "c7a59fc69aee480e53cd1f869bad4c83170d1328",
+        "title": "Neural Ranking Models with Weak Supervision"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1409.3215",
+          "CorpusId": 7961699,
+          "DBLP": "conf/nips/SutskeverVL14",
+          "MAG": "2130942839"
+        },
+        "paperId": "cea967b59209c6be22829699f05b8b1ac4dc092d",
+        "title": "Sequence to Sequence Learning with Neural Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Rethinking search: making domain experts out of dilettantes"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "N19-1423",
+          "ArXiv": "1810.04805",
+          "CorpusId": 52967399,
+          "DBLP": "journals/corr/abs-1810-04805",
+          "DOI": "10.18653/v1/N19-1423",
+          "MAG": "2951055169"
+        },
+        "paperId": "df2b0e26d0599ce3e70df8a9da02e51594e0e992",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Did you include the total amount of compute and the type of resources used (e.g., type of GPUs, internal cluster, or cloud provider)?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Did you discuss whether and how consent was obtained from people whose data you’re using/curating?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "c) Did you report error bars (e.g., with respect to the random seed after running experiments multiple times)?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "c) Did you include the estimated hourly wage paid to participants and the total amount spent on participant compensation?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "If you are using existing assets (e.g., code, data, models) or curating/releasing new assets... (a) If your work uses existing assets"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "b) Did you specify all the training details (e.g., data splits, hyperparameters, how they were chosen)? [Yes] See Section 4, under Implementation Details"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "If you used crowdsourcing or conducted research with human subjects"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "XL 3B Semantic String"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

@@ -1,0 +1,934 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2303303353",
+        "name": "Zijian Zhou"
+      },
+      {
+        "authorId": "2283843071",
+        "name": "A. Qu"
+      },
+      {
+        "authorId": "2146045435",
+        "name": "Zhaoxuan Wu"
+      },
+      {
+        "authorId": "2295169937",
+        "name": "Sunghwan Kim"
+      },
+      {
+        "authorId": "2410444493",
+        "name": "Sunghwan Kim"
+      },
+      {
+        "authorId": "2303255291",
+        "name": "Alok Prakash"
+      },
+      {
+        "authorId": "2303255706",
+        "name": "Daniela Rus"
+      },
+      {
+        "authorId": "2365044797",
+        "name": "Jinhua Zhao"
+      },
+      {
+        "authorId": "40222533",
+        "name": "B. Low"
+      },
+      {
+        "authorId": "2366078131",
+        "name": "Paul Liang"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2506.15841, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "MEM1: Learning to Synergize Memory and Reasoning for Efficient Long-Horizon Agents"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.19413",
+          "CorpusId": 278165315,
+          "DBLP": "journals/corr/abs-2504-19413",
+          "DOI": "10.48550/arXiv.2504.19413"
+        },
+        "paperId": "1d9c21a0fdb1cc16a32c5d490ebaf98436a23382",
+        "title": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.03160",
+          "CorpusId": 277596185,
+          "DBLP": "journals/corr/abs-2504-03160",
+          "DOI": "10.48550/arXiv.2504.03160"
+        },
+        "paperId": "4298a7bca88001f5df2d1ae15cca186d46271dc5",
+        "title": "DeepResearcher: Scaling Deep Research via Reinforcement Learning in Real-world Environments"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.02495",
+          "CorpusId": 277510339,
+          "DBLP": "journals/corr/abs-2504-02495",
+          "DOI": "10.48550/arXiv.2504.02495"
+        },
+        "paperId": "5b08060d9efee18b235b4d49bb1f58898f3fc24f",
+        "title": "Inference-Time Scaling for Generalist Reward Modeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.09516",
+          "CorpusId": 276937772,
+          "DBLP": "journals/corr/abs-2503-09516",
+          "DOI": "10.48550/arXiv.2503.09516"
+        },
+        "paperId": "1fcaafeb72142fe3d1a5d698a072d69778d244b0",
+        "title": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.15589",
+          "CorpusId": 276557984,
+          "DBLP": "journals/corr/abs-2502-15589",
+          "DOI": "10.48550/arXiv.2502.15589"
+        },
+        "paperId": "f68c15c1411572833bc31015c19384f1c92cecbe",
+        "title": "LightThinker: Thinking Step-by-Step Compression"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.12110",
+          "CorpusId": 276421617,
+          "DBLP": "journals/corr/abs-2502-12110",
+          "DOI": "10.48550/arXiv.2502.12110"
+        },
+        "paperId": "1f35a15fe9df43d24ec6ea551ec6c9766c17eccf",
+        "title": "A-MEM: Agentic Memory for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.19393",
+          "CorpusId": 276079693,
+          "DBLP": "conf/emnlp/MuennighoffYSLFHZLCH25",
+          "DOI": "10.48550/arXiv.2501.19393"
+        },
+        "paperId": "ef8a8bd193b1a0a5e2c834a7a28869a2ec85bab7",
+        "title": "s1: Simple test-time scaling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.12948",
+          "CorpusId": 275789950,
+          "DBLP": "journals/nature/GuoYZSWZXZMBZY025",
+          "DOI": "10.1038/s41586-025-09422-z",
+          "PubMed": "40962978",
+          "PubMedCentral": "12443585"
+        },
+        "paperId": "2eed1fad9bbf887d4395de40f20144c4fafefd7f",
+        "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.11425",
+          "CorpusId": 275757809,
+          "DBLP": "journals/corr/abs-2501-11425",
+          "DOI": "10.48550/arXiv.2501.11425"
+        },
+        "paperId": "8fa5cbc7344d8c2b73f223884ce2a4213b3822d7",
+        "title": "Agent-R: Training Language Model Agents to Reflect via Iterative Self-Training"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.15115",
+          "CorpusId": 274859421,
+          "DBLP": "journals/corr/abs-2412-15115",
+          "DOI": "10.48550/arXiv.2412.15115"
+        },
+        "paperId": "88aa6b1f37d1fd8e0a40499ce9bb87873f03aaa8",
+        "title": "Qwen2.5 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2411.02337",
+          "CorpusId": 273821797,
+          "DBLP": "journals/corr/abs-2411-02337",
+          "DOI": "10.48550/arXiv.2411.02337"
+        },
+        "paperId": "bde841b0dbbf7a15ee69966a828c7fe2cf532ad9",
+        "title": "WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.21276",
+          "CorpusId": 273662196
+        },
+        "paperId": "7943ec4a67151a559b25cd34369e661c9a7924c8",
+        "title": "GPT-4o System Card"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.18745",
+          "CorpusId": 273549240,
+          "DBLP": "journals/corr/abs-2410-18745",
+          "DOI": "10.48550/arXiv.2410.18745"
+        },
+        "paperId": "08efe5dc8055b842c44ea5b984f9d8ccff6d7317",
+        "title": "Why Does the Effective Context Length of LLMs Fall Short?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.13232",
+          "CorpusId": 273404026,
+          "DBLP": "journals/corr/abs-2410-13232",
+          "DOI": "10.48550/arXiv.2410.13232"
+        },
+        "paperId": "770232536a768254a161eb00447650efc8f7f729",
+        "title": "Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.10813",
+          "CorpusId": 273345961,
+          "DBLP": "journals/corr/abs-2410-10813",
+          "DOI": "10.48550/arXiv.2410.10813"
+        },
+        "paperId": "fd48dc6b433cfcd220b6e769c6179d8ef6fcf862",
+        "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.10781",
+          "CorpusId": 273346029,
+          "DBLP": "journals/corr/abs-2410-10781",
+          "DOI": "10.48550/arXiv.2410.10781"
+        },
+        "paperId": "c4b1a89de59602a3a2728f2705be6dcd4bfaa77f",
+        "title": "When Attention Sink Emerges in Language Models: An Empirical View"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.04343",
+          "CorpusId": 273185794,
+          "DBLP": "conf/iclr/YueZB0JZ0WWB25",
+          "DOI": "10.48550/arXiv.2410.04343"
+        },
+        "paperId": "29528d8cb030a65f62a35b1237f1f5483077ad0a",
+        "title": "Inference Scaling for Long-Context Retrieval Augmented Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.19256",
+          "CorpusId": 272987758,
+          "DBLP": "conf/eurosys/ShengZYWZZPL025",
+          "DOI": "10.1145/3689031.3696075"
+        },
+        "paperId": "f2d0f3d47ae850f49a58f4977393bd0025af4bec",
+        "title": "HybridFlow: A Flexible and Efficient RLHF Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.554",
+          "ArXiv": "2408.15232",
+          "CorpusId": 271963301,
+          "DBLP": "conf/emnlp/JiangSMSL24",
+          "DOI": "10.48550/arXiv.2408.15232"
+        },
+        "paperId": "a1bd59c18c5be05af721400393ae34f52e12ff99",
+        "title": "Into the Unknown Unknowns: Engaged Human Learning through Participation in Language Model Agent Conversations"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.05517",
+          "CorpusId": 271854774,
+          "DBLP": "journals/corr/abs-2408-05517",
+          "DOI": "10.48550/arXiv.2408.05517"
+        },
+        "paperId": "e76567345cb4f1cb0f83f2c20bf849066a7e8346",
+        "title": "SWIFT:A Scalable lightWeight Infrastructure for Fine-Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.03314",
+          "CorpusId": 271719990,
+          "DBLP": "journals/corr/abs-2408-03314",
+          "DOI": "10.48550/arXiv.2408.03314"
+        },
+        "paperId": "8292083dd8f6ae898ea0ee54a6b97997d1a51c9d",
+        "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.1194",
+          "ArXiv": "2407.09014",
+          "CorpusId": 271161642,
+          "DBLP": "journals/corr/abs-2407-09014",
+          "DOI": "10.48550/arXiv.2407.09014"
+        },
+        "paperId": "89d06465e506314dcf4723ee9667be23d87e0ebe",
+        "title": "CompAct: Compressing Retrieved Documents Actively for Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.11896",
+          "CorpusId": 270562229,
+          "DBLP": "conf/nips/BaiZPCSLK24",
+          "DOI": "10.48550/arXiv.2406.11896"
+        },
+        "paperId": "c6e3e5f794233da2b27ea5dd4af19e62b95c863f",
+        "title": "DigiRL: Training In-The-Wild Device-Control Agents with Autonomous Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.12881",
+          "CorpusId": 268532485,
+          "DBLP": "journals/corr/abs-2403-12881",
+          "DOI": "10.48550/arXiv.2403.12881"
+        },
+        "paperId": "8bb527c332b133e52bb7b6c5da84375888f41c05",
+        "title": "Agent-FLAN: Designing Data and Methods of Effective Agent Tuning for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.02502",
+          "CorpusId": 268249221,
+          "DBLP": "journals/corr/abs-2403-02502",
+          "DOI": "10.48550/arXiv.2403.02502"
+        },
+        "paperId": "f95da5b7be2fac2381eb5dfe26dc7dc5bc2d9a90",
+        "title": "Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.10774",
+          "CorpusId": 267061277,
+          "DBLP": "journals/corr/abs-2401-10774",
+          "DOI": "10.48550/arXiv.2401.10774"
+        },
+        "paperId": "57e7af0b69325fafb371ef5d502e39ef9c90ef7e",
+        "title": "Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.10935",
+          "CorpusId": 267069082,
+          "DBLP": "conf/acl/ChengSCX0Z024",
+          "DOI": "10.48550/arXiv.2401.10935"
+        },
+        "paperId": "f9b39a6a7e40986b46f7796f3a805d70d7e3931a",
+        "title": "SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.08281",
+          "CorpusId": 267028372,
+          "DBLP": "journals/corr/abs-2401-08281",
+          "DOI": "10.1109/TBDATA.2025.3618474"
+        },
+        "paperId": "d4999c6f04c357414f66066f0fa06be14faa8efc",
+        "title": "The Faiss Library"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.07104",
+          "CorpusId": 266174771,
+          "DBLP": "conf/nips/ZhengYXS0YCKSGB24",
+          "DOI": "10.52202/079017-2000"
+        },
+        "paperId": "eb95c327260725498404eb43ec370d419b8d92c7",
+        "title": "SGLang: Efficient Execution of Structured Language Model Programs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.12823",
+          "CorpusId": 264306101,
+          "DBLP": "conf/acl/ZengLLWLD024",
+          "DOI": "10.48550/arXiv.2310.12823"
+        },
+        "paperId": "46fe9ce789408b8a50fb4259e6bf0cc5855f4ed5",
+        "title": "AgentTuning: Enabling Generalized Agent Abilities for LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.06201",
+          "CorpusId": 263830231,
+          "DBLP": "journals/corr/abs-2310-06201",
+          "DOI": "10.48550/arXiv.2310.06201"
+        },
+        "paperId": "b12541867632737e826b7b01c7fbe1c4222d8655",
+        "title": "Compressing Context to Enhance Inference Efficiency of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.06180",
+          "CorpusId": 261697361,
+          "DBLP": "conf/sosp/KwonLZ0ZY0ZS23",
+          "DOI": "10.1145/3600006.3613165"
+        },
+        "paperId": "83b90f4a0ae4cc214eb3cc140ccfef9cd99fac05",
+        "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.11432",
+          "CorpusId": 261064713,
+          "DBLP": "journals/fcsc/WangMFZYZCTCLZWW24",
+          "DOI": "10.1007/s11704-024-40231-1"
+        },
+        "paperId": "28c6ac721f54544162865f41c5692e70d61bccab",
+        "title": "A survey on large language model based autonomous agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.13854",
+          "CorpusId": 260164780,
+          "DBLP": "conf/iclr/ZhouX0ZLSCOBF0N24",
+          "DOI": "10.48550/arXiv.2307.13854"
+        },
+        "paperId": "e41482f4ee984f17382f6cdd900df094d928be06",
+        "title": "WebArena: A Realistic Web Environment for Building Autonomous Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.12856",
+          "CorpusId": 260126067,
+          "DBLP": "conf/iclr/GurFHSMEF24",
+          "DOI": "10.48550/arXiv.2307.12856"
+        },
+        "paperId": "a53c8ba374d430d6c3786d13c04edb200d547750",
+        "title": "A Real-World WebAgent with Planning, Long Context Understanding, and Program Synthesis"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.tacl-1.9",
+          "ArXiv": "2307.03172",
+          "CorpusId": 259360665,
+          "DBLP": "journals/tacl/LiuLHPBPL24",
+          "DOI": "10.1162/tacl_a_00638"
+        },
+        "paperId": "1733eb7792f7a43dd21f51f4d1017a1bffd217b5",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.06070",
+          "CorpusId": 259129428,
+          "DBLP": "journals/corr/abs-2306-06070",
+          "DOI": "10.48550/arXiv.2306.06070"
+        },
+        "paperId": "58f8925a8b87054ad0635a6398a7fe24935b1604",
+        "title": "Mind2Web: Towards a Generalist Agent for the Web"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.17651",
+          "CorpusId": 257900871,
+          "DBLP": "journals/corr/abs-2303-17651",
+          "DOI": "10.48550/arXiv.2303.17651"
+        },
+        "paperId": "3aaf6a2cbad5850ad81ab5c163599cb3d523436f",
+        "title": "Self-Refine: Iterative Refinement with Self-Feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.11366",
+          "CorpusId": 258833055,
+          "DBLP": "conf/nips/ShinnCGNY23",
+          "DOI": "10.52202/075280-0377"
+        },
+        "paperId": "0671fd553dd670a4e820553a974bc48040ba0819",
+        "title": "Reflexion: language agents with verbal reinforcement learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.13971",
+          "CorpusId": 257219404,
+          "DBLP": "journals/corr/abs-2302-13971"
+        },
+        "paperId": "57e849d0de13ed5f91d086936296721d4ff75a75",
+        "title": "LLaMA: Open and Efficient Foundation Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.01318",
+          "CorpusId": 256503945,
+          "DBLP": "journals/corr/abs-2302-01318",
+          "DOI": "10.48550/arXiv.2302.01318"
+        },
+        "paperId": "a1f8082505c7e90b0a033e1b9da0a97d67aad66c",
+        "title": "Accelerating Large Language Model Decoding with Speculative Sampling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2301.11270",
+          "CorpusId": 256274676,
+          "DBLP": "conf/icml/ZhuJJ23",
+          "DOI": "10.48550/arXiv.2301.11270"
+        },
+        "paperId": "4f16e5f4793cdf2a184ae9259ea0f0c04b889eb4",
+        "title": "Principled Reinforcement Learning with Human Feedback from Pairwise or K-wise Comparisons"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2212.03533",
+          "CorpusId": 254366618,
+          "DBLP": "journals/corr/abs-2212-03533"
+        },
+        "paperId": "5a3c1afe73d8bcc8288d17cb17be2baec8a98464",
+        "title": "Text Embeddings by Weakly-Supervised Contrastive Pre-training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.17192",
+          "CorpusId": 254096365,
+          "DBLP": "journals/corr/abs-2211-17192",
+          "DOI": "10.48550/arXiv.2211.17192"
+        },
+        "paperId": "d8e9f8c8a37cb4cd26b92ad0d942d641cd512644",
+        "title": "Fast Inference from Transformers via Speculative Decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.03350",
+          "CorpusId": 252762102,
+          "DBLP": "conf/emnlp/PressZMSSL23",
+          "DOI": "10.48550/arXiv.2210.03350"
+        },
+        "paperId": "e070ff286709db28312e08b52b05539debe88146",
+        "title": "Measuring and Narrowing the Compositionality Gap in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.01206",
+          "CorpusId": 250264533,
+          "DBLP": "journals/corr/abs-2207-01206",
+          "DOI": "10.48550/arXiv.2207.01206"
+        },
+        "paperId": "23525374cfd3af714f3ffb7a203b1ef3253333fe",
+        "title": "WebShop: Towards Scalable Real-World Web Interaction with Grounded Language Agents"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.11903",
+          "CorpusId": 246411621,
+          "DBLP": "conf/nips/Wei0SBIXCLZ22",
+          "DOI": "10.52202/068431-1800"
+        },
+        "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+        "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.09332",
+          "CorpusId": 245329531,
+          "DBLP": "journals/corr/abs-2112-09332"
+        },
+        "paperId": "2f3efe44083af91cef562c1a3451eee2f8601d22",
+        "title": "WebGPT: Browser-assisted question-answering with human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.coling-main.580",
+          "ArXiv": "2011.01060",
+          "CorpusId": 226236740,
+          "DBLP": "journals/corr/abs-2011-01060",
+          "DOI": "10.18653/V1/2020.COLING-MAIN.580",
+          "MAG": "3101823922"
+        },
+        "paperId": "9001eb3c3d5a96ad3d804410c2437e6f60feade9",
+        "title": "Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.550",
+          "ArXiv": "2004.04906",
+          "CorpusId": 215737187,
+          "DBLP": "conf/emnlp/KarpukhinOMLWEC20",
+          "DOI": "10.18653/v1/2020.emnlp-main.550",
+          "MAG": "3015883388"
+        },
+        "paperId": "b26f2037f769d5ffc5f7bdcec2de8da28ec14bee",
+        "title": "Dense Passage Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2004.05150",
+          "CorpusId": 215737171,
+          "DBLP": "journals/corr/abs-2004-05150",
+          "MAG": "3015468748"
+        },
+        "paperId": "925ad2897d1b5decbea320d07e99afa9110e09b2",
+        "title": "Longformer: The Long-Document Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "Q19-1026",
+          "CorpusId": 86611921,
+          "DBLP": "journals/tacl/KwiatkowskiPRCP19",
+          "DOI": "10.1162/tacl_a_00276",
+          "MAG": "2912924812"
+        },
+        "paperId": "17dbd7b72029181327732e4d11b52a08ed4630d0",
+        "title": "Natural Questions: A Benchmark for Question Answering Research"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1707.06347",
+          "CorpusId": 28695052,
+          "DBLP": "journals/corr/SchulmanWDRK17",
+          "MAG": "2736601468"
+        },
+        "paperId": "dce6f9d4017b1785979e7520fd0834ef8cf02f4b",
+        "title": "Proximal Policy Optimization Algorithms"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1706.03762",
+          "CorpusId": 13756489,
+          "DBLP": "journals/corr/VaswaniSPUJGKP17",
+          "MAG": "2963403868"
+        },
+        "paperId": "204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+        "title": "Attention is All you Need"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 1211821,
+          "DBLP": "conf/nips/SuttonMSM99",
+          "MAG": "2155027007"
+        },
+        "paperId": "a20f0ce0616def7cc9a87446c228906cd5da093b",
+        "title": "Policy Gradient Methods for Reinforcement Learning with Function Approximation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 1916803,
+          "DOI": "10.1017/S0033291700003548",
+          "MAG": "3014309392"
+        },
+        "paperId": "35a2b204ee6da98232674728e82f7fedd9f46931",
+        "title": "Working memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "A Cognitive Connection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 270823634,
+          "DBLP": "journals/corr/abs-2311-05657",
+          "DOI": "10.48550/arXiv.2311.05657"
+        },
+        "paperId": "7dd3b54233a71c532a15adc6faa7284af7c02f15",
+        "title": "Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 252762395
+        },
+        "paperId": "99832586d55f540f603637e458a292406a0ed75d",
+        "title": "LANGUAGE MODELS"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 60035920,
+          "DBLP": "journals/tnn/SuttonB98",
+          "DOI": "10.1109/TNN.1998.712192",
+          "MAG": "2121863487"
+        },
+        "paperId": "97efafdb4a3942ab3efba53ded7413199f79c054",
+        "title": "Reinforcement Learning: An Introduction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 275342265
+        },
+        "paperId": "a4735b3bfe3231cde53969460930e5cf03da48bc",
+        "title": "REINFORCE++: An Efficient RLHF Algorithm with Robust-ness to Both Prompt and Reward Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 268232499
+        },
+        "paperId": "de8ba9b01c9ab7cbabf5c33b80b7bbc618857627",
+        "title": "The Claude 3 Model Family: Opus, Sonnet, Haiku"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Serper api: Fast and affordable google search api"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Pushing the limits of mathematical reasoning in"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Openmanus: Open-source ai agent framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Gemini: Try deep research and gemini 2.0 flash experimental"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "4d masks support in transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Introducing deep research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Browser use: Enable ai to control your browser"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

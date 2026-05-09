@@ -1,0 +1,882 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2261661979",
+        "name": "Yujie Feng"
+      },
+      {
+        "authorId": "2282309329",
+        "name": "Hao Wang"
+      },
+      {
+        "authorId": "2382885565",
+        "name": "Jian Li"
+      },
+      {
+        "authorId": "2315809919",
+        "name": "Xu Chu"
+      },
+      {
+        "authorId": "2395768559",
+        "name": "Zhaolu Kang"
+      },
+      {
+        "authorId": "2108076172",
+        "name": "Yiran Liu"
+      },
+      {
+        "authorId": "2253831765",
+        "name": "Yasha Wang"
+      },
+      {
+        "authorId": "2348327959",
+        "name": "Philip S. Yu"
+      },
+      {
+        "authorId": "2261456593",
+        "name": "Xiao-Ming Wu"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2601.03938, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2511.13880",
+          "CorpusId": 282208176,
+          "DBLP": "journals/corr/abs-2511-13880",
+          "DOI": "10.48550/arXiv.2511.13880"
+        },
+        "paperId": "19853f24cee9dce8078a99b8d8198a8851be2610",
+        "title": "AnaCP: Toward Upper-Bound Continual Learning via Analytic Contrastive Projection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2510.20479",
+          "CorpusId": 282303936,
+          "DBLP": "journals/corr/abs-2510-20479",
+          "DOI": "10.18653/v1/2025.emnlp-main.829"
+        },
+        "paperId": "d50dd8a6dc49198690ba29e69d38bf6680b1ec0d",
+        "title": "RECALL: REpresentation-aligned Catastrophic-forgetting ALLeviation via Hierarchical Model Merging"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2509.16882",
+          "CorpusId": 281420643,
+          "DBLP": "conf/emnlp/LiWZH25",
+          "DOI": "10.48550/arXiv.2509.16882"
+        },
+        "paperId": "4fd2798710ae7e9ffe8ef96666891f43885c79db",
+        "title": "Dynamic Expert Specialization: Towards Catastrophic Forgetting-Free Multi-Domain MoE Adaptation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2509.10377",
+          "CorpusId": 281310227,
+          "DBLP": "conf/emnlp/ZhouZCWGYWCF25",
+          "DOI": "10.48550/arXiv.2509.10377"
+        },
+        "paperId": "2a78793a03cf0d2d9f89a7936c241bcceb0cd004",
+        "title": "Dropping Experts, Recombining Neurons: Retraining-Free Pruning for Sparse Mixture-of-Experts LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2509.08255",
+          "CorpusId": 281243904,
+          "DBLP": "journals/corr/abs-2509-08255",
+          "DOI": "10.48550/arXiv.2509.08255"
+        },
+        "paperId": "92c5d06e2390690826bdff9892b936a0fa0724d6",
+        "title": "Mitigating Catastrophic Forgetting in Large Language Models with Forgetting-aware Pruning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.06105",
+          "CorpusId": 280561330,
+          "DBLP": "journals/corr/abs-2508-06105",
+          "DOI": "10.48550/arXiv.2508.06105"
+        },
+        "paperId": "f369bedc476451dd8d530e3d52300bc68f244666",
+        "title": "You Don't Need Pre-built Graphs for RAG: Retrieval Augmented Generation with Adaptive Reasoning Structures"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.03951",
+          "CorpusId": 279154882,
+          "DBLP": "journals/corr/abs-2506-03951",
+          "DOI": "10.48550/arXiv.2506.03951"
+        },
+        "paperId": "3e0e2b48a78ec10e26c87e0f3d711458503b9783",
+        "title": "Rethinking the Stability-Plasticity Trade-off in Continual Learning from an Architectural Perspective"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.00205",
+          "CorpusId": 279074801,
+          "DBLP": "journals/corr/abs-2506-00205",
+          "DOI": "10.48550/arXiv.2506.00205"
+        },
+        "paperId": "28918ce87585762a9050de3b8738a6e7bab4f119",
+        "title": "Unlocking the Power of Rehearsal in Continual Learning: A Theoretical Perspective"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.11816",
+          "CorpusId": 278739648,
+          "DBLP": "journals/corr/abs-2505-11816",
+          "DOI": "10.48550/arXiv.2505.11816"
+        },
+        "paperId": "eb08daa396e6f8fddafca1e13aee9fe2a0fd13da",
+        "title": "Continuous Subspace Optimization for Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 275969733,
+          "DBLP": "journals/ipm/ChenFCWSLGZX25",
+          "DOI": "10.1016/j.ipm.2025.104070"
+        },
+        "paperId": "24211551672c4541ec1adf74936366b6739d681e",
+        "title": "Incorporating Forgetting Curve and Memory Replay for Evolving Socially-aware Recommendation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.15965",
+          "CorpusId": 277993681,
+          "DBLP": "journals/corr/abs-2504-15965",
+          "DOI": "10.48550/arXiv.2504.15965"
+        },
+        "paperId": "18ee9dcd91f50f62973425947b1abd34cc283dbb",
+        "title": "From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.06664",
+          "CorpusId": 277634492,
+          "DBLP": "journals/corr/abs-2504-06664",
+          "DOI": "10.48550/arXiv.2504.06664"
+        },
+        "paperId": "ae2b6d2f09da32babcbbbcd56031c10cf43f3a80",
+        "title": "SEE: Continual Fine-tuning with Sequential Ensemble of Experts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.01990",
+          "CorpusId": 277510453,
+          "DBLP": "journals/corr/abs-2504-01990",
+          "DOI": "10.48550/arXiv.2504.01990"
+        },
+        "paperId": "305a7422a34a89fb79a84a9cdbecbae5021d6d83",
+        "title": "Advances and Challenges in Foundation Agents: From Brain-Inspired Intelligence to Evolutionary, Collaborative, and Safe Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.18371",
+          "CorpusId": 277271943,
+          "DBLP": "journals/corr/abs-2503-18371",
+          "DOI": "10.1109/CVPR52734.2025.00942"
+        },
+        "paperId": "37b31330b6df1f8564d6697005194efe3a1fee8f",
+        "title": "Do Your Best and Get Enough Rest for Continual Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.07663",
+          "CorpusId": 276928404,
+          "DBLP": "conf/emnlp/ZhangQXCW25",
+          "DOI": "10.48550/arXiv.2503.07663"
+        },
+        "paperId": "3faf035d11acde9c60740e4c6cfe54eedabc8400",
+        "title": "Merge then Realign: Simple and Effective Modality-Incremental Continual Learning for Multimodal LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.18099",
+          "CorpusId": 276580697
+        },
+        "paperId": "b6d5300ef8f97f4bb88574a0e7f4424ffb9a0da3",
+        "title": "Stackelberg Self-Annotation: A Robust Approach to Data-Efficient LLM Alignment"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.17510",
+          "CorpusId": 276580914,
+          "DBLP": "journals/corr/abs-2502-17510",
+          "DOI": "10.48550/arXiv.2502.17510"
+        },
+        "paperId": "79156c9d9e050c3379158e989d99855521dbd41b",
+        "title": "Recurrent Knowledge Identification and Fusion for Language Model Continual Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.11019",
+          "CorpusId": 276409016,
+          "DBLP": "conf/iclr/JiangJLX0SL025",
+          "DOI": "10.48550/arXiv.2502.11019"
+        },
+        "paperId": "15ef5469f406c141dc3cae2a2553c124a3922063",
+        "title": "Unlocking the Power of Function Vectors for Characterizing and Mitigating Catastrophic Forgetting in Continual Instruction Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.09522",
+          "CorpusId": 275570290,
+          "DBLP": "journals/corr/abs-2501-09522",
+          "DOI": "10.48550/arXiv.2501.09522"
+        },
+        "paperId": "111d019bc2559f43c6ca627704d59673adea7efb",
+        "title": "Merging Models on the Fly Without Retraining: A Sequential Approach to Scalable Continual Model Merging"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.17875",
+          "CorpusId": 273532094,
+          "DBLP": "journals/corr/abs-2410-17875",
+          "DOI": "10.48550/arXiv.2410.17875"
+        },
+        "paperId": "239d787a5019dd3975e7117bf769d69d540f6856",
+        "title": "Understanding Layer Significance in LLM Alignment"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.10360",
+          "CorpusId": 273346841,
+          "DBLP": "journals/corr/abs-2410-10360",
+          "DOI": "10.48550/arXiv.2410.10360"
+        },
+        "paperId": "e6be0508987667f69c01ebd5c49f2a6e37a21147",
+        "title": "Parenting: Optimizing Knowledge Selection of Retrieval-Augmented Language Models with Parameter Decoupling and Tailored Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.05849",
+          "CorpusId": 280710351,
+          "DBLP": "conf/emnlp/ZengZGZL25",
+          "DOI": "10.18653/v1/2025.emnlp-main.609"
+        },
+        "paperId": "48fe77298b60567ea72e3c2f120e6fbcd00a01ca",
+        "title": "ModalPrompt: Towards Efficient Multimodal Continual Instruction Tuning with Dual-Modality Guided Prompt"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.05352",
+          "CorpusId": 273229309,
+          "DBLP": "journals/corr/abs-2410-05352",
+          "DOI": "10.48550/arXiv.2410.05352"
+        },
+        "paperId": "45ceee6aafb266aa66ec2fdd6724e9fa8bb56e9e",
+        "title": "Recent Advances of Multimodal Continual Learning: A Comprehensive Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.00509",
+          "CorpusId": 272366871,
+          "DBLP": "journals/corr/abs-2409-00509",
+          "DOI": "10.48550/arXiv.2409.00509"
+        },
+        "paperId": "188bdd2edb3126b357dc646f2ff1f0b2699ad407",
+        "title": "LongRecipe: Recipe for Efficient Long Context Generalization in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.09857",
+          "CorpusId": 271902851,
+          "DBLP": "conf/acl/FengCXS0024",
+          "DOI": "10.18653/v1/2024.acl-long.69"
+        },
+        "paperId": "6bbb0785fa60c083f06d0fae829f7529eb4d10b0",
+        "title": "TaSL: Continual Dialog State Tracking via Task Skill Localization and Consolidation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.09846",
+          "CorpusId": 271895440,
+          "DBLP": "conf/acl/Feng0DLZ0L24",
+          "DOI": "10.18653/v1/2024.findings-acl.422"
+        },
+        "paperId": "b341e869d09d4de816145dad16d8327bb5ef1c02",
+        "title": "Continual Dialogue State Tracking via Reason-of-Select Distillation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.05200",
+          "CorpusId": 271843361
+        },
+        "paperId": "7795d4e4629b2695db4d812143e27c71e49b4071",
+        "title": "KIF: Knowledge Identification and Fusion for Language Model Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.08699",
+          "CorpusId": 271097791,
+          "DBLP": "conf/emnlp/AlexandrovRMZVT24",
+          "DOI": "10.48550/arXiv.2407.08699"
+        },
+        "paperId": "2018a64911680af735172e3bab2719a80927279f",
+        "title": "Mitigating Catastrophic Forgetting in Language Transfer via Model Merging"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.17245",
+          "CorpusId": 270710911,
+          "DBLP": "journals/corr/abs-2406-17245",
+          "DOI": "10.48550/arXiv.2406.17245"
+        },
+        "paperId": "f00344d9b790411232de8ff2ca06af909e92f1b7",
+        "title": "Unlocking Continual Learning Abilities in Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.10996",
+          "CorpusId": 270560778,
+          "DBLP": "conf/naacl/OngKGCKJHLY25",
+          "DOI": "10.18653/v1/2025.naacl-long.435"
+        },
+        "paperId": "a7645ac747cfde0a6dcf865c5279b891f303bdc4",
+        "title": "Towards Lifelong Dialogue Agents via Timeline-based Memory Management"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.04836",
+          "CorpusId": 270357611,
+          "DBLP": "conf/emnlp/Li0FT24",
+          "DOI": "10.48550/arXiv.2406.04836"
+        },
+        "paperId": "d3767fa551f15ca6967db1f55562cee902c747ab",
+        "title": "Revisiting Catastrophic Forgetting in Large Language Model Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.13501",
+          "CorpusId": 269293320,
+          "DBLP": "journals/corr/abs-2404-13501",
+          "DOI": "10.1145/3748302"
+        },
+        "paperId": "b6ab16c8eade03a39830493071d99fc48a736fac",
+        "title": "A Survey on the Memory Mechanism of Large Language Model-based Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.18886",
+          "CorpusId": 268733041,
+          "DBLP": "journals/corr/abs-2403-18886",
+          "DOI": "10.1109/CVPR52734.2025.00943"
+        },
+        "paperId": "5fc2916a10545c79cf3fc25c17af6f8c4563639f",
+        "title": "Self-Expansion of Pre-trained Models with Mixture of Adapters for Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.01244",
+          "CorpusId": 268230393,
+          "DBLP": "conf/acl/HuangCWYLSYS24",
+          "DOI": "10.48550/arXiv.2403.01244"
+        },
+        "paperId": "015f62d7a59f7a4301c0cdbe997460c38148d07b",
+        "title": "Mitigating Catastrophic Forgetting in Large Language Models with Self-Synthesized Rehearsal"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.18865",
+          "CorpusId": 268063771,
+          "DBLP": "journals/corr/abs-2402-18865",
+          "DOI": "10.48550/arXiv.2402.18865"
+        },
+        "paperId": "1cb37e155e3414ff7774c6c91e72699c35d971c7",
+        "title": "Analyzing and Reducing Catastrophic Forgetting in Parameter Efficient Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.08096",
+          "CorpusId": 267637221,
+          "DBLP": "conf/naacl/BaiYHT25",
+          "DOI": "10.18653/v1/2025.findings-naacl.138"
+        },
+        "paperId": "5081ff373d034797c05214d494b36860349ba144",
+        "title": "An Efficient Rehearsal Scheme for Catastrophic Forgetting Mitigation during Multi-stage Fine-tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.16386",
+          "CorpusId": 267312447,
+          "DBLP": "journals/corr/abs-2401-16386",
+          "DOI": "10.48550/arXiv.2401.16386"
+        },
+        "paperId": "748db8cf2408b5a4cb0a47d9c0fdf116600d33e5",
+        "title": "Continual Learning with Pre-Trained Models: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.14152",
+          "CorpusId": 264426441,
+          "DBLP": "conf/emnlp/WangCGXBZZGH23",
+          "DOI": "10.48550/arXiv.2310.14152"
+        },
+        "paperId": "28fde851680a40fbbc5c6a44bd3ac6f5ca4ad284",
+        "title": "Orthogonal Subspace Learning for Language Model Continual Learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.09436",
+          "CorpusId": 264145999,
+          "DBLP": "journals/corr/abs-2310-09436",
+          "DOI": "10.48550/arXiv.2310.09436"
+        },
+        "paperId": "d361e2e60068cae3838d47e2a7b826301195487f",
+        "title": "Sub-network Discovery and Soft-masking for Continual Learning of Mixed Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2301.12314",
+          "CorpusId": 256390383,
+          "DBLP": "journals/corr/abs-2301-12314",
+          "DOI": "10.48550/arXiv.2301.12314"
+        },
+        "paperId": "86478f285356b5c8d27423e6b939634d9e010fba",
+        "title": "Progressive Prompts: Continual Learning for Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.12701",
+          "CorpusId": 253801772,
+          "DBLP": "journals/corr/abs-2211-12701",
+          "DOI": "10.48550/arXiv.2211.12701"
+        },
+        "paperId": "0b40cdf63f651f89904e5e1c79ab7225b0a666ff",
+        "title": "Continual Learning of Natural Language Processing Tasks: A Survey"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.emnlp-main.340",
+          "ArXiv": "2204.07705",
+          "CorpusId": 253098274,
+          "DBLP": "conf/emnlp/WangMAKMNADASPK22",
+          "DOI": "10.18653/v1/2022.emnlp-main.340"
+        },
+        "paperId": "06d7cb8c8816360feb33c3367073e0ef66d7d0b0",
+        "title": "Super-NaturalInstructions: Generalization via Declarative Instructions on 1600+ NLP Tasks"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.02706",
+          "CorpusId": 244908578,
+          "DBLP": "journals/corr/abs-2112-02706"
+        },
+        "paperId": "62be538a25a6ca7ebf1b1ac9f338ad01fdc481fb",
+        "title": "Achieving Forgetting Prevention and Knowledge Transfer in Continual Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2106.09685",
+          "CorpusId": 235458009,
+          "DBLP": "conf/iclr/HuSWALWWC22"
+        },
+        "paperId": "a8ca46b171467ceb2d7652fbfb67fe701ad86092",
+        "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1801.10112",
+          "CorpusId": 4047127,
+          "DBLP": "conf/eccv/ChaudhryDAT18",
+          "DOI": "10.1007/978-3-030-01252-6_33",
+          "MAG": "2786446225"
+        },
+        "paperId": "9958590c281e7a7b524dd594635037143c632c21",
+        "title": "Riemannian Walk for Incremental Learning: Understanding Forgetting and Intransigence"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1612.00796",
+          "CorpusId": 4704285,
+          "DBLP": "journals/corr/KirkpatrickPRVD16",
+          "DOI": "10.1073/pnas.1611835114",
+          "MAG": "2560647685",
+          "PubMed": "28292907"
+        },
+        "paperId": "2e55ba6c97ce5eb55abd959909403fe8da7e9fe9",
+        "title": "Overcoming catastrophic forgetting in neural networks"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1509.01626",
+          "CorpusId": 368182,
+          "DBLP": "journals/corr/ZhangZL15",
+          "MAG": "2963012544"
+        },
+        "paperId": "51a55df1f023571a7e07e338ee45a3e3d66ef73e",
+        "title": "Character-level Convolutional Networks for Text Classification"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 9151801,
+          "DOI": "10.1371/journal.pone.0120644",
+          "MAG": "1933687796",
+          "PubMed": "26148023",
+          "PubMedCentral": "4492928"
+        },
+        "paperId": "67d994012430bdeba4d23e7c7215ba602115062c",
+        "title": "Replication and Analysis of Ebbinghaus’ Forgetting Curve"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 282905953,
+          "DBLP": "conf/emnlp/WanSFLWDS25",
+          "DOI": "10.18653/v1/2025.emnlp-main.1223"
+        },
+        "paperId": "6a3a8b19c1fd7957dea275ee8bb9a216739dc2c1",
+        "title": "Empowering Math Problem Generation and Reasoning for Large Language Model via Synthetic Data based Continual Learning Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 278775696,
+          "DBLP": "conf/naacl/ChenZ25a",
+          "DOI": "10.18653/v1/2025.naacl-long.636"
+        },
+        "paperId": "205f207285d0c8beda7b19fbb728d6a06d6f16d9",
+        "title": "Prototype Conditioned Generative Replay for Continual Learning in NLP"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 283566896,
+          "DBLP": "conf/icml/WangR000BN25"
+        },
+        "paperId": "d830c7201f006d1e0d47888e942ce87e661da195",
+        "title": "Understanding the Forgetting of (Replay-based) Continual Learning via Feature Learning: Angle Matters"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 271915471,
+          "DBLP": "conf/acl/DouZLGSXZWXFPZZ24",
+          "DOI": "10.18653/v1/2024.acl-long.106"
+        },
+        "paperId": "d4e4685d1f4b490e0e35479f6350a9743673541e",
+        "title": "LoRAMoE: Alleviating World Knowledge Forgetting in Large Language Models via MoE-Style Plugin"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.485",
+          "CorpusId": 273901364,
+          "DBLP": "conf/emnlp/DongFLS024",
+          "DOI": "10.18653/v1/2024.emnlp-main.485"
+        },
+        "paperId": "e0a83aff80e05d05cce169c0a0102c6b3a3ff4f2",
+        "title": "Zero-shot Cross-domain Dialogue State Tracking via Context-aware Auto-prompting and Instruction-following Contrastive Decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 61019113,
+          "DOI": "10.1016/S0079-7421(08)60536-8",
+          "MAG": "140726337"
+        },
+        "paperId": "c213af6582c0d518a6e8e14217611c733eeb1ef1",
+        "title": "Catastrophic Interference in Connectionist Networks: The Sequential Learning Problem"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Large language model is not a (multilingual) compositional relation reasoner"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "(Qwen3-0.6B, task order 7)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Memorybank: Enhancing large language models with long-term memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Towards llm-driven dialogue state tracking"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Seekr: Selective attention-guided knowledge retention for continual learning of large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. Qwen3 technical report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "1 others"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025a. Incorporating"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025b. Task-wrapped continual learning in task-oriented dialogue systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "We further evaluate whether our method generalizes beyond parameter-efficient fine-tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "and enhancing clarity and readability B Additional Results B.1 Generalization to Full-Parameter"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "LoRA-based adaptation, the proposed model-centric formulation is not tied to any specific parameterization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "we adjust the memory size per task | M | to {2%, 5%, 10%, 50%}, and report the results on SuperNI benchmark in Table 5"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025b. Hss-bench: Benchmarking humanities and social sciences ability for multimodal large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025a. Model shapley: Find your ideal parameter player via one gradient backpropagation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Self-expansion of pre-trained models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. Human-like forgetting curves in deep neural networks"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

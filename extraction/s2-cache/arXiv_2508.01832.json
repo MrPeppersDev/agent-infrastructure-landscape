@@ -1,0 +1,729 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2374474430",
+        "name": "Rubin Wei"
+      },
+      {
+        "authorId": "2375097838",
+        "name": "Jiaqi Cao"
+      },
+      {
+        "authorId": "2295270986",
+        "name": "Jiarui Wang"
+      },
+      {
+        "authorId": "2188652619",
+        "name": "Jushi Kai"
+      },
+      {
+        "authorId": "2303800191",
+        "name": "Qipeng Guo"
+      },
+      {
+        "authorId": "2375376807",
+        "name": "Bowen Zhou"
+      },
+      {
+        "authorId": "2280367391",
+        "name": "Zhouhan Lin"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2508.01832, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "MLP Memory: A Retriever-Pretrained Memory for Large Language Models"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.05591",
+          "CorpusId": 272525276,
+          "DBLP": "conf/www/Qian0ZMLD025",
+          "DOI": "10.1145/3696410.3714805"
+        },
+        "paperId": "31ba8551422570f16e0c60fc3f7ac7cdcbbd99d3",
+        "title": "MemoRAG: Boosting Long Context Processing with Global Memory-Enhanced Retrieval Augmentation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.11815",
+          "CorpusId": 271915854,
+          "DBLP": "conf/naacl/GengZR25",
+          "DOI": "10.48550/arXiv.2408.11815"
+        },
+        "paperId": "a02d446e4c302a084c2da95ef40b6f2a4e098b1b",
+        "title": "Great Memory, Shallow Reasoning: Limits of kNN-LMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.21783",
+          "CorpusId": 271571434
+        },
+        "paperId": "40e8af970329135ec95057d73e239dab805ad128",
+        "title": "The Llama 3 Herd of Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.13792",
+          "CorpusId": 269982120,
+          "DBLP": "journals/corr/abs-2405-13792",
+          "DOI": "10.48550/arXiv.2405.13792"
+        },
+        "paperId": "38fcc3667a907d6c94267c674aad114aae68441e",
+        "title": "xRAG: Extreme Context Compression for Retrieval-augmented Generation with One Token"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.13542",
+          "CorpusId": 267770557,
+          "DBLP": "journals/corr/abs-2402-13542",
+          "DOI": "10.48550/arXiv.2402.13542"
+        },
+        "paperId": "c4aeec57b9ad4fa36cbd9bdad05dbbbd340183df",
+        "title": "ARL2: Aligning Retrievers for Black-box Large Language Models via Self-guided Adaptive Relevance Labeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.03216",
+          "CorpusId": 267413218,
+          "DBLP": "conf/acl/ChenXZLLL24",
+          "DOI": "10.18653/v1/2024.findings-acl.137"
+        },
+        "paperId": "677f89b61eff0f5ad3ae10c2b9208aaa16aa4239",
+        "title": "M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.09288",
+          "CorpusId": 259950998,
+          "DBLP": "journals/corr/abs-2307-09288"
+        },
+        "paperId": "104b0bb1da562d53cbda87aec79ef6a2827d191a",
+        "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.07174",
+          "CorpusId": 259137816,
+          "DBLP": "conf/nips/Wang0CLYGW23",
+          "DOI": "10.48550/arXiv.2306.07174"
+        },
+        "paperId": "80980cd10d19f021c14a6b7eee871b6a5d328024",
+        "title": "Augmenting Language Models with Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.14788",
+          "CorpusId": 258865249,
+          "DBLP": "journals/corr/abs-2305-14788",
+          "DOI": "10.48550/arXiv.2305.14788"
+        },
+        "paperId": "2f7364d8e5cf94315bf8905f57de9c5543e9a4bf",
+        "title": "Adapting Language Models to Compress Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.11747",
+          "CorpusId": 258832847,
+          "DBLP": "journals/corr/abs-2305-11747",
+          "DOI": "10.48550/arXiv.2305.11747"
+        },
+        "paperId": "e0384ba36555232c587d4a80d527895a095a9001",
+        "title": "HaluEval: A Large-Scale Hallucination Evaluation Benchmark for Large Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.08485",
+          "CorpusId": 258179774,
+          "DBLP": "journals/corr/abs-2304-08485",
+          "DOI": "10.48550/arXiv.2304.08485"
+        },
+        "paperId": "a5036f31f0e629dc661f120b8c3b1f374d479ab8",
+        "title": "Visual Instruction Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.12813",
+          "CorpusId": 257205781,
+          "DBLP": "journals/corr/abs-2302-12813",
+          "DOI": "10.48550/arXiv.2302.12813"
+        },
+        "paperId": "e5c72b92c48d68594b290c84a8904da7c8335554",
+        "title": "Check Your Facts and Try Again: Improving Large Language Models with External Knowledge and Automated Feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.99",
+          "ArXiv": "2212.10496",
+          "CorpusId": 254877046,
+          "DBLP": "journals/corr/abs-2212-10496",
+          "DOI": "10.18653/v1/2023.acl-long.99"
+        },
+        "paperId": "5c32c653735b43a0a8923ca65ac191bd4bf15311",
+        "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.emnlp-main.214",
+          "ArXiv": "2205.13792",
+          "CorpusId": 249152130,
+          "DBLP": "journals/corr/abs-2205-13792",
+          "DOI": "10.48550/arXiv.2205.13792"
+        },
+        "paperId": "563a851106623b9f112d0e2a290d3950a871079c",
+        "title": "Nearest Neighbor Zero-Shot Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.06850",
+          "CorpusId": 247447253,
+          "DBLP": "journals/corr/abs-2203-06850",
+          "DOI": "10.48550/arXiv.2203.06850"
+        },
+        "paperId": "3ff00d83a2dac26b5885f312e7ff8dedcdadf71c",
+        "title": "Efficient Language Modeling with Sparse all-MLP"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.461",
+          "ArXiv": "2109.04212",
+          "CorpusId": 237452184,
+          "DBLP": "conf/emnlp/HeNB21",
+          "DOI": "10.18653/v1/2021.emnlp-main.461"
+        },
+        "paperId": "0c47eb31b2dd76d8dc986173a1d3f00da1c9c74d",
+        "title": "Efficient Nearest Neighbor Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.229",
+          "ArXiv": "2109.07958",
+          "CorpusId": 237532606,
+          "DBLP": "journals/corr/abs-2109-07958",
+          "DOI": "10.18653/v1/2022.acl-long.229"
+        },
+        "paperId": "77d956cdab4508d569ae5741549b78e715fd0749",
+        "title": "TruthfulQA: Measuring How Models Mimic Human Falsehoods"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2107.03374",
+          "CorpusId": 235755472,
+          "DBLP": "journals/corr/abs-2107-03374"
+        },
+        "paperId": "acbdbf49f9bc3f151b93d9ca9a06009f4f6eb269",
+        "title": "Evaluating Large Language Models Trained on Code"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2105.08050",
+          "CorpusId": 234742218,
+          "DBLP": "journals/corr/abs-2105-08050"
+        },
+        "paperId": "e3a3e85c5a32af29e13b3561f6cf070de70651de",
+        "title": "Pay Attention to MLPs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.564",
+          "ArXiv": "2104.08315",
+          "CorpusId": 233296182,
+          "DBLP": "conf/emnlp/HoltzmanWSCZ21",
+          "DOI": "10.18653/v1/2021.emnlp-main.564"
+        },
+        "paperId": "9d81bc8bebf1beb936427c224afb219b54a64f1e",
+        "title": "Surface Form Competition: Why the Highest Probability Answer Isn’t Always Right"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.446",
+          "ArXiv": "2012.14913",
+          "CorpusId": 229923720,
+          "DBLP": "conf/emnlp/GevaSBL21",
+          "DOI": "10.18653/v1/2021.emnlp-main.446"
+        },
+        "paperId": "4a54d58a4b20e4f3af25cea3c188a12082a95e02",
+        "title": "Transformer Feed-Forward Layers Are Key-Value Memories"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 219781060,
+          "DBLP": "conf/icml/ChenRC0JLS20",
+          "MAG": "3034445277"
+        },
+        "paperId": "bc022dbb37b1bbf3905a7404d19c03ccbf6b81a8",
+        "title": "Generative Pretraining From Pixels"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.11401",
+          "CorpusId": 218869575,
+          "DBLP": "conf/nips/LewisPPPKGKLYR020",
+          "MAG": "3027879771"
+        },
+        "paperId": "659bf9ce7175e1ec266ff54359e2bd76e0b7ff31",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2001.08361",
+          "CorpusId": 210861095,
+          "DBLP": "journals/corr/abs-2001-08361",
+          "MAG": "3001279689"
+        },
+        "paperId": "e6c561d02500b2596a230b341a8eb8b921ca5bf2",
+        "title": "Scaling Laws for Neural Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.00172",
+          "CorpusId": 207870430,
+          "DBLP": "journals/corr/abs-1911-00172",
+          "MAG": "2988841832"
+        },
+        "paperId": "7be8c119dbe065c52125ee7716601751f3116844",
+        "title": "Generalization through Memorization: Nearest Neighbor Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "Q19-1026",
+          "CorpusId": 86611921,
+          "DBLP": "journals/tacl/KwiatkowskiPRCP19",
+          "DOI": "10.1162/tacl_a_00276",
+          "MAG": "2912924812"
+        },
+        "paperId": "17dbd7b72029181327732e4d11b52a08ed4630d0",
+        "title": "Natural Questions: A Benchmark for Question Answering Research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 203595067,
+          "DOI": "10.18148/SUB/2019.V23I2.601",
+          "MAG": "3026404337"
+        },
+        "paperId": "39e801ca0dbc69c3697f118e24dac964abb63d4a",
+        "title": "The CommitmentBank: Investigating projection in naturally occurring discourse"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "S19-2145",
+          "CorpusId": 120224153,
+          "DBLP": "conf/semeval/KieselMSVACSP19",
+          "DOI": "10.18653/v1/S19-2145",
+          "MAG": "2955041501"
+        },
+        "paperId": "fc089a09074c84979d1f34e89341318a5bc26d3d",
+        "title": "SemEval-2019 Task 4: Hyperpartisan News Detection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1805.07836",
+          "CorpusId": 29164161,
+          "DBLP": "conf/nips/ZhangS18",
+          "MAG": "2803187616",
+          "PubMed": "39839708"
+        },
+        "paperId": "1e1855ca80e8ac3de0e169871f320416902e9ad1",
+        "title": "Generalized Cross Entropy Loss for Training Deep Neural Networks with Noisy Labels"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P17-1147",
+          "ArXiv": "1705.03551",
+          "CorpusId": 26501419,
+          "DBLP": "journals/corr/JoshiCWZ17",
+          "DOI": "10.18653/v1/P17-1147",
+          "MAG": "2612431505"
+        },
+        "paperId": "f010affab57b5fcf1cd6be23df79d8ec98c7289c",
+        "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1609.07843",
+          "CorpusId": 16299141,
+          "DBLP": "journals/corr/MerityXBS16",
+          "MAG": "2525332836"
+        },
+        "paperId": "efbd381493bb9636f489b965a2034d529cd56bcd",
+        "title": "Pointer Sentinel Mixture Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1602.01585",
+          "CorpusId": 1964279,
+          "DBLP": "conf/www/HeM16",
+          "DOI": "10.1145/2872427.2883037",
+          "MAG": "2294501066"
+        },
+        "paperId": "36f652172792f8aab1cf3c4441a72a1bf79d17c8",
+        "title": "Ups and Downs: Modeling the Visual Evolution of Fashion Trends with One-Class Collaborative Filtering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1509.01626",
+          "CorpusId": 368182,
+          "DBLP": "journals/corr/ZhangZL15",
+          "MAG": "2963012544"
+        },
+        "paperId": "51a55df1f023571a7e07e338ee45a3e3d66ef73e",
+        "title": "Character-level Convolutional Networks for Text Classification"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1410.3916",
+          "CorpusId": 2926851,
+          "DBLP": "journals/corr/WestonCB14",
+          "MAG": "2584341106"
+        },
+        "paperId": "71ae756c75ac89e2d731c9c79649562b5768ff39",
+        "title": "Memory Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D13-1160",
+          "CorpusId": 6401679,
+          "DBLP": "conf/emnlp/BerantCFL13",
+          "DOI": "10.18653/v1/d13-1160",
+          "MAG": "2252136820"
+        },
+        "paperId": "b29447ba499507a259ae9d8f685d60cc1597d7d3",
+        "title": "Semantic Parsing on Freebase from Question-Answer Pairs"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D13-1170",
+          "CorpusId": 990233,
+          "DBLP": "conf/emnlp/SocherPWCMNP13",
+          "DOI": "10.18653/v1/d13-1170",
+          "MAG": "2251939518"
+        },
+        "paperId": "687bac2d3320083eb4530bf18bb8f8f721477600",
+        "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1206.2459",
+          "CorpusId": 17522805,
+          "DBLP": "journals/tit/ErvenH14",
+          "DOI": "10.1109/TIT.2014.2320500",
+          "MAG": "3099890586"
+        },
+        "paperId": "5dd170f0705f0e1a657021b5427ca983cccd7a59",
+        "title": "Rényi Divergence and Kullback-Leibler Divergence"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P11-1015",
+          "CorpusId": 1428702,
+          "DBLP": "conf/acl/MaasDPHNP11",
+          "MAG": "2113459411"
+        },
+        "paperId": "1c61f9ef06fe74505775a833ff849185757199e7",
+        "title": "Learning Word Vectors for Sentiment Analysis"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 8336653,
+          "DBLP": "journals/nle/DaganDMR10",
+          "DOI": "10.1017/S1351324909990234",
+          "MAG": "2088589173"
+        },
+        "paperId": "2a00b1b3d6fd586733ecbce025c13a1020d1423c",
+        "title": "Recognizing textual entailment: Rational, evaluation and approaches – Erratum"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 1658794,
+          "DOI": "10.1038/nrn1723",
+          "MAG": "2031053755",
+          "PubMed": "16062172"
+        },
+        "paperId": "1e66f9922f222b9bd0cff79ab5ba558f2935c639",
+        "title": "Forty-five years of split-brain research and still going strong"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P05-1015",
+          "ArXiv": "cs/0506075",
+          "CorpusId": 3264224,
+          "DBLP": "conf/acl/PangL05",
+          "DOI": "10.3115/1219840.1219855",
+          "MAG": "2163455955"
+        },
+        "paperId": "6af58c061f2e4f130c3b795c21ff0c7e3903278f",
+        "title": "Seeing Stars: Exploiting Class Relationships for Sentiment Categorization with Respect to Rating Scales"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 207155218,
+          "DBLP": "conf/kdd/HuL04",
+          "DOI": "10.1145/1014052.1014073",
+          "MAG": "2160660844"
+        },
+        "paperId": "cdcf7cb29f37ac0546961ea8a076075b9cc1f992",
+        "title": "Mining and summarizing customer reviews"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 38410885,
+          "DOI": "10.1037/H0024599",
+          "MAG": "2032747448",
+          "PubMed": "4859959"
+        },
+        "paperId": "2077e5035a56bca95f7930266a17e5666ba98390",
+        "title": "The hippocampus and behavior."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 275118643,
+          "DBLP": "journals/corr/abs-2412-19437"
+        },
+        "paperId": "5b6fdb2aea424d02c141da81d62b04d739d62b96",
+        "title": "DeepSeek-V3 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 160025533,
+          "MAG": "2955855238"
+        },
+        "paperId": "9405cc0d6169988371b2755e573cc28650d14dfe",
+        "title": "Language Models are Unsupervised Multitask Learners"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 5830937,
+          "DBLP": "conf/isiwi/HamborgMBG17",
+          "DOI": "10.18452/1447"
+        },
+        "paperId": "94bf9276bd26d4b7094e79480ce52eb9e9875feb",
+        "title": "news-please - A Generic News Crawler and Extractor"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 62522678,
+          "MAG": "2012742426"
+        },
+        "paperId": "158d4ffa20896d792f4f208200d34bda771db4a9",
+        "title": "The Ethical Brain."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 39806201,
+          "PubMed": "16753581"
+        },
+        "paperId": "ee168af8110a9bb491f835de234b01588d19ef7e",
+        "title": "[Memory]."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "MLP Memory: A Retriever-Pretrained Memory for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Parametric retrieval augmented"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "´ ee Lacroix"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Atlas: Few-shot learning with retrieval"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

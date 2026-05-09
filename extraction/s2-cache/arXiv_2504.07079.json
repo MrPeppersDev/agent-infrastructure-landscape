@@ -1,0 +1,988 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2112670551",
+        "name": "Boyuan Zheng"
+      },
+      {
+        "authorId": "2354335357",
+        "name": "Michael Y. Fatemi"
+      },
+      {
+        "authorId": "2346309962",
+        "name": "Xiaolong Jin"
+      },
+      {
+        "authorId": "2307569999",
+        "name": "Z. Wang"
+      },
+      {
+        "authorId": "2354334142",
+        "name": "Apurva Gandhi"
+      },
+      {
+        "authorId": "2290031618",
+        "name": "Yueqi Song"
+      },
+      {
+        "authorId": "2022231256",
+        "name": "Yu Gu"
+      },
+      {
+        "authorId": "2089885442",
+        "name": "Jayanth Srinivasa"
+      },
+      {
+        "authorId": "2284307754",
+        "name": "Gaowen Liu"
+      },
+      {
+        "authorId": "2337795179",
+        "name": "Graham Neubig"
+      },
+      {
+        "authorId": "1758652",
+        "name": "Yu Su"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2504.07079, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.01382",
+          "CorpusId": 277502135,
+          "DBLP": "journals/corr/abs-2504-01382",
+          "DOI": "10.48550/arXiv.2504.01382"
+        },
+        "paperId": "e17d67990721add9597890e777cb337ef9a20973",
+        "title": "An Illusion of Progress? Assessing the Current State of Web Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.17543",
+          "CorpusId": 276580798,
+          "DBLP": "journals/corr/abs-2502-17543",
+          "DOI": "10.48550/arXiv.2502.17543"
+        },
+        "paperId": "bb146358872cf242e97d891bbf6994bc1faae2fe",
+        "title": "Training a Generally Curious Agent"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.11357",
+          "CorpusId": 276408442,
+          "DBLP": "conf/acl/PahujaLRGMW0A25",
+          "DOI": "10.48550/arXiv.2502.11357"
+        },
+        "paperId": "26acd2d4b5d2bed7e25250d3f2f222b5611ee8ef",
+        "title": "Explorer: Scaling Exploration-driven Web Trajectory Synthesis for Multimodal Web Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.10893",
+          "CorpusId": 275757520,
+          "DBLP": "conf/iclr/Su0YY0A25",
+          "DOI": "10.48550/arXiv.2501.10893"
+        },
+        "paperId": "2e20395786ebaf45b3cee398b3db3531bc4851d6",
+        "title": "Learn-by-interact: A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.13194",
+          "CorpusId": 274789001,
+          "DBLP": "journals/corr/abs-2412-13194",
+          "DOI": "10.48550/arXiv.2412.13194"
+        },
+        "paperId": "52bca2ff9159bd9f704adffa5fd9c51a198574df",
+        "title": "Proposer-Agent-Evaluator(PAE): Autonomous Skill Discovery For Foundation Model Internet Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2411.15004",
+          "CorpusId": 274192657,
+          "DBLP": "journals/corr/abs-2411-15004",
+          "DOI": "10.48550/arXiv.2411.15004"
+        },
+        "paperId": "3361e459d12b307aef99a92c5ca6ef8eb9a6bba0",
+        "title": "ScribeAgent: Towards Specialized Web Agents Using Production-Scale Workflow Data"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2411.06559",
+          "CorpusId": 273963078,
+          "DBLP": "journals/tmlr/GuZNZGXCSXQSS25",
+          "DOI": "10.48550/arXiv.2411.06559"
+        },
+        "paperId": "db256d018825b8385fa995265461eb5224ca0cfe",
+        "title": "Is Your LLM Secretly a World Model of the Internet? Model-Based Planning for Web Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.16464",
+          "CorpusId": 273507298,
+          "DBLP": "journals/corr/abs-2410-16464",
+          "DOI": "10.48550/arXiv.2410.16464"
+        },
+        "paperId": "ecccf4f55c66a84664737cb41b5fcc86f26cce5a",
+        "title": "Beyond Browsing: API-Based Web Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.13232",
+          "CorpusId": 273404026,
+          "DBLP": "journals/corr/abs-2410-13232",
+          "DOI": "10.48550/arXiv.2410.13232"
+        },
+        "paperId": "770232536a768254a161eb00447650efc8f7f729",
+        "title": "Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.10934",
+          "CorpusId": 273350802,
+          "DBLP": "conf/icml/Zhuge0AWKXLCKTS25",
+          "DOI": "10.48550/arXiv.2410.10934"
+        },
+        "paperId": "10d2842131634263b5a6875319ff53c0da6a7398",
+        "title": "Agent-as-a-Judge: Evaluate Agents with Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.05243",
+          "CorpusId": 273186286,
+          "DBLP": "conf/iclr/GouWZXCS0025",
+          "DOI": "10.48550/arXiv.2410.05243"
+        },
+        "paperId": "a15a4cabe7653a87efc3302552fbc88b25d19dc1",
+        "title": "Navigating the Digital World as Humans Do: Universal Visual Grounding for GUI Agents"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.07429",
+          "CorpusId": 272592995,
+          "DBLP": "conf/icml/WangMFN25",
+          "DOI": "10.48550/arXiv.2409.07429"
+        },
+        "paperId": "c68cc84ec7808d7bbd5686a6bd1393752a9d8e8d",
+        "title": "Agent Workflow Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.15978",
+          "CorpusId": 271974824,
+          "DBLP": "conf/aaai/ZhangMM0WT25",
+          "DOI": "10.48550/arXiv.2408.15978"
+        },
+        "paperId": "bf27f8cc6737700934f214180f5e62e71338b347",
+        "title": "WebPilot: A Versatile and Autonomous Multi-Agent System for Web Task Execution with Strategic Exploration"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.07199",
+          "CorpusId": 271865516,
+          "DBLP": "journals/corr/abs-2408-07199",
+          "DOI": "10.48550/arXiv.2408.07199"
+        },
+        "paperId": "b393f619a87c5b6aa63c7abc7118263205b6aa62",
+        "title": "Agent Q: Advanced Reasoning and Learning for Autonomous AI Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.505",
+          "ArXiv": "2407.15711",
+          "CorpusId": 271328691,
+          "DBLP": "conf/emnlp/YoranAMBPB24",
+          "DOI": "10.48550/arXiv.2407.15711"
+        },
+        "paperId": "2026c795a2c0ea07d860bc01843c01f02ed16faf",
+        "title": "AssistantBench: Can Web Agents Solve Realistic and Time-Consuming Tasks?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.01476",
+          "CorpusId": 270870063,
+          "DBLP": "journals/tmlr/KohMFS25",
+          "DOI": "10.48550/arXiv.2407.01476"
+        },
+        "paperId": "9345e55a21959948499cee997522aa5eac7ed588",
+        "title": "Tree Search for Language Model Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.03679",
+          "CorpusId": 270285816,
+          "DBLP": "conf/nips/LiBLRCTR24",
+          "DOI": "10.52202/079017-2925"
+        },
+        "paperId": "d8ba1f488269420ed8440c31dfa987b8782c62f1",
+        "title": "On the Effects of Data Scale on UI Control Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.20309",
+          "CorpusId": 270122967,
+          "DBLP": "journals/corr/abs-2405-20309",
+          "DOI": "10.48550/arXiv.2405.20309"
+        },
+        "paperId": "c3752fd57d81da76f45bb61fc566093bdb38e5d8",
+        "title": "Large Language Models Can Self-Improve At Web Agent Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.07972",
+          "CorpusId": 269042918,
+          "DBLP": "journals/corr/abs-2404-07972",
+          "DOI": "10.48550/arXiv.2404.07972"
+        },
+        "paperId": "ff3e4f7c2481fb6df539f02be5945235101cbc19",
+        "title": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.06474",
+          "CorpusId": 269009430,
+          "DBLP": "journals/corr/abs-2404-06474",
+          "DOI": "10.48550/arXiv.2404.06474"
+        },
+        "paperId": "aed8f01122d1a89c43900e995c80bfda7936568e",
+        "title": "Autonomous Evaluation and Refinement of Digital Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.05719",
+          "CorpusId": 269005503,
+          "DBLP": "journals/corr/abs-2404-05719",
+          "DOI": "10.48550/arXiv.2404.05719"
+        },
+        "paperId": "3687e55cf21c4d0041d9bf0b74988319bfe3402b",
+        "title": "Ferret-UI: Grounded Mobile UI Understanding with Multimodal LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.15452",
+          "CorpusId": 268555276,
+          "DBLP": "journals/corr/abs-2403-15452",
+          "DOI": "10.48550/arXiv.2403.15452"
+        },
+        "paperId": "1819a53eddb4a5334937561bb57542d7f11c8308",
+        "title": "What Are Tools Anyway? A Survey from the Language Model Perspective"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.08140",
+          "CorpusId": 268379271,
+          "DBLP": "conf/icml/MurtyMSJL24",
+          "DOI": "10.48550/arXiv.2403.08140"
+        },
+        "paperId": "fd50db0489828d0da2557a6da8d931d523479957",
+        "title": "BAGEL: Bootstrapping Agents by Guiding Exploration with Language"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.02502",
+          "CorpusId": 268249221,
+          "DBLP": "journals/corr/abs-2403-02502",
+          "DOI": "10.48550/arXiv.2403.02502"
+        },
+        "paperId": "f95da5b7be2fac2381eb5dfe26dc7dc5bc2d9a90",
+        "title": "Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.436",
+          "ArXiv": "2402.14672",
+          "CorpusId": 267782782,
+          "DBLP": "journals/corr/abs-2402-14672",
+          "DOI": "10.48550/arXiv.2402.14672"
+        },
+        "paperId": "ac2fc8c5d4a1f44464f1415ea3dd3ed45398b9d9",
+        "title": "Middleware for LLMs: Tools Are Instrumental for Language Agents in Complex Environments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.07456",
+          "CorpusId": 267626905,
+          "DBLP": "journals/corr/abs-2402-07456",
+          "DOI": "10.48550/arXiv.2402.07456"
+        },
+        "paperId": "8acdc5c7cb5913dab1ceed71c4750838f5cd8cca",
+        "title": "OS-Copilot: Towards Generalist Computer Agents with Self-Improvement"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.01030",
+          "CorpusId": 267406155,
+          "DBLP": "journals/corr/abs-2402-01030",
+          "DOI": "10.48550/arXiv.2402.01030"
+        },
+        "paperId": "78fbb6e7a1c568a04e8c935aa9909d0c942ea5f6",
+        "title": "Executable Code Actions Elicit Better LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.13919",
+          "CorpusId": 267211622,
+          "DBLP": "conf/acl/HeYM0D0L024",
+          "DOI": "10.48550/arXiv.2401.13919"
+        },
+        "paperId": "19261c6ad20c6c1e5585a8afcb88196173cbc8a6",
+        "title": "WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.12869",
+          "CorpusId": 267095061,
+          "DBLP": "journals/corr/abs-2401-12869",
+          "DOI": "10.48550/arXiv.2401.12869"
+        },
+        "paperId": "7e6c1bb54bb2e36cc1092b080e9928942f7f8a68",
+        "title": "TroVE: Inducing Verifiable and Efficient Toolboxes for Solving Programmatic Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.10020",
+          "CorpusId": 267035293,
+          "DBLP": "journals/corr/abs-2401-10020",
+          "DOI": "10.48550/arXiv.2401.10020"
+        },
+        "paperId": "04d64be16fb402f28348faffef484bd419c8bd8f",
+        "title": "Self-Rewarding Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.10935",
+          "CorpusId": 267069082,
+          "DBLP": "conf/acl/ChengSCX0Z024",
+          "DOI": "10.48550/arXiv.2401.10935"
+        },
+        "paperId": "f9b39a6a7e40986b46f7796f3a805d70d7e3931a",
+        "title": "SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.01614",
+          "CorpusId": 266741821,
+          "DBLP": "conf/icml/ZhengGK0024",
+          "DOI": "10.48550/arXiv.2401.01614"
+        },
+        "paperId": "c844694387a89a477e7a8bbf918171cdc3b85672",
+        "title": "GPT-4V(ision) is a Generalist Web Agent, if Grounded"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.01335",
+          "CorpusId": 266725672,
+          "DBLP": "conf/icml/ChenDYJG24",
+          "DOI": "10.48550/arXiv.2401.01335"
+        },
+        "paperId": "ef9e058d22d190fdd38ddee367cf6aa8d1a14bd5",
+        "title": "Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.08914",
+          "CorpusId": 266210390,
+          "DBLP": "conf/cvpr/HongWLXYJWWD0024",
+          "DOI": "10.1109/CVPR52733.2024.01354"
+        },
+        "paperId": "e50583008fe4ec049e42fdc01727ce98f6d86a35",
+        "title": "CogAgent: A Visual Language Model for GUI Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.06585",
+          "CorpusId": 266163375,
+          "DBLP": "journals/tmlr/SinghCAAPGLH0XP24",
+          "DOI": "10.48550/arXiv.2312.06585"
+        },
+        "paperId": "48362b169a235ca650918c489c8cea4c597da645",
+        "title": "Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.03720",
+          "CorpusId": 263671958
+        },
+        "paperId": "268e28f8d5235031dcd7bfae0f857439e27e8564",
+        "title": "SteP: Stacked LLM Policies for Web Actions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.00656",
+          "CorpusId": 263334074,
+          "DBLP": "conf/iclr/WangXZLCHXSX0LL24",
+          "DOI": "10.48550/arXiv.2310.00656"
+        },
+        "paperId": "f8b5ee53c3410f20049e7def47bd52403fa388e3",
+        "title": "LEGO-Prover: Neural Theorem Proving with Growing Libraries"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.17428",
+          "CorpusId": 263310662,
+          "DBLP": "journals/corr/abs-2309-17428",
+          "DOI": "10.48550/arXiv.2309.17428"
+        },
+        "paperId": "a1426b13b74dbad17b34606d25aabe1d61f6e11a",
+        "title": "CRAFT: Customizing LLMs by Creating and Retrieving from Specialized Toolsets"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.13854",
+          "CorpusId": 260164780,
+          "DBLP": "conf/iclr/ZhouX0ZLSCOBF0N24",
+          "DOI": "10.48550/arXiv.2307.13854"
+        },
+        "paperId": "e41482f4ee984f17382f6cdd900df094d928be06",
+        "title": "WebArena: A Realistic Web Environment for Building Autonomous Agents"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.06070",
+          "CorpusId": 259129428,
+          "DBLP": "journals/corr/abs-2306-06070",
+          "DOI": "10.48550/arXiv.2306.06070"
+        },
+        "paperId": "58f8925a8b87054ad0635a6398a7fe24935b1604",
+        "title": "Mind2Web: Towards a Generalist Agent for the Web"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.05685",
+          "CorpusId": 259129398,
+          "DBLP": "journals/corr/abs-2306-05685",
+          "DOI": "10.52202/075280-2020"
+        },
+        "paperId": "a0a79dad89857a96f8f71b14238e5237cbfc4787",
+        "title": "Judging LLM-as-a-judge with MT-Bench and Chatbot Arena"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.00245",
+          "CorpusId": 258999511,
+          "DBLP": "journals/corr/abs-2306-00245",
+          "DOI": "10.48550/arXiv.2306.00245"
+        },
+        "paperId": "ee7020fc413590878dca60dcf41896bbe6a6c628",
+        "title": "From Pixels to UI Actions: Learning to Follow Instructions via Graphical User Interfaces"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.17126",
+          "CorpusId": 258947222,
+          "DBLP": "journals/corr/abs-2305-17126",
+          "DOI": "10.48550/arXiv.2305.17126"
+        },
+        "paperId": "32dcd0887537cece54e214f531d2c384470b023f",
+        "title": "Large Language Models as Tool Makers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.14318",
+          "CorpusId": 258841653,
+          "DBLP": "conf/emnlp/QianH0Q0J23",
+          "DOI": "10.18653/v1/2023.findings-emnlp.462"
+        },
+        "paperId": "8da9b1436212b233fc49c7daf1ba15c22874ff5a",
+        "title": "CREATOR: Tool Creation for Disentangling Abstract and Concrete Reasoning of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.11854",
+          "CorpusId": 258823350,
+          "DBLP": "conf/iclr/FurutaLNMFGG24",
+          "DOI": "10.48550/arXiv.2305.11854"
+        },
+        "paperId": "5692501c10d0c1762842f92c66fcf0bffe2c0342",
+        "title": "Multimodal Web Navigation with Instruction-Finetuned Foundation Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.09842",
+          "CorpusId": 258212542,
+          "DBLP": "conf/nips/LuPCGCWZG23",
+          "DOI": "10.48550/arXiv.2304.09842"
+        },
+        "paperId": "170c97c7215f42edfb20c2248f954879e91ef86e",
+        "title": "Chameleon: Plug-and-Play Compositional Reasoning with Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.17651",
+          "CorpusId": 257900871,
+          "DBLP": "journals/corr/abs-2303-17651",
+          "DOI": "10.48550/arXiv.2303.17651"
+        },
+        "paperId": "3aaf6a2cbad5850ad81ab5c163599cb3d523436f",
+        "title": "Self-Refine: Iterative Refinement with Self-Feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.06692",
+          "CorpusId": 256846700,
+          "DBLP": "journals/corr/abs-2302-06692",
+          "DOI": "10.48550/arXiv.2302.06692"
+        },
+        "paperId": "89e184d2bc830af568e439db9476caa0c047e11a",
+        "title": "Guiding Pretraining in Reinforcement Learning with Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.04761",
+          "CorpusId": 256697342,
+          "DBLP": "journals/corr/abs-2302-04761",
+          "DOI": "10.48550/arXiv.2302.04761"
+        },
+        "paperId": "53d128ea815bcc0526856eb5a9c42cc977cb36a7",
+        "title": "Toolformer: Language Models Can Teach Themselves to Use Tools"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.754",
+          "ArXiv": "2212.10560",
+          "CorpusId": 254877310,
+          "DBLP": "journals/corr/abs-2212-10560",
+          "DOI": "10.48550/arXiv.2212.10560"
+        },
+        "paperId": "e65b346d442e9962a4276dc1c1af2956d9d5f1eb",
+        "title": "Self-Instruct: Aligning Language Models with Self-Generated Instructions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.11610",
+          "CorpusId": 253080328,
+          "DBLP": "conf/emnlp/0001GHW00023",
+          "DOI": "10.48550/arXiv.2210.11610"
+        },
+        "paperId": "3fa70115248377c3d1517c9f978791a296fbc1dd",
+        "title": "Large Language Models Can Self-Improve"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.01206",
+          "CorpusId": 250264533,
+          "DBLP": "journals/corr/abs-2207-01206",
+          "DOI": "10.48550/arXiv.2207.01206"
+        },
+        "paperId": "23525374cfd3af714f3ffb7a203b1ef3253333fe",
+        "title": "WebShop: Towards Scalable Real-World Web Interaction with Grounded Language Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 274466462,
+          "DBLP": "journals/corr/abs-2406-14596",
+          "DOI": "10.48550/arXiv.2406.14596"
+        },
+        "paperId": "5c743b98d1d2e12ea97337c714bd52b26b3c55b2",
+        "title": "ICAL: Continual Learning of Multimodal Agents by Transforming Trajectories into Actionable Insights"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 252762395
+        },
+        "paperId": "99832586d55f540f603637e458a292406a0ed75d",
+        "title": "LANGUAGE MODELS"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 266553566,
+          "DBLP": "conf/korso/Lindner95",
+          "DOI": "10.1007/3-540-58867-1_46",
+          "MAG": "2339268891"
+        },
+        "paperId": "23bc43cc7efdc5b55449e6b209f0a1b98316c8c9",
+        "title": "Task Description"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Make sure that the observed behavior and mechanics are carefully documented"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "The HTML content provided is a truncated version of the webpage structure, because of constraints on the context window size"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Do not interact with the Advanced Reporting tab i f you are using Magento"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Please just provide the code in a code block. Do not include any additional text or comments. Do not include Usage. Just return the API code that should be inside the function"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Nnetscape navigator: Complex demonstrations for web agents without a demonstrator"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Do not `` overfit” your function name to a specific set of task parameters"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Make sure that you take a step back and think about the general procedure you used to complete the task"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "how useful they are (5 being d i f f i c u l t and frequency , 1 being t r i v i a l or uncommon)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "If you want to update an existing function, then you must have the function name of the new implementation be an exact match"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Provide a complete fixed version of the code"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Make sure your code is correct, do not use any over complicated Python features (e. nested functions, and such)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Write a l i s t of useful s k i l l s /shortcuts that you would want to have built into a website as Python functions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "If the task is about information seeking"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Do not write ”test ” or ”explore ” functions, nor functions that ”verify” that a previous skill was completed successfully"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "page.get by role(name=”See reviews (194)”)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "you used an existing function and the result was unexpected, make sure to update the documentation for that function to ensure that it can be used correctly in the future"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Use ` page ` as the first argument of your function"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "You should write a detailed docstring for the function (with triple quotes), describing what it does and how to use it"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Do not use a global try−catch statement, if the only thing it does is print or reraise the error. Only catch exceptions that you can truly recover from"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "would be useful ” shortcuts ” for users of the website ,"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Make sure your function is async because you use ` await ` . Your top level function should be the asynchronous one"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "The function function is disabled"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "either a single task attempt and success evaluation, or multiple task attempts and aggregate results"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "the expected number of clicking/typing actions required to complete the s k i l l"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "include actions to close cookie banners, because these will not be necessary during future function calls"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Please review your generated code specifically checking for: − Missing await statements − Proper async method chaining − Correct handling of async property access"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Incorrect or buggy Playwright functions: Please use the ‘page.get by ...().f()‘ functions instead of the ‘page.f(selector)‘ functions. where f ∈ { click , f ill , type }"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

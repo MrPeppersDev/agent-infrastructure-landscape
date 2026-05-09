@@ -1,0 +1,566 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2326836585",
+        "name": "Elias Lumer"
+      },
+      {
+        "authorId": "2360364312",
+        "name": "Anmol Gulati"
+      },
+      {
+        "authorId": "2327043802",
+        "name": "V. K. Subbiah"
+      },
+      {
+        "authorId": "2327043776",
+        "name": "P. Basavaraju"
+      },
+      {
+        "authorId": "2327181836",
+        "name": "James A. Burke"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2507.21428, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "MemTool: Optimizing Short-Term Memory Management for Dynamic Tool Calling in LLM Agent Multi-Turn Conversations"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.06254",
+          "CorpusId": 279244228,
+          "DBLP": "journals/corr/abs-2506-06254",
+          "DOI": "10.48550/arXiv.2506.06254"
+        },
+        "paperId": "4233cf4e5eda6b32e9abc74ded5a2f8c67a59663",
+        "title": "PersonaAgent: When Large Language Model Agents Meet Personalization at Test Time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.01056",
+          "CorpusId": 279076051,
+          "DBLP": "journals/corr/abs-2506-01056",
+          "DOI": "10.48550/arXiv.2506.01056"
+        },
+        "paperId": "b583a7a4df2e939961f0f7f1d3ba2ed745ff27ec",
+        "title": "MCP-Zero: Active Tool Discovery for Autonomous LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.06416",
+          "CorpusId": 278501862,
+          "DBLP": "journals/corr/abs-2505-06416",
+          "DOI": "10.48550/arXiv.2505.06416"
+        },
+        "paperId": "bdef83f6925a6d5dace6cb410c9facb982bec4ac",
+        "title": "ScaleMCP: Dynamic and Auto-Synchronizing Model Context Protocol Tools for LLM Agents"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.06120",
+          "CorpusId": 278481320,
+          "DBLP": "journals/corr/abs-2505-06120",
+          "DOI": "10.48550/arXiv.2505.06120"
+        },
+        "paperId": "bb5d81576c113f0b16234fd0db4238a4281c8388",
+        "title": "LLMs Get Lost In Multi-Turn Conversation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.15965",
+          "CorpusId": 277993681,
+          "DBLP": "journals/corr/abs-2504-15965",
+          "DOI": "10.48550/arXiv.2504.15965"
+        },
+        "paperId": "18ee9dcd91f50f62973425947b1abd34cc283dbb",
+        "title": "From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.00771",
+          "CorpusId": 276742550,
+          "DBLP": "journals/corr/abs-2503-00771",
+          "DOI": "10.48550/arXiv.2503.00771"
+        },
+        "paperId": "f9ebb5efdf7a71b35da4ffc82a4ee5d3bfc39697",
+        "title": "Evaluating Personalized Tool-Augmented LLMs from the Perspectives of Personalization and Proactivity"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.20082",
+          "CorpusId": 276647831,
+          "DBLP": "journals/corr/abs-2502-20082",
+          "DOI": "10.48550/arXiv.2502.20082"
+        },
+        "paperId": "929ac69abb84bb8e6cb0e0a6fe1ed8b8e7924a2d",
+        "title": "LongRoPE2: Near-Lossless LLM Context Window Scaling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.12110",
+          "CorpusId": 276421617,
+          "DBLP": "journals/corr/abs-2502-12110",
+          "DOI": "10.48550/arXiv.2502.12110"
+        },
+        "paperId": "1f35a15fe9df43d24ec6ea551ec6c9766c17eccf",
+        "title": "A-MEM: Agentic Memory for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.06589",
+          "CorpusId": 276250494,
+          "DBLP": "conf/naacl/ZhuangYJLCLGPLHLWCWZZNY25",
+          "DOI": "10.48550/arXiv.2502.06589"
+        },
+        "paperId": "6ff06d054217164cdda7fb31c93665e431dec554",
+        "title": "Hephaestus: Improving Fundamental Agent Capabilities of Large Language Models through Continual Pre-Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.05589",
+          "CorpusId": 276249662,
+          "DBLP": "journals/corr/abs-2502-05589",
+          "DOI": "10.48550/arXiv.2502.05589"
+        },
+        "paperId": "a195d79a104f9f3427e6f0cba98b904907ad6ad4",
+        "title": "On Memory Construction and Retrieval for Personalized Conversational Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.09136",
+          "CorpusId": 275570331,
+          "DBLP": "journals/corr/abs-2501-09136",
+          "DOI": "10.48550/arXiv.2501.09136"
+        },
+        "paperId": "ba7952e7c4fb891c36980ca19f94251257da6eb7",
+        "title": "Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.14594",
+          "CorpusId": 273507442,
+          "DBLP": "conf/icaart/LumerSBBH25",
+          "DOI": "10.48550/arXiv.2410.14594"
+        },
+        "paperId": "b5287050d7ec3570c21d36012ad9d376c02b0140",
+        "title": "Toolshed: Scale Tool-Equipped Agents with Advanced RAG-Tool Fusion and Tool Knowledge Bases"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.10813",
+          "CorpusId": 273345961,
+          "DBLP": "journals/corr/abs-2410-10813",
+          "DOI": "10.48550/arXiv.2410.10813"
+        },
+        "paperId": "fd48dc6b433cfcd220b6e769c6179d8ef6fcf862",
+        "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.13202",
+          "CorpusId": 272770490,
+          "DBLP": "journals/corr/abs-2409-13202",
+          "DOI": "10.48550/arXiv.2409.13202"
+        },
+        "paperId": "59c99e9d4fd94e285dc6315978d15580364a862f",
+        "title": "CITI: Enhancing Tool Utilizing Ability in Large Language Models without Sacrificing General Performance"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.08921",
+          "CorpusId": 271903170,
+          "DBLP": "journals/tois/PengZLBSHZT26",
+          "DOI": "10.1145/3777378"
+        },
+        "paperId": "9ab45aa875b56335303398e84a59a3756cd9d530",
+        "title": "Graph Retrieval-Augmented Generation: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.01875",
+          "CorpusId": 271709437,
+          "DBLP": "conf/emnlp/ChenYSWCBLP24",
+          "DOI": "10.48550/arXiv.2408.01875"
+        },
+        "paperId": "078bedf41f7ff2850bd52f39e8c0b3b239f709d5",
+        "title": "Re-Invoke: Tool Invocation Rewriting for Zero-Shot Tool Retrieval"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.08355",
+          "CorpusId": 269761434,
+          "DBLP": "journals/corr/abs-2405-08355",
+          "DOI": "10.48550/arXiv.2405.08355"
+        },
+        "paperId": "94e17ccf5f999689788ba072d8fafa42fe073333",
+        "title": "Seal-Tools: Self-Instruct Tool Learning Dataset for Agent Tuning and Detailed Benchmark"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.lrec-main.1413",
+          "ArXiv": "2403.06551",
+          "CorpusId": 268349900,
+          "DBLP": "journals/corr/abs-2403-06551",
+          "DOI": "10.48550/arXiv.2403.06551"
+        },
+        "paperId": "ec3f53efda752e176ce80f2c50b90ec1f6f3dfb3",
+        "title": "ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.17753",
+          "CorpusId": 268041615,
+          "DBLP": "journals/corr/abs-2402-17753",
+          "DOI": "10.48550/arXiv.2402.17753"
+        },
+        "paperId": "0bf3a1867f7245b8a702093901c66b08b518eafc",
+        "title": "Evaluating Very Long-Term Conversational Memory of LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.04253",
+          "CorpusId": 267500288,
+          "DBLP": "conf/icml/DuW024",
+          "DOI": "10.48550/arXiv.2402.04253"
+        },
+        "paperId": "24a56d41df2c939c3223bde7bf26050302c3dea7",
+        "title": "AnyTool: Self-Reflective, Hierarchical Agents for Large-Scale API Calls"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.10332",
+          "CorpusId": 266348632,
+          "DBLP": "journals/corr/abs-2312-10332",
+          "DOI": "10.48550/arXiv.2312.10332"
+        },
+        "paperId": "7785760e4fb60dc03e56014ecb60aa53c2d1d2cd",
+        "title": "ProTIP: Progressive Tool Retrieval Improves Planning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.08560",
+          "CorpusId": 263909014,
+          "DBLP": "journals/corr/abs-2310-08560",
+          "DOI": "10.48550/arXiv.2310.08560"
+        },
+        "paperId": "908dad62c0e43d80e3e3cb3c0402f7c71c70499c",
+        "title": "MemGPT: Towards LLMs as Operating Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.17428",
+          "CorpusId": 263310662,
+          "DBLP": "journals/corr/abs-2309-17428",
+          "DOI": "10.48550/arXiv.2309.17428"
+        },
+        "paperId": "a1426b13b74dbad17b34606d25aabe1d61f6e11a",
+        "title": "CRAFT: Customizing LLMs by Creating and Retrieving from Specialized Toolsets"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.15334",
+          "CorpusId": 258865184,
+          "DBLP": "journals/corr/abs-2305-15334",
+          "DOI": "10.52202/079017-4020"
+        },
+        "paperId": "7d8905a1fd288068f12c8347caeabefd36d0dd6c",
+        "title": "Gorilla: Large Language Model Connected with Massive APIs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.11554",
+          "CorpusId": 258823133,
+          "DBLP": "journals/corr/abs-2305-11554",
+          "DOI": "10.48550/arXiv.2305.11554"
+        },
+        "paperId": "c7a3f9cc61cfafdc307f8ae24430b6b1121f9b2c",
+        "title": "ToolkenGPT: Augmenting Frozen Language Models with Massive Tools via Tool Embeddings"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.03442",
+          "CorpusId": 258040990,
+          "DBLP": "conf/uist/ParkOCMLB23",
+          "DOI": "10.1145/3586183.3606763"
+        },
+        "paperId": "5278a8eb2ba2429d4029745caf4e661080073c81",
+        "title": "Generative Agents: Interactive Simulacra of Human Behavior"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025b. Google model provider long-term memory"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": ". 2025. Perplexity ai: Persistent memory in conversational ai"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": ". Keynote: Software is changing (again). Presented at AI Startup School. San Francisco, CA. Slides available at https"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": ". How to fix your context"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Zep: A context engineering platform for ai agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Anthropic"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Letta: Stateful agents with transparent long-term memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "The new skill in ai is not prompting, it’s"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "OpenAI"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 241937084,
+          "DOI": "10.1007/978-3-030-58292-0_220066"
+        },
+        "paperId": "e1224c4f74b172587c2a4084e7301ebcdf2a67f5",
+        "title": "Vellum"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 208945385,
+          "DOI": "10.1201/b18055-8",
+          "MAG": "2525491769"
+        },
+        "paperId": "6a630ac89d7c0a57eb7bf4cb30dd5946bcf3ccce",
+        "title": "google,我,萨娜"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025a. Graph rag-tool fusion"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. Context rot: How increasing input tokens impacts llm performance"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Memorybank: Enhancing large language models with long-term memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. Architecting agent memory: Principles, patterns, and best practices"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Model Context Protocol. 2025."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Toolllm"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "of the 17th International Conference on Agents and Artificial Intelligence – Volume 3: ICAART"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Meta Platforms"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. Provence: efficient and robust context pruning for retrieval-augmented generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Function calling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. On context utilization in summarization with large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Confident AI. 2025."
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

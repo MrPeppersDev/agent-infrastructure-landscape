@@ -448,6 +448,85 @@ contained to the script and don't touch downstream consumers.
 
 ---
 
+## 2026-05-07: fetch_citations.py — S2 cache committed under `extraction/s2-cache/`
+
+**What.** `scripts/fetch_citations.py` writes raw Semantic Scholar
+`/paper/{id}/references` responses to `extraction/s2-cache/<paperId>.json`,
+one file per paper, sorted-key pretty-printed JSON. The cache directory
+is **committed to git** rather than gitignored.
+
+**Why.** Three reasons:
+
+1. **Byte-stable re-runs.** The script's determinism gate is "running it
+   twice produces an identical `web/landscape.edges.json`." Without a cache,
+   live S2 responses can drift (new references added between runs, S2
+   re-ranking `isInfluential`); committing the cache pins the response set
+   the edge file was built from. A future re-run on a fresh checkout
+   reproduces the exact 189 `cites` edges produced in the first run.
+2. **Cheap.** 205 cached responses × ~25 KB each = 4.8 MB total. Small
+   compared to the 1.4 MB `landscape.json` and well below GitHub's per-file
+   limits. The cache will grow ~linearly with new T3+T4 papers added —
+   even at 10× scale it's well under 50 MB.
+3. **Polite.** S2 free tier is 100 req / 5 min and we observed live
+   throttling at ~5 calls/min in practice. Re-running the script for a
+   minor edit to the resolver should hit the cache entirely; only fresh
+   papers should hit the network.
+
+The cache is keyed by the exact paperId string we send to S2 (`arXiv:NNNN.NNNNN`
+or the 40-char S2 hash), with `:` and `/` replaced by `_` for filesystem
+safety. A 404 from S2 (e.g. an arxiv-id that's actually a date typo like
+`2604.16839`) is cached as `{"data": [], "_status": "not-found"}` so the
+404 isn't refetched on every run.
+
+**Options rejected.**
+- *gitignore the cache.* Cleaner repo at the cost of reproducibility — a
+  fresh clone would have to make 200+ live S2 requests just to validate
+  the existing edges file. Net negative for a research artifact whose
+  whole point is being inspectable.
+- *Commit only successful responses.* Would require re-fetching the 404s
+  every run, defeating the throttle benefit.
+
+**Reversal cost.** Low. To switch back to gitignored cache: add
+`extraction/s2-cache/` to `.gitignore`, `git rm -rf` the directory, commit.
+The script still works — it just rebuilds the cache from scratch on every
+fresh clone.
+
+---
+
+## 2026-05-07: fetch_citations.py — append-only `cites` edges; cell-mined edges win on collision
+
+**What.** `scripts/fetch_citations.py` does NOT regenerate the full
+`web/landscape.edges.json` from scratch. It loads the existing edges file
+(produced by `scripts/build_edges.py`), generates new `cites` edges from
+S2's `isInfluential` citations, and merges via `(source, target, type)`
+key — installing the existing edge first and only adding the new `cites`
+edge when the key is unclaimed. The merged list is then re-sorted by
+`(source, target, type)` for determinism.
+
+**Why.** Cell-mined and cross-ref edges have richer evidence text and a
+more specific `type` (e.g. `built-on`, `succeeds`, `extends`). A `cites`
+edge between the same `(source, target)` pair would be redundant and would
+displace the more specific edge if it sorted first. SCHEMA §4 explicitly
+allows multiple edges between the same `(source, target)` pair *iff their
+type differs* — so the question is only what to do when both pipelines
+produce the same `(source, target, type)` triple, which only happens for
+`cites` edges (build_edges.py doesn't produce any). The append-only design
+also means we don't have to worry about losing the manual `cross-listings`
+curated edges from build_edges.py.
+
+The regeneration alternative — have `fetch_citations.py` rebuild edges
+from scratch by re-running build_edges.py first — would couple the two
+scripts and create double-runtime on every citation pull. Keeping them
+independent matches the existing pattern (`extract.py` writes
+`landscape.json`; `build_edges.py` writes `landscape.edges.json`) and lets
+either be re-run in isolation.
+
+**Reversal cost.** Low. If a future redesign wants a single-source-of-truth
+edge builder, a thin orchestration script (`build_all_edges.py`) can call
+both in sequence and replace the merge logic with a flat union.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add

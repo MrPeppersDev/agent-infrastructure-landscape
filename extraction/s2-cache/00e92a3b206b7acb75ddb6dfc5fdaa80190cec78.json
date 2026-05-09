@@ -1,0 +1,730 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2257046991",
+        "name": "Boyu Chen"
+      },
+      {
+        "authorId": "2385790331",
+        "name": "Zirui Guo"
+      },
+      {
+        "authorId": "2278970280",
+        "name": "Zi Yang"
+      },
+      {
+        "authorId": "2408919706",
+        "name": "Yuluo Chen"
+      },
+      {
+        "authorId": "2260645232",
+        "name": "Junze Chen"
+      },
+      {
+        "authorId": "2323176343",
+        "name": "Zhenghao Liu"
+      },
+      {
+        "authorId": "2310561090",
+        "name": "Chuan Shi"
+      },
+      {
+        "authorId": "2321380415",
+        "name": "Cheng Yang"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.14902, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "PathRAG: Pruning Graph-based Retrieval Augmented Generation with Relational Paths"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.08445",
+          "CorpusId": 280290692,
+          "DBLP": "journals/corr/abs-2507-08445",
+          "DOI": "10.48550/arXiv.2507.08445"
+        },
+        "paperId": "56fabfde223ca273666df69656dd80bf768fed01",
+        "title": "CUE-RAG: Towards Accurate and Cost-Efficient Graph-Based RAG via Multi-Partite Graph and Query-Driven Iterative Retrieval"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.23875",
+          "CorpusId": 273707190,
+          "DBLP": "conf/nips/ChenTJSYX24",
+          "DOI": "10.48550/arXiv.2410.23875"
+        },
+        "paperId": "a5997b04bef7c9ccc84c3bd8d8a5d477936931f4",
+        "title": "Plan-on-Graph: Self-Correcting Adaptive Planning of Large Language Model on Knowledge Graphs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.20724",
+          "CorpusId": 273654355,
+          "DBLP": "conf/iclr/Li0025",
+          "DOI": "10.48550/arXiv.2410.20724"
+        },
+        "paperId": "16b459de55727171aff6ea674535bea499e58261",
+        "title": "Simple is Effective: The Roles of Graphs and Large Language Models in Knowledge-Graph-Based Retrieval-Augmented Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.11001",
+          "CorpusId": 273350956,
+          "DBLP": "journals/corr/abs-2410-11001",
+          "DOI": "10.48550/arXiv.2410.11001"
+        },
+        "paperId": "618d05a6c0d623b16f64ad88dc3706fd28613c94",
+        "title": "Graph of Records: Boosting Retrieval Augmented Generation for Long-context Summarization with Graphs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.01985",
+          "CorpusId": 273098306,
+          "DBLP": "journals/corr/abs-2410-01985",
+          "DOI": "10.48550/arXiv.2410.01985"
+        },
+        "paperId": "c6e273017799813fa7920781f29e8ea49829e13b",
+        "title": "Lost-in-Distance: Impact of Contextual Proximity on LLM Performance in Graph Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 274468899,
+          "DOI": "10.1109/AIxSET62544.2024.00030"
+        },
+        "paperId": "125a9c020316341bde65ea374f19caf346cfecfa",
+        "title": "Graph Retrieval-Augmented Generation for Large Language Models: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.03258",
+          "CorpusId": 272423928,
+          "DBLP": "journals/corr/abs-2409-03258",
+          "DOI": "10.48550/arXiv.2409.03258"
+        },
+        "paperId": "abf5eafba0dece6d5e593f3632f3509c2c10567a",
+        "title": "GraphInsight: Unlocking Insights in Large Language Models for Graph Structure Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.06027",
+          "CorpusId": 270371213,
+          "DBLP": "conf/acl/PandaADKP24",
+          "DOI": "10.48550/arXiv.2406.06027"
+        },
+        "paperId": "aae6991b9ebdc53523931a0115c8b51bd5e4cc94",
+        "title": "HOLMES: Hyper-Relational Knowledge Graphs for Multi-hop Question Answering using LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.20978",
+          "CorpusId": 270199429,
+          "DBLP": "conf/acl/FangBNY0X24",
+          "DOI": "10.48550/arXiv.2405.20978"
+        },
+        "paperId": "addd475c96056491539b790c1b264d0855c80fb7",
+        "title": "Enhancing Noise Robustness of Retrieval-Augmented Language Models with Adaptive Adversarial Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.20139",
+          "CorpusId": 270123131,
+          "DBLP": "journals/corr/abs-2405-20139",
+          "DOI": "10.48550/arXiv.2405.20139"
+        },
+        "paperId": "336605fc899aab6c5b375d1129bf656d246b9013",
+        "title": "GNN-RAG: Graph Neural Retrieval for Large Language Model Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.16130",
+          "CorpusId": 269363075,
+          "DBLP": "journals/corr/abs-2404-16130"
+        },
+        "paperId": "c1799bf28d1ae93e1631be5b59196ee1e568f538",
+        "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.13542",
+          "CorpusId": 267770557,
+          "DBLP": "journals/corr/abs-2402-13542",
+          "DOI": "10.48550/arXiv.2402.13542"
+        },
+        "paperId": "c4aeec57b9ad4fa36cbd9bdad05dbbbd340183df",
+        "title": "ARL2: Aligning Retrievers for Black-box Large Language Models via Self-guided Adaptive Relevance Labeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.14887",
+          "CorpusId": 267301416,
+          "DBLP": "conf/sigir/CuconasuTSFCMTS24",
+          "DOI": "10.1145/3626772.3657834"
+        },
+        "paperId": "77179e5ff669452b9bea479a4236a6e2009ee422",
+        "title": "The Power of Noise: Redefining Retrieval for RAG Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.07883",
+          "CorpusId": 266998903,
+          "DBLP": "journals/corr/abs-2401-07883"
+        },
+        "paperId": "95b06f4859113ccf14912b5e8e9260a69f2d37ac",
+        "title": "The Chronicles of RAG: The Retriever, the Chunk and the Generator"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.15503",
+          "CorpusId": 266551612,
+          "DBLP": "conf/acl/Li0XSL24",
+          "DOI": "10.18653/v1/2024.acl-long.191"
+        },
+        "paperId": "c4022c8b34254068af24ca00b5b7d5aa250ce2bf",
+        "title": "Llama2Vec: Unsupervised Adaptation of Large Language Models for Dense Retrieval"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.07201",
+          "CorpusId": 260887105,
+          "DBLP": "journals/corr/abs-2308-07201",
+          "DOI": "10.48550/arXiv.2308.07201"
+        },
+        "paperId": "ec58a564fdda29e6a9a0a7bab5eeb4c290f716d7",
+        "title": "ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.07697",
+          "CorpusId": 263333907,
+          "DBLP": "conf/iclr/SunXTW0GNSG24"
+        },
+        "paperId": "c7184f9a914dbfbad59faa5aeaf9ba7019dfcf74",
+        "title": "Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.tacl-1.9",
+          "ArXiv": "2307.03172",
+          "CorpusId": 259360665,
+          "DBLP": "journals/tacl/LiuLHPBPL24",
+          "DOI": "10.1162/tacl_a_00638"
+        },
+        "paperId": "1733eb7792f7a43dd21f51f4d1017a1bffd217b5",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.17563",
+          "CorpusId": 259309299,
+          "DBLP": "journals/corr/abs-2306-17563",
+          "DOI": "10.48550/arXiv.2306.17563"
+        },
+        "paperId": "2d3bc530d8f1ed36932a70bc362ea94d988adec9",
+        "title": "Large Language Models are Effective Text Rankers with Pairwise Ranking Prompting"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.02437",
+          "CorpusId": 258479968,
+          "DBLP": "journals/corr/abs-2305-02437",
+          "DOI": "10.48550/arXiv.2305.02437"
+        },
+        "paperId": "41b796b026a1d322de6ef0b280d3e2e68eee65bd",
+        "title": "Lift Yourself Up: Retrieval-augmented Text Generation with Self Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.04761",
+          "CorpusId": 256697342,
+          "DBLP": "journals/corr/abs-2302-04761",
+          "DOI": "10.48550/arXiv.2302.04761"
+        },
+        "paperId": "53d128ea815bcc0526856eb5a9c42cc977cb36a7",
+        "title": "Toolformer: Language Models Can Teach Themselves to Use Tools"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.99",
+          "ArXiv": "2212.10496",
+          "CorpusId": 254877046,
+          "DBLP": "journals/corr/abs-2212-10496",
+          "DOI": "10.18653/v1/2023.acl-long.99"
+        },
+        "paperId": "5c32c653735b43a0a8923ca65ac191bd4bf15311",
+        "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2209.14290",
+          "CorpusId": 252568176,
+          "DBLP": "journals/corr/abs-2209-14290",
+          "DOI": "10.1145/3539618.3591687"
+        },
+        "paperId": "fc74fe92fb9e34d3ae1237bf9a6e718c723f4f3e",
+        "title": "FiD-Light: Efficient and Effective Retrieval-Augmented Text Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.emnlp-main.75",
+          "ArXiv": "2205.11465",
+          "CorpusId": 248987389,
+          "DBLP": "conf/emnlp/WangPCPB22",
+          "DOI": "10.48550/arXiv.2205.11465"
+        },
+        "paperId": "b7422b7a7830cd899b47b03e514d8151ffb74c03",
+        "title": "SQuALITY: Building a Long-Document Summarization Dataset the Hard Way"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 249257045,
+          "DOI": "10.1016/j.jnlest.2022.100159"
+        },
+        "paperId": "e878d858376bf45e7e1bb41a5b30a28944ebee01",
+        "title": "Knowledge graph and knowledge reasoning: A systematic review"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.12431",
+          "CorpusId": 246431219,
+          "DBLP": "journals/corr/abs-2201-12431"
+        },
+        "paperId": "f92535edac9d1c735feabdb4d94c1157f12d899c",
+        "title": "Neuro-Symbolic Language Modeling with Automaton-augmented Retrieval"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.aacl-main.7",
+          "ArXiv": "2111.10541",
+          "CorpusId": 244478146,
+          "DBLP": "conf/ijcnlp/GaoWHWXL22",
+          "DOI": "10.18653/v1/2022.aacl-main.7"
+        },
+        "paperId": "de75305ab74c60d2bd19a5bfef22d3fef752cc5f",
+        "title": "Graph-augmented Learning to Rank for Querying Large-scale Knowledge Graph"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.naacl-main.45",
+          "ArXiv": "2104.06378",
+          "CorpusId": 233219869,
+          "DBLP": "journals/corr/abs-2104-06378",
+          "DOI": "10.18653/V1/2021.NAACL-MAIN.45",
+          "MAG": "3172335055"
+        },
+        "paperId": "3950df97ea527009a32569cb7016bc3df1383dca",
+        "title": "QA-GNN: Reasoning with Language Models and Knowledge Graphs for Question Answering"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2011.07743",
+          "CorpusId": 226965153,
+          "DBLP": "conf/www/GuKVSLY021",
+          "DOI": "10.1145/3442381.3449992",
+          "MAG": "3100058503"
+        },
+        "paperId": "d21c5a9e34a6290212c68f6ec64f65ad5c5e46f4",
+        "title": "Beyond I.I.D.: Three Levels of Generalization for Question Answering on Knowledge Bases"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.coling-main.580",
+          "ArXiv": "2011.01060",
+          "CorpusId": 226236740,
+          "DBLP": "journals/corr/abs-2011-01060",
+          "DOI": "10.18653/V1/2020.COLING-MAIN.580",
+          "MAG": "3101823922"
+        },
+        "paperId": "9001eb3c3d5a96ad3d804410c2437e6f60feade9",
+        "title": "Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2009.12677",
+          "CorpusId": 221970785,
+          "DBLP": "journals/corr/abs-2009-12677",
+          "DOI": "10.1609/aaai.v35i7.16796",
+          "MAG": "3089060322"
+        },
+        "paperId": "baa8f524c82735f174b8d1ab512ac5750146d67e",
+        "title": "KG-BART: Knowledge Graph-Augmented BART for Generative Commonsense Reasoning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.11401",
+          "CorpusId": 218869575,
+          "DBLP": "conf/nips/LewisPPPKGKLYR020",
+          "MAG": "3027879771"
+        },
+        "paperId": "659bf9ce7175e1ec266ff54359e2bd76e0b7ff31",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2002.08909",
+          "CorpusId": 211204736,
+          "DBLP": "conf/icml/GuuLTPC20",
+          "MAG": "3034671305"
+        },
+        "paperId": "832fff14d2ed50eb7969c4c4b976c35776548f56",
+        "title": "REALM: Retrieval-Augmented Language Model Pre-Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.10470",
+          "CorpusId": 208267807,
+          "DBLP": "conf/iclr/AsaiHHSX20",
+          "MAG": "2990928880"
+        },
+        "paperId": "521b4e26df0f1cf5763dece14cbb218df152dc59",
+        "title": "Learning to Retrieve Reasoning Paths over Wikipedia Graph for Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "Q19-1026",
+          "CorpusId": 86611921,
+          "DBLP": "journals/tacl/KwiatkowskiPRCP19",
+          "DOI": "10.1162/tacl_a_00276",
+          "MAG": "2912924812"
+        },
+        "paperId": "17dbd7b72029181327732e4d11b52a08ed4630d0",
+        "title": "Natural Questions: A Benchmark for Question Answering Research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "N18-1059",
+          "ArXiv": "1803.06643",
+          "CorpusId": 3986974,
+          "DBLP": "journals/corr/abs-1803-06643",
+          "DOI": "10.18653/v1/N18-1059",
+          "MAG": "2964120615"
+        },
+        "paperId": "c8725f13be7434b69738491c66b45c9225258253",
+        "title": "The Web as a Knowledge-Base for Answering Complex Questions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P17-1147",
+          "ArXiv": "1705.03551",
+          "CorpusId": 26501419,
+          "DBLP": "journals/corr/JoshiCWZ17",
+          "DOI": "10.18653/v1/P17-1147",
+          "MAG": "2612431505"
+        },
+        "paperId": "f010affab57b5fcf1cd6be23df79d8ec98c7289c",
+        "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1506.02075",
+          "CorpusId": 9605730,
+          "DBLP": "journals/corr/BordesUCW15",
+          "MAG": "580074167"
+        },
+        "paperId": "6e565308c8081e807709cb4a917443b737e6cdb4",
+        "title": "Large-scale Simple Question Answering with Memory Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D15-1082",
+          "ArXiv": "1506.00379",
+          "CorpusId": 1969092,
+          "DBLP": "journals/corr/LinLS15",
+          "DOI": "10.18653/v1/D15-1082",
+          "MAG": "2952854166"
+        },
+        "paperId": "aa1b05e8449eb5ee93b114453d9c946ae00459b1",
+        "title": "Modeling Relation Paths for Representation Learning of Knowledge Bases"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 464176,
+          "DBLP": "journals/wi/SchermannHBBKMH14",
+          "DOI": "10.1007/s11576-014-0434-2",
+          "MAG": "2402876152"
+        },
+        "paperId": "02a88547d6f6022bebc9aba6723a310cdf132f3f",
+        "title": "Big Data"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1010.0725",
+          "CorpusId": 207372751,
+          "DBLP": "journals/corr/abs-1010-0725",
+          "DOI": "10.1016/j.physa.2010.11.027",
+          "MAG": "1979104937"
+        },
+        "paperId": "8cd9aa720a3a2f9dcb52ad9eb1bf258a80ce0648",
+        "title": "Link Prediction in Complex Networks: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 271915474,
+          "DBLP": "conf/acl/FangMM24",
+          "DOI": "10.18653/v1/2024.acl-long.115"
+        },
+        "paperId": "1169c485293107ba0192770c6e40562392f4c520",
+        "title": "REANO: Optimising Retrieval-Augmented Reader Models through Knowledge Graph Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Legal dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "A Dataset Descriptions We conduct experiments on the following six datasets, and the statistics of each dataset and corresponding indexing graph"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "by PathRAG and the best baseline LightRAG on the CS generation 13"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Memorag: Moving towards next-gen rag via memory-inspired knowledge discovery"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "historical figures from different regions and cultures"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. G-retriever: Retrieval-augmented generation for textual graph understanding and question answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "History dataset: This dataset focuses on the field of history, covering various periods, events, and figures throughout time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Hipporag: Neurobiologically inspired long-term memory for large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Agriculture dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2022. SummScreen: A Dataset for Abstractive Screenplay Sum-marization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "such as algorithms, data structures, artificial intelligence, machine learning, and computer networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2025. Crud-rag: A comprehensive chinese benchmark for retrieval-augmented generation of large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Un-supervised information refinement training of large language models for retrieval-augmented generation"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

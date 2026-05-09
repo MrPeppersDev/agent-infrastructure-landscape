@@ -1,0 +1,780 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2363723160",
+        "name": "Hongli Yu"
+      },
+      {
+        "authorId": "2288187529",
+        "name": "Ting Chen"
+      },
+      {
+        "authorId": "2372316104",
+        "name": "Jiangtao Feng"
+      },
+      {
+        "authorId": "2350758463",
+        "name": "Jiangjie Chen"
+      },
+      {
+        "authorId": "2352019542",
+        "name": "Weinan Dai"
+      },
+      {
+        "authorId": "2354247190",
+        "name": "Qiying Yu"
+      },
+      {
+        "authorId": "2286392970",
+        "name": "Ya-Qin Zhang"
+      },
+      {
+        "authorId": "2268308866",
+        "name": "Wei-Ying Ma"
+      },
+      {
+        "authorId": "2293350427",
+        "name": "Jingjing Liu"
+      },
+      {
+        "authorId": "2285763682",
+        "name": "Mingxuan Wang"
+      },
+      {
+        "authorId": "2363595990",
+        "name": "Hao Zhou"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2507.02259, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.17667",
+          "CorpusId": 278886075,
+          "DBLP": "journals/corr/abs-2505-17667",
+          "DOI": "10.48550/arXiv.2505.17667"
+        },
+        "paperId": "86284d0046d2746f1403f56053f369baf4f18168",
+        "title": "QwenLong-L1: Towards Long-Context Large Reasoning Models with Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.10978",
+          "CorpusId": 278715074,
+          "DBLP": "journals/corr/abs-2505-10978",
+          "DOI": "10.48550/arXiv.2505.10978"
+        },
+        "paperId": "742d9c80b2ca4d01f8a8675cfe98487e0783d3d7",
+        "title": "Group-in-Group Policy Optimization for LLM Agent Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.13914",
+          "CorpusId": 277954891,
+          "DBLP": "journals/corr/abs-2504-13914",
+          "DOI": "10.48550/arXiv.2504.13914"
+        },
+        "paperId": "94a5613ece3c6e94e56b2701001a0a4a6f856075",
+        "title": "Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.20783",
+          "CorpusId": 277322777,
+          "DBLP": "journals/corr/abs-2503-20783",
+          "DOI": "10.48550/arXiv.2503.20783"
+        },
+        "paperId": "de23d38bc2604dcf334dcc46aff217eb6bcd1fe1",
+        "title": "Understanding R1-Zero-Like Training: A Critical Perspective"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.14476",
+          "CorpusId": 277104124,
+          "DBLP": "journals/corr/abs-2503-14476",
+          "DOI": "10.48550/arXiv.2503.14476"
+        },
+        "paperId": "dd4cfde3e135f799a9a71b4f57e13a29de89f7e3",
+        "title": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.09516",
+          "CorpusId": 276937772,
+          "DBLP": "journals/corr/abs-2503-09516",
+          "DOI": "10.48550/arXiv.2503.09516"
+        },
+        "paperId": "1fcaafeb72142fe3d1a5d698a072d69778d244b0",
+        "title": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.13189",
+          "CorpusId": 276449801,
+          "DBLP": "journals/corr/abs-2502-13189",
+          "DOI": "10.48550/arXiv.2502.13189"
+        },
+        "paperId": "d281440cd94ed477c4a07e63d3149c377eaa0798",
+        "title": "MoBA: Mixture of Block Attention for Long-Context LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.11089",
+          "CorpusId": 276408911,
+          "DBLP": "journals/corr/abs-2502-11089",
+          "DOI": "10.48550/arXiv.2502.11089"
+        },
+        "paperId": "23c2e21b6a5789724715f2986fdc586a517ffe57",
+        "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.15383",
+          "CorpusId": 275921951,
+          "DBLP": "journals/corr/abs-2501-15383",
+          "DOI": "10.48550/arXiv.2501.15383"
+        },
+        "paperId": "71b7a18e75dc540c889be080f4206460359ea20d",
+        "title": "Qwen2.5-1M Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.12948",
+          "CorpusId": 275789950,
+          "DBLP": "journals/nature/GuoYZSWZXZMBZY025",
+          "DOI": "10.1038/s41586-025-09422-z",
+          "PubMed": "40962978",
+          "PubMedCentral": "12443585"
+        },
+        "paperId": "2eed1fad9bbf887d4395de40f20144c4fafefd7f",
+        "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.12599",
+          "CorpusId": 275789974,
+          "DBLP": "journals/corr/abs-2501-12599",
+          "DOI": "10.48550/arXiv.2501.12599"
+        },
+        "paperId": "668075792a7ab40457d92e09da28d35c879271c3",
+        "title": "Kimi k1.5: Scaling Reinforcement Learning with LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.12766",
+          "CorpusId": 275789768,
+          "DBLP": "conf/icml/Gao0LZ025",
+          "DOI": "10.48550/arXiv.2501.12766"
+        },
+        "paperId": "8bab0efb18280c5fe105c24168a9185932a1ed09",
+        "title": "NExtLong: Toward Effective Long-Context Training without Long Documents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.08313",
+          "CorpusId": 275515682
+        },
+        "paperId": "b4d0f1237431cbc73db16685771790541c8c246a",
+        "title": "MiniMax-01: Scaling Foundation Models with Lightning Attention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.00663",
+          "CorpusId": 275212078,
+          "DBLP": "journals/corr/abs-2501-00663",
+          "DOI": "10.48550/arXiv.2501.00663"
+        },
+        "paperId": "5e7a795d89910634f001cc3a631023f1dd4e2e23",
+        "title": "Titans: Learning to Memorize at Test Time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.15115",
+          "CorpusId": 274859421,
+          "DBLP": "journals/corr/abs-2412-15115",
+          "DOI": "10.48550/arXiv.2412.15115"
+        },
+        "paperId": "88aa6b1f37d1fd8e0a40499ce9bb87873f03aaa8",
+        "title": "Qwen2.5 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.19256",
+          "CorpusId": 272987758,
+          "DBLP": "conf/eurosys/ShengZYWZZPL025",
+          "DOI": "10.1145/3689031.3696075"
+        },
+        "paperId": "f2d0f3d47ae850f49a58f4977393bd0025af4bec",
+        "title": "HybridFlow: A Flexible and Efficient RLHF Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.13956",
+          "CorpusId": 269982033,
+          "DBLP": "journals/corr/abs-2405-13956",
+          "DOI": "10.48550/arXiv.2405.13956"
+        },
+        "paperId": "caeb1e2d285c3e68ea88fd31ab4a3770aa55649b",
+        "title": "Attention as an RNN"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.04434",
+          "CorpusId": 269613809,
+          "DBLP": "journals/corr/abs-2405-04434",
+          "DOI": "10.48550/arXiv.2405.04434"
+        },
+        "paperId": "53a803388e83ae89261624099d7be4287ace67cb",
+        "title": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.13571",
+          "CorpusId": 269293249,
+          "DBLP": "journals/corr/abs-2404-13571",
+          "DOI": "10.1145/3664647.3680865"
+        },
+        "paperId": "3ba7c33f84f946208d67c796f6ea5989fe06bb29",
+        "title": "Test-Time Training on Graphs with Large Language Models (LLMs)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.06654",
+          "CorpusId": 269032933,
+          "DBLP": "journals/corr/abs-2404-06654",
+          "DOI": "10.48550/arXiv.2404.06654"
+        },
+        "paperId": "ac5824e9ff924a937d9eef379d0b581de2417678",
+        "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.19427",
+          "CorpusId": 268091246,
+          "DBLP": "journals/corr/abs-2402-19427"
+        },
+        "paperId": "d53fe76bd2795a19ddf52d012917782f6f6f2c1e",
+        "title": "Griffin: Mixing Gated Linear Recurrences with Local Attention for Efficient Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.17463",
+          "CorpusId": 268032518,
+          "DBLP": "conf/icml/An0ZGQZK24",
+          "DOI": "10.48550/arXiv.2402.17463"
+        },
+        "paperId": "cf7ab5df804575bad88a9fcf0fbf7707bf500944",
+        "title": "Training-Free Long-Context Scaling of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.03300",
+          "CorpusId": 267412607,
+          "DBLP": "journals/corr/abs-2402-03300",
+          "DOI": "10.48550/arXiv.2402.03300"
+        },
+        "paperId": "35b142ea69598e6241f0011312128031df55895c",
+        "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.00752",
+          "CorpusId": 265551773,
+          "DBLP": "journals/corr/abs-2312-00752"
+        },
+        "paperId": "7bbc7595196a0606a07506c4fb1473e5e87f6082",
+        "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.05736",
+          "CorpusId": 263830701,
+          "DBLP": "journals/corr/abs-2310-05736",
+          "DOI": "10.48550/arXiv.2310.05736"
+        },
+        "paperId": "2392b6d3a5cad9e5cf349169eaeee848266adf6a",
+        "title": "LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.06201",
+          "CorpusId": 263830231,
+          "DBLP": "journals/corr/abs-2310-06201",
+          "DOI": "10.48550/arXiv.2310.06201"
+        },
+        "paperId": "b12541867632737e826b7b01c7fbe1c4222d8655",
+        "title": "Compressing Context to Enhance Inference Efficiency of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.05209",
+          "CorpusId": 263828829,
+          "DBLP": "journals/corr/abs-2310-05209",
+          "DOI": "10.48550/arXiv.2310.05209"
+        },
+        "paperId": "539fadfb615ef84c240f4741061c44eeda540091",
+        "title": "Scaling Laws of RoPE-based Extrapolation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.17453",
+          "CorpusId": 263310483,
+          "DBLP": "conf/iclr/XiaoTCHL24",
+          "DOI": "10.48550/arXiv.2309.17453"
+        },
+        "paperId": "fdc53c2c10742464087c0525f77e32604827a21d",
+        "title": "Efficient Streaming Language Models with Attention Sinks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.naacl-long.260",
+          "ArXiv": "2309.16039",
+          "CorpusId": 263134982,
+          "DBLP": "journals/corr/abs-2309-16039",
+          "DOI": "10.48550/arXiv.2309.16039"
+        },
+        "paperId": "5e0cb1c4b91a7486e1c2b15a44a0be56bd74bdc0",
+        "title": "Effective Long-Context Scaling of Foundation Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.00071",
+          "CorpusId": 261493986,
+          "DBLP": "conf/iclr/PengQFS24",
+          "DOI": "10.48550/arXiv.2309.00071"
+        },
+        "paperId": "819bbdc2dac9e13d9ca3e2508a6e063186ce5e40",
+        "title": "YaRN: Efficient Context Window Extension of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.08239",
+          "CorpusId": 260926502,
+          "DBLP": "journals/corr/abs-2308-08239",
+          "DOI": "10.48550/arXiv.2308.08239"
+        },
+        "paperId": "fd712e06f87124dedc771526f797555c432cec42",
+        "title": "MemoChat: Tuning LLMs to Use Memos for Consistent Long-Range Open-Domain Conversation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.15595",
+          "CorpusId": 259262376,
+          "DBLP": "journals/corr/abs-2306-15595",
+          "DOI": "10.48550/arXiv.2306.15595"
+        },
+        "paperId": "f5afaccfe90268485a9961c5771ec5e71e9b806c",
+        "title": "Extending Context Window of Large Language Models via Positional Interpolation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.14322",
+          "CorpusId": 258841042,
+          "DBLP": "journals/corr/abs-2305-14322",
+          "DOI": "10.48550/arXiv.2305.14322"
+        },
+        "paperId": "a22f3398ea865426c89ee66f4824ec626e56a864",
+        "title": "RET-LLM: Towards a General Read-Write Memory for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.13048",
+          "CorpusId": 258832459,
+          "DBLP": "conf/emnlp/PengAAAABCCCDDG23",
+          "DOI": "10.18653/v1/2023.findings-emnlp.936"
+        },
+        "paperId": "026b3396a63ed5772329708b7580d633bb86bec9",
+        "title": "RWKV: Reinventing RNNs for the Transformer Era"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10250",
+          "CorpusId": 258741194,
+          "DBLP": "journals/corr/abs-2305-10250",
+          "DOI": "10.48550/arXiv.2305.10250"
+        },
+        "paperId": "c3a59e1e405e7c28319e5a1c5b5241f9b340cf63",
+        "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.11062",
+          "CorpusId": 258291566,
+          "DBLP": "journals/corr/abs-2304-11062",
+          "DOI": "10.48550/arXiv.2304.11062"
+        },
+        "paperId": "594d8e1696619f3cebb7c6bffdad8e0a5592f006",
+        "title": "Scaling Transformer to 1M tokens and beyond with RMT"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2212.08073",
+          "CorpusId": 254823489,
+          "DBLP": "journals/corr/abs-2212-08073",
+          "DOI": "10.48550/arXiv.2212.08073"
+        },
+        "paperId": "3936fd3c6187f606c6e4e2e20b196dbc41cc4654",
+        "title": "Constitutional AI: Harmlessness from AI Feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.02155",
+          "CorpusId": 246426909,
+          "DBLP": "journals/corr/abs-2203-02155",
+          "DOI": "10.52202/068431-2011"
+        },
+        "paperId": "d766bffc357127e0dc86dd69561d5aeb520d6f4c",
+        "title": "Training language models to follow instructions with human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2111.00396",
+          "CorpusId": 240354066,
+          "DBLP": "conf/iclr/GuGR22"
+        },
+        "paperId": "ac2618b2ce5cdcf86f9371bcca98bc5e37e46f51",
+        "title": "Efficiently Modeling Long Sequences with Structured State Spaces"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2104.09864",
+          "CorpusId": 233307138,
+          "DBLP": "journals/ijon/SuALPBL24",
+          "DOI": "10.1016/j.neucom.2023.127063"
+        },
+        "paperId": "66c10bf1f11bc1b2d92204d8f8391d087f6de1c4",
+        "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2010.06891",
+          "CorpusId": 248157404,
+          "DBLP": "conf/ijcnlp/WuLQGGY22",
+          "DOI": "10.18653/v1/2022.findings-aacl.29"
+        },
+        "paperId": "67ee20536c30a225b86902af2f091e28e5e19b40",
+        "title": "Memformer: A Memory-Augmented Transformer for Sequence Modeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.16236",
+          "CorpusId": 220250819,
+          "DBLP": "conf/icml/KatharopoulosV020",
+          "MAG": "3037798801"
+        },
+        "paperId": "6f68e1bb253925d8431588555d3010419f322e04",
+        "title": "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2004.05150",
+          "CorpusId": 215737171,
+          "DBLP": "journals/corr/abs-2004-05150",
+          "MAG": "3015468748"
+        },
+        "paperId": "925ad2897d1b5decbea320d07e99afa9110e09b2",
+        "title": "Longformer: The Long-Document Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1912.11637",
+          "CorpusId": 208194586,
+          "DBLP": "journals/corr/abs-1912-11637",
+          "MAG": "2997753998"
+        },
+        "paperId": "b03cf6324ecf7a295a4aeae5970c88d1a1c3f336",
+        "title": "Explicit Sparse Transformer: Concentrated Attention Through Explicit Selection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1904.10509",
+          "CorpusId": 129945531,
+          "DBLP": "journals/corr/abs-1904-10509",
+          "MAG": "2940744433"
+        },
+        "paperId": "21da617a0f79aabf94272107184606cefe90ab75",
+        "title": "Generating Long Sequences with Sparse Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1707.06347",
+          "CorpusId": 28695052,
+          "DBLP": "journals/corr/SchulmanWDRK17",
+          "MAG": "2736601468"
+        },
+        "paperId": "dce6f9d4017b1785979e7520fd0834ef8cf02f4b",
+        "title": "Proximal Policy Optimization Algorithms"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D16-1264",
+          "ArXiv": "1606.05250",
+          "CorpusId": 11816014,
+          "DBLP": "journals/corr/RajpurkarZLL16",
+          "DOI": "10.18653/v1/D16-1264",
+          "MAG": "2963748441"
+        },
+        "paperId": "05dd7254b632376973f3a1b4d39485da17814df5",
+        "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1506.02438",
+          "CorpusId": 3075448,
+          "DBLP": "journals/corr/SchulmanMLJA15",
+          "MAG": "1191599655"
+        },
+        "paperId": "d316c82c12cf4c45f9e85211ef3d1fa62497bff8",
+        "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1410.5401",
+          "CorpusId": 15299054,
+          "DBLP": "journals/corr/GravesWD14",
+          "MAG": "2167839676"
+        },
+        "paperId": "c1126fbffd6b8547a44c58b192b36b08b18299de",
+        "title": "Neural Turing Machines"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1410.3916",
+          "CorpusId": 2926851,
+          "DBLP": "journals/corr/WestonCB14",
+          "MAG": "2584341106"
+        },
+        "paperId": "71ae756c75ac89e2d731c9c79649562b5768ff39",
+        "title": "Memory Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 277509836,
+          "DBLP": "journals/corr/abs-2501-03262",
+          "DOI": "10.48550/arXiv.2501.03262"
+        },
+        "paperId": "8b191d96db9248c8284d6146976ca3b5c4858f00",
+        "title": "REINFORCE++: A Simple and Efficient Approach for Aligning Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 263489218,
+          "PubMed": "8022966"
+        },
+        "paperId": "00dd0f73b2de8b652e2726737543967d6c88b8db",
+        "title": "The magical number seven, plus or minus two: some limits on our capacity for processing information. 1956."
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Training powerful llm agents with end-to-end reinforcement"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Embracing the power of reinforcement"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "bloc97. NTK-Aware Scaled RoPE allows LLaMA models to have extended (8k+) context size without any fine-tuning and minimal perplexity degradation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "self-evolution in"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

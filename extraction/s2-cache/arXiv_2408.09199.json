@@ -1,0 +1,836 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2181297535",
+        "name": "Xinke Jiang"
+      },
+      {
+        "authorId": "2276489740",
+        "name": "Yue Fang"
+      },
+      {
+        "authorId": "2276425552",
+        "name": "Rihong Qiu"
+      },
+      {
+        "authorId": "2309505219",
+        "name": "Haoyu Zhang"
+      },
+      {
+        "authorId": "2215472732",
+        "name": "Yongxin Xu"
+      },
+      {
+        "authorId": "2282496720",
+        "name": "Hao Chen"
+      },
+      {
+        "authorId": "2282082431",
+        "name": "Wentao Zhang"
+      },
+      {
+        "authorId": "2276704515",
+        "name": "Ruizhe Zhang"
+      },
+      {
+        "authorId": "2279829353",
+        "name": "Yuchen Fang"
+      },
+      {
+        "authorId": "2408544358",
+        "name": "Xu Chu"
+      },
+      {
+        "authorId": "2145804723",
+        "name": "Junfeng Zhao"
+      },
+      {
+        "authorId": "2253831765",
+        "name": "Yasha Wang"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2408.09199, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "TC-RAG:Turing-Complete RAG's Case study on Medical LLM Systems"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.01476",
+          "CorpusId": 270870063,
+          "DBLP": "journals/tmlr/KohMFS25",
+          "DOI": "10.48550/arXiv.2407.01476"
+        },
+        "paperId": "9345e55a21959948499cee997522aa5eac7ed588",
+        "title": "Tree Search for Language Model Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.20978",
+          "CorpusId": 270199429,
+          "DBLP": "conf/acl/FangBNY0X24",
+          "DOI": "10.48550/arXiv.2405.20978"
+        },
+        "paperId": "addd475c96056491539b790c1b264d0855c80fb7",
+        "title": "Enhancing Noise Robustness of Retrieval-Augmented Language Models with Adaptive Adversarial Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.16130",
+          "CorpusId": 269363075,
+          "DBLP": "journals/corr/abs-2404-16130"
+        },
+        "paperId": "c1799bf28d1ae93e1631be5b59196ee1e568f538",
+        "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.13081",
+          "CorpusId": 269293435,
+          "DBLP": "conf/iclr/KimNMP0S0S24",
+          "DOI": "10.48550/arXiv.2404.13081"
+        },
+        "paperId": "22e21f328e3c4aec3abe0006d974a1260d0ee996",
+        "title": "SuRe: Summarizing Retrievals using Answer Candidates for Open-domain QA of LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.naacl-long.389",
+          "ArXiv": "2403.14403",
+          "CorpusId": 268553748,
+          "DBLP": "conf/naacl/JeongBCHP24",
+          "DOI": "10.48550/arXiv.2403.14403"
+        },
+        "paperId": "e5e8c6ac537e0f5b5db14170bc232d6f9e641bbc",
+        "title": "Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.02803",
+          "CorpusId": 267411962,
+          "DBLP": "journals/corr/abs-2402-02803",
+          "DOI": "10.48550/arXiv.2402.02803"
+        },
+        "paperId": "c1fc2546b1476b77448e01b9d7d0a50d1bf632d3",
+        "title": "Large Language Model Distilling Medication Recommendation Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.12087",
+          "CorpusId": 267068458,
+          "DBLP": "journals/corr/abs-2401-12087",
+          "DOI": "10.48550/arXiv.2401.12087"
+        },
+        "paperId": "f6a141b2ef027033119db5e8e1ab816f28ab1ec7",
+        "title": "Revisiting Demonstration Selection Strategies in In-Context Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.15883",
+          "CorpusId": 266551228
+        },
+        "paperId": "64852dd925065dab03322d8ca90c836a0725a547",
+        "title": "HyKGE: A Hypothesis Knowledge Graph Enhanced Framework for Accurate and Reliable Medical LLMs Responses"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.14335",
+          "CorpusId": 266521240,
+          "DBLP": "journals/corr/abs-2312-14335",
+          "DOI": "10.48550/arXiv.2312.14335"
+        },
+        "paperId": "7ed835ecf9f3f6a222ec830e7d8ee40fd809dae5",
+        "title": "Context-aware Decoding Reduces Hallucination in Query-focused Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.07559",
+          "CorpusId": 266191420,
+          "DBLP": "journals/corr/abs-2312-07559",
+          "DOI": "10.48550/arXiv.2312.07559"
+        },
+        "paperId": "7e55d8701785818776323b4147cb13354c820469",
+        "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.813",
+          "ArXiv": "2311.09210",
+          "CorpusId": 265212816,
+          "DBLP": "journals/corr/abs-2311-09210",
+          "DOI": "10.48550/arXiv.2311.09210"
+        },
+        "paperId": "6489640b1d30a8a3e7cb906bb6557f1ccd0d799d",
+        "title": "Chain-of-Note: Enhancing Robustness in Retrieval-Augmented Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 265159663,
+          "DOI": "10.1186/s44147-023-00315-4"
+        },
+        "paperId": "4e85aa95a57e2d6b376442a1d2632439aa62a503",
+        "title": "Building an enhanced case-based reasoning and rule-based systems for medical diagnosis"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.11511",
+          "CorpusId": 264288947,
+          "DBLP": "conf/iclr/AsaiWWSH24"
+        },
+        "paperId": "ddbd8fe782ac98e9c64dd98710687a962195dd9b",
+        "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.03549",
+          "CorpusId": 260681932,
+          "DBLP": "journals/corr/abs-2308-03549",
+          "DOI": "10.48550/arXiv.2308.03549"
+        },
+        "paperId": "a50d4fd8f584276c0fd8560255884edd57aa926e",
+        "title": "Zhongjing: Enhancing the Chinese Medical Capabilities of Large Language Model through Expert Feedback and Real-world Multi-turn Dialogue"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.03281",
+          "CorpusId": 260682258,
+          "DBLP": "journals/corr/abs-2308-03281"
+        },
+        "paperId": "84109e1235b725f4bb44a54bab8b493bd723fdd3",
+        "title": "Towards General Text Embeddings with Multi-stage Contrastive Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.tacl-1.9",
+          "ArXiv": "2307.03172",
+          "CorpusId": 259360665,
+          "DBLP": "journals/tacl/LiuLHPBPL24",
+          "DOI": "10.1162/tacl_a_00638"
+        },
+        "paperId": "1733eb7792f7a43dd21f51f4d1017a1bffd217b5",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.11644",
+          "CorpusId": 259203998,
+          "DBLP": "journals/corr/abs-2306-11644"
+        },
+        "paperId": "2922768fd451ecdb45f48c1a83eb57f54a91221b",
+        "title": "Textbooks Are All You Need"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.09882",
+          "CorpusId": 259187717,
+          "DBLP": "journals/corr/abs-2306-09882",
+          "DOI": "10.1145/3583780.3615215"
+        },
+        "paperId": "6a31db5dc6368af050ecdae84e3b542d060214f1",
+        "title": "Uncertainty Quantification via Spatial-Temporal Tweedie Model for Zero-inflated and Long-tail Travel Demand Prediction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.13269",
+          "CorpusId": 263610099,
+          "DBLP": "conf/iclr/LiZCDJPB24"
+        },
+        "paperId": "e468ed6b824e60f45ba9a20b034e4090c6630751",
+        "title": "Chain-of-Knowledge: Grounding Large Language Models via Dynamic Knowledge Adapting over Heterogeneous Sources"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.08848",
+          "CorpusId": 258685778,
+          "DBLP": "conf/acl/XuXWLZM24",
+          "DOI": "10.48550/arXiv.2305.08848"
+        },
+        "paperId": "dd7f28d93dc2ec3cbc1cc66c3443c1c17105f1b3",
+        "title": "Small Models are Valuable Plug-ins for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.06975",
+          "CorpusId": 258170497,
+          "DBLP": "journals/corr/abs-2304-06975",
+          "DOI": "10.48550/arXiv.2304.06975"
+        },
+        "paperId": "302ee27524a717ddc21f332ca634b9211c6ec6aa",
+        "title": "HuaTuo: Tuning LLaMA Model with Chinese Medical Knowledge"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.01229",
+          "CorpusId": 258740478,
+          "DOI": "10.21203/rs.3.rs-2883198/v1",
+          "PubMed": "37205549",
+          "PubMedCentral": "10187428"
+        },
+        "paperId": "430aa6966c15c4a20a4fb2d8383e136b9cb6cde7",
+        "title": "Almanac: Retrieval-Augmented Language Models for Clinical Medicine"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.07257",
+          "CorpusId": 256846858,
+          "DBLP": "journals/corr/abs-2302-07257",
+          "DOI": "10.48550/arXiv.2302.07257"
+        },
+        "paperId": "5ef821267fa68d3231ed8135ff8ec09f25bb1398",
+        "title": "ChatCAD: Interactive Computer-Aided Diagnosis on Medical Image using Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 255439889,
+          "DOI": "10.1038/s41597-022-01899-x",
+          "PubMed": "36596836",
+          "PubMedCentral": "9810617"
+        },
+        "paperId": "5425de16356015c2f26d2a50684c6c46d6998f51",
+        "title": "MIMIC-IV, a freely accessible electronic health record dataset"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2301.00303",
+          "CorpusId": 255372320,
+          "DBLP": "journals/corr/abs-2301-00303",
+          "DOI": "10.48550/arXiv.2301.00303"
+        },
+        "paperId": "490d8006851b1562cfd9ec1f057471f2868289d1",
+        "title": "Rethinking with Retrieval: Faithful Large Language Model Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.557",
+          "ArXiv": "2212.10509",
+          "CorpusId": 254877499,
+          "DBLP": "journals/corr/abs-2212-10509",
+          "DOI": "10.48550/arXiv.2212.10509"
+        },
+        "paperId": "f208ea909fa7f54fea82def9a92fd81dfc758c39",
+        "title": "Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.08411",
+          "CorpusId": 253522998,
+          "DBLP": "journals/corr/abs-2211-08411"
+        },
+        "paperId": "75f7e9e2b59fb640ef9d1dff94097175daf46c4d",
+        "title": "Large Language Models Struggle to Learn Long-Tail Knowledge"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2208.03299",
+          "CorpusId": 251371732,
+          "DBLP": "journals/jmlr/IzacardLLHPSDJRG23"
+        },
+        "paperId": "916be31cbf847faa65cad0549e153f0c25b9f424",
+        "title": "Few-shot Learning with Retrieval Augmented Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.10070",
+          "CorpusId": 245335089,
+          "DBLP": "conf/aaai/Li00WZTJL22",
+          "DOI": "10.1609/aaai.v36i10.21344"
+        },
+        "paperId": "7915f5b00d5fba4806184d2afa2ab96435ad1078",
+        "title": "Unified Named Entity Recognition as Word-Word Relation Classification"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.544",
+          "ArXiv": "2106.08087",
+          "CorpusId": 235415270,
+          "DBLP": "conf/acl/ZhangCBLLSYTXHS22",
+          "DOI": "10.18653/v1/2022.acl-long.544"
+        },
+        "paperId": "cb2a38002e2f346b084e7dd6c9fcf2bb45de5a9e",
+        "title": "CBLUE: A Chinese Biomedical Language Understanding Evaluation Benchmark"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 233427561,
+          "DOI": "10.1093/fampra/cmab023",
+          "PubMed": "33907806",
+          "PubMedCentral": "8463813"
+        },
+        "paperId": "2689a98e424b65127e4672bb1d8aa72d58d113af",
+        "title": "Diagnostic uncertainty in primary care: what is known about its communication, and what are the associated ethical issues?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2101.00774",
+          "CorpusId": 230433817,
+          "DBLP": "journals/corr/abs-2101-00774"
+        },
+        "paperId": "db9296eaa252231e24d066e8413bf29fb058ee45",
+        "title": "Retrieving and Reading: A Comprehensive Survey on Open-domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.240",
+          "ArXiv": "2101.00178",
+          "CorpusId": 230437698,
+          "DBLP": "journals/corr/abs-2101-00178",
+          "DOI": "10.18653/v1/2021.acl-long.240"
+        },
+        "paperId": "375cc986ab185c161b80b4f13f4d8f9e6521eedf",
+        "title": "UnitedQA: A Hybrid Approach for Open Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.506",
+          "ArXiv": "2010.08712",
+          "CorpusId": 224706057,
+          "DBLP": "conf/emnlp/CaoDWC20",
+          "DOI": "10.18653/v1/2020.emnlp-main.506",
+          "MAG": "3102645206"
+        },
+        "paperId": "d030535287d17cfd215048354c928aa69ca60c62",
+        "title": "Factual Error Correction for Abstractive Summarization Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.naacl-main.466",
+          "ArXiv": "2010.08191",
+          "CorpusId": 231815627,
+          "DBLP": "journals/corr/abs-2010-08191",
+          "DOI": "10.18653/V1/2021.NAACL-MAIN.466",
+          "MAG": "3092683697"
+        },
+        "paperId": "f2c1ab4e850ad89bd6b6b9908e12a4151d152070",
+        "title": "RocketQA: An Optimized Training Approach to Dense Passage Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.11401",
+          "CorpusId": 218869575,
+          "DBLP": "conf/nips/LewisPPPKGKLYR020",
+          "MAG": "3027879771"
+        },
+        "paperId": "659bf9ce7175e1ec266ff54359e2bd76e0b7ff31",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.emnlp-main.550",
+          "ArXiv": "2004.04906",
+          "CorpusId": 215737187,
+          "DBLP": "conf/emnlp/KarpukhinOMLWEC20",
+          "DOI": "10.18653/v1/2020.emnlp-main.550",
+          "MAG": "3015883388"
+        },
+        "paperId": "b26f2037f769d5ffc5f7bdcec2de8da28ec14bee",
+        "title": "Dense Passage Retrieval for Open-Domain Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2001.08361",
+          "CorpusId": 210861095,
+          "DBLP": "journals/corr/abs-2001-08361",
+          "MAG": "3001279689"
+        },
+        "paperId": "e6c561d02500b2596a230b341a8eb8b921ca5bf2",
+        "title": "Scaling Laws for Neural Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1912.01703",
+          "CorpusId": 202786778,
+          "DBLP": "journals/corr/abs-1912-01703",
+          "MAG": "2970971581"
+        },
+        "paperId": "3c8a456509e6c0805354bd40a35e3f2dbf8069b1",
+        "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.00172",
+          "CorpusId": 207870430,
+          "DBLP": "journals/corr/abs-1911-00172",
+          "MAG": "2988841832"
+        },
+        "paperId": "7be8c119dbe065c52125ee7716601751f3116844",
+        "title": "Generalization through Memorization: Nearest Neighbor Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 52182706,
+          "DOI": "10.1038/sdata.2018.178",
+          "MAG": "2891400669",
+          "PubMed": "30204154",
+          "PubMedCentral": "6132188"
+        },
+        "paperId": "2ecbb9d6c6e698dd51134e081fa836319801ae27",
+        "title": "The eICU Collaborative Research Database, a freely available multi-center database for critical care research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 33285731,
+          "DOI": "10.1038/sdata.2016.35",
+          "MAG": "2396881363",
+          "PubMed": "27219127",
+          "PubMedCentral": "4878278"
+        },
+        "paperId": "95cd83603a0d2b6918a8e34a5637a8f382da96f5",
+        "title": "MIMIC-III, a freely accessible critical care database"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1412.6980",
+          "CorpusId": 6628106,
+          "DBLP": "journals/corr/KingmaB14",
+          "MAG": "2964121744"
+        },
+        "paperId": "a6cb366736791bcccc5c8639de5a8f9636bf87e8",
+        "title": "Adam: A Method for Stochastic Optimization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 121680873,
+          "DOI": "10.1121/1.2016299",
+          "MAG": "2058373514"
+        },
+        "paperId": "8d350f2d767a70d55275a17d0b3dfcc80b2e0fee",
+        "title": "Perplexity—a measure of the difficulty of speech recognition tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 267211869,
+          "DBLP": "journals/corr/abs-2401-14268",
+          "DOI": "10.48550/arXiv.2401.14268"
+        },
+        "paperId": "7e4c8a5b8d1f0715ec0feba65e616d0b6669d4a9",
+        "title": "GPTVoiceTasker: LLM-Powered Virtual Assistant for Smartphone"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 252762395
+        },
+        "paperId": "99832586d55f540f603637e458a292406a0ed75d",
+        "title": "LANGUAGE MODELS"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.nlrse-1.1",
+          "CorpusId": 259833781,
+          "DOI": "10.18653/v1/2023.nlrse-1.1"
+        },
+        "paperId": "50019215e9a65c8c4a451ee155d839c328057f4a",
+        "title": "Knowledge Graph-augmented Language Models for Complex Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 261557644,
+          "DBLP": "journals/corr/abs-2309-02233",
+          "DOI": "10.48550/arXiv.2309.02233"
+        },
+        "paperId": "5e761e9f5cd9672a181b256299cd2916a8079461",
+        "title": "Augmenting Black-box LLMs with Medical Textbooks for Clinical Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 236477750,
+          "DBLP": "conf/clsw/ZanLZYCS20",
+          "DOI": "10.1007/978-3-030-81197-6_55"
+        },
+        "paperId": "146548c33788ec78504d65fc54b8f3e92d523093",
+        "title": "Building a Pediatric Medical Corpus: Word Segmentation and Named Entity Annotation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "A Review of Memory Management Techniques in Computing Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Memory and the Processing of Complex Sentences"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 73712,
+          "DOI": "10.2307/2268810",
+          "MAG": "2318848039"
+        },
+        "paperId": "ab7790485f26ce65f9d83dd700c43e49058bdd2b",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem."
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Retrieve, summarize, and verify: how will ChatGPT affect information seeking from the medical literature?"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Reflexion: Language agents with verbal re-inforcement learning"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Dra-gin: Dynamic retrieval augmented generation based on the real-time information needs of large language models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. The Typing Cure: Experiences with Large Language Model Chatbots for Mental Health Support"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Measuring Massive Multitask Chinese Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Interleaving Retrieval with Chain-of-Thought"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Kuaiji: the First Chinese Accounting Large Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. Gemini Goes to Med School: Exploring the Capabilities of Multimodal Large Language Models on Medical Challenge Problems and Hal-lucinations"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "on the construction of chinese medical knowledge graph"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. KRA-GEN: a knowledge graph-enhanced RAG framework for biomedical problem solving using large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023d. Active retrieval augmented generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Survey of hal-lucination in natural language generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023. A Medical Domain Visual Question Generation Model via Large Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023a Think and Retrieval: A Hypothesis Knowledge Graph Enhanced Medical Large Language Models"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

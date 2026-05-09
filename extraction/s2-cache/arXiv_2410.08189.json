@@ -1,0 +1,676 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2326442520",
+        "name": "Hang Yin"
+      },
+      {
+        "authorId": "2158440998",
+        "name": "Xiuwei Xu"
+      },
+      {
+        "authorId": "2257436035",
+        "name": "Zhenyu Wu"
+      },
+      {
+        "authorId": "2256790031",
+        "name": "Jie Zhou"
+      },
+      {
+        "authorId": "2257098405",
+        "name": "Jiwen Lu"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2410.08189, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "SG-Nav: Online 3D Scene Graph Prompting for LLM-based Zero-shot Object Navigation"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.11811",
+          "CorpusId": 271915685,
+          "DBLP": "conf/iclr/XuCZWZL25",
+          "DOI": "10.48550/arXiv.2408.11811"
+        },
+        "paperId": "1d3df4779c359b3bef3d19b88c3dee2e654d0290",
+        "title": "EmbodiedSAM: Online Segment Any 3D Thing in Real Time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.11818",
+          "CorpusId": 270560155,
+          "DBLP": "journals/corr/abs-2406-11818",
+          "DOI": "10.1109/IROS60139.2025.11246127"
+        },
+        "paperId": "095eda6f134c862784ef6770cdea8e3a6e8b44d9",
+        "title": "Embodied Instruction Following in Unknown Environments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.06974",
+          "CorpusId": 268363588,
+          "DBLP": "conf/cvpr/XuXWZDZL24",
+          "DOI": "10.1109/CVPR52733.2024.02041"
+        },
+        "paperId": "b2aa3ca191ca3c294ed84d12fc2fca447a8f3733",
+        "title": "Memory-based Adapters for Online 3D Scene Perception"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.10670",
+          "CorpusId": 267740622,
+          "DBLP": "conf/naacl/KuangLJ24",
+          "DOI": "10.48550/arXiv.2402.10670"
+        },
+        "paperId": "e3ca1f399ed5ee21d0b73422f8837fba0985665f",
+        "title": "OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.03275",
+          "CorpusId": 265687319,
+          "DBLP": "journals/corr/abs-2312-03275",
+          "DOI": "10.1109/ICRA57147.2024.10610712"
+        },
+        "paperId": "996fd7229e4aba2c9c33a6f2861e8020b8a2702e",
+        "title": "VLFM: Vision-Language Frontier Maps for Zero-Shot Semantic Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.16650",
+          "CorpusId": 263134620,
+          "DBLP": "conf/icra/GuKMJSARPECGMTT24",
+          "DOI": "10.1109/ICRA57147.2024.10610243"
+        },
+        "paperId": "174a3290ff0040e0f6a7a0b43bcd752c456350a0",
+        "title": "ConceptGraphs: Open-Vocabulary 3D Scene Graphs for Perception and Planning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.05973",
+          "CorpusId": 259837330,
+          "DBLP": "conf/corl/HuangWZL0023",
+          "DOI": "10.48550/arXiv.2307.05973"
+        },
+        "paperId": "1cd8373490efc2d74c2796f4b2aa27c7d4415ec9",
+        "title": "VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.06135",
+          "CorpusId": 259837542,
+          "DBLP": "conf/corl/RanaHGA0S23",
+          "DOI": "10.48550/arXiv.2307.06135"
+        },
+        "paperId": "3843469976bd895851bfa08c8208350745bf649f",
+        "title": "SayPlan: Grounding Large Language Models using 3D Scene Graphs for Scalable Task Planning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.01848",
+          "CorpusId": 259342896,
+          "DBLP": "journals/corr/abs-2307-01848",
+          "DOI": "10.48550/arXiv.2307.01848"
+        },
+        "paperId": "df710c46594c04fb59ef9a93d3b4e1cb387a1b2b",
+        "title": "Embodied Task Planning with Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.08647",
+          "CorpusId": 259164906,
+          "DBLP": "conf/corl/0003GFKLACEHHIX23",
+          "DOI": "10.48550/arXiv.2306.08647"
+        },
+        "paperId": "94bcf0390d5acb1b92323bd15cc1dc311314122c",
+        "title": "Language to Rewards for Robotic Skill Synthesis"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.16986",
+          "CorpusId": 258947250,
+          "DBLP": "conf/aaai/ZhouHW24",
+          "DOI": "10.48550/arXiv.2305.16986"
+        },
+        "paperId": "8199c9d55dd998f69f703e0ad250ca0697e3ad27",
+        "title": "NavGPT: Explicit Reasoning in Vision-and-Language Navigation with Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.11176",
+          "CorpusId": 258762636,
+          "DBLP": "journals/corr/abs-2305-11176",
+          "DOI": "10.48550/arXiv.2305.11176"
+        },
+        "paperId": "afc5092a4116f27b4c64733c7815cd662bab78f7",
+        "title": "Instruct2Act: Mapping Multi-modality Instructions to Robotic Actions with Large Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.08485",
+          "CorpusId": 258179774,
+          "DBLP": "journals/corr/abs-2304-08485",
+          "DOI": "10.48550/arXiv.2304.08485"
+        },
+        "paperId": "a5036f31f0e629dc661f120b8c3b1f374d479ab8",
+        "title": "Visual Instruction Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.05501",
+          "CorpusId": 258079021,
+          "DBLP": "journals/corr/abs-2304-05501",
+          "DOI": "10.1109/IROS55552.2023.10342512"
+        },
+        "paperId": "6ff07b09cd44431603aeb1aab515a9f1355a63ed",
+        "title": "L3MVN: Leveraging Large Language Models for Visual Target Navigation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.02643",
+          "CorpusId": 257952310,
+          "DBLP": "conf/iccv/KirillovMRMRGXW23",
+          "DOI": "10.1109/ICCV51070.2023.00371"
+        },
+        "paperId": "7470a1702c8c86e6f28d32cfa315381150102f5b",
+        "title": "Segment Anything"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.08774",
+          "CorpusId": 257532815
+        },
+        "paperId": "163b4d6a79a5b19af88b8585456363340d9efd04",
+        "title": "GPT-4 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.13971",
+          "CorpusId": 257219404,
+          "DBLP": "journals/corr/abs-2302-13971"
+        },
+        "paperId": "57e849d0de13ed5f91d086936296721d4ff75a75",
+        "title": "LLaMA: Open and Efficient Foundation Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2301.13166",
+          "CorpusId": 256390546,
+          "DBLP": "conf/icml/ZhouZPSJGW23",
+          "DOI": "10.48550/arXiv.2301.13166"
+        },
+        "paperId": "6710e66648fe6846397ccecf72478effb44d7bc1",
+        "title": "ESC: Exploration with Soft Commonsense Constraints for Zero-shot Object Navigation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2212.00338",
+          "CorpusId": 254125331,
+          "DBLP": "conf/cvpr/ZhangDMFCXW23",
+          "DOI": "10.1109/CVPR52729.2023.00645"
+        },
+        "paperId": "13f5d3bad54ad29ebf4b18939a5f1358807d7de6",
+        "title": "3D-Aware Object Goal Navigation via Simultaneous Exploration and Identification"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2209.09874",
+          "CorpusId": 252383216,
+          "DBLP": "conf/icra/ChenXIRGRSK23",
+          "DOI": "10.1109/ICRA48891.2023.10161534"
+        },
+        "paperId": "e00867c7108395d56b823bc5c75d2f4591e2878d",
+        "title": "Open-vocabulary Queryable Scene Representations for Real World Planning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2209.07753",
+          "CorpusId": 252355542,
+          "DBLP": "conf/icra/LiangHXXHIFZ23",
+          "DOI": "10.1109/ICRA48891.2023.10160591"
+        },
+        "paperId": "91deaf9d324c8feafc189da0da03e60a60287bca",
+        "title": "Code as Policies: Language Model Programs for Embodied Control"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.05608",
+          "CorpusId": 250451569,
+          "DBLP": "conf/corl/HuangXXCLFZTMCS22",
+          "DOI": "10.48550/arXiv.2207.05608"
+        },
+        "paperId": "f3cf71c51b882fe3111d71c4bf104297d38197f8",
+        "title": "Inner Monologue: Embodied Reasoning through Planning with Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.04429",
+          "CorpusId": 250426345,
+          "DBLP": "conf/corl/ShahOIL22",
+          "DOI": "10.48550/arXiv.2207.04429"
+        },
+        "paperId": "cdf54c147434c83a4a380916b6c1279b0ca19fc2",
+        "title": "LM-Nav: Robotic Navigation with Large Pre-Trained Models of Language, Vision, and Action"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2206.12403",
+          "CorpusId": 250048645,
+          "DBLP": "journals/corr/abs-2206-12403",
+          "DOI": "10.48550/arXiv.2206.12403"
+        },
+        "paperId": "4f0f2096e006725576f1ccf0edda7c234d38fa66",
+        "title": "ZSON: Zero-Shot Object-Goal Navigation using Multimodal Goal Embeddings"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2205.06230",
+          "CorpusId": 248721818,
+          "DBLP": "journals/corr/abs-2205-06230",
+          "DOI": "10.48550/arXiv.2205.06230"
+        },
+        "paperId": "9dae204dad41633188022002a04c8aa67c79a4e1",
+        "title": "Simple Open-Vocabulary Object Detection with Vision Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2204.01691",
+          "CorpusId": 247939706,
+          "DBLP": "conf/corl/IchterBCFHHHIIJ22"
+        },
+        "paperId": "cb5e3f085caefd1f3d5e08637ab55d39e61234fc",
+        "title": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.10421",
+          "CorpusId": 254636632,
+          "DBLP": "conf/cvpr/GadreWISS23",
+          "DOI": "10.1109/CVPR52729.2023.02219"
+        },
+        "paperId": "742b195fb4c2868a4e60012c8e0bf7db43bb5650",
+        "title": "CoWs on Pasture: Baselines and Benchmarks for Language-Driven Zero-Shot Object Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.12086",
+          "CorpusId": 246411402,
+          "DBLP": "journals/corr/abs-2201-12086"
+        },
+        "paperId": "a3b42a83669998f65df60d7c065a70d07ca95e99",
+        "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.10029",
+          "CorpusId": 246276012,
+          "DBLP": "journals/corr/abs-2201-10029",
+          "DOI": "10.1109/CVPR52688.2022.01832"
+        },
+        "paperId": "0c6af0a9da38e4af39f54d5a1455a76e38f008c9",
+        "title": "PONI: Potential Functions for ObjectGoal Navigation with Interaction-free Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.03857",
+          "CorpusId": 244920947,
+          "DBLP": "journals/corr/abs-2112-03857",
+          "DOI": "10.1109/CVPR52688.2022.01069"
+        },
+        "paperId": "5341b412383c43f4a693ad63ec4489e3ec7688c8",
+        "title": "Grounded Language-Image Pre-training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2111.09888",
+          "CorpusId": 244346010,
+          "DBLP": "conf/cvpr/0001WMK22",
+          "DOI": "10.1109/CVPR52688.2022.01441"
+        },
+        "paperId": "826383e18568c9c37b5fc5dd7e2913352db22b47",
+        "title": "Simple but Effective: CLIP Embeddings for Embodied AI"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.07342",
+          "CorpusId": 238857090,
+          "DBLP": "journals/corr/abs-2110-07342"
+        },
+        "paperId": "bef63d4f7656393b7bceb2ec704e86577c286166",
+        "title": "FILM: Following Instructions in Language with Modular Methods"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 244100709,
+          "DBLP": "conf/iccv/MaksymetsCGWGLB21",
+          "DOI": "10.1109/ICCV48922.2021.01509"
+        },
+        "paperId": "609ca4bdac0013b222b7db2e96ec0a19d40fcaaa",
+        "title": "THDA: Treasure Hunt Data Augmentation for Semantic Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2109.02066",
+          "CorpusId": 237421139,
+          "DBLP": "journals/corr/abs-2109-02066",
+          "DOI": "10.1109/ICCV48922.2021.01485"
+        },
+        "paperId": "bdf2fc87bb4b267d872ba8cb1d1ba4dfe6e28ca6",
+        "title": "Hierarchical Object-to-Zone Graph for Object Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2107.05612",
+          "CorpusId": 235795722,
+          "DBLP": "conf/corl/BlukisPFGA21"
+        },
+        "paperId": "6536f36648d39f0f9f6105562f76704fcc0b19e8",
+        "title": "A Persistent Spatial Semantic Representation for High-level Natural Language Instruction Execution"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2104.04112",
+          "CorpusId": 237362445,
+          "DBLP": "conf/iccv/YeBDW21",
+          "DOI": "10.1109/ICCV48922.2021.01581"
+        },
+        "paperId": "da200182f1e0660689bfda884736058dad1db16f",
+        "title": "Auxiliary Tasks and Exploration Enable ObjectGoal Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2103.00020",
+          "CorpusId": 231591445,
+          "DBLP": "conf/icml/RadfordKHRGASAM21"
+        },
+        "paperId": "6f870f7f02a8c59c3e23f407f3ef00dd1dcf8fc4",
+        "title": "Learning Transferable Visual Models From Natural Language Supervision"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2009.03231",
+          "CorpusId": 221516690,
+          "DBLP": "journals/corr/abs-2009-03231",
+          "MAG": "3083392569"
+        },
+        "paperId": "1a5eec1f3021ebc3100fa235c24fce5731139140",
+        "title": "Integrating Egocentric Localization for More Realistic Point-Goal Navigation Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2007.00643",
+          "CorpusId": 220280504,
+          "DBLP": "journals/corr/abs-2007-00643",
+          "MAG": "3040041096"
+        },
+        "paperId": "62516303058a1322450b58e4cd778ab873b5e531",
+        "title": "Object Goal Navigation using Goal-Oriented Semantic Exploration"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.13171",
+          "CorpusId": 219981280,
+          "DBLP": "journals/corr/abs-2006-13171",
+          "MAG": "3036497058"
+        },
+        "paperId": "19c8c5a32cb0d77cd22ee1201e31306f0cd6100a",
+        "title": "ObjectNav Revisited: On Evaluation of Embodied Agents Navigating to Objects"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.04768",
+          "CorpusId": 219530577,
+          "DBLP": "journals/corr/abs-2006-04768",
+          "MAG": "3033529678"
+        },
+        "paperId": "c0b79e6a5fd88ef13aa4780df5aae0aaa6b2be87",
+        "title": "Linformer: Self-Attention with Linear Complexity"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2004.06799",
+          "CorpusId": 215768690,
+          "DBLP": "journals/corr/abs-2004-06799",
+          "DOI": "10.1109/CVPR42600.2020.00323",
+          "MAG": "3017177456"
+        },
+        "paperId": "98789b46f7be983300a0e93e1c53bab56b36efd1",
+        "title": "RoboTHOR: An Open Simulation-to-Real Embodied AI Platform"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2003.06233",
+          "CorpusId": 212717754,
+          "DBLP": "conf/cvpr/Zhang0Z020",
+          "DOI": "10.1109/cvpr42600.2020.00459",
+          "MAG": "3012106147"
+        },
+        "paperId": "a7c95c93e21757c5bebd701d1fbc3a8f86c8666d",
+        "title": "Fusion-Aware Point Convolution for Online Semantic 3D Scene Segmentation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2002.10638",
+          "CorpusId": 211296530,
+          "DBLP": "conf/cvpr/HaoLLCG20",
+          "DOI": "10.1109/cvpr42600.2020.01315",
+          "MAG": "3034500398"
+        },
+        "paperId": "6fa25c94e41a0c90e3aabe80cf60f59ec9ff0a52",
+        "title": "Towards Learning a Generic Agent for Vision-and-Language Navigation via Pre-Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.00357",
+          "CorpusId": 210839350,
+          "DBLP": "conf/iclr/WijmansKMLEPSB20",
+          "MAG": "3004691725"
+        },
+        "paperId": "b0e95b881add810353b12e78615613a0132be754",
+        "title": "DD-PPO: Learning Near-Perfect PointGoal Navigators from 2.5 Billion Frames"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1810.06543",
+          "CorpusId": 53116049,
+          "DBLP": "journals/corr/abs-1810-06543",
+          "MAG": "2895915466"
+        },
+        "paperId": "c7aea4b653d4e12cb47438960f5689f5f835e073",
+        "title": "Visual Semantic Navigation using Scene Priors"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1805.06066",
+          "CorpusId": 21723900,
+          "DBLP": "journals/corr/abs-1805-06066",
+          "DOI": "10.1109/ICRA.2019.8793493",
+          "MAG": "2967853831"
+        },
+        "paperId": "005bcdb7e3f893e2a6e1e27660595e0e7f3d3eb1",
+        "title": "Visual Representations for Semantic Target Driven Navigation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1709.06158",
+          "CorpusId": 21435690,
+          "DBLP": "journals/corr/abs-1709-06158",
+          "DOI": "10.1109/3DV.2017.00081",
+          "MAG": "2949525187"
+        },
+        "paperId": "8337441971f941716a9e525a67f37088eb01fd13",
+        "title": "Matterport3D: Learning from RGB-D Data in Indoor Environments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 124181218,
+          "DOI": "10.1007/978-0-387-21637-9_7",
+          "MAG": "2264935230"
+        },
+        "paperId": "d8ac53a5825fe625ed31069d4f61add24bfadd83",
+        "title": "Fast Marching Methods"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "a) If the contribution is primarily a new algorithm, the paper should make it clear how to reproduce that algorithm"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

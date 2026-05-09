@@ -1,0 +1,803 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2319966985",
+        "name": "Yu Wang"
+      },
+      {
+        "authorId": "2114434103",
+        "name": "Ryuichi Takanobu"
+      },
+      {
+        "authorId": "2326634154",
+        "name": "Zhiqi Liang"
+      },
+      {
+        "authorId": "2195055368",
+        "name": "Yuzhen Mao"
+      },
+      {
+        "authorId": "2343690739",
+        "name": "Yuanzhe Hu"
+      },
+      {
+        "authorId": "2258962117",
+        "name": "Julian McAuley"
+      },
+      {
+        "authorId": "2154602151",
+        "name": "Xiaojian Wu"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2509.25911, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "Mem-α: Learning Memory Construction via Reinforcement Learning"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2509.13235",
+          "CorpusId": 281325016,
+          "DBLP": "journals/corr/abs-2509-13235",
+          "DOI": "10.48550/arXiv.2509.13235"
+        },
+        "paperId": "a60d25580d14457c95aa74f1db1551f25524c858",
+        "title": "A Scenario-Driven Cognitive Approach to Next-Generation AI Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2509.11914",
+          "CorpusId": 281315907,
+          "DBLP": "journals/corr/abs-2509-11914",
+          "DOI": "10.48550/arXiv.2509.11914"
+        },
+        "paperId": "b0b24223dbb29589fad7efe43d842f2422c5d006",
+        "title": "EgoMem: Lifelong Memory Agent for Full-duplex Omnimodal Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.20453",
+          "CorpusId": 280949860,
+          "DBLP": "journals/corr/abs-2508-20453",
+          "DOI": "10.48550/arXiv.2508.20453"
+        },
+        "paperId": "59fc74abfc134648270e1317d53ad7eb5f8205ba",
+        "title": "MCP-Bench: Benchmarking Tool-Using LLM Agents with Complex Real-World Tasks via MCP Servers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.19828",
+          "CorpusId": 280918480,
+          "DBLP": "journals/corr/abs-2508-19828",
+          "DOI": "10.48550/arXiv.2508.19828"
+        },
+        "paperId": "9df0947ec8a14c43e69f3b72ece5e9af2b8e8215",
+        "title": "Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.16629",
+          "CorpusId": 280711822,
+          "DBLP": "journals/corr/abs-2508-16629",
+          "DOI": "10.48550/arXiv.2508.16629"
+        },
+        "paperId": "0c1a49375e861e6fb110c9a8dee2befae41c76c7",
+        "title": "Learn to Memorize: Optimizing LLM-based Agents with Adaptive Memory Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.07407",
+          "CorpusId": 280566335,
+          "DBLP": "journals/corr/abs-2508-07407",
+          "DOI": "10.48550/arXiv.2508.07407"
+        },
+        "paperId": "4d5d951742d101e78646269a45f2573a597d54d6",
+        "title": "A Comprehensive Survey of Self-Evolving AI Agents: A New Paradigm Bridging Foundation Models and Lifelong Agentic Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2508.03341",
+          "CorpusId": 280526452
+        },
+        "paperId": "c7104ee40e801e802cdd6e85c26f1ca8dcc00b19",
+        "title": "What Deserves Memory: Adaptive Memory Distillation for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.07957",
+          "CorpusId": 280277519,
+          "DBLP": "journals/corr/abs-2507-07957",
+          "DOI": "10.48550/arXiv.2507.07957"
+        },
+        "paperId": "a38a3460a68c50270548977e66162e92f195334c",
+        "title": "MIRIX: Multi-Agent Memory System for LLM-Based Agents"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.05257",
+          "CorpusId": 280136659,
+          "DBLP": "journals/corr/abs-2507-05257",
+          "DOI": "10.48550/arXiv.2507.05257"
+        },
+        "paperId": "dc7c687809737422a7e2ce870ad55746675d60f2",
+        "title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2507.02259",
+          "CorpusId": 280047896,
+          "DBLP": "journals/corr/abs-2507-02259",
+          "DOI": "10.48550/arXiv.2507.02259"
+        },
+        "paperId": "80a0548be8c857421aaf0602c6d83d3ef934a251",
+        "title": "MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2506.15841",
+          "CorpusId": 279465470,
+          "DBLP": "journals/corr/abs-2506-15841",
+          "DOI": "10.48550/arXiv.2506.15841"
+        },
+        "paperId": "6c5f3dd82ee674d929a8eb4b256ca2045e02ae60",
+        "title": "MEM1: Learning to Synergize Memory and Reasoning for Efficient Long-Horizon Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2505.02099",
+          "CorpusId": 278327095,
+          "DBLP": "journals/corr/abs-2505-02099",
+          "DOI": "10.1145/3701716.3715299"
+        },
+        "paperId": "965f10dcceb862d2911bb223aa8ec3171601e4c9",
+        "title": "MemEngine: A Unified and Modular Library for Developing Advanced Memory of LLM-based Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.19413",
+          "CorpusId": 278165315,
+          "DBLP": "journals/corr/abs-2504-19413",
+          "DOI": "10.48550/arXiv.2504.19413"
+        },
+        "paperId": "1d9c21a0fdb1cc16a32c5d490ebaf98436a23382",
+        "title": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2504.13171",
+          "CorpusId": 277857467,
+          "DBLP": "journals/corr/abs-2504-13171",
+          "DOI": "10.48550/arXiv.2504.13171"
+        },
+        "paperId": "a70f75ccedb7b6eb769b959ec9d58a59d44d1cf5",
+        "title": "Sleep-time Compute: Beyond Inference Scaling at Test-time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2503.08102",
+          "CorpusId": 276928709,
+          "DBLP": "journals/corr/abs-2503-08102",
+          "DOI": "10.48550/arXiv.2503.08102"
+        },
+        "paperId": "029c144203a8b190e6118f6b630b9f5d737410be",
+        "title": "AI-native Memory 2.0: Second Me"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.16090",
+          "CorpusId": 276574652,
+          "DBLP": "journals/corr/abs-2502-16090",
+          "DOI": "10.48550/arXiv.2502.16090"
+        },
+        "paperId": "d788e80501573f92291944eeae04f6ccc02ed0b1",
+        "title": "Echo: A Large Language Model with Temporal Episodic Memory"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.12110",
+          "CorpusId": 276421617,
+          "DBLP": "journals/corr/abs-2502-12110",
+          "DOI": "10.48550/arXiv.2502.12110"
+        },
+        "paperId": "1f35a15fe9df43d24ec6ea551ec6c9766c17eccf",
+        "title": "A-MEM: Agentic Memory for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.06975",
+          "CorpusId": 276259178,
+          "DBLP": "journals/corr/abs-2502-06975",
+          "DOI": "10.48550/arXiv.2502.06975"
+        },
+        "paperId": "f85004321e43370535088042ebac96b958880c5d",
+        "title": "Position: Episodic Memory is the Missing Piece for Long-Term LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2502.00592",
+          "CorpusId": 276094378,
+          "DBLP": "conf/icml/0170KH0ZMGFH25",
+          "DOI": "10.48550/arXiv.2502.00592"
+        },
+        "paperId": "8a85ef6b1063972f873d99ce19fe31a0c02657bf",
+        "title": "M+: Extending MemoryLLM with Scalable Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.13956",
+          "CorpusId": 275907122,
+          "DBLP": "journals/corr/abs-2501-13956",
+          "DOI": "10.48550/arXiv.2501.13956"
+        },
+        "paperId": "12407be490a4e4633da7f25a93af000be573a288",
+        "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2501.00663",
+          "CorpusId": 275212078,
+          "DBLP": "journals/corr/abs-2501-00663",
+          "DOI": "10.48550/arXiv.2501.00663"
+        },
+        "paperId": "5e7a795d89910634f001cc3a631023f1dd4e2e23",
+        "title": "Titans: Learning to Memorize at Test Time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2412.09764",
+          "CorpusId": 274762856,
+          "DBLP": "journals/corr/abs-2412-09764",
+          "DOI": "10.48550/arXiv.2412.09764"
+        },
+        "paperId": "5f521c36fca5075dc99c85c9fe6988ad812287d2",
+        "title": "Memory Layers at Scale"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.14052",
+          "CorpusId": 273482193,
+          "DBLP": "journals/corr/abs-2410-14052",
+          "DOI": "10.48550/arXiv.2410.14052"
+        },
+        "paperId": "86aea18148fa67c6fd0eecdc0ee68137fe16a75d",
+        "title": "From Isolated Conversations to Hierarchical Schemas: Dynamic Tree Memory Representation for LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.10813",
+          "CorpusId": 273345961,
+          "DBLP": "journals/corr/abs-2410-10813",
+          "DOI": "10.48550/arXiv.2410.10813"
+        },
+        "paperId": "fd48dc6b433cfcd220b6e769c6179d8ef6fcf862",
+        "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.00487",
+          "CorpusId": 273023170,
+          "DBLP": "conf/iclr/0170LCOWM25"
+        },
+        "paperId": "d24f2b7c7a6b356a7855430443fd4b468d73dc56",
+        "title": "Self-Updatable Large Language Models by Integrating Context into Model Parameters"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.13265",
+          "CorpusId": 272770285,
+          "DBLP": "journals/corr/abs-2409-13265",
+          "DOI": "10.48550/arXiv.2409.13265"
+        },
+        "paperId": "12fca89dc57c1162c62f9c24b2a2c8a2d3d2abd3",
+        "title": "Towards LifeSpan Cognitive Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.05591",
+          "CorpusId": 272525276,
+          "DBLP": "conf/www/Qian0ZMLD025",
+          "DOI": "10.1145/3696410.3714805"
+        },
+        "paperId": "31ba8551422570f16e0c60fc3f7ac7cdcbbd99d3",
+        "title": "MemoRAG: Boosting Long Context Processing with Global Memory-Enhanced Retrieval Augmentation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.09450",
+          "CorpusId": 271162171,
+          "DBLP": "conf/iclr/FountasBOCLB025"
+        },
+        "paperId": "f6b033d856afb84d62ad399eba1764b99197484e",
+        "title": "Human-inspired Episodic Memory for Infinite Context LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.04363",
+          "CorpusId": 271039035,
+          "DBLP": "conf/ijcai/AnokhinSSEK0B25",
+          "DOI": "10.48550/arXiv.2407.04363"
+        },
+        "paperId": "e2687f80077e8466918e4aeb2ea52e591bfe7e81",
+        "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.03978",
+          "CorpusId": 271039484,
+          "DBLP": "journals/corr/abs-2407-03978",
+          "DOI": "10.48550/arXiv.2407.03978"
+        },
+        "paperId": "abaaa617151b99f2febf94d1aa2ec9fc6aa65f5b",
+        "title": "Benchmarking Complex Instruction-Following with Multiple Constraints Composition"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.14469",
+          "CorpusId": 269303164,
+          "DBLP": "conf/nips/LiHYVLYCLC24",
+          "DOI": "10.48550/arXiv.2404.14469"
+        },
+        "paperId": "1784c987e681d60c634765fe64c8d9c26f73d5ff",
+        "title": "SnapKV: LLM Knows What You are Looking for Before Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.06654",
+          "CorpusId": 269032933,
+          "DBLP": "journals/corr/abs-2404-06654",
+          "DOI": "10.48550/arXiv.2404.06654"
+        },
+        "paperId": "ac5824e9ff924a937d9eef379d0b581de2417678",
+        "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.11901",
+          "CorpusId": 268532114,
+          "DBLP": "conf/icml/DasCNMSDLKC0DC24",
+          "DOI": "10.48550/arXiv.2403.11901"
+        },
+        "paperId": "5372f4364fe5b7991c81ea19ee944c717afe6e0a",
+        "title": "Larimar: Large Language Models with Episodic Memory Control"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.17753",
+          "CorpusId": 268041615,
+          "DBLP": "journals/corr/abs-2402-17753",
+          "DOI": "10.48550/arXiv.2402.17753"
+        },
+        "paperId": "0bf3a1867f7245b8a702093901c66b08b518eafc",
+        "title": "Evaluating Very Long-Term Conversational Memory of LLM Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.13718",
+          "CorpusId": 267770255,
+          "DBLP": "journals/corr/abs-2402-13718",
+          "DOI": "10.48550/arXiv.2402.13718"
+        },
+        "paperId": "f05e84702562cb693dd68d3d1c88072519a7bd71",
+        "title": "∞Bench: Extending Long Context Evaluation Beyond 100K Tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.13449",
+          "CorpusId": 267770311,
+          "DBLP": "journals/corr/abs-2402-13449",
+          "DOI": "10.48550/arXiv.2402.13449"
+        },
+        "paperId": "130850322b067af6961d49c84b04e8eee0002842",
+        "title": "CAMELoT: Towards Large Language Models with Training-Free Consolidated Associative Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.04624",
+          "CorpusId": 267523037,
+          "DBLP": "conf/icml/WangGCJLYYLLYSM24",
+          "DOI": "10.48550/arXiv.2402.04624"
+        },
+        "paperId": "12c27a40fbcc9dfbf483185291e7c80114a2a9ae",
+        "title": "MEMORYLLM: Towards Self-Updatable Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.03300",
+          "CorpusId": 267412607,
+          "DBLP": "journals/corr/abs-2402-03300",
+          "DOI": "10.48550/arXiv.2402.03300"
+        },
+        "paperId": "35b142ea69598e6241f0011312128031df55895c",
+        "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.02509",
+          "CorpusId": 266818515,
+          "DBLP": "journals/corr/abs-2401-02509",
+          "DOI": "10.48550/arXiv.2401.02509"
+        },
+        "paperId": "369ece3226f6ed79c7415a53811a7d015a1896d5",
+        "title": "Memory, Consciousness and Large Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.08560",
+          "CorpusId": 263909014,
+          "DBLP": "journals/corr/abs-2310-08560",
+          "DOI": "10.48550/arXiv.2310.08560"
+        },
+        "paperId": "908dad62c0e43d80e3e3cb3c0402f7c71c70499c",
+        "title": "MemGPT: Towards LLMs as Operating Systems"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.08239",
+          "CorpusId": 260926502,
+          "DBLP": "journals/corr/abs-2308-08239",
+          "DOI": "10.48550/arXiv.2308.08239"
+        },
+        "paperId": "fd712e06f87124dedc771526f797555c432cec42",
+        "title": "MemoChat: Tuning LLMs to Use Memos for Consistent Long-Range Open-Domain Conversation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.06945",
+          "CorpusId": 259847425,
+          "DBLP": "conf/iclr/00010WWCW24",
+          "DOI": "10.48550/arXiv.2307.06945"
+        },
+        "paperId": "60b0476a97c00e355df28ba35422764a7fbe88e8",
+        "title": "In-context Autoencoder for Context Compression in a Large Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.14048",
+          "CorpusId": 259263947,
+          "DBLP": "conf/nips/Zhang00CZC0TRBW23",
+          "DOI": "10.48550/arXiv.2306.14048"
+        },
+        "paperId": "e586a4591ba0303b769f2c07cbddaf1899cb72e4",
+        "title": "H2O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.07929",
+          "CorpusId": 259145016,
+          "DBLP": "conf/nips/ZhangCZXZ023",
+          "DOI": "10.52202/075280-3419"
+        },
+        "paperId": "60e6e3767c36bf9e16b58b7221c5712b4d3d5293",
+        "title": "Large Language Models Are Semi-Parametric Reinforcement Learning Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10250",
+          "CorpusId": 258741194,
+          "DBLP": "journals/corr/abs-2305-10250",
+          "DOI": "10.48550/arXiv.2305.10250"
+        },
+        "paperId": "c3a59e1e405e7c28319e5a1c5b5241f9b340cf63",
+        "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.13343",
+          "CorpusId": 258331553,
+          "DBLP": "conf/dasfaa/WangLYHWWML25",
+          "DOI": "10.1007/978-981-95-4158-4_12"
+        },
+        "paperId": "f711aae062ae30c0888910b2bdcc5be6c1d1c340",
+        "title": "SCM: Enhancing Large Language Model with Self-Controlled Memory Framework"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.06881",
+          "CorpusId": 250526424,
+          "DBLP": "journals/corr/abs-2207-06881",
+          "DOI": "10.48550/arXiv.2207.06881"
+        },
+        "paperId": "a8cf0f7a20f886acfb332071c2daaf58ba86a5ca",
+        "title": "Recurrent Memory Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2105.08209",
+          "CorpusId": 234762900,
+          "DBLP": "journals/corr/abs-2105-08209",
+          "DOI": "10.18653/v1/2022.findings-emnlp.488"
+        },
+        "paperId": "a4ffce66918cfb33150a60bf8e26419199e63b01",
+        "title": "BookSum: A Collection of Datasets for Long-form Narrative Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.11527",
+          "CorpusId": 219966916,
+          "DBLP": "journals/corr/abs-2006-11527",
+          "MAG": "3036615999"
+        },
+        "paperId": "168fc3525f7b97695a97b04e257ee9bd1e832acb",
+        "title": "Memory Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.nlp4convai-1.5",
+          "ArXiv": "2003.04807",
+          "CorpusId": 212645349,
+          "DBLP": "journals/corr/abs-2003-04807",
+          "DOI": "10.18653/v1/2020.nlp4convai-1.5",
+          "MAG": "3045492832"
+        },
+        "paperId": "5a96a270cbc73e3b448c2404ff31670c21da7b49",
+        "title": "Efficient Intent Detection with Dual Sentence Encoders"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D19-1131",
+          "ArXiv": "1909.02027",
+          "CorpusId": 202540203,
+          "DBLP": "journals/corr/abs-1909-02027",
+          "DOI": "10.18653/v1/D19-1131",
+          "MAG": "2971418622"
+        },
+        "paperId": "499556c6ed1daec62e5a57456213cf4f921460f1",
+        "title": "An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1903.05566",
+          "CorpusId": 76660838,
+          "DBLP": "journals/corr/abs-1903-05566",
+          "DOI": "10.1007/978-981-15-9323-9_15",
+          "MAG": "2966087730"
+        },
+        "paperId": "9f1e350a97a4f5f3809c350be6db3e75f0bebf43",
+        "title": "Benchmarking Natural Language Understanding Services for building Conversational Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "I17-2052",
+          "ArXiv": "1710.06071",
+          "CorpusId": 151184,
+          "DBLP": "journals/corr/abs-1710-06071",
+          "MAG": "2951435027"
+        },
+        "paperId": "937e55826b0fe64e42a43121681e5e4a62ddcc40",
+        "title": "PubMed 200k RCT: a Dataset for Sequential Sentence Classification in Medical Abstracts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D16-1264",
+          "ArXiv": "1606.05250",
+          "CorpusId": 11816014,
+          "DBLP": "journals/corr/RajpurkarZLL16",
+          "DOI": "10.18653/v1/D16-1264",
+          "MAG": "2963748441"
+        },
+        "paperId": "05dd7254b632376973f3a1b4d39485da17814df5",
+        "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "C02-1150",
+          "CorpusId": 11039301,
+          "DBLP": "conf/coling/LiR02",
+          "DOI": "10.3115/1072228.1072378",
+          "MAG": "2070246124"
+        },
+        "paperId": "2c8ac3e1f0edeed1fbd76813e61efdc384c319c7",
+        "title": "Learning Question Classifiers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 284375321,
+          "DBLP": "journals/corr/abs-2505-19549",
+          "DOI": "10.48550/arXiv.2505.19549"
+        },
+        "paperId": "7ae437891dbdfa957f01e2cbd63ab576fc9dc46c",
+        "title": "Towards Multi-Granularity Memory Association and Selection for Long-Term Conversational Agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.sighan-1.18",
+          "CorpusId": 271769814,
+          "DOI": "10.18653/v1/2024.sighan-1.18"
+        },
+        "paperId": "e295757ac315006db77160d68f291b4d3f0b7f6c",
+        "title": "PerLTQA: A Personal Long-Term Memory Dataset for Memory Classification, Retrieval, and Fusion in Question Answering"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

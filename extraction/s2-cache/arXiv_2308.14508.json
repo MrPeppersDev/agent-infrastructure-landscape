@@ -1,0 +1,939 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2141377570",
+        "name": "Yushi Bai"
+      },
+      {
+        "authorId": "48574888",
+        "name": "Xin Lv"
+      },
+      {
+        "authorId": "2107983722",
+        "name": "Jiajie Zhang"
+      },
+      {
+        "authorId": "2220304036",
+        "name": "Hong Lyu"
+      },
+      {
+        "authorId": "2204826271",
+        "name": "Jiankai Tang"
+      },
+      {
+        "authorId": "2234629967",
+        "name": "Zhidian Huang"
+      },
+      {
+        "authorId": "66395694",
+        "name": "Zhengxiao Du"
+      },
+      {
+        "authorId": "2111312892",
+        "name": "Xiao Liu"
+      },
+      {
+        "authorId": "2051712753",
+        "name": "Aohan Zeng"
+      },
+      {
+        "authorId": "2055765060",
+        "name": "Lei Hou"
+      },
+      {
+        "authorId": "2047998",
+        "name": "Yuxiao Dong"
+      },
+      {
+        "authorId": "2148911975",
+        "name": "Jie Tang"
+      },
+      {
+        "authorId": "2133353675",
+        "name": "Juanzi Li"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2308.14508, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": "CLOSED",
+      "url": "https://arxiv.org/pdf/2308.14508"
+    },
+    "title": "LongBench: A Bilingual, Multitask Benchmark for Long Context Understanding"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 280780329,
+          "DOI": "10.3156/jsoft.37.3_69_1"
+        },
+        "paperId": "1c629669812cf4cdc354de1f6d36084a4b2adc8c",
+        "title": "LLM as a Judge"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.11088",
+          "CorpusId": 259991740,
+          "DBLP": "conf/acl/AnG0ZLZKQ24",
+          "DOI": "10.48550/arXiv.2307.11088"
+        },
+        "paperId": "b0db25e317cf856f1ec1ca3df0e573d850ed4696",
+        "title": "L-Eval: Instituting Standardized Evaluation for Long Context Language Models"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.09288",
+          "CorpusId": 259950998,
+          "DBLP": "journals/corr/abs-2307-09288"
+        },
+        "paperId": "104b0bb1da562d53cbda87aec79ef6a2827d191a",
+        "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.tacl-1.9",
+          "ArXiv": "2307.03172",
+          "CorpusId": 259360665,
+          "DBLP": "journals/tacl/LiuLHPBPL24",
+          "DOI": "10.1162/tacl_a_00638"
+        },
+        "paperId": "1733eb7792f7a43dd21f51f4d1017a1bffd217b5",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.02486",
+          "CorpusId": 259341682,
+          "DBLP": "journals/corr/abs-2307-02486"
+        },
+        "paperId": "c12db2c60e8989f646a29ad4f4d24475e860ad91",
+        "title": "LongNet: Scaling Transformers to 1, 000, 000, 000 Tokens"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.15595",
+          "CorpusId": 259262376,
+          "DBLP": "journals/corr/abs-2306-15595",
+          "DOI": "10.48550/arXiv.2306.15595"
+        },
+        "paperId": "f5afaccfe90268485a9961c5771ec5e71e9b806c",
+        "title": "Extending Context Window of Large Language Models via Positional Interpolation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.14893",
+          "CorpusId": 259262301,
+          "DBLP": "conf/icml/GuoXD0M23",
+          "DOI": "10.48550/arXiv.2306.14893"
+        },
+        "paperId": "2a09ebbfcca1a6994eeb472cd4159f5f3858dbf9",
+        "title": "LongCoder: A Long-Range Pre-trained Language Model for Code Completion"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.05685",
+          "CorpusId": 259129398,
+          "DBLP": "journals/corr/abs-2306-05685",
+          "DOI": "10.52202/075280-2020"
+        },
+        "paperId": "a0a79dad89857a96f8f71b14238e5237cbfc4787",
+        "title": "Judging LLM-as-a-judge with MT-Bench and Chatbot Arena"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.04181",
+          "CorpusId": 259095491,
+          "DBLP": "conf/nips/BaiY0LHWYZXLZLH23",
+          "DOI": "10.48550/arXiv.2306.04181"
+        },
+        "paperId": "378a545c3a1cf6c4aada8f9ee8820c0d8008220a",
+        "title": "Benchmarking Foundation Models with Language-Model-as-an-Examiner"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.03091",
+          "CorpusId": 259075246,
+          "DBLP": "conf/iclr/0003XM24",
+          "DOI": "10.48550/arXiv.2306.03091"
+        },
+        "paperId": "f97413a497d47c739d41d237917e6566154647b4",
+        "title": "RepoBench: Benchmarking Repository-Level Code Auto-Completion Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.16300",
+          "CorpusId": 258887482,
+          "DBLP": "conf/nips/MohtashamiJ23",
+          "DOI": "10.48550/arXiv.2305.16300"
+        },
+        "paperId": "60b35c6d68acced19b0c66edcfc0ee0a2c11efed",
+        "title": "Landmark Attention: Random-Access Infinite Context Length for Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.14196",
+          "CorpusId": 258841877,
+          "DBLP": "conf/emnlp/0002IEBL23",
+          "DOI": "10.48550/arXiv.2305.14196"
+        },
+        "paperId": "eb511ae6b9f04e4936891d26787f274b48b99d57",
+        "title": "ZeroSCROLLS: A Zero-Shot Benchmark for Long Text Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.13304",
+          "CorpusId": 258832617,
+          "DBLP": "journals/corr/abs-2305-13304",
+          "DOI": "10.48550/arXiv.2305.13304"
+        },
+        "paperId": "d9964ab436eefd21f923a4bc833c6b66692c7f00",
+        "title": "RecurrentGPT: Interactive Generation of (Arbitrarily) Long Text"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.05280",
+          "CorpusId": 258564481,
+          "DBLP": "journals/corr/abs-2305-05280",
+          "DOI": "10.48550/arXiv.2305.05280"
+        },
+        "paperId": "61fa56fbdb3b7668a0ac1b895312a9c7bca682e4",
+        "title": "VCSUM: A Versatile Chinese Meeting Summarization Dataset"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2304.11062",
+          "CorpusId": 258291566,
+          "DBLP": "journals/corr/abs-2304-11062",
+          "DOI": "10.48550/arXiv.2304.11062"
+        },
+        "paperId": "594d8e1696619f3cebb7c6bffdad8e0a5592f006",
+        "title": "Scaling Transformer to 1M tokens and beyond with RMT"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.17568",
+          "CorpusId": 257834177,
+          "DBLP": "conf/kdd/ZhengXZDWXSW0LS23",
+          "DOI": "10.1145/3580305.3599790"
+        },
+        "paperId": "bafe023fb072045dc0cd50316382a61c8dcb9fae",
+        "title": "CodeGeeX: A Pre-Trained Model for Code Generation with Multilingual Benchmarking on HumanEval-X"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.09752",
+          "CorpusId": 257622671,
+          "DBLP": "journals/corr/abs-2303-09752",
+          "DOI": "10.48550/arXiv.2303.09752"
+        },
+        "paperId": "27d391d65ab42c30dc35595213ba6585633afa5d",
+        "title": "CoLT5: Faster Long-Range Transformers with Conditional Computation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.06349",
+          "CorpusId": 257496654,
+          "DBLP": "journals/corr/abs-2303-06349"
+        },
+        "paperId": "f393aff1593c2d370ec0ae004910d18e40524967",
+        "title": "Resurrecting Recurrent Neural Networks for Long Sequences"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.816",
+          "ArXiv": "2212.10554",
+          "CorpusId": 254877252,
+          "DBLP": "journals/corr/abs-2212-10554",
+          "DOI": "10.48550/arXiv.2212.10554"
+        },
+        "paperId": "9575afb5702bc33d7df14c48feeee5901ea00369",
+        "title": "A Length-Extrapolatable Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.02414",
+          "CorpusId": 252715691,
+          "DBLP": "journals/corr/abs-2210-02414",
+          "DOI": "10.48550/arXiv.2210.02414"
+        },
+        "paperId": "1d26c947406173145a4665dd7ab255e03494ea28",
+        "title": "GLM-130B: An Open Bilingual Pre-trained Model"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2208.03299",
+          "CorpusId": 251371732,
+          "DBLP": "journals/jmlr/IzacardLLHPSDJRG23"
+        },
+        "paperId": "916be31cbf847faa65cad0549e153f0c25b9f424",
+        "title": "Few-shot Learning with Retrieval Augmented Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2207.06881",
+          "CorpusId": 250526424,
+          "DBLP": "journals/corr/abs-2207-06881",
+          "DOI": "10.48550/arXiv.2207.06881"
+        },
+        "paperId": "a8cf0f7a20f886acfb332071c2daaf58ba86a5ca",
+        "title": "Recurrent Memory Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2206.04615",
+          "CorpusId": 263625818,
+          "DBLP": "journals/corr/abs-2206-04615"
+        },
+        "paperId": "bd1331b233e84bab7eba503abc60b31ac08e7881",
+        "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.08913",
+          "CorpusId": 247519194,
+          "DBLP": "journals/corr/abs-2203-08913",
+          "DOI": "10.48550/arXiv.2203.08913"
+        },
+        "paperId": "0e802c0739771acf70e60d59c2df51cd7e8c50c0",
+        "title": "Memorizing Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.emnlp-main.823",
+          "ArXiv": "2201.03533",
+          "CorpusId": 245836939,
+          "DBLP": "journals/corr/abs-2201-03533",
+          "DOI": "10.18653/v1/2022.emnlp-main.823"
+        },
+        "paperId": "6281c40c66febca1d8003bcc6fdfd2189b30c38f",
+        "title": "SCROLLS: Standardized CompaRison Over Long Language Sequences"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.09118",
+          "CorpusId": 249097975,
+          "DBLP": "journals/tmlr/IzacardCHRBJG22"
+        },
+        "paperId": "4f4a409f701f7552d45c46a5b0fea69dca6f8e84",
+        "title": "Unsupervised Dense Information Retrieval with Contrastive Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.04426",
+          "CorpusId": 244954723,
+          "DBLP": "journals/corr/abs-2112-04426"
+        },
+        "paperId": "002c256d30d6be4b23d365a8de8ae0e67e4c9641",
+        "title": "Improving language models by retrieving from trillions of tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.62",
+          "ArXiv": "2109.09115",
+          "CorpusId": 237572264,
+          "DBLP": "journals/corr/abs-2109-09115",
+          "DOI": "10.18653/v1/2021.emnlp-main.62"
+        },
+        "paperId": "f75d05e759447c2aedb7097728f29f9a520d9bc1",
+        "title": "Do Long-Range Language Models Actually Use Long-Range Context?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2108.12409",
+          "CorpusId": 237347130,
+          "DBLP": "journals/corr/abs-2108-12409"
+        },
+        "paperId": "9ca329408813d209b1dcb36936f7f9cba82506bd",
+        "title": "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.tacl-1.31",
+          "ArXiv": "2108.00573",
+          "CorpusId": 236771976,
+          "DBLP": "journals/tacl/TrivediBKS22",
+          "DOI": "10.1162/tacl_a_00475"
+        },
+        "paperId": "ec307b17f193b14292206b65a1bcc95bfd8f02ed",
+        "title": "♫ MuSiQue: Multihop Questions via Single-hop Question Composition"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2107.03374",
+          "CorpusId": 235755472,
+          "DBLP": "journals/corr/abs-2107-03374"
+        },
+        "paperId": "acbdbf49f9bc3f151b93d9ca9a06009f4f6eb269",
+        "title": "Evaluating Large Language Models Trained on Code"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.naacl-main.365",
+          "ArXiv": "2105.03011",
+          "CorpusId": 234093776,
+          "DBLP": "conf/naacl/DasigiLBCSG21",
+          "DOI": "10.18653/V1/2021.NAACL-MAIN.365",
+          "MAG": "3161820423"
+        },
+        "paperId": "4e3935ef7da6bcbb202ec7f8b285c313cadcd044",
+        "title": "A Dataset of Information-Seeking Questions and Answers Anchored in Research Papers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.naacl-main.112",
+          "ArXiv": "2104.02112",
+          "CorpusId": 233033613,
+          "DBLP": "journals/corr/abs-2104-02112",
+          "DOI": "10.18653/V1/2021.NAACL-MAIN.112",
+          "MAG": "3170490008"
+        },
+        "paperId": "9dc624d7258d1a56117ca720aea953ce46b66b21",
+        "title": "Efficient Attentions for Long Document Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.naacl-main.472",
+          "ArXiv": "2104.05938",
+          "CorpusId": 233219904,
+          "DBLP": "journals/corr/abs-2104-05938",
+          "DOI": "10.18653/V1/2021.NAACL-MAIN.472",
+          "MAG": "3171639395"
+        },
+        "paperId": "aa28873534c24e4a8c5deb7bff723cd5fc69a6f0",
+        "title": "QMSum: A New Benchmark for Query-based Multi-domain Meeting Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.26",
+          "ArXiv": "2103.10360",
+          "CorpusId": 247519241,
+          "DBLP": "conf/acl/DuQLDQY022",
+          "DOI": "10.18653/v1/2022.acl-long.26"
+        },
+        "paperId": "50796b0f3edf9cb5ff1e447c298b33755378aa4f",
+        "title": "GLM: General Language Model Pretraining with Autoregressive Blank Infilling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2101.03961",
+          "CorpusId": 231573431,
+          "DBLP": "journals/jmlr/FedusZS22"
+        },
+        "paperId": "fdacf2a732f55befdc410ea927091cad3b791f13",
+        "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2011.04006",
+          "CorpusId": 260440449,
+          "DBLP": "journals/corr/abs-2011-04006",
+          "MAG": "3103682594"
+        },
+        "paperId": "7e9ff94476f41041c75e253e84f487db00e9c861",
+        "title": "Long Range Arena: A Benchmark for Efficient Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.coling-main.580",
+          "ArXiv": "2011.01060",
+          "CorpusId": 226236740,
+          "DBLP": "journals/corr/abs-2011-01060",
+          "DOI": "10.18653/V1/2020.COLING-MAIN.580",
+          "MAG": "3101823922"
+        },
+        "paperId": "9001eb3c3d5a96ad3d804410c2437e6f60feade9",
+        "title": "Constructing A Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2009.06732",
+          "CorpusId": 221702858,
+          "DBLP": "journals/csur/TayDBM23",
+          "DOI": "10.1145/3530811",
+          "MAG": "3085139254"
+        },
+        "paperId": "7e5709d81558d3ef4265de29ea75931afeb1f2dd",
+        "title": "Efficient Transformers: A Survey"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2009.03300",
+          "CorpusId": 221516475,
+          "DBLP": "journals/corr/abs-2009-03300",
+          "MAG": "3083410900"
+        },
+        "paperId": "814a4f680b9ba6baba23b93499f4b48af1a27678",
+        "title": "Measuring Massive Multitask Language Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2007.14062",
+          "CorpusId": 220831004,
+          "DBLP": "journals/corr/abs-2007-14062",
+          "MAG": "3045733172"
+        },
+        "paperId": "044e13d7dd4e0655eb76f0bd00b2c1bdb44e2be3",
+        "title": "Big Bird: Transformers for Longer Sequences"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.04768",
+          "CorpusId": 219530577,
+          "DBLP": "journals/corr/abs-2006-04768",
+          "MAG": "3033529678"
+        },
+        "paperId": "c0b79e6a5fd88ef13aa4780df5aae0aaa6b2be87",
+        "title": "Linformer: Self-Attention with Linear Complexity"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.08025",
+          "CorpusId": 218673683,
+          "DBLP": "conf/sigsoft/SvyatkovskiyDFS20",
+          "DOI": "10.1145/3368089.3417058",
+          "MAG": "3108032709"
+        },
+        "paperId": "a4c6cb385a90441061218f50abe2871d5e384a2e",
+        "title": "IntelliCode compose: code generation using transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2004.05150",
+          "CorpusId": 215737171,
+          "DBLP": "journals/corr/abs-2004-05150",
+          "MAG": "3015468748"
+        },
+        "paperId": "925ad2897d1b5decbea320d07e99afa9110e09b2",
+        "title": "Longformer: The Long-Document Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.tacl-1.4",
+          "ArXiv": "2003.05997",
+          "CorpusId": 212718077,
+          "DBLP": "journals/tacl/RoySVG21",
+          "DOI": "10.1162/tacl_a_00353",
+          "MAG": "2997517014"
+        },
+        "paperId": "657329c633709dd1ac34a30d57341b186b1a47c2",
+        "title": "Efficient Content-Based Sparse Attention with Routing Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2001.04451",
+          "CorpusId": 209315300,
+          "DBLP": "journals/corr/abs-2001-04451",
+          "MAG": "2994673210"
+        },
+        "paperId": "055fd6a9f7293269f1b22c1470e63bd02d8d9500",
+        "title": "Reformer: The Efficient Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D19-5409",
+          "ArXiv": "1911.12237",
+          "CorpusId": 208010268,
+          "DBLP": "journals/corr/abs-1911-12237",
+          "DOI": "10.18653/v1/D19-5409",
+          "MAG": "2989743967"
+        },
+        "paperId": "f9700e31a1d0ae34d4571ab056dfb268c1543349",
+        "title": "SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.05507",
+          "CorpusId": 207930593,
+          "DBLP": "conf/iclr/RaePJHL20",
+          "MAG": "2995575179"
+        },
+        "paperId": "f51497f463566581874c941353dd9d80069c5b77",
+        "title": "Compressive Transformers for Long-Range Sequence Modelling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.00172",
+          "CorpusId": 207870430,
+          "DBLP": "journals/corr/abs-1911-00172",
+          "MAG": "2988841832"
+        },
+        "paperId": "7be8c119dbe065c52125ee7716601751f3116844",
+        "title": "Generalization through Memorization: Nearest Neighbor Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1910.10683",
+          "CorpusId": 204838007,
+          "DBLP": "journals/corr/abs-1910-10683",
+          "MAG": "2981852735"
+        },
+        "paperId": "6c4b76232bb72897685d19b3d264c6ee3005bc2b",
+        "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P19-1102",
+          "ArXiv": "1906.01749",
+          "CorpusId": 174799390,
+          "DBLP": "conf/acl/FabbriLSLR19",
+          "DOI": "10.18653/v1/P19-1102",
+          "MAG": "2950641664"
+        },
+        "paperId": "cc27ec53160d88c25fc5096c0df65536eb780de4",
+        "title": "Multi-News: A Large-Scale Multi-Document Summarization Dataset and Abstractive Hierarchical Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1904.10509",
+          "CorpusId": 129945531,
+          "DBLP": "journals/corr/abs-1904-10509",
+          "MAG": "2940744433"
+        },
+        "paperId": "21da617a0f79aabf94272107184606cefe90ab75",
+        "title": "Generating Long Sequences with Sparse Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P19-1285",
+          "ArXiv": "1901.02860",
+          "CorpusId": 57759363,
+          "DBLP": "conf/acl/DaiYYCLS19",
+          "DOI": "10.18653/v1/P19-1285",
+          "MAG": "2964110616"
+        },
+        "paperId": "c4744a7c2bb298e4a52289a1e085c71cc3d37bc6",
+        "title": "Transformer-XL: Attentive Language Models beyond a Fixed-Length Context"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "Q18-1023",
+          "ArXiv": "1712.07040",
+          "CorpusId": 2593903,
+          "DBLP": "journals/corr/abs-1712-07040",
+          "DOI": "10.1162/tacl_a_00023",
+          "MAG": "2779681640"
+        },
+        "paperId": "d91043f0d48b9b2c8ff7ee321abb8fd7efafff7a",
+        "title": "The NarrativeQA Reading Comprehension Challenge"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "W18-2605",
+          "ArXiv": "1711.05073",
+          "CorpusId": 3662564,
+          "DBLP": "journals/corr/abs-1711-05073",
+          "DOI": "10.18653/v1/W18-2605",
+          "MAG": "2952341389"
+        },
+        "paperId": "995b7affd684b910d5a1c520c3af00fd20cc39b0",
+        "title": "DuReader: a Chinese Machine Reading Comprehension Dataset from Real-world Applications"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P17-1147",
+          "ArXiv": "1705.03551",
+          "CorpusId": 26501419,
+          "DBLP": "journals/corr/JoshiCWZ17",
+          "DOI": "10.18653/v1/P17-1147",
+          "MAG": "2612431505"
+        },
+        "paperId": "f010affab57b5fcf1cd6be23df79d8ec98c7289c",
+        "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "W04-1013",
+          "CorpusId": 964287,
+          "MAG": "2154652894"
+        },
+        "paperId": "60b05f32c32519a809f21642ef1eb3eaf3848008",
+        "title": "ROUGE: A Package for Automatic Evaluation of Summaries"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "C02-1150",
+          "CorpusId": 11039301,
+          "DBLP": "conf/coling/LiR02",
+          "DOI": "10.3115/1072228.1072378",
+          "MAG": "2070246124"
+        },
+        "paperId": "2c8ac3e1f0edeed1fbd76813e61efdc384c319c7",
+        "title": "Learning Question Classifiers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "How long can open-source llms truly promise on context length"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 268241203,
+          "DBLP": "journals/corr/abs-2304-13343",
+          "DOI": "10.48550/arXiv.2304.13343"
+        },
+        "paperId": "7806aed0e00bcc8d3d84b15f5dab318b5400b7f0",
+        "title": "Unleashing Infinite-Length Input Capacity for Large-scale Language Models with Self-Controlled Memory System"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Long sequence modeling with xgen: A 7b llm trained on 8k input sequence length"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Internlm: A multilingual language model with progressively enhanced capabilities"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "New and improved embedding model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Task definition for large scale text categorization at nlpcc"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "LongChat-v1.5-7B-32k"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2023c. Agent-bench: Evaluating llms as agents"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "2024. Kola: Carefully benchmarking world knowledge of large language models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "OpenAI. 2022a. Introducing"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

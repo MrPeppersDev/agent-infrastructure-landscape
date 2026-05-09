@@ -1,0 +1,772 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "1993655237",
+        "name": "Tianjun Zhang"
+      },
+      {
+        "authorId": "2257979820",
+        "name": "Shishir G. Patil"
+      },
+      {
+        "authorId": "1646458461",
+        "name": "Naman Jain"
+      },
+      {
+        "authorId": "2191455",
+        "name": "Sheng Shen"
+      },
+      {
+        "authorId": "143834867",
+        "name": "M. Zaharia"
+      },
+      {
+        "authorId": "2055174324",
+        "name": "Ion Stoica"
+      },
+      {
+        "authorId": "2254681613",
+        "name": "Joseph E. Gonzalez"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2403.10131, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "RAFT: Adapting Language Model to Domain Specific RAG"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2311.11829",
+          "CorpusId": 265295357,
+          "DBLP": "journals/corr/abs-2311-11829",
+          "DOI": "10.48550/arXiv.2311.11829"
+        },
+        "paperId": "850538c1759c56a9f2dab8e84ec63801c41d6396",
+        "title": "System 2 Attention (is something you might need too)"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.16789",
+          "CorpusId": 264451585,
+          "DBLP": "conf/iclr/ShiAXHLB0Z24",
+          "DOI": "10.48550/arXiv.2310.16789"
+        },
+        "paperId": "3422d5e0cdfdc935d6a84a1e3d3f96659265fe3a",
+        "title": "Detecting Pretraining Data from Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.11511",
+          "CorpusId": 264288947,
+          "DBLP": "conf/iclr/AsaiWWSH24"
+        },
+        "paperId": "ddbd8fe782ac98e9c64dd98710687a962195dd9b",
+        "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.10638",
+          "CorpusId": 264172290,
+          "DBLP": "journals/corr/abs-2310-10638",
+          "DOI": "10.48550/arXiv.2310.10638"
+        },
+        "paperId": "d395c771f6537259610497ba218cce5b9bfc2c50",
+        "title": "In-Context Pretraining: Language Modeling Beyond Document Boundaries"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.07713",
+          "CorpusId": 263835270,
+          "DBLP": "conf/icml/WangPM00SC24",
+          "DOI": "10.48550/arXiv.2310.07713"
+        },
+        "paperId": "675c87c9fed17b6dc1d9734606e12c9d0c46c573",
+        "title": "InstructRetro: Instruction Tuning post Retrieval-Augmented Pretraining"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.03214",
+          "CorpusId": 263672149,
+          "DBLP": "journals/corr/abs-2310-03214",
+          "DOI": "10.48550/arXiv.2310.03214"
+        },
+        "paperId": "be177300487b6d0f25e6cade9a31900454b13281",
+        "title": "FreshLLMs: Refreshing Large Language Models with Search Engine Augmentation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.03025",
+          "CorpusId": 263620134,
+          "DBLP": "conf/iclr/0008PWM0LSBSC24",
+          "DOI": "10.48550/arXiv.2310.03025"
+        },
+        "paperId": "2b35b946a8ad64e018c24b283bc1c6c65d36fb67",
+        "title": "Retrieval meets Long Context Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.01352",
+          "CorpusId": 263605962,
+          "DBLP": "conf/iclr/Lin0CSL00KSLZY24",
+          "DOI": "10.48550/arXiv.2310.01352"
+        },
+        "paperId": "368fb35a07076eba01c2e4700499323cd4524513",
+        "title": "RA-DIT: Retrieval-Augmented Dual Instruction Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.naacl-long.260",
+          "ArXiv": "2309.16039",
+          "CorpusId": 263134982,
+          "DBLP": "journals/corr/abs-2309-16039",
+          "DOI": "10.48550/arXiv.2309.16039"
+        },
+        "paperId": "5e0cb1c4b91a7486e1c2b15a44a0be56bd74bdc0",
+        "title": "Effective Long-Context Scaling of Foundation Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.09288",
+          "CorpusId": 259950998,
+          "DBLP": "journals/corr/abs-2307-09288"
+        },
+        "paperId": "104b0bb1da562d53cbda87aec79ef6a2827d191a",
+        "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.tacl-1.9",
+          "ArXiv": "2307.03172",
+          "CorpusId": 259360665,
+          "DBLP": "journals/tacl/LiuLHPBPL24",
+          "DOI": "10.1162/tacl_a_00638"
+        },
+        "paperId": "1733eb7792f7a43dd21f51f4d1017a1bffd217b5",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.18290",
+          "CorpusId": 258959321,
+          "DBLP": "journals/corr/abs-2305-18290",
+          "DOI": "10.52202/075280-2338"
+        },
+        "paperId": "0d1c76d45afa012ded7ab741194baf142117c495",
+        "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.15334",
+          "CorpusId": 258865184,
+          "DBLP": "journals/corr/abs-2305-15334",
+          "DOI": "10.52202/079017-4020"
+        },
+        "paperId": "7d8905a1fd288068f12c8347caeabefd36d0dd6c",
+        "title": "Gorilla: Large Language Model Connected with Massive APIs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.10403",
+          "CorpusId": 258740735,
+          "DBLP": "journals/corr/abs-2305-10403"
+        },
+        "paperId": "b6d6c33298b852cf63edac233deca70530d69a2a",
+        "title": "PaLM 2 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.05206",
+          "CorpusId": 256808689,
+          "DBLP": "journals/corr/abs-2302-05206",
+          "DOI": "10.48550/arXiv.2302.05206"
+        },
+        "paperId": "d2170504c4ad9403bea118ae8debdfda95978546",
+        "title": "The Wisdom of Hindsight Makes Language Models Better Instruction Followers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.02676",
+          "CorpusId": 257038005,
+          "DBLP": "journals/corr/abs-2302-02676",
+          "DOI": "10.48550/arXiv.2302.02676"
+        },
+        "paperId": "cb3125e4f63f3d058a2a39270ecb585e86c3d1ff",
+        "title": "Chain of Hindsight Aligns Language Models with Feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.00093",
+          "CorpusId": 256459776,
+          "DBLP": "journals/corr/abs-2302-00093",
+          "DOI": "10.48550/arXiv.2302.00093"
+        },
+        "paperId": "3d68522abfadfc8ee6b7ec9edaaf91f1b2f38e5e",
+        "title": "Large Language Models Can Be Easily Distracted by Irrelevant Context"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2302.00083",
+          "CorpusId": 256459451,
+          "DBLP": "journals/corr/abs-2302-00083",
+          "DOI": "10.1162/tacl_a_00605"
+        },
+        "paperId": "465471bb5bf1a945549d6291c2d23367966b4957",
+        "title": "In-Context Retrieval-Augmented Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.naacl-long.463",
+          "ArXiv": "2301.12652",
+          "CorpusId": 256389797,
+          "DBLP": "conf/naacl/ShiMYS0LZY24",
+          "DOI": "10.48550/arXiv.2301.12652"
+        },
+        "paperId": "07b14c24833400b79978b0a5f084803337e30a15",
+        "title": "REPLUG: Retrieval-Augmented Black-Box Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.754",
+          "ArXiv": "2212.10560",
+          "CorpusId": 254877310,
+          "DBLP": "journals/corr/abs-2212-10560",
+          "DOI": "10.48550/arXiv.2212.10560"
+        },
+        "paperId": "e65b346d442e9962a4276dc1c1af2956d9d5f1eb",
+        "title": "Self-Instruct: Aligning Language Models with Self-Generated Instructions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.05100",
+          "CorpusId": 253420279,
+          "DBLP": "journals/corr/abs-2211-05100"
+        },
+        "paperId": "964bd39b546f0f6625ff3b9ef1083f797807ef2e",
+        "title": "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2210.11416",
+          "CorpusId": 253018554,
+          "DBLP": "journals/corr/abs-2210-11416",
+          "DOI": "10.48550/arXiv.2210.11416"
+        },
+        "paperId": "cdbd4f9b6ab2e2fd1ddf5400d5ed2c18960635d1",
+        "title": "Scaling Instruction-Finetuned Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2208.03299",
+          "CorpusId": 251371732,
+          "DBLP": "journals/jmlr/IzacardLLHPSDJRG23"
+        },
+        "paperId": "916be31cbf847faa65cad0549e153f0c25b9f424",
+        "title": "Few-shot Learning with Retrieval Augmented Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2205.10343",
+          "CorpusId": 248965387,
+          "DBLP": "conf/nips/LiuKNMTW22",
+          "DOI": "10.48550/arXiv.2205.10343"
+        },
+        "paperId": "20de79ec4fe682b68930eb4dcd91b1801b8d4731",
+        "title": "Towards Understanding Grokking: An Effective Theory of Representation Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.05115",
+          "CorpusId": 247362809,
+          "DBLP": "journals/corr/abs-2203-05115",
+          "DOI": "10.48550/arXiv.2203.05115"
+        },
+        "paperId": "c70eb74e09c41e8fcc71dd59e3b4d631f657f7cd",
+        "title": "Internet-augmented language models through few-shot prompting for open-domain question answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2203.02155",
+          "CorpusId": 246426909,
+          "DBLP": "journals/corr/abs-2203-02155",
+          "DOI": "10.52202/068431-2011"
+        },
+        "paperId": "d766bffc357127e0dc86dd69561d5aeb520d6f4c",
+        "title": "Training language models to follow instructions with human feedback"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2202.07646",
+          "CorpusId": 246863735,
+          "DBLP": "journals/corr/abs-2202-07646"
+        },
+        "paperId": "28c7e583d90ccfc5c3078dfc1d6b80a9ad90248d",
+        "title": "Quantifying Memorization Across Neural Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2202.06539",
+          "CorpusId": 246823128,
+          "DBLP": "journals/corr/abs-2202-06539"
+        },
+        "paperId": "55c36748f2a7c060c3313349c730b053ed03fbf7",
+        "title": "Deduplicating Training Data Mitigates Privacy Risks in Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.11903",
+          "CorpusId": 246411621,
+          "DBLP": "conf/nips/Wei0SBIXCLZ22",
+          "DOI": "10.52202/068431-1800"
+        },
+        "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+        "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2201.02177",
+          "CorpusId": 245769834,
+          "DBLP": "journals/corr/abs-2201-02177"
+        },
+        "paperId": "a1d1983a7b19845141e6505bd32dc395e5a136ba",
+        "title": "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2112.04426",
+          "CorpusId": 244954723,
+          "DBLP": "journals/corr/abs-2112-04426"
+        },
+        "paperId": "002c256d30d6be4b23d365a8de8ae0e67e4c9641",
+        "title": "Improving language models by retrieving from trillions of tokens"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2110.08207",
+          "CorpusId": 239009562,
+          "DBLP": "journals/corr/abs-2110-08207"
+        },
+        "paperId": "17dd3555fd1ccf1141cf984347fa1b3fd6b009ca",
+        "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.244",
+          "ArXiv": "2104.08773",
+          "CorpusId": 237421373,
+          "DBLP": "conf/acl/MishraKBH22",
+          "DOI": "10.18653/v1/2022.acl-long.244"
+        },
+        "paperId": "cbdb45fc16b0885905b91d84281c310e6cb49e9c",
+        "title": "Cross-Task Generalization via Natural Language Crowdsourcing Instructions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.243",
+          "ArXiv": "2104.08691",
+          "CorpusId": 233296808,
+          "DBLP": "journals/corr/abs-2104-08691",
+          "DOI": "10.18653/v1/2021.emnlp-main.243"
+        },
+        "paperId": "ffdbd7f0b03b85747b001b4734d5ee31b5229aa4",
+        "title": "The Power of Scale for Parameter-Efficient Prompt Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-long.521",
+          "ArXiv": "2105.00828",
+          "CorpusId": 247450508,
+          "DBLP": "conf/acl/TanzerRR22",
+          "DOI": "10.18653/v1/2022.acl-long.521"
+        },
+        "paperId": "eec41f0659b11d39fd606ac6cb8721c512a2ea6f",
+        "title": "Memorisation versus Generalisation in Pre-trained Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2012.07805",
+          "CorpusId": 229156229,
+          "DBLP": "journals/corr/abs-2012-07805",
+          "MAG": "3112689365"
+        },
+        "paperId": "df7d26339adf4eb0c07160947b9d2973c24911ba",
+        "title": "Extracting Training Data from Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.11401",
+          "CorpusId": 218869575,
+          "DBLP": "conf/nips/LewisPPPKGKLYR020",
+          "MAG": "3027879771"
+        },
+        "paperId": "659bf9ce7175e1ec266ff54359e2bd76e0b7ff31",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 220938739,
+          "DBLP": "conf/sp/PanZJY20",
+          "DOI": "10.1109/SP40000.2020.00095",
+          "MAG": "3046764764"
+        },
+        "paperId": "b3c73de96640ee858f83c3f0eda2a3d15d59b847",
+        "title": "Privacy Risks of General-Purpose Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2002.08909",
+          "CorpusId": 211204736,
+          "DBLP": "conf/icml/GuuLTPC20",
+          "MAG": "3034671305"
+        },
+        "paperId": "832fff14d2ed50eb7969c4c4b976c35776548f56",
+        "title": "REALM: Retrieval-Augmented Language Model Pre-Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.00172",
+          "CorpusId": 207870430,
+          "DBLP": "journals/corr/abs-1911-00172",
+          "MAG": "2988841832"
+        },
+        "paperId": "7be8c119dbe065c52125ee7716601751f3116844",
+        "title": "Generalization through Memorization: Nearest Neighbor Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D19-1259",
+          "ArXiv": "1909.06146",
+          "CorpusId": 202572622,
+          "DBLP": "conf/emnlp/JinDLCL19",
+          "DOI": "10.18653/v1/D19-1259",
+          "MAG": "2972522091"
+        },
+        "paperId": "0c3c4c88c7b07596221ac640c7b7102686e3eae3",
+        "title": "PubMedQA: A Dataset for Biomedical Research Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "Q19-1026",
+          "CorpusId": 86611921,
+          "DBLP": "journals/tacl/KwiatkowskiPRCP19",
+          "DOI": "10.1162/tacl_a_00276",
+          "MAG": "2912924812"
+        },
+        "paperId": "17dbd7b72029181327732e4d11b52a08ed4630d0",
+        "title": "Natural Questions: A Benchmark for Question Answering Research"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1906.05271",
+          "CorpusId": 186206616,
+          "DBLP": "conf/stoc/Feldman20",
+          "DOI": "10.1145/3357713.3384290",
+          "MAG": "3035261884"
+        },
+        "paperId": "0ada4f23141e774dcac63cb8569730ddacda75c4",
+        "title": "Does learning require memorization? a short tale about a long tail"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1902.00751",
+          "CorpusId": 59599816,
+          "DBLP": "journals/corr/abs-1902-00751",
+          "MAG": "2950266224"
+        },
+        "paperId": "29ddc1f43f28af7c846515e32cc167bc66886d0c",
+        "title": "Parameter-Efficient Transfer Learning for NLP"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D18-1259",
+          "ArXiv": "1809.09600",
+          "CorpusId": 52822214,
+          "DBLP": "journals/corr/abs-1809-09600",
+          "DOI": "10.18653/v1/D18-1259",
+          "MAG": "2952862139"
+        },
+        "paperId": "22655979df781d222eaf812b0d325fa9adf11594",
+        "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1802.08232",
+          "CorpusId": 170076423,
+          "DBLP": "conf/uss/Carlini0EKS19",
+          "MAG": "2946930197"
+        },
+        "paperId": "520ec00dc35475e0554dbb72f27bd2eeb6f4191d",
+        "title": "The Secret Sharer: Evaluating and Testing Unintended Memorization in Neural Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "I17-2052",
+          "ArXiv": "1710.06071",
+          "CorpusId": 151184,
+          "DBLP": "journals/corr/abs-1710-06071",
+          "MAG": "2951435027"
+        },
+        "paperId": "937e55826b0fe64e42a43121681e5e4a62ddcc40",
+        "title": "PubMed 200k RCT: a Dataset for Sequential Sentence Classification in Medical Abstracts"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P17-1147",
+          "ArXiv": "1705.03551",
+          "CorpusId": 26501419,
+          "DBLP": "journals/corr/JoshiCWZ17",
+          "DOI": "10.18653/v1/P17-1147",
+          "MAG": "2612431505"
+        },
+        "paperId": "f010affab57b5fcf1cd6be23df79d8ec98c7289c",
+        "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 271325470,
+          "DBLP": "journals/corr/abs-2401-10225"
+        },
+        "paperId": "221a0e0c798d4bbc8a057d869b7251e03f1b0790",
+        "title": "ChatQA: Building GPT-4 Level Conversational QA Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2023.acl-long.891",
+          "CorpusId": 253264914,
+          "DBLP": "conf/acl/MuennighoffWSRB23",
+          "DOI": "10.18653/v1/2023.acl-long.891"
+        },
+        "paperId": "4972b88f8f324a4fa18e921f62a9857af2b5fc7b",
+        "title": "Crosslingual Generalization through Multitask Finetuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-short.8",
+          "CorpusId": 248780177,
+          "DBLP": "conf/acl/LiuJFTDY022",
+          "DOI": "10.18653/v1/2022.acl-short.8"
+        },
+        "paperId": "ec936b808e0fab9281c050ad4010cddec92c8cbe",
+        "title": "P-Tuning: Prompt Tuning Can Be Comparable to Fine-tuning Across Scales and Tasks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.353",
+          "ArXiv": "2101.00190",
+          "CorpusId": 230433941,
+          "DBLP": "conf/acl/LiL20",
+          "DOI": "10.18653/v1/2021.acl-long.353"
+        },
+        "paperId": "53d8b356551a2361020a948f64454a6d599af69f",
+        "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 238531921
+        },
+        "paperId": "d4b95b37bcec7f5b09f02c60e5e12bb13aa86866",
+        "title": "Preprint. Under review"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Prompt engineering for claude’s long context window"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "paper at COLM 2024"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Less is more for alignment"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}
