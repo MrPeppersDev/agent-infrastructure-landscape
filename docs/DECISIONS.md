@@ -194,6 +194,56 @@ expand sources by editing `scripts/build_edges.py`.
 
 ---
 
+## 2026-05-07: Slug algorithm — `<name-slug>--<source-suffix>`
+
+**What.** The `id` for each record is the lowercase name-slug, joined
+to a source-suffix by a double-dash (`--`). Suffix priority:
+arxiv-id → github owner/repo → registrable domain → none. Full
+algorithm in `docs/SCHEMA.md#21-slug-algorithm`.
+
+**Why.** Two pressures: (1) the slug must distinguish ATLAS-the-memory-paper
+from Atlas-the-Meta-AI-retriever (same `<name-slug>`, different arXiv IDs),
+and (2) it must be human-readable in URLs and grep output (so
+`atlas--arxiv-2505-23735` beats a hash like `7f3a2c1`).
+
+The double-dash is the visual separator: a single `-` would conflict
+with the in-name word separator (e.g. "AriGraph" → `ari-graph`). `--`
+is unambiguous.
+
+**Options rejected.**
+- *UUID per record.* Stable but unreadable; defeats grep / URL ergonomics.
+- *Just the arXiv ID where present.* Doesn't help products; mixed-shape
+  ids are uglier than uniformly-shaped ones.
+- *Single-dash separator.* Clashes with name words. Tried it on paper
+  and `atlas-arxiv-2505-23735` reads as "atlas-arxiv 2505 23735" which
+  is wrong.
+
+**Reversal cost.** High. Re-keying every edge in `landscape.edges.json`
+is mechanical but a hassle.
+
+---
+
+## 2026-05-07: Top-level shape is `{schemaVersion, generatedAt, records}`, not a bare array
+
+**What.** `landscape.json` is a JSON object with metadata fields and a
+`records: [...]` array, rather than an anonymous top-level array.
+Same for `landscape.edges.json` with `edges: [...]`.
+
+**Why.** Need a place to stash `schemaVersion` for forward-compat,
+plus `generatedAt` and `sourceHtml` for traceability. A bare array
+would force adding a sidecar file or moving to an object later anyway.
+
+**Options rejected.**
+- *Bare array.* Cheaper today, costlier the first time we break the
+  schema and consumers can't tell which version they're reading.
+- *NDJSON / JSONL.* Streams better but loses JSON Schema validation
+  ergonomics; consumers are SvelteKit static loaders that prefer
+  whole-file JSON.
+
+**Reversal cost.** Low. Wrap or unwrap with one-line script.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add
