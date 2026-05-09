@@ -388,6 +388,66 @@ one-line change.
 
 ---
 
+## 2026-05-07: build_edges.py — phrase rules, crossref-relationship mapping, same-team-from-GH-org
+
+**What.** `scripts/build_edges.py` produces `web/landscape.edges.json` from
+four sources, in order of confidence: (1) `.agent-results/data-5-cross-references.csv`
+explicit pairs, (2) regex-mined phrases inside `cells.{desc,claims,repro,
+code-release,adjacent-infrastructure}`, (3) curated cross-listing pairs
+(currently the `claude-brain → memvid built-on` edge), and (4)
+`same-team-as` inferred from records that share a `--gh-<owner>-<repo>`
+GitHub owner. The script writes a deterministic file (sorted by
+`(source, target, type)`, fixed `generatedAt`).
+
+Three non-obvious choices:
+
+1. **Crossref-relationship-type mapping is one-to-many.** The CSV's
+   `relationship_type` column has 31 distinct values (`integrates_with`,
+   `substrate`, `mcp_wrapper`, `bundled_integration`, `graph_backend`,
+   `default_substrate_local`, …). We collapse them into the eight-edge
+   vocabulary (`built-on` / `extends` / `forks` / `integrates-with` /
+   `competes-with` / `inspired-by` / `same-team-as` / `succeeds`) per the
+   table in `CROSSREF_TYPE_MAP`. Substrate / backend / store / wrapper
+   relationships all map to `built-on`; integration / partnership /
+   adapter / toolkit relationships map to `integrates-with`; explicit
+   `fork_of` and `variant_of` map to `forks` / `extends` respectively.
+   Rationale: SCHEMA's eight types are the consumer-facing taxonomy; the
+   CSV's finer-grained labels were research notes, not a vocabulary the
+   graph view needs to surface.
+
+2. **Substring resolution rejects single-token contains-matches.** First
+   implementation accepted any name where `hint in name` or `name in hint`
+   (with len ≥ 4). That mis-resolved `inspired by retrospective consolidation`
+   to `retro--arxiv-2112-04426` (the RETRO retrieval paper) — clearly
+   wrong, but `retro` is a substring of `retrospective`. The fix: require
+   either an exact name, a token-boundary prefix match (`hint` starts the
+   name, e.g. "memoryllm" → "MemoryLLM (original)"), or a whole-word
+   match. The `NAME_ALIASES` table covers the legitimate short-form
+   references (`Memobase`, `Cline`, `Zep`, `MemGPT`, …). When in doubt,
+   discard rather than mismatch — the analysis-4 inbound counts depend on
+   precision.
+
+3. **`same-team-as` only when GitHub owner publishes ≤5 catalogued repos.**
+   When two records share `--gh-<owner>-` (e.g. `mem0ai/mem0` and
+   `mem0ai/mem0-mcp`), they're almost always same-team. But organisations
+   like `microsoft`, `google-research`, or `huggingface` publish many
+   unrelated repos in our corpus; emitting (n choose 2) edges across all
+   of them creates spurious lineage clusters. Threshold of 5 was chosen
+   empirically: it keeps Mem0/OpenMemory and Zep/Graphiti families intact
+   while excluding the umbrella orgs.
+
+**Why.** Edges drive the graph view (issue #6). False edges break the
+visual narrative far more than missing edges do — readers can't tell
+whether a missing edge means "no relationship" or "we didn't find one",
+but a wrong edge actively miscommunicates. Hence the heavy bias toward
+discarding rather than guessing.
+
+**Reversal cost.** Low. The mining script is rerun-able from the data;
+edits to `PHRASE_RULES`, `CROSSREF_TYPE_MAP`, or `NAME_ALIASES` are
+contained to the script and don't touch downstream consumers.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add

@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-05-07T00:00:00Z",
+  "edges": [
+    {
+      "source": "agentops--agentops-ai",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "When Mem0 is connected, gains Memory Operation Timeline, Search Analytics, Memory Growth tracking, Error Tracking per memory call.",
+      "citation": "https://www.agentops.ai/"
+    },
+    {
+      "source": "agno-phidata-memory--docs-phidata-com",
+      "target": "lancedb--lancedb-com",
+      "type": "integrates-with",
+      "evidence": "Single-line integrations with LanceDB, Pinecone, Weaviate, Qdrant.",
+      "citation": "https://docs.phidata.com/agents/memory"
+    },
+    {
+      "source": "agno-phidata-memory--docs-phidata-com",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "built-on",
+      "evidence": "Postgres + pgvector default — operational simplicity for shops that already run Postgres.",
+      "citation": "https://docs.phidata.com/agents/memory"
+    },
+    {
+      "source": "agno-phidata-memory--docs-phidata-com",
+      "target": "pinecone--pinecone-io",
+      "type": "integrates-with",
+      "evidence": "Single-line integrations with LanceDB, Pinecone, Weaviate, Qdrant.",
+      "citation": "https://docs.phidata.com/agents/memory"
+    },
+    {
+      "source": "agno-phidata-memory--docs-phidata-com",
+      "target": "qdrant--qdrant-tech",
+      "type": "integrates-with",
+      "evidence": "Single-line integrations with LanceDB, Pinecone, Weaviate, Qdrant.",
+      "citation": "https://docs.phidata.com/agents/memory"
+    },
+    {
+      "source": "agno-phidata-memory--docs-phidata-com",
+      "target": "weaviate--weaviate-io",
+      "type": "integrates-with",
+      "evidence": "Single-line integrations with LanceDB, Pinecone, Weaviate, Qdrant.",
+      "citation": "https://docs.phidata.com/agents/memory"
+    },
+    {
+      "source": "amazon-neptune-analytics--aws-amazon-com",
+      "target": "cognee--cognee-ai",
+      "type": "integrates-with",
+      "evidence": "Cognee integration for agentic RAG",
+      "citation": "https://aws.amazon.com/neptune/"
+    },
+    {
+      "source": "amazon-neptune-analytics--aws-amazon-com",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Vector index on graph nodes queryable via openCypher. Mem0 integration GA 2025",
+      "citation": "https://aws.amazon.com/neptune/"
+    },
+    {
+      "source": "apache-age--age-apache-org",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "integrates-with",
+      "evidence": "openCypher over Postgres. Pairs with pgvector for graph + vector hybrid retrieval.",
+      "citation": "https://age.apache.org"
+    },
+    {
+      "source": "autogen-memory--microsoft-github-io",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "ListMemory chronological context + teachable agents that vectorise corrections. Integrates with Mem0/Zep rather than building deep memory natively.",
+      "citation": "https://microsoft.github.io/autogen/"
+    },
+    {
+      "source": "autogen-memory--microsoft-github-io",
+      "target": "zep-graphiti--getzep-com",
+      "type": "integrates-with",
+      "evidence": "Integrates with Mem0/Zep rather than building deep memory natively.",
+      "citation": "https://microsoft.github.io/autogen/"
+    },
+    {
+      "source": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+      "target": "langgraph-persistence--docs-langchain-com",
+      "type": "integrates-with",
+      "evidence": "Native integrations with LangChain/LangGraph and Strands.",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-integrate-lang.html"
+    },
+    {
+      "source": "claude-brain--gh-memvid-claude-brain",
+      "target": "memvid--gh-memvid-memvid",
+      "type": "built-on",
+      "evidence": "claude-brain packages memvid (same GitHub org memvid/) as a Claude Code plugin; cross-listings note flagged this pair.",
+      "citation": "https://github.com/memvid/claude-brain"
+    },
+    {
+      "source": "claude-brain--gh-memvid-claude-brain",
+      "target": "memvid--gh-memvid-memvid",
+      "type": "same-team-as",
+      "evidence": "Same GitHub organisation `memvid` publishes both repos.",
+      "citation": "https://github.com/memvid/claude-brain"
+    },
+    {
+      "source": "claude-supermemory--gh-supermemoryai-claude-supermemory",
+      "target": "supermemory--supermemory-ai",
+      "type": "built-on",
+      "evidence": "Claude Code plugin packaging Supermemory for per-project memory.",
+      "citation": "https://github.com/supermemoryai/claude-supermemory"
+    },
+    {
+      "source": "cognee-mcp--gh-topoteretes-cognee",
+      "target": "cognee--cognee-ai",
+      "type": "built-on",
+      "evidence": "Cognee MCP — Bundled in Cognee v0.3.5+",
+      "citation": "https://github.com/topoteretes/cognee"
+    },
+    {
+      "source": "continue-dev-memory-mcp--hub-continue-dev",
+      "target": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+      "type": "built-on",
+      "evidence": "Official Memory MCP (Mar 2025) backed by a knowledge graph. Memory is injected via MCP",
+      "citation": "https://hub.continue.dev/continuedev/memory-mcp"
+    },
+    {
+      "source": "crewai-memory--crewai-com",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Memory subsystem inside the CrewAI orchestration framework; integrates with Mem0 for the long-term tier.",
+      "citation": "https://www.crewai.com/"
+    },
+    {
+      "source": "dspy-history--dspy-ai",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Official Mem0+DSPy tutorial.",
+      "citation": "https://dspy.ai/api/primitives/History/"
+    },
+    {
+      "source": "falkordb--falkordb-com",
+      "target": "mem0--mem0-ai",
+      "type": "built-on",
+      "evidence": "G SDK. Graph-memory backend for Mem0; MCP server via Graphiti integration; context graphs for lo",
+      "citation": "https://www.falkordb.com/"
+    },
+    {
+      "source": "falkordb--falkordb-com",
+      "target": "zep-graphiti--getzep-com",
+      "type": "integrates-with",
+      "evidence": "MCP server via Graphiti integration",
+      "citation": "https://www.falkordb.com/"
+    },
+    {
+      "source": "graphiti-mcp-server-zep--getzep-com",
+      "target": "zep-graphiti--getzep-com",
+      "type": "built-on",
+      "evidence": "Graphiti is the open-source core; MCP exposure of Graphiti's bi-temporal KG",
+      "citation": "https://www.getzep.com/product/knowledge-graph-mcp"
+    },
+    {
+      "source": "haystack-memory-deepset--haystack-deepset-ai",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "18k+ stars; production via deepset Cloud; integrates Mem0 as a memory store alternative.",
+      "citation": "https://haystack.deepset.ai/"
+    },
+    {
+      "source": "hindsight-mcp--hindsight-vectorize-io",
+      "target": "hindsight-vectorize--hindsight-vectorize-io",
+      "type": "built-on",
+      "evidence": "MCP server for Hindsight memory layer; gives any MCP agent access to Vectorize-tuned retrieval.",
+      "citation": "https://hindsight.vectorize.io/developer/mcp-server"
+    },
+    {
+      "source": "langflow-memory--docs-langflow-org",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Bundled Mem0 + Redis integrations for external memory layers.",
+      "citation": "https://docs.langflow.org/memory"
+    },
+    {
+      "source": "langgraph-persistence--docs-langchain-com",
+      "target": "mongodb-atlas-vector-search--mongodb-com",
+      "type": "built-on",
+      "evidence": "Postgres / Mongo / Redis stores for production.",
+      "citation": "https://docs.langchain.com/oss/python/langgraph/persistence"
+    },
+    {
+      "source": "langmem-langchain--langchain-ai-github-io",
+      "target": "langgraph-persistence--docs-langchain-com",
+      "type": "integrates-with",
+      "evidence": "First-party LangChain integration so memory composes with retrievers, chains, and graphs without glue code.",
+      "citation": "https://langchain-ai.github.io/langmem/"
+    },
+    {
+      "source": "langsmith--langchain-com",
+      "target": "langgraph-persistence--docs-langchain-com",
+      "type": "integrates-with",
+      "evidence": "de-facto trace tool for that ecosystem",
+      "citation": "https://www.langchain.com/langsmith"
+    },
+    {
+      "source": "lazygraphrag--gh-microsoft-graphrag",
+      "target": "graphrag-microsoft--microsoft-com",
+      "type": "extends",
+      "evidence": "Being integrated into the main GraphRAG library.",
+      "citation": "https://github.com/microsoft/graphrag/discussions/1490"
+    },
+    {
+      "source": "m-memoryllm--arxiv-2502-00592",
+      "target": "memoryllm-original--arxiv-2402-04624",
+      "type": "extends",
+      "evidence": "Extends MemoryLLM with scalable long-term memory.",
+      "citation": "https://arxiv.org/abs/2502.00592"
+    },
+    {
+      "source": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+      "target": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+      "type": "forks",
+      "evidence": "KG-based local fork of @modelcontextprotocol/server-memory",
+      "citation": "https://github.com/shaneholloman/mcp-knowledge-graph"
+    },
+    {
+      "source": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+      "target": "autogen-memory--microsoft-github-io",
+      "type": "integrates-with",
+      "evidence": "Agent-pipeline focused (LangGraph, CrewAI, AutoGen)",
+      "citation": "https://github.com/doobidoo/mcp-memory-service"
+    },
+    {
+      "source": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+      "target": "crewai-memory--crewai-com",
+      "type": "integrates-with",
+      "evidence": "Agent-pipeline focused (LangGraph, CrewAI, AutoGen)",
+      "citation": "https://github.com/doobidoo/mcp-memory-service"
+    },
+    {
+      "source": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+      "target": "langgraph-persistence--docs-langchain-com",
+      "type": "integrates-with",
+      "evidence": "Agent-pipeline focused (LangGraph, CrewAI, AutoGen)",
+      "citation": "https://github.com/doobidoo/mcp-memory-service"
+    },
+    {
+      "source": "mem0--mem0-ai",
+      "target": "amazon-neptune-analytics--aws-amazon-com",
+      "type": "built-on",
+      "evidence": "AWS architecture: build persistent memory with Mem0 open source, Amazon ElastiCache for Valkey and Amazon Neptune Analytics",
+      "citation": "https://mem0.ai/"
+    },
+    {
+      "source": "mem0--mem0-ai",
+      "target": "amazon-neptune-analytics--aws-amazon-com",
+      "type": "integrates-with",
+      "evidence": "Neptune Analytics Mem0 integration GA 2025",
+      "citation": "https://mem0.ai/"
+    },
+    {
+      "source": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+      "target": "mem0--mem0-ai",
+      "type": "built-on",
+      "evidence": "Mem0's managed cloud API exposed as MCP tools.",
+      "citation": "https://github.com/mem0ai/mem0-mcp"
+    },
+    {
+      "source": "mem0-security-openmemory--mem0-ai",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "built-on",
+      "evidence": "OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant)",
+      "citation": "https://mem0.ai/security"
+    },
+    {
+      "source": "mem0-security-openmemory--mem0-ai",
+      "target": "qdrant--qdrant-tech",
+      "type": "built-on",
+      "evidence": "OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant)",
+      "citation": "https://mem0.ai/security"
+    },
+    {
+      "source": "mempalace--mempalace-net",
+      "target": "chroma--trychroma-com",
+      "type": "built-on",
+      "evidence": "Independent analysis suggests the score is driven by verbatim storage + ChromaDB defaults rather than the palace structure.",
+      "citation": "https://www.mempalace.net/"
+    },
+    {
+      "source": "mongodb-atlas-vector-search--mongodb-com",
+      "target": "langgraph-persistence--docs-langchain-com",
+      "type": "integrates-with",
+      "evidence": "LangGraph checkpointer for stateful agents.",
+      "citation": "https://www.mongodb.com/products/platform/atlas-vector-search"
+    },
+    {
+      "source": "n8n-ai-agent-memory--docs-n8n-io",
+      "target": "mongodb-atlas-vector-search--mongodb-com",
+      "type": "integrates-with",
+      "evidence": "vector store nodes (Qdrant, Pinecone, MongoDB Atlas) for semantic recall",
+      "citation": "https://docs.n8n.io/advanced-ai/examples/understand-memory/"
+    },
+    {
+      "source": "n8n-ai-agent-memory--docs-n8n-io",
+      "target": "pinecone--pinecone-io",
+      "type": "integrates-with",
+      "evidence": "vector store nodes (Qdrant, Pinecone, MongoDB Atlas) for semantic recall",
+      "citation": "https://docs.n8n.io/advanced-ai/examples/understand-memory/"
+    },
+    {
+      "source": "n8n-ai-agent-memory--docs-n8n-io",
+      "target": "qdrant--qdrant-tech",
+      "type": "integrates-with",
+      "evidence": "vector store nodes (Qdrant, Pinecone, MongoDB Atlas) for semantic recall",
+      "citation": "https://docs.n8n.io/advanced-ai/examples/understand-memory/"
+    },
+    {
+      "source": "nvidia-remembr--arxiv-2409-13682",
+      "target": "milvus--milvus-io",
+      "type": "built-on",
+      "evidence": "storing captions with timestamps + 3D position coordinates in MilvusDB",
+      "citation": "https://arxiv.org/abs/2409.13682"
+    },
+    {
+      "source": "openai-agents-sdk-memory--openai-github-io",
+      "target": "pinecone--pinecone-io",
+      "type": "built-on",
+      "evidence": "Long-term tier typically backed by external vector DBs (Pinecone, etc.).",
+      "citation": "https://openai.github.io/openai-agents-python/ref/memory/"
+    },
+    {
+      "source": "openmemory-mcp--mem0-ai",
+      "target": "mem0--mem0-ai",
+      "type": "built-on",
+      "evidence": "Local-first self-hosted Mem0 variant. Shared memory layer bridges Claude Desktop, Cursor, and Windsurf in one session.",
+      "citation": "https://mem0.ai/openmemory"
+    },
+    {
+      "source": "openmemory-mcp--mem0-ai",
+      "target": "qdrant--qdrant-tech",
+      "type": "built-on",
+      "evidence": "Local Postgres + Qdrant cross-tool memory",
+      "citation": "https://mem0.ai/openmemory"
+    },
+    {
+      "source": "pydantic-ai-hindsight--hindsight-vectorize-io",
+      "target": "hindsight-vectorize--hindsight-vectorize-io",
+      "type": "built-on",
+      "evidence": "Long-term memory typically added via third-party integration (e.g. Hindsight)",
+      "citation": "https://hindsight.vectorize.io/blog/2026/03/09/pydantic-ai-persistent-memory"
+    },
+    {
+      "source": "r2i--arxiv-2403-04253",
+      "target": "dreamerv3--arxiv-2301-04104",
+      "type": "built-on",
+      "evidence": "odel-based RL agent built on DreamerV3. Modifies S4 to handle long temporal dependencies. Keeps Dr",
+      "citation": "https://arxiv.org/abs/2403.04253"
+    },
+    {
+      "source": "ratine--gh-goweft-ratine",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Free / open source. Auto-detects Mem0 local, AutoGen, custom layouts.",
+      "citation": "https://github.com/goweft/ratine"
+    },
+    {
+      "source": "roo-code-roorules--docs-roocode-com",
+      "target": "cline-clinerules--cline-bot",
+      "type": "forks",
+      "evidence": "VS Code extension (fork of Cline).",
+      "citation": "https://docs.roocode.com/features/custom-instructions"
+    },
+    {
+      "source": "ruler--arxiv-2404-06654",
+      "target": "niah-needle-in-a-haystack--gh-gkamradt-llmtest-needleinahaystack",
+      "type": "extends",
+      "evidence": "NVIDIA. Extends NIAH with multi-needle retrieval, multi-hop entity tracing, aggr",
+      "citation": "https://arxiv.org/abs/2404.06654"
+    },
+    {
+      "source": "spring-ai-chatmemory--docs-spring-io",
+      "target": "neo4j--neo4j-com",
+      "type": "integrates-with",
+      "evidence": "pluggable ChatMemoryRepository backends (in-memory, JDBC, Cassandra, Neo4j)",
+      "citation": "https://docs.spring.io/spring-ai/reference/api/chat-memory.html"
+    },
+    {
+      "source": "strands-agents-memory-aws--docs-aws-amazon-com",
+      "target": "amazon-neptune-analytics--aws-amazon-com",
+      "type": "built-on",
+      "evidence": "Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics)",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
+    },
+    {
+      "source": "strands-agents-memory-aws--docs-aws-amazon-com",
+      "target": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+      "type": "integrates-with",
+      "evidence": "ource SDK from AWS; integrates with Amazon Bedrock AgentCore Memory (SEMANTIC, SUMMARIZATION, USER_PREFERENCE strategies); used",
+      "citation": "https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/"
+    },
+    {
+      "source": "strands-agents-memory-aws--docs-aws-amazon-com",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics) or Bedrock AgentCore Memory. AWS+Mem0 partnership.",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
+    },
+    {
+      "source": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+      "target": "chroma--trychroma-com",
+      "type": "integrates-with",
+      "evidence": "SQLite + FTS5 with optional Chroma vector",
+      "citation": "https://github.com/obra/episodic-memory"
+    }
+  ]
+}
