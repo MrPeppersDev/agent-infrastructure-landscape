@@ -1,0 +1,214 @@
+{
+  "sections": [
+    {
+      "section": "Dedicated memory layers",
+      "subsection": null,
+      "explainer": "Standalone services whose entire product is memory for AI agents. They sit between your agent code and durable storage — handling extraction, governance, contradiction resolution, and recall via API. The \"database vendor\" analogue for the memory tier: you bring an agent, they bring durability.",
+      "sub_style": null
+    },
+    {
+      "section": "Framework-embedded memory",
+      "subsection": null,
+      "explainer": "Memory subsystems shipped inside a broader agent orchestration framework. Memory isn't the product — the framework is — and the memory module is one component alongside tool-calling, planning, and routing. Composition over best-in-class: convenient when you've already chosen the framework, limiting when you outgrow what's built in.",
+      "sub_style": null
+    },
+    {
+      "section": "Platform-provider memory",
+      "subsection": null,
+      "explainer": "First-party memory features built into a foundation-model provider's chat product or cloud platform. The provider owns user, model, and memory together — tight integration with their product, but no portability across vendors and limited control for builders. The \"memory feature in ChatGPT / Claude / Gemini / Copilot\" tier.",
+      "sub_style": null
+    },
+    {
+      "section": "Coding-agent memory",
+      "subsection": null,
+      "explainer": "Memory features baked directly into AI coding products — Devin, Replit Agent, Codex CLI, v0, Bolt.new, Lovable. The memory is part of the agent UX rather than an SDK or framework you compose with. Distinct from file-backed paradigms because here the agent is autonomous; distinct from platform-provider memory because the product is the coding workflow itself.",
+      "sub_style": null
+    },
+    {
+      "section": "Browser-agent memory",
+      "subsection": null,
+      "explainer": "Browser-as-agent products where memory persists across browsing sessions and the agent operates on the user's browser context. Distinct from coding-agent memory because the environment is web pages and tabs; distinct from personal AI because the corpus is browsing history and tab content rather than notes.",
+      "sub_style": null
+    },
+    {
+      "section": "Personal AI / PKM / lifelogging memory",
+      "subsection": null,
+      "explainer": "Consumer-facing memory products centered on the individual user's life or notes — screen recordings, conversations, networked-thought note apps, second-brain tools. The agent layer is secondary; the primary product is the personal corpus and the UX of recalling from it. Where memory becomes a consumer-product category.",
+      "sub_style": null
+    },
+    {
+      "section": "Voice-first / wearable AI memory",
+      "subsection": null,
+      "explainer": "Hardware-tethered memory products that capture audio and ambient context continuously — pendants, recorders, meeting bots, AI-augmented note-takers. Memory is the <em>primary</em> product feature; the pitch is \"remember everything you say and hear.\" Privacy, battery life, and always-on capture are the engineering frontier.",
+      "sub_style": null
+    },
+    {
+      "section": "Research / specialised systems",
+      "subsection": null,
+      "explainer": "Memory systems with a paper and a reference implementation, often introducing distinctive architectural ideas — graph + temporal, OS-style hierarchies, three-phase consolidation, surprise-based gating. Not yet at production scale, but where new architectures are first tested. Many of the production systems above are direct descendants of entries here.",
+      "sub_style": null
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": null,
+      "explainer": "Recent papers (mostly 2024–2026) proposing novel memory approaches with no shipped product or widely-used implementation yet. The frontier — most won't pan out, some will define the next generation. Read this section as ideas to test, not tools to adopt. Sub-grouped below by the kind of memory the paper targets.",
+      "sub_style": null
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Factual & long-term memory (token-level)",
+      "explainer": "Methods for storing and retrieving discrete facts — entities, events, observations — typically as tokenisable text passed in and out of the LLM. The dominant paradigm; this is where most memory research currently lives.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Experiential & procedural memory (agent learning from experience)",
+      "explainer": "Methods focused on remembering how to do things — successful trajectories, failed attempts, learned skills, plan templates. The unit of memory is a procedure or an experience, not a fact. The natural home of agent self-improvement work.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Working memory & context management",
+      "explainer": "Methods for managing what's in the model's context window during a single task — compression, eviction, recurrent state, segment-level recurrence. The \"active\" tier of memory, analogous to RAM in cognitive-science framings. Closely related to long-context architectures.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Parametric & latent memory (memory in weights / KV / hidden states)",
+      "explainer": "Methods that put memory into the model's parameters or latent representations rather than discrete text. Includes memory-augmented architectures, KV-cache compression, and knowledge editing. Where \"memory\" stops being external storage and becomes part of the model's internal state.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— World-model & imagination memory",
+      "explainer": "Architectures that learn an internal model of the environment and use it as a memory of \"how the world works\" — agents plan and learn by imagining rollouts inside this model rather than recalling discrete facts. Adjacent to LeCun's JEPA programme and to RL world-model lines (Dreamer, Genie). Memory here is a learned dynamics function, not a database.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Continual learning & catastrophic forgetting",
+      "explainer": "Methods that prevent a model from forgetting earlier tasks when trained on new ones. Distinct from \"memory\" in the agent sense — the model itself is the memory, and the question is how to update its weights without losing prior capabilities. Tightly coupled to neural-architecture work; relevant whenever you fine-tune sequentially.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Memory-augmented reinforcement learning",
+      "explainer": "RL agents that maintain explicit episodic memory of past trajectories — the agent recalls similar past states/actions to make better decisions now. Distinct from policy-only RL or world-model RL: memory <em>is</em> the policy mechanism. Where neuroscience-inspired memory work most directly meets RL.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Recent method papers — theorized, no distinct product",
+      "subsection": "— Cognitive-architecture-inspired memory",
+      "explainer": "Approaches that import structures from classical cognitive architectures (Soar, ACT-R, complementary learning systems) into LLM-based agents. Bridge between cognitive science and modern AI memory.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Retrieval-as-memory hybrids",
+      "subsection": null,
+      "explainer": "Retrieval techniques (RAG variants) used as the recall mechanism for a memory system. The retrieval method <em>is</em> the memory architecture's read path. Where the line between \"RAG\" and \"memory\" blurs — both store knowledge externally and pull it on demand, but these techniques specifically address the memory-shaped retrieval problem.",
+      "sub_style": null
+    },
+    {
+      "section": "File-backed / editor paradigms",
+      "subsection": null,
+      "explainer": "Memory implemented as plain-text files under version control, injected at session start. No database, no extraction LLM, no vector index — just human-readable rules and notes. Optimal when memory is curated, low-volume, and benefits from human review (CLAUDE.md, Cursor rules, Windsurf rules). The opposite philosophical pole from extraction-and-storage memory layers.",
+      "sub_style": null
+    },
+    {
+      "section": "Claude Code memory mechanisms",
+      "subsection": null,
+      "explainer": "The specific memory features available inside Claude Code — what this CLI session uses to remember things across runs. Distinct from the \"Anthropic Claude Memory\" entry above because this is the CLI / IDE-integration tier (auto-memory directory, MCP plugins, MEMORY.md indices), not the consumer chat product.",
+      "sub_style": null
+    },
+    {
+      "section": "Knowledge-graph platforms",
+      "subsection": null,
+      "explainer": "Graph databases (RDF, property-graph) used as the substrate for AI memory. Not memory products themselves, but where graph-shaped memory products like Zep/Graphiti, Cognee, and Neo4j-backed agents typically sit. Worth understanding the substrate even if you don't operate one directly — the choice of graph DB constrains what kinds of memory queries are cheap.",
+      "sub_style": null
+    },
+    {
+      "section": "Vector-database infrastructure",
+      "subsection": null,
+      "explainer": "Vector databases used as the substrate for semantic-recall memory. Same role as the knowledge-graph platforms — substrate beneath the memory product. Most dedicated memory layers are built on one or more of these; choice of vector DB sets the cost / latency / scale envelope of the memory product above it.",
+      "sub_style": null
+    },
+    {
+      "section": "Enterprise-search adjacencies",
+      "subsection": null,
+      "explainer": "Enterprise search products that solve memory-shaped problems for organisations rather than for agents — KCS-style governance, per-user knowledge graphs, curated bibliographic databases. Worth knowing because they handle organisational scale and governance issues that agent memory products are still figuring out.",
+      "sub_style": null
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": null,
+      "explainer": "AI products and platforms whose memory features are tuned for a specific vertical — healthcare, legal, science, gaming, robotics, customer support. Distinct from horizontal memory infrastructure because the memory model is shaped by domain semantics (causal biology graphs, matter-context, NPC personalities, scene graphs, ticket histories) rather than generic facts.",
+      "sub_style": null
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Scientific / research AI memory",
+      "explainer": "Tools where the memory layer is the architectural differentiator — persistent causal graphs, claim-to-sentence provenance, experiment-loop memory — rather than plain LLM-over-papers retrieval.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Healthcare AI memory",
+      "explainer": "Healthcare AI products with distinctive memory layers — longitudinal patient stores, EMR-filtered retrieval, ambient-plus-historical reconciliation. Excludes plain LLM-over-EHR products without a documented memory architecture.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Legal AI memory",
+      "explainer": "Legal AI products with persistent matter / firm / institutional memory. T1 entries store decisions, accepted positions, and prior precedent that actively influence future outputs — not just CRM-style document lookup.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Customer support / voice agent memory",
+      "explainer": "CX, voice, and contact-center AI products. T1 = system writes durable, queryable customer-level state that the AI retrieves autonomously. T2 = well-integrated CRM reader without independent memory layer.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Gaming / NPC character memory",
+      "explainer": "AI products for game NPCs, character chat, interactive fiction, and AI companions. Memory layer encodes character knowledge (what each character knows), personality continuity, and persistent world state.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Robotics / autonomous-driving / embodied memory",
+      "explainer": "Memory architectures for embodied AI — robot manipulation, navigation, autonomous driving, humanoids. Distinct paradigm: spatial maps, scene graphs, world-model latents, episodic trajectories. Memory grounded in physical state rather than language.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Vertical / domain-specific AI memory",
+      "subsection": "— Education AI memory",
+      "explainer": "AI tutors, language-learning apps, and teacher productivity tools. Memory shape varies sharply: SRS state (Quizlet, Duolingo), pronunciation profiles (ELSA), curriculum mastery graphs (Khanmigo), per-student session logs (SchoolAI), or no student-facing memory at all (MagicSchool — by design). The architectural divide is whether memory lives in the AI tutor, the teacher dashboard, or a structured curriculum — three answers to \"who carries the model of the learner.\"",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Memory benchmarks & evaluation",
+      "subsection": null,
+      "explainer": "The infrastructure used to measure every memory system in the table. LongMemEval, LoCoMo, ConvoMem, BABILong, MADial-Bench, and similar. Not memory systems themselves — but essential for reading the benchmark claims in the rest of the table critically. Each benchmark tests a slightly different thing (single-session recall, multi-session continuity, temporal reasoning, multi-hop, adversarial).",
+      "sub_style": null
+    },
+    {
+      "section": "Memory observability & monitoring",
+      "subsection": null,
+      "explainer": "Tools for tracing, drift-detection, and debugging memory in production — Langfuse, Arize Phoenix, custom poisoning detectors, memory-quality dashboards. Adjacent to LLMOps but specifically scoped to memory health: who wrote what, when, did it diverge from the corpus, did anyone slip in poisoned facts.",
+      "sub_style": null
+    },
+    {
+      "section": "Memory governance, privacy & safety",
+      "subsection": null,
+      "explainer": "Products that secure memory writes and reads — poisoning protection, differential-privacy wrappers, memory access control, audit logging for memory mutations. The compliance and safety tier for systems that retain user data. Emerging category — most production memory systems treat this as someone else's problem.",
+      "sub_style": null
+    },
+    {
+      "section": "Theoretical / informal — ideas without a paper",
+      "subsection": null,
+      "explainer": "Ideas that exist only as tweets, blog posts, talks, or RFCs — no paper, no implementation. The earliest stage of the funnel: pure speculation, but where the next generation of papers is seeded. Populate with named concepts as you encounter them.",
+      "sub_style": null
+    }
+  ]
+}
