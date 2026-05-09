@@ -1,0 +1,18 @@
+{
+  "merges": [
+    {
+      "merged_ids": [
+        "arigraph--arxiv-2407-04363",
+        "arigraph--arxiv-2407-04363-2"
+      ],
+      "kept_id": "arigraph--arxiv-2407-04363",
+      "reason": "case-difference duplicate of the same paper (arxiv 2407.04363). The second occurrence ('AriGraph') carries the richer Cognitive-architecture-inspired framing and the correct tier (3 — peer-reviewed at NeurIPS 2024); the first occurrence ('Arigraph') was a stub under Factual & long-term memory at tier 4. Merged into one record preferring the second's per-cell content.",
+      "diff_resolution": {
+        "type": "kept primary (other had: 'KG world model + episodic memory')",
+        "desc": "kept primary (other had: 'Learning knowledge-graph world models with episodic memory.')",
+        "pros": "kept primary (other had: 'Argumentation-graph memory for reasoning agents.')",
+        "cons": "kept primary (other had: 'Preprint; argumentation-graph build is task-specific.')"
+      }
+    }
+  ]
+}

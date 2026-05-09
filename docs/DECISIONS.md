@@ -353,6 +353,41 @@ on a release commit.
 
 ---
 
+## 2026-05-07: reconcile.py — cell merge prefers status, then primary's framing for cross-listings
+
+**What.** When the reconciliation pass collapses two records into one, the
+cell merge function prefers cells by status (`real-data` > `not-applicable`
+> `depth-floor-reached` > `no-data`) and within the same status falls back
+to one of two strategies:
+
+- For **true duplicates** (case-difference dups of the same paper, e.g.
+  `arigraph` + `AriGraph`): the substantively-longer real-data cell wins.
+  Both records purport to describe the same thing, so the longer text
+  almost always reflects an extra round of research depth.
+- For **cross-listings** (one product listed in two sections, e.g.
+  Mem0 in both Dedicated-memory-layers and Memory-observability-&-monitoring):
+  the primary record's cell wins verbatim — even when the secondary cell
+  is longer. The two records describe the same product through different
+  lenses, and the primary section's framing is the canonical one we want
+  the final record to wear.
+
+**Why.** Initial implementation used "longer real-data wins" everywhere.
+That degraded cross-listed records: Mem0's `desc` ended up being the
+AgentOps-integration-specific description ("surfaces Memory Operation
+Timeline, Search Analytics, …") rather than the canonical product
+description ("Universal memory layer for AI agents, three concurrent
+stores"). The longer text was about a *secondary* framing; using it as
+the canonical content misrepresents the system. Switching the
+cross-listing path to "primary wins on ties" preserves the canonical
+framing while still letting the secondary record fill in cells where it
+genuinely had higher-status data.
+
+**Reversal cost.** Low. The merge logic is one function in
+`scripts/reconcile.py`; flipping the `prefer_longer` flag back on is a
+one-line change.
+
+---
+
 ## How to extend this log
 
 When you make a non-obvious decision while implementing an issue, add
