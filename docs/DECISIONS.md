@@ -2054,3 +2054,41 @@ aren't visible columns in the table.
 behaviour, so any consumer (tests, future Node-side script) that
 ignored the picker continues to work. The picker UI is self-contained
 in ExportButton.svelte.
+
+---
+
+## 2026-05-07: Narrow-viewport drawer for filter rail (Polish)
+
+**What.** On viewports under 900px the FilterRail collapses out of the
+flex row and reappears as a fixed-position slide-in drawer triggered
+by a "Filters (N active)" pill in the toolbar. Backdrop click, an
+explicit close (×) button, and Esc all dismiss the drawer. Above 900px
+the rail keeps its original 260px sticky-left behaviour.
+
+**Why.** The 260px rail is acceptable on a 1440px laptop but cripples
+narrower screens — it eats 25 % of the table area on a 1024px tablet
+and pushes the table off-screen on a phone. A drawer is the standard
+mobile-pattern for faceted-search rails and lets the table keep its
+full width when the user isn't actively faceting. Implemented with a
+single MediaQueryList listener (cheaper than a ResizeObserver for a
+binary breakpoint) and a `drawer`/`open` prop pair on FilterRail —
+no library needed.
+
+**Breakpoint owner.** The parent (`+page.svelte`) owns the breakpoint
+decision and passes `drawer={isNarrow}` to the rail. The rail itself
+is breakpoint-agnostic: pass `drawer=true` from any caller and it
+behaves as a drawer regardless of viewport. This makes the rail
+testable at any width and keeps the rail's CSS free of media queries.
+
+**Options rejected.**
+- *Collapse the rail to icon-only.* Counts are integral to faceted
+  search — hiding them defeats the affordance.
+- *Reflow the rail above the table.* Pushes the table down by
+  600-800px on every narrow page-load; users would have to scroll
+  past it to see any data.
+- *Use a library like Headless UI / Vaul.* Pulls a dep tree for a
+  100-line component.
+
+**Reversal cost.** Low. Strip the `drawer`/`open`/`onClose` props
+from FilterRail and remove the `.drawer` CSS block; the rail
+collapses back to its original sticky-left form.

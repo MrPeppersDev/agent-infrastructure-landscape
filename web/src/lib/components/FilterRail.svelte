@@ -6,6 +6,16 @@
   // mutually-non-exclusive lists and "click to toggle" is the obvious
   // affordance. Counts are computed with the *other* facets applied —
   // see facetCounts() in the store.
+  //
+  // Narrow-viewport drawer mode (Polish 2026-05-07):
+  //   At viewport widths under 900px the parent renders this with
+  //   `drawer=true` and toggles `open` via a toolbar pill. In drawer
+  //   mode we slide in from the left as a fixed-position panel with a
+  //   backdrop. Above 900px the parent omits the drawer prop and the
+  //   rail uses its original sticky-left layout. Implemented in plain
+  //   CSS via the `.drawer` modifier — no media query inside the
+  //   component (the parent owns the breakpoint via `drawer` so the
+  //   rail can be tested at any width).
 
   import {
     filters,
@@ -20,7 +30,22 @@
   } from '$lib/stores/filters';
   import type { LandscapeRecord } from '$lib/types';
 
-  let { records }: { records: LandscapeRecord[] } = $props();
+  let {
+    records,
+    drawer = false,
+    open = false,
+    onClose
+  }: {
+    records: LandscapeRecord[];
+    /** Drawer mode (caller-decided breakpoint). When true the rail
+     *  becomes a fixed-position slide-in panel with a backdrop. */
+    drawer?: boolean;
+    /** Drawer open/closed state. Ignored when `drawer` is false. */
+    open?: boolean;
+    /** Called when the user dismisses the drawer (backdrop click or
+     *  Esc). Parent flips its `open` state. */
+    onClose?: () => void;
+  } = $props();
 
   // One counts map per facet. Recomputed when either records or filter
   // state changes — cheap (linear in records, constant in facets).
@@ -39,16 +64,55 @@
   function isChecked(facet: FacetName, value: string | number): boolean {
     return ($filters[facet] as Set<string | number>).has(value);
   }
+
+  // Escape key dismisses the drawer (delegate up to the parent).
+  $effect(() => {
+    if (!drawer || !open) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose?.();
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  });
 </script>
 
-<aside class="rail" aria-label="Filters">
+{#if drawer && open}
+  <!-- svelte-ignore a11y_click_events_have_key_events -->
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div
+    class="backdrop"
+    onclick={() => onClose?.()}
+    aria-hidden="true"
+  ></div>
+{/if}
+
+<aside
+  class="rail"
+  class:drawer
+  class:open
+  aria-label="Filters"
+  aria-hidden={drawer && !open}
+>
   <div class="rail-header">
     <h2>Filters</h2>
-    {#if anyActive}
-      <button type="button" class="clear-all" onclick={clearFilters}>
-        Clear all
-      </button>
-    {/if}
+    <div class="rail-header-actions">
+      {#if anyActive}
+        <button type="button" class="clear-all" onclick={clearFilters}>
+          Clear all
+        </button>
+      {/if}
+      {#if drawer}
+        <button
+          type="button"
+          class="close-drawer"
+          onclick={() => onClose?.()}
+          aria-label="Close filters"
+          title="Close filters (Esc)"
+        >
+          ×
+        </button>
+      {/if}
+    </div>
   </div>
 
   {#each FACET_ORDER as facet (facet)}
@@ -111,6 +175,61 @@
     border-radius: 8px;
     font-size: 0.85rem;
     color: #c9d1d9;
+  }
+  /* Drawer mode: parent sets `drawer` when the viewport is narrow.
+     The rail becomes a fixed-position slide-in panel — translateX
+     animates between -100% (closed) and 0 (open). */
+  .rail.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    max-width: 92vw;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #30363d;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+  }
+  .rail.drawer.open {
+    transform: translateX(0);
+  }
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 199;
+    animation: fade-in 160ms ease-out;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .rail-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .close-drawer {
+    background: none;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    color: #8b949e;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0 8px;
+    cursor: pointer;
+  }
+  .close-drawer:hover {
+    color: #f0f6fc;
+    border-color: #58a6ff;
   }
   .rail-header {
     display: flex;

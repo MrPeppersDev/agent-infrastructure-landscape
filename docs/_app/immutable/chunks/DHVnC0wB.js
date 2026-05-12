@@ -1,0 +1,1 @@
+import{p as r}from"./DH5L2TCu.js";import{s as t}from"./jEdSyGml.js";const e={get error(){return r.error},get status(){return r.status},get url(){return r.url}};t.updated.check;const a=e;export{a as p};

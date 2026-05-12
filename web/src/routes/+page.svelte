@@ -210,6 +210,38 @@
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   });
+
+  // --- Narrow-viewport drawer (Polish 2026-05-07) ------------------------
+  //
+  // Under 900px the FilterRail moves out of the page flow and becomes
+  // a slide-in drawer. The pill in the toolbar opens it. We track the
+  // breakpoint with a MediaQueryList listener — cheaper than wiring a
+  // ResizeObserver on the body for a binary breakpoint.
+
+  let isNarrow = $state(false);
+  let drawerOpen = $state(false);
+
+  onMount(() => {
+    if (!browser) return;
+    const mql = window.matchMedia('(max-width: 900px)');
+    isNarrow = mql.matches;
+    const onChange = (e: MediaQueryListEvent) => {
+      isNarrow = e.matches;
+      if (!e.matches) drawerOpen = false; // close when expanding to wide
+    };
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  });
+
+  /** Count of selected facet values across all facets. Surfaced in the
+   *  toolbar pill ("Filters (3 active)"). */
+  const activeFilterCount = $derived.by(() => {
+    let n = 0;
+    for (const facet of FACET_ORDER) {
+      n += ($filters[facet] as Set<unknown>).size;
+    }
+    return n;
+  });
 </script>
 
 <svelte:head>
@@ -235,6 +267,21 @@
       click headers to sort
     </div>
     <div class="toolbar-actions">
+      {#if isNarrow}
+        <button
+          type="button"
+          class="filters-pill"
+          class:has-active={activeFilterCount > 0}
+          onclick={() => (drawerOpen = true)}
+          aria-expanded={drawerOpen}
+          aria-controls="filter-rail"
+        >
+          Filters
+          {#if activeFilterCount > 0}
+            <span class="pill-count">({activeFilterCount} active)</span>
+          {/if}
+        </button>
+      {/if}
       <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
       {#if $selectedIds.size > 0}
         <div class="selection-pill">
@@ -252,7 +299,12 @@
   </header>
 
   <div class="body">
-    <FilterRail records={data.records} />
+    <FilterRail
+      records={data.records}
+      drawer={isNarrow}
+      open={drawerOpen}
+      onClose={() => (drawerOpen = false)}
+    />
     <main class="table-shell">
       <Table
         records={visibleRecords}
@@ -322,6 +374,50 @@
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
+  }
+  .filters-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 0.82rem;
+    color: #c9d1d9;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .filters-pill:hover {
+    color: #f0f6fc;
+    border-color: #58a6ff;
+  }
+  .filters-pill.has-active {
+    border-color: #58a6ff;
+    color: #58a6ff;
+  }
+  .pill-count {
+    font-size: 0.74rem;
+    color: #6e7681;
+    font-variant-numeric: tabular-nums;
+  }
+  .filters-pill.has-active .pill-count {
+    color: #58a6ff;
+  }
+  /* On narrow viewports the rail lives in a fixed-position drawer, so
+     the body flex no longer needs to allocate space for it. We also
+     reduce the toolbar font scale slightly to fit on small screens. */
+  @media (max-width: 900px) {
+    .toolbar {
+      gap: 8px;
+    }
+    h1 {
+      font-size: 1.2rem;
+    }
+    .hint {
+      display: none;
+    }
   }
   .selection-pill {
     display: inline-flex;

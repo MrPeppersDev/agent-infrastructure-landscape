@@ -1,0 +1,1 @@
+import{Z as y,M as u,a1 as _,a2 as o,F as t,a3 as g,a4 as i,U as l,T as d,V as p,a5 as m}from"./DvrbQ2DI.js";function F(n,r){let a=null,E=t;var s;if(t){a=p;for(var e=m(document.head);e!==null&&(e.nodeType!==g||e.data!==n);)e=i(e);if(e===null)l(!1);else{var f=i(e);e.remove(),d(f)}}t||(s=document.head.appendChild(y()));try{u(()=>r(s),_|o)}finally{E&&(l(!0),d(a))}}export{F as h};
