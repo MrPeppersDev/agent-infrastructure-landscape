@@ -22,7 +22,20 @@
   import { sortColumns, cycleSort, type SortEntry } from '$lib/stores/sort';
   import TableRow from './TableRow.svelte';
 
-  let { records }: { records: LandscapeRecord[] } = $props();
+  // Row-click hooks (issue #18). Parent passes:
+  //   onSelect   — plain click on a row → open detail modal
+  //   onToggleSelect — shift-click on a row → toggle into compare set
+  // We don't import the selection store directly so this component stays
+  // a pure presentational unit; the parent owns the wiring.
+  let {
+    records,
+    onSelect,
+    onToggleSelect
+  }: {
+    records: LandscapeRecord[];
+    onSelect?: (record: LandscapeRecord) => void;
+    onToggleSelect?: (record: LandscapeRecord) => void;
+  } = $props();
 
   const ROW_HEIGHT = 56;
   /** Render this many extra rows above & below the viewport so fast
@@ -69,6 +82,34 @@
 
   function sortIndex(entries: SortEntry[], key: string): number {
     return entries.findIndex((e) => e.column === key);
+  }
+
+  function onTbodyClick(ev: MouseEvent) {
+    // Delegated row-click handler. We attach a single listener to <tbody>
+    // (rather than per-row) because (a) it's cheaper for 1k+ rows and
+    // (b) it keeps TableRow.svelte unmodified — the instruction is to
+    // only wire row-click in Table.svelte itself.
+    if (!onSelect && !onToggleSelect) return;
+    const t = ev.target as HTMLElement | null;
+    if (!t) return;
+    // Ignore clicks on interactive content inside the row (name link,
+    // citation ↗, taxonomy pills, etc.) — those handle their own jobs.
+    if (t.closest('a, button')) return;
+    const tr = t.closest('tr.row') as HTMLElement | null;
+    if (!tr) return;
+    // Find the row's position within the rendered slice, then map to the
+    // matching record by index.
+    const tbody = tr.parentElement;
+    if (!tbody) return;
+    const idx = Array.from(tbody.children).indexOf(tr);
+    if (idx < 0) return;
+    const record = visibleSlice[idx];
+    if (!record) return;
+    if (ev.shiftKey) {
+      onToggleSelect?.(record);
+    } else {
+      onSelect?.(record);
+    }
   }
 </script>
 
@@ -125,7 +166,12 @@
       </tr>
     </thead>
 
-    <tbody style="transform: translateY({offsetY}px)">
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <tbody
+      style="transform: translateY({offsetY}px)"
+      onclick={onTbodyClick}
+    >
       {#each visibleSlice as record (record.id)}
         <TableRow {record} />
       {/each}
@@ -237,10 +283,18 @@
      we apply a single subtle background to every row and don't try
      to alternate. */
 
+  :global(.row) {
+    cursor: pointer;
+  }
   :global(.row:hover) {
     background: rgba(196, 99, 60, 0.05);
   }
   :global(.row:hover td.name) {
     background: rgba(196, 99, 60, 0.08);
   }
+  /* Selected-for-compare rows are tagged by their tier-id at the
+     scroll-container level — the parent +page.svelte sets a CSS variable
+     pattern (data-selected-ids) and uses an attribute-selector global to
+     light up the rows whose <tr> has the matching id-derived class.
+     The toolbar also shows a "X selected" pill as the primary affordance. */
 </style>

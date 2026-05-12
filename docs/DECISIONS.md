@@ -1734,6 +1734,168 @@ share the parameter names).
 
 ---
 
+## 2026-05-07: Per-row detail — modal, not side panel (issue #18)
+
+**What.** Click a row → opens a centered, viewport-sized **modal** showing
+all 68 fields of the record, grouped by the same column-band scheme used
+in the table header. Shift-click adds the row to a transient "selected"
+set (cap 4); when ≥2 rows are selected, a "Compare" pill appears in the
+toolbar that opens a **separate ComparePanel** (full-bleed side-by-side
+cards). Both close on Esc / backdrop click; ComparePanel cards have an
+inline X-remove and a "Clear selection" header button.
+
+**Why modal vs side panel.**
+
+- *Modal (chosen).* The detail view needs a lot of vertical space — 68
+  fields × ~30px each is over 2000px. A right-docked side panel would
+  either be too narrow (truncating multi-line cells) or eat half the
+  viewport (defeating the "stay in the table" benefit). A modal can be
+  ~960px wide and scroll vertically without competing for horizontal
+  pixels with the table.
+- *Side panel rejected.* Considered a Notion-style right rail (40 % of
+  width). On a 67-column scrollable table the side panel would force
+  horizontal scroll just to see the first few columns when the panel was
+  open — and the user's main interaction is *staying in the row context*,
+  which means seeing the row they clicked while reading details. The
+  modal preserves the row's table context (still visible behind the
+  backdrop) while giving the detail view full width.
+- *Inline expand-row rejected.* The virtualised table assumes a fixed
+  row height (56px). Variable-height rows would break the math.
+
+**Why a separate ComparePanel (not "modal of N records").** The compare
+view *needs* the horizontal width — 4 cards × 220px-min + label column
+= ~1000px minimum. The modal at 960px would barely fit 3 cards. The
+compare panel is full-bleed (1400px max-width) and uses a CSS grid so
+each card lays out independently.
+
+**Difference highlighting.** Each row of the compare grid is checked
+for "all cards agree" vs "at least one differs". Differing rows get a
+soft accent border (`box-shadow: inset 0 0 0 1px rgba(196,99,60,0.25)`)
+and the field label switches to the accent color. Subtle so it doesn't
+scream, but findable at a glance.
+
+**Reversal cost.** Low. Each surface is its own file
+(`DetailModal.svelte`, `ComparePanel.svelte`) wired to the page via
+two small props. Switching to a side panel would mean changing the
+backdrop element and removing the centered flex — minutes of work.
+
+---
+
+## 2026-05-07: Compare selection — transient store, not URL (issue #18)
+
+**What.** The "selected for compare" set lives in a Svelte writable
+store (`web/src/lib/stores/selection.ts`), capped at `MAX_COMPARE = 4`.
+It does **not** round-trip through the URL.
+
+**Why.** The set is genuinely transient — a "scratch pad" the user
+collects rows into during a single browsing session. Pushing it into
+the URL would:
+
+1. Bloat the query string (`compare=id1,id2,id3,id4` adds ~150 chars
+   for arxiv-slugged ids).
+2. Encourage users to bookmark a comparison, which then breaks when
+   one of the records is later renamed (id is stable, but a stale
+   bookmark to a removed/merged record gives a confusing "1 record
+   in compare" state).
+3. Conflict with the existing URL-state contract in `url-state.ts`
+   — every new param costs cognitive overhead for users sharing links.
+
+A future "share this comparison" feature could be added by serialising
+the ids on demand (a Copy Link button on the ComparePanel header) —
+that's the right ergonomic shape for an explicit-share action, vs.
+the implicit-share-by-bookmark that URL-sync implies.
+
+**Reversal cost.** Trivial. Selection is one Set; URL sync is the
+same shape as the existing facet sets.
+
+---
+
+## 2026-05-07: CSV flattening strategy (issue #19)
+
+**What.** `web/src/lib/export.ts` exposes two pure functions, `toCSV`
+and `toJSON`, that take `LandscapeRecord[]` and return a string. CSV
+output has 73 columns: identity (id, name, tier, url, primary_section,
+sections) + 7 taxonomy axes (`tax_storage`...`tax_conflict`) + 60 cell
+slugs. JSON output is `JSON.stringify(records, null, 2)` — the full
+structured shape, untouched.
+
+**Flattening rules for CSV:**
+
+- **Taxonomy axes.** Joined with `; ` (primary first, all values
+  lower-cased canonical). The primary value gets `(primary)`
+  appended in parens so downstream analysis can tell which one was
+  canonical without parsing positional ordering. Example:
+  `vector (primary); graph; hybrid`.
+- **Sections.** Same pattern — `;`-joined, `(primary)` annotation,
+  subsection joined with em-dash.
+- **Cells.** `.value` is HTML-stripped and whitespace-collapsed, so
+  no `<br>` or `<a href="...">` ends up in Excel. Status types map as:
+  - `real-data` → value, with `[citation_url]` appended in brackets
+    when present (so the source survives the export).
+  - `not-applicable` → literal string `not applicable`.
+  - `depth-floor-reached` → value + ` (searched, not found)`.
+  - `no-data` → empty cell.
+- **RFC 4180 escaping.** Fields containing `,` / `"` / `\n` / `\r`
+  are wrapped in `"` with internal quotes doubled. Lines joined with
+  `\r\n` (Windows Excel is the tetchy consumer here).
+
+**Why bracket-annotate citations rather than a separate column.**
+Doubling the column count (60 → 120) makes the CSV unwieldy in Excel
+and forces consumers to know about column pairing. Bracket annotation
+keeps the URL recoverable with a regex and the cell readable without
+one.
+
+**Why not include the columns spec.** The build brief explicitly says
+"don't include the columns spec — let consumers slice". The flat shape
+is intentionally one-row-per-record with a fixed superset of columns,
+so a pandas user can `df[['tier','license','funding']]` without first
+parsing a metadata header.
+
+**Filename format.** `memory-landscape_<YYYY-MM-DD>_<filter_summary>.<ext>`,
+e.g. `memory-landscape_2026-05-07_q=letta_tier=1,2.csv`. Summary is
+truncated to first 3 values per facet to keep the filename a sane
+length; characters outside `\w=,.\-` are replaced with `_`.
+
+**Reversal cost.** Low. Both functions are pure; tests would mock no
+DOM. A future "column-subset picker" can be added by passing an extra
+`columns?: ColumnSlug[]` parameter — the function signatures are
+forwards-compatible.
+
+---
+
+## 2026-05-07: Row-click wiring via tbody event delegation (issue #18)
+
+**What.** Table.svelte attaches a single `onclick` listener on
+`<tbody>`, walks up from the click target to the nearest `tr.row`, and
+maps the row's position-in-children to the matching record in
+`visibleSlice`. TableRow.svelte is **not** modified.
+
+**Why delegation.** Two reasons:
+
+1. *Performance.* 8-row overscan + ~25 visible rows × 1 listener each
+   is fine, but the broader pattern of "interact with rows in a
+   virtualised table" wants a single listener anyway.
+2. *Locality of change.* The build brief constrains touching TableRow
+   ("read only — only add a row-click handler in Table.svelte itself").
+   Delegation respects that constraint.
+
+**Why position-index rather than ID lookup.** TableRow doesn't put the
+record id on the `<tr>` (only a tier class). Adding `data-record-id`
+would mean touching TableRow. Position-in-children works because the
+order of `visibleSlice` and the order of rendered `<tr>` children are
+identical by construction (Svelte's `{#each}` with key preserves
+insertion order).
+
+**Interaction precedence.** The handler bails out early if the click
+target is inside an `<a>` or `<button>` — so clicking the name link
+opens the URL (not the modal), and clicking the citation ↗ opens the
+citation. Shift-click toggles the row in the compare set; plain click
+opens the modal.
+
+**Reversal cost.** Low. Three lines in Table.svelte.
+
+---
+
 ## 2026-05-07: `/about` page as embedded "how to read this" explainer
 
 **What.** Issue #21. Added a 7th top-nav route, `/about`, holding a

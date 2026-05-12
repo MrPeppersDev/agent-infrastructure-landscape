@@ -5,10 +5,19 @@
   import Table from '$lib/components/Table.svelte';
   import SearchBox from '$lib/components/SearchBox.svelte';
   import FilterRail from '$lib/components/FilterRail.svelte';
+  import DetailModal from '$lib/components/DetailModal.svelte';
+  import ComparePanel from '$lib/components/ComparePanel.svelte';
+  import ExportButton from '$lib/components/ExportButton.svelte';
   import { sortColumns } from '$lib/stores/sort';
   import { searchQuery, applySearch } from '$lib/stores/search';
-  import { filters, applyFilters } from '$lib/stores/filters';
+  import { filters, applyFilters, FACET_ORDER } from '$lib/stores/filters';
   import { sortRecords } from '$lib/sortRecords';
+  import {
+    selectedIds,
+    toggleSelected,
+    clearSelection,
+    MAX_COMPARE
+  } from '$lib/stores/selection';
   import {
     stateToUrl,
     urlToState,
@@ -132,6 +141,62 @@
     };
   }
 
+  // --- Detail modal + compare panel state (issue #18) ----------------
+  //
+  // `detailRecord` is the currently-open modal record (null = closed).
+  // The "Compare" panel reads from the selectedIds store and resolves
+  // them against `data.records` (so unfiltered selections still work).
+  let detailRecord = $state<LandscapeRecord | null>(null);
+  let comparing = $state(false);
+
+  const selectedRecords = $derived(
+    [...$selectedIds]
+      .map((id) => data.records.find((r) => r.id === id))
+      .filter((r): r is LandscapeRecord => r !== undefined)
+  );
+
+  function openDetail(record: LandscapeRecord) {
+    detailRecord = record;
+  }
+  function closeDetail() {
+    detailRecord = null;
+  }
+  function handleToggleSelect(record: LandscapeRecord) {
+    toggleSelected(record.id);
+  }
+  function openCompare() {
+    if ($selectedIds.size >= 2) comparing = true;
+  }
+  function closeCompare() {
+    comparing = false;
+  }
+
+  // --- Export filename summary (issue #19) ---------------------------
+  //
+  // Compact string like "tier=1,2;license=Apache-2.0" — included in the
+  // download filename so users can tell exports apart at a glance.
+  const filterSummary = $derived(buildFilterSummary($searchQuery, $filters, $sortColumns));
+
+  function buildFilterSummary(
+    search: string,
+    f: typeof $filters,
+    s: typeof $sortColumns
+  ): string {
+    const parts: string[] = [];
+    if (search.trim()) parts.push(`q=${search.trim().slice(0, 30)}`);
+    for (const facet of FACET_ORDER) {
+      const set = f[facet] as Set<string | number>;
+      if (set.size > 0) {
+        const values = [...set].slice(0, 3).join(',');
+        parts.push(`${facet}=${values}`);
+      }
+    }
+    if (s.length > 0) {
+      parts.push(`sort=${s[0].column}${s[0].direction === 'asc' ? '_asc' : '_desc'}`);
+    }
+    return parts.join('_');
+  }
+
   // Handle back/forward navigation: re-parse the URL and push it into the
   // stores. Without this, browser back after a filter change leaves the
   // stores stale (the URL changes but the view doesn't).
@@ -166,18 +231,45 @@
       </p>
     </div>
     <div class="hint">
-      Click a column header to sort · shift-click to add a secondary sort
+      Click a row to inspect · shift-click rows (2-{MAX_COMPARE}) to compare ·
+      click headers to sort
     </div>
-    <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
+    <div class="toolbar-actions">
+      <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
+      {#if $selectedIds.size > 0}
+        <div class="selection-pill">
+          <span class="sel-count">{$selectedIds.size} selected</span>
+          {#if $selectedIds.size >= 2}
+            <button type="button" class="sel-btn primary" onclick={openCompare}>
+              Compare
+            </button>
+          {/if}
+          <button type="button" class="sel-btn" onclick={clearSelection}>Clear</button>
+        </div>
+      {/if}
+      <ExportButton records={visibleRecords} {filterSummary} />
+    </div>
   </header>
 
   <div class="body">
     <FilterRail records={data.records} />
     <main class="table-shell">
-      <Table records={visibleRecords} />
+      <Table
+        records={visibleRecords}
+        onSelect={openDetail}
+        onToggleSelect={handleToggleSelect}
+      />
     </main>
   </div>
 </div>
+
+{#if detailRecord}
+  <DetailModal record={detailRecord} onClose={closeDetail} />
+{/if}
+
+{#if comparing && selectedRecords.length >= 2}
+  <ComparePanel records={selectedRecords} onClose={closeCompare} />
+{/if}
 
 <style>
   /* Override the layout's narrow .page padding for the table view so
@@ -224,5 +316,50 @@
     flex: 1;
     min-width: 0;
     min-height: 0;
+  }
+  .toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .selection-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px 4px 12px;
+    background: #1a1f24;
+    border: 1px solid #c4633c;
+    border-radius: 6px;
+    font-size: 0.83rem;
+    color: #d4845f;
+  }
+  .sel-count {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .sel-btn {
+    padding: 3px 10px;
+    font: inherit;
+    font-size: 0.78rem;
+    color: #c9d1d9;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .sel-btn:hover {
+    color: #f0f6fc;
+    border-color: #58a6ff;
+  }
+  .sel-btn.primary {
+    color: #161b22;
+    background: #d4845f;
+    border-color: #d4845f;
+    font-weight: 600;
+  }
+  .sel-btn.primary:hover {
+    background: #e29571;
+    border-color: #e29571;
   }
 </style>
