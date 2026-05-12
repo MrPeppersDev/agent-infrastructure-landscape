@@ -4728,3 +4728,64 @@ source, so the missing citation should simply point back at that source.
 
 **Reversal cost.** Low. CSV is advisory output for a downstream apply
 step; no landscape.json mutations performed here.
+
+---
+
+## 2026-05-07: Cleanup pass 3 — shallow-prose review (134 cells)
+
+**What.** Resolved all 134 `gap_class == 'shallow-prose'` cells flagged by
+the Round-9 post-audit. Driver: `scripts/cleanup_shallow_prose.py`. Output:
+`extraction/round-10-cleanup-shallow-prose.csv` (134 rows, columns:
+`record_id, record_name, column, new_value, citation_url, status,
+action_taken`).
+
+**Three-way classification.**
+
+| action_taken             | Rows | Meaning                                           |
+|--------------------------|-----:|---------------------------------------------------|
+| enriched                 |  81  | Value rewritten with richer detail + citation     |
+| terminal-as-is           |  44  | Canonical one-word answer; citation only          |
+| kept-short-with-citation |   9  | Short by coincidence (perf scores, BYO LLM); cited |
+
+**Per-column breakdown.**
+
+| column                  | enriched | terminal | kept-short | total |
+|-------------------------|---------:|---------:|-----------:|------:|
+| orchestration           |       27 |       31 |          0 |    58 |
+| api-surface             |       25 |        1 |          1 |    27 |
+| import-export           |       17 |        1 |          0 |    18 |
+| validated-verticals     |        0 |       11 |          0 |    11 |
+| perf                    |        3 |        0 |          7 |    10 |
+| adjacent-infrastructure |        2 |        0 |          1 |     3 |
+| claims                  |        2 |        0 |          0 |     2 |
+| pricing-specifics       |        2 |        0 |          0 |     2 |
+| programmatic-control    |        2 |        0 |          0 |     2 |
+| session-handling        |        1 |        0 |          0 |     1 |
+
+**Decision rule.** Per row, walk the citation URL (or `claims` cell) and ask:
+*does the product actually have more capability than the one-word value
+captures?* If yes -> enriched (Category B). If no, and the one-word
+answer is canonical for the taxonomy (single-agent / multi-agent / both /
+agnostic / hybrid / research only / REST / MCP / etc.) -> terminal-as-is
+(Category A). If the short value is a numeric benchmark or a categorical
+"BYO LLM" that genuinely has no nuance to add -> kept-short-with-citation
+(Category C).
+
+**Notable enrichments.** orchestration columns for multi-paradigm
+frameworks (LangGraph, Mastra, Mem0, Zep, Google ADK, OpenAI Agents SDK)
+were rewritten from `"both"` to specify *how* both modes are supported
+(handoffs / thread+resource / user/agent/run scoping / group graphs).
+api-surface columns for SPARQL stores (GraphDB, PoolParty, TopBraid EDG)
+were enriched from `"REST, SPARQL"` to `"REST + SPARQL 1.1 endpoint + ..."`.
+import-export columns for vendor APIs (Algolia, Stack AI, Turbopuffer,
+Vapi, Retell) were enriched from `"JSON via REST"` to specify the
+auxiliary import formats (CSV, Parquet, dashboard bulk import).
+
+**Legitimately one-word.** All 11 `validated-verticals = "research only"`
+cells (research papers have no shipped product validation). 31 of 58
+orchestration cells where the taxonomy term IS the answer.
+`api-surface = "REST"` for SearchUnify (genuinely REST-only).
+
+**Reversal cost.** Low. CSV is advisory; no landscape.json mutations.
+A downstream apply step would copy `new_value` and `citation_url` into
+the source records.

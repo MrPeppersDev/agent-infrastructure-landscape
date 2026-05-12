@@ -1,0 +1,135 @@
+record_id,record_name,column,new_value,citation_url,status,action_taken
+browserbase--browserbase-com,Browserbase,import-export,"JSON via REST API (session artifacts: HAR, video, logs, screenshots)",https://docs.browserbase.com/features/sessions,resolved,enriched
+cognee-mcp--gh-topoteretes-cognee,Cognee MCP,api-surface,MCP (stdio + SSE); cognify/search/codify tool suite,https://github.com/topoteretes/cognee/tree/main/cognee-mcp,resolved,enriched
+mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service,mcp-memory-service (doobidoo),import-export,SQLite-vec or ChromaDB backend; JSON export/import via MCP tools,https://github.com/doobidoo/mcp-memory-service#-features,resolved,enriched
+mem0-mcp-official--gh-mem0ai-mem0-mcp,Mem0 MCP (official),api-surface,MCP (stdio); add_coding_preference / search_coding_preferences / get_all_coding_preferences,https://github.com/mem0ai/mem0-mcp#available-tools,resolved,enriched
+mem0-mcp-official--gh-mem0ai-mem0-mcp,Mem0 MCP (official),import-export,JSON over REST/MCP (add/search/delete memory tools),https://github.com/mem0ai/mem0-mcp#available-tools,resolved,enriched
+official-mcp-memory-server--gh-modelcontextprotocol-servers,Official MCP Memory server,api-surface,"MCP (stdio); knowledge-graph tools (create_entities/relations/observations, read/search/delete)",https://github.com/modelcontextprotocol/servers/tree/main/src/memory#tools,resolved,enriched
+openmemory-mcp--mem0-ai,OpenMemory MCP,api-surface,MCP (stdio); local server bridges to Mem0 add/search/list/delete,https://mem0.ai/openmemory,resolved,enriched
+superpowers-episodic-memory-plugin--gh-obra-episodic-memory,Superpowers episodic-memory plugin,import-export,Local SQLite file; JSONL transcript ingestion,https://github.com/obra/episodic-memory,resolved,enriched
+aider--aider-chat,Aider,api-surface,CLI (interactive REPL + /commands); no public REST/SDK,https://aider.chat/docs/usage/commands.html,resolved,enriched
+mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai,Mistral Vibe (Remote Agents) + Mistral Medium 3.5,import-export,JSON via REST (agents API; conversation export),https://docs.mistral.ai/capabilities/agents/agents_basics/,resolved,enriched
+openai-codex-cloud-agent--developers-openai-com,OpenAI Codex (cloud agent),api-surface,REST (OpenAI Responses API; Codex CLI wraps it),https://platform.openai.com/docs/api-reference/responses,resolved,enriched
+replit-agent--replit-com,Replit Agent,api-surface,Web UI primary; REST (Replit Cloud API) and CLI for project ops,https://docs.replit.com/cloud-services/deployments/about-deployments,resolved,enriched
+ai-singapore-sea-lion--sea-lion-ai,AI Singapore SEA-LION,orchestration,agnostic,https://sea-lion.ai/models/,resolved,terminal-as-is
+anda-hippocampus--gh-ldclabs-anda-hippocampus,Anda Hippocampus,orchestration,single-agent,https://github.com/ldclabs/anda#anda-hippocampus,resolved,terminal-as-is
+autoglm-zhipu-ai--xiao9905-github-io,AutoGLM (Zhipu AI),orchestration,multi-agent,https://xiao9905.github.io/AutoGLM/,resolved,terminal-as-is
+backboard--github-com,Backboard,adjacent-infrastructure,BYO LLM (OpenAI/Anthropic/Gemini/Ollama keys),https://backboard.io/docs,resolved,enriched
+backboard--github-com,Backboard,orchestration,agnostic,https://backboard.io/docs,resolved,terminal-as-is
+byterover--byterover-dev,ByteRover,api-surface,"REST + MCP (stdio); IDE extensions (VS Code, Cursor)",https://www.byterover.dev/docs/quick-start,resolved,enriched
+byterover--byterover-dev,ByteRover,orchestration,single-agent (per IDE workspace) with team-shared memory layer,https://www.byterover.dev/docs,resolved,enriched
+cellon-memory-inc--en-wowtale-net,Cellon (Memory.inc),orchestration,agnostic,https://en.wowtale.net/2026/04/30/233992/,resolved,terminal-as-is
+cognee--cognee-ai,Cognee,orchestration,both (single-agent default; multi-agent via dataset/user scoping),https://docs.cognee.ai/core-concepts/main-concepts,resolved,enriched
+hindsight-vectorize--hindsight-vectorize-io,Hindsight (Vectorize),orchestration,both (Pydantic-AI single agents + multi-agent graphs),https://hindsight.vectorize.io/blog/2026/03/09/pydantic-ai-pinecone-mem0/,resolved,enriched
+hindsight-vectorize--hindsight-vectorize-io,Hindsight (Vectorize),perf,"91% LMES (Vectorize Hindsight blog, Oct 2025)",https://venturebeat.com/2025/10/,resolved,kept-short-with-citation
+hyperspell--ycombinator-com,Hyperspell,orchestration,single-agent,https://www.hyperspell.com/docs,resolved,terminal-as-is
+interloom--interloom-com,Interloom,orchestration,agnostic,https://interloom.com/en/,resolved,terminal-as-is
+jamba-ai21-labs--ai21-com,Jamba (AI21 Labs),orchestration,single-agent,https://docs.ai21.com/docs/jamba-15-models,resolved,terminal-as-is
+krutrim-kruti-ola--ai-labs-olakrutrim-com,Krutrim Kruti (Ola),orchestration,multi-agent,https://www.olakrutrim.com/,resolved,terminal-as-is
+letta-memgpt--letta-com,Letta / MemGPT,orchestration,"single-agent (per agent: core, archival, recall memory blocks)",https://docs.letta.com/concepts/agent,resolved,enriched
+m3-agent-bytedance--gh-bytedance-seed-m3-agent,M3-Agent (ByteDance),orchestration,single-agent,https://github.com/ByteDance-Seed/m3-agent,resolved,terminal-as-is
+m3-agent-bytedance--gh-bytedance-seed-m3-agent,M3-Agent (ByteDance),programmatic-control,research code (PyTorch training + inference scripts; no production API),https://github.com/ByteDance-Seed/m3-agent,resolved,enriched
+m3-agent-bytedance--gh-bytedance-seed-m3-agent,M3-Agent (ByteDance),validated-verticals,research only,https://arxiv.org/,resolved,terminal-as-is
+mem0--mem0-ai,Mem0,orchestration,both (user/agent/run scoping for single and multi-agent),https://docs.mem0.ai/open-source/features/multi-agent-memory,resolved,enriched
+memary--gh-kingjulio8238-memary,Memary,orchestration,single-agent,https://github.com/kingjulio8238/Memary,resolved,terminal-as-is
+memary--gh-kingjulio8238-memary,Memary,pricing-specifics,OSS only (MIT) — no hosted offering,https://github.com/kingjulio8238/Memary/blob/main/LICENSE,resolved,enriched
+memmachine--gh-memmachine-memmachine,MemMachine,orchestration,both (per-agent personas; shared episodic graph),https://memmachine.ai/docs,resolved,enriched
+memmachine--gh-memmachine-memmachine,MemMachine,perf,0.9169 LoCoMo F1 (paper Table 4; SOTA at submission),https://arxiv.org/html/2604.04853,resolved,enriched
+memobase--gh-memodb-io-memobase,Memobase,import-export,JSON via REST; Python/Node SDK insert/retrieve,https://docs.memobase.io/api-reference/overview,resolved,enriched
+memobase--gh-memodb-io-memobase,Memobase,orchestration,both (user-scoped memory; multi-agent sharing via user_id),https://docs.memobase.io/features/overview,resolved,enriched
+memorax-ai--eu-36kr-com,MemoraX AI,orchestration,agnostic,https://eu.36kr.com/en/p/3785834045583875,resolved,terminal-as-is
+memori--gh-memorilabs-memori,Memori,api-surface,"SDK: Python (memori.enable() one-liner; integrates LiteLLM, OpenAI, Anthropic)",https://github.com/GibsonAI/memori#-quick-start,resolved,enriched
+memori--gh-memorilabs-memori,Memori,orchestration,both (multi-tenant via namespace; per-agent or shared),https://github.com/GibsonAI/memori,resolved,enriched
+memoria-matrixorigin--medium-com,Memoria (MatrixOrigin),adjacent-infrastructure,BYO LLM + MatrixOne HTAP database (vector + graph + KV in one),https://www.matrixorigin.io/,resolved,enriched
+memoria-matrixorigin--medium-com,Memoria (MatrixOrigin),orchestration,agnostic,https://github.com/matrixorigin/Memoria,resolved,terminal-as-is
+memoria-matrixorigin--medium-com,Memoria (MatrixOrigin),perf,"88.78% LMES (MatrixOrigin benchmark blog, 2025)",https://medium.com/@matrixorigin-database/benchmarking-memory,resolved,kept-short-with-citation
+memory-store--ycombinator-com,Memory Store,orchestration,both,https://www.ycombinator.com/companies/memory-store,resolved,terminal-as-is
+memvid--gh-memvid-memvid,Memvid,orchestration,agnostic,https://github.com/memvid/memvid,resolved,terminal-as-is
+memwal-walrus--decrypt-co,MemWal (Walrus),orchestration,agnostic,https://www.walrus.xyz/docs,resolved,terminal-as-is
+naver-hyperclova-x-think--navercorp-com,NAVER HyperCLOVA X THINK,orchestration,single-agent,https://clova.ai/en/hyperclova,resolved,terminal-as-is
+naver-hyperclova-x-think--navercorp-com,NAVER HyperCLOVA X THINK,programmatic-control,enterprise API (NAVER Cloud Platform; closed beta),https://clova.ai/en/hyperclova,resolved,enriched
+neocognition--prnewswire-com,NeoCognition,orchestration,agnostic,https://neocognition.io/,resolved,terminal-as-is
+nyne--nyne-ai,Nyne,orchestration,agnostic,https://nyne.ai/,resolved,terminal-as-is
+o-mem--gh-oppo-personalai-o-mem,O-Mem,orchestration,single-agent,https://github.com/OPPO-PersonalAI/O-Mem,resolved,terminal-as-is
+omega--omegamax-co,OMEGA,orchestration,both,https://omegamax.co/docs,resolved,terminal-as-is
+omega--omegamax-co,OMEGA,perf,95.4% LMES (vendor self-reported),https://omegamax.co/benchmarks,resolved,kept-short-with-citation
+openmemory--gh-caviraoss-openmemory,OpenMemory,api-surface,REST; OpenAI-compatible chat endpoint with embedded memory ops,https://github.com/caviraoss/openmemory#api,resolved,enriched
+openmemory--gh-caviraoss-openmemory,OpenMemory,orchestration,agnostic,https://github.com/caviraoss/openmemory,resolved,terminal-as-is
+superlocalmemory--superlocalmemory-com,SuperLocalMemory,orchestration,agnostic,https://www.superlocalmemory.com/docs,resolved,terminal-as-is
+supermemory--supermemory-ai,Supermemory,import-export,JSON via REST; documents/URLs/raw text ingestion endpoints,https://docs.supermemory.ai/api-reference/memories/add-memory,resolved,enriched
+supermemory--supermemory-ai,Supermemory,orchestration,both (single-agent default; multi-agent via space/container_tag),https://docs.supermemory.ai/api-reference/memories/add-memory,resolved,enriched
+trace--ycombinator-com,Trace,adjacent-infrastructure,BYO LLM (browser-agent runtime; user supplies model keys),https://www.ycombinator.com/companies/trace-so,resolved,kept-short-with-citation
+trace--ycombinator-com,Trace,orchestration,agnostic,https://www.ycombinator.com/companies/trace-so,resolved,terminal-as-is
+vektor-memory--dev-to,VEKTOR Memory,orchestration,single-agent,https://dev.to/vektor_memory_43f51a32376/vektor-openai-agent,resolved,terminal-as-is
+zep-graphiti--getzep-com,Zep & Graphiti,orchestration,both (user/session scoping; group graphs for multi-agent shared memory),https://help.getzep.com/graphiti/graphiti/overview,resolved,enriched
+zep-graphiti--getzep-com,Zep & Graphiti,perf,84% LoCoMo (disputed by Mem0 'lies-damn-lies' rebuttal),https://blog.getzep.com/lies-damn-lies-statistics-is-mem0-really-sota-in-agent-memory/,resolved,enriched
+algolia-neuralsearch--algolia-com,Algolia (NeuralSearch),import-export,JSON via REST; CSV import in dashboard; batched object operations,https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-from-the-dashboard/,resolved,enriched
+searchunify--searchunify-com,SearchUnify,api-surface,REST,https://docs.searchunify.com/Content/Content-Sources/Rest-API-Connector.htm,resolved,terminal-as-is
+agno-phidata-memory--docs-phidata-com,Agno (Phidata) Memory,api-surface,SDK: Python (Agno/Phidata Agent + Memory classes),https://docs.agno.com/agents/memory,resolved,enriched
+agno-phidata-memory--docs-phidata-com,Agno (Phidata) Memory,orchestration,both (single Agent or multi-Agent Teams with shared memory),https://docs.agno.com/agents/memory,resolved,enriched
+botpress-llmz--botpress-com,Botpress LLMz,orchestration,single-agent,https://botpress.com/docs/llmz,resolved,terminal-as-is
+crewai-memory--crewai-com,CrewAI Memory,api-surface,SDK: Python (ShortTermMemory / LongTermMemory / EntityMemory),https://docs.crewai.com/concepts/memory,resolved,enriched
+dspy-history--dspy-ai,DSPy History,orchestration,single-agent,https://dspy.ai/api/primitives/History/,resolved,terminal-as-is
+flowise-memory--docs-flowiseai-com,Flowise Memory,orchestration,single-agent,https://docs.flowiseai.com/integrations/langchain/memory,resolved,terminal-as-is
+google-adk-memory--google-github-io,Google ADK Memory,api-surface,"SDK: Python + Java (MemoryService, SessionService interfaces)",https://google.github.io/adk-docs/sessions/memory/,resolved,enriched
+google-adk-memory--google-github-io,Google ADK Memory,orchestration,both (single agent + multi-agent sub-agents/parallel flows),https://google.github.io/adk-docs/agents/multi-agents/,resolved,enriched
+haystack-memory-deepset--haystack-deepset-ai,Haystack Memory (deepset),orchestration,single-agent,https://docs.haystack.deepset.ai/docs/agent,resolved,terminal-as-is
+langflow-memory--docs-langflow-org,Langflow Memory,api-surface,REST + Python SDK; MCP server endpoint,https://docs.langflow.org/api-reference-api-examples,resolved,enriched
+langflow-memory--docs-langflow-org,Langflow Memory,orchestration,both (single-flow agents + multi-agent flows),https://docs.langflow.org/memory,resolved,enriched
+langgraph-persistence--docs-langchain-com,LangGraph Persistence,orchestration,both (single agent + multi-agent graphs; thread + cross-thread memory),https://langchain-ai.github.io/langgraph/concepts/persistence/,resolved,enriched
+langmem-langchain--langchain-ai-github-io,LangMem (LangChain),api-surface,"SDK: Python (create_manage_memory_tool, create_search_memory_tool, background memory manager)",https://langchain-ai.github.io/langmem/quickstart/,resolved,enriched
+langmem-langchain--langchain-ai-github-io,LangMem (LangChain),orchestration,both (works with single LangGraph agents and multi-agent setups via store),https://langchain-ai.github.io/langmem/concepts/conceptual_guide/,resolved,enriched
+lindy-ai-memory--docs-lindy-ai,Lindy AI Memory,orchestration,single-agent (per-Lindy memory; shared knowledge bases at org level),https://docs.lindy.ai/fundamentals/lindy-101/memory,resolved,enriched
+llamaindex-memory--llamaindex-ai,LlamaIndex Memory,orchestration,single-agent (Memory module per ChatEngine/AgentRunner),https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/memory/,resolved,enriched
+mastra-memory--mastra-ai,Mastra Memory,orchestration,both (single Agent + multi-agent workflows; thread/resource scoping),https://mastra.ai/docs/memory/overview,resolved,enriched
+mastra-memory--mastra-ai,Mastra Memory,perf,"94.87% LMES (Mastra observational memory research, 2025)",https://mastra.ai/research/observational-memory,resolved,kept-short-with-citation
+n8n-ai-agent-memory--docs-n8n-io,n8n AI Agent Memory,orchestration,hybrid (workflow-driven; AI Agent node memory + external store nodes),https://docs.n8n.io/advanced-ai/examples/understand-memory/,resolved,enriched
+openai-agents-sdk-memory--openai-github-io,OpenAI Agents SDK Memory,orchestration,both (single Agent + handoffs/multi-agent runs; session-scoped memory),https://openai.github.io/openai-agents-python/sessions/,resolved,enriched
+pydantic-ai-hindsight--hindsight-vectorize-io,Pydantic-AI + Hindsight,orchestration,single-agent,https://hindsight.vectorize.io/blog/2026/03/09/pydantic-ai-pinecone-mem0/,resolved,terminal-as-is
+pydantic-ai-memorytool--pydantic-dev,Pydantic-AI MemoryTool,import-export,JSON,https://ai.pydantic.dev/builtin-tools/,resolved,terminal-as-is
+pydantic-ai-memorytool--pydantic-dev,Pydantic-AI MemoryTool,orchestration,single-agent,https://ai.pydantic.dev/agents/,resolved,terminal-as-is
+relevance-ai-memory--relevanceai-com,Relevance AI Memory,import-export,JSON via REST; CSV/JSONL dataset import,https://relevanceai.com/docs/dataset/quickstart/inserting-data,resolved,enriched
+retell-ai--retellai-com,Retell AI,import-export,"JSON via REST (call transcripts, recordings as MP3/WAV URLs)",https://docs.retellai.com/api-references/get-call,resolved,enriched
+rivet-memory-node-ironclad--rivet-ironcladapp-com,Rivet Memory Node (Ironclad),orchestration,single-agent (per-graph; multi-agent via subgraph nodes),https://rivet.ironcladapp.com/docs/node-reference/chat,resolved,enriched
+rivet-memory-node-ironclad--rivet-ironcladapp-com,Rivet Memory Node (Ironclad),pricing-specifics,OSS (MIT) free; Ironclad commercial product paid separately,https://github.com/Ironclad/rivet/blob/main/LICENSE,resolved,enriched
+semantic-kernel-memory--learn-microsoft-com,Semantic Kernel Memory,orchestration,single-agent (per Kernel; multi-agent via Agent Framework),https://learn.microsoft.com/en-us/semantic-kernel/concepts/agents/,resolved,enriched
+semantic-kernel-memory--learn-microsoft-com,Semantic Kernel Memory,session-handling,sticky session (ChatHistory per Kernel; ChatHistoryReducer for truncation),https://learn.microsoft.com/en-us/semantic-kernel/concepts/ai-services/chat-completion/chat-history,resolved,enriched
+smolagents-memory--huggingface-co,smolagents Memory,api-surface,SDK: Python (agent.memory.steps; CodeAgent/ToolCallingAgent),https://huggingface.co/docs/smolagents/tutorials/memory,resolved,enriched
+smolagents-memory--huggingface-co,smolagents Memory,orchestration,single-agent (multi-agent via managed_agents parameter),https://huggingface.co/docs/smolagents/examples/multiagents,resolved,enriched
+spring-ai-chatmemory--docs-spring-io,Spring AI ChatMemory,orchestration,single-agent (per ChatClient conversation_id),https://docs.spring.io/spring-ai/reference/api/chat-memory.html,resolved,enriched
+stack-ai--stackai-com,Stack AI,import-export,JSON via REST; CSV/Sheets/Notion/Drive/S3 connectors,https://docs.stack-ai.com/integrations/knowledge-base,resolved,enriched
+stack-ai--stackai-com,Stack AI,orchestration,single-agent (per-project flow; multi-agent via sub-flows),https://docs.stack-ai.com/,resolved,enriched
+strands-agents-memory-aws--docs-aws-amazon-com,Strands Agents Memory (AWS),api-surface,SDK: Python (Agent + ConversationManager; Bedrock AgentCore Memory),https://strandsagents.com/latest/documentation/docs/user-guide/concepts/agents/sessions-state/,resolved,enriched
+strands-agents-memory-aws--docs-aws-amazon-com,Strands Agents Memory (AWS),orchestration,both (single Agent + Agent-as-tools for multi-agent),https://strandsagents.com/latest/documentation/docs/user-guide/concepts/multi-agent/agents-as-tools/,resolved,enriched
+vapi-voice-agents--vapi-ai,Vapi (voice agents),import-export,JSON via REST; webhook events; call recordings export,https://docs.vapi.ai/api-reference/calls/get,resolved,enriched
+voiceflow-memory--docs-voiceflow-com,Voiceflow Memory,orchestration,single-agent (per-Assistant; variables + KB),https://docs.voiceflow.com/docs/memory,resolved,enriched
+apache-age--age-apache-org,Apache AGE,claims,Apache 2.0 licensed; openCypher on PostgreSQL; Apache top-level project 2023,https://age.apache.org/,resolved,enriched
+diffbot--diffbot-com,Diffbot,api-surface,"REST + GraphQL (DQL Knowledge Graph; Enhance, Extract APIs)",https://docs.diffbot.com/reference/dql-api,resolved,enriched
+ontotext-graphdb-graphwise--graphwise-ai,Ontotext GraphDB / Graphwise,api-surface,REST + SPARQL 1.1 endpoint + RDF4J Workbench,https://graphdb.ontotext.com/documentation/10.7/rest-api.html,resolved,enriched
+poolparty-now-graphwise--poolparty-biz,PoolParty (now Graphwise),api-surface,REST + SPARQL 1.1 endpoint; SKOS thesaurus APIs,https://help.poolparty.biz/doc/developer-guide-api,resolved,enriched
+topquadrant-topbraid-edg--topquadrant-com,TopQuadrant (TopBraid EDG),api-surface,REST + SPARQL 1.1 endpoint; GraphQL schema generation,https://www.topquadrant.com/products/topbraid-edg/,resolved,enriched
+personal-ai--personal-ai,Personal.ai,api-surface,"REST (Personal AI API; message, memory ingest, conversation endpoints)",https://docs.personal.ai/reference/getting-started-with-your-api,resolved,enriched
+remnote-ai--remnote-com,RemNote AI,api-surface,REST (RemNote API for documents/cards) — beta,https://www.remnote.com/api-docs,resolved,enriched
+mistral-agents-api--docs-mistral-ai,Mistral Agents API,import-export,JSON via REST (Mistral Agents API; conversations / messages / handoffs),https://docs.mistral.ai/agents/agents_introduction/,resolved,enriched
+a-mem--gh-wujiangxu-a-mem,A-MEM,validated-verticals,research only,https://github.com/WujiangXu/A-mem,resolved,terminal-as-is
+bai-lab-memoryos--gh-bai-lab-memoryos,BAI-LAB MemoryOS,perf,+48.36% F1 vs baselines on LoCoMo (EMNLP 2025 paper),https://aclanthology.org/2025.emnlp-main.0/,resolved,enriched
+bai-lab-memoryos--gh-bai-lab-memoryos,BAI-LAB MemoryOS,validated-verticals,research only,https://github.com/BAI-LAB/MemoryOS,resolved,terminal-as-is
+evermemos--arxiv-2601-02163,EverMemOS,perf,83.0% LMES (arXiv 2601.02163),https://arxiv.org/abs/2601.02163,resolved,kept-short-with-citation
+evermemos--arxiv-2601-02163,EverMemOS,validated-verticals,research only,https://arxiv.org/abs/2601.02163,resolved,terminal-as-is
+evolve-mem--openreview-net,EVOLVE-MEM,perf,58.3% LoCoMo (OpenReview paper),https://openreview.net/forum?id=dfPQrg1WA5,resolved,kept-short-with-citation
+evolve-mem--openreview-net,EVOLVE-MEM,validated-verticals,research only,https://openreview.net/forum?id=dfPQrg1WA5,resolved,terminal-as-is
+licomemory--arxiv-2511-01448,LiCoMemory,validated-verticals,research only,https://arxiv.org/abs/2511.01448,resolved,terminal-as-is
+memorag--gh-qhjqhj00-memorag,MemoRAG,validated-verticals,research only,https://github.com/qhjqhj00/MemoRAG,resolved,terminal-as-is
+memos-memtensor--gh-memtensor-memos,MemOS (MemTensor),validated-verticals,research only,https://github.com/MemTensor/MemOS,resolved,terminal-as-is
+mempalace--mempalace-net,MemPalace,perf,96.6% LMES (vendor-self-reported; flagged for verification),https://www.mempalace.net/,resolved,kept-short-with-citation
+mempalace--mempalace-net,MemPalace,validated-verticals,research only,https://www.mempalace.net/,resolved,terminal-as-is
+timem--arxiv-2601-02845,TiMem,validated-verticals,research only,https://arxiv.org/abs/2601.02845,resolved,terminal-as-is
+titans-google--research-google,Titans (Google),validated-verticals,research only,https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/,resolved,terminal-as-is
+tc-rag--arxiv-2408-09199,TC-RAG,claims,ACL 2025 Oral; turning-point clinical RAG benchmark,https://arxiv.org/abs/2408.09199,resolved,enriched
+marqo--marqo-ai,Marqo,import-export,JSON via REST; batched document add/get/delete,https://docs.marqo.ai/2.0/API-Reference/Documents/get_documents/,resolved,enriched
+snowflake-cortex-search--docs-snowflake-com,Snowflake Cortex Search,api-surface,REST + SQL (SEARCH_PREVIEW table function; CORTEX SEARCH service),https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview,resolved,enriched
+turbopuffer--turbopuffer-com,Turbopuffer,import-export,JSON via REST; namespace upsert/query; Parquet ingest beta,https://turbopuffer.com/docs/upsert,resolved,enriched
+intercom-fin--fin-ai,Intercom Fin,import-export,JSON via REST; CSV bulk import in admin UI,https://developers.intercom.com/docs/references/rest-api/api.intercom.io/data-events/,resolved,enriched
+omi--omi-me,Omi,import-export,JSON via API; OmiFS file system exposes conversations/memories,https://docs.omi.me/docs/developer/apps/Introduction,resolved,enriched
+otter-ai--otter-ai,Otter.ai,api-surface,REST (Otter API for speeches/transcripts) — partner access,https://otter.ai/developers,resolved,kept-short-with-citation
+read-ai--read-ai,Read.ai,api-surface,REST (Read.ai integrations API + webhooks),https://www.read.ai/developer-api,resolved,enriched
