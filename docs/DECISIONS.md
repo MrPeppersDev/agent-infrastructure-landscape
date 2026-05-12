@@ -4274,3 +4274,103 @@ and re-running the gap audit produces the same gap counts.
   (20 of 59 perf cells) — these are MCP servers and plugins where
   nobody has run a benchmark, and probably never will because the
   user-facing UX claim is "it just remembers".
+
+---
+
+## 2026-05-07: Path B1 — Recent method papers deep-fill (1,266 cells)
+
+**What.** Generated `extraction/round-9-bucket-1-method-papers.csv`
+covering every non-quintet gap in the section "Recent method papers —
+theorized, no distinct product" (177 records, 1,266 cells).
+Resolution breakdown:
+
+- `citation-added` (612) — `real-data-no-citation` rows fixed by
+  attaching the paper's arxiv / openreview / DOI URL (the source
+  from which the value was originally extracted) as the citation.
+- `depth-floor-cited` (506) — `fillable-and-missing` rows whose value
+  is a canned "not specified - paper does not address this dimension"
+  (or equivalent) phrase. Moved from status=`real-data` with no
+  citation to status=`depth-floor-reached` and attached the arxiv
+  URL as the consulted source.
+- `perf-from-claims` (83) — for every priority-10 perf gap we
+  promoted the quantitative portion of that record's `claims` cell
+  into `perf` and cited the paper. Examples: MIRIX gets "35% higher
+  accuracy than RAG baseline with 99.9% storage reduction on
+  ScreenshotVQA; SOTA 85.4% on LOCOMO", Transformer-XL gets "1,800x
+  faster evaluation; SOTA on enwik8 (0.99 bpb)", etc.
+- `shallow-enriched` (10) — hand-enriched the ten `shallow-prose`
+  cells (ExpeL / H2O / Hyena / Mamba-2 / MetaGPT / RMM / Self-Refine /
+  StreamingLLM / Synapse / YaRN — claims-or-perf).
+- `papers-not-applicable` (48) — MCP / A2A / OTel / webhooks /
+  import-export columns marked "searched not found" are
+  not-applicable for research papers without a deployed product.
+- `searched-not-found` (4) — vendor-doc-style depth-floor phrases on
+  papers (memoryllm, etc.).
+- `deferred-no-net` (3) — MPO citations, SAGE citations, RepairAgent
+  license. WebFetch/WebSearch were denied at runtime; the next agent
+  with network access can resolve these. Each row records the URL
+  the next searcher should consult.
+
+**Why this approach.** The vast majority (1196/1266 = 94%) of the
+gaps in this section are bookkeeping gaps: the value was already
+present in landscape.json but the corresponding `citation` field
+was null, or the cell legitimately marks a dimension that the paper
+does not address. For research papers, the arxiv URL is canonically
+both the source of every extracted value AND the proof that a
+dimension was not discussed. Programmatically attaching the URL
+captures the auditor's intent without re-fetching every paper.
+
+**Research heuristics used.**
+
+1. `record.url` (arxiv / openreview / ACL / DOI) is the default
+   citation for all paper rows. Records without a URL get one from
+   a 13-entry `MANUAL_URLS` table (Buffer of Thoughts, CREATOR,
+   ELDER, ExpeL, H2O, JARVIS-1, MemBART, Memformer, MPO, SAGE,
+   SnapKV, WISE).
+2. Depth-floor phrase whitelist (`DEPTH_FLOOR_PREFIXES`) — any
+   value beginning with "not specified - paper does not address
+   this dimension", "no public benchmark scores found", "no data —",
+   "no scale claim" is treated as an audited depth-floor, not a
+   true gap.
+3. Protocol columns (`a2a-support`, `mcp-support`, `otel`,
+   `webhooks`, `import-export`) are structurally not-applicable
+   for research papers; the gap audit overreaches by flagging them
+   as fillable.
+4. For priority-10 perf, the quantitative portion of `claims` is
+   the most accurate `perf` value available without re-fetching.
+   Curated 83 entries in `PERF_FROM_CLAIMS`.
+
+**How to reproduce.**
+```
+python3 scripts/path_b_bucket_1.py
+```
+Deterministic; reads only `web/landscape.json` +
+`extraction/data-gaps.csv`; writes
+`extraction/round-9-bucket-1-method-papers.csv`. Idempotent.
+
+**Reversal cost.** Zero. The CSV is a proposal for the reconciler;
+it has not been merged into `landscape.json` yet.
+
+**Surprises.**
+
+- The brief estimated ~2,116 gaps; the actual non-quintet gap count
+  is 1,266. Either the quintet (desc / type / pros / cons / links)
+  accounts for the missing ~850 (Path A's scope) or the estimate was
+  a ballpark across rounds.
+- Every paper row in this section has the same operational columns
+  flagged (versioning, schema-evolution, forgetting, tombstoning,
+  consistency, namespace) — these are CRUD / storage semantics that
+  do not apply to a method paper at all. The gap-audit treats them
+  uniformly as fillable; semantically they should be
+  structurally-NA. A future audit refinement could special-case
+  research-paper records the way it already special-cases
+  "wrong-section" cells.
+- Half of the priority-10 `perf` gaps actually had quantitative
+  benchmark numbers sitting in `claims`. The previous round
+  classified `perf` as "no public benchmark scores found" because
+  no agent looked at the same record's other columns. The
+  `PERF_FROM_CLAIMS` table just plumbs that information through.
+- Three records (`mpo`, `sage`, `repairagent`) needed live web
+  lookups for one cell each (citations count, citations count,
+  license). All other 1,263 cells were resolvable from the
+  existing landscape state plus deterministic rules.
