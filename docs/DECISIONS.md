@@ -2814,3 +2814,101 @@ narrow `{systems, benchmarks, cells}` shape. To add or rename a
 benchmark: edit `BENCHMARKS` in `web/src/lib/analyses/benchmarks.ts`,
 optionally add it to `MEMORY_BENCHMARKS` if it's memory-specific.
 
+
+---
+
+## 2026-05-07: Influence-vs-adoption upgrade — density rendering and threshold rationale (Analyses)
+
+**What.** Upgrade #22 ships `/analyses/influence` with a narrative
+header, methodology callout, tier+section filters, visible median
+lines, per-quadrant "so what" cards, and a hex-bin density underlay
+on top of the existing radial jitter.
+
+**(1) Density-vs-jitter choice: BOTH.** The brief offered either
+hex-bin OR radial jitter for the long tail. We landed on BOTH, with
+different jobs:
+
+- *Radial jitter* (already in v1) keeps every record individually
+  addressable — hoverable, clickable, with a tooltip. That matters
+  for a chart whose whole job is to let the reader drill into named
+  systems. Pure hex bins would lose this — a hex of "47 records" is
+  a number, not a place you can click.
+- *Hex-bin underlay* (new) restores the at-a-glance shape of the
+  cloud. With jitter alone, 487 marks at ~350pacity still read as
+  visual noise — hard to tell whether the corner is "many records"
+  or "many overlapping marks at the same spot". A faint translucent
+  hex grid (orange, opacity 0.06-0.40 keyed to per-cell count) under
+  the markers gives the reader the density signal without burying
+  the individual marks.
+
+We restrict the hex grid to tail-quadrant points only. Hex-binning
+the high-axis outliers would wrap big hexes around lone points and
+lie about density there. The grid is flat-top hexes of pixel radius
+14, chosen so ~8-12 hexes span the tail region; bigger hexes lose
+resolution, smaller ones look like square pixels.
+
+*Why hex over square bins:* flat-top hexes tile without the
+orthogonal-grid artefacts that make square bins look stair-stepped
+at low cell counts. The cell aspect ratio is closer to circular, so
+"near" reads naturally.
+
+*Why not d3-hexbin:* we already pay for d3 nowhere else in the
+bundle (~30KB gzipped). The math is short: a `Map<col:row, count>`
+over snapped pixel coords plus a 6-vertex polygon-points string.
+We hand-rolled both as exported pure functions in `influence.ts`
+(`hexBin`, `hexPolygonPoints`) so they remain unit-testable from
+node without spinning up Vite.
+
+**(2) Threshold rationale (revisited).** The brief asks us to make
+the cutoff choice explicit. We use the **non-zero median** on each
+axis (currently 2 cites, 1 integration), with **strict greater-than**
+for the high side. Three knobs were considered:
+
+- *Population median*: always 0 because >900f the corpus has zero
+  inbound edges of either kind. Cutoff sits on the axis; quadrant
+  partition is degenerate.
+- *Non-zero median* (chosen): the median *among records that have
+  any signal at all*. Reads naturally as "above median among the
+  records that have any inbound graph reach", which is the right
+  partition for a "look at the corners" chart.
+- *Fixed hard cutoff* (e.g. ≥3 on each axis): brittle to corpus
+  growth. As new edges land, a fixed cutoff would either
+  silently inflate "Both" or silently empty it. Non-zero median is
+  self-adjusting.
+
+Strict greater-than (`p.citesIn > citesCut`, not `>=`) so a record
+at the cutoff stays in the lower quadrant. That matches the visual
+intent — being above the threshold means *demonstrably* above
+median, not tied. Affects mainly `dreamerv3` (3 cites, 1 integ at
+time of writing) which lands in "orphan" rather than "Both" under
+this rule.
+
+When the filter narrows the set below 8 points, we fall back to the
+GLOBAL non-zero median to avoid a degenerate state where every
+remaining point lands in "Both" because the local median collapsed
+to 0/0.
+
+**(3) Headline finding foregrounded.** The v1 chart had only 1
+point in "Both" out of 523 records. That is the headline — academic
+citation and commercial integration are essentially **orthogonal**
+at this corpus stage. We surface this as `HEADLINE_FINDING` in the
+narrative header rather than leaving it to be inferred from a
+sparse corner. The most striking single-point demonstration: Mem0
+leads the integration axis with 12 inbound integrations and zero
+inbound cites (research orphan-of-the-other-direction); the only
+system actually surviving the "Both" cut is zep-graphiti (4c/3i).
+
+**(4) Cross-view drill links.** Tooltip and per-quadrant cards link
+to: (a) main table scoped to that system via `?q=`, (b)
+`/analyses/survivorship` (anchor-less — survivorship view does not
+yet emit per-record DOM ids; would fail SvelteKit prerender
+link-check), (c) `/analyses/forecast`. When survivorship grows
+per-record anchors, `survivorshipHref(p)` upgrades to
+`#${id}` in-place.
+
+**Reversal cost.** Low. Density is `tailHexes` derived state in the
+route; removing it is deleting one `{#each tailHexes}` block. Filter
+mechanism is two `$state<Set<...>>` declarations plus the pure
+`filterPoints` helper. Quadrant copy is `QUADRANT_COPY` in
+`influence.ts` — single object literal to edit.
+
