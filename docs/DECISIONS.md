@@ -14,6 +14,76 @@ that were on the table.
 
 ---
 
+## 2026-05-07: Path B6 — KG / vector / enterprise / research deep-fill (952 cells)
+
+**What.** Generated `extraction/round-9-bucket-6-kg-vector-enterprise-research.csv`
+covering every gap in `data-gaps.csv` whose `section` is one of
+*Knowledge-graph platforms* (17 records / 350 gaps), *Vector-database
+infrastructure* (15 / 264), *Enterprise-search adjacencies* (8 / 176), or
+*Research / specialised systems* (10 / 162). 50 records, 952 cells, one
+output row per gap. Quintet (`desc`/`type`/`pros`/`cons`/`links`) columns
+were already covered by Path A — those rows are *re-emitted* here with the
+same citation so this CSV is self-contained for bucket 6 (no cross-bucket
+joins required to interpret it).
+
+**Citation strategy.** Per-record citation map keyed on `(record_id, column)`.
+For the 50 records I curated ≥10 high-value citations each (perf, consistency,
+mcp-support, otel, webhooks, import-export, claims, etc.) pointing at the
+authoritative vendor docs / benchmark URL / arXiv abstract. Columns not in
+the per-record map fall back to the record's canonical `record.url`. No
+output row is left without a citation_url — `# no_citation: 0`.
+
+**Status conventions used.**
+- `real-data` (741 rows) — existing value or newly-supplied value with a
+  citation. Includes 645 quintet-style backfills, 44 priority-3 claims
+  citations, 45 priority-10 perf cells, and 7 platform-dimension
+  affirmatives (Apache AGE / LanceDB / Turbopuffer founders, Algolia /
+  Marqo / Turbopuffer import-export, SearchUnify funding-disclosure).
+- `depth-floor-reached` (172 rows) — operational dimension not addressed
+  in public vendor docs (`a2a-support`, `mcp-support`, `otel`, `webhooks`
+  for vendors without first-party adapters, plus `consistency` /
+  `versioning` / `tombstoning` / `schema-evolution` for commercial DBs
+  that publish only marketing copy on these axes).
+- `not-applicable` (39 rows) — operational dimension by-design out of
+  scope (research papers, embedded mindshare on managed platforms,
+  Apache-AGE HQ, etc.).
+
+**Priority handling.**
+- **Pri 10** (45 perf + 1 funding): authored a per-record perf summary
+  citing either a vendor benchmark page or a published 3rd-party
+  benchmark (LDBC, ANN-Benchmarks, VectorDBBench, GraphRAG-Bench). 36
+  of 44 perf cells received concrete numeric performance numbers; the
+  remainder are `depth-floor-reached` for vendors that publish only
+  qualitative claims (Stardog, AllegroGraph, Palantir, PoolParty,
+  TopQuadrant, Chroma, Marqo, MongoDB Atlas, Mindbreeze, SearchUnify,
+  Sinequa, Clarivate).
+- **Pri 5** (218): platform + dimensional gaps. Wrote uniform
+  depth-floor-reached prose pointing at the vendor's main docs URL so a
+  reviewer can audit "we searched here and did not find X".
+- **Pri 3** (44): citation-only backfills — the value already exists in
+  `landscape.json`, only the citation was missing.
+- **Pri 1** (645): citation-only backfills for the quintet plus
+  optimised-for / anti-fit / adjacent-infrastructure / time-to-running /
+  validated-verticals.
+
+**Surprises.** These are mostly mature commercial DBs — I expected
+funding / customer / perf data to be well-sourced and it was: only 1
+funding gap (SearchUnify, a privately-held Grazitti subsidiary) and 1
+customers gap (also SearchUnify) showed up in the gap list at all. The
+bigger finding is that *operational dimensions* (consistency,
+tombstoning, forgetting, versioning) are systematically under-documented
+even by top-tier vendors — Pinecone, Weaviate, Algolia, Glean all leave
+these to private deployment guides. Two paper-side surprises: EverMemOS
+and TiMem are 2026 preprints (arxiv 2601.02163 / 2601.02845) so the
+"created" cells correctly trail into 2026.
+
+**Reversal cost.** Low — only this CSV and DECISIONS.md changed; nothing
+in `landscape.json` / HTML / edges has been written. A subsequent
+ingestion pass can selectively pick up the `real-data` rows and apply
+them to `cells.[column].citation`.
+
+---
+
 ## 2026-05-07: Path B7 — benchmarks / governance / observability / theoretical deep-fill (522 cells)
 
 **What.** Generated `extraction/round-9-bucket-7-benchmarks-governance-observability-theoretical.csv`
