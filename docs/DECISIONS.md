@@ -1476,3 +1476,108 @@ shape, not the long tail.
 and ~200 lines. Layout tweaks are CSS-only. Adding a new aggregated
 metric is two lines (one in `SectionAggregate`, one in
 `aggregateSection`) plus a row in the card markup.
+
+---
+
+## 2026-05-07: Lineage detection heuristics (/lineages, issue #17)
+
+**What.** Detect "history of X" lineage families from records + edges
+and render them as a Wikipedia-style timeline diagram. Two curated
+seeds (RSSM / world-model anchored on DreamerV3, Graph-RAG hierarchy
+anchored on GraphRAG-Microsoft) come from `analysis.md`; everything
+else is auto-discovered as connected components in a descent
+sub-graph. Pure detection logic in `web/src/lib/lineages.ts`; SVG
+view in `web/src/routes/lineages/+page.svelte`.
+
+**Edge-type weighting.**
+
+| Edge type | Treatment | Why |
+|-----------|-----------|-----|
+| `built-on` / `extends` / `forks` / `succeeds` | Strong descent — always counts | These are explicit "B was built from A" claims. |
+| `cites` with `isInfluential === true` | Weak descent — counts | S2's influential flag is a high-precision signal that the cited work is foundational to the citing one, not a glancing reference. |
+| `cites` without isInfluential | Excluded | Too many false positives; pollutes components. |
+| `inspired-by` / `integrates-with` / `competes-with` / `same-team-as` | Excluded | Sideways or attributional, not descent. |
+
+**Curated-seed expansion: depth-limited BFS.** Naive expansion takes
+the connected component of each anchor through the full descent
+sub-graph. The data showed this collapses *both* curated seeds (and
+half the auto-discovery candidates) into one 119-node giant component
+— the influential-cite backbone of the catalog. Solution: cap curated
+BFS to 2 hops from the anchor. Yields RSSM≈5 and GraphRAG≈16 — focused
+enough to read as families, dense enough to feel like a history.
+Two hops is the sweet spot: 1 hop loses grand-children, 3 hops starts
+absorbing unrelated descendants via shared citations.
+
+**Auto-discovery: union-find on the remainder.** After curated seeds
+claim their members, the rest is processed by classic union-find with
+the same descent-edge predicate. Components < 3 are dropped (too small
+to be a "family"). Top results are sorted by size desc, then anchor
+date asc. Combined with curated, capped at 8 total lineages — the
+diagram becomes unreadable beyond 8 rows.
+
+**Naming rule.** A lineage's display name is `${anchor.name} family`,
+where the anchor is the oldest member by `created` date (ties broken
+by lexicographic id, then by undated-last so an anchor with a real
+date always wins over one without). Curated seeds override this with
+hand-written names ("RSSM / world-model family", "Graph-RAG
+hierarchy"). The anchor is rendered with a larger, outlined node and
+its label is brighter so the eye finds the family root immediately.
+
+**Layout choices.**
+- X-axis: continuous date axis (year + (quarter-1)/4), not a quarter
+  bucket grid. The bucket-grid look fits histograms (timeline view)
+  but a lineage diagram is read as "who came first" — continuous time
+  is the right metaphor.
+- Y-axis: one row per lineage, ordered curated-first then by size.
+  No vertical packing (no within-row collision avoidance) — at
+  ≤16 nodes per row in our data, simple horizontal positioning is
+  legible.
+- Edges: quadratic Bezier for same-row (slight arc upward so multiple
+  sibling edges don't fully overlap); cubic Bezier for cross-row
+  (currently rare; the curated/auto split usually contains its edges
+  within one row).
+- Arrows: filled triangle markers, blue for influential cites, grey
+  for strong descent. Source → target convention matches the edge
+  direction in the data.
+
+**Why pure SVG.** Same rationale as the timeline view: small N
+(≤8 rows × ~16 nodes each = ~130 nodes total), full control over
+hit targets, no library cost. The cytoscape graph view (#16) is a
+different beast — interactive force layout, 500+ nodes — and pays
+the library cost there.
+
+**Interactivity scope.**
+- Hover node → tooltip with name, tier swatch, and first 320 chars of
+  the `claims` cell (falls back to `desc`).
+- Click node → navigate to `/?q=<name>` so the table filters to that
+  system via free-text search. We don't drill to an id-specific facet
+  because the table doesn't have one; search-by-name is the closest.
+- Hover edge → tooltip with edge type, isInfluential flag, and the
+  `evidence` blurb. No click navigation on edges.
+
+**Reused by Phase 5.** The pure helpers in `lineages.ts` will feed
+into the polish/share phase:
+- `detectLineages()` → "filter graph (#16) to one named lineage"
+  overlay. The same `Lineage.members` set becomes a node filter on
+  the cytoscape graph.
+- `isDescentEdge` predicate → consistent edge filtering across the
+  graph, lineage, and any future "evolution view".
+- Curated seed list → narrative blurbs on share cards ("the RSSM
+  family: from DreamerV3 to PWM, R2I, and DIAMOND").
+
+**Options rejected.**
+- *Strong-only edges (no influential cites).* Produces 2-node
+  components for both curated seeds — too sparse to be a "family".
+- *Unbounded BFS for curated seeds.* Collapses everything into one
+  giant component (see above).
+- *Plot every member of every component.* The 119-node giant component
+  would visually dominate the diagram. We cap the lineage **count**
+  (8) but not the **member count per lineage**; the auto-discovery's
+  largest survivor (~96 nodes) becomes one dense row that signals
+  "research-paper citation backbone" — that *is* useful information.
+- *D3 or vis.js timeline.* Overkill; SVG works.
+
+**Reversal cost.** Low. Detection is one ~250-line pure-TS module;
+the view is one Svelte file. Tuning the depth cap or the edge-type
+weights is a one-line change. Adding a third curated seed is one
+entry in `CURATED_SEEDS`.
