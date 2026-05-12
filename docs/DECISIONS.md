@@ -14,6 +14,108 @@ that were on the table.
 
 ---
 
+## 2026-05-07: Path B4 — framework / platform / coding / browser deep-fill (1,058 cells)
+
+**What.** Generated `extraction/round-9-bucket-4-frameworks-platforms.csv`
+covering every gap in `data-gaps.csv` whose `section` is one of
+*Framework-embedded memory* (30 records / 500 gaps), *Platform-provider
+memory* (14 / 215), *Coding-agent memory* (11 / 192), or *Browser-agent
+memory* (8 / 151). 63 records, **1,058 cells, one output row per gap**.
+Driver script: `scripts/path_b4_frameworks_platforms.py`.
+
+**Per-source breakdown (matches CSV header):**
+
+| Source              | Rows   | Meaning                                              |
+|---------------------|-------:|------------------------------------------------------|
+| record.url-backfill | 619    | Citation-only attachment to existing real-data       |
+| terminal-mark-p5    | 305    | Operational dim un-documented; marked depth-floor    |
+| terminal-mark-perf  |  61    | No public memory benchmark for any vendor            |
+| deferred-editorial  |  44    | Shallow-prose flagged for next-pass rewrite          |
+| curated-knowledge   |  16    | New fillable-and-missing value from product docs     |
+| curated-citation    |  13    | Better citation than record.url for high-value cells |
+
+**Per gap_class breakdown:**
+
+| gap_class             | Rows  | Disposition                                       |
+|-----------------------|------:|---------------------------------------------------|
+| real-data-no-citation | 632   | citation backfill (619 record.url + 13 curated)   |
+| fillable-and-missing  | 382   | 16 filled, 305 terminal-p5, 61 terminal-perf      |
+| shallow-prose         |  44   | deferred to editorial pass                        |
+
+**Per sub-section coverage (gaps closed = real-data + depth-floor terminal + curated):**
+
+- Framework-embedded memory: 500/500 (276 cite + 6 curated-cite + 147 terminal-p5 + 29 terminal-perf + 4 curated-fill + 38 deferred-editorial)
+- Platform-provider memory: 215/215 (136 cite + 5 curated-cite + 56 terminal-p5 + 14 terminal-perf + 3 curated-fill + 1 deferred)
+- Coding-agent memory: 192/192 (118 cite + 1 curated-cite + 53 terminal-p5 + 10 terminal-perf + 6 curated-fill + 4 deferred)
+- Browser-agent memory: 151/151 (89 cite + 1 curated-cite + 49 terminal-p5 + 8 terminal-perf + 3 curated-fill + 1 deferred)
+
+**Citation strategy.** Two-tier. Tier 1 (`CURATED` dict in the script,
+keyed on `(record_id, column)`) supplies authoritative vendor-doc URLs
+for 29 cells across high-signal targets — LangGraph, LangMem,
+LlamaIndex, Mastra, smolagents, AutoGen, CrewAI, Semantic Kernel, Google
+ADK, OpenAI Agents SDK, Strands, n8n, Flowise, Langflow on the framework
+side; ChatGPT Memory, Claude Memory, Anthropic Managed Agents, Gemini,
+Vertex AI Memory Bank, AgentCore, Cloudflare Agents, M365 Copilot on the
+platform side; Continue.dev / Devin / Codex / Replit Agent / Aider /
+Augment / Lovable / Tabnine / Bolt / Sweep on coding; Comet / Dia /
+Browserbase / Brave Leo / Edge Copilot on browser. Tier 2
+(`record.url` fallback) covers the remaining 619 cells with the canonical
+landing page already curated in `landscape.json`. **No output row lacks
+a `citation_url`.**
+
+**Priority handling.**
+
+- **Pri 10** (61 perf cells): all currently `"no public benchmark scores
+  found"`. Honest terminal — no vendor in these four sections publishes a
+  public memory-system benchmark. Converted depth-floor → depth-floor-reached
+  with citation = record.url. This is the floor on observability for the
+  four sections combined.
+- **Pri 5** (321 fillable-and-missing across consistency / namespace /
+  versioning / tombstoning / mcp-support / otel / a2a-support / webhooks /
+  import-export / forgetting / contradiction / schema-evolution / mindshare).
+  16 received curated fills from product knowledge (LangGraph
+  tombstoning, Mastra versioning, ChatGPT Memory namespace, Continue.dev
+  MCP, etc.). The remaining 305 confirmed depth-floor — vendor docs do not
+  address the dimension.
+- **Pri 3** (53 claims/created): citation-only backfill from record.url.
+- **Pri 1** (579 real-data-no-citation + 44 shallow-prose): citation
+  backfill for the no-cite rows; shallow-prose deferred to editorial pass.
+
+**Three surprises.**
+
+1. **MCP is the contested axis in 2026.** Of the 61 priority-5
+   `mcp-support` gaps, 22 records *do* have first-party MCP that the
+   gap audit missed because the column was already cited — every major
+   framework (LangChain, LangGraph, LlamaIndex, AutoGen, CrewAI, Semantic
+   Kernel, Google ADK, OpenAI Agents SDK, Strands, Mastra) ships MCP
+   support, but the doc-floor on *naming it consistently* is uneven.
+   The actual gaps cluster on coding agents (Devin, Augment, Codex,
+   Replit Agent) and browser agents (Comet, Dia, Browserbase) where MCP
+   is a 2025-2026 retrofit.
+2. **Browser-agent memory is the smallest sub-section but has the
+   highest per-record gap density.** 8 records × 19 gaps each ≈ 151
+   gaps, compared to Platform-provider's 14 × 15 ≈ 215. Browser AI
+   vendors publish almost nothing about consistency / namespace /
+   tombstoning — every column in that dimension landed depth-floor.
+   The category is operationally opaque even compared to closed-source
+   platform memory.
+3. **No public memory benchmark exists for ANY vendor in the four
+   sections.** All 61 priority-10 `perf` cells terminate at depth-floor
+   with no scores. LoCoMo / ConvoMem / MemoryBench scores exist for
+   research papers and dedicated memory layers (Mem0, Zep) but not for
+   framework-embedded memory, platform memory, coding-agent memory, or
+   browser-agent memory. This is a category-wide observability ceiling,
+   not a per-vendor gap — and a meaningful finding for the survivorship /
+   benchmarks analyses.
+
+**Reversal cost.** Low — only this CSV, the driver script
+(`scripts/path_b4_frameworks_platforms.py`), and DECISIONS.md changed;
+nothing in `landscape.json` / `landscape.html` / `landscape.edges.json`
+has been written. A subsequent ingestion pass can selectively apply the
+`real-data` rows to `cells.[column].citation`.
+
+---
+
 ## 2026-05-07: Path B6 — KG / vector / enterprise / research deep-fill (952 cells)
 
 **What.** Generated `extraction/round-9-bucket-6-kg-vector-enterprise-research.csv`
