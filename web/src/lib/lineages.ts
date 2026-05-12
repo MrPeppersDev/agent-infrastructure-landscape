@@ -36,6 +36,29 @@ export const STRONG_DESCENT_TYPES: ReadonlySet<EdgeType> = new Set<EdgeType>([
  *  Non-influential cites are too numerous and noisy to imply descent. */
 export const WEAK_DESCENT_TYPE: EdgeType = 'cites';
 
+/**
+ * Lineage kind:
+ *
+ *  - `'descent'` — a parent→child chain in the structural-descent graph
+ *    (built-on / extends / forks / succeeds / influential cites). The two
+ *    seeded research-paper lineages (RSSM, Graph-RAG) and every
+ *    auto-discovered lineage live in this bucket. Renders with solid
+ *    arrows.
+ *
+ *  - `'pattern'` — a family that converged on the same architectural
+ *    pattern by parallel evolution. Members have no descent edges between
+ *    them; we surface the family anyway because the pattern is one of the
+ *    dominant production memory shapes. Renders with dashed
+ *    "parallel-implementations" links and a distinct track label.
+ *
+ *  Why the split: descent-lineage rendering uses bezier arrows that imply
+ *  "B was built from A". Applying that visual to a pattern family
+ *  (e.g. file-backed memory across Cursor / Claude Code / Aider) would
+ *  miscommunicate the relationship. The kind field lets the rendering
+ *  pass make the semantic distinction explicit.
+ */
+export type LineageKind = 'descent' | 'pattern';
+
 export interface Lineage {
   id: string;
   /** Human-readable family name, derived from the anchor record. */
@@ -44,10 +67,14 @@ export interface Lineage {
   anchor: string;
   /** All record ids in the connected component, ordered by created date asc. */
   members: string[];
-  /** Edges between members (subset of the input edges). */
+  /** Edges between members (subset of the input edges). Empty for
+   *  pattern lineages (no real edges; the renderer draws virtual
+   *  "parallel-implementations" links between consecutive members). */
   edges: Edge[];
   /** True if this lineage was hand-curated; false if auto-discovered. */
   curated: boolean;
+  /** Descent (default) vs pattern (parallel implementations of an idea). */
+  kind: LineageKind;
 }
 
 export interface DetectOptions {
@@ -73,18 +100,46 @@ interface CuratedSeed {
   /** Anchor record id — must exist in records. If missing we silently
    *  drop the seed (defensive: lineage IDs can churn). */
   anchorId: string;
+  /** Default: 'descent'. Pattern seeds expand by section membership
+   *  rather than by descent-edge BFS — see materialiseCuratedSeed(). */
+  kind?: LineageKind;
+  /** Pattern seeds only: catalog section names whose member records
+   *  qualify for the lineage. Records in any of these sections (primary
+   *  OR secondary placement) are included. */
+  sections?: readonly string[];
 }
 
 const CURATED_SEEDS: CuratedSeed[] = [
   {
     id: 'rssm-world-model',
     name: 'RSSM / world-model family',
-    anchorId: 'dreamerv3--arxiv-2301-04104'
+    anchorId: 'dreamerv3--arxiv-2301-04104',
+    kind: 'descent'
   },
   {
     id: 'graph-rag-hierarchy',
     name: 'Graph-RAG hierarchy',
-    anchorId: 'graphrag-microsoft--microsoft-com'
+    anchorId: 'graphrag-microsoft--microsoft-com',
+    kind: 'descent'
+  },
+  // Files-as-memory: parallel implementations of the "text file the model
+  // reads at session start" pattern. Members have no descent edges; we
+  // expand by section membership instead. Anchor on CLAUDE.md as the
+  // canonical / most-referenced exemplar (Cursor / Aider predate it
+  // chronologically but CLAUDE.md is the most-recognised name for the
+  // pattern). The earliest member by created date becomes the
+  // visual anchor at render time — see oldestMember(). The string anchorId
+  // is the "preferred" anchor; if it's not the oldest, oldestMember()
+  // overrides.
+  {
+    id: 'files-as-memory',
+    name: 'Files-as-memory thread',
+    anchorId: 'claude-md--docs-claude-com',
+    kind: 'pattern',
+    sections: [
+      'File-backed / editor paradigms',
+      'Claude Code memory mechanisms'
+    ]
   }
 ];
 
@@ -274,22 +329,52 @@ export function detectLineages(
   // BFS expansion and the union-find pass.
   const adj = buildAdj(edges, validIds);
 
-  // 1. Curated seeds: expand each anchor through the descent sub-graph.
+  // 1. Curated seeds: descent seeds expand through the descent sub-graph
+  //    via depth-limited BFS; pattern seeds expand by section membership
+  //    (members converged on the pattern, no descent edges between them).
   const claimed = new Set<string>();
   const curatedLineages: Lineage[] = [];
   for (const seed of CURATED_SEEDS) {
     if (!byId.has(seed.anchorId)) continue;
-    const componentIds = expandComponent(seed.anchorId, adj, curatedMaxDepth);
-    const memberSet = componentIds;
+    const kind: LineageKind = seed.kind ?? 'descent';
+    let memberSet: Set<string>;
+    let lineageEdges: Edge[];
+    if (kind === 'pattern') {
+      // Pattern lineage: gather records whose section memberships
+      // intersect the seed's section list.
+      const wantSections = new Set(seed.sections ?? []);
+      const found = new Set<string>();
+      for (const r of records) {
+        for (const s of r.sections) {
+          if (wantSections.has(s.section)) {
+            found.add(r.id);
+            break;
+          }
+        }
+      }
+      memberSet = found;
+      // No real descent edges between pattern members. The renderer
+      // synthesises virtual "parallel-implementations" links at draw time.
+      lineageEdges = [];
+    } else {
+      memberSet = expandComponent(seed.anchorId, adj, curatedMaxDepth);
+      lineageEdges = edgesWithin(memberSet, edges);
+    }
     const memberIds = sortByDate([...memberSet], byId);
     for (const id of memberIds) claimed.add(id);
+    // Use the seed's preferred anchor when it's in the member set;
+    // otherwise fall back to the oldest member.
+    const anchor = memberSet.has(seed.anchorId)
+      ? seed.anchorId
+      : oldestMember(memberIds, byId);
     curatedLineages.push({
       id: seed.id,
       name: seed.name,
-      anchor: seed.anchorId,
+      anchor,
       members: memberIds,
-      edges: edgesWithin(memberSet, edges),
-      curated: true
+      edges: lineageEdges,
+      curated: true,
+      kind
     });
   }
 
@@ -321,7 +406,8 @@ export function detectLineages(
       anchor: anchorId,
       members: sorted,
       edges: edgesWithin(memberSet, edges),
-      curated: false
+      curated: false,
+      kind: 'descent'
     });
   }
   // Sort auto-discovered lineages by size desc, then by anchor date asc.

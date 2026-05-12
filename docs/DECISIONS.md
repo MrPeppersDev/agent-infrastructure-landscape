@@ -2163,3 +2163,60 @@ sphere that can be sourced.
 **Reversal cost.** Medium. Removing rows is easy; re-tagging the cross-scope
 ones takes a pass. The scope statement itself is one paragraph.
 
+---
+
+## 2026-05-07: Files-as-memory as 3rd curated lineage seed (Polish)
+
+**What.** Added a third curated lineage to `$lib/lineages.ts`:
+"Files-as-memory thread". Anchored on the CLAUDE.md record. Members
+are the catalog rows tagged in the "File-backed / editor paradigms"
+section plus the "Claude Code memory mechanisms" section (~33 records
+including AGENTS.md, Cursor rules, Continue rules, Cline clinerules,
+Roo Code, Windsurf memories, Zed rules, aider conventions, and a long
+tail of MCP-based memory implementations).
+
+**Pattern lineage vs descent lineage.** Crucially this lineage has
+*no* `built-on` / `cites` edges between its members — that's why the
+auto-discovery pass didn't surface it. The members converged on the
+same architectural pattern (text file the model reads at session
+start) by parallel evolution, not common ancestry. We mark this with
+a new `kind` field on `Lineage`: `'descent'` (the default — what RSSM
+and Graph-RAG are) vs `'pattern'` (parallel implementations of a
+shared idea). The /lineages page renders pattern lineages with dashed
+connectors between consecutive members, a distinct track sublabel
+("· pattern"), and a "parallel-implementations" legend entry — so
+the visual cue matches the semantic distinction.
+
+**Materialisation difference.** Descent seeds expand by depth-limited
+BFS over the descent sub-graph (built-on / cites edges). Pattern
+seeds expand by *section membership* — any record whose `sections`
+list intersects the seed's named section list joins the lineage. The
+seed declaration carries an explicit `sections` array, so adding a
+new pattern lineage later is a single CURATED_SEEDS entry.
+
+**Why.** Files-as-memory is one of the three dominant production
+memory patterns (alongside RAG-over-conversation-store and
+graph-RAG) but it's invisible on the lineage view because the
+discovery algorithm only follows descent edges. A curated pattern
+seed is the cheapest way to surface the family without polluting the
+edge data with synthesised "parallel-implementations" edges. Anchor
+choice: CLAUDE.md is the most-recognised name for the pattern even
+though Cursor and aider predate it chronologically; the seed's
+preferred anchor is kept when the record is present, otherwise the
+code falls back to the oldest member by `created` date.
+
+**Options rejected.**
+- *Add synthetic `parallel-implementations` edges to the edge data.*
+  Pollutes a primary-source dataset with our derived classification;
+  hard to undo and breaks the invariant that edges are evidenced.
+- *Make every file-backed system "built-on" CLAUDE.md.* Historically
+  wrong — Cursor and aider predate Claude Code; AGENTS.md was a
+  consortium effort.
+- *Hide the family entirely (status quo).* The user explicitly
+  flagged it as a gap; deferring leaves /lineages incomplete.
+
+**Reversal cost.** Low. Drop the curated seed from `CURATED_SEEDS`
+and remove the `kind` field from `Lineage` (plus the `pattern` branch
+in `detectLineages` and the dashed-edge branch on the page); the
+union-find pass is unchanged.
+

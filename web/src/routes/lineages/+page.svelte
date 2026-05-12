@@ -149,13 +149,21 @@
   // endpoint isn't plotted (no parseable date, or different lineage) we
   // skip the edge — same-lineage cross-track edges are rare in our data
   // and would crowd the diagram with diagonals across the whole chart.
+  //
+  // Pattern lineages have no real edges. For these we synthesise dashed
+  // "parallel-implementations" links between consecutive members along
+  // the timeline so the eye can follow the family without implying
+  // descent (which would be wrong — pattern members converged
+  // independently).
   type PlottedEdge = {
-    edge: Edge;
+    edge: Edge | null;
     x1: number;
     y1: number;
     x2: number;
     y2: number;
     sameRow: boolean;
+    /** True for synthesised pattern-lineage connectors (dashed). */
+    virtual: boolean;
   };
 
   const plottedEdges = $derived.by<PlottedEdge[]>(() => {
@@ -173,6 +181,26 @@
       }
     }
     for (const pl of plotted) {
+      if (pl.lineage.kind === 'pattern') {
+        // Synthesise virtual connectors between consecutive nodes along
+        // the row. We chain them in date order so the line reads
+        // left-to-right; semantically these are "parallel
+        // implementations of the same idea", not built-on relations.
+        for (let i = 1; i < pl.nodes.length; i++) {
+          const a = pl.nodes[i - 1];
+          const b = pl.nodes[i];
+          out.push({
+            edge: null,
+            x1: a.x,
+            y1: a.y,
+            x2: b.x,
+            y2: b.y,
+            sameRow: true,
+            virtual: true
+          });
+        }
+        continue;
+      }
       for (const e of pl.lineage.edges) {
         const s = idToCoords.get(e.source);
         const t = idToCoords.get(e.target);
@@ -183,7 +211,8 @@
           y1: s.y,
           x2: t.x,
           y2: t.y,
-          sameRow: s.y === t.y
+          sameRow: s.y === t.y,
+          virtual: false
         });
       }
     }
@@ -289,11 +318,14 @@
 
   <p class="hint">
     Each row is a lineage family. Nodes are plotted by their `created` date;
-    arrows are structural-descent edges (built-on / extends / forks / succeeds
-    + influential cites). Hover a node for its key claim, click to filter the
-    table by that system. RSSM / world-model and Graph-RAG hierarchy are
-    pre-seeded from analysis.md; the rest are auto-detected as connected
-    components of size ≥ 3 in the descent sub-graph.
+    solid arrows are structural-descent edges (built-on / extends / forks /
+    succeeds + influential cites). Dashed connectors mark
+    <strong>pattern lineages</strong> — families that converged on the same
+    architectural idea independently (no descent edges between members).
+    Hover a node for its key claim, click to filter the table by that
+    system. RSSM / world-model, Graph-RAG hierarchy, and Files-as-memory
+    are pre-seeded from analysis.md; the rest are auto-detected as
+    connected components of size ≥ 3 in the descent sub-graph.
   </p>
 
   <div class="chart-scroll">
@@ -359,9 +391,10 @@
             y={y + 18}
             text-anchor="end"
             class="track-sublabel"
+            class:pattern={pl.lineage.kind === 'pattern'}
           >
             {pl.nodes.length} plotted
-            {#if pl.lineage.curated}· curated{/if}
+            {#if pl.lineage.kind === 'pattern'}· pattern{:else if pl.lineage.curated}· curated{/if}
           </text>
         {/each}
 
@@ -392,17 +425,24 @@
 
         <!-- Edges (rendered below nodes) -->
         {#each plottedEdges as pe}
-          {@const influential = pe.edge.type === 'cites' && pe.edge.isInfluential}
+          {@const influential = pe.edge?.type === 'cites' && pe.edge?.isInfluential}
+          {@const stroke = pe.virtual ? '#7a6a4c' : influential ? '#58a6ff' : '#484f58'}
           <path
             d={bezierPath(pe)}
             fill="none"
-            stroke={influential ? '#58a6ff' : '#484f58'}
+            stroke={stroke}
             stroke-width={influential ? 1.4 : 1.1}
-            stroke-opacity={hoverEdge === pe ? 1 : influential ? 0.65 : 0.45}
-            marker-end={`url(#${influential ? 'arrowhead-influential' : 'arrowhead'})`}
+            stroke-opacity={hoverEdge === pe ? 1 : pe.virtual ? 0.5 : influential ? 0.65 : 0.45}
+            stroke-dasharray={pe.virtual ? '3 4' : null}
+            marker-end={pe.virtual
+              ? null
+              : `url(#${influential ? 'arrowhead-influential' : 'arrowhead'})`}
             class="edge"
+            class:virtual={pe.virtual}
             role="img"
-            aria-label="{pe.edge.type} edge from {pe.edge.source} to {pe.edge.target}"
+            aria-label={pe.virtual
+              ? 'parallel-implementations connector'
+              : `${pe.edge?.type} edge from ${pe.edge?.source} to ${pe.edge?.target}`}
             onpointerenter={(e) => onEdgeEnter(pe, e)}
             onpointermove={onNodeMove}
             onpointerleave={onEdgeLeave}
@@ -448,6 +488,7 @@
   <ul class="legend">
     <li><span class="lswatch lswatch-strong"></span> structural descent (built-on / extends / forks / succeeds)</li>
     <li><span class="lswatch lswatch-weak"></span> influential citation</li>
+    <li><span class="lswatch lswatch-pattern"></span> parallel-implementations (pattern lineage)</li>
     <li><span class="lswatch lswatch-anchor"></span> anchor (oldest member of the lineage)</li>
   </ul>
 
@@ -475,13 +516,21 @@
       style="left: {hoverX + 14}px; top: {hoverY + 14}px"
       aria-hidden="true"
     >
-      <div class="tt-head">
-        {hoverEdge.edge.source} → {hoverEdge.edge.target}
-      </div>
-      <div class="tt-body">
-        <strong>{hoverEdge.edge.type}{hoverEdge.edge.isInfluential ? ' · influential' : ''}</strong><br />
-        {hoverEdge.edge.evidence}
-      </div>
+      {#if hoverEdge.virtual}
+        <div class="tt-head">parallel-implementations</div>
+        <div class="tt-body">
+          Pattern lineage: members converged on the same architectural
+          idea independently. Not a built-on relation.
+        </div>
+      {:else if hoverEdge.edge}
+        <div class="tt-head">
+          {hoverEdge.edge.source} → {hoverEdge.edge.target}
+        </div>
+        <div class="tt-body">
+          <strong>{hoverEdge.edge.type}{hoverEdge.edge.isInfluential ? ' · influential' : ''}</strong><br />
+          {hoverEdge.edge.evidence}
+        </div>
+      {/if}
     </div>
   {/if}
 </div>
@@ -545,6 +594,9 @@
     fill: #6e7681;
     font-family: ui-monospace, SFMono-Regular, monospace;
   }
+  :global(.track-sublabel.pattern) {
+    fill: #b59462;
+  }
   :global(.tick-label) {
     font-size: 10px;
     fill: #8b949e;
@@ -594,6 +646,17 @@
     background: #484f58;
   }
   .lswatch-weak { background: #58a6ff; height: 2px; }
+  .lswatch-pattern {
+    background: linear-gradient(
+      to right,
+      #7a6a4c 0 3px,
+      transparent 3px 7px,
+      #7a6a4c 7px 10px,
+      transparent 10px 14px,
+      #7a6a4c 14px 18px
+    );
+    height: 2px;
+  }
   .lswatch-anchor {
     width: 10px;
     height: 10px;
