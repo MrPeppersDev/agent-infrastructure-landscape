@@ -2514,3 +2514,111 @@ schema.
 
 ---
 
+## 2026-05-07: Vocabulary drift — curated term list + counting rule
+
+**What.** The `/analyses/vocabulary` view (issue #26) tracks
+**27 hand-curated memory terms** grouped into five themes —
+cognitive-science (episodic / semantic / working / procedural /
+declarative), mechanism (parametric / latent / retrieval / vector /
+graph / knowledge-graph), agent-era (agentic / lifelong /
+world-model / persistent / ephemeral), architectural (bi-temporal /
+key-value / KV / attention / RAG / MCP), and emerging
+(continual / in-context / hierarchical / episodic-memory /
+working-memory). The list lives in `TRACKED_TERMS` in
+`web/src/lib/analyses/vocabulary.ts` and is the only curation
+surface; extend it via PR + a follow-up entry here.
+
+**Counting rule: one mention per record, not one per occurrence.**
+A record contributes 1 to a term's bucket if the term appears
+*anywhere* in its `desc` + `claims` cells (case-insensitive,
+word-boundary, HTML stripped). Repeated mentions inside the same
+record do not increment the count.
+
+**Why one-per-record.**
+- The catalog cells are written by us during extraction, with
+  variable verbosity. A 4-paragraph `claims` cell mentioning
+  "episodic" five times is one *system* that's episodic, not five.
+  Counting occurrences would reward verbose entries — i.e. measure
+  our writing style rather than the field's vocabulary drift.
+- The bucket axis is *records-created-that-quarter*. The
+  semantically natural numerator is also records (so the ratio
+  "fraction of new systems mentioning X" is well-defined later if
+  we add a normalised view).
+- Recovery is cheap: `countByQuarter` could be re-implemented to
+  return occurrence counts without changing any caller's API. We
+  chose record counts because every alternative answers a less
+  interesting question.
+
+**Why word-boundary regex.**
+- `\bgraph\b` correctly skips "graphical" and matches both
+  "graph" and "knowledge-graph" (the hyphen is a non-word char so
+  the boundary holds).
+- We use case-insensitive matching because the source cells mix
+  "RAG", "rag", and "Rag" inconsistently. The visible chip label
+  preserves the curated casing (e.g. "RAG", "KV", "MCP" stay
+  upper-case in the UI) so the reader sees the canonical term.
+
+**Why these 27 terms and not more (or fewer).**
+- The cognitive-science quintet is the academic ground truth for
+  memory taxonomy (Tulving 1972 + Squire & Zola 1996); skipping
+  any of the five would beg "what counts as memory anyway".
+- The mechanism group covers the four answer-storage primitives
+  the catalog reliably distinguishes (parametric weights, latent
+  activations, retrieval indexes, vector embeddings) plus the two
+  structural alternatives (graph, knowledge-graph).
+- The agent-era group is the vocabulary that emerged 2023-2025
+  specifically to talk about LLM-agent memory ("agentic",
+  "lifelong", "world-model", "persistent vs ephemeral").
+- The architectural group is named systems/protocols/primitives
+  ("bi-temporal", "key-value"/"KV", "attention", "RAG", "MCP")
+  that should rise or fall as the surrounding plumbing matures.
+- The emerging group is five hyphenated compounds we expect to
+  spike in late-2025/2026 — tracked as a leading indicator.
+- Excluded on purpose: generic words ("memory", "context",
+  "model") that match nearly every record and would dominate the
+  chart without signal; brand names ("Pinecone", "Letta") which
+  belong on a separate "vendor mindshare" view, not vocabulary;
+  and benchmark names (LongMemEval, LoCoMo, …) which have their
+  own coverage matrix.
+
+**Anyone-can-extend.** The chosen surface is intentionally a flat
+array (`TRACKED_TERMS`) and a five-bucket grouping (`TERM_GROUPS`).
+Adding "salient", "consolidation", "neuromorphic", etc. is a
+one-line PR plus an entry below this one stating why it deserves a
+permanent slot. We will resist growing past ~40 terms — the
+visual budget for a line chart is ~10 simultaneous lines and the
+term-selector chip grid becomes oppressive past four rows.
+
+**YoY growth formula.** For each term, `termGrowth` finds the
+most-recent year with non-zero count and the next-most-recent
+year that had data (NOT strictly "year before" — a term that
+went quiet for a year is still compared to its last active year,
+which captures revivals). Growth = `(latest - prior) / prior`.
+When `prior === 0` and `latest > 0` we return `+Infinity` and
+the UI renders "new" rather than a number — a term that just
+appeared has no meaningful percentage.
+
+**Empirical sanity at the time of writing** (502 parseable
+records, ~23 active quarters):
+- Fastest-growing 2024→2025: agentic (+550%), procedural
+  (+250%), hierarchical (+175%), semantic (+157%), parametric
+  (+150%).
+- Declining: knowledge-graph, world-model, ephemeral,
+  bi-temporal, key-value, in-context all went to zero in 2025
+  (low baselines — interpret with caution).
+- True newcomers (first seen 2024+): lifelong, ephemeral.
+- Exploded specifically in 2025: agentic (2→13), procedural
+  (2→7), MCP (6→10) — all consistent with the agent-era
+  vocabulary turn.
+
+**Reversal cost.** Low. All logic in
+`web/src/lib/analyses/vocabulary.ts` (pure helpers) and the
+presentational page at
+`web/src/routes/analyses/vocabulary/+page.svelte`. Changing the
+counting rule to occurrence-based is a 5-line change in
+`countByQuarter`; changing the term list is one constant edit.
+Changing the bucket axis (quarter → year) needs a rewrite of the
+SVG geometry but not the helper API.
+
+---
+
