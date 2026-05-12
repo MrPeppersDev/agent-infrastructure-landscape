@@ -1233,3 +1233,87 @@ format means changing `stateToUrl` / `urlToState` in lockstep; nothing
 else in the app touches the URL. Adding new state to the URL (e.g. column
 visibility from a future issue) is a one-place edit in url-state.ts.
 
+
+---
+
+## 2026-05-07: Timeline view — stacking by tier (issue #13)
+
+**What.** The `/timeline` view stacks year-quarter bars by **tier** (5
+stacks) rather than by **section** (20 stacks). Section is exposed as a
+filter dropdown instead.
+
+**Why.**
+- *Stack count vs. legibility.* Twenty-stack bars at 28px wide turn into
+  visual noise — each tier-segment in a tall bar would be 1–2px, and the
+  legend would dominate the page.
+- *Tier carries the most information about "wave shape".* The user's
+  primary trend-analysis question ("when did each layer of the landscape
+  light up?") maps onto tier directly: tier-1 systems lead, tier-3
+  follow-ons cluster a few quarters later, tier-4 papers form their own
+  research wave. Section is *what kind of thing* it is, which is better
+  answered by the filter dropdown ("show me just dedicated memory
+  layers").
+- *Click drill-through.* A bar click sends the user to the table filtered
+  by `section=<current> & tier=<tiers in bucket>`. Stacking by tier
+  makes that param obvious to construct; stacking by section would
+  require encoding "which sections are non-zero in this quarter" — less
+  intuitive.
+
+**Date parsing heuristics** (`lib/timeline.ts → parseCreatedDate`):
+1. `YYYY-MM-DD` or `YYYY-MM` anywhere in the string → exact quarter.
+2. `YYYY-YYYY` range → earlier year, Q1.
+3. Bare `YYYY` (1900–2099) → that year, Q1.
+4. Sentinel phrasings (`no data`, `searched not found`, `Pre-existing`,
+   `Various`) return null up front.
+5. Prose like `"Announced 2026-04 (GTC season)"` is handled because the
+   regex is *not* anchored — first plausible `YYYY-MM` wins. We assume
+   the founding/release date appears first in the string; later dates
+   are usually GA/acquisition/etc. and less interesting for "when was
+   this created".
+
+**Result on the current dataset.** 501 of 523 records (96%) parse to a
+year-quarter; 22 are unparseable (status `depth-floor-reached` or
+literal `"no data"`). Records without a parseable date are silently
+omitted from the chart and counted in the subtitle as "N unparseable".
+
+**Empty-quarter handling.** `bucketRecords()` inserts empty rows between
+the min and max year so the X-axis is continuous. A "dry quarter" with
+no releases conveys real information (the pause before a wave); collapsing
+it would mislead the eye about pacing.
+
+**Rendering choice — pure SVG, no library.** ~25 quarters × 5 tiers ≈
+125 `<rect>` elements. A charting library (chart.js, d3, layercake)
+would add a 30–80 KB dependency and force us to fight its tooltip /
+click-target / colour systems. Hand-rolled SVG is ~250 lines including
+the tooltip, gives pixel-perfect control over click hit-zones (we use a
+full-column transparent hit-rect so short bars are still clickable), and
+keeps the bundle small.
+
+**Drill-through fidelity.** Bar click goes to
+`/?section=<>&tier=<csv>`. There is no "year" facet on the table today,
+so the drill is an over-approximation — it shows the section+tier
+intersection across *all* time, not just the clicked quarter. This is the
+best fidelity available without inventing a new facet, and it's still a
+useful zoom-in. A future issue could add a `?created-year=` param if the
+imprecision proves annoying.
+
+**Reusable for Phase 4 (graph view).** The `parseCreatedDate` and
+`primarySection` helpers in `lib/timeline.ts` are deliberately
+Svelte-free pure functions. Phase 4 will reuse them to colour graph
+nodes by creation era (era bands on a force layout = "when did this
+cluster light up?") and to size them by section membership.
+
+**Skipped.**
+- *Y-axis log scale.* Counts top out around 30 per bucket; linear is fine.
+- *Animated transitions on filter change.* Section filter swaps the
+  whole bucket set; cross-fade looked worse than instant replace.
+- *Saving the section filter to the URL.* The table view already owns
+  the section facet; the timeline filter is a transient view setting
+  rather than a shareable state. Reverse if user feedback asks for
+  shareable timeline-with-filter links.
+
+**Reversal cost.** Low. The bucketing and parsing logic are pure
+functions in `lib/timeline.ts`; the view is a single Svelte file. To
+re-stack by section, swap `byTier[t-1]` for a `bySection[name]` map and
+update the legend. To swap to a library, replace the SVG block; the
+parsing helpers stay.
