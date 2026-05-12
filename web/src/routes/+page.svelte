@@ -1,6 +1,7 @@
 <script lang="ts">
   import Table from '$lib/components/Table.svelte';
   import SearchBox from '$lib/components/SearchBox.svelte';
+  import FilterRail from '$lib/components/FilterRail.svelte';
   import { sortColumns } from '$lib/stores/sort';
   import { searchQuery, applySearch } from '$lib/stores/search';
   import { filters, applyFilters } from '$lib/stores/filters';
@@ -41,9 +42,12 @@
     <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
   </header>
 
-  <main class="table-shell">
-    <Table records={visibleRecords} />
-  </main>
+  <div class="body">
+    <FilterRail records={data.records} />
+    <main class="table-shell">
+      <Table records={visibleRecords} />
+    </main>
+  </div>
 </div>
 
 <style>
@@ -79,8 +83,17 @@
     font-size: 0.8rem;
     font-style: italic;
   }
+  .body {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: stretch;
+    min-height: 0;
+    flex: 1;
+  }
   .table-shell {
     flex: 1;
+    min-width: 0;
     min-height: 0;
   }
 </style>

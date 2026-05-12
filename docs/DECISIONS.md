@@ -1072,3 +1072,103 @@ for a fuzzy matcher or a prebuilt index is a one-file change.
 SearchBox is self-contained — deleting the import + render line in
 `+page.svelte` removes the feature with no other fallout.
 
+---
+
+## 2026-05-07: Faceted filters — shape, semantics, canonicalisation (issue #11)
+
+**What.** The faceted-filter rail (`FilterRail.svelte` + `filters.ts`)
+exposes twelve facets. `FilterState` is a flat object whose every
+property is a `Set` of allowed values for that facet; an empty Set means
+"no constraint on this facet". Predicate semantics: **AND across facets,
+OR within a facet** — the standard faceted-search shape. Each record
+contributes exactly one value per facet, so a record is either in or out
+of each value's bucket.
+
+The twelve facets and their value-extraction rules:
+
+| Facet | Source on record | Value space |
+| --- | --- | --- |
+| `tier` | `r.tier` | numbers 1..5 |
+| `section` | primary `r.sections[].section` | free-form strings |
+| `storage`..`conflict` | primary value of `r.taxonomy[axis]` | taxonomy terms |
+| `license` | canonicalised `r.cells.license` | bucketed (see below) |
+| `deployment` | canonicalised `r.cells.deployment` | bucketed |
+| `modality` | canonicalised `r.cells.modalities` | bucketed |
+
+For the three cell-derived facets, the raw cell value is free text, so
+we keyword-match (substring, lowercased) into a small fixed bucket set.
+Anything that doesn't match any keyword becomes `other`; anything whose
+cell status is not `real-data` becomes `NA` (so users can filter to "only
+records with real licence data").
+
+**License buckets.** apache → `Apache-2.0`; agpl → `AGPL`; gpl → `GPL`;
+mit → `MIT`; bsd → `BSD`; proprietary/closed → `proprietary`;
+research/noncommercial/nc-4.0/cc-by-nc → `research-license`; everything
+else → `other`. `agpl` is checked before `gpl` so AGPL isn't swallowed
+by GPL's substring.
+
+**Deployment buckets.** self-host/on-prem → `self-hosted`;
+saas/managed/hosted → `saas`; cloud → `cloud`;
+library/embedded/sdk → `library`; cli/desktop/local → `local`;
+else → `other`.
+
+**Modality buckets.** multimodal → `multimodal`; text → `text`;
+vision/image → `vision`; audio/speech → `audio`; video → `video`;
+code → `code`; embedding/vector → `embeddings`; else → `other`. First
+match wins; a record whose cell mentions both "text" and "vision" lands
+under `multimodal` if it says so, else `text` (text is checked before
+vision). This is the right call for faceting (one bucket per record)
+but loses information; if multi-modality ever becomes a first-class
+facet axis we should switch to a multi-valued shape rather than
+expanding the bucket list.
+
+**Why a Set per facet rather than a per-axis FilterAxis object.**
+Considered:
+- *Nested taxonomy sub-object* (`{ taxonomy: { storage: Set, ... } }`)
+  to mirror the LandscapeRecord shape. Rejected — flat is one less hop
+  in the URL serialiser (#12) and the rail doesn't visually group them
+  any more tightly than the rest.
+- *Single `Set<{facet,value}>` discriminated-union.* Rejected — facet
+  membership tests become O(n) on the set size rather than O(1).
+- *Arrays instead of Sets.* Rejected — Sets give us O(1) `.has()` for
+  the per-record predicate, which runs once per facet per record on
+  every filter toggle.
+
+**Why counts exclude the current facet.** Standard faceted-UX behaviour:
+if you've already selected "tier=1" and look at the section facet, you
+see the count *given tier=1*, but inside the tier facet itself you see
+the count of records-that-match-every-other-facet broken down by tier —
+otherwise once you pick "tier=1" the other tiers show 0 and the user
+can't expand their selection. Implemented in `facetCounts()` by
+filtering with `FACET_ORDER.filter(f => f !== facet)` before tallying.
+
+**Why `<details>` instead of a custom collapsible.** Built-in
+accessibility, keyboard support, and the rotate-on-open arrow comes for
+free via CSS. Trade-off: harder to animate, but we don't animate anyway.
+
+**Contract for #12 (URL sync).** Read/write through the exported
+helpers: `filters` writable, `toggleFacetValue(facet, value)`,
+`clearFacet(facet)`, `clearFilters()`. Serialisation can iterate
+`FACET_ORDER` and join each Set as `?tier=1,2&section=...`. The
+canonicalisation functions are also exported so URL params can be
+validated against the same bucket set the UI shows.
+
+**Deferred.**
+- *Hierarchical section/subsection.* The data has subsections under
+  some sections; the filter rail treats every primary section as a
+  flat string. A future issue can split this into a tree picker if
+  the section list gets unwieldy.
+- *Narrow-viewport drawer.* Below ~900px the rail will wrap below the
+  table area awkwardly; the responsive layout is left for a later pass.
+- *Multi-valued modality matching.* A record with "text+vision" is
+  bucketed into one value only. If users complain, switch modality to
+  a multi-bucket per record (record passes the facet if any of its
+  buckets match).
+
+**Reversal cost.** Low. The store API (`filters`, `applyFilters`,
+`facetCounts`, `toggleFacetValue`, `clearFacet`, `clearFilters`) is the
+only public surface; the rail and any future URL-sync consumer go
+through it. Adding facets is one line in `FACET_ORDER` plus an extractor
+case in `recordFacetValue`. Canonicalisation buckets can be widened by
+adding keyword tests without changing the API.
+
