@@ -4098,3 +4098,109 @@ robotics 100% (196/196), other 100% (603/603) — 0 cells remain in gap.
 `python3 scripts/path_b_bucket_2.py`. The script is read-only on
 `extraction/data-gaps.csv`. The CSV is append-only artefact for downstream
 ingestion (not yet merged into `web/landscape.json`).
+
+## 2026-05-07: Path B5 — PKM / voice-first / Claude Code / file-backed deep-fill
+
+**Scope.** Four sections (60 records, 1,281 gap rows):
+
+- Personal AI / PKM / lifelogging memory (20 records, 448 gaps)
+- Voice-first / wearable AI memory (11 records, 218 gaps)
+- Claude Code memory mechanisms (20 records, 379 gaps)
+- File-backed / editor paradigms (13 records, 236 gaps)
+
+**Output.** `extraction/round-9-bucket-5-pkm-voice-claude-files.csv`
+(1,281 emitted cells, 100% coverage of in-scope gaps). Header preamble
+documents stats and the fallback chain.
+
+**Approach.** The bulk of bucket-5 gaps (1,013 / 1,281 = 79%) are
+`real-data-no-citation` at priority 1 — values are accurate but the
+citation slot is null. Same shape as Path A's Round-9 quintet backfill,
+so we reuse the same fallback chain pattern:
+
+```
+DOC_OVERRIDE[record_id] -> record.url -> skip
+```
+
+The `DOC_OVERRIDE` dict (curated, 60 entries — one per record) lets us
+emit a stronger doc-page URL than the bare homepage for records whose
+`record.url` is a marketing landing-page (e.g. Cline → docs.cline.bot,
+Microsoft Recall → learn.microsoft.com Recall API). Every record in
+bucket-5 has a non-null `record.url`, so we never fall to skip.
+
+**Per-class handling.**
+
+| gap_class | current_status | handling |
+|---|---|---|
+| `real-data-no-citation` | n/a | keep value, attach DOC_OVERRIDE-or-record.url, emit `status=real-data` |
+| `fillable-and-missing` | `depth-floor-reached` | keep "searched not found" / "not specified" phrasing, attach citation to where we searched, keep `status=depth-floor-reached` (promotes from null-cite to terminal) |
+| `fillable-and-missing` | `real-data` | attach citation, emit `status=real-data` |
+| `fillable-and-missing` | `no-data` | (1 row, Era Computer citations) promote to `depth-floor-reached` with existing search URL |
+| `shallow-prose` | `real-data` | keep terse value (e.g. "REST", "MCP (stdio)") — these are accurate one-liners; attach citation. The audit's "shallow" classifier is purely length-based and these are not actually under-described |
+
+**Distribution by class × priority (1,281 cells).**
+
+| class | p10 | p5 | p3 | p1 |
+|---|---:|---:|---:|---:|
+| real-data-no-citation | 0 | 0 | 63 | 950 |
+| fillable depth-floor | 59 | 188 | 0 | 0 |
+| fillable no-data promoted | 1 | 0 | 0 | 0 |
+| fillable real-data | 1 | 7 | 0 | 0 |
+| shallow-prose | 0 | 0 | 0 | 12 |
+| **total** | **61** | **195** | **63** | **962** |
+
+**Per-section coverage.**
+
+| section | filled / gaps |
+|---|---|
+| Claude Code memory mechanisms | 379 / 379 |
+| File-backed / editor paradigms | 236 / 236 |
+| Personal AI / PKM / lifelogging memory | 448 / 448 |
+| Voice-first / wearable AI memory | 218 / 218 |
+
+**What we did NOT do.**
+
+- No new research. This pass is citation-discipline + status-promotion;
+  it does not introduce new factual claims about any record.
+- No quintet columns (desc/type/pros/cons/links) were touched
+  separately — they are part of `real-data-no-citation` and already
+  covered by Path A's Round-9 quintet pass for the full catalog.
+  Our bucket-5 file is **additive** with Path A's: where Path A
+  already filled a (record, column) pair, the reconciler should
+  prefer Path A's (it ran first and used the same fallback chain).
+- The 59 priority-10 `perf` cells remain `depth-floor-reached` with
+  value `"no public benchmark scores found"`. These are products
+  (PKM apps, voice wearables, Claude Code plugins) with no published
+  benchmark scores — terminal by nature. We attached the canonical
+  product page as "search bottomed-out at" citation.
+
+**Reproduction.**
+```
+python3 scripts/path_b_bucket_5.py
+```
+Deterministic; reads only `web/landscape.json` + `extraction/data-gaps.csv`;
+writes `extraction/round-9-bucket-5-pkm-voice-claude-files.csv`. Same
+input → byte-identical output.
+
+**Reversal cost.** Zero. The CSV is a proposal for the reconciler;
+it has not been merged into `landscape.json` yet. Deleting the file
+and re-running the gap audit produces the same gap counts.
+
+**Surprises.**
+
+- File-backed paradigms cluster is the most homogeneous: 13 records,
+  236 gaps, and almost identical column distributions (every record
+  has the same operational gaps for `consistency`, `forgetting`,
+  `tombstoning`, etc.). These are all "rules files" patterns where
+  the operational semantics simply do not apply — the gap audit
+  treats them as fillable because they are products, but
+  semantically they are closer to research-paper-style structurally-NA.
+  A future audit refinement could special-case the "rules-file"
+  archetype.
+- Voice-first / wearable cluster has fewer records (11) but the highest
+  per-record gap rate (~20 gaps / record), driven by these being
+  hardware companies where backend implementation details
+  (tombstoning, schema-evolution, namespace) are deliberately opaque.
+- Claude Code memory mechanisms is the heaviest priority-10 bucket
+  (20 of 59 perf cells) — these are MCP servers and plugins where
+  nobody has run a benchmark, and probably never will because the
+  user-facing UX claim is "it just remembers".
