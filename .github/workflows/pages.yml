@@ -1,0 +1,75 @@
+# Build the SvelteKit static export and deploy to GitHub Pages.
+#
+# Trigger: every push to main, plus manual dispatch.
+# Source path: the build script (web/scripts/sync-to-docs.mjs) copies the
+# adapter-static output into docs/, which is what we upload as the artifact.
+#
+# Base-path handling: svelte.config.js reads `BASE_PATH` at build time
+# (defaults to ''). For the live Pages deploy we set it to
+# `/memory-analysis-program` so asset URLs resolve under the project
+# subpath. For local dev / preview leave it unset.
+#
+# Prerequisites in the repo settings:
+#   - Settings → Pages → Source: "GitHub Actions"
+#   - Private repo → GitHub Pro tier (Pages on private repos is paywalled)
+#
+# Required token scope: this workflow file itself requires the pusher's
+# token to have the `workflow` scope. See docs/DECISIONS.md
+# "2026-05-07: GitHub Pages workflow" for the manual push fallback.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skip intermediate runs.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build (with Pages base path)
+        working-directory: web
+        env:
+          BASE_PATH: /memory-analysis-program
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
