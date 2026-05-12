@@ -1317,3 +1317,75 @@ functions in `lib/timeline.ts`; the view is a single Svelte file. To
 re-stack by section, swap `byTier[t-1]` for a `bySection[name]` map and
 update the legend. To swap to a library, replace the SVG block; the
 parsing helpers stay.
+
+---
+
+## 2026-05-07: Leaderboards page — number extraction & curated boards
+
+**What.** Built `/leaderboards` (issue #14) with five curated top-N
+boards plus a "build your own" panel. All ranking math lives in
+`web/src/lib/leaderboards.ts` as pure functions; the page is a thin
+Svelte 5 view.
+
+**The five curated boards.**
+1. *Most-cited research (T3 / T4).* `record.cells.citations.value`,
+   tier-filtered first so we don't waste cycles parsing the
+   "not applicable" sentinels that fill commercial-product citation
+   cells.
+2. *Most-starred OSS.* `record.cells.gh.value` — leading star count.
+3. *Best-funded commercial.* `record.cells.funding.value` — leading
+   dollar figure (total-raised by corpus convention; valuation trails).
+4. *Highest inbound citations within catalog.* Counts `cites` edges
+   in `landscape.edges.json` whose `target` is the record. Pure graph
+   metric, independent of Semantic Scholar.
+5. *Highest inbound integrations.* `integrates-with` + `built-on`
+   inbound edges. Mem0 tops this at 12, matching the issue spec.
+
+**Number extraction heuristics** (`extractNumber()` in
+`lib/leaderboards.ts`):
+- The **first** number token wins; corpus convention is that rate-tails
+  ("· 5/mo") and breakdowns ("/ 1.4k forks") always trail the headline.
+- Dollar form (`$2.5B`, `~$20M total`) is tried first because the `$`
+  sigil is unambiguous; regex tolerates leading `~`, internal commas,
+  and trailing `+` (e.g. `$57B+ raised`).
+- Suffix multipliers `k`/`M`/`B`/`T` are case-insensitive.
+- "No-data" sentinels detected by lowercase-prefix match
+  (`undisclosed`, `bootstrapped`, `n/a`, `not applicable`,
+  `searched not found`, `not yet`) return null — they'd otherwise
+  parse to misleading zeros or stray years.
+- The string `"0 (too recent — ...)"` for fresh preprints is matched
+  by `^0\s*\(` and treated as null, not literal zero — otherwise these
+  papers would rank as "least cited" rather than "no data".
+- Ranges (`$2–5M`), composite multi-headlines, and currency conversion
+  are not handled. The leading figure is correct for ~95% of cells in
+  the corpus; everything unparseable drops to the bottom of the board,
+  which is where users expect data-poor entries.
+
+**Custom mode columns.** citations, gh, funding, mindshare, and
+integration-count (free-text cell). Tier and section filters AND
+together. N defaults to 10, clamps to [1, 100].
+
+**Drill-down.** Name links jump to `/?q=<encoded name>` — the table
+view's existing URL codec (`q=`, see `lib/url-state.ts`) drops the
+user straight into a name-filtered table. No per-record deep link
+exists yet.
+
+**Why a separate `lib/leaderboards.ts`.** Phase 4 (graph) will reuse
+`inboundEdgeCounts()` for centrality measures; Phase 5 (export /
+share-cards) will reuse `topBy()` + `extractNumber()` for static
+"top 10" image cards. Keeping these as pure functions over
+`LandscapeRecord[]` / `Edge[]` means neither downstream pulls in Svelte.
+
+**Options rejected.**
+- *Server-side computed ranking.* The site is fully prerendered; records
+  are already in the bundle. Server-side ranking just snapshots at build
+  time and complicates filter-aware custom mode.
+- *Filter-aware curated boards (read from `$filters`).* Out of scope —
+  curated boards are meant to be the canonical answer. Custom mode is
+  where filter interaction lives.
+- *Unit-aware NLP parser.* Overkill. The heuristic regex catches every
+  cell in the sample test (~600 cells per column).
+
+**Reversal cost.** Low. The page is two files plus one library; nothing
+else imports them. Re-tuning extraction is a single-function edit.
+Adding a curated board is ~15 lines in the page.
