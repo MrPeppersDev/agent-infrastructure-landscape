@@ -4476,3 +4476,94 @@ it has not been merged into `landscape.json` yet.
   lookups for one cell each (citations count, citations count,
   license). All other 1,263 cells were resolvable from the
   existing landscape state plus deterministic rules.
+
+## 2026-05-07: Path B8 — Round-7 adjacent-infrastructure deep fill (365 cells)
+
+After phase-1 audit reported 0 fillable gaps for the six Round-7 sections
+(Training infrastructure, Search platforms (non-memory), Agent
+frameworks (no first-party memory layer), Inference platforms &
+gateways, Embedding & reranker services, Evaluation & observability
+platforms — 146 records), a second pass surfaced ~6,200 audit-invisible
+gap candidates: every "searched not found"-cited depth-floor cell is
+technically researchable for the 100+ well-documented commercial
+products in these sections (Together AI, Modal, Baseten, LangChain,
+Scale AI, Cohere, Weaviate, etc.). Round 7 ingestion was fast and the
+depth-floor flags reflect "not yet attempted" more than "genuinely
+unfillable".
+
+**Worklist construction.** Re-running the audit-style logic on the
+Round-7 sections with a deeper interpretation of depth-floor cells (any
+placeholder-valued depth-floor cell in a high-leverage column treated
+as priority-10 fillable, regardless of citation presence): 890
+priority-10, 5,279 priority-5, 17 shallow-prose. The +17 shallow-prose
+cells in `claims` columns (Confident AI, ClearML, Continue.dev, etc.)
+are real-data-with-citation but <30 chars and warrant deepening.
+
+**Fill rule.** Tier-1 + Tier-2 commercial products in each section
+have publicly-disclosed funding rounds, customer logos, HQs, and
+founder identities documented on Crunchbase, the company's own
+about/customers pages, or press-release announcements. These are
+high-confidence single-search lookups. Tier-3 and OSS-only entries
+(Magnetic-One, Marvin, Burr, BabyAGI, Cleanba, RLHFlow, etc.) get
+lighter founder/created/claims fills where the GitHub repo or the
+authoring org's blog provides the source.
+
+**Coverage.** 365 cells filled across all six sections:
+- Training infrastructure: 108 cells (Scale AI, Surge AI, Labelbox,
+  Roboflow, W&B, Unsloth, Snorkel, Prefect, Dagster, MLflow,
+  DVC, ClearML, Comet, Argilla, Pachyderm, lakeFS, Flyte, Outerbounds,
+  ZenML, DeepSpeed, Composer, Axolotl, LLaMA-Factory, torchtune,
+  SageMaker, Azure ML, Vertex AI).
+- Agent frameworks: 103 cells (LangChain, LangGraph, LlamaIndex,
+  CrewAI, AutoGen, OpenAI Agents SDK, Vercel AI SDK, Inngest, Temporal,
+  Trigger.dev, Continue.dev, Cline, Composio, Pydantic-AI, Mastra,
+  n8n, Eliza, Phidata/Agno, Haystack, OpenDevin/OpenHands,
+  Semantic Kernel, Arcade.dev, Restate, AutoGPT, BabyAGI, Strands,
+  Magnetic-One, AGNTCY, A2A, MCP spec, MCP Servers, OpenAI Swarm,
+  smolagents, MetaGPT, Marvin, Burr, GPT Engineer, Agency Swarm).
+- Inference platforms & gateways: 49 cells (Together, Modal, Fireworks,
+  Baseten, Replicate, Anyscale, OpenRouter, LiteLLM, Portkey, OctoAI,
+  RunPod, vLLM, SGLang, TGI).
+- Search platforms (non-memory): 42 cells (Algolia, Elastic, OpenSearch,
+  pgvector, Qdrant, Supabase, Vespa, Weaviate, Zilliz, Meilisearch,
+  Quickwit, Typesense).
+- Evaluation & observability platforms: 37 cells (Arize, Phoenix,
+  Braintrust, Galileo, Patronus, Helicone, Humanloop, Confident AI,
+  Vellum, TruEra, TruLens, PromptLayer, Ragas, OpenLLMetry,
+  OpenInference).
+- Embedding & reranker services: 26 cells (Cohere Embed, Voyage AI,
+  Jina, Nomic, Mixedbread, Mistral Embed, Sentence Transformers, BGE,
+  GTE, HF Inference API).
+
+**Priority breakdown.** P10: 199 (high-leverage columns: funding,
+customers, founders, hq, created, claims, gh). P5: 138 (other
+high-confidence facts). P3: 28 (shallow-prose deepens / OSS-only
+claims).
+
+**Per-column breakdown.** founders: 93, funding: 80, created: 57,
+customers: 57, hq: 44, claims: 34. Founders and funding dominate
+because Round 7's fast ingestion logged a depth-floor with citation for
+these columns on every single commercial product — none were filled.
+
+**Surprises surfaced during research.**
+1. **CoreWeave acquired Weights & Biases** for ~$1.7B in 2025-03
+   (closed 2025-05). Not previously logged anywhere in the landscape.
+   This makes CoreWeave-WandB-Inflection-Anthropic a complete stack on
+   the "GPU-cloud → MLOps → model-builder → memory-customer" axis.
+2. **Cline raised $32M Series A in 2025-04** (Pace Capital + 776). The
+   "Claude Dev" → "Cline" rename happened in 2024-Q3 and the
+   commercial entity scaled fast — top-3 funded coding-agent in the
+   catalog now, alongside Cursor and Cognition.
+3. **Quickwit acquired by Datadog** in 2024-12. Same team as Tantivy
+   OSS. Quickwit + Datadog Logs is now a stack story; the OSS will
+   likely continue but commercial ramp is via Datadog observability.
+
+**Re-running.** `python3 /tmp/build_round9_b8.py` is deterministic
+(static dict of fills). To re-apply, manually merge into landscape.json
+or run a downstream merge script (TBD). CSV is committed under
+`extraction/round-9-bucket-8-round7-sections.csv`.
+
+**Reversal cost.** Zero. The CSV is a sidecar — `web/landscape.json`
+was not modified by this round. To apply, the existing merge script
+pattern (see Round 9 buckets 1/3) would consume the CSV and emit a
+new landscape.json. To revert, drop the CSV.
