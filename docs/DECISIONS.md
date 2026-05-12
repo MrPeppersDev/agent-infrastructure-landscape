@@ -2279,3 +2279,141 @@ and remove the `kind` field from `Lineage` (plus the `pattern` branch
 in `detectLineages` and the dashed-edge branch on the page); the
 union-find pass is unchanged.
 
+---
+
+## 2026-05-07: Influence-vs-adoption matrix — scale, cutoffs, tier sizing
+
+**What.** The `/analyses/influence` view (issue #22) plots every record
+on two axes derived from the in-catalog edge graph:
+
+- **X**: inbound `cites` edges (academic influence).
+- **Y**: inbound `integrates-with` + `built-on` edges (commercial adoption).
+
+Three design choices in this view warranted dedicated thought:
+
+1. **Linear, not log.** Both axes have small integer ranges at the current
+   corpus size (cites max ≈ 9, integrations max ≈ 12). ~80% of records
+   sit at the origin. Log would (a) require a `log(1 + x)` shift to admit
+   zeros, (b) compress the outliers we most want to see, and (c) confuse
+   readers who reasonably expect "10 means roughly twice 5" on a count
+   axis. The brief flagged log "if the distribution warrants" — at this
+   data volume it does not. Re-evaluate when either axis exceeds ~50.
+
+2. **Quadrant cutoffs = non-zero median per axis.** A population median
+   is 0 on both axes (most records have no inbound edges) and would
+   make the cutoff line touch the axis itself, defeating the four-way
+   partition. We compute the median of the non-zero subset on each axis
+   independently — currently 2 for cites and 1.5 for integrations.
+   Strict-greater-than comparison: a record with value === cutoff stays
+   in the lower quadrant. This yields concrete quadrant populations of
+   roughly 1 "both" / 10 "engineering" / 25 "orphan" / 487 "tail",
+   which is the headline the chart should communicate. Alternatives
+   considered: fixed numeric cutoffs (brittle as the catalog grows),
+   top-N-by-axis (different semantics — would always show 10/10/10),
+   percentile of non-zero (similar result, more code).
+
+3. **Tier → marker radius (linear).** T1=7px, T2=6, T3=5, T4=4, T5=3.
+   Linear because tier is an ordinal 1-5 with no log meaning. The
+   intent is "biggest dots are the systems you should trust most" so
+   the eye lands on T1/T2 first. We deliberately keep the smallest dot
+   at 3px (still hit-target-viable for hover) rather than going to
+   2 or 1 — sub-3px points disappear visually on dark backgrounds.
+
+   The bottom-left long-tail pile is also de-overlapped with a small
+   deterministic radial jitter (≤0.35 axis-units, hashed by record id)
+   so the reader can perceive density. Jitter is applied only on axes
+   where the underlying value is exactly 0; once a record has a real
+   value the position is honest.
+
+**Why.** The chart is a recruitment tool for the four named patterns
+(both / engineering wins / research orphans / long tail). Each design
+choice serves "make the named patterns visible and the rest legible".
+Log would hide the patterns; population-median cutoffs would erase
+them; uniform marker size would lose the tier signal.
+
+**Options rejected.**
+- *Log scale both axes.* Compresses outliers; the patterns are in the
+  outliers. Re-evaluate at >50 max on either axis.
+- *Fixed cutoffs (e.g. cites ≥ 3, integrations ≥ 2).* Brittle as the
+  catalog evolves; documenting "median of non-zero" lets the cutoffs
+  follow the data.
+- *Annotate every quadrant member.* 25 labels in the orphan quadrant
+  would tangle. We annotate top-4 per non-tail quadrant; the tail
+  gets no labels by design.
+
+**Reversal cost.** Low. The scale function and cutoff source both
+live in `web/src/lib/analyses/influence.ts` as pure helpers; swap
+`nonZeroMedian` for a different selector and the chart adapts. The
+log/linear projection is two lines in `+page.svelte` (`projX`/`projY`).
+
+---
+
+## 2026-05-07: Lineage forecast — "watch list, not prediction"
+
+**What.** The `/analyses/forecast` view (issue #27) consumes the same
+lineages emitted by `detectLineages()` and, for each, surfaces:
+
+- the cadence — mean gap (in quarters) between consecutive dated members
+- a projected next-expected year-quarter — `latest_member_idx + cadence`,
+  rounded to the nearest quarter
+- the 3 most-recent members (the "leading edge"), clickable into the
+  main table
+- up to ~8 theme keywords pulled from the leading edge's `claims` and
+  `cons` cells (no `future-work` cell exists in the schema; claims +
+  cons is the closest proxy for "what is the leading edge still arguing
+  about")
+- adjacent lineages — other detected lineages that share a member or
+  have a descent edge crossing the boundary
+- watch links — arxiv abstract URLs for any leading-edge member whose
+  id encodes an arxiv reference, plus a generic `cs.AI/recent` listing
+  as a fallback subscription target
+
+**Why "watch list, not prediction".** The maths is intentionally naïve:
+mean-of-inter-arrival on at most ~10 dated members, no confidence
+interval, no Poisson fit, no decay weighting. With sample sizes that
+small the only honest framing is "if the cadence holds, look here next"
+— anything stronger pretends to precision the data can't support. The
+copy on the page leads with a calibration disclaimer; every card ends
+with a "watch list, not prediction" footer. We borrow the phrasing
+from the task brief deliberately because it captures exactly the
+epistemic stance: this is a bookmark for where to look, not a forecast
+to defend.
+
+**Cadence floor at 0.5 quarters.** Two members in the same quarter
+would otherwise yield a 0-quarter gap and predict the next drop in
+the same quarter as the latest member — which reads as "tomorrow" and
+adds noise rather than signal. We floor zero-gaps at 0.5 so clustered
+releases produce a sensible projected quarter.
+
+**Display order = fastest cadence first.** "Most active" families
+should be at the top because they're where readers will get the most
+near-term return on attention. Lineages with too few dated members
+to compute a cadence sink to the end with a "too few dated members"
+caption.
+
+**Theme extraction = frequency over claims+cons.** Tiny corpus
+(claims + cons of 3 records), no TF-IDF baseline corpus to compare
+against, so we use raw frequency with a stopword list tuned for
+ML-paper boilerplate ("baseline", "method", "approach", "task" etc.).
+The themes are decorative — they help the reader form a quick gut
+sense of "what is this lineage actually working on now" — and not
+intended to be authoritative.
+
+**Watch links.** Record ids encode arxiv references for paper records
+(`<slug>--arxiv-YYMM-NNNNN`). We regex that out into a real
+`arxiv.org/abs/` URL and emit one watch link per leading-edge paper.
+Product lineages (no arxiv ids on their leading edge) fall back to
+the generic `cs.AI/recent` listing so every card has *something*
+clickable. We deliberately do not promise these are the right
+subscription targets — they're starting points, consistent with the
+"watch list" framing.
+
+**Reversal cost.** Low. All logic lives in
+`web/src/lib/analyses/forecast.ts` (pure helpers) and
+`web/src/routes/analyses/forecast/+page.svelte` (presentation only).
+Swap `computeCadence` for a different estimator (median, exponential
+decay, Poisson MLE) and the page picks it up unchanged. The page
+copy carries the calibration framing — any future change that
+strengthens the maths should update the disclaimer to match.
+
+
