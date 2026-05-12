@@ -21,15 +21,41 @@ export type LineageForecast = {
   lineage_name: string;
   kind: 'descent' | 'pattern';
   curated: boolean;
+  /** All members regardless of dated/undated. */
   members_total: number;
+  /** Count of members with a parseable `created` date. The denominator
+   *  for cadence — undated members are invisible to the projection. */
+  members_dated: number;
+  /** Number of inter-arrival intervals used for the cadence average.
+   *  Always `max(0, members_dated - 1)`. <3 means we treat the
+   *  forecast as not statistically informative. */
+  cadence_intervals: number;
   /** Earliest member's year-quarter label, e.g. "2020-Q1". */
   earliest: string;
   /** Latest member's year-quarter label. */
   latest: string;
   /** Average gap between consecutive members in quarters. NaN if <2 members. */
   cadence_quarters: number;
+  /** Population standard deviation of inter-arrival gaps in quarters.
+   *  NaN if <2 intervals. Used as the half-width of the prediction
+   *  interval around `next_expected`. */
+  cadence_stddev_quarters: number;
   /** Next-expected year-quarter label, e.g. "2026-Q3". Empty if uncomputable. */
   next_expected: string;
+  /** Lower-bound of the prediction interval (next_expected minus one
+   *  standard deviation of the gap distribution, rounded to a quarter).
+   *  Empty if cadence_stddev_quarters is NaN/zero. */
+  next_expected_low: string;
+  /** Upper-bound of the prediction interval. Empty if no usable stddev. */
+  next_expected_high: string;
+  /** True when members_total < 5 — the projection is informative but
+   *  fragile. UI surfaces a yellow "small sample" badge. */
+  low_n: boolean;
+  /** True when cadence_intervals < 3 (i.e., members_dated < 4) — the
+   *  cadence is computed from too few gaps to be meaningful. UI
+   *  suppresses the projected-quarter date and tells the user to
+   *  watch the leading edge instead. */
+  insufficient_data: boolean;
   /** The 3 most-recent member ids (latest first). */
   leading_edge: string[];
   /** Display names of leading-edge members in same order. */
@@ -42,6 +68,11 @@ export type LineageForecast = {
   /** Arxiv listings the user could subscribe to. Heuristic: derived from
    *  the leading edge records' arxiv-id-shaped ids. */
   watch_links: WatchLink[];
+  /** Editorial 1-2 sentence "what to watch for" note, hand-curated per
+   *  lineage (see WATCH_NOTES). Empty string for lineages without a note;
+   *  documented in docs/DECISIONS.md as editorial / interpretive, not
+   *  algorithmic.  */
+  watch_note: string;
 };
 
 export type WatchLink = {
@@ -164,6 +195,59 @@ export function computeCadence(datedDesc: Array<{ idx: number }>): number {
 }
 
 /**
+ * Population standard deviation of the (floored) inter-arrival gaps used
+ * by computeCadence(). Returns NaN if we have fewer than 2 intervals
+ * (i.e., <3 dated members) since a single gap has no spread. We use the
+ * population (divide-by-N) form rather than sample (N-1) because the gap
+ * series is the complete observed history, not a sample from a
+ * population — and at N=2 intervals the sample form blows up.
+ *
+ * Output is in quarters; the page converts to a "± X quarters" interval
+ * around the mean-projected next-expected quarter.
+ */
+export function cadenceStdDev(datedDesc: Array<{ idx: number }>): number {
+  if (datedDesc.length < 3) return NaN; // need >= 2 gaps for spread
+  const gaps: number[] = [];
+  for (let i = 0; i < datedDesc.length - 1; i++) {
+    const gap = datedDesc[i].idx - datedDesc[i + 1].idx;
+    gaps.push(Math.max(gap, 0.5));
+  }
+  const mean = gaps.reduce((a, b) => a + b, 0) / gaps.length;
+  const variance =
+    gaps.reduce((acc, g) => acc + (g - mean) * (g - mean), 0) / gaps.length;
+  return Math.sqrt(variance);
+}
+
+/**
+ * Editorial "what to watch for" notes per lineage. Hand-curated — these
+ * are interpretive observations, not algorithmic outputs. The keys are
+ * canonical lineage ids; for auto-discovered lineages the id includes
+ * the union-find root suffix, so we match by the anchor record id as a
+ * fallback (see lookupWatchNote()).
+ *
+ * Documented as editorial in docs/DECISIONS.md.
+ */
+const WATCH_NOTES: Record<string, string> = {
+  // Curated lineages — stable ids in $lib/lineages CURATED_SEEDS.
+  'rssm-world-model':
+    'Watch for the first commercial spinoff. DeepMind has the densest academic cluster here but no T1 product has shipped yet — when one does, it will validate the whole branch.',
+  'graph-rag-hierarchy':
+    'Watch for hybrid retrieval at scale. Most current papers stay below 10M entities; the breakout will be the first credible Graph-RAG result on a >100M-entity corpus.',
+  'files-as-memory':
+    'Watch for cross-tool standardisation. 30+ implementations of the same "text file the model reads at session start" pattern cannot continue without convergence on a shared format.'
+};
+
+/** Look up the watch-note for a lineage. Curated lineages match by id;
+ *  auto-discovered ones can opt in by anchor id (e.g. add the anchor
+ *  record id as a key). Returns "" when no editorial note exists — the
+ *  UI hides the section in that case.  */
+function lookupWatchNote(lineage: Lineage): string {
+  if (WATCH_NOTES[lineage.id]) return WATCH_NOTES[lineage.id];
+  if (WATCH_NOTES[lineage.anchor]) return WATCH_NOTES[lineage.anchor];
+  return '';
+}
+
+/**
  * Build a watch list of arxiv URLs from leading-edge member ids. Our
  * ids encode the arxiv reference for research-paper records (e.g.
  * `dreamerv3--arxiv-2301-04104`); we extract the arxiv id and emit a
@@ -268,13 +352,29 @@ export function forecastAll(
   for (const l of lineages) {
     const { dated } = membersByDateDesc(l.members, byId);
     const cadence = computeCadence(dated);
+    const stddev = cadenceStdDev(dated);
+    const intervals = Math.max(0, dated.length - 1);
     const earliest = dated.length > 0 ? indexToLabel(dated[dated.length - 1].idx) : '';
     const latest = dated.length > 0 ? indexToLabel(dated[0].idx) : '';
 
     let nextExpected = '';
+    let nextLow = '';
+    let nextHigh = '';
     if (dated.length >= 2 && isFinite(cadence)) {
       const projectedIdx = Math.round(dated[0].idx + cadence);
       nextExpected = indexToLabel(projectedIdx);
+      // Prediction interval = projected ± one standard deviation of
+      // the inter-arrival gap distribution. Round each end to the
+      // nearest quarter; clamp the low end to not precede `latest`
+      // (saying "next drop expected before the most recent member"
+      // is incoherent for a forward-projection).
+      if (isFinite(stddev) && stddev > 0) {
+        const spread = Math.max(1, Math.round(stddev));
+        const lowIdx = Math.max(dated[0].idx, projectedIdx - spread);
+        const highIdx = projectedIdx + spread;
+        nextLow = indexToLabel(lowIdx);
+        nextHigh = indexToLabel(highIdx);
+      }
     } else if (dated.length === 1) {
       // No cadence signal; nudge one quarter forward as the floor.
       nextExpected = indexToLabel(dated[0].idx + 1);
@@ -298,21 +398,37 @@ export function forecastAll(
     const watchLinks = buildWatchLinks(leadingRecords, l);
     const adjacent = findAdjacent(l, lineages, edges);
 
+    // Low-N gating thresholds (see docs/DECISIONS.md):
+    //   - low_n at members_total < 5 → "small sample" badge
+    //   - insufficient_data at cadence_intervals < 3 → "no cadence forecast"
+    //     badge; the UI hides the projected-quarter date entirely and
+    //     directs the user to the leading-edge list.
+    const lowN = l.members.length < 5;
+    const insufficient = intervals < 3;
+
     out.push({
       lineage_id: l.id,
       lineage_name: l.name,
       kind: l.kind,
       curated: l.curated,
       members_total: l.members.length,
+      members_dated: dated.length,
+      cadence_intervals: intervals,
       earliest,
       latest,
       cadence_quarters: cadence,
+      cadence_stddev_quarters: stddev,
       next_expected: nextExpected,
+      next_expected_low: nextLow,
+      next_expected_high: nextHigh,
+      low_n: lowN,
+      insufficient_data: insufficient,
       leading_edge: leadingRecords.map((x) => x.id),
       leading_edge_names: leadingRecords.map((x) => x.record.name),
       themes,
       adjacent,
-      watch_links: watchLinks
+      watch_links: watchLinks,
+      watch_note: lookupWatchNote(l)
     });
   }
 

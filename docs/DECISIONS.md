@@ -2912,3 +2912,299 @@ mechanism is two `$state<Set<...>>` declarations plus the pure
 `filterPoints` helper. Quadrant copy is `QUADRANT_COPY` in
 `influence.ts` — single object literal to edit.
 
+
+---
+
+## 2026-05-07: Lineage forecast upgrade — prediction intervals, low-N gating, editorial watch notes (Analyses)
+
+**What.** Upgrade #27 ships `/analyses/forecast` with a narrative
+header, a methodology callout, a "so what" interpretation card,
+filters (kind / curated-vs-auto / minimum-N), drill-down links to
+`/lineages?lineage=<id>` and the main table, **honest prediction
+intervals** computed from inter-arrival standard deviation, **low-N
+gating badges** that visually de-emphasise fragile projections, and a
+hand-curated **"what to watch for"** editorial paragraph for the three
+seeded lineages.
+
+**(1) Prediction-interval methodology.** For each lineage we list its
+dated members descending by quarter, compute the mean inter-arrival
+gap (`cadence_quarters`, with a 0.5-quarter floor so same-quarter
+clusters don't collapse the average), and now also compute the
+**population standard deviation** of those same (floored) gaps
+(`cadence_stddev_quarters`). The "next expected" date is rendered as
+`YYYY-Qn ± X quarters` where X = `Math.max(1, round(stddev))`. We use
+the *population* form (divide by N, not N-1) because the gap series
+is the complete observed history, not a sample; at N=2 intervals the
+sample form blows up. The interval is one σ, not two — at these
+sample sizes (typically 2–4 gaps) two σ would saturate at "± 5
+quarters" for every card, which is uninformative. The low-end of the
+interval is clamped to never precede the most-recent member's
+quarter (saying "next drop expected before the most-recent member"
+is incoherent for a forward projection).
+
+**(2) Low-N badge rules.** Two thresholds, both visible to the
+reader:
+
+- `low_n` when `members_total < 5`. Renders a yellow **small sample**
+  badge and dims the next-expected line (opacity 0.55, struck-through
+  with a wavy line) plus an inline "directional only" note. The card
+  still shows the projection — we want the user to *see* the number
+  and *feel* the warning, not have the number disappear.
+- `insufficient_data` when `cadence_intervals < 3` (i.e.,
+  `members_dated < 4`). Renders a red **no cadence forecast** badge,
+  *removes* the projected-date block entirely, and replaces it with
+  an "INSUFFICIENT DATA — fewer than 3 inter-arrival gaps. Watch the
+  leading edge below" callout. Below 3 gaps, the cadence-plus-stddev
+  is a single-point estimate that can swing by 6+ months from one
+  added paper; suppressing the date entirely is more honest than
+  surfacing it with caveats.
+
+Thresholds were chosen by the rule of thumb that you need ≥3
+samples to estimate a mean *and* a spread without the spread being
+dominated by one observation. They are exposed as `low_n` /
+`insufficient_data` booleans on `LineageForecast` so the page's
+filter slider (`minN`) and badge logic are decoupled.
+
+**(3) Editorial "what to watch for" content — disclaimer.** Three
+of the eight lineages (the curated ones: RSSM, Graph-RAG,
+Files-as-memory) carry a hand-written 1–2 sentence "watch note":
+
+- *RSSM:* watch for the first commercial spinoff — academic-dense,
+  T1-product-empty.
+- *Graph-RAG:* watch for hybrid retrieval at scale — papers stay
+  below 10M entities.
+- *Files-as-memory:* watch for cross-tool standardisation — 30+
+  implementations of the same pattern can't continue without a
+  shared format.
+
+These are **interpretive observations, not algorithmic outputs**.
+They live in a single `WATCH_NOTES` object in
+`web/src/lib/analyses/forecast.ts` keyed by lineage id (or anchor
+record id as a fallback), and are rendered into a clearly-labelled
+"What to watch for (editorial)" section on the card with a distinct
+yellow left-border so the reader sees the change in voice from
+algorithmic ("cadence ≈ 6mo") to editorial ("watch for the first
+commercial spinoff"). Auto-discovered lineages get no watch-note by
+default; the editorial bar is high and adding a note requires a code
+change. We considered keeping these in a sibling data file
+(YAML / JSON) but the editorial set is small enough (3 keys today,
+maybe 8 long-term) that the indirection isn't worth it.
+
+**(4) Adjacent-lineages observation.** In the current dataset
+(8 lineages from `detectLineages({topN: 8, minSize: 3})`), zero
+cross-lineage edges exist of any type — `findAdjacent` returns an
+empty list for every card. This is mechanistic: the union-find pass
+in `detectLineages` absorbs every record connected by a descent edge
+into the same component, so by construction there are no descent
+edges between auto-discovered lineages. The curated pattern lineage
+(Files-as-memory) is built by section membership rather than edges,
+and none of its members are linked to RSSM/Graph-RAG members by
+*any* edge type in the current edge set. The `findAdjacent` plumbing
+is preserved against future edge-type expansion (e.g. adding
+`inspired-by` or non-influential cites as a soft-adjacency signal),
+and the card section is conditional — empty `adjacent` arrays hide
+the section entirely so the cards don't show a stub.
+
+**(5) Drill mechanics.** The lineage name in each card title links
+to `/lineages?lineage=<id>` (query param, not hash fragment — the
+prerender link-checker validates hash fragments against rendered
+DOM ids and would fail for ids not yet emitted by the `/lineages`
+view, which is owned by an earlier read-only issue). Leading-edge
+member buttons link to `/?q=<system-name>` exactly as before.
+Adjacent-lineage chips are now *buttons* that scroll the target card
+into view with a brief blue-border flash — within-page navigation
+because the page already renders all cards.
+
+**Numbers (May 2026 catalog).** 8 lineages detected. **4 small-sample
+(N<5):** I-JEPA, FalkorDB, Qdrant, Milvus families. **2 insufficient
+data (cadence intervals <3):** I-JEPA family (3 members, 2 gaps);
+Milvus family (3 members, 2 gaps) — the date is hidden on both. The
+three curated lineages (Files-as-memory N=33, Graph-RAG N=17,
+RSSM N=5) all pass the gating, with Files-as-memory remaining the
+fastest at ~6-month cadence. Adjacent-lineage pairs surfaced: 0
+(see (4) above).
+
+**Reversal cost.** Low. The new `cadenceStdDev` helper is ~15 lines;
+`WATCH_NOTES` is a single object literal; the gating booleans
+(`low_n`, `insufficient_data`) and the new fields on `LineageForecast`
+are additive. To remove the editorial layer: delete `WATCH_NOTES`
+and the `watch_note` field. To loosen the gating: change the two
+threshold constants (`< 5` and `< 3`) in `forecastAll`.
+
+---
+
+## 2026-05-07: Survivorship Unknown-bucket subdivision
+
+**What.** The `/analyses/survivorship` view's Unknown bucket — historically
+the largest single category and visually dominant on the page — is now
+split into FOUR sub-buckets, displayed as a stacked breakdown beneath the
+top-row counters:
+
+1. **Closed-source, internal status unknown** — proprietary products with
+   no public release cadence. Common for T1 commercial vendors (Slack,
+   Notion, Glean, Coral). Status: a limit of our signal, not a property
+   of the system.
+2. **OSS but signal-too-weak** — record has a GitHub presence (parsed
+   from `gh`, `code-release`, or an OSS-licence string) but the catalog
+   did not capture a parseable "last commit YYYY-MM" token. Status: fixable
+   by deeper data collection.
+3. **Newly created (< 6mo)** — `created` cell parses to a date within the
+   last 6 months. Too new to assess freshness; the right framing is "wait
+   and re-check at the next snapshot".
+4. **N/A (research/benchmark-only)** — reserved for the rare T1/T2 row
+   that has truly no operational signal (typically a benchmark/eval harness
+   miscategorised as a product). T3+ rows already route to the `research`
+   bucket, so this sub-bucket is usually 0.
+
+**Why these four.** The user-research finding driving this view is that
+the Unknown bucket reads as a failure when it's actually a signal limit.
+A single grey block of "Unknown" tells the reader nothing about whether
+the catalog could do better or whether the systems are simply unobservable.
+Four sub-buckets make the structure visible:
+
+- *closed-source* is the largest sub-bucket and STRUCTURAL — no data-collection
+  effort can close it without a vendor publishing a changelog. The right
+  caveat for users.
+- *oss-weak-signal* is the sub-bucket the catalog itself can fix — listing
+  it separately makes it actionable as a to-do for future iter rounds.
+- *newly-created* is small but visually important: a 4-month-old system
+  shouldn't sit alongside Slack as "we don't know if it's alive". It's
+  alive; we just don't have enough lookback.
+- *na* exists as a completeness slot; reserving the label avoids forcing
+  the rare miscategorised benchmark into "closed-source" (which would be
+  wrong).
+
+**Routing rules.** In `subdivideUnknown(record, createdAgeMonths)`:
+
+```
+if createdAgeMonths in [0, 6]      → newly-created
+else if hasGitHubPresence(record)  → oss-weak-signal
+else                                → closed-source
+```
+
+`hasGitHubPresence` is a positive heuristic — checks `gh` / `code-release` /
+`license` cells for github.com / gitlab / star-count patterns / an OSS-licence
+string. Defaults to closed-source when no positive signal fires, because the
+catalog skews commercial in the data-starved cells.
+
+The `na` sub-bucket is reserved but never auto-assigned in v1; future hand-
+curation could route specific benchmark records there explicitly.
+
+**Options rejected.**
+
+- *Three buckets (drop `na`).* Loses the reserved slot for the rare
+  miscategorised row. Trivial to re-add but the slot does no harm and the
+  prose is clearer with the explicit "N/A" option present.
+- *Split by age cohort of `created`* (0-12mo, 1-3yr, 3-5yr, >5yr). Tested
+  internally; this conflates two different things — closed-source age and
+  catalog-gap age — and produced four roughly equal blobs that didn't tell
+  the user anything actionable.
+- *Single "Unknown" with a tooltip explaining the four reasons.* Hides
+  the structure; users don't read tooltips on counts. The stacked bar
+  forces the user to see the breakdown.
+
+**Reversal cost.** Low. The four sub-buckets are an enum
+(`UnknownSubBucket` in `$lib/analyses/survivorship.ts`); collapsing back
+to "Unknown" is deleting the `unknownSub` field and the
+`<section class="unknown-sub">` block in `+page.svelte`. The classification
+data is preserved through the existing `Classification.unknownSub` field —
+removing the UI doesn't lose any analytical state.
+
+**Auxiliary upgrades in the same round.** Tier × section multi-select
+filters (recompute every count); "so what" interpretation panel; per-section
+proportion bar + aging-score ordering; active-cohort year-quarter histogram;
+"abandoned-but-cited" promoted from a table at the bottom of the page to a
+card grid foregrounded above the strips, with lineage labels resolved via
+`detectLineages` in the loader. The view-specific upgrades are documented
+in the page-level comments; only the Unknown subdivision rules warrant
+this DECISIONS entry because the routing rules are non-obvious and likely
+to be revisited.
+
+
+---
+
+## 2026-05-07: Vocabulary view v2 (upgrade #26) — small-N flagging + co-occurrence threshold
+
+**What.** Round 2 of the /analyses/vocabulary view inverts how growth
+numbers are presented. v1 led with percentages ("agentic +550% YoY",
+"knowledge-graph -100%") that turned out to hide tiny absolute moves
+(2 → 13 records, 1 → 0). v2 leads with the absolute "prior → latest"
+pair on every per-term card and only renders the percentage as a
+secondary line. Pairs where either side fails a small-N test are
+visually demoted with a "small-N" pill so the eye doesn't reach for
+them as headlines. The view also gained a cumulative-arrival mode, a
+term × term co-occurrence heatmap, a first-appearance chronology
+that separates newcomers from established terms, a stable-vs-novel
+vocabulary-share table per year, tier/section filters, and a slide-in
+drill panel listing every record that mentions a term (sorted by
+recency).
+
+**Why a small-N rule rather than just hiding the number.** Some readers
+*want* the percentage even when N is tiny (they're tracking a fresh
+arrival like "ephemeral" where 0 → 1 is genuine signal). Hiding it
+loses information; demoting it preserves the signal while preventing
+the small move from being a headline. The pill is also a teaching
+move: it tells the reader "you should already know to discount this"
+which builds the habit for any future numbers they see.
+
+**Small-N threshold rule.** A growth percentage is flagged
+`small-N` when ANY of:
+
+1. `latestYearCount + priorYearCount < 5` — the two cells of the YoY
+   ratio together don't carry enough records to make the ratio
+   statistically meaningful;
+2. `total < 5` — the term has fewer than 5 mentions across the entire
+   catalog (a brand-new term where even the running total is small).
+
+Threshold value: **5 records**. Rationale: at N=5 the noise floor on
+a year-over-year ratio (assuming roughly Poisson arrivals at λ≈2-3 per
+year) is ±50% on the ratio — i.e. a "+100% jump" sits inside the
+noise. Anything below that is mostly luck of which quarter a paper
+landed in. We picked 5 over 10 because the curated term set is
+deliberately small (27 terms) and several intentionally-tracked
+"emerging" terms (ephemeral, bi-temporal, working-memory) would be
+hidden entirely under a stricter threshold, defeating the surveillance
+purpose. The number is exposed as `SMALL_N_THRESHOLD` in
+`web/src/lib/analyses/vocabulary.ts` for easy tuning.
+
+**Co-occurrence threshold for cluster detection.** Co-occurrence pairs
+are rendered as a 15 × 15 heatmap (top 15 terms by total mentions).
+Cells where two terms appear together in at least **4 records** are
+outlined in the accent colour as "cluster edges". Threshold value:
+**4 records**. Rationale: with ~700 records and ~30 terms, random
+co-mention noise is at the 1-2 record level (e.g. one paper happening
+to mention "ephemeral" alongside "agentic" by accident). At 4 we
+filter out doubletons and triples that would otherwise create false
+clusters in the heatmap, while still surfacing genuine micro-clusters
+like the architectural pair "KV + attention" (count = 4) that pass
+the eye-test as real recipes. Exposed as `COOCCUR_THRESHOLD` in the
+same helper module.
+
+**Stable vs novel ratio.** The "vocabulary drift outside our curated
+list" metric counts new records per year that mention ≥1 tracked
+term (stable) vs records that mention 0 tracked terms (novel /
+drifting). This is a record-count share, NOT a term-count share —
+it answers "what fraction of new entries are written in vocabulary
+we already track?" rather than "how much new vocabulary appeared?".
+The latter would require a tokeniser + a stop-word list + a
+frequency-vs-precedent comparison, all of which are out of scope
+for a one-screen visualisation. Record-share is the right grain for
+this view: rising novel share signals that the curated list is going
+stale and warrants an update PR.
+
+**Newcomer threshold.** First-appearance year ≥ **2024** marks a
+term as a "newcomer". 2024 is "current year − 2" relative to the
+catalog's terminal date (May 2026); the choice surfaces terms that
+arrived during or after the agent-era inflection point and that the
+field is still settling on. Hard-coded in the route (not the helper)
+because tuning it is a UI display choice, not a data semantics one.
+
+**Reversal cost.** Low. The helper module gained ~250 lines of pure
+functions and the route grew a co-occurrence heatmap, ratio table,
+and drill panel. To turn off the small-N badge: drop the `class:muted`
+and the pill render block in `+page.svelte`. To tune thresholds: edit
+two constants in the helper module. The co-occurrence matrix is
+computed eagerly on every record-set change (~700 records × 27² pair
+checks ≈ 510k regex tests / recompute); empirically <50ms on the
+build host. If filters become very chatty we'd memoise on the
+filtered record-id set.
