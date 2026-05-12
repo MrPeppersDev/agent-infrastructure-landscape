@@ -1581,3 +1581,153 @@ into the polish/share phase:
 the view is one Svelte file. Tuning the depth cap or the edge-type
 weights is a one-line change. Adding a third curated seed is one
 entry in `CURATED_SEEDS`.
+
+---
+
+## 2026-05-07: Cytoscape force-directed graph view (issue #16)
+
+**What.** A new `/graph` route renders the full 523-record / 247-edge
+landscape as an interactive force-directed graph using
+[Cytoscape.js](https://js.cytoscape.org/) v3.33 with the
+`cytoscape-fcose` layout plugin. Features: nodes coloured by primary
+section (20-section categorical palette), edges styled by type
+(distinct colour + dash for each of the six present edge types), a
+search box that highlights the matched node and its 1-hop neighbours
+while fading the rest, a side-panel record inspector with the
+headline cells (desc / claims / perf / citations / gh), an edge-type
+legend with checkbox toggles, and a "hub view" toggle that hides
+everything outside the top 40 most-connected nodes.
+
+**Bundle-size impact.** Cytoscape's minified ES build is **~430 KB raw
+/ ~141 KB gzip**, and `cytoscape-fcose` adds another **~57 KB raw /
+~16 KB gzip**. We isolate the cost via a dynamic `await import()` in
+the +page.svelte `onMount` — Vite emits both packages into a separate
+chunk (currently `D6wf7S9e.js`) that loads only when a user visits
+`/graph`. The landing page, table view, timeline, leaderboards,
+sections, and lineages pages stay at their pre-graph bundle sizes.
+The trade is worth it: rendering 523 connected nodes with hand-rolled
+SVG would need its own force-direction implementation, edge bundling,
+and hit-testing — easily 50% of the cytoscape code re-written from
+scratch.
+
+**Layout choice — fcose, not cola or cose-bilkent.** fcose
+("Fast Compound Spring Embedder") is bilkent's modern replacement for
+cose; it tiles disconnected components (we have several — the
+research clusters connect through citation chains but products often
+sit isolated), and on this scale (~500 nodes, ~250 edges) it settles
+in ~1s with `randomize: true`. Considered:
+
+- **cola** — requires a separate plugin, more configuration knobs,
+  and is slower on disconnected components (it doesn't tile out of
+  the box).
+- **cose** (built-in) — fcose's older sibling; visibly less even
+  spacing on disconnected clusters in our test.
+- **dagre / klay** — layered/hierarchical, wrong shape for this data
+  (the edges aren't a DAG; cites + integrates-with form cycles).
+
+Tuned parameters: `nodeRepulsion: 8000`, `idealEdgeLength: 70`,
+`edgeElasticity: 0.45`, `gravity: 0.25`, `numIter: 2500`,
+`nodeSeparation: 75`, `tile: true`. Picked empirically — bigger
+`nodeRepulsion` blew clusters apart; smaller `nodeSeparation` tangled
+the dense research cluster around foundational papers like MemGPT.
+
+**Palette — 20-section categorical, hand-picked HSL anchors.** We
+considered using d3-scale-chromatic's `schemeTableau10` doubled or
+`interpolateSinebow` sampled at 20 points, but the catalog has no
+strong "natural ordering" between sections so a sequential or
+diverging palette would invent a relationship that doesn't exist.
+The hand-picked palette in `graph.ts` rotates the hue circle so
+adjacent palette entries don't share colour space, and every swatch
+was checked against the dark `#0d1117` background for contrast.
+Section order is by record count desc so the busiest cluster gets
+the most recognisable colour (palette[0] = azure).
+
+**Edge styling — colour AND dash, not colour alone.** Roughly 8% of
+male users have red/green colour vision deficiency; relying on hue
+alone for edge-type discrimination would leave the legend toggle
+ineffective for them. Each edge type gets a hue + a line-style
+(solid / dashed / dotted) + a width. Cites edges (189 of 247) are
+the most common and get the thinnest, most muted style so they don't
+dominate the rendering; built-on / extends / forks are heavier so
+lineage chains read clearly even when zoomed out.
+
+**SSR handling — `ssr = false` on the route.** Cytoscape constructs
+against a live DOM container and starts the fcose worker
+immediately, neither of which can happen during the prerender pass.
+We `export const ssr = false` in `+page.ts` so SvelteKit emits a
+hydration-only shell for `/graph` rather than crashing during build,
+and keep `export const prerender = true` so the static-adapter still
+emits a `graph.html` entry point. The cytoscape import is also
+guarded by `if (!browser) return;` inside `onMount` as a belt-and-
+braces defense if someone toggles ssr back on later.
+
+**Search-highlight via class toggle, not viewport filter.** The
+search box matches case-insensitive substring on `record.name` and
+the first hit gets selected. We add a `faded` class to all elements
+then strip it from the selected node and its 1-hop ring (precomputed
+in `neighbourhoodIndex` so toggling is O(degree), not O(E)). The
+faded class drops opacity to 0.08; the highlighted class adds a
+white border + boosts opacity. The alternative — actually removing
+non-matched elements from the cytoscape collection — would shift
+the layout when the search clears, which is jarring. Fading
+preserves position.
+
+**Hub view — top-40 by total degree.** A toggle that hides
+non-hub nodes by adding a `hub-hidden` class (with `display: none`).
+We rank by total degree (in + out) so both "papers cited 30 times"
+and "platforms integrating with 30 things" surface — inbound-only
+would erase platforms; outbound-only would erase foundational
+papers. Forty is the cutoff because the degree distribution drops
+sharply after the top ~40 (long tail of 1-edge nodes); the view
+becomes legible without a search narrowing it further. We don't
+re-run the layout on toggle — re-positioning the hub subset would
+be confusing; instead we fit the viewport to the visible subset.
+
+**Reused from Phase 3.** `primarySection` (leaderboards.ts),
+`inboundEdgeCounts` (leaderboards.ts) for the hub ranking. We
+deliberately did NOT copy or re-export `parseNumber` /
+`extractNumber` — the graph view doesn't rank by numeric cells
+(yet); when it does (Phase 5 "size by citations" overlay), it'll
+pull from `section-stats.ts`.
+
+**Reused by Phase 5 (polish & deploy).** The data-shaping helpers in
+`graph.ts` are pure — Phase 5's export endpoint can call
+`recordsToNodes` + `edgesToCytoscape` to emit a GraphML / GEXF
+static export for users who want the raw graph in Gephi / yEd. The
+`SECTION_PALETTE` is the source of truth for any other view that
+wants section-colour consistency (a hypothetical "section colour
+band" on the table header rows would import the same map). The
+`neighbourhoodIndex` helper is also reusable by the lineage view
+if it wants "1-hop ring" highlighting on hover.
+
+**Performance observation.** On the dev build, fcose's initial
+layout takes ~800ms on this scale; subsequent re-renders (search,
+toggle, hub-view) batch through `cy.batch()` and complete in under
+20ms. Memory footprint of the live cytoscape instance is ~12 MB
+resident — well within the 100 MB working budget for a client-side
+app.
+
+**Options rejected.**
+- *D3 force-directed.* Would need ~150 lines of hand-rolled
+  force-direction + drag-and-drop + zoom + hit-testing for a worse
+  result than `cytoscape.use(fcose)`'s one-liner. The bundle
+  saving (~80 KB gzip) isn't worth the maintenance.
+- *Sigma.js.* Smaller bundle (~60 KB) but WebGL-only — no SVG
+  fallback for screen-grab / accessibility tooling. We may revisit
+  if Phase 5 adds a 10k-node future expansion.
+- *Pre-computed layout baked into JSON.* Would let us drop fcose
+  entirely (-57 KB), but then the user couldn't drag nodes around
+  to inspect dense clusters. Force-direction is the whole point of
+  this view.
+- *Render at /graph/[section] with one section per page.*
+  Considered for performance, rejected because cross-section
+  citations are exactly what the user wants to see (e.g. AriGraph
+  → MemGPT → Letta as a single chain of "built-on").
+
+**Reversal cost.** Medium. Replacing cytoscape with another graph
+library would mean rewriting the +page.svelte and its stylesheet
+(the `style: [...]` array is cytoscape-specific syntax), but
+`graph.ts` is pure data-shaping and trivially portable. The
+DECISIONS-recorded fcose tuning is the only piece that's tied
+specifically to this library family (cose / fcose / cose-bilkent
+share the parameter names).
