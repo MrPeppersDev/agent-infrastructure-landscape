@@ -22,6 +22,7 @@
     type CustomColumn,
     type Ranked
   } from '$lib/leaderboards';
+  import { base } from '$app/paths';
   import type { LandscapeRecord, Edge, Tier } from '$lib/types';
 
   let { data }: { data: { records: LandscapeRecord[]; edges: Edge[] } } = $props();
@@ -102,7 +103,7 @@
   // for the record's name. The table page's URL codec uses ?q= (see
   // lib/url-state.ts) so we match that.
   function tableHref(r: LandscapeRecord): string {
-    return `/?q=${encodeURIComponent(r.name)}`;
+    return `${base}/?q=${encodeURIComponent(r.name)}`;
   }
 
   // Stats line for the commit message + page footer.
@@ -257,7 +258,7 @@
   </section>
 
   <footer class="lb-footer">
-    <a href="/">← Back to table</a>
+    <a href="{base}/">← Back to table</a>
     <span class="muted">
       {totalRanked} rows across 5 curated boards · {CUSTOM_COLUMNS.length}
       custom ranking columns

@@ -12,6 +12,7 @@
 
   import { onMount, onDestroy } from 'svelte';
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import type { LandscapeRecord, EdgeType } from '$lib/types';
   import {
     recordsToNodes,
@@ -426,7 +427,7 @@
     <p class="subtitle">
       {data.records.length.toLocaleString()} systems · {data.edges.length.toLocaleString()} edges
       · fcose layout
-      <a class="back" href="/">← back to table</a>
+      <a class="back" href="{base}/">← back to table</a>
     </p>
   </header>
 

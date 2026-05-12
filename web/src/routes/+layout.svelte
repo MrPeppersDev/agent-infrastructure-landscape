@@ -1,28 +1,34 @@
 <script lang="ts">
   import '../app.css';
   import { page } from '$app/state';
+  import { base } from '$app/paths';
 
   let { children } = $props();
 
   const routes = [
-    { href: '/', label: 'Table' },
-    { href: '/timeline', label: 'Timeline' },
-    { href: '/leaderboards', label: 'Leaderboards' },
-    { href: '/sections', label: 'Sections' },
-    { href: '/graph', label: 'Graph' },
-    { href: '/lineages', label: 'Lineages' },
-    { href: '/about', label: 'About' }
+    { path: '/', label: 'Table' },
+    { path: '/timeline', label: 'Timeline' },
+    { path: '/leaderboards', label: 'Leaderboards' },
+    { path: '/sections', label: 'Sections' },
+    { path: '/graph', label: 'Graph' },
+    { path: '/lineages', label: 'Lineages' },
+    { path: '/about', label: 'About' }
   ];
+
+  // Strip the base prefix from the current path for active-route matching.
+  const relPath = $derived(
+    (page.url.pathname.startsWith(base) ? page.url.pathname.slice(base.length) : page.url.pathname) || '/'
+  );
 </script>
 
 <nav class="topnav" aria-label="Primary">
-  <a class="brand" href="/">Memory Landscape</a>
+  <a class="brand" href="{base}/">Memory Landscape</a>
   <ul>
     {#each routes as r}
       <li>
         <a
-          href={r.href}
-          class:active={r.href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(r.href)}
+          href={r.path === '/' ? `${base}/` : `${base}${r.path}`}
+          class:active={r.path === '/' ? relPath === '/' : relPath.startsWith(r.path)}
         >
           {r.label}
         </a>

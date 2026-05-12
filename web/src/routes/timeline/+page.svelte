@@ -10,6 +10,7 @@
   // choice rationale (tier over section).
 
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import type { LandscapeRecord, Tier } from '$lib/types';
   import {
     bucketRecords,
@@ -173,7 +174,7 @@
       {#if stats.unparseable > 0}
         · {stats.unparseable} unparseable
       {/if}
-      <a class="back" href="/">← back to table</a>
+      <a class="back" href="{base}/">← back to table</a>
     </p>
   </header>
 

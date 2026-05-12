@@ -13,6 +13,7 @@
   // functions, no Svelte deps). This file is presentation only.
 
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import type { Edge, LandscapeRecord } from '$lib/types';
   import {
     detectLineages,
@@ -225,7 +226,7 @@
     // We URL-encode the name so quotes / spaces survive.
     const params = new URLSearchParams();
     params.set('q', n.name);
-    goto(`/?${params.toString()}`);
+    goto(`${base}/?${params.toString()}`);
   }
 
   // Bezier control points for an inter-track edge — gives the diagram
@@ -282,7 +283,7 @@
       ({stats.curated} curated · {stats.auto} auto-detected) ·
       {stats.nodes} systems plotted across {stats.quarters} quarters ·
       {stats.edges} descent edges
-      <a class="back" href="/">← back to table</a>
+      <a class="back" href="{base}/">← back to table</a>
     </p>
   </header>
 
