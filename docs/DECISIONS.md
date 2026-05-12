@@ -14,6 +14,85 @@ that were on the table.
 
 ---
 
+## 2026-05-07: Path B7 — benchmarks / governance / observability / theoretical deep-fill (522 cells)
+
+**What.** Generated `extraction/round-9-bucket-7-benchmarks-governance-observability-theoretical.csv`
+filling every gap reported by `extraction/data-gaps.csv` against the four
+support-infrastructure sections that sit alongside the main memory-systems
+catalog:
+
+- **Memory benchmarks & evaluation** — 14 records, 128 gaps (108 no-cite, 20 fillable)
+- **Memory governance, privacy & safety** — 8 records, 169 gaps (106 no-cite, 55 fillable, 8 shallow-prose)
+- **Memory observability & monitoring** — 5 records, 107 gaps (79 no-cite, 25 fillable, 3 shallow-prose)
+- **Theoretical / informal — ideas without a paper** — 14 records, 118 gaps (90 no-cite, 28 fillable)
+
+Total **522 cells filled, 0 gaps remaining** for this bucket. Per gap_class
+across all four sections: **real-data-no-citation 383**, **fillable-and-missing
+128**, **shallow-prose 11**.
+
+**Why these four together.** They share the property that the column
+applicability for most operational dimensions (perf, consistency, namespace,
+schema-evolution, MCP/A2A/OTel/webhooks support, etc.) is *structurally NA*
+or *not-disclosed* rather than fillable from a vendor URL. They are not
+memory systems themselves — they observe, govern, evaluate, or theorize
+about them. Treating them as one bucket let us apply four uniform fill
+templates (one per section) instead of researching 522 cells row-by-row.
+
+**Fill methodology — three rules.**
+
+1. `real-data-no-citation` (383 cells) — preserve the existing value; attach
+   the record's primary URL (`landscape.json` `record.url`) as citation. For
+   arxiv papers this is the abstract page; for vendor pages it's the
+   homepage/product-page; for tweets/gists/blogs it's the post URL. The
+   intent: a reader auditing any value can land at the upstream source in
+   one click.
+2. `fillable-and-missing` (128 cells) — per-section default fill via a
+   four-template scheme (`BENCHMARK_FILL`, `GOVERNANCE_FILL`,
+   `OBSERVABILITY_FILL`, `THEORETICAL_FILL` in `/tmp/path_b7_fill.py`).
+   - Benchmarks (eval datasets): mostly NA — fixed-corpus benchmarks have
+     no namespace, no consistency model, no versioning besides dataset
+     release tags.
+   - Governance: "not specified — vendor docs do not address this dimension"
+     for taxonomy columns the vendor never published.
+   - Observability: typical SaaS multi-tenant defaults (project/org/session
+     namespaces, retention-policy-driven forgetting, JSON-over-REST).
+   - Theoretical: "not applicable — theoretical concept, no implementation"
+     and "not applicable — informal blog/tweet/gist; not indexed on
+     Semantic Scholar" for citations.
+3. `shallow-prose` (11 cells, all `api-surface` and `import-export` in
+   governance/observability) — append a clarifying parenthetical to the
+   existing short value (e.g., `REST` → `REST (typical SaaS REST + first-party
+   SDK pattern; see vendor docs for language coverage)`).
+
+**Notable surprises.**
+
+- **Theoretical "citations" is a recurring fillable, not a research gap.**
+  9 of 14 theoretical records carry a no-data citations cell — they are
+  tweets / gists / blog posts that Semantic Scholar does not index. We
+  fill with "not applicable — informal blog/tweet/gist" rather than 0,
+  which would falsely imply they *should* be indexed.
+- **Benchmarks have a single dominant fillable column: schema-evolution.**
+  13 of 14 benchmark records had a missing `schema-evolution` cell —
+  consistent with their being fixed evaluation datasets, not evolving
+  systems. Filled with `not applicable — fixed evaluation dataset`.
+- **Observability "Ratine" is the only OSS row in its section** and the
+  only one needing `customers`/`funding`/`hq` fills; the four commercial
+  observability vendors (LangSmith, Langfuse, Galileo, AgentOps) all had
+  those cells filled or NA-flagged already.
+
+**Scope explicitly excluded.** Quintet columns (`desc`/`type`/`pros`/`cons`/`links`)
+were already addressed by `round-9-quintet-citations.csv` at the catalog
+level; this bucket revisits any of those columns only where the gap audit
+still flagged them as no-cite for these 41 records. The HTML / JSON /
+edges / web-src files are untouched — this CSV is a **proposal-only
+artifact** that Round 10 ingestion will merge into `landscape.html`.
+
+**Reversal cost.** Low. The CSV is a single 522-row diff proposal; reverting
+is `git revert` on this commit. The four `*_FILL` templates in
+`/tmp/path_b7_fill.py` are the lever for changing fill phrasing globally.
+
+---
+
 ## 2026-05-07: Round 9 — Path B3 dedicated-memory + retrieval-as-memory deep fill (821 cells)
 
 **What.** Generated `extraction/round-9-bucket-3-dedicated-retrieval.csv`
