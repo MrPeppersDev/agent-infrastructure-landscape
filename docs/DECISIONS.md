@@ -3363,3 +3363,118 @@ Svelte). To change:
   ~15 lines, no callers outside the module.
 - Curated names → edit `NAMED_ARCHETYPES`. First-match wins, so
   order entries from most-specific to least-specific.
+
+---
+
+## 2026-05-07: Upgrade #24 — benchmarks parser tightening, leaderboards, coverage tiers
+
+**What.** Round 8 upgrade of `/analyses/benchmarks`. The prior version
+showed presence (checkmarks) for most cells because the proximity
+heuristic was too loose to extract numeric scores reliably. This pass
+replaces the parser with a tiered priority strategy, surfaces per-cell
+scores in the matrix, and adds three new analytical lenses: per-benchmark
+leaderboards, coverage tiers (well-covered / emerging / too-narrow), and
+a stacked memory-vs-domain split.
+
+**Parser improvements** (`web/src/lib/analyses/benchmarks.ts`).
+
+1. *Tiered score-shape priority.* Five-step lookup in order:
+   (1) unit-suffixed score in left window;
+   (2) unit-suffixed score in right window;
+   (3) bare decimal in left window (perf only);
+   (4) bare decimal in right window (perf only);
+   (5) short bare int adjacent (≤6 chars, perf only).
+   Claims mode skips steps 3-5 because claims prose contains incidental
+   numbers (pass@k, model versions, "10x larger") that look score-shaped
+   but aren't. Claims parser coverage drops from ~50% naive to ~12%, but
+   the surviving 12% are real scores (genuine `+18.7pp` deltas, etc.)
+   rather than false positives like "GAIA 3" (interpreted as `pass@3`).
+
+2. *Benchmark-boundary clipping.* The corpus convention is
+   `{score} {benchmark}`, so multiple benchmarks per cell look like
+   `30 ConvoMem 91.6 LoCoMo`. The score search now clips the right
+   window at the next benchmark mention AND drops the trailing score
+   that precedes it (which belongs to that next benchmark). The left
+   window is clipped at any prior benchmark mention but keeps its
+   leading score (which IS our score by the corpus convention).
+
+3. *Removed `x`/`×` from the unit-suffix list.* These multiplier suffixes
+   produced false positives like "matches 60x larger models" → score=`60x`.
+   The legitimate uses in the corpus (token-reduction multipliers, model
+   scale comparisons) aren't benchmark scores.
+
+4. *HTML-aware preprocessing.* `stripHtml()` is applied before scoring,
+   so iter-level cells with `<span class="signal-num">…</span>`,
+   `<br>`, `<em>`, etc. parse correctly even though the current build
+   has these stripped already. Forward-compatible.
+
+5. *Year rejection.* Bare 4-digit tokens matching `^(19|20)\d\d$` are
+   rejected as score candidates (years, not scores).
+
+**Parser self-report.** The methodology callout in the rendered view
+exposes the parser's own success rate: **93%** of perf-cell mentions
+yield a score (69/74); **12%** of claims-cell mentions do (6/50). The
+asymmetry is intentional: perf is curated headline data and the
+unit-suffix-or-bare-int strategy hits hard there; claims is marketing
+prose and we'd rather show a presence ✓ than mislabel a number.
+
+**Heat-color scheme.** Each benchmark column gets independent min/max
+of *absolute* (non-delta) scores. A cell's score is rank-mapped to a
+0..1 strength `t = (n - min) / (max - min)` and colored as
+`hsl(30 (25+t*55)% (16+t*14)% / 0.92)` — a single warm-amber hue with
+saturation and lightness modulating together. Delta scores
+(`+18.7pp`, `-15.3%`) get italic styling and no shading because they
+aren't comparable across baselines. Columns with fewer than 2 absolute
+scores are unshaded (no meaningful range).
+
+**Memory-vs-domain visualisation.** Promoted from a 3-stat callout to a
+single horizontal stacked bar (memory-only / both / domain-only) plus
+three sortable bucket columns underneath. The bar uses the same hue
+palette as the heat shading (amber for memory, slate for domain, mixed
+for both) so the family colors are consistent across the page. The
+2x2 layout was considered and rejected: the system count in "both" is
+small (6 systems vs ~40 in each of the other two), and a 2x2 would
+waste half its quadrants on the trivial "neither" bucket.
+
+**Coverage tiers.** Benchmarks are split into three groups by reporter
+count: **well-covered** (≥10 systems), **emerging** (5-9), and
+**too-narrow** (<5). The banner at the top of the page surfaces this
+classification, making it obvious which benchmarks are credible
+comparison axes (LoCoMo at 29, LongMemEval at 16, GAIA at 11) and
+which are effectively single-paper artefacts (ConvoMem at 2,
+PersonaBench at 1, ImplicitMemBench at 1). The "too-narrow" tier is
+the analytical headline of the page — it's why the ConvoMem callout
+in the page narrative says ConvoMem is under-adopted.
+
+**Tier filter.** Multi-select for T1-T5 system tiers. The matrix and
+all downstream analytics react to the filter; the parser stats and
+coverage-tier banner are computed on the full population (those are
+fixed properties of the data, not view state). The filter cannot reach
+zero active tiers — clicking the last active tier is a no-op — to
+avoid an empty view that hides the filter affordance.
+
+**Drill-down.**
+- Click a cell or system row → main table filtered to that record
+  (`?q=<encoded-name>`).
+- Click a column header → in-page anchor to the leaderboard card for
+  that benchmark. Every matrix column has a leaderboard, so the link
+  always resolves (this is also enforced by the prerender check —
+  SvelteKit `handleMissingId` will fail the build otherwise).
+
+**Headline numbers as of 2026-05-07.**
+- LongMemEval #1: MemPalace 96.6% (T2)
+- LoCoMo #1: ByteRover 92.2% (T2)
+- BABILong #1: ARMT 79.9% (T4)
+- ConvoMem #1: Mem0 30 (T1) — single-system benchmark, too narrow
+- GAIA #1: Memento 87.88% (T4)
+- Memory-only systems: 44; both families: 6; domain-only: 40.
+  Confirms the prior observation that memory papers rarely cross-list
+  on the memory-specific axes their architecture would seem to target.
+
+**Reversal cost.** Low. The parser is a pure module; the route reads
+its outputs. To revert to checkmark-only display, edit the matrix cell
+template to drop `{cell.score || '✓'}`. To turn off heat coloring,
+remove the `style={heatStyle(…)}` attribute. To remove tier filtering,
+delete the `activeTiers` rune and inline the unfiltered `allScores` as
+`scores`. To adjust coverage-tier thresholds, edit the two constants
+in `coverageTiers()` (currently 10 and 5).
