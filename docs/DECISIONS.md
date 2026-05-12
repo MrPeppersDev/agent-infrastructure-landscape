@@ -1939,3 +1939,80 @@ page's samples must change too (~5-line edit).
 **Reversal cost.** Low. The page is a leaf route with no consumers.
 Deleting it removes a nav item and one file; nothing else depends on
 it.
+
+---
+
+## 2026-05-07: GitHub Pages workflow + base-path strategy (Issue #20)
+
+**What.** Wired Pages deploy via `.github/workflows/pages.yml`. The
+workflow runs on push-to-main + workflow_dispatch, sets up Node 20,
+runs `cd web && npm ci && npm run build`, uploads `docs/` as the
+Pages artifact with `actions/upload-pages-artifact@v3`, and deploys
+with `actions/deploy-pages@v4`. The build job sets
+`BASE_PATH=/memory-analysis-program` in env so that `svelte.config.js`
+(which reads `process.env.BASE_PATH ?? ''`) emits asset URLs under
+the project subpath that GitHub Pages serves at
+`https://mrpeppersdev.github.io/memory-analysis-program/`.
+
+**Base-path strategy.** Already correctly configured in
+`web/svelte.config.js` — no code tweak needed. Two-mode behaviour:
+- *Local builds / `docs/index.html` opened directly:* `BASE_PATH`
+  unset → base `''` → all asset paths are root-relative. Works when
+  served from a filesystem root or a `python -m http.server` at the
+  repo root.
+- *CI build for Pages:* `BASE_PATH=/memory-analysis-program` →
+  SvelteKit prepends the project subpath to every internal link and
+  asset reference. Pages serves the artifact under that subpath.
+Caveat: if anyone opens `docs/index.html` after a CI-flavoured build
+runs locally with the env var set, asset links will 404 (they'll
+point to `/memory-analysis-program/_app/…`). The fix is to rebuild
+without the env var. Documented this in the README so contributors
+don't get confused.
+
+**Path A vs Path B (workflow-scope wall).** Chose **Path A**: ship
+the workflow file as a local commit even though the working OAuth
+token (`gho_…`) lacks the `workflow` scope (only has `gist`,
+`read:org`, `repo`). On push, GitHub rejects the workflow file
+addition with `refusing to allow an OAuth App to create or update
+workflow .github/workflows/pages.yml without workflow scope`. The
+file is committed locally and surfaces in the commit message; the
+user must either run `gh auth refresh -s workflow` and re-push, or
+push from a context with a PAT/SSH key that has workflow scope.
+
+**Prerequisite the user must satisfy manually.** GitHub Pages is
+*not yet enabled* on this repo (`gh api repos/MrPeppersDev/memory-analysis-program --jq '.has_pages'` returns
+`false`, and the repo is `private`). The user must:
+1. Refresh the gh token with workflow scope (or push the workflow
+   file via another means).
+2. Verify the account has GitHub Pro or higher (Pages on private
+   repos is paywalled — Free tier blocks deploys).
+3. In Settings → Pages, set Source to "GitHub Actions" (not the
+   default "Deploy from a branch", which would serve the
+   already-committed `docs/` via Jekyll instead of running our
+   workflow).
+4. Push to main (or use workflow_dispatch) to trigger the first
+   deploy.
+
+**Options rejected.**
+- *Serve `docs/` via the legacy "Deploy from branch" Pages mode.*
+  Tempting because `docs/` already has the build committed and a
+  `.nojekyll` marker, but locks us out of build-time env vars (the
+  in-tree `docs/` was built with `BASE_PATH=''`, so its asset links
+  would 404 on Pages). Would also mean every PR has to remember to
+  rebuild before merge.
+- *Build into a separate `gh-pages` branch instead of uploading the
+  artifact.* The official `actions/deploy-pages@v4` flow is simpler
+  and avoids the orphan-branch dance.
+- *Commit a `BASE_PATH=/memory-analysis-program` into the in-tree
+  build.* Breaks the local-file-open dev path and would create churn
+  in `docs/` every time the deploy URL changes.
+- *Set the base-path via a Vite config override instead of
+  SvelteKit `paths.base`.* SvelteKit's own `paths.base` is the
+  documented seam and it threads through `$app/paths`. Vite-level
+  overrides wouldn't update link rewrites in
+  `<a href="{base}/foo">` patterns that the route files already use.
+
+**Reversal cost.** Low. The workflow file is self-contained; if the
+deploy strategy changes (custom domain, separate org page,
+docs.example.com), edit the one file. The base-path env var is the
+only coupling between CI and the SvelteKit config.

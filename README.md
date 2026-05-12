@@ -82,6 +82,8 @@ proof-of-life — the row and edge counts are wired to `web/landscape.json` and
 `web/landscape.edges.json` at build time. Phase 2 issues #9-#12 will fill in
 the table view, search, filters, and URL state.
 
+Live site: <https://mrpeppersdev.github.io/memory-analysis-program/> (after deploy).
+
 ```
 cd web
 npm install
@@ -90,9 +92,11 @@ npm run build    # static export → ../docs/ (committed for GitHub Pages)
 ```
 
 The build output is checked in under `docs/` (alongside the project markdown
-in the same directory). Issue #20 wires up the actual GitHub Pages deploy in
-Phase 5; until then `docs/index.html` can be opened directly from a fresh
-checkout to verify a build.
+in the same directory). The deploy is wired by
+`.github/workflows/pages.yml` — push to main, the workflow rebuilds with
+`BASE_PATH=/memory-analysis-program` and publishes via
+`actions/deploy-pages@v4`. Locally you can still open `docs/index.html`
+from a fresh checkout (with no base-path) for a quick sanity check.
 
 ## Editing the catalog
 
