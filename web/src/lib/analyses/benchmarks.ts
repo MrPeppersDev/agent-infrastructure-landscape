@@ -21,6 +21,21 @@
 // Priority. We prefer scores from `perf` over scores from `claims`. If
 // both mention the same benchmark for the same system, the perf score
 // wins (perf is the curated headline; claims is the marketing prose).
+//
+// Round 8 (#24 upgrade) parser improvements:
+//   1. HTML-aware fallback: strips <span class="signal-num">…</span>,
+//      <br>, and similar wrappers before scoring. (Current corpus is
+//      already plain-text, but the parser is forward-compatible with
+//      iter-level cells that still contain markup.)
+//   2. Tiered score preference:
+//      a. score with unit suffix (e.g. "92.2%", "+18.7pp", "84.2 F1") —
+//         highest signal, used in both perf and claims modes.
+//      b. bare decimal (e.g. "0.700 LoCoMo") — perf-mode only.
+//      c. bare integer (e.g. "30 ConvoMem") — perf-mode only, ≤6 chars.
+//   3. Benchmark-boundary clipping: in "30 ConvoMem 91.6 LoCoMo", the
+//      ConvoMem search clips the right window past the next benchmark
+//      mention AND drops the trailing score (which belongs to LoCoMo).
+//   4. Year rejection (4-digit 19xx/20xx tokens).
 
 import type { LandscapeRecord } from '../types';
 
@@ -33,22 +48,13 @@ export interface BenchmarkScore {
   record_id: string;
   /** record name (denormalised for matrix display). */
   record_name: string;
+  /** tier of the source record (1 = battle-tested, 5 = informal). */
+  tier: number;
   /** 'perf' or 'claims' — perf wins on conflict. */
   source: 'perf' | 'claims';
 }
 
-/**
- * Each entry is [canonical name, regex matching every alias].
- *
- * Order matters: the longer / more specific aliases come first so e.g.
- * "MemoryAgentBench" is matched before a hypothetical bare "MemoryBench"
- * substring, and "LongMemEval-S" before "LongMemEval".
- *
- * `\b` is used wherever the alias is purely alphabetic; benchmark names
- * with hyphens (SWE-bench, Mind2Web) need a manual boundary.
- */
 const BENCHMARKS: { canonical: string; pattern: RegExp }[] = [
-  // Memory-specific benchmarks (the headline targets of this analysis).
   { canonical: 'LongMemEval', pattern: /\b(?:LongMemEval(?:-[SML])?|LMES|LME(?![A-Za-z])|LongMem-Eval)\b/gi },
   { canonical: 'LoCoMo', pattern: /\bLo[-]?Co[-]?Mo\b/gi },
   { canonical: 'BABILong', pattern: /\bBABI[-]?Long\b/gi },
@@ -58,12 +64,10 @@ const BENCHMARKS: { canonical: string; pattern: RegExp }[] = [
   { canonical: 'ImplicitMemBench', pattern: /\bImplicitMemBench\b/gi },
   { canonical: 'PersonaBench', pattern: /\bPersonaBench\b/gi },
   { canonical: 'NIAH', pattern: /\bNIAH\b|Needle[-\s]?in[-\s]?a[-\s]?Haystack/gi },
-  // Long-context / retrieval benchmarks that get cited alongside memory work.
   { canonical: 'LongBench', pattern: /\bLongBench\b/gi },
   { canonical: 'HotpotQA', pattern: /\bHotpotQA\b/gi },
   { canonical: 'TriviaQA', pattern: /\bTriviaQA\b/gi },
   { canonical: 'NaturalQuestions', pattern: /\bNatural[-\s]?Questions\b/gi },
-  // Agent / coding / web benchmarks.
   { canonical: 'GAIA', pattern: /\bGAIA\b/g },
   { canonical: 'ALFWorld', pattern: /\b(?:ALFWorld|AlfWorld)\b/gi },
   { canonical: 'SWE-bench', pattern: /SWE[-\s]?[Bb]ench(?:[-\s]?Verified)?/g },
@@ -78,47 +82,106 @@ const BENCHMARKS: { canonical: string; pattern: RegExp }[] = [
   { canonical: 'MMLU', pattern: /\bMMLU\b|\bCMMLU\b/g }
 ];
 
-/**
- * Try to extract the score that's nearest a benchmark mention in `value`.
- *
- * Heuristic: look in a window of ±60 chars around the match for the
- * first token that looks like a score (number with %, x, pp, F1, or
- * standalone decimal). Returns '' if nothing fits — we still record the
- * mention but display it as a presence-only checkmark in the matrix.
- *
- * The corpus convention is "{score} {benchmark}" or "{benchmark} {score}",
- * with the score usually on the immediate left and the benchmark name
- * right after. We scan left first (window of 30) then right (window of 30).
- */
-function scoreNearMatch(value: string, matchStart: number, matchEnd: number): string {
-  const leftStart = Math.max(0, matchStart - 30);
-  const left = value.slice(leftStart, matchStart);
-  const rightEnd = Math.min(value.length, matchEnd + 30);
-  const right = value.slice(matchEnd, rightEnd);
+const SCORE_WITH_UNIT_RE = /[+\-~]?\d[\d.,]*\s*(?:%|pp|F1|EM|bpc|ppl|poi)/g;
+const SCORE_DECIMAL_RE = /[+\-~]?\d+\.\d+/g;
+const SCORE_INT_RE = /[+\-~]?\d{1,3}\b/g;
+const YEAR_RE = /^(?:19|20)\d{2}$/;
 
-  // Number-with-suffix patterns we recognise as a score.
-  const scoreRe = /[+\-~]?\d[\d.,]*\s*(?:%|pp|x|×|F1|EM|bpc|ppl|poi)?/g;
+function stripHtml(s: string): string {
+  if (!s || s.indexOf('<') === -1) return s;
+  return s
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<\/?(?:span|em|strong|b|i|u|code|sup|sub)(?:\s[^>]*)?>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
 
-  // Prefer the rightmost score in the left window (closest to the
-  // benchmark name).
-  const lefts = [...left.matchAll(scoreRe)];
-  if (lefts.length > 0) {
-    const last = lefts[lefts.length - 1][0].trim();
-    // Reject single tokens that are obviously not scores (year-looking, etc).
-    if (/^\d{4}$/.test(last)) {
-      // skip
-    } else {
-      return last;
+function isNoiseToken(token: string): boolean {
+  return YEAR_RE.test(token.trim());
+}
+
+function nearestBenchmarkBoundary(s: string, fromRight: boolean): number {
+  let best = fromRight ? s.length : 0;
+  let found = false;
+  for (const { pattern } of BENCHMARKS) {
+    pattern.lastIndex = 0;
+    let m: RegExpExecArray | null;
+    while ((m = pattern.exec(s)) !== null) {
+      if (fromRight) {
+        if (!found || m.index < best) {
+          best = m.index;
+          found = true;
+        }
+      } else {
+        const end = m.index + m[0].length;
+        if (end > best) best = end;
+      }
+    }
+  }
+  return best;
+}
+
+function scoreNearMatch(
+  value: string,
+  matchStart: number,
+  matchEnd: number,
+  claimsMode: boolean
+): string {
+  const leftStart = Math.max(0, matchStart - 40);
+  const leftRaw = value.slice(leftStart, matchStart);
+  const rightEnd = Math.min(value.length, matchEnd + 40);
+  const rightRaw = value.slice(matchEnd, rightEnd);
+
+  const leftClipFrom = nearestBenchmarkBoundary(leftRaw, false);
+  const rightClipTo = nearestBenchmarkBoundary(rightRaw, true);
+  const left = leftRaw.slice(leftClipFrom);
+  let right = rightRaw.slice(0, rightClipTo);
+
+  // Drop trailing score in clipped right window — belongs to next benchmark.
+  if (rightClipTo < rightRaw.length) {
+    const lastScore = [...right.matchAll(/[+\-~]?\d[\d.,]*\s*(?:%|pp|F1|EM|bpc|ppl|poi)?/g)].pop();
+    if (lastScore && lastScore.index !== undefined) {
+      right = right.slice(0, lastScore.index);
     }
   }
 
-  // Otherwise the leftmost score in the right window.
-  const rights = [...right.matchAll(scoreRe)];
-  if (rights.length > 0) {
-    const first = rights[0][0].trim();
-    if (!/^\d{4}$/.test(first)) return first;
+  const leftUnit = [...left.matchAll(SCORE_WITH_UNIT_RE)];
+  if (leftUnit.length > 0) {
+    const cand = leftUnit[leftUnit.length - 1][0].trim();
+    if (!isNoiseToken(cand)) return cand;
+  }
+  const rightUnit = [...right.matchAll(SCORE_WITH_UNIT_RE)];
+  if (rightUnit.length > 0) {
+    const cand = rightUnit[0][0].trim();
+    if (!isNoiseToken(cand)) return cand;
   }
 
+  if (claimsMode) return '';
+
+  const leftDec = [...left.matchAll(SCORE_DECIMAL_RE)];
+  if (leftDec.length > 0) {
+    const cand = leftDec[leftDec.length - 1][0].trim();
+    if (!isNoiseToken(cand)) return cand;
+  }
+  const rightDec = [...right.matchAll(SCORE_DECIMAL_RE)];
+  if (rightDec.length > 0) {
+    const cand = rightDec[0][0].trim();
+    if (!isNoiseToken(cand)) return cand;
+  }
+
+  const tightLeft = value.slice(Math.max(0, matchStart - 6), matchStart);
+  const tightRight = value.slice(matchEnd, Math.min(value.length, matchEnd + 6));
+  const tightLeftInt = [...tightLeft.matchAll(SCORE_INT_RE)];
+  if (tightLeftInt.length > 0) {
+    const cand = tightLeftInt[tightLeftInt.length - 1][0].trim();
+    if (!isNoiseToken(cand)) return cand;
+  }
+  const tightRightInt = [...tightRight.matchAll(SCORE_INT_RE)];
+  if (tightRightInt.length > 0) {
+    const cand = tightRightInt[0][0].trim();
+    if (!isNoiseToken(cand)) return cand;
+  }
   return '';
 }
 
@@ -126,27 +189,25 @@ function scanText(
   text: string,
   recordId: string,
   recordName: string,
+  tier: number,
   source: 'perf' | 'claims'
 ): BenchmarkScore[] {
   if (!text) return [];
+  const cleaned = stripHtml(text);
   const out: BenchmarkScore[] = [];
   const seenForRecord = new Set<string>();
   for (const { canonical, pattern } of BENCHMARKS) {
-    // Reset lastIndex because patterns are global.
     pattern.lastIndex = 0;
     let m: RegExpExecArray | null;
-    while ((m = pattern.exec(text)) !== null) {
-      if (seenForRecord.has(canonical)) {
-        // Multiple mentions of the same benchmark in the same cell
-        // collapse to one row (we keep the first score we found).
-        break;
-      }
-      const score = scoreNearMatch(text, m.index, m.index + m[0].length);
+    while ((m = pattern.exec(cleaned)) !== null) {
+      if (seenForRecord.has(canonical)) break;
+      const score = scoreNearMatch(cleaned, m.index, m.index + m[0].length, source === 'claims');
       out.push({
         benchmark: canonical,
         score,
         record_id: recordId,
         record_name: recordName,
+        tier,
         source
       });
       seenForRecord.add(canonical);
@@ -155,15 +216,6 @@ function scanText(
   return out;
 }
 
-/**
- * Walk every record, pulling `(benchmark, score)` rows from the perf
- * cell and (if not already captured) the claims cell.
- *
- * Skips records whose perf cell is one of the corpus's "no data"
- * sentinels — these still mention benchmark names in `claims` (e.g. a
- * paper that *evaluates against* GAIA but didn't publish a top-line
- * score), and we don't want to misattribute presence in that case.
- */
 export function extractScores(records: LandscapeRecord[]): BenchmarkScore[] {
   const out: BenchmarkScore[] = [];
   for (const r of records) {
@@ -177,15 +229,13 @@ export function extractScores(records: LandscapeRecord[]): BenchmarkScore[] {
         ? perfCell.value
         : '';
 
-    const perfScores = scanText(perfText, r.id, r.name, 'perf');
+    const perfScores = scanText(perfText, r.id, r.name, r.tier, 'perf');
     out.push(...perfScores);
 
-    // Claims is secondary — only contribute benchmarks not already
-    // captured from perf for this record.
     const claimedBenchmarks = new Set(perfScores.map((s) => s.benchmark));
     const claimsText =
       claimsCell?.value && claimsCell.status === 'real-data' ? claimsCell.value : '';
-    const claimsScores = scanText(claimsText, r.id, r.name, 'claims').filter(
+    const claimsScores = scanText(claimsText, r.id, r.name, r.tier, 'claims').filter(
       (s) => !claimedBenchmarks.has(s.benchmark)
     );
     out.push(...claimsScores);
@@ -194,25 +244,16 @@ export function extractScores(records: LandscapeRecord[]): BenchmarkScore[] {
 }
 
 export interface CoverageMatrix {
-  /** Ordered system names (rows). Sorted by total benchmark coverage desc. */
-  systems: { id: string; name: string; count: number }[];
-  /** Ordered benchmarks (cols). Sorted by coverage desc, capped at topN. */
+  systems: { id: string; name: string; tier: number; count: number }[];
   benchmarks: { name: string; count: number }[];
-  /** Cell lookup keyed by `${system_id}::${benchmark}`. */
   cells: Map<string, { score: string; source: 'perf' | 'claims' }>;
 }
 
-/**
- * Build a coverage matrix from raw scores.
- *
- *   - rows = every system with ≥1 score
- *   - cols = top-N benchmarks by coverage count
- *   - cell = score string for that (system, benchmark) pair, or absent
- */
 export function buildMatrix(scores: BenchmarkScore[], topN = 14): CoverageMatrix {
   const benchmarkCounts = new Map<string, number>();
   const systemCounts = new Map<string, number>();
   const systemNames = new Map<string, string>();
+  const systemTiers = new Map<string, number>();
   const cells = new Map<string, { score: string; source: 'perf' | 'claims' }>();
 
   for (const s of scores) {
@@ -222,6 +263,7 @@ export function buildMatrix(scores: BenchmarkScore[], topN = 14): CoverageMatrix
       cells.set(key, { score: s.score, source: s.source });
       systemCounts.set(s.record_id, (systemCounts.get(s.record_id) ?? 0) + 1);
       systemNames.set(s.record_id, s.record_name);
+      systemTiers.set(s.record_id, s.tier);
     }
   }
 
@@ -231,12 +273,8 @@ export function buildMatrix(scores: BenchmarkScore[], topN = 14): CoverageMatrix
     .map(([name, count]) => ({ name, count }));
 
   const benchmarkSet = new Set(benchmarks.map((b) => b.name));
-
-  // Now re-count systems restricted to the visible benchmarks (so a
-  // system with one obscure benchmark that didn't make the cut isn't a
-  // row of empty cells).
   const visibleSystemCounts = new Map<string, number>();
-  for (const [key, _] of cells) {
+  for (const [key] of cells) {
     const [id, bench] = key.split('::');
     if (!benchmarkSet.has(bench)) continue;
     visibleSystemCounts.set(id, (visibleSystemCounts.get(id) ?? 0) + 1);
@@ -247,22 +285,18 @@ export function buildMatrix(scores: BenchmarkScore[], topN = 14): CoverageMatrix
     .map(([id, count]) => ({
       id,
       name: systemNames.get(id) ?? id,
+      tier: systemTiers.get(id) ?? 4,
       count
     }));
 
   return { systems, benchmarks, cells };
 }
 
-// --- Derived insights ----------------------------------------------------
-
 export interface BenchmarkCount {
   benchmark: string;
   count: number;
 }
 
-/**
- * Per-benchmark coverage counts (full population, not capped at topN).
- */
 export function benchmarkCoverage(scores: BenchmarkScore[]): BenchmarkCount[] {
   const counts = new Map<string, number>();
   const seen = new Set<string>();
@@ -284,10 +318,6 @@ export interface SystemCount {
   benchmarks: string[];
 }
 
-/**
- * Per-system benchmark count (full population). Top-N caller decides
- * how to truncate.
- */
 export function systemCoverage(scores: BenchmarkScore[]): SystemCount[] {
   const m = new Map<string, { name: string; benchmarks: Set<string> }>();
   for (const s of scores) {
@@ -305,20 +335,6 @@ export function systemCoverage(scores: BenchmarkScore[]): SystemCount[] {
     .sort((a, b) => b.count - a.count || a.record_name.localeCompare(b.record_name));
 }
 
-/**
- * The headline "are memory-specific benchmarks under-adopted?" stat.
- *
- * Memory-specific = LongMemEval, LoCoMo, BABILong, ConvoMem, RULER,
- * MemoryAgentBench, ImplicitMemBench, PersonaBench, NIAH.
- *
- * Domain-specific = everything else from BENCHMARKS (GAIA, ALFWorld,
- * SWE-bench, OSWorld, WebArena, AppWorld, ScienceWorld, Mind2Web,
- * BrowseComp, AIME, MT-Bench, MMLU, HotpotQA, TriviaQA, NaturalQuestions,
- * LongBench).
- *
- * "Unique systems" = a system counts once per category, regardless of
- * how many benchmarks in that category it reports on.
- */
 const MEMORY_BENCHMARKS = new Set([
   'LongMemEval',
   'LoCoMo',
@@ -370,4 +386,159 @@ export function adoptionSplit(scores: BenchmarkScore[]): AdoptionSplit {
 
 export function isMemoryBenchmark(name: string): boolean {
   return MEMORY_BENCHMARKS.has(name);
+}
+
+// --- Leaderboards, coverage tiers, parser-quality, mem/dom buckets ----------
+
+export function parseScoreNum(s: string): { n: number | null; isDelta: boolean } {
+  if (!s) return { n: null, isDelta: false };
+  const m = s.match(/^([+\-~])?(\d[\d.,]*)/);
+  if (!m) return { n: null, isDelta: false };
+  const n = parseFloat(m[2].replace(/,/g, ''));
+  if (Number.isNaN(n)) return { n: null, isDelta: false };
+  const isDelta = m[1] === '+' || m[1] === '-';
+  return { n, isDelta };
+}
+
+export interface LeaderRow {
+  record_id: string;
+  record_name: string;
+  tier: number;
+  score: string;
+  scoreNum: number;
+  source: 'perf' | 'claims';
+}
+
+export function leaderboard(
+  scores: BenchmarkScore[],
+  benchmark: string,
+  topN = 10
+): LeaderRow[] {
+  const byRecord = new Map<string, BenchmarkScore>();
+  for (const s of scores) {
+    if (s.benchmark !== benchmark) continue;
+    const existing = byRecord.get(s.record_id);
+    if (!existing || (existing.source === 'claims' && s.source === 'perf')) {
+      byRecord.set(s.record_id, s);
+    }
+  }
+  const rows: LeaderRow[] = [];
+  for (const s of byRecord.values()) {
+    const { n, isDelta } = parseScoreNum(s.score);
+    if (n === null || isDelta) continue;
+    rows.push({
+      record_id: s.record_id,
+      record_name: s.record_name,
+      tier: s.tier,
+      score: s.score,
+      scoreNum: n,
+      source: s.source
+    });
+  }
+  rows.sort((a, b) => b.scoreNum - a.scoreNum || a.tier - b.tier || a.record_name.localeCompare(b.record_name));
+  return rows.slice(0, topN);
+}
+
+export interface CoverageTier {
+  tier: 'well-covered' | 'emerging' | 'too-narrow';
+  benchmarks: BenchmarkCount[];
+}
+
+export function coverageTiers(scores: BenchmarkScore[]): CoverageTier[] {
+  const cov = benchmarkCoverage(scores);
+  const wellCovered: BenchmarkCount[] = [];
+  const emerging: BenchmarkCount[] = [];
+  const tooNarrow: BenchmarkCount[] = [];
+  for (const row of cov) {
+    if (row.count >= 10) wellCovered.push(row);
+    else if (row.count >= 5) emerging.push(row);
+    else tooNarrow.push(row);
+  }
+  return [
+    { tier: 'well-covered', benchmarks: wellCovered },
+    { tier: 'emerging', benchmarks: emerging },
+    { tier: 'too-narrow', benchmarks: tooNarrow }
+  ];
+}
+
+export interface ParserStats {
+  perfMentions: number;
+  perfWithScore: number;
+  claimsMentions: number;
+  claimsWithScore: number;
+  totalMentions: number;
+  totalWithScore: number;
+  perfCoverage: number;
+  claimsCoverage: number;
+  totalCoverage: number;
+}
+
+export function parserStats(scores: BenchmarkScore[]): ParserStats {
+  let perfMentions = 0;
+  let perfWithScore = 0;
+  let claimsMentions = 0;
+  let claimsWithScore = 0;
+  for (const s of scores) {
+    if (s.source === 'perf') {
+      perfMentions++;
+      if (s.score) perfWithScore++;
+    } else {
+      claimsMentions++;
+      if (s.score) claimsWithScore++;
+    }
+  }
+  const totalMentions = perfMentions + claimsMentions;
+  const totalWithScore = perfWithScore + claimsWithScore;
+  return {
+    perfMentions,
+    perfWithScore,
+    claimsMentions,
+    claimsWithScore,
+    totalMentions,
+    totalWithScore,
+    perfCoverage: perfMentions === 0 ? 0 : perfWithScore / perfMentions,
+    claimsCoverage: claimsMentions === 0 ? 0 : claimsWithScore / claimsMentions,
+    totalCoverage: totalMentions === 0 ? 0 : totalWithScore / totalMentions
+  };
+}
+
+export type MemDomainCategory = 'memory-only' | 'domain-only' | 'both';
+
+export interface MemDomainBucket {
+  category: MemDomainCategory;
+  systems: { record_id: string; record_name: string; tier: number }[];
+}
+
+export function memDomainBuckets(scores: BenchmarkScore[]): MemDomainBucket[] {
+  const perSystem = new Map<
+    string,
+    { name: string; tier: number; memory: boolean; domain: boolean }
+  >();
+  for (const s of scores) {
+    const e =
+      perSystem.get(s.record_id) ??
+      { name: s.record_name, tier: s.tier, memory: false, domain: false };
+    if (MEMORY_BENCHMARKS.has(s.benchmark)) e.memory = true;
+    else e.domain = true;
+    perSystem.set(s.record_id, e);
+  }
+  const memOnly: { record_id: string; record_name: string; tier: number }[] = [];
+  const domOnly: { record_id: string; record_name: string; tier: number }[] = [];
+  const both: { record_id: string; record_name: string; tier: number }[] = [];
+  for (const [id, v] of perSystem) {
+    const item = { record_id: id, record_name: v.name, tier: v.tier };
+    if (v.memory && v.domain) both.push(item);
+    else if (v.memory) memOnly.push(item);
+    else if (v.domain) domOnly.push(item);
+  }
+  const sortFn = (a: { record_name: string; tier: number }, b: { record_name: string; tier: number }) =>
+    a.tier - b.tier || a.record_name.localeCompare(b.record_name);
+  memOnly.sort(sortFn);
+  domOnly.sort(sortFn);
+  both.sort(sortFn);
+  return [
+    { category: 'memory-only', systems: memOnly },
+    { category: 'both', systems: both },
+    { category: 'domain-only', systems: domOnly }
+  ];
 }
