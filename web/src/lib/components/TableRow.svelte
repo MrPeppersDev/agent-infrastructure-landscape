@@ -3,8 +3,15 @@
   import { COLUMNS, taxonomyAxisOf, cellSlugOf } from '$lib/columns';
   import TableCell from './TableCell.svelte';
   import TaxonomyCell from './TaxonomyCell.svelte';
+  import { searchQuery, highlightPlain } from '$lib/stores/search';
 
   let { record }: { record: LandscapeRecord } = $props();
+
+  // Searchable cell slugs — only these get the highlight pass.
+  // Matches the haystack set in applySearch(): name + desc + claims.
+  const HIGHLIGHT_SLUGS = new Set(['desc', 'claims']);
+
+  const nameHtml = $derived(highlightPlain(record.name, $searchQuery));
 </script>
 
 <tr class="row row-t{record.tier}">
@@ -12,9 +19,9 @@
     {#if col.key === 'name'}
       <td class="cell name sticky-col" data-col={col.key}>
         {#if record.url}
-          <a href={record.url} target="_blank" rel="noopener noreferrer">{record.name}</a>
+          <a href={record.url} target="_blank" rel="noopener noreferrer">{@html nameHtml}</a>
         {:else}
-          {record.name}
+          {@html nameHtml}
         {/if}
       </td>
     {:else if col.key === 'tier'}
@@ -32,7 +39,10 @@
       {@const slug = cellSlugOf(col.key)}
       <td class="cell" data-col={col.key} class:trend={col.trend}>
         {#if slug}
-          <TableCell cell={record.cells[slug]} />
+          <TableCell
+            cell={record.cells[slug]}
+            highlight={HIGHLIGHT_SLUGS.has(slug) ? $searchQuery : ''}
+          />
         {/if}
       </td>
     {/if}

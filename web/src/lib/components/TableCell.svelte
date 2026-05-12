@@ -10,10 +10,24 @@
   // contain HTML — see DECISIONS.md "{@html} trust boundary". The data is
   // produced by extract.py from our own landscape.html and ships in our
   // own bundle; there is no path by which untrusted text reaches a cell.
+  //
+  // Highlight (Polish 2026-05-07): when `highlight` is non-empty the cell
+  // value runs through highlightHtml() which wraps matching substrings in
+  // <mark class="search-hit"> spans while leaving tag interiors alone.
 
   import type { Cell } from '$lib/types';
+  import { highlightHtml } from '$lib/stores/search';
 
-  let { cell }: { cell: Cell | null | undefined } = $props();
+  let {
+    cell,
+    highlight = ''
+  }: { cell: Cell | null | undefined; highlight?: string } = $props();
+
+  const renderedValue = $derived.by(() => {
+    if (!cell) return '';
+    if (!highlight) return cell.value ?? '';
+    return highlightHtml(cell.value ?? '', highlight);
+  });
 </script>
 
 {#if !cell}
@@ -29,7 +43,7 @@
   <span class="no-data"></span>
 {:else}
   <!-- real-data — trusted HTML pass-through (see header comment) -->
-  {@html cell.value}
+  {@html renderedValue}
   {#if cell.citation}
     <a class="cite" href={cell.citation} target="_blank" rel="noopener noreferrer">↗</a>
   {/if}

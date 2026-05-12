@@ -2092,3 +2092,36 @@ testable at any width and keeps the rail's CSS free of media queries.
 **Reversal cost.** Low. Strip the `drawer`/`open`/`onClose` props
 from FilterRail and remove the `.drawer` CSS block; the rail
 collapses back to its original sticky-left form.
+
+---
+
+## 2026-05-07: In-cell match highlighting for search (Polish)
+
+**What.** When `$searchQuery` is non-empty, every occurrence of the
+query string inside the `name`, `desc`, and `claims` cells is wrapped
+in `<mark class="search-hit">` (styled with a muted accent background
+in `app.css`). Other cells are unchanged. The wrapping happens in two
+helpers in `$lib/stores/search.ts`: `highlightPlain` (for the name
+column, which is text) and `highlightHtml` (for the cell values,
+which are pre-rendered HTML).
+
+**HTML-boundary heuristic.** Cell values may contain markup
+(taxonomy pills, `<a>` links, `<br>` tags, signal-num spans). A naive
+`String.replace` on the whole value would corrupt attributes like
+`<a href="...rocksdb...">`. The implementation splits the value on the
+tag-boundary regex `(<[^>]*>)` into alternating text/tag chunks (odd
+indices are tags), runs the replace only on the text chunks, and
+concatenates. This is the "approximation OK" path called out in the
+issue brief — perfect HTML-tree highlighting would require a DOM
+parse and is over-budget for the value it adds. Edge case: a literal
+"<" appearing as `&lt;` in the source is already encoded by the
+extractor, so it doesn't trip the splitter.
+
+**Why limit to name + desc + claims.** Those are the same fields
+indexed by `applySearch()` — highlighting matches outside the
+haystack would mislead users about why a row passed the filter.
+
+**Reversal cost.** Low. Remove `highlight={…}` from the TableCell
+call in TableRow and the `{@html nameHtml}` form on the name column;
+both helpers in `search.ts` become dead exports but don't break
+anything.

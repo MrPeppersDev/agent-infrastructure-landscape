@@ -63,3 +63,16 @@ code {
   background: var(--c-accent-bg);
   border-radius: 3px;
 }
+
+/* In-cell search highlight. Used by highlightHtml / highlightPlain in
+   $lib/stores/search.ts to wrap matching substrings in table cells. The
+   styling is intentionally subtle — saturated yellow would scream across
+   the dense table. We use the accent hue at low saturation so the eye
+   tracks matches without losing column readability. */
+mark.search-hit {
+  background: rgba(196, 99, 60, 0.32);
+  color: #f0f6fc;
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
