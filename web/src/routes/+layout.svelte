@@ -12,6 +12,7 @@
     { path: '/sections', label: 'Sections' },
     { path: '/graph', label: 'Graph' },
     { path: '/lineages', label: 'Lineages' },
+    { path: '/analyses', label: 'Analyses' },
     { path: '/about', label: 'About' }
   ];
 
