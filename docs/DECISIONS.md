@@ -2622,3 +2622,97 @@ SVG geometry but not the helper API.
 
 ---
 
+## 2026-05-07: Benchmark coverage matrix — canonicalisation + source priority (Analyses)
+
+**What.** Issue #24 ships `/analyses/benchmarks` — a matrix of
+systems × headline benchmarks with the score in each cell. Three
+non-obvious decisions are documented here so future maintainers
+don't have to re-derive them.
+
+**(1) Canonicalisation rules.** The corpus uses several aliases for
+the same benchmark. We collapse them at extraction time:
+
+| Canonical | Aliases matched |
+|---|---|
+| `LongMemEval` | `LongMemEval`, `LongMemEval-S/M/L`, `LMES`, `LME` (word-boundary), `LongMem-Eval` |
+| `LoCoMo` | `LoCoMo`, `Lo-Co-Mo` |
+| `BABILong` | `BABILong`, `BABI-Long` |
+| `ConvoMem` | `ConvoMem` |
+| `RULER` | `RULER` (no aliases — uppercase only) |
+| `MemoryAgentBench` | `MemoryAgentBench` (the corpus uses this name; the issue's "MemoryBench" was the suggested alias but the only published variant in the catalogue is the AgentBench fork) |
+| `ALFWorld` | `ALFWorld`, `AlfWorld` (mixed casing in source) |
+| `ScienceWorld` | `ScienceWorld`, `SciWorld` |
+| `SWE-bench` | `SWE-bench`, `SWE-Bench`, `SWE-bench-Verified` (Verified collapsed because reporting populations are nearly disjoint) |
+| `MMLU` | `MMLU` plus `CMMLU` (Chinese variant — methodologically equivalent for coverage purposes) |
+| `BrowseComp` | `BrowseComp`, `BrowseComp-ZH` |
+
+`MemoryAgentBench` vs the "MemoryBench" the issue requested:
+inspection of the corpus showed no records using the literal string
+"MemoryBench"; the catalogued variant is "MemoryAgentBench". We
+shipped the actual corpus name and noted the discrepancy here so
+future copy-edits don't silently merge incompatible benchmarks.
+
+**(2) Extract-from-perf-vs-claims priority.** Both `cells.perf.value`
+and `cells.claims.value` regularly mention benchmark names. They
+serve different purposes:
+
+- `perf` is the curated headline — short, one-line, score-first
+  ("74.0% LoCoMo 83.2% LMES"). Always score-bearing.
+- `claims` is the marketing / paper-abstract prose, often
+  multi-paragraph. Mentions the benchmark by name but may not carry
+  a comparable score; also frequently references benchmarks the
+  system was *evaluated against* but didn't headline.
+
+We always prefer `perf` when both mention a given benchmark. If
+`perf.status !== 'real-data'` or `perf.value` starts with the corpus
+sentinel "no public benchmark scores found", we fall back to
+`claims` for that record. The `cells` map carries a `source: 'perf'
+| 'claims'` discriminator so we can visualise the split in the UI
+(claims-sourced cells get a thin blue left border).
+
+**(3) Score-extraction heuristic.** Cell values are free-text. We
+match a benchmark name, then scan ±30 chars for a leading
+`[+-~]?\d[\d.,]*[%|pp|x|F1|EM|bpc|ppl|poi]?` token, preferring the
+nearest one *before* the benchmark name (corpus convention is
+"score benchmark", e.g. "74.0% LoCoMo"). When no parseable score is
+adjacent we record a presence-only mention (rendered as a check).
+Delta-style scores (`+18.7pp`, `-15.3%`) are kept but flagged
+non-comparable — the matrix renders them italic and excludes them
+from per-column heat scaling, so "+48% LoCoMo relative" doesn't
+dominate the colour ramp against absolute scores like "74.0% LoCoMo".
+
+**Why.** The user's prior research surfaced that memory-system
+papers often pick *domain* benchmarks (GAIA for agentic, WebArena
+for web, SWE-bench for coding) over *memory-specific* benchmarks
+(LongMemEval, LoCoMo). The analyses page exposes this by tagging
+each benchmark and showing memory-vs-domain coverage side by side.
+Canonicalisation is foundational — without aliasing LMES → LongMemEval
+the headline benchmark loses half its reported population to spelling
+drift.
+
+**Numbers (May 2026 catalog).** 25 distinct benchmarks tracked;
+90 systems with at least one reported score; top-5 by coverage:
+LoCoMo (29 systems), LongMemEval (16), GAIA (11), HotpotQA (9),
+ALFWorld (7). Memory-specific systems: 50; domain-specific
+systems: 46; intersection: 6 — only 6 systems report on both
+camps, confirming the divide the user predicted is visible in
+the data.
+
+**Options rejected.**
+- *Take scores only from `perf`.* Drops ~10 systems that only mention
+  benchmarks in `claims` (typically vendor pages where perf is
+  status=`no-data` but the marketing copy claims a benchmark win).
+- *Pull from `vendor-benchmarks` cell too.* That column is even
+  noisier (vendor self-report disclaimers); presence-only signal
+  there would inflate adoption numbers misleadingly.
+- *Synthesise a normalised "score 0-1" per benchmark.* Most
+  benchmarks have different score scales (F1 vs accuracy vs pass@k);
+  cross-row normalisation would conflate metric units. Per-column
+  heat (rank within column) is the right level of comparison.
+
+**Reversal cost.** Low. The whole helper module is ~300 lines, the
+canonicalisation list is a single array, and the UI consumes a
+narrow `{systems, benchmarks, cells}` shape. To add or rename a
+benchmark: edit `BENCHMARKS` in `web/src/lib/analyses/benchmarks.ts`,
+optionally add it to `MEMORY_BENCHMARKS` if it's memory-specific.
+
