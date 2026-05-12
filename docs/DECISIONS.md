@@ -4698,3 +4698,33 @@ landscape.json should produce zero `apply-value` or `apply-citation`
 actions (everything becomes `skip-no-change`). To roll back, restore
 `web/landscape.json` from git, re-run `render.py`, then re-run the
 pipeline.
+
+## 2026-05-07 — Round-10 cleanup pass 2: taxonomy-derived citations
+
+**Scope.** Resolve the 106 `real-data-no-citation` cells flagged by the
+post-Round-9 audit. These are taxonomy-derived synthesis columns
+(`schema-evolution`, `namespace`, `forgetting`, `contradiction`,
+`tombstoning`, `versioning`, plus a handful of `cons/desc/links/pros/type/webhooks`
+spillovers). The value was inferred from reading the row's primary
+source, so the missing citation should simply point back at that source.
+
+**Fallback chain** (Path A — formulaic, no web research):
+1. `record.url` if it starts with `http`
+2. `record.cells.gh.citation`
+3. `record.cells.created.citation`
+4. `record.cells.claims.citation`
+5. `record.cells.desc.citation`
+6. flag `unresolvable`
+
+**Result.** All 106 rows resolved.
+- `record-url`: 101
+- `created-cite`: 5 (WISE — `arxiv.org/abs/2405.14768` — no top-level
+  `record.url`; first http citation found was on the `created` cell)
+- `unresolvable`: 0
+
+**Files emitted.**
+- `scripts/cleanup_taxonomy_citations.py` (new — ~80 LOC)
+- `extraction/round-10-cleanup-taxonomy-citations.csv` (new — 106 rows)
+
+**Reversal cost.** Low. CSV is advisory output for a downstream apply
+step; no landscape.json mutations performed here.
