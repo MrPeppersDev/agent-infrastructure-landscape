@@ -1,0 +1,914 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2297403194",
+        "name": "Hanshi Sun"
+      },
+      {
+        "authorId": "2328081757",
+        "name": "Li-Wen Chang"
+      },
+      {
+        "authorId": "2305683890",
+        "name": "Wenlei Bao"
+      },
+      {
+        "authorId": "2329057567",
+        "name": "Size Zheng"
+      },
+      {
+        "authorId": "2305682698",
+        "name": "Ningxin Zheng"
+      },
+      {
+        "authorId": "2328747777",
+        "name": "Xin Liu"
+      },
+      {
+        "authorId": "2171964328",
+        "name": "Harry Dong"
+      },
+      {
+        "authorId": "2284063779",
+        "name": "Yuejie Chi"
+      },
+      {
+        "authorId": "2282555057",
+        "name": "Beidi Chen"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2410.21465, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.20290",
+          "CorpusId": 273654642,
+          "DBLP": "journals/corr/abs-2410-20290",
+          "DOI": "10.48550/arXiv.2410.20290"
+        },
+        "paperId": "da1630b8e02de660c0baccaddbb790ce94623327",
+        "title": "Fast Best-of-N Decoding via Speculative Rejection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2410.14731",
+          "CorpusId": 273501564,
+          "DBLP": "conf/iclr/LinZXKH0ZD25",
+          "DOI": "10.48550/arXiv.2410.14731"
+        },
+        "paperId": "5bf89bd184891b890c693cd8e4e54e02a9c6ce10",
+        "title": "MatryoshkaKV: Adaptive KV Compression via Trainable Orthogonal Projection"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2409.02877",
+          "CorpusId": 272398149,
+          "DBLP": "journals/corr/abs-2409-02877",
+          "DOI": "10.48550/arXiv.2409.02877"
+        },
+        "paperId": "84d3e913a02783f60f6e6831bde1596519da9dd4",
+        "title": "Configurable Foundation Models: Building LLMs from a Modular Perspective"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.10130",
+          "CorpusId": 271903348,
+          "DBLP": "journals/corr/abs-2408-10130",
+          "DOI": "10.1117/12.3049486"
+        },
+        "paperId": "46f55af46a597f4a6d450e09e78b825577bb4bd9",
+        "title": "Rhyme-aware Chinese lyric generator based on GPT"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2408.05646",
+          "CorpusId": 271855637,
+          "DBLP": "conf/emnlp/SaxenaSC024",
+          "DOI": "10.48550/arXiv.2408.05646"
+        },
+        "paperId": "6bae288e831c26e0fa8724578558daa2cd0f4780",
+        "title": "Eigen Attention: Attention in Low-Rank Space for KV Cache Compression"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.21018",
+          "CorpusId": 271543799,
+          "DBLP": "conf/iclr/XuJD0LZSXS25",
+          "DOI": "10.48550/arXiv.2407.21018"
+        },
+        "paperId": "6c586ffafcf9bd59544f908e4a045edee7992542",
+        "title": "ThinK: Thinner Key Cache by Query-Driven Pruning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.15891",
+          "CorpusId": 271334610,
+          "DBLP": "conf/iclr/TangLLHKHYW25",
+          "DOI": "10.48550/arXiv.2407.15891"
+        },
+        "paperId": "d5f82199e97d325427dffdc027baca75578561f5",
+        "title": "RazorAttention: Efficient KV Cache Compression Through Retrieval Heads"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.12874",
+          "CorpusId": 271270568,
+          "DBLP": "journals/corr/abs-2407-12874",
+          "DOI": "10.48550/arXiv.2407.12874"
+        },
+        "paperId": "31d9e19005b99dba626d66e1da7b9967e579210c",
+        "title": "SELF-GUIDE: Better Task-Specific Instruction Following via Self-Synthetic Finetuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.10671",
+          "CorpusId": 271212307,
+          "DBLP": "journals/corr/abs-2407-10671",
+          "DOI": "10.48550/arXiv.2407.10671"
+        },
+        "paperId": "54fb839f621e3fe787437ab8ca5f37e7e4726bfe",
+        "title": "Qwen2 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.07061",
+          "CorpusId": 271064295,
+          "DBLP": "journals/corr/abs-2407-07061",
+          "DOI": "10.48550/arXiv.2407.07061"
+        },
+        "paperId": "3eb714c5e226d8d223f80b135cf5bbd9f8c37e02",
+        "title": "Internet of Agents: Weaving a Web of Heterogeneous Agents for Collaborative Intelligence"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.02490",
+          "CorpusId": 270877928,
+          "DBLP": "journals/corr/abs-2407-02490",
+          "DOI": "10.48550/arXiv.2407.02490"
+        },
+        "paperId": "9803d83bbb28d02fb01f00e0e05aa3c192a87255",
+        "title": "MInference 1.0: Accelerating Pre-filling for Long-Context LLMs via Dynamic Sparse Attention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2407.12820",
+          "CorpusId": 271270110,
+          "DBLP": "journals/pacmmod/ZhangJCFMNCC25",
+          "DOI": "10.1145/3725338"
+        },
+        "paperId": "022f386eb66fc5532dd6f439e7a356fd33ebb9a2",
+        "title": "PQCache: Product Quantization-based KVCache for Long Context LLM Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.19707",
+          "CorpusId": 270845627,
+          "DBLP": "conf/osdi/LeeLSS24",
+          "DOI": "10.48550/arXiv.2406.19707"
+        },
+        "paperId": "964440957c030504f6bcab11f514635ece1bf6b2",
+        "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2024.emnlp-main.322",
+          "ArXiv": "2406.17419",
+          "CorpusId": 270710703,
+          "DBLP": "conf/emnlp/WangCCL0WYXZLLY24",
+          "DOI": "10.48550/arXiv.2406.17419"
+        },
+        "paperId": "9061cc45c64846498f572c9ad2cb14f76324d665",
+        "title": "Leave No Document Behind: Benchmarking Long-Context LLMs with Extended Multi-Doc QA"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.13185",
+          "CorpusId": 270619372,
+          "DBLP": "journals/corr/abs-2406-13185",
+          "DOI": "10.48550/arXiv.2406.13185"
+        },
+        "paperId": "ba01ab9afa7ef6fe488f19b428d099891c8ccce1",
+        "title": "Learnable In-Context Vector for Visual Question Answering"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.12793",
+          "CorpusId": 270562306,
+          "DBLP": "journals/corr/abs-2406-12793",
+          "DOI": "10.48550/arXiv.2406.12793"
+        },
+        "paperId": "c7f9706898bdfa3241601e075b1305649b174ff1",
+        "title": "ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.10774",
+          "CorpusId": 270559146,
+          "DBLP": "conf/icml/TangZZXKH24",
+          "DOI": "10.48550/arXiv.2406.10774"
+        },
+        "paperId": "1c7db9fb18246787fbe3de6e0eaa370ae749e795",
+        "title": "Quest: Query-Aware Sparsity for Efficient Long-Context LLM Inference"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.07056",
+          "CorpusId": 270380364,
+          "DBLP": "journals/corr/abs-2406-07056",
+          "DOI": "10.48550/arXiv.2406.07056"
+        },
+        "paperId": "dad44ff015c2e1fa83723ab4b882bcae251d17ec",
+        "title": "Effectively Compress KV Heads for LLM"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.02069",
+          "CorpusId": 270226243,
+          "DBLP": "journals/corr/abs-2406-02069",
+          "DOI": "10.48550/arXiv.2406.02069"
+        },
+        "paperId": "812356c723c082f88fb722531beaf45e344ffa1e",
+        "title": "PyramidKV: Dynamic KV Cache Compression based on Pyramidal Information Funneling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2406.02542",
+          "CorpusId": 270226131,
+          "DBLP": "conf/nips/SinghaniaSHFB24",
+          "DOI": "10.48550/arXiv.2406.02542"
+        },
+        "paperId": "f4c07dc79976a4e3a558bb6fcd0d615673e8ecef",
+        "title": "Loki: Low-Rank Keys for Efficient Sparse Attention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2405.04434",
+          "CorpusId": 269613809,
+          "DBLP": "journals/corr/abs-2405-04434",
+          "DOI": "10.48550/arXiv.2405.04434"
+        },
+        "paperId": "53a803388e83ae89261624099d7be4287ace67cb",
+        "title": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.14688",
+          "CorpusId": 269302905,
+          "DBLP": "journals/corr/abs-2404-14688",
+          "DOI": "10.1002/adts.202500062"
+        },
+        "paperId": "bdb103a4bfafda077b36aa592536425c2695eef3",
+        "title": "FMint: Bridging Human Designed and Data Pretrained Models for Differential Equation Foundation Model for Dynamical Simulation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.14469",
+          "CorpusId": 269303164,
+          "DBLP": "conf/nips/LiHYVLYCLC24",
+          "DOI": "10.48550/arXiv.2404.14469"
+        },
+        "paperId": "1784c987e681d60c634765fe64c8d9c26f73d5ff",
+        "title": "SnapKV: LLM Knows What You are Looking for Before Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.14219",
+          "CorpusId": 269293048,
+          "DBLP": "journals/corr/abs-2404-14219",
+          "DOI": "10.48550/arXiv.2404.14219"
+        },
+        "paperId": "abdceff7d7983cdede9a5aabe6a476d4c72e41a3",
+        "title": "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.11912",
+          "CorpusId": 269214125,
+          "DBLP": "journals/corr/abs-2404-11912",
+          "DOI": "10.48550/arXiv.2404.11912"
+        },
+        "paperId": "d0deaec3e1f74701ac43600d9e64c5c969be7391",
+        "title": "TriForce: Lossless Acceleration of Long Sequence Generation with Hierarchical Speculative Decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.06654",
+          "CorpusId": 269032933,
+          "DBLP": "journals/corr/abs-2404-06654",
+          "DOI": "10.48550/arXiv.2404.06654"
+        },
+        "paperId": "ac5824e9ff924a937d9eef379d0b581de2417678",
+        "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.06395",
+          "CorpusId": 269009975,
+          "DBLP": "journals/corr/abs-2404-06395",
+          "DOI": "10.48550/arXiv.2404.06395"
+        },
+        "paperId": "49873ee415619efd9e1e4c16f73ee066ff008c1f",
+        "title": "MiniCPM: Unveiling the Potential of Small Language Models with Scalable Training Strategies"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2404.01365",
+          "CorpusId": 268857298
+        },
+        "paperId": "ef399ed62fcc00e73b02f286012080351652693c",
+        "title": "Prompt-prompted Adaptive Structured Pruning for Efficient LLM Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2403.11421",
+          "CorpusId": 268513167,
+          "DBLP": "journals/corr/abs-2403-11421",
+          "DOI": "10.48550/arXiv.2403.11421"
+        },
+        "paperId": "2be7acee3dfd9c4eb99755158d8c770ac2a36715",
+        "title": "FastDecode: High-Throughput GPU-Efficient LLM Serving using Heterogeneous Pipelines"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.18096",
+          "CorpusId": 268041747,
+          "DBLP": "journals/corr/abs-2402-18096",
+          "DOI": "10.48550/arXiv.2402.18096"
+        },
+        "paperId": "89e0fde2dc60f8520c176a57396c6cad3af5dc40",
+        "title": "No Token Left Behind: Reliable KV Cache Compression via Importance-Aware Mixed Precision Quantization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.13718",
+          "CorpusId": 267770255,
+          "DBLP": "journals/corr/abs-2402-13718",
+          "DOI": "10.48550/arXiv.2402.13718"
+        },
+        "paperId": "f05e84702562cb693dd68d3d1c88072519a7bd71",
+        "title": "∞Bench: Extending Long Context Evaluation Beyond 100K Tokens"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.12065",
+          "CorpusId": 267750952,
+          "DBLP": "journals/corr/abs-2402-12065",
+          "DOI": "10.48550/arXiv.2402.12065"
+        },
+        "paperId": "f608011b0f50a14bb2949c186a7c632a099aa75b",
+        "title": "WKVQuant: Quantizing Weight and Key/Value Cache for Large Language Models Gains More"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.09398",
+          "CorpusId": 267657553,
+          "DBLP": "conf/icml/DongY0WCC24",
+          "DOI": "10.48550/arXiv.2402.09398"
+        },
+        "paperId": "ef1b02dc1b82f9955fc4760fcefd92c0fff9f227",
+        "title": "Get More with LESS: Synthesizing Recurrence with KV Cache Compression for Efficient LLM Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.05099",
+          "CorpusId": 267523163,
+          "DBLP": "journals/corr/abs-2402-05099",
+          "DOI": "10.48550/arXiv.2402.05099"
+        },
+        "paperId": "d9e67bb4140cd1703c858b8d09f268cb94ccd355",
+        "title": "Hydragen: High-Throughput LLM Inference with Shared Prefixes"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2402.02750",
+          "CorpusId": 267413049,
+          "DBLP": "conf/icml/LiuYJZXBC024",
+          "DOI": "10.13140/RG.2.2.28167.37282"
+        },
+        "paperId": "a3e000e0d7f64c1d094c2a8bf6f43992cbabe91b",
+        "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2401.18079",
+          "CorpusId": 267335271,
+          "DBLP": "journals/corr/abs-2401-18079",
+          "DOI": "10.48550/arXiv.2401.18079"
+        },
+        "paperId": "b085968c4362fb286ad6c5ef71a5db9630da0498",
+        "title": "KVQuant: Towards 10 Million Context Length LLM Inference with KV Cache Quantization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2312.04985",
+          "CorpusId": 266149707,
+          "DBLP": "conf/icml/RibarCHBLO24",
+          "DOI": "10.48550/arXiv.2312.04985"
+        },
+        "paperId": "713806165610c237f551a7b68e6b09b3ded75502",
+        "title": "SparQ Attention: Bandwidth-Efficient LLM Inference"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2311.01282",
+          "CorpusId": 264935058,
+          "DBLP": "journals/corr/abs-2311-01282",
+          "DOI": "10.48550/arXiv.2311.01282"
+        },
+        "paperId": "4d76206515d6b33903937474273885476fc2771e",
+        "title": "FlashDecoding++: Faster Large Language Model Inference on GPUs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.19019",
+          "CorpusId": 264813855,
+          "DBLP": "journals/corr/abs-2310-19019",
+          "DOI": "10.48550/arXiv.2310.19019"
+        },
+        "paperId": "fb285de78ba95e30ad41ed97ddf014763e6279ad",
+        "title": "TeacherLM: Teaching to Fish Rather Than Giving the Fish, Language Modeling Likewise"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.06201",
+          "CorpusId": 263830231,
+          "DBLP": "journals/corr/abs-2310-06201",
+          "DOI": "10.48550/arXiv.2310.06201"
+        },
+        "paperId": "b12541867632737e826b7b01c7fbe1c4222d8655",
+        "title": "Compressing Context to Enhance Inference Efficiency of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2310.01801",
+          "CorpusId": 263609075,
+          "DBLP": "conf/iclr/Ge0LZ0024",
+          "DOI": "10.48550/arXiv.2310.01801"
+        },
+        "paperId": "6c323c535365e1c7cbfd9703cbec3b5650a3346b",
+        "title": "Model Tells You What to Discard: Adaptive KV Cache Compression for LLMs"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.17453",
+          "CorpusId": 263310483,
+          "DBLP": "conf/iclr/XiaoTCHL24",
+          "DOI": "10.48550/arXiv.2309.17453"
+        },
+        "paperId": "fdc53c2c10742464087c0525f77e32604827a21d",
+        "title": "Efficient Streaming Language Models with Attention Sinks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2309.06180",
+          "CorpusId": 261697361,
+          "DBLP": "conf/sosp/KwonLZ0ZY0ZS23",
+          "DOI": "10.1145/3600006.3613165"
+        },
+        "paperId": "83b90f4a0ae4cc214eb3cc140ccfef9cd99fac05",
+        "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.14508",
+          "CorpusId": 261245264,
+          "DBLP": "conf/acl/BaiLZL0HDLZHDTL24",
+          "DOI": "10.48550/arXiv.2308.14508"
+        },
+        "paperId": "b31a5884a8ebe96b6300839b28608b97f8f8ef76",
+        "title": "LongBench: A Bilingual, Multitask Benchmark for Long Context Understanding"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2308.12261",
+          "CorpusId": 261075905,
+          "DBLP": "conf/emnlp/ViswanathanZBWN23",
+          "DOI": "10.48550/arXiv.2308.12261"
+        },
+        "paperId": "e69684fb06a7b1fe621d7ef0c97fc2ca0e122c43",
+        "title": "Prompt2Model: Generating Deployable Models from Natural Language Instructions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2307.08691",
+          "CorpusId": 259936734,
+          "DBLP": "journals/corr/abs-2307-08691",
+          "DOI": "10.48550/arXiv.2307.08691"
+        },
+        "paperId": "823ca4778e1027f2f0b356df051d762dcecaaba0",
+        "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2306.14048",
+          "CorpusId": 259263947,
+          "DBLP": "conf/nips/Zhang00CZC0TRBW23",
+          "DOI": "10.48550/arXiv.2306.14048"
+        },
+        "paperId": "e586a4591ba0303b769f2c07cbddaf1899cb72e4",
+        "title": "H2O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.17118",
+          "CorpusId": 258947558,
+          "DBLP": "conf/nips/LiuDLWXXKS23",
+          "DOI": "10.48550/arXiv.2305.17118"
+        },
+        "paperId": "d6eeb2898bd9bd34744194ef543062dda6c4531a",
+        "title": "Scissorhands: Exploiting the Persistence of Importance Hypothesis for LLM KV Cache Compression at Test Time"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2305.08381",
+          "CorpusId": 258685299,
+          "DBLP": "conf/nips/0003YCJSZ0023",
+          "DOI": "10.52202/075280-0693"
+        },
+        "paperId": "0c7ce5898dab92da540457b754254d72b8592fc2",
+        "title": "Parameter-efficient Tuning of Large-scale Multimodal Foundation Model"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.08774",
+          "CorpusId": 257532815
+        },
+        "paperId": "163b4d6a79a5b19af88b8585456363340d9efd04",
+        "title": "GPT-4 Technical Report"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2303.06865",
+          "CorpusId": 257495837,
+          "DBLP": "journals/corr/abs-2303-06865",
+          "DOI": "10.48550/arXiv.2303.06865"
+        },
+        "paperId": "42a14d824caa3348046eb34c37e2ab7985faa7a3",
+        "title": "High-throughput Generative Inference of Large Language Models with a Single GPU"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.17192",
+          "CorpusId": 254096365,
+          "DBLP": "journals/corr/abs-2211-17192",
+          "DOI": "10.48550/arXiv.2211.17192"
+        },
+        "paperId": "d8e9f8c8a37cb4cd26b92ad0d942d641cd512644",
+        "title": "Fast Inference from Transformers via Speculative Decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2211.10438",
+          "CorpusId": 253708271,
+          "DBLP": "conf/icml/XiaoLSWDH23",
+          "DOI": "10.48550/arXiv.2211.10438"
+        },
+        "paperId": "2c994fadbb84fb960d8306ee138dbeef41a5b323",
+        "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2205.14135",
+          "CorpusId": 249151871,
+          "DBLP": "journals/corr/abs-2205-14135",
+          "DOI": "10.52202/068431-1189"
+        },
+        "paperId": "87c5b281fa43e6f27191b20a8dd694eda1126336",
+        "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2104.09864",
+          "CorpusId": 233307138,
+          "DBLP": "journals/ijon/SuALPBL24",
+          "DOI": "10.1016/j.neucom.2023.127063"
+        },
+        "paperId": "66c10bf1f11bc1b2d92204d8f8391d087f6de1c4",
+        "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2101.00027",
+          "CorpusId": 230435736,
+          "DBLP": "journals/corr/abs-2101-00027"
+        },
+        "paperId": "db1afe3b3cd4cd90e41fbba65d3075dd5aebb61e",
+        "title": "The Pile: An 800GB Dataset of Diverse Text for Language Modeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1912.01703",
+          "CorpusId": 202786778,
+          "DBLP": "journals/corr/abs-1912-01703",
+          "MAG": "2970971581"
+        },
+        "paperId": "3c8a456509e6c0805354bd40a35e3f2dbf8069b1",
+        "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1911.05507",
+          "CorpusId": 207930593,
+          "DBLP": "conf/iclr/RaePJHL20",
+          "MAG": "2995575179"
+        },
+        "paperId": "f51497f463566581874c941353dd9d80069c5b77",
+        "title": "Compressive Transformers for Long-Range Sequence Modelling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1910.03771",
+          "CorpusId": 283227281,
+          "DBLP": "journals/corr/abs-1910-03771",
+          "MAG": "2979826702"
+        },
+        "paperId": "53c8b98eb9180ed9f46820627715c7ae2803cee7",
+        "title": "HuggingFace's Transformers: State-of-the-art Natural Language Processing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Microsoft"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 271571616,
+          "DBLP": "journals/corr/abs-2407-21118",
+          "DOI": "10.48550/arXiv.2407.21118"
+        },
+        "paperId": "55e826188a7309a4af356cfa827517220c795e9f",
+        "title": "Palu: Compressing KV-Cache with Low-Rank Projection"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "QwenTeam"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 271244046,
+          "DBLP": "journals/corr/abs-2312-10104",
+          "DOI": "10.48550/arXiv.2312.10104"
+        },
+        "paperId": "381bf6f86718599c6649e89a39bcbb58ec2f7626",
+        "title": "ICD-LM: Configuring Vision-Language In-Context Demonstrations by Language Modeling"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Needle in a haystack - pressure testing"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 281096272,
+          "DOI": "10.47749/t/unicamp.2025.1501203"
+        },
+        "paperId": "0a38fa969c001adf132c790af7d5a5d5cde2f9af",
+        "title": "GradiEnt"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "World model on million-length video and language with ringattention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Open foundation models by 01"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Cascade inference: Memory bandwidth efficient shared prefix batch decoding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "larger batch sizes and enhance throughput by up to 3 . 04 × on an A100 across various long-context models, including Llama-3.1-8B, Llama-3-8B-1M, GLM-4-9B-1M, and Yi-9B-200K"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Gemini: a family of highly capable multimodal models"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}

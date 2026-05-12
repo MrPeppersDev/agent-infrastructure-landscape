@@ -1,0 +1,896 @@
+{
+  "citingPaperInfo": {
+    "authors": [
+      {
+        "authorId": "2157840220",
+        "name": "J. Hu"
+      },
+      {
+        "authorId": "1752875",
+        "name": "Yelong Shen"
+      },
+      {
+        "authorId": "104100507",
+        "name": "Phillip Wallis"
+      },
+      {
+        "authorId": "1388725932",
+        "name": "Zeyuan Allen-Zhu"
+      },
+      {
+        "authorId": "2110486765",
+        "name": "Yuanzhi Li"
+      },
+      {
+        "authorId": "2135571585",
+        "name": "Shean Wang"
+      },
+      {
+        "authorId": "2109136147",
+        "name": "Weizhu Chen"
+      }
+    ],
+    "openAccessPdf": {
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2106.09685, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use.",
+      "license": null,
+      "status": null,
+      "url": ""
+    },
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+  },
+  "data": [
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2022.acl-short.1",
+          "ArXiv": "2106.10199",
+          "CorpusId": 231672601,
+          "DBLP": "conf/acl/ZakenGR22",
+          "DOI": "10.18653/v1/2022.acl-short.1"
+        },
+        "paperId": "339b2b711fb5b228d097b03ebc3e62a521779235",
+        "title": "BitFit: Simple Parameter-efficient Fine-tuning for Transformer-based Masked Language-models"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2106.04647",
+          "CorpusId": 235356070,
+          "DBLP": "conf/nips/MahabadiHR21"
+        },
+        "paperId": "656ed155c2d345c19d9bff4b50f2ae00db8407cc",
+        "title": "Compacter: Efficient Low-Rank Hypercomplex Adapter Layers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2105.01029",
+          "CorpusId": 233481638,
+          "DBLP": "journals/corr/abs-2105-01029"
+        },
+        "paperId": "f93f2476972228de142fde13913bccbec76859b8",
+        "title": "Initialization and Regularization of Factorized Neural Layers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.243",
+          "ArXiv": "2104.08691",
+          "CorpusId": 233296808,
+          "DBLP": "journals/corr/abs-2104-08691",
+          "DOI": "10.18653/v1/2021.emnlp-main.243"
+        },
+        "paperId": "ffdbd7f0b03b85747b001b4734d5ee31b5229aa4",
+        "title": "The Power of Scale for Parameter-Efficient Prompt Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2103.10385",
+          "CorpusId": 232269696,
+          "DBLP": "journals/corr/abs-2103-10385",
+          "DOI": "10.1016/j.aiopen.2023.08.012"
+        },
+        "paperId": "bc37c6bdb8f39929a58b30464f72d6aa46cddc17",
+        "title": "GPT Understands, Too"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.381",
+          "ArXiv": "2101.00121",
+          "CorpusId": 230437613,
+          "DBLP": "conf/acl/HambardzumyanKM20",
+          "DOI": "10.18653/v1/2021.acl-long.381"
+        },
+        "paperId": "5a2e45ce35fb26ab70a61b424a49f8e5b4532a8e",
+        "title": "WARP: Word-level Adversarial ReProgramming"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.568",
+          "ArXiv": "2012.13255",
+          "CorpusId": 229371560,
+          "DBLP": "conf/acl/AghajanyanGZ20",
+          "DOI": "10.18653/v1/2021.acl-long.568"
+        },
+        "paperId": "e54ffc76d805c48660bb0fd20019ca82ac94ba0d",
+        "title": "Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2011.14522",
+          "CorpusId": 227229101,
+          "DBLP": "journals/corr/abs-2011-14522",
+          "MAG": "3110116503"
+        },
+        "paperId": "87da4c27f7b2ddac63654458b06c9d708d042f6a",
+        "title": "Feature Learning in Infinite-Width Neural Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.emnlp-main.626",
+          "ArXiv": "2010.11918",
+          "CorpusId": 225040886,
+          "DBLP": "journals/corr/abs-2010-11918",
+          "DOI": "10.18653/v1/2021.emnlp-main.626",
+          "MAG": "3094491777"
+        },
+        "paperId": "bdeec55f95fd6b73e3e4635459b14c7248543efb",
+        "title": "AdapterDrop: On the Efficiency of Adapters in Transformers"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "Transformers: State-of-the-Art Natural Language Processing"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.naacl-main.37",
+          "ArXiv": "2007.02871",
+          "CorpusId": 220364230,
+          "DBLP": "conf/naacl/NanRZRSHTVVKLIP21",
+          "DOI": "10.18653/V1/2021.NAACL-MAIN.37",
+          "MAG": "3170806096"
+        },
+        "paperId": "6e3f8187f8fef3e11578a73f32da07d33dbf8235",
+        "title": "DART: Open-Domain Structured Data Record to Text Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.16668",
+          "CorpusId": 220265858,
+          "DBLP": "conf/iclr/LepikhinLXCFHKS21",
+          "MAG": "3040573126"
+        },
+        "paperId": "1882f194cb43828852cc052887671e55a80f945a",
+        "title": "GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.13409",
+          "CorpusId": 220042268,
+          "DBLP": "journals/corr/abs-2006-13409",
+          "DOI": "10.1088/1742-5468/ac3a81",
+          "MAG": "3037180580"
+        },
+        "paperId": "00c3bfcc503e675e640cb92d71611f0e43bf43dc",
+        "title": "When do neural networks outperform kernel methods?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2006.03654",
+          "CorpusId": 219531210,
+          "DBLP": "conf/iclr/HeLGC21",
+          "MAG": "3033187248"
+        },
+        "paperId": "14b65a86c82e38fce0eb3506e0d4084ad5cdb583",
+        "title": "DeBERTa: Decoding-enhanced BERT with Disentangled Attention"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.14165",
+          "CorpusId": 218971783,
+          "DBLP": "conf/nips/BrownMRSKDNSSAA20",
+          "MAG": "3030163527"
+        },
+        "paperId": "90abbc2cf38462b954ae1b772fac9532e2ccd8b0",
+        "title": "Language Models are Few-Shot Learners"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "2005.10190",
+          "CorpusId": 218719281,
+          "DBLP": "conf/focs/Allen-ZhuL21",
+          "DOI": "10.1109/FOCS52979.2021.00098",
+          "MAG": "3028525609"
+        },
+        "paperId": "23c84238f9b15d7fd87a95d3b16882a21b953d8a",
+        "title": "Feature Purification: How Adversarial Training Performs Robust Deep Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.eacl-main.39",
+          "ArXiv": "2005.00247",
+          "CorpusId": 218470208,
+          "DBLP": "journals/corr/abs-2005-00247",
+          "DOI": "10.18653/v1/2021.eacl-main.39",
+          "MAG": "3023528699"
+        },
+        "paperId": "98ef0db84e62aef969629264c9de1f4d0013f3b9",
+        "title": "AdapterFusion: Non-Destructive Task Composition for Transfer Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2020.findings-emnlp.41",
+          "ArXiv": "2004.03829",
+          "CorpusId": 215415943,
+          "DBLP": "journals/corr/abs-2004-03829",
+          "DOI": "10.18653/v1/2020.findings-emnlp.41",
+          "MAG": "3103616906"
+        },
+        "paperId": "1187c70c4011f935642084e84186284ac0add3d0",
+        "title": "Exploring Versatile Generative Language Model Via Parameter-Efficient Transfer Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 240702641,
+          "DOI": "10.1093/oso/9780198854333.003.0007",
+          "MAG": "3018760273"
+        },
+        "paperId": "7f27e7bf9116ebeeeab1ef010fde5a4d6544ee14",
+        "title": "Normalization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 210165061,
+          "DBLP": "journals/corr/abs-2001-04413",
+          "MAG": "3000127803"
+        },
+        "paperId": "2e7f6967b25459a9bcfa67e9f0f32d7e3465ab76",
+        "title": "Backward Feature Correction: How Deep Learning Performs Deep Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D19-5409",
+          "ArXiv": "1911.12237",
+          "CorpusId": 208010268,
+          "DBLP": "journals/corr/abs-1911-12237",
+          "DOI": "10.18653/v1/D19-5409",
+          "MAG": "2989743967"
+        },
+        "paperId": "f9700e31a1d0ae34d4571ab056dfb268c1543349",
+        "title": "SAMSum Corpus: A Human-annotated Dialogue Dataset for Abstractive Summarization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1909.08053",
+          "CorpusId": 202660670,
+          "DBLP": "journals/corr/abs-1909-08053",
+          "MAG": "2973727699"
+        },
+        "paperId": "8323c591e119eb09b28b29fd6c7bc76bd889df7a",
+        "title": "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1907.11692",
+          "CorpusId": 198953378,
+          "DBLP": "journals/corr/abs-1907-11692",
+          "MAG": "2965373594"
+        },
+        "paperId": "077f8329a7b6fa3b7c877a57b81eb6c18b5f87de",
+        "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1906.05392",
+          "CorpusId": 189762232,
+          "DBLP": "journals/corr/abs-1906-05392",
+          "MAG": "2949960976"
+        },
+        "paperId": "3f1edf11bc3ca1f0ed116cf72ff51d092ad8644b",
+        "title": "Generalization Guarantees for Neural Networks via Harnessing the Low-rank Structure of the Jacobian"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1905.10337",
+          "CorpusId": 165164191,
+          "DBLP": "journals/corr/abs-1905-10337",
+          "MAG": "2945404573"
+        },
+        "paperId": "d849c09c319f2ce12efc14bddc7581ab9aa688ac",
+        "title": "What Can ResNet Learn Efficiently, Going Beyond Kernels?"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1905.00537",
+          "CorpusId": 143424870,
+          "DBLP": "conf/nips/WangPNSMHLB19",
+          "MAG": "2943552823"
+        },
+        "paperId": "d9f6ada77448664b71128bb19df15765336974a6",
+        "title": "SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding Systems"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1902.00751",
+          "CorpusId": 59599816,
+          "DBLP": "journals/corr/abs-1902-00751",
+          "MAG": "2950266224"
+        },
+        "paperId": "29ddc1f43f28af7c846515e32cc167bc66886d0c",
+        "title": "Parameter-Efficient Transfer Learning for NLP"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1810.12488",
+          "CorpusId": 53106595,
+          "DBLP": "journals/corr/abs-1810-12488",
+          "MAG": "2899063268"
+        },
+        "paperId": "fe111c477ea0ce9186eb58ff847052976d9a2dd9",
+        "title": "Re-evaluating Continual Learning Scenarios: A Categorization and Case for Strong Baselines"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 4949673,
+          "DBLP": "conf/interspeech/PoveyCWLXYK18",
+          "DOI": "10.21437/Interspeech.2018-1417",
+          "MAG": "2888867175"
+        },
+        "paperId": "78b29eba4d6c836483c0aa67d637205e95223ae4",
+        "title": "Semi-Orthogonal Low-Rank Matrix Factorization for Deep Neural Networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1811.03962",
+          "CorpusId": 53250107,
+          "DBLP": "journals/corr/abs-1811-03962",
+          "MAG": "2964098911"
+        },
+        "paperId": "42ec3db12a2e4628885451b13035c2e975220a25",
+        "title": "A Convergence Theory for Deep Learning via Over-Parameterization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1808.01204",
+          "CorpusId": 51920936,
+          "DBLP": "journals/corr/abs-1808-01204",
+          "MAG": "2949804919"
+        },
+        "paperId": "ccb1bafdae68c635cbd30d49fda7dbf88a3ce1b6",
+        "title": "Learning Overparameterized Neural Networks via Stochastic Gradient Descent on Structured Data"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "P18-2124",
+          "ArXiv": "1806.03822",
+          "CorpusId": 47018994,
+          "DBLP": "journals/corr/abs-1806-03822",
+          "DOI": "10.18653/v1/P18-2124",
+          "MAG": "2963323070"
+        },
+        "paperId": "4d1c856275744c0284312a3a50efb6ca9dc4cd4c",
+        "title": "Know What You Don’t Know: Unanswerable Questions for SQuAD"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1805.12471",
+          "CorpusId": 44072099,
+          "DBLP": "journals/tacl/WarstadtSB19",
+          "DOI": "10.1162/tacl_a_00290",
+          "MAG": "2978670439"
+        },
+        "paperId": "cb0f3ee1e98faf92429d601cdcd76c69c1e484eb",
+        "title": "Neural Network Acceptability Judgments"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "W18-5446",
+          "ArXiv": "1804.07461",
+          "CorpusId": 5034059,
+          "DBLP": "conf/emnlp/WangSMHLB18",
+          "DOI": "10.18653/v1/W18-5446",
+          "MAG": "2963310665"
+        },
+        "paperId": "451d4a16e425ecbf38c4b1cca0dcf5d9bec8255c",
+        "title": "GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1804.08838",
+          "CorpusId": 13739955,
+          "DBLP": "conf/iclr/LiFLY18",
+          "MAG": "2963477238"
+        },
+        "paperId": "d55d1d035e91220335edff0fe8f5d249d8c4a00b",
+        "title": "Measuring the Intrinsic Dimension of Objective Landscapes"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 3526301,
+          "DBLP": "conf/colt/LiMZ18",
+          "MAG": "2953190589"
+        },
+        "paperId": "8b4b861583f698e89c8cd9e198aad86809a71de7",
+        "title": "Algorithmic Regularization in Over-parameterized Matrix Sensing and Neural Networks with Quadratic Activations"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 53592270,
+          "DBLP": "conf/iclr/LoshchilovH19",
+          "MAG": "2950541952"
+        },
+        "paperId": "d07284a6811f1b2745d91bdb06b040b57f226882",
+        "title": "Decoupled Weight Decay Regularization"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "W17-3518",
+          "CorpusId": 28193461,
+          "DBLP": "conf/inlg/GardentSNP17",
+          "DOI": "10.18653/v1/W17-3518",
+          "MAG": "2786660442"
+        },
+        "paperId": "a4c40532e68728fbeab5d9415f6ad8e9530db360",
+        "title": "The WebNLG Challenge: Generating Text from RDF Data"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1709.00103",
+          "CorpusId": 25156106,
+          "DBLP": "journals/corr/abs-1709-00103",
+          "MAG": "2751448157"
+        },
+        "paperId": "cbd569036fc72ae7ff747350b91816440282596b",
+        "title": "Seq2SQL: Generating Structured Queries from Natural Language using Reinforcement Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "S17-2001",
+          "ArXiv": "1708.00055",
+          "CorpusId": 4421747,
+          "DBLP": "journals/corr/abs-1708-00055",
+          "DOI": "10.18653/v1/S17-2001",
+          "MAG": "3104033643"
+        },
+        "paperId": "a23fa96e7217ba0e9405d9e1fe3cdedd57b6e096",
+        "title": "SemEval-2017 Task 1: Semantic Textual Similarity Multilingual and Crosslingual Focused Evaluation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "W17-5525",
+          "ArXiv": "1706.09254",
+          "CorpusId": 19662556,
+          "DBLP": "conf/sigdial/NovikovaDR17",
+          "DOI": "10.18653/v1/W17-5525",
+          "MAG": "2963912046"
+        },
+        "paperId": "531a7f2c659787165df4fd5b4580590b953448e4",
+        "title": "The E2E Dataset: New Challenges For End-to-End Generation"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1706.03762",
+          "CorpusId": 13756489,
+          "DBLP": "journals/corr/VaswaniSPUJGKP17",
+          "MAG": "2963403868"
+        },
+        "paperId": "204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+        "title": "Attention is All you Need"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1705.08045",
+          "CorpusId": 215826266,
+          "DBLP": "conf/nips/RebuffiBV17",
+          "MAG": "2616957565"
+        },
+        "paperId": "d89ee98810039d2061ed42ee8026da49c503d16b",
+        "title": "Learning multiple visual domains with residual adapters"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "N18-1101",
+          "ArXiv": "1704.05426",
+          "CorpusId": 3432876,
+          "DBLP": "journals/corr/WilliamsNB17",
+          "DOI": "10.18653/v1/N18-1101",
+          "MAG": "2963846996"
+        },
+        "paperId": "5ded2b8c64491b4a67f6d39ce473d4b9347a672e",
+        "title": "A Broad-Coverage Challenge Corpus for Sentence Understanding through Inference"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1612.00796",
+          "CorpusId": 4704285,
+          "DBLP": "journals/corr/KirkpatrickPRVD16",
+          "DOI": "10.1073/pnas.1611835114",
+          "MAG": "2560647685",
+          "PubMed": "28292907"
+        },
+        "paperId": "2e55ba6c97ce5eb55abd959909403fe8da7e9fe9",
+        "title": "Overcoming catastrophic forgetting in neural networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 10506309,
+          "DBLP": "conf/icassp/ZhaoLG16",
+          "DOI": "10.1109/ICASSP.2016.7472630",
+          "MAG": "2394882406"
+        },
+        "paperId": "33aa588c89401cbc22a2f4d2fb121d10909a6f18",
+        "title": "Low-rank plus diagonal adaptation for deep neural networks"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1602.02262",
+          "CorpusId": 9734659,
+          "DBLP": "journals/corr/LiLR16",
+          "MAG": "2964035320"
+        },
+        "paperId": "0d2e018c2319c496313bbec3acfd76824cbc0ec3",
+        "title": "Recovery guarantee of weighted low-rank approximation via alternating minimization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1412.6980",
+          "CorpusId": 6628106,
+          "DBLP": "journals/corr/KingmaB14",
+          "MAG": "2964121744"
+        },
+        "paperId": "a6cb366736791bcccc5c8639de5a8f9636bf87e8",
+        "title": "Adam: A Method for Stochastic Optimization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1405.3866",
+          "CorpusId": 17864746,
+          "DBLP": "journals/corr/JaderbergVZ14",
+          "DOI": "10.5244/C.28.88",
+          "MAG": "1996901117"
+        },
+        "paperId": "021fc345d40d3e6332cd2ef276e2eaa5e71102e4",
+        "title": "Speeding up Convolutional Neural Networks with Low Rank Expansions"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 1791734,
+          "DBLP": "conf/icassp/ZhangCG14",
+          "DOI": "10.1109/ICASSP.2014.6853583",
+          "MAG": "2090958120"
+        },
+        "paperId": "7c5fa43e6f9a85c81e3d7b9532e3d851af638e2d",
+        "title": "Extracting deep neural network bottleneck features using low-rank matrix factorization"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "D13-1170",
+          "CorpusId": 990233,
+          "DBLP": "conf/emnlp/SocherPWCMNP13",
+          "DOI": "10.18653/v1/d13-1170",
+          "MAG": "2251939518"
+        },
+        "paperId": "687bac2d3320083eb4530bf18bb8f8f721477600",
+        "title": "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1306.0543",
+          "CorpusId": 1639981,
+          "DBLP": "journals/corr/DenilSDRF13",
+          "DOI": "10.14288/1.0165555",
+          "MAG": "2952899695"
+        },
+        "paperId": "eff61216e0136886e1158625b1e5a88ed1a7cbce",
+        "title": "Predicting Parameters in Deep Learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 3334366,
+          "DBLP": "conf/icassp/SainathKSAR13",
+          "DOI": "10.1109/ICASSP.2013.6638949",
+          "MAG": "2058641082"
+        },
+        "paperId": "5cea23330c76994cb626df20bed31cc2588033df",
+        "title": "Low-rank matrix factorization for Deep Neural Network training with high-dimensional output targets"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "1302.7121",
+          "CorpusId": 7038912,
+          "DOI": "10.1002/GAMM.201310004",
+          "MAG": "1967077133"
+        },
+        "paperId": "e603dbdf275ce8c4d2aaf1c137b557b96a555209",
+        "title": "A literature survey of low‐rank tensor approximation techniques"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ArXiv": "0810.3286",
+          "CorpusId": 1254778,
+          "DBLP": "journals/siamjo/CaiCS10",
+          "DOI": "10.1137/080738970",
+          "MAG": "2103972604"
+        },
+        "paperId": "023f6fc69fe1f6498e35dbf85932ecb549d36ca4",
+        "title": "A Singular Value Thresholding Algorithm for Matrix Completion"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 2617020,
+          "DBLP": "conf/icml/CollobertW08",
+          "DOI": "10.1145/1390156.1390177",
+          "MAG": "2117130368"
+        },
+        "paperId": "57458bc1cffe5caa45a885af986d70f723f406b4",
+        "title": "A unified architecture for natural language processing: deep neural networks with multitask learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 1872039,
+          "DBLP": "conf/icml/HamL08",
+          "DOI": "10.1145/1390156.1390204",
+          "MAG": "2126017757"
+        },
+        "paperId": "64441c8396211b5e799b9ad5138dade15ff5cd0a",
+        "title": "Grassmann discriminant analysis: a unifying view on subspace-based learning"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "2021.acl-long.353",
+          "ArXiv": "2101.00190",
+          "CorpusId": 230433941,
+          "DBLP": "conf/acl/LiL20",
+          "DOI": "10.18653/v1/2021.acl-long.353"
+        },
+        "paperId": "53d8b356551a2361020a948f64454a6d599af69f",
+        "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "DEBERTA We again train using AdamW with a linear learning rate decay schedule"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "N19-1423",
+          "ArXiv": "1810.04805",
+          "CorpusId": 52967399,
+          "DBLP": "journals/corr/abs-1810-04805",
+          "DOI": "10.18653/v1/N19-1423",
+          "MAG": "2951055169"
+        },
+        "paperId": "df2b0e26d0599ce3e70df8a9da02e51594e0e992",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+      },
+      "isInfluential": true
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 160025533,
+          "MAG": "2955855238"
+        },
+        "paperId": "9405cc0d6169988371b2755e573cc28650d14dfe",
+        "title": "Language Models are Unsupervised Multitask Learners"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "We train using AdamW with a linear learning rate decay schedule. We sweep learning rate, number of training epochs, and batch size for LoRA"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "CorpusId": 49313245,
+          "MAG": "2965425874"
+        },
+        "paperId": "cd18800a0fe0b668a1cc19f2ec95b5003d0a5035",
+        "title": "Improving Language Understanding by Generative Pre-Training"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": null,
+        "paperId": null,
+        "title": "The broad coverage makes GLUE benchmark a standard metric to evaluate NLU models such as RoBERTa and DeBERTa. The individual datasets are released under different permissive licenses"
+      },
+      "isInfluential": false
+    },
+    {
+      "citedPaper": {
+        "externalIds": {
+          "ACL": "I05-5002",
+          "CorpusId": 16639476,
+          "DBLP": "conf/acl-iwp/DolanB05",
+          "MAG": "131533222"
+        },
+        "paperId": "475354f10798f110d34792b6d88f31d6d5cb099e",
+        "title": "Automatically Constructing a Corpus of Sentential Paraphrases"
+      },
+      "isInfluential": false
+    }
+  ],
+  "offset": 0
+}
