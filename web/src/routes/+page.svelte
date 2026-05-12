@@ -1,5 +1,6 @@
 <script lang="ts">
   import Table from '$lib/components/Table.svelte';
+  import SearchBox from '$lib/components/SearchBox.svelte';
   import { sortColumns } from '$lib/stores/sort';
   import { searchQuery, applySearch } from '$lib/stores/search';
   import { filters, applyFilters } from '$lib/stores/filters';
@@ -37,6 +38,7 @@
     <div class="hint">
       Click a column header to sort · shift-click to add a secondary sort
     </div>
+    <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
   </header>
 
   <main class="table-shell">

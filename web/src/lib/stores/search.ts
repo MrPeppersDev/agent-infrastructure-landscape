@@ -1,31 +1,60 @@
-// Free-text search state. Empty by default; issue #10 fills in the actual
-// search UI and the matcher logic. Issue #12 mirrors the value into the URL
-// as `q=`.
+// Free-text search state. Issue #10 wires this up to a real matcher and
+// SearchBox component. Issue #12 mirrors the value into the URL as `q=`.
 //
-// Contract for #10: read $searchQuery, render an input bound to it. The
-// table filters via `applySearch(records, $searchQuery)` (below) — replace
-// the no-op body with a real matcher (probably a case-insensitive substring
-// scan across name + cells.{desc, claims, type}, or a small index).
+// Contract: read $searchQuery, render an input bound to it. The table
+// filters via `applySearch(records, $searchQuery)` in +page.svelte's
+// reactive chain (search → filters → sort).
 
-import { writable } from 'svelte/store';
+import { writable, derived, type Readable } from 'svelte/store';
 import type { LandscapeRecord } from '$lib/types';
 
 export const searchQuery = writable<string>('');
 
+const HTML_TAG = /<[^>]+>/g;
+
+function stripHtml(s: string): string {
+  return s.replace(HTML_TAG, '');
+}
+
 /**
- * No-op for #9. #10 replaces this body with a real matcher.
+ * Case-insensitive substring match across name + cells.desc + cells.claims.
+ * HTML tags are stripped from desc/claims before matching so that markup
+ * like `<a href="...">` doesn't pollute the haystack.
  *
  * Why a free function rather than a derived store: search is parameterised
  * by *records* (which change as filters apply), not just by the query, so
  * a derived store would either re-key on the records identity (fine) or
- * close over a snapshot (bad). The free-function form composes cleanly with
- * `applyFilters(...)` in the same expression on +page.svelte.
+ * close over a snapshot (bad). The free-function form composes cleanly
+ * with `applyFilters(...)` in the same expression on +page.svelte.
  */
 export function applySearch(
   records: LandscapeRecord[],
   query: string
 ): LandscapeRecord[] {
-  if (!query.trim()) return records;
-  // Placeholder: returns input unchanged. #10 fills this in.
-  return records;
+  const q = query.trim().toLowerCase();
+  if (!q) return records;
+  return records.filter((r) => {
+    if (r.name.toLowerCase().includes(q)) return true;
+    const desc = stripHtml(r.cells.desc?.value ?? '').toLowerCase();
+    if (desc.includes(q)) return true;
+    const claims = stripHtml(r.cells.claims?.value ?? '').toLowerCase();
+    if (claims.includes(q)) return true;
+    return false;
+  });
 }
+
+/**
+ * Debounced mirror of `searchQuery`. Updates 100ms after the last keystroke.
+ * Use this if you ever wire search into an expensive pipeline; the current
+ * matcher is cheap enough that +page.svelte reads `$searchQuery` directly,
+ * but the debounced store is exported for future consumers (e.g. URL sync
+ * in #12, or a server-side index).
+ */
+export const debouncedQuery: Readable<string> = derived(
+  searchQuery,
+  ($q, set) => {
+    const handle = setTimeout(() => set($q), 100);
+    return () => clearTimeout(handle);
+  },
+  ''
+);

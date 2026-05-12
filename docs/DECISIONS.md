@@ -1032,3 +1032,43 @@ uses Python"). Skip entries for things derivable from the code itself
 ("we named the function `extract_row`"). The log is for design choices
 where reading the code alone wouldn't tell future-you why it was done
 that way.
+
+## 2026-05-07: Search-as-you-type (issue #10)
+
+**What.** `applySearch(records, query)` does a case-insensitive substring
+match across `record.name`, `record.cells.desc.value`, and
+`record.cells.claims.value`. HTML tags are stripped from desc/claims
+(regex `/<[^>]+>/g`) before matching. A `SearchBox.svelte` renders a
+`<input type="search">` bound to `$searchQuery`, with a live "X of 523
+match" status, an empty-state "Clear search" link, `/` to focus, and Esc
+to clear. The reactive pipeline in `+page.svelte` already composed
+search → filters → sort, so wiring was a single import + render.
+
+**Why.**
+- *Substring over fuzzy.* 523 records is small enough that a linear
+  substring scan runs in well under a frame; fuzzy matching would add
+  surprise hits and a ranking question we don't need yet.
+- *Three fields, not all 60 cells.* Name, desc, and claims are the
+  human-readable summary fields. Searching every cell would surface
+  matches on schema scaffolding (e.g. "not-applicable", URLs in
+  citations) that aren't useful to the user. Future taxonomies belong in
+  the filter rail (#11), not the free-text box.
+- *HTML strip.* `desc` and `claims` ship rendered HTML; without stripping,
+  typing "href" would match every cell with a link.
+- *Debounced store exported but unused by the table.* The matcher is
+  cheap enough to run on every keystroke (`$searchQuery` direct), but
+  `debouncedQuery` is exported for #12 (URL sync) and any future
+  server-side index — debouncing the URL writes avoids spamming history.
+- *Match-count prop, not a derived store inside SearchBox.* Keeps the
+  component dumb; the page owns the pipeline and already knows
+  `visibleRecords.length`.
+
+**Deferred.** In-cell match highlighting. It requires either a second
+render path for cells or a wrapper component, and #12 (URL state) and
+#13 are higher leverage. Re-open when users ask for it.
+
+**Reversal cost.** Low. `applySearch` is a pure function; swapping it
+for a fuzzy matcher or a prebuilt index is a one-file change.
+SearchBox is self-contained — deleting the import + render line in
+`+page.svelte` removes the feature with no other fallout.
+
