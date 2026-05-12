@@ -1172,3 +1172,64 @@ through it. Adding facets is one line in `FACET_ORDER` plus an extractor
 case in `recordFacetValue`. Canonicalisation buckets can be widened by
 adding keyword tests without changing the API.
 
+---
+
+## 2026-05-07: URL state encoding (issue #12)
+
+**What.** Three stores (`searchQuery`, `filters`, `sortColumns`) round-trip
+through `window.location.search` via a pure codec in
+`web/src/lib/url-state.ts`. Encoding format:
+
+- `q=<search>` — only if non-empty
+- one param per non-empty facet Set: `tier=1,2&license=Apache-2.0,MIT`
+- `sort=col1:asc,col2:desc` — only if non-empty
+
+Empty values are omitted so the default view is `/` (not `/?q=&tier=&...`).
+Values within a facet are sorted (numeric for tier, alpha otherwise) for
+deterministic URLs.
+
+**URL read happens client-side in `+page.svelte`**, not in a `+page.ts`
+load function. Reason: the site uses `adapter-static` with `prerender =
+true`, so `+page.ts` runs at build time where `url.searchParams` is empty.
+Parsing `window.location.search` synchronously in the component script
+(guarded by `browser`) runs before any `$derived` resolves, which is
+what eliminates the flash-of-default-view on paste-into-new-tab.
+
+**Stores → URL** uses `goto(?<qs>, { replaceState, noScroll, keepFocus })`
+debounced 150 ms. Chosen over `history.replaceState` directly because:
+
+- keeps SvelteKit's `$page` store in sync (future consumers reading
+  `$page.url.searchParams` see the right value)
+- routes through the framework's transition machinery
+- `replaceState: true` keeps the back button useful — without it, every
+  keystroke would push a history entry
+
+A `$effect` snapshots last-written state (cloning Sets so in-place
+`filters.update()` mutations are detected) and skips redundant writes.
+`popstate` listener re-parses the URL into the stores so browser back /
+forward navigates between filter states correctly.
+
+**Validation / forward-compat.** Unknown query params are ignored (the
+codec only reads keys in `FACET_NAME_SET`, plus `q` and `sort`). Tier
+values that aren't integers 1-5 are dropped. Sort directions outside
+`{asc, desc}` are dropped. The codec does *not* validate facet values
+against the current canonical bucket list — a URL referencing a value
+that no longer exists will silently match no records, which is the
+right behaviour (URLs stay readable, no crashes).
+
+**Skipped.**
+- *Multi-tab sync via BroadcastChannel.* Overkill for now; one user, one
+  tab is the dominant use-case.
+- *URL compression (base64 / lz-string).* Max-fill URL is well under
+  2 KB (12 facets × ~6 values × ~12 chars ≈ 900 bytes including param
+  names). Compression sacrifices readability for no real gain.
+- *Validate sort columns against `ColumnSlug` enum.* The comparator
+  already handles unknown columns gracefully; coupling the codec to the
+  column schema would force a change here on every column addition.
+
+**Reversal cost.** Low. The codec is two pure functions plus two equality
+helpers; the wiring in `+page.svelte` is ~40 lines. Swapping the encoding
+format means changing `stateToUrl` / `urlToState` in lockstep; nothing
+else in the app touches the URL. Adding new state to the URL (e.g. column
+visibility from a future issue) is a one-place edit in url-state.ts.
+
