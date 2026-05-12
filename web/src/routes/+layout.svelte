@@ -10,7 +10,8 @@
     { href: '/leaderboards', label: 'Leaderboards' },
     { href: '/sections', label: 'Sections' },
     { href: '/graph', label: 'Graph' },
-    { href: '/lineages', label: 'Lineages' }
+    { href: '/lineages', label: 'Lineages' },
+    { href: '/about', label: 'About' }
   ];
 </script>
 

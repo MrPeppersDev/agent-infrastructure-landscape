@@ -1731,3 +1731,49 @@ library would mean rewriting the +page.svelte and its stylesheet
 DECISIONS-recorded fcose tuning is the only piece that's tied
 specifically to this library family (cose / fcose / cose-bilkent
 share the parameter names).
+
+---
+
+## 2026-05-07: `/about` page as embedded "how to read this" explainer
+
+**What.** Issue #21. Added a 7th top-nav route, `/about`, holding a
+single-column (~640px) prose explainer of tiers, taxonomy axes, cell
+status indicators, edge types, methodology, and acknowledgements.
+
+**Why.** First-time visitors land on a 67-column dense table with no
+key. The README explains the catalog's *purpose* but not the *visual
+grammar* — what a T3 badge means, why a cell says "searched not found",
+how `same-team-as` differs from `succeeds`. An in-app page beats an
+external doc because the user is already in the dark-theme web UI when
+they need the explanation; tab-switching to GitHub breaks flow.
+
+**Options rejected.**
+- *Modal on first visit.* Cheap to dismiss-and-forget; can't be
+  revisited via a stable URL; can't be linked to (e.g. "see /about
+  §taxonomy" from a section description).
+- *Inline footer help on the table page.* Would compete with the 67
+  columns for screen real estate; modal #18+#19 already owns the
+  table-row detail UX.
+- *Move into README.md.* Loses the in-context theming, can't render
+  visual samples of tier badges and status pills.
+
+**Headline counts (523 / 67 / 247) are hardcoded** rather than pulled
+from `landscape.json` via a loader. Justification: these change roughly
+once per ingestion round, the page already has a "as of last update"
+note, and avoiding a data dependency keeps the route a pure leaf —
+nothing to wire into the +page.server.ts loader, nothing to invalidate.
+Reviewers should refresh the numbers when they add a new ingestion
+round (3 strings to edit; cheap).
+
+**Tier-badge and status-pill samples are locally styled** rather than
+imported from `TableRow.svelte` or a shared component. The styles are
+duplicated (~30 lines) — but the alternative was either factoring a
+presentational primitive out of `TableRow.svelte` (touches Phase-2
+files, scope-creep) or importing a row component just to render five
+badges (over-engineering for an explainer). The visual contract is
+documented in this file; if the table's tier colours change, this
+page's samples must change too (~5-line edit).
+
+**Reversal cost.** Low. The page is a leaf route with no consumers.
+Deleting it removes a nav item and one file; nothing else depends on
+it.
