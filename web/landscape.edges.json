@@ -1793,14 +1793,6 @@
       "citation": "https://www.mongodb.com/products/platform/atlas-vector-search"
     },
     {
-      "source": "mpo",
-      "target": "dpo--arxiv-2305-18290",
-      "type": "cites",
-      "evidence": "S2 isInfluential citation",
-      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.02682",
-      "isInfluential": true
-    },
-    {
       "source": "n8n-ai-agent-memory--docs-n8n-io",
       "target": "mongodb-atlas-vector-search--mongodb-com",
       "type": "integrates-with",
@@ -2099,6 +2091,13 @@
       "isInfluential": true
     },
     {
+      "source": "sglang--gh-sgl-project-sglang",
+      "target": "vllm--gh-vllm-project-vllm",
+      "type": "competes-with",
+      "evidence": "; LMSYS-affiliated; competitor to vLLM for OSS inference engines; Apache-2.0.",
+      "citation": "https://github.com/sgl-project/sglang"
+    },
+    {
       "source": "sgmem--arxiv-2509-21212",
       "target": "lightrag--arxiv-2410-05779",
       "type": "cites",
@@ -2144,6 +2143,13 @@
       "type": "integrates-with",
       "evidence": "pluggable ChatMemoryRepository backends (in-memory, JDBC, Cassandra, Neo4j)",
       "citation": "https://docs.spring.io/spring-ai/reference/api/chat-memory.html"
+    },
+    {
+      "source": "strands-agents-aws--strandsagents-com",
+      "target": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+      "type": "integrates-with",
+      "evidence": "d 2025; Apache-2.0; integrates with AWS Bedrock; used internally before OSS release.",
+      "citation": "https://strandsagents.com/"
     },
     {
       "source": "strands-agents-memory-aws--docs-aws-amazon-com",

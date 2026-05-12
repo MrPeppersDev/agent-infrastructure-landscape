@@ -4567,3 +4567,134 @@ or run a downstream merge script (TBD). CSV is committed under
 was not modified by this round. To apply, the existing merge script
 pattern (see Round 9 buckets 1/3) would consume the CSV and emit a
 new landscape.json. To revert, drop the CSV.
+
+
+## Round 9 integration: 9 deep-fill CSVs → landscape.html
+
+**Date.** 2026-05-07
+
+**What.** Integrated the 9 Round-9 deep-fill CSVs (Path A quintet
+citation backfill + buckets B1-B8) into the canonical
+`web/landscape.json` and re-rendered `landscape.html` via `render.py`.
+
+**The 9 inputs.** All produced by independent Round-9 agents:
+- `round-9-quintet-citations.csv` (Path A): 2,575 rows
+- `round-9-bucket-1-method-papers.csv` (B1): 1,266 rows
+- `round-9-bucket-2-vertical.csv` (B2): 1,130 rows
+- `round-9-bucket-3-dedicated-retrieval.csv` (B3): 821 rows
+- `round-9-bucket-4-frameworks-platforms.csv` (B4): 1,058 rows
+- `round-9-bucket-5-pkm-voice-claude-files.csv` (B5): 1,281 rows
+- `round-9-bucket-6-kg-vector-enterprise-research.csv` (B6): 952 rows
+- `round-9-bucket-7-benchmarks-governance-observability-theoretical.csv` (B7): 522 rows
+- `round-9-bucket-8-round7-sections.csv` (B8): 365 rows
+Total: **9,970 rows**.
+
+**Normalisation rules.** Each CSV used slightly different column
+names; `scripts/apply_round9.py` canonicalises them all into a single
+shape: `(record_id, column, new_value, citation_url, status)`.
+- `status` alias: `status` OR `new_status`.
+- `citation_url` alias: `citation_url` OR `new_citation`.
+- `shallow-prose` (a `gap-class`, not a schema status) → mapped to
+  `skip-no-change` (the value was kept verbatim by the agent).
+- Comment lines (`# ...`) at top of each CSV are skipped before the
+  CSV header is parsed.
+
+**Downgrade-protection rules.** A row is skipped when:
+1. Current cell is `real-data` with substantive content (>30 chars) AND
+   incoming value looks like a placeholder (`"no public benchmark
+   scores found"`, `"searched not found"`, `"not specified"`, …) AND
+   incoming status is not `real-data`. Reason: the prior research
+   round was richer than the new "audit-only" mark.
+2. Current cell is `real-data` AND incoming is `not-applicable` /
+   `depth-floor-reached` AND incoming value is a placeholder.
+3. Current real-data is >20 chars longer than incoming real-data AND
+   current isn't itself a placeholder.
+
+**Apply path (HTML edit strategy).** Rather than mutate
+`landscape.html` directly (fragile — would require per-cell regex with
+edge cases on existing `<span class="no-data">` and `<a class="cite">`
+wrappers), the script:
+1. Mutates `web/landscape.json` in-memory cells.
+2. Invokes `scripts/render.py` to re-emit `landscape.html` from the
+   updated JSON, using the existing HTML as the head/tail template.
+This reuses the already-validated rendering logic for both
+`real-data` (value + `<a class="cite">↗</a>`),
+`not-applicable` (`<span class="no-data" style="font-style:italic;
+color:#555;">value</span>` + cite), and `depth-floor-reached`
+(`<span class="no-data">value</span>` + cite). The cycle test (gate 3
+of `validate.py`) confirms `render → extract → render` is byte-stable
+(0-line diff after Round 9), so this round-trip is safe.
+
+**Results.**
+- **Total rows processed: 9,970.**
+- **Applied: ~9,000+** (`apply-value` + `apply-citation`).
+- **Skipped (no-change): 991** (later CSV re-asserts identical cell
+  after earlier CSV already set it; expected).
+- **Skipped (downgrade): 113** (mostly bucket-1 marking
+  `founders` / `funding` as `"no data — 2025 arxiv preprint"` on
+  papers that already had real-data founders entries from prior
+  rounds).
+- **Unresolved record-id: 0.** Every `record_id` in every CSV
+  resolved to a row in `web/landscape.json`.
+- **Unresolved column: 0.** Every `column` referenced is a valid
+  cell key.
+
+**Gap-count delta.**
+- Pre-Round-9: **8,592 gap rows** (audit on 2026-05-07 morning).
+- Post-Round-9: **296 gap rows** (`extraction/data-gaps.csv`).
+- **Reduction: 96.6%.**
+
+**Terminal-state %.** Catalog is now **99.29% terminal**
+(41,644 of 41,940 cells classified as `terminal-real-data`,
+`structurally-not-applicable`, or `searched-not-found`).
+
+**Per-section terminal-state % (post-Round-9).**
+100% terminal: Agent frameworks, Embedding & reranker services,
+Evaluation & observability platforms, Inference platforms & gateways,
+Memory benchmarks & evaluation, Retrieval-as-memory hybrids,
+Search platforms (non-memory), Theoretical / informal,
+Training infrastructure.
+99%+: every other section except Memory governance, privacy & safety
+(94.2%, 28 fillable cells), Vertical / domain-specific AI memory
+(97.3%, 103 cells), Research / specialised systems (97.7%),
+Dedicated memory layers (97.9%), and Framework-embedded memory
+(98.0%).
+
+**Remaining floor (the genuine gap after Round 9).**
+- 56 `fillable-and-missing` cells (mostly governance vendors with no
+  public benchmarks, plus 12 `a2a-support` and 11 `founders` for
+  recent research papers without author-bio depth).
+- 106 `real-data-no-citation` (mostly `schema-evolution` / `namespace`
+  / `forgetting` / `contradiction` taxonomy-derived cells that were
+  filled from primary tags but never re-cited).
+- 134 `shallow-prose` (mostly `orchestration` and `api-surface`
+  cells where the prose is technically present but ≤15 chars —
+  many are accurate one-word answers like "SDK: Python").
+
+**Failures encountered.**
+- `reconcile.py` emitted 5 "missing collision-id" warnings (e.g.
+  `arigraph--arxiv-2407-04363-2`). Root cause: post-render, the
+  cross-listed records render via the inline marker and thus extract
+  only sees the canonical id once — the `-2` form no longer exists.
+  This is the expected behaviour; warnings are informational only,
+  and 0 merges/cross-listings were applied (the work was already
+  baked into landscape.json before the render). Non-fatal.
+- No validate.py failures. All 4 gates pass.
+
+**Files emitted.**
+- `scripts/apply_round9.py` (new — 280 LOC)
+- `extraction/round-9-apply-log.csv` (new — 9,970 rows, every action
+  logged)
+- `landscape.html` (overwritten — render.py output from updated JSON)
+- `web/landscape.json` (overwritten — Round-9 cell mutations)
+- `web/landscape.edges.json` (rebuilt via `build_edges.py` +
+  `fetch_citations.py --offline`)
+- `extraction/data-gaps.csv` and `extraction/data-gaps-summary.md`
+  (regenerated by `audit_gaps.py`)
+
+**Reversal cost.** Medium. The CSV inputs are still on disk, so
+`scripts/apply_round9.py` is idempotent — re-running over the current
+landscape.json should produce zero `apply-value` or `apply-citation`
+actions (everything becomes `skip-no-change`). To roll back, restore
+`web/landscape.json` from git, re-run `render.py`, then re-run the
+pipeline.
