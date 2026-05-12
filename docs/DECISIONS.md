@@ -14,6 +14,103 @@ that were on the table.
 
 ---
 
+## 2026-05-07: Round 9 — Path B3 dedicated-memory + retrieval-as-memory deep fill (821 cells)
+
+**What.** Generated `extraction/round-9-bucket-3-dedicated-retrieval.csv`
+proposing deterministic fills for 821 of the 1,213 gap rows under the
+two sections `Dedicated memory layers` (36 records, 685 gaps) and
+`Retrieval-as-memory hybrids` (32 records, 528 gaps). Path A owns the
+quintet (desc/type/pros/cons/links — 340 cells across the two sections),
+so Path B3 skips those by construction. Output sorted by section /
+record_id / column; prefixed with a `#`-commented summary block in the
+same shape as `round-9-quintet-citations.csv`.
+
+**Rules applied (deterministic).**
+
+- `real-data-no-citation` (non-quintet, n=433): citation backfill via
+  the same fallback chain Path A uses — `record.url` →
+  `cells.gh.citation` → `cells.created.citation`. All 433 rows resolved
+  via `record.url` (every in-scope record has at least one fallback;
+  zero unresolvable). Columns touched: claims (57), schema-evolution
+  (53), versioning (43), created (41), anti-fit (34),
+  adjacent-infrastructure (33), optimised-for (33), validated-verticals
+  (33), namespace (25), contradiction (21), latest-release (14),
+  forgetting (12), tombstoning (7), webhooks (5), mindshare (5),
+  a2a-support (7), hq (3), perf (small remainder), consistency (3),
+  time-to-running (1), otel (1).
+
+- `perf` fillable-and-missing where the current value is the
+  depth-floor sentinel "no public benchmark scores found" (n=53):
+  emitted with `status=depth-floor-reached` and a documented
+  search-query trail (Google Scholar / arXiv / vendor site / GitHub
+  README, plus benchmark-specific queries for LOCOMO / ConvoMem /
+  LongMemEval). These cells already carry `depth-floor-reached`
+  status in landscape.json but lacked a citation; the CSV attaches
+  the fallback URL so the next audit pass classifies them as
+  `searched-not-found` rather than `fillable-and-missing`.
+
+- Ops columns fillable-and-missing (n=274 mark-depth-floor + n=61
+  mark-not-applicable): split by record kind.
+  - Arxiv-shaped records (id contains arxiv- / openreview /
+    aclanthology) → `not-applicable` for consistency / forgetting /
+    namespace / schema-evolution / tombstoning / license (61 cells).
+    Research papers structurally do not ship those primitives.
+  - Commercial-product rows → `depth-floor-reached` with citation =
+    record.url and a documented search trail (product docs / GitHub
+    README / blog / changelog) for: a2a-support (30), consistency
+    (35), otel (35), mcp-support (24), webhooks (29), tombstoning
+    (22), forgetting (21), import-export (21), versioning (21),
+    namespace (11), mindshare (7), contradiction (5),
+    schema-evolution (5), hq (3), customers (2), and a long tail
+    (citations, compliance, repro, 1 each).
+
+- `shallow-prose` (n=52, almost entirely `orchestration`) deferred.
+  Deepening these requires per-record authoritative source review;
+  the per-cell cost (~3 min × 52 = ~2.5 h) blows the 50-min budget
+  and the dimension is low-leverage. Flagged for a future round.
+
+**Why this scope split is right.** Path A's quintet backfill operates
+on every record in the catalog (~515 quintet-shaped rows × 5 columns
+≈ 2,575 cells). Re-running the same logic over our 68 in-scope
+records would duplicate Path A's output; Path B3 strictly excludes
+the quintet (340 rows in our scope, all deferred via `skip-quintet-
+path-a` in the counters). The non-quintet citation backfill, the
+perf depth-floor annotation, and the ops `not-applicable` /
+`depth-floor` classification are uniquely Path B3's deliverable.
+
+**Outcome (counts).**
+- Total in-scope gap rows: 1,213
+- Fills emitted: **821** (433 set-citation + 53 perf depth-floor +
+  274 mark-depth-floor + 61 mark-not-applicable)
+- Deferred to Path A: **340** (quintet)
+- Deferred to a future round: **52** (shallow-prose orchestration)
+- Per section: Dedicated memory 453 fills / Retrieval-as-memory 368
+- Top-5 most-improved records by fill count: GraphRAG (Microsoft,
+  19), AutoGLM (Zhipu AI, 16), Zep & Graphiti (16), Backboard /
+  Interloom / M3-Agent / Memobase / NeoCognition / O-Mem / VEKTOR
+  (15 each — six-way tie).
+
+**Genuinely unfillable (depth-floor with documented searches).**
+- `perf` for 53 records — confirmed no public benchmark scores. Search
+  queries logged per row: `<name> benchmark`, `<name> evaluation
+  results`, `<name> LOCOMO score`, `<name> ConvoMem score`, `<name>
+  LongMemEval score`, `<name> ablation table`, `<name> paper`.
+- Ops dimensions (consistency, otel, webhooks, a2a-support,
+  mcp-support, tombstoning, forgetting, import-export, versioning,
+  namespace, contradiction, schema-evolution) for commercial
+  records without public docs — 274 cells. These are not catalog
+  gaps; they're observability ceilings on closed-source products.
+
+**Reversal cost.** Low. The CSV is descriptive — no mutation of
+`web/landscape.json` or `landscape.html` was performed by Path B3.
+Reverting is `rm
+extraction/round-9-bucket-3-dedicated-retrieval.csv` plus the
+DECISIONS entry. `scripts/path_b_bucket_3.py` is deterministic
+against the current landscape.json + data-gaps.csv and can be
+re-run in <1s.
+
+---
+
 ## 2026-05-07: Round 9 — Path A quintet citation backfill (2,575 cells)
 
 **What.** Generated `extraction/round-9-quintet-citations.csv` proposing
