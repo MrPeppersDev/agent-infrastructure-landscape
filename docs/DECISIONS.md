@@ -2016,3 +2016,41 @@ push from a context with a PAT/SSH key that has workflow scope.
 deploy strategy changes (custom domain, separate org page,
 docs.example.com), edit the one file. The base-path env var is the
 only coupling between CI and the SvelteKit config.
+
+---
+
+## 2026-05-07: Column-subset picker for export (Polish)
+
+**What.** Extended the Export popover with a column picker. Users can
+pick any subset of the 73 exportable columns; the picker is grouped by
+the same column-band scheme as the table head (Identity / Substance /
+Activity / …). Four quick-selects ship in the popover: "All", "None",
+"Identity only", "Identity + claims + perf". The selection threads
+through to `toCSV(records, columns?)` and `toJSON(records, columns?)`
+via an optional `columns` parameter; when omitted the legacy full
+export shape is preserved.
+
+**Why.** Issue #19 left the picker flagged optional but real users
+exporting for analysis spreadsheets uniformly want narrower slices —
+60 cell columns is too wide for almost every downstream tool. The
+grouped-band layout lets users target a group ("just architecture") in
+two clicks rather than scanning a flat list. Identity-extras (`id`,
+`url`, `primary_section`, `sections`) are exposed under the Identity
+group because they're useful for cross-references in JSON exports but
+aren't visible columns in the table.
+
+**Options rejected.**
+- *Separate modal dialog.* Adds a navigation step; users lose the
+  "selected N columns" preview when the modal opens, breaking
+  fitness-for-purpose feedback.
+- *Persistent per-user defaults.* localStorage state would survive
+  refreshes but adds a settings-store surface; for a single-export
+  workflow the cost outweighs the convenience.
+- *Drop identity-extras from the picker.* CSV consumers commonly need
+  `id` for join keys; surfacing it explicitly is cheaper than
+  documenting "you always get these four columns".
+
+**Reversal cost.** Low. `toCSV` / `toJSON` keep their no-arg
+behaviour, so any consumer (tests, future Node-side script) that
+ignored the picker continues to work. The picker UI is self-contained
+in ExportButton.svelte.

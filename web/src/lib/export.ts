@@ -145,39 +145,83 @@ const CELL_COLUMNS = [
   'links'
 ] as const;
 
+/** Column keys understood by the export functions. We accept the column
+ *  identifiers used by the table's column-picker UI:
+ *    'id', 'name', 'tier', 'url', 'primary_section', 'sections'  → identity
+ *    'tax:<axis>'                                                → taxonomy
+ *    <cell-slug>                                                 → cell
+ *  Anything not in those buckets is silently skipped.
+ */
+export type ExportColumnKey = string;
+
+const IDENTITY_KEYS = new Set([
+  'id',
+  'name',
+  'tier',
+  'url',
+  'primary_section',
+  'sections'
+]);
+
+const TAXONOMY_KEY_PREFIX = 'tax:';
+
 /** Convert the records to a CSV string. Headers: identity columns +
  *  taxonomy axes + cell slugs. Citation URLs are appended in parentheses
  *  to cell values when present (so a CSV consumer keeps the source).
  *  Status types other than `real-data` are normalised to readable text.
+ *
+ *  `columns` (optional): if provided, only these column keys are emitted.
+ *  Keys are evaluated in the order supplied. If omitted, the full default
+ *  set ships (identity + all taxonomy axes + all 60 cell slugs).
  */
-export function toCSV(records: LandscapeRecord[]): string {
-  const headers = [
-    'id',
-    'name',
-    'tier',
-    'url',
-    'primary_section',
-    'sections',
-    ...TAXONOMY_AXES.map((a) => `tax_${a}`),
-    ...CELL_COLUMNS
-  ];
+export function toCSV(
+  records: LandscapeRecord[],
+  columns?: ExportColumnKey[]
+): string {
+  const cols: ExportColumnKey[] =
+    columns && columns.length > 0
+      ? columns
+      : [
+          'id',
+          'name',
+          'tier',
+          'url',
+          'primary_section',
+          'sections',
+          ...TAXONOMY_AXES.map((a) => `${TAXONOMY_KEY_PREFIX}${a}`),
+          ...CELL_COLUMNS
+        ];
+
+  const headers = cols.map((k) => {
+    if (k === 'primary_section') return 'primary_section';
+    if (k.startsWith(TAXONOMY_KEY_PREFIX)) return `tax_${k.slice(TAXONOMY_KEY_PREFIX.length)}`;
+    return k;
+  });
 
   const lines: string[] = [headers.map(csvEscape).join(',')];
 
   for (const r of records) {
     const primary = r.sections.find((s) => s.primary)?.section ?? r.sections[0]?.section ?? '';
-    const row: string[] = [
-      r.id,
-      r.name,
-      String(r.tier),
-      r.url ?? '',
-      primary,
-      formatSections(r.sections),
-      ...TAXONOMY_AXES.map((axis) => formatTaxonomy(r.taxonomy[axis] ?? []))
-    ];
-
-    for (const slug of CELL_COLUMNS) {
-      const cell = r.cells[slug];
+    const row: string[] = [];
+    for (const key of cols) {
+      if (IDENTITY_KEYS.has(key)) {
+        switch (key) {
+          case 'id': row.push(r.id); break;
+          case 'name': row.push(r.name); break;
+          case 'tier': row.push(String(r.tier)); break;
+          case 'url': row.push(r.url ?? ''); break;
+          case 'primary_section': row.push(primary); break;
+          case 'sections': row.push(formatSections(r.sections)); break;
+        }
+        continue;
+      }
+      if (key.startsWith(TAXONOMY_KEY_PREFIX)) {
+        const axis = key.slice(TAXONOMY_KEY_PREFIX.length) as keyof Taxonomy;
+        row.push(formatTaxonomy(r.taxonomy[axis] ?? []));
+        continue;
+      }
+      // Cell slug.
+      const cell = r.cells[key as keyof typeof r.cells];
       if (!cell) {
         row.push('');
         continue;
@@ -198,7 +242,6 @@ export function toCSV(records: LandscapeRecord[]): string {
       // real-data: append citation URL in parens so the source survives.
       row.push(cell.citation ? `${value} [${cell.citation}]` : value);
     }
-
     lines.push(row.map(csvEscape).join(','));
   }
 
@@ -209,9 +252,51 @@ export function toCSV(records: LandscapeRecord[]): string {
 /** Convert the records to JSON. Preserves the full structured shape —
  *  cells keep their {value, citation, status} triple, taxonomy stays
  *  array-of-objects, etc. Easier for programmatic consumers than CSV.
+ *
+ *  `columns` (optional): if provided, the JSON is pruned per record so
+ *  that `cells` only contains the requested cell slugs, `taxonomy` only
+ *  contains the requested axes, and identity fields are emitted only when
+ *  selected. If omitted, the full structured shape ships unchanged.
  */
-export function toJSON(records: LandscapeRecord[]): string {
-  return JSON.stringify(records, null, 2);
+export function toJSON(
+  records: LandscapeRecord[],
+  columns?: ExportColumnKey[]
+): string {
+  if (!columns || columns.length === 0) {
+    return JSON.stringify(records, null, 2);
+  }
+  const wantIdentity = (k: string) => columns.includes(k);
+  const wantedAxes = TAXONOMY_AXES.filter((a) =>
+    columns.includes(`${TAXONOMY_KEY_PREFIX}${a}`)
+  );
+  const wantedCells = columns.filter(
+    (k) => !IDENTITY_KEYS.has(k) && !k.startsWith(TAXONOMY_KEY_PREFIX)
+  );
+  const pruned = records.map((r) => {
+    const out: Record<string, unknown> = {};
+    if (wantIdentity('id')) out.id = r.id;
+    if (wantIdentity('name')) out.name = r.name;
+    if (wantIdentity('tier')) out.tier = r.tier;
+    if (wantIdentity('url')) out.url = r.url ?? null;
+    if (wantIdentity('sections') || wantIdentity('primary_section')) {
+      out.sections = r.sections;
+    }
+    if (wantedAxes.length > 0) {
+      const tax: Partial<Taxonomy> = {};
+      for (const a of wantedAxes) tax[a] = r.taxonomy[a] ?? [];
+      out.taxonomy = tax;
+    }
+    if (wantedCells.length > 0) {
+      const cells: Record<string, unknown> = {};
+      for (const slug of wantedCells) {
+        const c = r.cells[slug as keyof typeof r.cells];
+        if (c !== undefined) cells[slug] = c;
+      }
+      out.cells = cells;
+    }
+    return out;
+  });
+  return JSON.stringify(pruned, null, 2);
 }
 
 /** Build a filename like
