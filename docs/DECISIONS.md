@@ -2019,6 +2019,65 @@ only coupling between CI and the SvelteKit config.
 
 ---
 
+## 2026-05-12: analysis.md v2 refresh
+
+**What.** Re-grounded `analysis.md` against the terminal catalog (523
+records × 67 cols) and the new structured views the SvelteKit app
+exposes — `leaderboards.ts`, `lineages.ts`, `section-stats.ts`,
+`landscape.edges.json` (247 edges).
+
+**Why now.** v1 of `analysis.md` was written before Phase 1 (data
+extraction) and Phases 3–4 (trend analysis + KG) shipped. Several
+numeric claims drifted: Mem0 inbound count was reported correctly but
+without the edge-graph methodology; Superpowers GH stars (179.8k) was
+a parent-repo conflation; governance disclosure nulls at T3/T4 were
+89% / 97.7% in v1 but the tagging pass has since brought those to
+27% / 29%; funding cell population went from 32 → 220 with new Sierra
+($15.8B) and Glean ($7.2B) entries.
+
+**Net changes.**
+1. New executive summary at top (5 bullets).
+2. New §1.1.a — section × storage concentration matrix.
+3. New §1.1.b — section-level median citations / funding / GH stars.
+4. New §3 — Lineages, the descent map. 3 curated seeds (RSSM,
+   Graph-RAG, Files-as-memory) + 6 auto-discovered, all per
+   `lineages.ts`. Explicit treatment of the descent-vs-pattern split:
+   files-as-memory is now a **pattern**-kind curated seed (rather than
+   being treated as a missing/failed auto-detection) because its
+   members converged on one idea by parallel evolution rather than
+   descent.
+5. New §6.3 — Top inbound citations within the catalog (vs total
+   S2 cites).
+6. Renumbered §4 (Commercial), §5 (Performance), §6 (Citations),
+   §7 (horizontal-vs-vertical), §8 (Decision matrix), §9
+   (Anti-patterns), §10 (White-space, revisited), §11 (catalog
+   self-observations including the governance correction), §12
+   (NEW: forward-looking with data signals).
+7. Tagged every new finding with **✶ v2**.
+
+**What did NOT change.** Pattern A–E descriptions, ConvoMem
+threshold, LoCoMo dispute, valuation-gap conclusion, the 7 white-space
+gap rows (only item 2 — skill-as-memory — moved from "research-only"
+to "partially filled" because Interloom / LangMem / LinkedIn Cognitive
+Memory Agent now ship skill-unit memory).
+
+**Reversal cost.** Low. analysis.md is prose; the file is in git, so
+v1 is one `git revert` away. The numerical methodology now references
+specific `web/src/lib/*.ts` modules — if those refactor, the section
+references should be updated alongside.
+
+**Locked-in for Track C second pass (after new-ingestion #2 lands).**
+- Re-verify the 6 white-space gaps that are listed UNCHANGED.
+- Re-run lineage detection — if `world_model` adds its first
+  commercial member, the §3.1 RSSM lineage moves from "5 academic
+  nodes" to "first cross-tier descent" and should be promoted in §12.3.
+- Re-check Mem0 inbound count — if it crosses 15, the network-effect
+  claim should be re-quantified.
+- Re-pull S2 citations — Transformer-XL moved 3,000 → 4,300 between
+  v1 and v2; expect more 2026 papers to gain cites.
+
+---
+
 ## 2026-05-07: Column-subset picker for export (Polish)
 
 **What.** Extended the Export popover with a column picker. Users can
