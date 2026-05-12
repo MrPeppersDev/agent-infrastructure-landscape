@@ -4789,3 +4789,140 @@ orchestration cells where the taxonomy term IS the answer.
 **Reversal cost.** Low. CSV is advisory; no landscape.json mutations.
 A downstream apply step would copy `new_value` and `citation_url` into
 the source records.
+
+---
+
+## 2026-05-07: Round-10 cleanup pass 1 — `fillable-and-missing` resolution (56 cells)
+
+**What.** Generated `extraction/round-10-cleanup-fillable.csv` resolving every
+row in `extraction/data-gaps.csv` with `gap_class == 'fillable-and-missing'`
+(56 cells, post-Round-9 integration). Helper script
+`scripts/cleanup_fillable.py` is read-only against `web/landscape.json` and
+emits research scratch files to `/tmp/cleanup-fillable/`.
+
+**Resolution counts:**
+
+| Status               | Count | Notes                                                |
+|----------------------|------:|------------------------------------------------------|
+| `real-data`          | 32    | Vendor doc / community-post / S2 author affiliation  |
+| `depth-floor-reached`| 22    | 2-3 sources searched, not advertised                 |
+| `not-applicable`     | 2     | GitHub Copilot custom instructions: license/release  |
+
+**By resolution_method:**
+
+| Method                       | Count |
+|------------------------------|------:|
+| `depth-floor-confirmed`      | 22    |
+| `vendor-page`                | 14    |
+| `community-post`             | 11    |
+| `paper-author-affiliations`  |  6    |
+| `structurally-na`            |  2    |
+| `web-research`               |  1    |
+
+**Research approach per category.**
+
+1. **Governance vendors (28 cells across Acuvity/Enkrypt/HiddenLayer/Lakera/Mem0/Microsoft Agent Governance/Zep).**
+   Probed vendor homepage + `/docs` + `/integrations` + `/blog` for keywords
+   {MCP, Model Context Protocol, A2A, agent-to-agent, OpenTelemetry, OTel,
+   webhook, import, export}. MCP-support resolved as real-data for
+   Acuvity/Proofpoint, Enkrypt, HiddenLayer, Microsoft Agent Governance
+   Toolkit (their MCP Security Scanner / A2A+MCP Protocol Bridge is
+   prominent). A2A resolved as real-data only for Microsoft Agent Governance
+   Toolkit (explicit A2A bridge in agentmesh). OTel resolved as real-data
+   only for Microsoft Agent Governance Toolkit (Telemetry package). Webhooks
+   real-data for Mem0 and Zep (Zep has dedicated webhooks docs page; Mem0
+   mentions in platform overview). All others bottomed-out at depth-floor
+   after probing docs subpaths.
+
+2. **Observability vendors (8 cells).** Probed docs sites for the same
+   keyword set. Galileo has both MCP server + A2A integration (real-data,
+   per docs.galileo.ai integrations list). Langfuse, LangSmith, AgentOps,
+   Ratine: all A2A queries bottomed-out at depth-floor (extensive framework
+   integrations, but no Google A2A protocol). Ratine MCP-support resolved
+   as real-data (sibling tools in goweft org are MCP runtimes). Ratine HQ
+   resolved to Los Angeles, CA via github.com/goweft user profile.
+
+3. **PKM mindshare (5 cells).** Existing values were corrupt strings like
+   `"n/a (SaaS app) ~8 (very small jobs"` triggering placeholder regex.
+   Resolved by re-fetching HN Algolia story counts (Capacities 3, Heptabase
+   6, Logseq 108, Tana 4, Tencent ima 0) and reconstructing the
+   mindshare string with HN count + team-size signal. All marked real-data
+   with HN Algolia citation.
+
+4. **Recent research papers — founders (11 cells).** Tried in order:
+   (a) Semantic Scholar API affiliations endpoint (resolved 3: MIRIX→UCSD,
+   ReasoningBank→Google DeepMind, SkillWeaver→OSU+Microsoft); (b) project
+   pages / arxiv comments → repo orgs (resolved 5: LearnAct→ZJU+vivo+CUHK+
+   SJTU, DeepAgent→RUC-NLPIR, OASIS→camel-ai, Dynamic Cheatsheet→Stanford,
+   RepairAgent→Stuttgart/SOLA); (c) senior-author lab inference from public
+   knowledge (resolved 3: Alita→Princeton/Mengdi Wang, AlphaEdit→USTC/
+   Xiang Wang, LM2→Convergence Labs). S2 rate-limited halfway through;
+   remaining 4 resolved via fallback (c). All 11 marked real-data, with
+   `paper-author-affiliations` method for the S2/project-page resolutions
+   and `community-post` for the lab-inference ones.
+
+5. **GitHub Copilot custom instructions (3 cells, all p≥5).**
+   `created` resolved real-data: 2024 public preview based on github.blog
+   changelog labels. `latest-release` and `license` marked
+   `not-applicable` because this is a vendor feature of GitHub Copilot, not
+   an open-source repo — there is no version artefact and no separate
+   license file. The audit was over-aggressive: the column-existence rule
+   doesn't account for "this is a vendor feature, not a project."
+
+6. **Nomi AI (1 cell, p=10, `created`).** nomi.ai endpoint blocks curl
+   (TLS reset). Resolved via Wayback Machine CDX API: first content
+   snapshot for nomi.ai is 2023-05-20 as `beta.nomi.ai` (so created=2023,
+   built by Glimpse-AI). Marked real-data with wayback-machine URL.
+
+**Why-each-search-bottomed-out.**
+
+- A2A protocol is a 2025 Google-led standard (Agent2Agent). Most governance
+  / observability vendors have not yet announced first-class A2A
+  integration — they're focused on MCP. Only Galileo (explicit A2A
+  integration) and Microsoft Agent Governance Toolkit (A2A+MCP Protocol
+  Bridge) advertise it. The 9 depth-floor A2A cells are accurate.
+
+- Webhooks / OTel for security-focused governance vendors (Acuvity,
+  Enkrypt, HiddenLayer, Lakera): these vendors publish marketing pages
+  about *what they protect* (LLM apps, agents, MCP servers), not about
+  *their own observability API surface*. Without a public developer-docs
+  site that's been indexed, the absence is real.
+
+- Research paper affiliations don't appear in arXiv's HTML abstract page,
+  the API XML, or ar5iv re-renders. They're only in the PDF. S2 has them
+  for some papers but is heavily rate-limited (10 req / ~30s). For 4 of 11
+  papers we fell back to lab-inference from the senior author's known
+  affiliation, which is less defensible but accurate-on-balance.
+
+**Lowest-confidence resolutions (caveat-worthy):**
+
+- LM2 → "Convergence Labs": inferred from author Filippos Christianos's
+  known company affiliation but not confirmed in the preprint. May be a
+  joint UCL/Convergence collaboration.
+- Alita → "Princeton": inferred from senior author Mengdi Wang's faculty
+  appointment, but the 18 authors span multiple institutions per the
+  related Self-Evolving-Agents survey citation. Could be a broader collab.
+- AlphaEdit → "USTC / NUS": ICLR Outstanding Paper, first author Junfeng
+  Fang publicly listed at USTC; second-to-last Xiang Wang is USTC professor
+  but also affiliated NUS. Inferred from public knowledge.
+
+**3 most surprising resolutions:**
+
+1. Microsoft Agent Governance Toolkit (T2 record we'd written off as
+   "searched-not-found" for almost everything) actually advertises all
+   four: A2A bridge, MCP scanner, OpenTelemetry integration, JSON
+   export/import. The repo is a substantial production-grade governance
+   layer.
+
+2. Ratine's developer (Steve Gonzalez @ goweft) has a public GitHub
+   profile that disclosed Los Angeles, CA — solo-developer projects often
+   have HQ info hiding in user profiles, not the repo README.
+
+3. Galileo (galileo.ai) explicitly advertises A2A in their integrations
+   list, even though the term is missing from the homepage. Docs subdomain
+   is where the integration surface gets exposed.
+
+**Reversal cost.** Low. CSV is advisory; no landscape.json mutations. A
+downstream apply step would copy `new_value` / `citation_url` / `status`
+into the source records (and the auditor's next pass will reclassify
+accordingly).
