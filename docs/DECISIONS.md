@@ -2417,3 +2417,98 @@ copy carries the calibration framing — any future change that
 strengthens the maths should update the disclaimer to match.
 
 
+## 2026-05-07: Taxonomy archetypes — primary-only fingerprint clustering
+
+**What.** /analyses/archetypes clusters every record by a
+seven-character "fingerprint" formed by concatenating the *primary*
+value on each of the seven taxonomy axes (storage, retrieval,
+persistence, update, unit, governance, conflict), joined by `|`. Two
+records share an archetype iff every one of those seven values
+matches exactly. Archetypes are ranked by member count desc; the
+top-12 get a card on the page. Singletons go into a "long tail"
+roll-up. A separate "white-space candidates" panel surfaces
+singletons whose individual axis values are each common in the
+catalog (min-axis popularity ≥ 25) — the building blocks exist,
+the assembly doesn't.
+
+**Numbers (May 2026 catalog, 523 records):**
+- 378 distinct fingerprints
+- top 12 cover 15.9% of the catalog
+- 307 fingerprints have only one member (58.7% of records)
+- dominant archetype: file|injection|cross-session|overwrite|document
+  |user-controllable|manual (the CLAUDE.md / AGENTS.md / Aider family,
+  11 systems, 2.1%)
+
+**Why primary-only rather than the full axis arrays.** Taxonomy
+axes are always-array (see the 2026-05-08: Always-array entry).
+Multi-value axes legitimately exist — Memvid stores both vector and
+file, some systems mark both vector and graph storage. Three
+fingerprint definitions were considered:
+
+1. **Primary only** (chosen). Hash the single primary value per
+   axis. Each record contributes one fingerprint.
+2. **Full sorted set per axis.** Hash the sorted tuple of all values
+   per axis. Each record still contributes one fingerprint, but a
+   system that's both vector+graph splits away from systems that are
+   "vector with a graph footnote".
+3. **Cartesian product across axes.** Each record contributes
+   `Π |axis_i|` fingerprints; archetypes count records that share
+   *any* element of the product. Allows soft matching.
+
+Option (2) is overly aggressive: an inspection of Memvid's row
+showed it would land in a 1-member fingerprint despite being
+structurally identical to other vector-store products that just
+didn't bother to mark the secondary axis. The labelling cost of "did
+the curator remember to add the secondary value?" propagates into the
+clustering. Option (3) inflates the archetype-per-record cardinality
+and makes the "top 12 cover X%" headline number ill-defined (records
+appear in multiple archetypes). Primary-only matches every other
+collapsing decision in the codebase — `/sections` reads primary,
+filter facets read primary, `section-stats.ts::primaryTaxonomy`
+reads primary. Consistency wins.
+
+**Why a 7-element hash bar (not 4 or fewer).** The user's brief
+called for archetypes "richer than any single axis" — the brief
+implied 4-6 axes was acceptable. A check on collapsing to a 4-axis
+hash (storage/retrieval/persistence/unit, omitting update,
+governance, conflict) brought the top-12 coverage to 38%, but
+collapsed three distinct clinical patterns into one bucket
+(append-only vector with episode units vs overwrite vector with
+chunk units — these are RAG vs episodic agents, not the same
+archetype). Full 7-axis hashing keeps the analytical distinction
+visible even at the cost of higher long-tail.
+
+**Why min-axis popularity for the gap panel.** A singleton can be
+unique for two reasons: (a) at least one axis value is itself rare
+(in which case the singleton is just a rare-axis system, not
+white-space), or (b) every axis value is common but no other system
+has assembled them this way (which is the interesting case). Sorting
+singletons by the *minimum* axis-value popularity across the seven
+axes promotes (b) and demotes (a). A floor of 25 (≈ 5% of the
+catalog must use each axis value) cuts the noise. Sum-popularity is
+the tiebreaker — between two recipes whose rarest axis appears 30×,
+the one whose overall axis values appear more often is the bigger
+"obvious gap".
+
+**Options rejected.**
+- *Embed records and run k-means on the resulting vectors.* Would
+  produce "fuzzy" clusters that don't correspond to the discrete
+  taxonomy values the rest of the app uses. Off-axis with the
+  reader's mental model.
+- *Hierarchical clustering with edit distance on the fingerprint
+  string.* Better at surfacing "near-recipes", but the resulting
+  cluster shapes don't lend themselves to the "fingerprint badge"
+  visual idiom — every cluster member has the same 7 badges, which
+  is the whole point of the card layout.
+- *Use a similarity threshold (≥ 5 of 7 axes match).* Promising,
+  but makes the "membership" relation non-transitive and turns the
+  list-of-archetypes into a graph-of-overlapping-cliques. Too much
+  UI complexity for a sub-view.
+
+**Reversal cost.** Low. Helpers in
+`web/src/lib/analyses/archetypes.ts` are pure and self-contained;
+the page is presentational. Swapping fingerprint definition is a
+one-function edit in `fingerprintOf`. The clustering primitive
+(`clusterByFingerprint`) is reusable for any future fingerprint
+schema.
+
