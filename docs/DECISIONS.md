@@ -3208,3 +3208,158 @@ computed eagerly on every record-set change (~700 records × 27² pair
 checks ≈ 510k regex tests / recompute); empirically <50ms on the
 build host. If filters become very chatty we'd memoise on the
 filtered record-id set.
+
+
+---
+
+## 2026-05-07: Archetypes view — exemplar naming, near-archetype clustering, gap prose (Analyses)
+
+**What.** Upgrade #25 follow-up to `/analyses/archetypes` ships three
+non-obvious algorithmic decisions that future maintainers should be
+able to walk back if needed.
+
+**(1) Archetype naming algorithm — three-tier.**
+
+We pick a human-readable name for every archetype through a cascade:
+
+  a. **Curated overrides** (`NAMED_ARCHETYPES` table, ~13 entries).
+     Match by `fp.startsWith(pattern)` on a partial fingerprint prefix
+     (typically the first 5 axes — storage · retrieval · persistence
+     · update · unit). These cover the well-known recipes that have
+     established names in the literature / product space (Mem0,
+     ChatGPT-Memory, Qdrant, CLAUDE.md, Zep, knowledge-graph,
+     static-RAG, hybrid-RAG, ExpeL, PKG-notes, state-space, plus the
+     two "no-taxonomy" buckets for benchmarks/surveys). First match
+     wins; order in the table matters.
+
+  b. **Exemplar-driven names** for archetypes with ≥5 members that
+     missed the curated table. The exemplar is the member with the
+     highest `exemplarScore`:
+
+         score = inboundIntegrations × 100_000
+               + inboundCites         × 10_000
+               + log10(funding $ + 1) × 1_000
+               + (6 − tier)           × 100
+
+     The name becomes `The {exemplar.name} recipe`. The five-member
+     gate is deliberate — for n<5 the exemplar is a bad summary of
+     the recipe (a single record's name doesn't represent the
+     pattern well enough). The score's priority order
+     (integrations >> cites >> funding >> tier) was chosen because:
+
+       - inbound integrations are the strongest signal of "the
+         system other systems plug into" — i.e. the de-facto
+         standard for the recipe. Most curated overrides exist
+         precisely because the canonical product has high inbound
+         integration count.
+       - cites carries the academic / research weight when no
+         commercial integrations exist (e.g. ExpeL family).
+       - funding is a coarse commercial-prominence signal that
+         breaks ties on the long tail.
+       - tier breaks remaining ties so a battle-tested T1 row beats
+         a theoretical T5 row at equal funding/cites/integ.
+
+  c. **Section-namesake fallback** for "pattern" archetypes whose
+     fingerprint is dominated by `n/a` (≥5 of 7 axes). These are
+     benchmarks, surveys, frameworks-without-memory — they have no
+     taxonomy identity, so the section they cluster in is what
+     gives them their name: `The {section} pattern`.
+
+  d. **Axis-based synthesised fallback** for everything else:
+     `{axis1} + {axis2} + {axis3} recipe`. Drops `n/a` and
+     `unspecified` from the components. Used when the archetype is
+     small (<5 members) and missed all curated patterns.
+
+**Options rejected.**
+
+- *Always exemplar-name, never curate.* Bad because the exemplar
+  algorithm picks "Qdrant" for the vector-overwrite-chunk recipe,
+  but Mem0 — the recognisable name for the EXTRACTION variant — has
+  too few inbound integrations to win its own bucket. Curated
+  overrides let us anchor the names readers expect even when the
+  graph data says otherwise.
+- *Use sub-section name as the namesake.* Tried it; sub-sections
+  are too granular (often single-record). Top-level section is the
+  right grain.
+- *Generate names via LLM at build time.* Non-deterministic, hard
+  to diff the analyses page over time, and unnecessary —
+  template-driven naming is legible and stable.
+
+**(2) Near-archetype clustering — Hamming-1, anchored to recurring
+archetypes.**
+
+For each singleton fingerprint we compute its Hamming distance to
+every archetype with ≥2 members. Distance-1 singletons attach to
+their closest anchor as a "near-variant"; distance ≥2 stays
+unattached. Concretely (May 2026 catalog): 314 singletons →
+**103 absorbed** as near-variants, **211 unattached**. The
+effective long-tail count drops from 390 distinct fingerprints
+to ~287 distinct shapes (76 recurring + 211 unattached).
+
+**Threshold = 1 because:**
+
+- Distance-1 is the most legible boundary. "This system is the
+  canonical recipe except for one axis (governance, etc.)" is a
+  one-sentence description a reader can hold in their head.
+- Distance ≥ 2 starts being a genuinely different shape — two axis
+  flips can change three semantic properties at once (e.g. flipping
+  both `persistence` and `update` turns "long-term/extraction" into
+  "session/replacement", which is no longer the same recipe at all).
+- Threshold = 2 would absorb too many singletons into archetypes
+  they don't belong with, polluting the per-card variant lists.
+
+**Anchor set = recurring (n≥2), not top-N**, because many singletons
+are distance-1 from a small-but-not-tiny archetype further down the
+list. Limiting anchors to top-12 would leave most singletons
+unattached. The route's UI shows each anchor's variants only on the
+anchor's card, so the user only sees variants of the top-12 — but
+the absorption count includes every recurring archetype.
+
+**(3) Gap-candidate prose — deterministic, template-driven.**
+
+Each white-space candidate gets a 2-3 sentence description:
+
+    "The {axis1} · {axis2} · ... · {axis7} fingerprint has 0
+     members other than {selfName}; every individual axis value is
+     mainstream but this specific combination has not been built
+     twice. Closest existing: {neighbour} at Hamming-1 (differs on
+     {axis}). Also nearby: {neighbour2} ({axis2}), {neighbour3}
+     ({axis3}). A product filling this gap could be framed as
+     '{neighbour} with {value} on the {axis} axis'."
+
+Deterministic prose was chosen over LLM-generated prose because:
+
+- The page is built into static HTML at deploy time; reproducible
+  prose makes the analyses page diffable across commits ("did the
+  ranking change, or did the description?").
+- The closest-existing system at Hamming-1 is the most actionable
+  fact in the description; everything else is scaffolding.
+  Template prose foregrounds that fact reliably.
+- LLM prose at build time would introduce non-determinism and a
+  build-time dependency on an inference endpoint.
+
+The closest-existing lookup is bounded at 3 neighbours, scanned
+linearly over records (699 × 7 = ~4.9k comparisons per gap × 8
+gaps = ~39k ops). At this scale that's <5ms total, well below the
+prerender budget.
+
+**Numbers (May 2026 catalog).** 699 records · 390 distinct
+fingerprints · top-12 cover 34.0% of catalog · 314 singletons
+(45.0%) · Hamming-1 absorbs 103 singletons (32.8% of singletons)
+into 76 recurring archetypes, leaving 211 genuinely bespoke
+designs. Top archetype: the no-taxonomy bucket (164 members —
+non-memory frameworks/surveys/infra). Top memory archetype: the
+CLAUDE.md recipe (11 members — file-backed agent memory).
+
+**Reversal cost.** Low. All logic lives in
+`web/src/lib/analyses/archetypes.ts` (pure helpers, no DOM, no
+Svelte). To change:
+
+- Naming priority order → edit the `exemplarScore` weights in
+  `archetypes.ts`.
+- Hamming threshold → pass `nearThreshold: 2` to `buildBundle()`
+  in `+page.svelte` (or change the default in `buildBundle`).
+- Gap prose template → edit `composeGapProse()`. Single function,
+  ~15 lines, no callers outside the module.
+- Curated names → edit `NAMED_ARCHETYPES`. First-match wins, so
+  order entries from most-specific to least-specific.
