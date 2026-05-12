@@ -167,15 +167,18 @@
       <li>Targeted research-agent sweeps (~25 agents over multiple rounds).</li>
     </ul>
     <p>
-      Honest confidence on coverage: <strong>~88–92%</strong> as of the last
-      update. URLs were verified at time of entry. Claims (the right-hand
-      columns) are vendor-stated unless otherwise marked.
+      Coverage of the memory-shaped core: <strong>~88–92%</strong> as of the
+      last terminal pass. URLs were verified at time of entry. Claims (the
+      right-hand columns) are vendor-stated unless otherwise marked.
     </p>
     <p>
-      <strong>Out of scope.</strong> If it isn't memory-shaped AI infrastructure
-      — pure LLM training, generic vector search without a memory story, agent
-      frameworks without a memory layer — it isn't in here, even if it's
-      adjacent.
+      <strong>Scope.</strong> The catalog covers memory systems for AI
+      <em>and</em> the adjacent infrastructure that touches them — training
+      platforms and dataset stores, generic vector / search systems, and
+      agent frameworks regardless of whether they ship a first-party memory
+      layer. The goal is comprehensive landscape coverage of the sphere, not
+      a strict memory-only filter. Coverage of the adjacent categories is
+      lower than the memory core and being expanded incrementally.
     </p>
   </section>
 

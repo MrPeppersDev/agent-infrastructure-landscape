@@ -2125,3 +2125,41 @@ haystack would mislead users about why a row passed the filter.
 call in TableRow and the `{@html nameHtml}` form on the name column;
 both helpers in `search.ts` become dead exports but don't break
 anything.
+
+---
+
+## 2026-05-12: Scope expansion — adjacent infrastructure now in catalog
+
+**What.** The previous scope statement excluded "pure LLM training, generic
+vector search without a memory story, agent frameworks without a memory layer"
+even when adjacent. That exclusion is removed. The catalog now aims at
+comprehensive coverage of the broader sphere — memory systems plus all
+infrastructure that touches memory work (training platforms, dataset stores,
+search products, agent frameworks of all kinds).
+
+**Why.** User direction. The earlier exclusion was a filter for "memory-shaped"
+focus, but in practice readers need to compare against the adjacent layers when
+making technology choices. A LangChain row that says "no first-party memory,
+but ships connectors to Mem0/Letta/Zep" is more useful than a missing entry.
+
+The user explicitly rejected anchoring on category-size estimates ("dont even
+bother to calculate the rough size — that just puts soft limitations on the
+number of things you pull in"). The new mandate: pull in everything in the
+sphere that can be sourced.
+
+**Implications.**
+- The "Memory Analysis Program" / "Memory Systems Landscape" name remains for
+  now; if the adjacent categories grow to dominate, the name may need to
+  evolve to reflect "AI infrastructure landscape, memory-emphasised".
+- New sections may be needed for the new categories (e.g. "Training
+  infrastructure", "Search platforms (non-memory)", "Agent frameworks
+  (no first-party memory)").
+- Coverage claim on the about page is now split: ~88-92% for the memory
+  core, lower-and-growing for the adjacent categories.
+- Existing rows that span scope (e.g. LangChain, already in for its
+  embedded-memory subsystem) may need re-tagging to acknowledge their
+  broader role.
+
+**Reversal cost.** Medium. Removing rows is easy; re-tagging the cross-scope
+ones takes a pass. The scope statement itself is one paragraph.
+
