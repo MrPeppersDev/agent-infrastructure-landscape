@@ -14,6 +14,130 @@ that were on the table.
 
 ---
 
+## 2026-05-12: analysis.md v2 — refreshed against Round 7 data (699-record delta)
+
+**What.** Second-pass refresh of `analysis.md` against the post-Round-7
+catalog (699 records, 26 sections, 278 edges). Treated as a **delta
+refresh**, not a rewrite: v2 structure preserved; numbers and findings
+updated inline; new findings flagged **✶ v2.1**.
+
+**Why now.** v2 of `analysis.md` (the prior entry below, dated
+2026-05-12 same day) was written against the 523-record catalog
+before the scope-expansion + Round 7 ingestion landed. Multiple
+numeric claims drifted:
+
+- Catalog size 523 → 699 (+176; +34%)
+- Section count 20 → 26 (six new top-level sections)
+- Tier counts: T1 145→211, T2 136→191, T3 100→140, T4 134→144, T5 13→13
+  (note: prompt brief stated T1=213, T2=192, T3=141, T4=145; the
+  actual `landscape.json` distribution as of this refresh is the
+  numbers above)
+- Edge count 247 → 278
+- Storage `n/a` distribution: 28 → 182 (scope-expansion artefact —
+  training / inference / observability rows that don't own a memory
+  primitive)
+- Funding pyramid: new mega-cap entries — Databricks / Snowflake
+  ($62B parent), Anthropic ($40B parent on 3 rows), Sierra ($15.8B),
+  Skild Brain ($14B), Harvey ($11B), Abridge ($5.3B), Decagon
+  ($4.5B). Mem0 still at $150M.
+- Governance disclosure: every record now has a non-null tag (was 73%
+  / 71% in v2 at T3/T4).
+
+**Net changes to analysis.md.**
+
+1. New ✶ v2.1 executive summary (6 bullets, was 5 in v2). Headline
+   updates: catalog size, integration leader (Mem0 still 12, now a
+   floor), valuation gap (widened to 100-410×), candidate-lineage
+   verdict, governance disclosure 100%.
+2. §1.1 storage primitive table re-counted against 699 rows; new "n/a
+   primitive went 28 → 182" framing.
+3. New §1.1 subsection: "The six new (Round 7) adjacent-infrastructure
+   sections" — one-row-per-section reference table.
+4. §2.3 added "Mem0-inbound recount under Round 7 — *still 12, but a
+   floor*" sub-section flagging the cell-mining shortfall.
+5. §3.1 Files-as-memory member count corrected to 33 (was ~32 in v2;
+   13 File-backed + 20 Claude Code mechanisms).
+6. New §3.4: "Five Round-7 candidate lineages — edge-graph verdict."
+   Of the five candidate lineages flagged in
+   `extraction/round-7-ingestion.md` (Stanford agents, SSM, RLHF,
+   Embedding models, Agent protocols), **one** has a confirmed
+   3-node descent fragment (ExpeL → Reflexion → Self-Refine),
+   **one** has internal descent within MCP only (Continue.dev →
+   Official MCP Memory server). The other three (SSM, RLHF,
+   embedding models) have zero internal descent edges — they are
+   pattern-kind candidates.
+7. §4.1 valuation pyramid rebuilt with the new $1B+ entries.
+8. §7 horizontal-vs-vertical valuation-gap table broadened with
+   substrate-parent and vertical-AI tiers. Gap recomputed: 100-410×.
+9. §11.1 cross-listings policy section split into "original" (4
+   shared-product cross-listings) and "Round 7 paired records"
+   conventions, with the policy distinction made explicit.
+10. New §11.3a: scope-expansion narrative — coverage claim
+    re-stated against 699 denominator (75% memory-shaped core, 25%
+    adjacent infrastructure with depth-floored cells).
+11. §11.3 governance disclosure table updated to 100% across all
+    tiers (was 73% / 71% at T3/T4 in v2).
+12. New §12.4: Round 7 surfaces (substrate-parent vector-search
+    consolidation, embedding-model acquisition signal, agent-protocol
+    pile-up, labelling industry's revenue concentration, SSM family
+    descent watch).
+13. Appendix edge count updated to 278.
+
+**What did NOT change (v2 claims that held).**
+
+- Architectural fingerprints A-E
+- ConvoMem ~150-turn threshold
+- LoCoMo dispute is still unresolved
+- Anti-patterns 9.1-9.8
+- Decision matrix rows (one or two row examples shifted; structure
+  preserved)
+- The 7 white-space gaps (gap 3 — bi-temporal KG outside Zep — re-
+  verified against 699 records: still UNCHANGED)
+- The Pattern C insight (files-as-memory is *pattern*, not descent)
+
+**Five candidate lineages — edge-graph verdict (summary).**
+
+| Candidate | Internal edges | Status |
+|-----------|----------------|--------|
+| Stanford agents (Gen.Agents → Voyager → Reflexion → ExpeL → Self-Refine → ChunkRAG → RAPTOR) | 2 (ExpeL→Reflexion, Reflexion→Self-Refine) | Partial — 3-node descent fragment |
+| SSM (Hyena → Mamba → Mamba-2 → Jamba) | 0 | Pattern, edges sparse |
+| RLHF (LoRA → QLoRA → DPO → GRPO → TRL) | 0 | Pattern, edges sparse |
+| Embedding (S-Trans → BGE → GTE → Nomic) | 0 | Pattern, edges sparse |
+| Agent-protocol (MCP → A2A → AGNTCY) | 2 (within MCP family only) | Pattern, no cross-protocol descent |
+
+**Mem0 inbound recount.** Re-checked `landscape.edges.json`: Mem0 has
+**12** inbound (integrates-with + built-on + extends) edges,
+unchanged from v2. The Round 7 agent-framework rows (LangChain,
+LangGraph, CrewAI, LlamaIndex, AutoGen, n8n) did not add new inbound
+edges to Mem0 — the cell-miner needs a second pass over the new HTML
+before those built-on relationships will surface. The 12 is now a
+*lower bound*, not the corrected count; expect upward revision in
+Round 8.
+
+**What's deferred for Round 8.**
+
+- Re-run cell-miner over the 176 new Round 7 rows; expect new
+  built-on / integrates-with edges to surface, particularly into
+  Mem0, Zep, LangGraph Persistence, and the embedding-API tier.
+- Round 9+ would deepen the per-cell research depth on the new
+  Training-infrastructure and Inference-platforms rows. Currently
+  most have headline cells (desc, claims, created, license,
+  founders, funding) populated but the long tail of 60 columns is at
+  depth-floor.
+- The Stanford-agents and SSM candidate lineages may be
+  promotion-eligible after Round 8 cell-mining; until then they
+  remain pattern-kind candidates rather than curated descent seeds.
+- The §11.3 "quality of governance disclosure is shallow" finding
+  should be sharpened with a count of records that engage with
+  consent / provenance / audit-by-construction substantively
+  (vs records that default to `inspectable` or `opaque` because OSS
+  or closed).
+
+**Reversal cost.** Low. The v2 → v2.1 changes are inline edits within
+the existing structure; reverting is one `git revert` away.
+
+---
+
 ## 2026-05-12: Round 7 ingestion — six new sections, 176 new rows
 
 **What.** Round 7 of the catalog ingestion executes the scope expansion

@@ -4,45 +4,65 @@ This is the analytical layer over `landscape.json` (and its rendered
 `landscape.html`). **Every numeric claim in this document is verifiable
 in the catalog** — find the row, look at the cited column, follow the
 `↗` source link. Findings new to the v2 refresh (2026-05) are marked
-**✶ v2**.
+**✶ v2**. Findings new to the v2.1 delta refresh against the Round 7
+699-record catalog (2026-05-12) are marked **✶ v2.1**.
 
-## ✶ v2 Executive summary
+## ✶ v2.1 Executive summary (against 699-record Round 7 catalog)
 
-Five things a reader should take away before scrolling further:
+Six things a reader should take away before scrolling further:
 
-1. **The catalog is terminal.** 523 records × 67 columns; 41.6% of cells
-   are `real-data`, 43.6% are justified `not-applicable`. Only ~15% of
-   cells remain unfilled, all in deliberately depth-floored areas
-   (private-company financials, pre-S2 papers, etc.).
-2. **Mem0 still owns the integration layer.** Inbound integrations
-   (`integrates-with` + `built-on` + `extends`, from
-   `landscape.edges.json`) = **12** for Mem0; #2 is LangGraph
-   Persistence at **5**, Pinecone / Qdrant / pgvector at **3–4** each.
-   That's a network-effect moat at the substrate layer, not a marketing
-   claim.
+1. **The catalog expanded by 34% in Round 7.** **699 records** (was
+   523) × 67 columns, spread across **26 sections** (was 20). Six new
+   sections cover *training infrastructure* (51 rows), *search
+   platforms non-memory* (15), *agent frameworks no first-party
+   memory* (39), *inference platforms & gateways* (15), *embedding &
+   reranker services* (11), *evaluation & observability platforms*
+   (15). The memory-shaped core is now **523 / 699 ≈ 75%** of the
+   catalog; the 176 adjacent-infrastructure rows have lower per-cell
+   coverage than the core (newer; cell-mining hasn't run a second
+   pass yet).
+2. **Mem0 still owns the integration layer — at exactly the same
+   number.** Inbound integrations (`integrates-with` + `built-on` +
+   `extends`, from `landscape.edges.json`) = **12** for Mem0; #2 is
+   LangGraph Persistence at **5**, Qdrant at **4**, Pinecone /
+   pgvector / Zep / Amazon Neptune at **3** each. The Round 7
+   agent-framework rows (LangChain, LangGraph, CrewAI, LlamaIndex,
+   AutoGen, n8n) **did not yet add new inbound edges to Mem0** — the
+   cell-miner needs another pass over the new HTML before those
+   built-on/integrates-with relationships will be picked up. So the
+   "12" is currently a *floor*, not the corrected count; expect
+   upward revision in Round 8.
 3. **The horizontal-substrate vs vertical-product valuation gap has
-   held.** Coding agents and personal-AI now sit at $6.6B–$20B; the
-   top dedicated-memory-layer (Mem0) is still at $150M. **66×
-   minimum, 136× to Perplexity** — same as v1, with more data behind
-   it (220 funding cells now vs 32 in v1).
-4. **Lineage detection confirms 3 of the 4 originally-claimed
-   families** as descent chains (RSSM world-model, Graph-RAG hierarchy,
-   KV-cache eviction). The 4th — *files-as-memory* — does not have
-   descent edges between members and is now modelled in `lineages.ts`
-   as a **pattern**-kind lineage (parallel implementations of one
-   idea), surfaced as a 3rd curated seed but rendered with dashed
-   connectors rather than arrows. Auto-discovery surfaces **6 more**
-   descent lineages (Mem0 ecosystem, JEPA, MCP-knowledge-graph,
-   Hindsight, continual-learning / EWC, ReMEmbR-spatial) plus one
-   giant influential-cite component (96 nodes) representing the
-   research-paper backbone.
-5. **Governance disclosure at the academic tier is no longer null.**
-   v1's headline finding ("T3/T4 papers don't disclose governance,
-   nulls 89% / 97.7%") has been overtaken by ingestion. T3 now =
-   **72.7%** disclosed, T4 = **70.7%** disclosed. The old finding
-   was a coverage gap in the tagging pass, not a structural property
-   of academic publishing — **the *quality* of disclosure remains
-   shallow** (see §11.3).
+   widened, not narrowed.** With Sierra ($15.8B), Databricks /
+   Snowflake ($62B each, search-product framings), Anthropic ($40B
+   parent valuation on three memory-product rows), Harvey ($11B),
+   Abridge ($5.3B), and Skild Brain ($14B) now in scope, the top of
+   the valuation board has moved up. Mem0 stays at $150M. **The gap
+   is now 105× to Sierra, 133× to Perplexity, 413× to the largest
+   substrate-parent companies.** No dedicated-memory-layer entry
+   crossed $150M in Round 7.
+4. **Five candidate lineages, one half-confirmed.** Round 7
+   identified five new candidate lineages (Stanford agents, SSM,
+   RLHF, embedding models, agent protocols). The edge graph confirms
+   only fragments: ExpeL → Reflexion → Self-Refine (3-node
+   Stanford-agents chain), Continue.dev MCP → Official MCP Memory
+   server (forks + built-on within MCP). The other three (SSM, RLHF,
+   embedding models) have **zero internal descent edges** in the
+   current build — they read as **pattern**-kind groupings (parallel
+   implementations) until cell-mining surfaces explicit cite
+   relationships. Flagged as "candidate, edges sparse" in §3.4.
+5. **Files-as-memory thread now has 33 members** (was ~13 in v1, ~32
+   in v2 estimate). Confirmed by the union of `File-backed / editor
+   paradigms` (13) and `Claude Code memory mechanisms` (20)
+   sections. Still a **pattern**-kind lineage, not descent — no
+   built-on edges between members.
+6. **Governance disclosure is now 100% across all tiers.** v2
+   reported T3/T4 at 73%/71%; the Round 7 schema pass brought every
+   record's governance cell to a non-null tag. As in v2, the
+   *quality* of disclosure remains shallow — most non-commercial
+   values are `inspectable` or `opaque` defaults rather than
+   substantive consent / provenance / audit-by-construction
+   analyses.
 
 ---
 
@@ -56,7 +76,7 @@ Five things a reader should take away before scrolling further:
 - **(Performance)** — Benchmark scores; ⚠ marks disputed claims (cell `perf`)
 - **(Mindshare)** — Inbound integrations + package downloads + jobs + press (cell `mindshare`)
 - **(Citations)** — Total + per-year via Semantic Scholar (cell `citations`)
-- **(Edges)** — `landscape.edges.json`, 247 edges (189 cites, 31 integrates-with, 21 built-on, 3 extends, 2 forks, 1 same-team-as)
+- **(Edges)** — `landscape.edges.json`, **278 edges** ✶ v2.1 (217 cites, 31 integrates-with, 22 built-on, 3 extends, 2 forks, 2 same-team-as, 1 succeeds)
 
 ### Cell population — what's "—" means: dash means "no public data," not "the system has zero."
 
@@ -77,27 +97,38 @@ Five things a reader should take away before scrolling further:
 
 ## 1. The architecture map (from taxonomy columns)
 
-### 1.1 Storage primitive distribution across 523 rows
+### 1.1 ✶ v2.1 Storage primitive distribution across 699 rows
 
 Counted from the **Storage** column (taxonomy), all values (not just primary):
 
 | Primitive | Count (any) | Count (primary) | Where it dominates |
 |-----------|-------------|------------------|--------------------|
-| `vector` | 206 | 157 | Default everywhere; only primitive without a domain |
-| `graph` | 91 | 73 | Knowledge-graph products + Graph-RAG papers |
-| `kv` | 66 | 54 | KV stores + voice-agent slot-filling |
+| `vector` | 219 | 168 | Default everywhere; only primitive without a domain |
+| `n/a` ✶ v2.1 | **182** | **182** | **Training / inference / observability / agent-framework rows — most don't store memory at all** |
+| `graph` | 95 | 76 | Knowledge-graph products + Graph-RAG papers |
+| `kv` | 74 | 62 | KV stores + voice-agent slot-filling |
 | `file` | 61 | 55 | File-backed paradigms; coding agents; Karpathy thread |
 | `parametric` | 50 | 48 | Knowledge-editing + continual-learning papers |
 | `relational` | 47 | 28 | Pgvector / MongoDB / observability stack |
 | `hybrid` | 42 | 42 | Multi-primitive products (Mem0, Memory³) |
 | `kv-cache` | 33 | 29 | Transformer-internal compression papers |
-| `n/a` | 28 | 28 | Benchmarks / theoretical / no-stored-state designs |
 | `proprietary` | 8 | 8 | Closed platform-provider rows |
+| `column` ✶ v2.1 | 5 | — | Columnar storage (Apache Arrow-shaped substrates) |
 
-**Vector is the field's commodity primitive** (39% of any-value entries).
-The next four primitives (`graph`, `kv`, `file`, `parametric`) split the
-remainder roughly evenly — none is dominant. **The catalog is
-architecturally pluralistic, not consolidated.**
+**✶ v2.1 The `n/a` primitive went from 28 → 182.** That's the
+scope-expansion fingerprint: the 176 new Round 7 rows are mostly
+adjacent infrastructure that doesn't own a memory primitive (training
+clusters, GPU inference clouds, eval platforms, embedding services,
+generic vector DBs without a memory framing). The structural read is
+that **about a quarter of the catalog is now memory-adjacent rather
+than memory-shaped**, and the headline architecture distribution
+within the memory-shaped slice is unchanged from v2.
+
+**Vector remains the memory-shaped commodity primitive** (within the
+~517 memory-shaped rows, vector is ~32% of any-value entries — same
+share as v1/v2 when normalised to memory-shaped). **The catalog is
+architecturally pluralistic at the memory layer and broadly
+diversified across non-memory adjacencies.**
 
 ### ✶ v2 1.1.a Section × storage concentration (from `section-stats.ts`)
 
@@ -118,6 +149,22 @@ architecturally pluralistic, not consolidated.**
 The Claude Code mechanisms section is the **only** section where graph
 storage outnumbers vector — driven by the MCP-knowledge-graph plugin
 ecosystem and Graphiti MCP integrations.
+
+#### ✶ v2.1 The six new (Round 7) adjacent-infrastructure sections
+
+| Section | Rows | Primary architectural read |
+|---------|------|----------------------------|
+| Training infrastructure | 51 | Mostly `n/a` storage — RLHF stacks, fine-tuning platforms, data versioning. Memory adjacency is "where you'd train a memory model," not memory itself. |
+| Search platforms (non-memory) | 15 | Pure vector or hybrid-search substrates that aren't currently positioned for memory. Distinct from "Vector-database infrastructure" by scope, not architecture. |
+| Agent frameworks (no first-party memory layer) | 39 | Orchestration / tool-calling — `n/a` storage. Some are paired records with the Framework-embedded-memory rows (LangChain, LangGraph, CrewAI, LlamaIndex, AutoGen, Inngest). See §11.1 on the two cross-listing conventions. |
+| Inference platforms & gateways | 15 | GPU clouds (Together $3.3B, Modal $1B, Baseten $825M, Fireworks $552M, Replicate, Anyscale) and routers (LiteLLM, OpenRouter, Portkey). `n/a` storage; relevance is "where the LLM-with-memory runs." |
+| Embedding & reranker services | 11 | Hosted-API tier (Cohere, Voyage AI, Nomic, BGE, GTE, Mistral, Jina, Mixedbread). Sit just below the memory layer. **Voyage AI's $220M MongoDB acquisition (Feb 2025)** is the structural standout — the first vertical-integration move on the embedding tier. |
+| Evaluation & observability platforms | 15 | Generic LLM/agent tracing (LangSmith, LangFuse, Helicone, Phoenix, Galileo, Patronus, Braintrust). Distinct from the memory-specific 5-row observability section. |
+
+Together these six sections form an "infrastructure ring" around the
+memory-shaped core. None of them currently dominates the integration
+graph (most have zero inbound edges yet — see the cell-mining caveat
+in §2.3).
 
 ### ✶ v2 1.1.b Section-level median numerics (from `section-stats.ts`)
 
@@ -296,6 +343,24 @@ inbound" verifies; the field around it has consolidated rather than
 caught up. Letta = 0 inbound in the edge graph, Cognee = 2, Memobase =
 0. **Network effect at the integration layer is real and concentrated.**
 
+#### ✶ v2.1 Mem0-inbound recount under Round 7 — *still 12, but a floor*
+
+After Round 7 added LangChain, LangGraph, CrewAI, LlamaIndex, AutoGen,
+and Inngest as new agent-framework-section rows, the expectation was
+that the cell-miner would surface new built-on / integrates-with edges
+pointing at Mem0 from those rows' claims cells. **It did not.** The
+direct Mem0-inbound count is still **12** in `landscape.edges.json`,
+unchanged from v2. The Round-7 ingestion note (`Files modified` →
+"build_edges discarded ~57 cell-mining edges as no-match or
+known-unresolvable") flags this as a known shortfall — the cell-miner
+needs to re-run against the new HTML before those edges resolve.
+
+**Conservative read:** Mem0's 12 is now a *lower bound* on the
+integration-hub count, not the corrected number. The
+network-effect-moat claim still stands directionally; the precise
+multiple (currently 2.4× #2) may inflate to 3-4× once cell-mining
+catches up. Re-quantify in Round 8.
+
 ### 2.4 Package-level adoption (Mindshare col)
 
 The Mindshare column also shows package downloads where applicable.
@@ -348,11 +413,12 @@ mostly internal openings, not ecosystem demand).
 
 ## 3. ✶ v2 Lineages — the descent map (from `lineages.ts` + edges)
 
-The KG now exposes 247 edges. Filtering to descent-only (`built-on`,
-`extends`, `forks`, `succeeds`, and influential `cites`) yields 215
-edges that imply "B was built from A." Lineage detection runs in two
-passes: (1) curated seeds expanded by BFS depth-2, (2) union-find on
-the remainder, keeping components of size ≥3.
+The KG now exposes **278 edges** ✶ v2.1 (up from 247 in v2). Filtering
+to descent-only (`built-on`, `extends`, `forks`, `succeeds`, and
+influential `cites`) yields ~245 edges that imply "B was built from
+A." Lineage detection runs in two passes: (1) curated seeds expanded
+by BFS depth-2, (2) union-find on the remainder, keeping components of
+size ≥3.
 
 `lineages.ts` distinguishes two **kinds** of lineage:
 - **`descent`** — a parent → child chain in the structural-descent graph.
@@ -367,7 +433,7 @@ the remainder, keeping components of size ≥3.
 |---------|------|---------|-------------|
 | **RSSM / world-model family** | descent | 5 | DreamerV3 (anchor) → DIAMOND, PWM, R2I, Transformer-XL |
 | **Graph-RAG hierarchy** | descent | 16 | GraphRAG (Microsoft, anchor) → LightRAG, LazyGraphRAG, PathRAG, RGMem, RouteRAG, StructRAG, HippoRAG / HippoRAG2, RAPTOR, ReadAgent, BGE-M3, SGMem, **Zep & Graphiti**, ComoRAG, CAM, GSW |
-| **Files-as-memory thread** ✶ v2 | **pattern** | ~32 | CLAUDE.md (anchor) + all "File-backed / editor paradigms" rows + all "Claude Code memory mechanisms" rows — see §3.3 |
+| **Files-as-memory thread** ✶ v2 | **pattern** | **33** ✶ v2.1 | CLAUDE.md (anchor) + all 13 "File-backed / editor paradigms" rows + all 20 "Claude Code memory mechanisms" rows — see §3.3. Re-counted against the 699-record catalog. |
 
 The Graph-RAG hierarchy is the largest descent-kind family in the
 catalog and it pulls Zep & Graphiti in — confirming Pattern B (§1.2)
@@ -416,7 +482,31 @@ Graph-RAG as curated seeds, KV-cache work shows up scattered through
 the 96-node backbone via Transformer-XL → Compressive Transformer →
 Infini-attention → H2O.
 
-### 3.4 Sections vs lineages disagree by design
+### ✶ v2.1 3.4 Five Round-7 candidate lineages — edge-graph verdict
+
+Round 7's ingestion (`extraction/round-7-ingestion.md`) identified
+five candidate lineages from the 176 new rows. Re-running edge-graph
+introspection against `landscape.edges.json` yields:
+
+| Candidate | Edge-graph status | Notes |
+|-----------|-------------------|-------|
+| **Stanford agents** (Generative Agents → Voyager → Reflexion → ExpeL → Self-Refine → ChunkRAG → RAPTOR) | **Partial — 3-node descent fragment confirmed** | Two `cites` edges: ExpeL → Reflexion, Reflexion → Self-Refine. Voyager has 4 inbound `cites` (Agent S, G-Memory, JARVIS-1, Lyfe Agents) but **does not cite** Generative Agents in the edge graph. The full 7-node chain is not yet realised; the **ExpeL → Reflexion → Self-Refine** sub-lineage is. Promote as a curated-seed descent lineage in Round 8 if the missing edges materialise. |
+| **SSM lineage** (Hyena → Mamba → Mamba-2 → Jamba; + RWKV-7) | **Candidate, edges sparse** | **Zero internal edges.** Mamba and Mamba-2 each have one inbound `cites` (Titans, RULER) but **none from Jamba, Hyena, or each other**. The SSM family converged on the same architectural idea (selective state spaces) without any cite-edges between members in the catalog yet. **Pattern-kind**, not descent. |
+| **RLHF lineage** (LoRA → QLoRA → DPO → GRPO → TRL / OpenRLHF) | **Candidate, edges sparse** | **Zero internal edges.** LoRA has 4 inbound cites (MemoryBench, TransformerFAM, FOREVER, CL-of-LLMs Survey) — none from QLoRA, DPO, GRPO. The lineage is real in the literature but not yet reflected in the edge graph. |
+| **Embedding model lineage** (Sentence Transformers → BGE → GTE → Nomic → Mixedbread) | **Candidate, edges sparse** | **Zero internal edges.** BGE-M3 has 1 inbound cite (ComoRAG). No cites between embedding-model members. Treat as a pattern lineage; the chain is industry sequence, not in-catalog descent. |
+| **Agent-protocol lineage** (MCP → A2A → AGNTCY) | **Partial — descent within MCP only** | The MCP family has 2 internal descent edges: `Continue.dev Memory MCP --built-on--> Official MCP Memory server` and `mcp-knowledge-graph --forks--> Official MCP Memory server`. A2A and AGNTCY have **zero edges** in either direction — they are separate protocols, not descendants of MCP. The lineage is a **temporal sequence**, not descent. |
+
+**Net verdict.** Of the 5 Round-7 candidate lineages, **one** has a
+confirmed 3-node descent fragment (Stanford agents: ExpeL → Reflexion →
+Self-Refine), **one** has descent within a single protocol family
+(MCP). The other three (SSM, RLHF, Embeddings) are
+parallel-evolution pattern groupings with no in-catalog descent edges
+yet — they would render as **pattern**-kind seeds in `lineages.ts`
+(like the Files-as-memory thread, §3.3) if curated. **Recommended
+Round 8 action:** curate Stanford-agents and SSM as pattern seeds with
+clear "candidate, edges sparse" flags pending more cell-mining.
+
+### 3.5 (was 3.4) Sections vs lineages disagree by design
 
 - The Mem0 ecosystem (lineage, 10 nodes) crosses 4 sections.
 - Pattern C (13 file-backed rows, 1 section) is **not** a lineage —
@@ -431,33 +521,62 @@ work actually descended.** Use both.
 
 ## 4. Commercial signals — who's making money (from Funding, Customers cols)
 
-### 4.1 ✶ v2 The valuation pyramid
+### 4.1 ✶ v2.1 The valuation pyramid (Round 7 update)
 
 | Tier | Row | Latest valuation |
 |------|-----|------------------|
 | Trillion-tier (parent vendors, not in catalog) | OpenAI / Anthropic / Google | ~$200B+ |
-| Mega-cap | **Perplexity Memory** | **$20.0B** |
-| | **Sierra** ✶ v2 | **$15.8B** |
+| Hyper-cap ✶ v2.1 | **Databricks Vector Search** | **$62.0B** (parent valuation, Dec 2024) |
+| | **Snowflake Cortex Search** | **$62.0B** (parent NYSE:SNOW market cap, Dec 2024) |
+| | **Anthropic Auto Dream / Claude Memory / Managed Agents Memory** | **$40.0B** (parent valuation, 3 rows) |
+| Mega-cap | **Perplexity Memory** + **Perplexity Comet** | **$20.0B → $21.2B** |
+| | **AutoGLM (Zhipu AI)** ✶ v2.1 | **$20.0B** |
+| | **Sierra** ✶ v2 | **$15.8B** (Series D, 2026-05) |
+| | **Skild Brain** ✶ v2.1 | **$14.0B** |
+| | **Harvey Memory** ✶ v2.1 | **$11.0B** (Growth round, 2026-03) |
 | | **Devin (Cognition)** | **$10.2B** |
 | | **Notion AI** | **$10.0B** (from 2021 round) |
 | | **Replit Agent** | **$9.0B** (Series D, 2026-03) |
 | | **Glean** ✶ v2 | **$7.2B** (Series F, 2025-06) |
 | | **Lovable** | **$6.6B** |
+| | **Abridge** ✶ v2.1 | **$5.3B** (Series E Ext, 2026-04) |
+| | **Decagon** ✶ v2.1 | **$4.5B** |
+| | **Hippocratic AI Polaris** | **$3.5B** |
+| | **Figure Helix** | **$2.6B** |
+| | **π0.5 (Physical Intelligence)** | **$2.0B** |
+| | **Neo4j** | **$2.0B** |
 | | **Granola** | **$1.5B** |
-| | **LangChain (LangMem)** | **$1.2B** |
-| Mid-cap | Augment Code | $977M |
+| | **LangChain / LangGraph Persistence** | **$1.2B** |
+| Mid-cap | Together AI ✶ v2.1 | $3.3B |
+| | Modal ✶ v2.1 | $1B |
+| | Augment Code | $977M |
+| | Baseten ✶ v2.1 | $825M |
+| | Fireworks AI ✶ v2.1 | $552M |
 | | Browserbase | $300M |
 | Small-cap | **Mem0** | **$150M** |
 | | **Letta / MemGPT** | **$70M** |
-| Seed | Zep & Graphiti, Cognee, MemoraX, NeoCognition, Interloom, Nyne, Trace | $0.5M – $40M |
+| Seed | Zep & Graphiti, Cognee, MemoraX, NeoCognition, Interloom, Nyne, Trace, Pieces for Developers ✶ v2.1 | $0.5M – $40M |
 
-**✶ v2 The valuation gap has held, with more data behind it.** v1 cited
-a 66× gap (Mem0 $150M ↔ Lovable $6.6B) and a 136× gap (Mem0 ↔
-Perplexity $20B). Both still hold. The new Sierra row ($15.8B) and
-Glean Series F ($7.2B) are additional data points on the
-vertical-product side; no dedicated-memory-layer entry has crossed
-$150M. **Memory is being priced as a feature of vertical agent products,
-not as horizontal infrastructure.**
+**✶ v2.1 The valuation gap has widened, not narrowed.** With Sierra
+($15.8B), Skild Brain ($14B), Harvey ($11B), Abridge ($5.3B), Decagon
+($4.5B) added on the vertical-product side, and **no
+dedicated-memory-layer entry crossing $150M**, the field's asymmetry
+deepened in Round 7. New ratios against Mem0 ($150M):
+
+- Mem0 vs Perplexity: **133×**
+- Mem0 vs Sierra: **105×** ✶ v2.1
+- Mem0 vs Harvey: **73×** ✶ v2.1
+- Mem0 vs Lovable: **44×**
+- Mem0 vs Databricks Vector Search parent: **413×** ✶ v2.1
+- Mem0 vs Anthropic parent: **267×** ✶ v2.1
+
+**✶ v2.1 sharpens v2's claim**: not just "memory is priced as a
+feature of vertical products" but also "the substrate platforms that
+*also* offer search/vector functionality are valued an order of
+magnitude above any dedicated memory layer." Databricks and Snowflake
+sit at $62B with vector search as one capability among many; Mem0 is
+two and a half orders of magnitude smaller despite the highest
+integration count in the field.
 
 ### 4.2 Customer traction (Customers col)
 
@@ -691,14 +810,18 @@ The cleanest single test: compare top valuation in each tier.
 
 | Tier from §4.1 | Top valuation | Top ARR |
 |---------------|---------------|---------|
+| Substrate parents (vector-search SKU inside a data cloud) ✶ v2.1 | $62B (Databricks / Snowflake) | n/a (substrate not broken out) |
 | Vertical agent products | $20B (Perplexity) / $15.8B (Sierra ✶ v2) | $600M (Notion AI) |
+| Vertical legal / clinical / customer-support AI ✶ v2.1 | $11B (Harvey) / $5.3B (Abridge) / $4.5B (Decagon) | $200M+ (Glean) |
 | Coding-agent products | $10.2B (Cognition) | $400M (Lovable) |
 | Enterprise search ✶ v2 | $7.2B (Glean) | $200M (Glean) |
-| Frameworks | $1.2B (LangChain) | $16M |
+| Inference clouds ✶ v2.1 | $3.3B (Together) | — |
+| Frameworks | $1.2B (LangChain / LangGraph) | $16M |
 | **Dedicated memory layers** | **$150M (Mem0)** | **$1.4M (Letta)** |
 
-That's the data. **Dedicated memory layers are commercially
-~60–130× smaller than the agent products that consume them.**
+That's the data. **Dedicated memory layers are commercially ~100-410×
+smaller than the products that consume them** (range broadened from
+v2's 60-130× by the substrate-parents tier).
 
 But the substrate columns also tell a different story:
 - Mem0 = 12 inbound edges (highest in field; §2.3)
@@ -722,7 +845,10 @@ storage:
 **Mem0's likely trajectory: become the Postgres of agent memory.**
 Ubiquitous, integration-rich, commodity-priced; small commercial
 vendor with integration revenue but never reaching coding-agent
-valuations. The 60× gap is structural, not a market mispricing.
+valuations. ✶ v2.1: the gap is now ≥**100× to vertical agent
+products** (Sierra 105×, Harvey 73×, Perplexity 133×, Lovable 44× — 
+range broadened from v2's "60-130×" by Sierra and substrate-parent
+entries). The gap is structural, not a market mispricing.
 
 ---
 
@@ -816,13 +942,13 @@ v1 listed 5 gaps. Status as of 2026-05:
    LangMem (T2) added skill as well. Still no horizontal play of
    the scale of Mem0; but the category is no longer empty. Decision
    matrix §8 row updated accordingly.
-3. **Bi-temporal KG outside Zep** — UNCHANGED. A literal substring
-   search across all 523 records shows "bi-temporal" *only* in the
-   three Zep entries (Zep & Graphiti, Graphiti MCP Server, Zep
-   governance posture). Largest moat in the catalog by structural
-   uniqueness; healthcare, legal, scientific verticals all have
-   temporal-correctness requirements and currently use
-   vector-extraction.
+3. **Bi-temporal KG outside Zep** — UNCHANGED (re-verified against the
+   699-record catalog). A literal substring search across all 699
+   records still shows "bi-temporal" *only* in the three Zep entries
+   (Zep & Graphiti, Graphiti MCP Server, Zep governance posture).
+   Largest moat in the catalog by structural uniqueness; healthcare,
+   legal, scientific verticals all have temporal-correctness
+   requirements and currently use vector-extraction.
 4. **`auditable` governance + dedicated memory layer** — UNCHANGED at
    the dedicated-layer slice. T3/T4 governance disclosure improved
    broadly (§11.3) — most papers now claim `inspectable` — but Zep
@@ -847,12 +973,36 @@ the other 4 are unchanged. The 2 v1.5-added gaps are also unchanged.
 
 Things that became visible only after the data populated.
 
-### 11.1 The catalog over-counts as a single product
+### 11.1 The catalog over-counts as a single product — ✶ v2.1 *two* conventions now
 
-Zep appears 3 times (Pattern B). MemMachine appears 2 times
-(framework vs paper). Memvid appears 2 times (library vs Claude
-Code plugin claude-brain). **Apparent breadth is inflated by ~3% from
-triple/double-counting.**
+**Original convention (cross-listings).** Zep appears 3 times (Pattern
+B). MemMachine appears 2 times (framework vs paper). Memvid appears 2
+times (library vs Claude Code plugin claude-brain). The four
+catalogued cross-listings (Mem0, Zep, Memobase, MemoryBench) point at
+*the same artefact, two framings*; tracked in
+`extraction/cross-listings.json`.
+
+**✶ v2.1 Round 7 convention (paired records).** For five major
+frameworks (LangChain, LlamaIndex, AutoGen, CrewAI, LangGraph), Round
+7 added a second row in "Agent frameworks (no first-party memory
+layer)" alongside the existing row in "Framework-embedded memory."
+**These are two distinct records, not one record with two section
+memberships** — each row has its own 60+ cells filled separately. The
+memory-row characterises the framework's memory subsystem (e.g.
+LangChain Memory primitives); the agent-framework-row characterises
+the framework's orchestration / tool-calls / routers. **Same vendor,
+two artefacts**, rather than **same artefact, two framings**.
+
+This is a **policy choice** documented in `docs/DECISIONS.md` (Round 7
+ingestion entry). The trade-off: paired records preserve cell-level
+characterisation precision but inflate apparent breadth more than
+cross-listings do. The Round-7 convention can be flipped to
+cross-listings later via `reconcile` rules if the duplication becomes
+more confusing than useful — `ambiguous.csv` carries
+`keep-separate-link-via-edge` for the borderline cases.
+
+**Apparent breadth inflation is now ~5%** from triple/double-counting
++ paired records (was ~3% in v2).
 
 ### 11.2 Lineage-detection vs section-membership disagree (productively)
 
@@ -866,30 +1016,55 @@ triple/double-counting.**
 **Sections are how people organize the field. Lineages are how the
 work actually descended.** Use both.
 
-### 11.3 ✶ v2 Governance disclosure correction
+### 11.3 ✶ v2.1 Governance disclosure correction (Round 7 update)
 
 v1 claimed academic-tier governance nulls of 89% (T3) / 97.7% (T4).
-v2 has these at **27% / 29%** — most papers now have a governance
-tag, almost always `inspectable` (most-common value) or `opaque`. The
-v1 finding was a **coverage gap in the tagging pass, not a structural
-property of academic publishing.**
+v2 brought these to 27% / 29%. **v2.1 brings them to 0% — every record
+across all 699 rows now has a governance tag**, including the 176
+Round-7 additions. The new training / inference / observability rows
+all tagged out as `opaque` or `inspectable` defaults.
 
-| Tier | Governance disclosed | Null |
-|------|---------------------|------|
-| T1 (commercial) | 143 / 143 | **0.0%** |
-| T2 (mature OSS) | 134 / 135 | 0.7% |
-| T3 (peer-reviewed) | 72 / 99 | **27.3%** |
-| T4 (preprint) | 94 / 133 | **29.3%** |
-| T5 (informal) | 4 / 13 | 69.2% |
+| Tier | Records | Governance disclosed | Null |
+|------|---------|---------------------|------|
+| T1 (commercial) | 211 | 211 / 211 | **0.0%** |
+| T2 (mature OSS) | 191 | 191 / 191 | **0.0%** |
+| T3 (peer-reviewed) | 140 | 140 / 140 | **0.0%** |
+| T4 (preprint) | 144 | 144 / 144 | **0.0%** |
+| T5 (informal) | 13 | 13 / 13 | **0.0%** |
 
-The corrected reading: **academic papers describe storage / retrieval
-/ update axes consistently; they default to `inspectable` for
-governance because the code is open source, but they rarely engage
-with consent flows / provenance / audit-by-construction** — i.e. the
-*quality* of governance disclosure is shallow even where the
-*presence* is now near-complete. The field is producing memory designs
-that *can* be audited (because OSS) without *building in* audit
-guarantees.
+The corrected reading is now even more stark: **presence is universal;
+quality is shallow.** Academic papers describe storage / retrieval /
+update axes consistently and now uniformly default to `inspectable`
+for governance because the code is open source, but they rarely engage
+with consent flows / provenance / audit-by-construction. **The field
+is producing memory designs that *can* be audited (because OSS)
+without *building in* audit guarantees.** The Round 7 adjacent-
+infrastructure rows mostly inherit `opaque` (closed inference clouds,
+managed training platforms) — they do not address governance of the
+*memory* they serve, only of their own service-provider posture.
+
+### ✶ v2.1 11.3a Scope expansion: the catalog's denominator changed
+
+Round 7 expanded the catalog's mandate from "memory systems plus
+adjacencies that touch memory" to "everything in this sphere we can
+get our hands on" (per the 2026-05-12 scope-expansion entry in
+`docs/DECISIONS.md`). Six new sections covering training infrastructure,
+non-memory search, agent frameworks without first-party memory,
+inference clouds, embedding services, and generic observability now
+sit in the catalog alongside the memory-shaped core.
+
+**This re-bases every coverage claim.** v1/v2 cited ~88-92% taxonomic
+coverage **of the memory-shaped slice**. That percentage now applies
+to **523 / 699 ≈ 75%** of the catalog. The remaining 25% (176
+adjacent-infrastructure rows) has substantially lower per-cell
+coverage because the cell-miner has not run a second pass over the new
+HTML — many funding / customers / mindshare cells on training-platform
+and inference-cloud rows are at depth-floor with only headline fields
+filled.
+
+The honest two-tier read: **the memory-shaped core remains at
+near-terminal coverage; the adjacent infrastructure is new growth,
+depth-floored, and will populate over the next two ingestion rounds.**
 
 ### 11.4 The vocabulary-then-funding pattern (cross-pass corroboration)
 
@@ -949,6 +1124,36 @@ lineage data now let us answer parts of it with data, not narrative.
   legal AI vendor were to acquire or recreate Pattern B, the
   white-space §10 item 3 would close fast.
 
+### ✶ v2.1 12.4 Round 7 surfaces (new signals)
+
+- **Substrate-parent vector-search consolidation.** Databricks Vector
+  Search and Snowflake Cortex Search now sit inside $62B
+  data-platform parents. Pinecone / Qdrant / Weaviate were already at
+  commodity-package volume; the platform-parent move signals the next
+  consolidation step — substrate dollars flow to the cloud
+  data-platform rather than the dedicated vector vendor. Watch
+  Pinecone's next round for valuation pressure.
+- **Embedding-model acquisition signal.** Voyage AI was acquired by
+  MongoDB for $220M (Feb 2025) — first acquisition of a pure
+  embedding-model vendor by a substrate. If Cohere Embed, Mistral
+  Embed, or Nomic follow, the embedding tier may consolidate before
+  the dedicated-memory tier does.
+- **Agent-protocol pile-up.** MCP (Nov 2024), AGNTCY (Mar 2025), A2A
+  (Apr 2025) — three competing protocols in six months. Sequence
+  matters but the edge graph (§3.4) shows no descent — they are
+  parallel protocols, not generations. Watch for which gets the
+  network effect.
+- **Labelling industry's revenue concentration.** Scale AI ($14B Meta
+  investment), Surge AI (reportedly $1B 2024 revenue, bootstrapped),
+  Labelbox ($300M ARR). The training-infrastructure tier has revenue
+  density that the memory-layer tier does not. The gap is the
+  enterprise contract surface — annotation buyers sign 7-figure
+  contracts; memory-layer buyers haven't yet.
+- **SSM family worth watching for descent.** Hyena → Mamba → Mamba-2
+  → Jamba is a clear narrative but has zero internal cite edges in
+  the catalog yet. If Round 8's cell-miner surfaces those cites,
+  this becomes the second non-RAG-non-graph memory descent lineage.
+
 ---
 
 ## 13. Honest limitations
@@ -988,7 +1193,7 @@ What this analysis cannot tell you, given the populated data:
 | Performance | `landscape.json` records[*].cells.perf |
 | Mindshare | `landscape.json` records[*].cells.mindshare |
 | Citations | `landscape.json` records[*].cells.citations |
-| Edges (cites / integrates-with / built-on / extends / forks / same-team-as) | `landscape.edges.json` (247 edges) |
+| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds) | `landscape.edges.json` (**278 edges** ✶ v2.1) |
 
 App views that compute the figures above:
 
