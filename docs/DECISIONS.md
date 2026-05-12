@@ -14,6 +14,30 @@ that were on the table.
 
 ---
 
+## 2026-05-07: Round 9 — Path A quintet citation backfill (2,575 cells)
+
+**What.** Generated `extraction/round-9-quintet-citations.csv` proposing
+citations for every `desc`/`type`/`pros`/`cons`/`links` cell that carried
+`status=real-data` with `citation=null` (the 2,575 cells flagged by the
+Round-9 audit). Cell values are left unchanged; only the citation is
+filled. Driven by `scripts/path_a_quintet.py` — no network access.
+
+**Fallback chain.** For each target cell the citation is resolved by
+trying, in order: (1) `record.url` if it starts with `http`, (2)
+`record.cells.gh.citation`, (3) `record.cells.created.citation`. If none
+exist the row is emitted with an empty `citation_url` and counted as
+unresolvable. The quintet shares one citation per record because in
+practice all five cells describe the same primary source; multi-source
+records can be revisited individually downstream.
+
+**Outcome.** 2,570 / 2,575 resolved (2,510 via `record.url`, 55 via
+`created.citation`, 5 via `gh.citation`). 5 unresolvable — all belong to
+the `wise` record, which has `url=null` and no `gh`/`created` citation.
+Reversal cost: low — the CSV is the only artifact; nothing in
+`landscape.json` has been written.
+
+---
+
 ## 2026-05-12: Round 8 — survivorship Unknown-bucket OSS enrichment (79 rows)
 
 **What.** Filled the `last-commit` signal for every row currently sitting in
