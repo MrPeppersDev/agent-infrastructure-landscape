@@ -12,6 +12,14 @@
     },
     {
       "source": "a-mem--gh-wujiangxu-a-mem",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/1f35a15fe9df43d24ec6ea551ec6c9766c17eccf",
+      "isInfluential": true
+    },
+    {
+      "source": "a-mem--gh-wujiangxu-a-mem",
       "target": "memorybank--arxiv-2305-10250",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
@@ -24,6 +32,14 @@
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/e5e8c6ac537e0f5b5db14170bc232d6f9e641bbc",
+      "isInfluential": true
+    },
+    {
+      "source": "agent-s--arxiv-2410-08164",
+      "target": "voyager--arxiv-2305-16291",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2410.08164",
       "isInfluential": true
     },
     {
@@ -97,6 +113,13 @@
       "type": "integrates-with",
       "evidence": "Vector index on graph nodes queryable via openCypher. Mem0 integration GA 2025",
       "citation": "https://aws.amazon.com/neptune/"
+    },
+    {
+      "source": "anthropic-computer-use--anthropic-com",
+      "target": "claude-code-auto-memory--docs-claude-com",
+      "type": "built-on",
+      "evidence": "d OS-agent products built on Claude.",
+      "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use"
     },
     {
       "source": "apache-age--age-apache-org",
@@ -240,7 +263,23 @@
     },
     {
       "source": "cam--arxiv-2510-05520",
-      "target": "raptor--gh-parthsarthi03-raptor",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.05520",
+      "isInfluential": true
+    },
+    {
+      "source": "cam--arxiv-2510-05520",
+      "target": "memtree--arxiv-2410-14052",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.05520",
+      "isInfluential": true
+    },
+    {
+      "source": "cam--arxiv-2510-05520",
+      "target": "raptor--arxiv-2401-18059",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.05520",
@@ -265,6 +304,14 @@
     {
       "source": "cl-of-llms-survey--dl-acm-org",
       "target": "ewc-elastic-weight-consolidation--arxiv-1612-00796",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/7d09c6c8ef1e1c0c447cb8910c27a7acf1dd96af",
+      "isInfluential": true
+    },
+    {
+      "source": "cl-of-llms-survey--dl-acm-org",
+      "target": "lora--arxiv-2106-09685",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/7d09c6c8ef1e1c0c447cb8910c27a7acf1dd96af",
@@ -324,7 +371,7 @@
     },
     {
       "source": "comorag--arxiv-2508-10419",
-      "target": "raptor--gh-parthsarthi03-raptor",
+      "target": "raptor--arxiv-2401-18059",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2508.10419",
@@ -374,6 +421,14 @@
       "type": "integrates-with",
       "evidence": "Official Mem0+DSPy tutorial.",
       "citation": "https://dspy.ai/api/primitives/History/"
+    },
+    {
+      "source": "em-llm--arxiv-2407-09450",
+      "target": "pose--arxiv-2309-10400",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2407.09450",
+      "isInfluential": true
     },
     {
       "source": "emat--arxiv-2210-16773",
@@ -454,6 +509,14 @@
       "isInfluential": true
     },
     {
+      "source": "forever--arxiv-2601-03938",
+      "target": "lora--arxiv-2106-09685",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2601.03938",
+      "isInfluential": true
+    },
+    {
       "source": "from-human-memory-to-ai-memory-survey--arxiv-2504-15965",
       "target": "hipporag-hipporag2--gh-osu-nlp-group-hipporag",
       "type": "cites",
@@ -504,6 +567,14 @@
     {
       "source": "g-memory--arxiv-2506-07398",
       "target": "memorybank--arxiv-2305-10250",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2506.07398",
+      "isInfluential": true
+    },
+    {
+      "source": "g-memory--arxiv-2506-07398",
+      "target": "voyager--arxiv-2305-16291",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2506.07398",
@@ -564,6 +635,14 @@
       "isInfluential": true
     },
     {
+      "source": "helmet--arxiv-2410-02694",
+      "target": "yarn--arxiv-2309-00071",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2410.02694",
+      "isInfluential": true
+    },
+    {
       "source": "hindsight-mcp--hindsight-vectorize-io",
       "target": "hindsight-vectorize--hindsight-vectorize-io",
       "type": "built-on",
@@ -616,6 +695,14 @@
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2305.15294",
+      "isInfluential": true
+    },
+    {
+      "source": "jarvis-1",
+      "target": "voyager--arxiv-2305-16291",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2311.05997",
       "isInfluential": true
     },
     {
@@ -775,7 +862,7 @@
     },
     {
       "source": "longmemeval--arxiv-2410-10813",
-      "target": "raptor--gh-parthsarthi03-raptor",
+      "target": "raptor--arxiv-2401-18059",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2410.10813",
@@ -827,6 +914,22 @@
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2310.02172",
+      "isInfluential": true
+    },
+    {
+      "source": "lyfe-agents--arxiv-2310-02172",
+      "target": "voyager--arxiv-2305-16291",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2310.02172",
+      "isInfluential": true
+    },
+    {
+      "source": "m-memoryllm--arxiv-2502-00592",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2502.00592",
       "isInfluential": true
     },
     {
@@ -911,6 +1014,14 @@
       "type": "integrates-with",
       "evidence": "Agent-pipeline focused (LangGraph, CrewAI, AutoGen)",
       "citation": "https://github.com/doobidoo/mcp-memory-service"
+    },
+    {
+      "source": "mem--arxiv-2509-25911",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2509.25911",
+      "isInfluential": true
     },
     {
       "source": "mem--arxiv-2509-25911",
@@ -1061,6 +1172,14 @@
     },
     {
       "source": "membart",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/d5df3249a372fcd7994fa43fa48a94d322b43161",
+      "isInfluential": true
+    },
+    {
+      "source": "membart",
       "target": "memlong--arxiv-2408-16039",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
@@ -1113,6 +1232,14 @@
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/d5df3249a372fcd7994fa43fa48a94d322b43161",
+      "isInfluential": true
+    },
+    {
+      "source": "membench--arxiv-2506-21605",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2506.21605",
       "isInfluential": true
     },
     {
@@ -1246,6 +1373,14 @@
     {
       "source": "memformers-gradient-memory",
       "target": "memformer",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/d5df3249a372fcd7994fa43fa48a94d322b43161",
+      "isInfluential": true
+    },
+    {
+      "source": "memformers-gradient-memory",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/d5df3249a372fcd7994fa43fa48a94d322b43161",
@@ -1388,6 +1523,14 @@
       "isInfluential": true
     },
     {
+      "source": "memory3--arxiv-2407-01178",
+      "target": "retro--arxiv-2112-04426",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2407.01178",
+      "isInfluential": true
+    },
+    {
       "source": "memoryarena--arxiv-2602-16313",
       "target": "longmemeval--arxiv-2410-10813",
       "type": "cites",
@@ -1397,7 +1540,7 @@
     },
     {
       "source": "memoryarena--arxiv-2602-16313",
-      "target": "memorag--gh-qhjqhj00-memorag",
+      "target": "memorag--arxiv-2409-05591",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2602.16313",
@@ -1409,6 +1552,14 @@
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2602.16313",
+      "isInfluential": true
+    },
+    {
+      "source": "memorybench-tsinghua-thuir--arxiv-2510-17281",
+      "target": "lora--arxiv-2106-09685",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.17281",
       "isInfluential": true
     },
     {
@@ -1515,11 +1666,27 @@
       "isInfluential": true
     },
     {
+      "source": "mirix--arxiv-2507-07957",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2507.07957",
+      "isInfluential": true
+    },
+    {
       "source": "mongodb-atlas-vector-search--mongodb-com",
       "target": "langgraph-persistence--docs-langchain-com",
       "type": "integrates-with",
       "evidence": "LangGraph checkpointer for stateful agents.",
       "citation": "https://www.mongodb.com/products/platform/atlas-vector-search"
+    },
+    {
+      "source": "mpo",
+      "target": "dpo--arxiv-2305-18290",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.02682",
+      "isInfluential": true
     },
     {
       "source": "n8n-ai-agent-memory--docs-n8n-io",
@@ -1574,6 +1741,13 @@
       "citation": "https://arxiv.org/abs/2409.13682"
     },
     {
+      "source": "openai-agents-sdk--gh-openai-openai-agents-python",
+      "target": "openai-swarm-deprecated--gh-openai-swarm",
+      "type": "succeeds",
+      "evidence": ", tracing built in. Successor to OpenAI Swarm (experimental); officially supported.",
+      "citation": "https://github.com/openai/openai-agents-python"
+    },
+    {
       "source": "openai-agents-sdk-memory--openai-github-io",
       "target": "pinecone--pinecone-io",
       "type": "built-on",
@@ -1603,6 +1777,13 @@
       "isInfluential": true
     },
     {
+      "source": "pgvector--gh-pgvector-pgvector",
+      "target": "postgresql-pgvector--gh-pgvector-pgvector",
+      "type": "same-team-as",
+      "evidence": "Same GitHub organisation `pgvector` publishes both repos.",
+      "citation": "https://github.com/pgvector/pgvector"
+    },
+    {
       "source": "pwm-policy-learning-with-large-world-models--arxiv-2407-02466",
       "target": "dreamerv3--arxiv-2301-04104",
       "type": "cites",
@@ -1627,7 +1808,7 @@
     },
     {
       "source": "r-mem--arxiv-2502-15957",
-      "target": "memorag--gh-qhjqhj00-memorag",
+      "target": "memorag--arxiv-2409-05591",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2502.15957",
@@ -1680,6 +1861,14 @@
       "isInfluential": true
     },
     {
+      "source": "reflexion--arxiv-2303-11366",
+      "target": "self-refine--arxiv-2303-17651",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2303.11366",
+      "isInfluential": true
+    },
+    {
       "source": "retroformer--arxiv-2308-02151",
       "target": "generative-agents--arxiv-2304-03442",
       "type": "cites",
@@ -1728,6 +1917,14 @@
     },
     {
       "source": "ruler--arxiv-2404-06654",
+      "target": "mamba--arxiv-2312-00752",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2404.06654",
+      "isInfluential": true
+    },
+    {
+      "source": "ruler--arxiv-2404-06654",
       "target": "niah-needle-in-a-haystack--gh-gkamradt-llmtest-needleinahaystack",
       "type": "extends",
       "evidence": "NVIDIA. Extends NIAH with multi-needle retrieval, multi-hop entity tracing, aggr",
@@ -1742,6 +1939,14 @@
       "isInfluential": true
     },
     {
+      "source": "seagent--arxiv-2508-04700",
+      "target": "grpo--arxiv-2402-03300",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2508.04700",
+      "isInfluential": true
+    },
+    {
       "source": "self-rag--arxiv-2310-11511",
       "target": "toolformer--arxiv-2302-04761",
       "type": "cites",
@@ -1751,7 +1956,7 @@
     },
     {
       "source": "sgmem--arxiv-2509-21212",
-      "target": "lightrag--gh-hkuds-lightrag",
+      "target": "lightrag--arxiv-2410-05779",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2509.21212",
@@ -1841,6 +2046,14 @@
       "isInfluential": true
     },
     {
+      "source": "synapse--arxiv-2601-02744",
+      "target": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2601.02744",
+      "isInfluential": true
+    },
+    {
       "source": "tiermem--arxiv-2602-17913",
       "target": "memr--arxiv-2512-20237",
       "type": "cites",
@@ -1858,7 +2071,31 @@
     },
     {
       "source": "titans-google--research-google",
+      "target": "mamba--arxiv-2312-00752",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/5e7a795d89910634f001cc3a631023f1dd4e2e23",
+      "isInfluential": true
+    },
+    {
+      "source": "titans-google--research-google",
+      "target": "mamba-2-ssd--arxiv-2405-21060",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/5e7a795d89910634f001cc3a631023f1dd4e2e23",
+      "isInfluential": true
+    },
+    {
+      "source": "titans-google--research-google",
       "target": "recurrent-memory-transformer-rmt--arxiv-2207-06881",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/5e7a795d89910634f001cc3a631023f1dd4e2e23",
+      "isInfluential": true
+    },
+    {
+      "source": "titans-google--research-google",
+      "target": "test-time-training-ttt--arxiv-2407-04620",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/5e7a795d89910634f001cc3a631023f1dd4e2e23",
@@ -1883,6 +2120,14 @@
     {
       "source": "transformerfam--arxiv-2404-09173",
       "target": "compressive-transformer--arxiv-1911-05507",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2404.09173",
+      "isInfluential": true
+    },
+    {
+      "source": "transformerfam--arxiv-2404-09173",
+      "target": "lora--arxiv-2106-09685",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2404.09173",

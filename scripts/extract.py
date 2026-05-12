@@ -149,6 +149,13 @@ CANONICAL_SECTIONS = {
     "Memory observability & monitoring",
     "Memory governance, privacy & safety",
     "Theoretical / informal — ideas without a paper",
+    # New sections added in Round 7 (2026-05-12 scope expansion)
+    "Training infrastructure",
+    "Search platforms (non-memory)",
+    "Agent frameworks (no first-party memory layer)",
+    "Inference platforms & gateways",
+    "Embedding & reranker services",
+    "Evaluation & observability platforms",
 }
 
 # Status enum values.

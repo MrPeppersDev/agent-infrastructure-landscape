@@ -14,6 +14,104 @@ that were on the table.
 
 ---
 
+## 2026-05-12: Round 7 ingestion — six new sections, 176 new rows
+
+**What.** Round 7 of the catalog ingestion executes the scope expansion
+authorised on the same date (see prior entry). Six new top-level sections
+land in the catalog, populated with 176 new rows:
+
+1. Training infrastructure (51 rows)
+2. Search platforms (non-memory) (15 rows)
+3. Agent frameworks (no first-party memory layer) (39 rows)
+4. Inference platforms & gateways (15 rows)
+5. Embedding & reranker services (11 rows)
+6. Evaluation & observability platforms (15 rows)
+
+Plus 30 additional rows pushed into existing memory-shaped sections
+(Dedicated memory layers, Framework-embedded memory, Retrieval-as-memory
+hybrids, Recent method papers' five subsections).
+
+**Final catalog: 699 records, 26 sections.**
+
+**Why split into six new sections rather than fewer.** Each of the six
+captures a distinct buyer-question / substrate role:
+
+- *Training infrastructure* answers "where will I train / fine-tune". 
+- *Search platforms (non-memory)* answers "where will I run a non-memory
+  vector / search workload". Distinct from "Vector-database infrastructure"
+  (which exists for substrates beneath memory products) — having both lets
+  readers find a vector DB whether or not memory is the lens.
+- *Agent frameworks (no first-party memory layer)* answers "which
+  framework will I build my agent on". This is a different angle on
+  systems also covered by Framework-embedded memory; see cross-listings
+  policy below.
+- *Inference platforms & gateways* answers "where will I host LLM
+  inference / how will I route LLM calls". Separated from training
+  infrastructure because the buyer's question is genuinely distinct;
+  inference + gateway costs dominate operational ML budgets, training
+  infra is mostly upfront.
+- *Embedding & reranker services* answers "which embedding/reranker
+  API am I using". Distinct from inference platforms because the
+  procurement and SLO conversation is different (embedding APIs are
+  bursty short-request; LLM inference is long-context streaming).
+- *Evaluation & observability platforms* answers "how will I watch
+  and grade my agent in production". Distinct from the memory-specific
+  "Memory observability & monitoring" section, which focuses on
+  poisoning detection, memory-quality dashboards, and provenance —
+  not generic LLM tracing.
+
+**Cross-listings policy.** Two flavours of cross-listing now exist:
+
+1. *"Same product, two framings"* (original Round 4 convention): one
+   record, multiple section memberships, tracked in
+   `extraction/cross-listings.json`. Used when the same URL is genuinely
+   described differently in two sections (e.g. Mem0 + AgentOps as
+   memory-product vs observability lens of the same product).
+2. *"Two distinct framings of the same vendor"* (Round 7 convention):
+   two separate records, each with its own primary section, linked by
+   future descent / same-team-as edges. Used for major frameworks
+   (LangChain, LangGraph, LlamaIndex, AutoGen, CrewAI) where the
+   memory subsystem and the framework-as-orchestrator are genuinely
+   different products that ship side-by-side.
+
+Choice was made per-system based on whether the cross-section content
+would be substantively different. For agent frameworks, the memory
+row characterises memory primitives, and the agent-framework row
+characterises orchestration / tool calls — these are different enough
+to warrant separate cells across all 60 columns. The original
+cross-listings (Mem0, Zep, Memobase, MemoryBench) were lenses of the
+*same* shipped artefact; the new ones are *paired* artefacts of the
+same vendor.
+
+**Trade-offs and known issues.**
+
+- *render.py drops cross-listing rows on round-trip.* This is a
+  pre-existing limitation surfaced by Round 7's larger run. render.py
+  emits each record once under its primary section with a
+  `cross-listed` marker; re-extracting that HTML loses the secondary
+  section. To preserve cross-listings, Round 7 skips render.py —
+  the canonical landscape.html is hand-inserted, and json/edges are
+  derived from it. Path B (HTML is source, JSON is derived) remains
+  active. A future render.py fix would emit one row per section
+  membership (with deduplication on the JSON side).
+- *Per-cell research depth varies.* The 176 new rows have headline
+  cells (desc, claims, created, license, founders, funding) populated
+  with citations where data is plentiful; the long tail of 60 columns
+  is mostly depth-floor-reached. This matches the user's "everything
+  we can get our hands on" framing: prefer breadth of coverage over
+  depth per cell. Round 8+ can deepen the most-trafficked entries.
+
+**Reversal cost.** Medium. Sections are easy to drop (remove from
+section-explainers.json and CANONICAL_SECTIONS, regenerate). Records
+are easy to drop (delete rows from landscape.html, regenerate).
+Cross-listing decisions for the new agent-framework rows can be
+flipped into proper cross-listings via reconcile rules.
+
+**Files changed.** See `extraction/round-7-ingestion.md` for a
+per-row inventory and source citations.
+
+---
+
 ## 2026-05-08: Five-phase build plan
 
 **What.** Build the navigability layer in five phases: (1) data extraction,

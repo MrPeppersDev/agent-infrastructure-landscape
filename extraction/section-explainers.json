@@ -209,6 +209,42 @@
       "subsection": null,
       "explainer": "Ideas that exist only as tweets, blog posts, talks, or RFCs — no paper, no implementation. The earliest stage of the funnel: pure speculation, but where the next generation of papers is seeded. Populate with named concepts as you encounter them.",
       "sub_style": null
+    },
+    {
+      "section": "Training infrastructure",
+      "subsection": null,
+      "explainer": "Fine-tuning platforms, RLHF stacks, dataset stores, label tools, training-data versioning, distributed training systems, and synthetic-data generation — the layer underneath every memory model. Added in the 2026-05-12 scope expansion: many of these systems touch memory-relevant artefacts (long-context training runs, dataset versioning for replay buffers, RLHF reward models that condition on memory). Coverage here is broad-not-deep — read as a substrate map, not a head-to-head comparison.",
+      "sub_style": null
+    },
+    {
+      "section": "Search platforms (non-memory)",
+      "subsection": null,
+      "explainer": "Vector databases, hybrid search engines, embedding services, and search-as-a-service platforms that are not primarily pitched as memory products. Distinct from the 'Vector-database infrastructure' section, which collects substrates known to underlie memory products; this section catches the broader retrieval-infra layer including pure search platforms (Algolia, Elastic, Typesense, Meilisearch), embedding API services (Cohere Embed, Voyage, Jina, Nomic), and managed-cloud SKUs of vector DBs already in the catalog.",
+      "sub_style": null
+    },
+    {
+      "section": "Agent frameworks (no first-party memory layer)",
+      "subsection": null,
+      "explainer": "Agent orchestration, tool-calling, and workflow-engine frameworks whose primary value is not memory — even when they ship a memory adapter, the framework is the product. Distinct from 'Framework-embedded memory' (where the row characterises the framework's own memory subsystem) — this section's rows characterise the framework's orchestration / agent abstraction, with memory as a downstream adapter concern. Some entries here are cross-listings of rows that also appear in Framework-embedded memory.",
+      "sub_style": null
+    },
+    {
+      "section": "Inference platforms & gateways",
+      "subsection": null,
+      "explainer": "Inference-as-a-service platforms (Replicate, Modal, Together, Anyscale, Baseten, Fireworks) and LLM gateways / proxies / routers (LiteLLM, OpenRouter, Portkey, Helicone Gateway). The layer beneath every memory product that calls an LLM — relevant because the gateway's caching, observability, and multi-tenancy stories interact with the memory system's recall path.",
+      "sub_style": null
+    },
+    {
+      "section": "Embedding & reranker services",
+      "subsection": null,
+      "explainer": "Hosted embedding APIs and reranker services (Cohere Embed, Voyage AI, OpenAI Embeddings, Jina, Nomic, Mixedbread). Distinct from open-weight embedding model entries elsewhere — this section characterises the managed-API tier. Every vector-recall memory product chooses an embedding service (or a self-hosted alternative); this is the menu.",
+      "sub_style": null
+    },
+    {
+      "section": "Evaluation & observability platforms",
+      "subsection": null,
+      "explainer": "LLM/agent evaluation, tracing, and observability platforms (LangSmith, LangFuse, Helicone, Phoenix, Galileo, Patronus, Confident AI, TruEra). Distinct from the memory-specific 'Memory observability & monitoring' section (which focuses on memory-quality dashboards, poisoning detection). This section is for general-purpose eval/observe tooling that any agent — memory-enabled or not — would adopt.",
+      "sub_style": null
     }
   ]
 }
