@@ -14,6 +14,60 @@ that were on the table.
 
 ---
 
+## 2026-05-12: Round 8 — survivorship Unknown-bucket OSS enrichment (79 rows)
+
+**What.** Filled the `last-commit` signal for every row currently sitting in
+the survivorship view's `Unknown — OSS but signal-too-weak` sub-bucket (79
+records) by pulling `pushed_at` / `archived` / `stargazers_count` from the
+GitHub REST API and writing it into each row's `code-release` cell in
+`landscape.html`. After re-extraction, all 79 left the Unknown bucket and
+the sub-bucket count dropped to 0.
+
+**Rules used to identify the 79.** Reproduced `classify()` from
+`web/src/lib/analyses/survivorship.ts` in Python and selected every record
+where `status == 'unknown' && unknownSub == 'oss-weak-signal'`. That sub-bucket
+fires when (a) the record is not Tier 3-5 research, (b) `latest-release` and
+`code-release` carry no parseable date and any `created` date is >12mo old
+and >6mo old, and (c) `hasGitHubPresence()` returns true — i.e. an explicit
+`github.com` / `gitlab` URL in `cells.gh.value/.citation` or
+`cells['code-release'].value/.citation`, OR a star-count phrasing like
+"123 stars", OR an OSS license (apache/mit/bsd/gpl/mpl/agpl/open-source) on
+the `license` cell. The license-based path is why 36 of the 79 rows had no
+explicit GitHub URL in their cells — for those we mapped each row to its
+canonical upstream repo manually (see `/tmp/manual_gh_map.py`).
+
+**Cell format.** Replaced each row's `<td class="code-release">` with
+`{Active|Stale|Abandoned|Archived} — last commit YYYY-MM · {stars}★`. The
+status label is computed against the 12mo / 24mo bucket boundaries used by
+`survivorship.ts`; "Archived" overrides bucket label when GitHub reports
+`archived=true`. The cell's citation `<a class="cite" href="...">` always
+points at the canonical `github.com/{owner}/{repo}` URL so downstream
+parsers (Round 23 / influence-vs-adoption logic) can re-derive owner/repo.
+`cells.gh.value` (star count + cite link) is NOT touched.
+
+**gh-cache decision.** Committed `extraction/gh-cache/` to git for the same
+reason `extraction/s2-cache/` is committed: reproducibility of the data
+pipeline without forcing a fresh GitHub API hit on every reviewer's machine
+(API has rate limits; the cache makes Round 8 deterministically reproducible
+in seconds). Each file is `{owner}__{repo}.json` containing only the fields
+we use (`pushed_at`, `updated_at`, `stargazers_count`, `archived`, `disabled`,
+`fork`, `default_branch`, `description`, `created_at`, `full_name`). 79 files,
+~30-50KB total. Mirrors the s2-cache pattern.
+
+**Outcome (counts).** Before Round 8 the survivorship distribution was Active 80,
+Stale 1, Abandoned 0, Unknown 321, Research 297; sub-buckets inside Unknown
+were closed-source 242, oss-weak-signal 79, newly-created 0, na 0. After
+Round 8: Active 156 (+76), Stale 4 (+3), Abandoned 0, Unknown 242 (-79),
+Research 297. The Unknown floor is now `closed-source = 242` — proprietary
+products with no public release cadence. That is a structural ceiling on
+survivorship-view observability, not a catalog gap.
+
+**Reversal cost.** Low. The 79 cells are byte-stable diffs in `landscape.html`;
+reverting is `git revert`. The gh-cache directory can be re-fetched in ~30s
+from cold.
+
+---
+
 ## 2026-05-12: analysis.md v2 — refreshed against Round 7 data (699-record delta)
 
 **What.** Second-pass refresh of `analysis.md` against the post-Round-7
