@@ -1389,3 +1389,90 @@ share-cards) will reuse `topBy()` + `extractNumber()` for static
 **Reversal cost.** Low. The page is two files plus one library; nothing
 else imports them. Re-tuning extraction is a single-function edit.
 Adding a curated board is ~15 lines in the page.
+
+---
+
+## 2026-05-07: Section-stats page (issue #15)
+
+**What.** Shipped `/sections` with a compare panel + responsive grid of
+all 20 section cards. Aggregation lives in `web/src/lib/section-stats.ts`
+as pure functions over `LandscapeRecord[]`; the view is a single Svelte
+file (`web/src/routes/sections/+page.svelte`).
+
+**Per-section card content.**
+- Row count
+- Tier sparkline (5 bars, T1..T5) — heights scaled to the **global**
+  max-tier-count across all sections, so a 1-row section's tier bar
+  isn't visually as tall as a 50-row section's.
+- 4 numeric medians: citations, GH stars, funding, mindshare
+- 7 taxonomy axis distributions (storage, retrieval, persistence,
+  update, unit, governance, conflict) — horizontal mini bars, top-3
+  + "+ N other" rollup so the long tail is acknowledged without
+  blowing out card height
+- License + deployment distributions, top-3 each, using the existing
+  `canonicaliseLicense` / `canonicaliseDeployment` helpers from
+  `stores/filters.ts`
+
+**Compare mode.** Two `<select>`s above the grid, default to the two
+largest sections. Side-by-side cards show the same data plus signed
+deltas on the four median metrics (green up, red down). Deltas are
+sectionB − sectionA on card A and the inverse on card B, so each card's
+delta reads as "vs. the other one".
+
+**Number extraction.** Local `parseNumber(cell)` in `section-stats.ts`.
+First-number-wins with optional `$`/`€`/`£` prefix, `k`/`m`/`b`/`t`
+suffix, comma stripping; null on `status !== 'real-data'`. Differs from
+issue #14's `extractNumber` in that we don't special-case the
+`"0 (too recent — ...)"` sentinel — for medians, the few stray zeros
+are absorbed; for top-N rankings, they'd pollute the top. The two
+helpers should converge into `lib/numeric.ts` in a follow-up PR.
+
+**Filter-store integration.** The page reads the global `filters` store
+and re-aggregates inside a `$derived`. Toggling filters on the table
+view and navigating to /sections shows scoped aggregates. A "filtered"
+tag in the header signals the scope. No rail is rendered on this page
+(the rail lives in the table view).
+
+**Why one Svelte file rather than sub-components.** The card is rendered
+twice in the compare panel and once per section in the grid — but the
+DOM shape diverges (compare adds the delta column and the
+license/deployment block) and the component would need a slot soup of
+"is this the compare variant?" props. Inlining is clearer at this
+size. The Phase-4 graph will not consume the rendered card — it'll pull
+from the pure helpers in `section-stats.ts` (`aggregateAllSections`,
+`topNWithOther`, `formatCompact`) for tooltips and cluster overlays.
+
+**Tier-bar global scaling — why.** Per-card scaling makes T-mix shape
+read incorrectly: an 8-row section concentrated entirely in T1 has a
+full-height T1 bar that *looks* identical to the full-height T1 bar of
+a 50-row T1-concentrated section. Global scaling preserves the "how
+much of the catalog is this section" signal alongside the "what's its
+internal tier mix" signal.
+
+**Top-3 + other rollup.** Some axes (storage especially) have 12+
+distinct values across the catalog. The cards collapse to top-3 with
+"+ N other (count)" for the tail. The user can drill via the table
+view's facet rail for the full distribution; the card surfaces the
+shape, not the long tail.
+
+**Reused by Phase 4 (graph).**
+- `parseNumber` → node tooltips, "size by funding" overlay
+- `aggregateAllSections` → cluster summaries on hover
+- `topNWithOther` → side-panel histograms when a cluster is selected
+- `formatCompact` → universal number formatter for graph labels
+
+**Options rejected.**
+- *Mean instead of median.* Funding & citations are heavy-tailed; one
+  outlier dominates. Median is the right default.
+- *D3 / chart library.* SVG-less divs with percentage widths render
+  in ~25 lines of CSS; a library would add ≥ 30 KB for nothing.
+- *Per-card tier scale.* Misleading (see above).
+- *Separate `/sections/compare` route.* Forces a click-and-load when
+  the same page can host both. Compare panel sits on top, grid below.
+- *Section ordering by name alphabetical.* Sorted by `rowCount` desc
+  so the most populous catalog areas anchor the top of the grid.
+
+**Reversal cost.** Low. The view is one file; the helpers are pure
+and ~200 lines. Layout tweaks are CSS-only. Adding a new aggregated
+metric is two lines (one in `SectionAggregate`, one in
+`aggregateSection`) plus a row in the card markup.
