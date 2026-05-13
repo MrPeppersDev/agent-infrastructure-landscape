@@ -5523,3 +5523,152 @@ sales/GTM are the closest candidates).
 `section-explainers.json`, the `Use-case-specific agent harnesses`
 member of `CANONICAL_SECTIONS` and `SECTIONS_WITH_SUBS`, revert the
 HTML insertion block, re-run the pipeline.
+
+---
+
+## 2026-05-13: Analysis refresh v4 — against 859-record catalog, five-layer model, lineage re-detection
+
+**Inputs.** `web/landscape.json` (859 records, 31 sections) +
+`web/landscape.edges.json` (313 edges) at the head of main after
+Rounds 11/12/13 ingestion. Three Round-summary ingestion files
+(`extraction/round-11-ingestion.md`, `extraction/round-12-ingestion.md`,
+`scripts/round13_generate.py`) and the seven 2026-05-13 entries
+(Round 11 ingestion, Round 12 hygiene, Round 12 expansion, Round 13
+expansion, project rename) above were the inputs to the v4 refresh.
+
+### What v4 changed in `analysis.md`
+
+1. **Title and framing.** Document title was "AI Memory Systems —
+   Analysis" → "AI Agent Infrastructure Landscape — Analysis," per
+   the 2026-05-13 rename entry. v4 note added at top.
+2. **New v4 executive summary** (seven bullets) replacing the v3
+   summary at the top; v3 summary preserved below for diff history.
+3. **§1.1 storage primitive table** re-counted against 859 rows. New
+   primitives noted: `none-trivial` (86, dominant in Round-13
+   verticals) and `weight` (15, robotics FMs).
+4. **§1.1.a / §1.1.b** — added a v4 subsection describing the four
+   new sections from Rounds 11-13 (Agent IDEs & coding harnesses;
+   Computer-use & desktop agents; Voice agent platforms; Robotics
+   foundation models). Legacy v2 section-stats kept as-is for
+   historical baseline.
+5. **§2.1 (GitHub stars)** — added Browser Use (~60k★ ETH-Zurich,
+   $17M seed) note; cross-referenced LeRobot at 10k★.
+6. **§2.3 (Integration hubs)** — re-counted at 313 edges. LangChain
+   (framework) moved from 0 inbound (v3) to 7 inbound (v4) thanks to
+   Round-12 disambiguation. Mem0 stays at 12. Top 10 hubs explicitly
+   listed.
+7. **§3 (Lineages) — full re-detection.** See lineage section below.
+8. **§4.1 (Valuation pyramid)** — added Round 11-13 funding entries:
+   Figure AI $39.5B reported (15× in 16 months), Cursor $9.9B,
+   Physical Intelligence $2.4B / $400M Series A, ElevenLabs $3.3B /
+   $180M Series C, LiveKit $300M / $45M Series B (Apache 2.0 OSS
+   substrate), Vapi $130M, Covariant Amazon acqui-hire Aug-2024,
+   Browser Use $17M seed, Cartesia $64M Series A.
+9. **Four new top-level sections added at the tail (§15–§18):**
+   - §15 — The five-layer model (memory / harness / IDE / agent
+     framework / operating environment / vertical), with substrate↔
+     harness pairings table.
+   - §16 — Use-case verticals (Round 13, 87 rows, 7 sub-domains).
+     Compare with existing *Vertical / domain-specific AI memory*
+     section — note when each section applies.
+   - §17 — Robotics + voice as new architectural frontiers:
+     openness gradient (NVIDIA GR00T N1 open weights > Physical
+     Intelligence partial > Figure / DeepMind closed), latency bands
+     for voice platforms, hardware-software substrate splits.
+   - §18 — What "agent infrastructure" now means: per-layer row
+     counts; memory is ~30% of catalog and is no longer the
+     denominator. The rename moment.
+10. **§14 (Honest limitations)** — added v4 limitations 8-9 (edge
+    graph sparsity ratio, commercial-product cell-mining floors).
+
+### Lineage re-detection approach (v4)
+
+`web/src/lib/lineages.ts` was translated to Python at
+`.agent-results/lineage_detect_v4.py` (reproducible script kept under
+.agent-results, not under scripts/ to avoid the validate-determinism
+pipeline). Same algorithm:
+
+1. **Curated seeds** (4 total in v4): RSSM, Graph-RAG (descent kind,
+   expanded by BFS depth-2 over descent edges); Files-as-memory,
+   Specs-as-memory (pattern kind, expanded by section membership +
+   explicit member lists). Specs-as-memory was added in Round-12
+   hygiene as the 4th curated seed.
+2. **Auto-discovery** (union-find over remaining nodes with descent
+   edges only): components of size ≥3 retained.
+
+**Results.**
+
+- **Total lineages of size ≥3: 10** (was 9 in v3, 8 in v2.1).
+- **Curated 4 / auto 6.**
+- The new curated lineage is Specs-as-memory (5: Kiro, Windsurf,
+  Devin Spec Mode, Cline Memory Bank, Roo Code).
+- **RLHF / agent-RL fragment grew from 3 to 5** (was DPO + GRPO +
+  SEAgent in v3; v4 adds UI-TARS and LearnAct). The name should
+  evolve to "agent-RL descent fragment" — pure RLHF is no longer
+  the right framing.
+- **SSM remained zero internal edges** — final v4 verdict is
+  parallel-evolution pattern, not descent. Recommended to curate as
+  a pattern seed in a future revision.
+- **Stanford-agents remained 3** (no growth).
+- **Browser-agent commercial** (Browser Use → Stagehand → Hyperbrowser):
+  **did not auto-emerge** — zero internal descent edges among the 13
+  Computer-use rows. Parallel implementations, not a chain.
+- **Robotics-FM commercial** (π0 → π0.5 → GR00T): **did not
+  auto-emerge** — zero internal descent edges among the 15 robotics
+  rows. Commercial humanoid companies don't cite each other.
+- **Voice-platform substrate** (LiveKit ⊂ OpenAI Realtime): same —
+  documented in marketing text but not surfaced as edges. Would
+  require extending the edge-disambiguation table to LiveKit /
+  Pipecat / GR00T (recommended in §3.4).
+
+### Five-layer model rationale
+
+Round 12 explicitly surfaced *operating environment* as a fifth
+product layer (Round 12 ingestion notes "Possible new lineages /
+What's locked in for Track A v4" section). The four-layer view
+(memory / harness / IDE / agent-runtime) was incomplete because it
+didn't separate the substrate the agent acts *in* (browser, telephony,
+robot body) from the substrate the agent runs *on* (LLM runtime,
+framework). The fifth layer fixes this.
+
+Substrate↔harness pairings are now first-class analytical objects.
+The earlier "Mem0 = integration hub, GraphRAG = citation hub" finding
+fits as the *layer-1* (memory) variant; the v4 analysis identifies
+analogous *layer-4* hubs (LiveKit voice, Anthropic Computer Use
+browser, NVIDIA GR00T robotics, MCP universal transport).
+
+The model is a useful lens for "which layer is X competing in?" but
+**not** a vendor-classification taxonomy — most vendors cross layers
+in strategy (Vapi at layers 2 + 4; Anthropic at 1 + 2 + 4; etc.).
+The catalog correctly treats vendors as single records and asks the
+layer question per attribute, not per row.
+
+### What this v4 refresh is NOT
+
+- **Not a re-run of the pipeline.** No edits to `landscape.json`,
+  `landscape.edges.json`, `landscape.html`, `web/src/*`, or
+  `scripts/*`. Analysis-only.
+- **Not a re-render.** The hand-inserted HTML in `landscape.html`
+  remains canonical per the cross-listings convention.
+- **Not a fresh cell-miner pass.** The 313-edge count is the post-
+  Round-13 state; no new edges were surfaced by v4.
+
+### Reversal cost
+
+Low. Revert `analysis.md` to the v3 state; delete this DECISIONS.md
+entry; delete `.agent-results/lineage_detect_v4.py`. No pipeline
+changes to undo.
+
+### What v4 recommends for the next pass
+
+1. **Curate SSM as a pattern-kind seed** (Hyena + Mamba + Mamba-2
+   + Jamba + RWKV-7). Strongest no-edge candidate.
+2. **Curate Browser-agent and Robotics-FM as pattern-kind seeds.**
+3. **Extend `extraction/edge-disambiguation.json`** to LiveKit,
+   Pipecat, GR00T, π0, OpenPI — these substrates are cited in
+   downstream marketing text but discarded as ambiguous-substring.
+4. **Consider promoting a sub-group of Round 13** (Security or
+   Sales-GTM) to top-level if it reaches ~30 rows of dense T1/T2.
+5. **Add a per-layer leaderboards page** to the web app that
+   uses the v4 five-layer assignment. Layer-2 (harness) leaderboard
+   by ARR; Layer-4 (operating environment) leaderboard by mindshare.

@@ -1,4 +1,11 @@
-# AI Memory Systems — Analysis (table-grounded)
+# AI Agent Infrastructure Landscape — Analysis (table-grounded)
+
+> **✶ v4 — project renamed (2026-05-13).** This document was previously
+> titled "AI Memory Systems — Analysis." The catalog now spans 859
+> records across 31 sections — memory is ~30–35% of the rows. The
+> rename to *AI Agent Infrastructure Landscape* (see DECISIONS.md
+> 2026-05-13) acknowledges what's actually here. Memory analysis is
+> still the most-developed downstream lens but no longer the framing.
 
 This is the analytical layer over `landscape.json` (and its rendered
 `landscape.html`). **Every numeric claim in this document is verifiable
@@ -6,20 +13,100 @@ in the catalog** — find the row, look at the cited column, follow the
 `↗` source link. Findings new to the v2 refresh (2026-05) are marked
 **✶ v2**. Findings new to the v2.1 delta refresh against the Round 7
 699-record catalog (2026-05-12) are marked **✶ v2.1**. Findings new to
-the v3 refresh against the now-100%-terminal catalog (2026-05-13,
-git sha `8a4e3c8`) are marked **✶ v3**.
+the v3 refresh against the 100%-terminal 699-record catalog (2026-05-13
+git sha `8a4e3c8`) are marked **✶ v3**. Findings new to the v4 refresh
+against the 859-record catalog (2026-05-13, post-Rounds-11/12/13) are
+marked **✶ v4**.
 
-> **✶ v3 — note on a parallel ingestion in flight.** As of git sha
-> `8a4e3c8`, a sibling agent is running an "agentic-harness ingestion"
-> round that will add ~25–40 new rows in a new *Agent IDEs & coding
-> harnesses* section. This v3 refresh is written against the 699-record
-> state at start-time. By the time you read this the catalog may be
-> 725+ records; **an addendum will follow** once that ingestion lands.
-> Track A intentionally does not wait — every numeric claim below is
-> sourced from `web/landscape.json` + `web/landscape.edges.json` at
-> `8a4e3c8`.
+## ✶ v4 Executive summary (against 859-record catalog, 31 sections, 313 edges)
 
-## ✶ v3 Executive summary (against 100%-terminal 699-record catalog)
+Seven things a reader should take away before scrolling further:
+
+1. **✶ v4 The catalog is 859 records across 31 sections** — up from
+   699/26 in v3 by **+160 records**: Round 11 (+32, *Agent IDEs &
+   coding harnesses*), Round 12 (+41, *Computer-use & desktop agents*
+   + *Voice agent platforms* + *Robotics foundation models & agent
+   stacks*), Round 13 (+87, *Use-case-specific agent harnesses*
+   covering Security / Legal / Compliance / SRE-DevOps / Sales /
+   Scientific / Finance). **Tier split is now T1=260 / T2=250 /
+   T3=192 / T4=144 / T5=13** (was 211/191/140/144/13 in v3). The
+   expansion was concentrated in T1/T2 commercial products — the
+   adjacent infrastructure ring has filled with vendors, not papers.
+   Section count moved from 26 → 27 (Round 11) → 30 (Round 12) → 31
+   (Round 13).
+2. **✶ v4 Cell totals: 859 × 60 = 51,540 cells. Real-data 18,009 /
+   not-applicable 21,961 / depth-floor 11,570.** Zero
+   no-data-with-no-explanation. The 100%-terminal guarantee from v3
+   survives the 160-row expansion. Real-data cells grew by 3,511 since
+   v3 (14,498 → 18,009); not-applicable grew by 5,474; depth-floor by
+   615. The shape of the expansion: new T1/T2 commercial rows raise
+   real-data populations on funding/customers/mindshare and raise
+   not-applicable populations on perf/citations.
+3. **✶ v4 Edge graph is now 313** (was 299/v3, 278/v2.1, 247/v2):
+   239 cites (all influential) + 41 integrates-with + 22 built-on +
+   3 extends + 3 competes-with + 2 same-team-as + 2 forks +
+   1 succeeds. **Round-12 categorization-hygiene disambiguation
+   surfaced 11 new edges** (298 → 309) by resolving previously-discarded
+   `ambiguous-substring: langchain / claude / strands / langgraph`
+   mentions; the +4 between 309 and 313 came from Rounds 11/12/13
+   ingestion neighbours. **LangChain (framework) jumped from 0 inbound
+   to 7 — it is now the #2 integration hub** behind Mem0 (still 12).
+4. **✶ v4 Lineage re-detection: 10 lineages of size ≥3** (was 9 in v3,
+   8 in v2.1). 4 curated (RSSM 5, Graph-RAG 21, Files-as-memory 32,
+   **Specs-as-memory 5 — new curated seed**) + 6 auto-discovered
+   (EWC-anchored backbone 117, **DPO/RLHF descent fragment grew from
+   3→5 nodes — added UI-TARS and LearnAct**, Qdrant cluster 4,
+   FalkorDB cluster 4, JEPA 3, Milvus/ReMEmbR 3). **SSM (Hyena →
+   Mamba → Mamba-2 → Jamba → RWKV-7) STILL has zero internal edges**
+   — six rows present, no internal cites; the parallel-evolution
+   reading is now the final verdict, not a candidate. **Stanford
+   agents (ExpeL → Reflexion → Self-Refine) remained at 3, no new
+   members.** **New commercial lineages requested in the brief
+   (Browser Use → Stagehand → Hyperbrowser; π0 → π0.5 → GR00T) did
+   NOT auto-emerge** — Round 12 added the rows but cell-mining
+   surfaced no internal descent edges among the new computer-use /
+   robotics rows.
+5. **✶ v4 Top-10 integration hubs by inbound (all edge types):**
+   (1) **Mem0 12**, (1) **GraphRAG (Microsoft) 12 — tied**,
+   (3) **MemGPT v2 / agent-tools 10**, (3) Compressive Transformer 10,
+   (5) LoCoMo 9, (5) A-MEM 9, (7) Transformer-XL 8, (8) **LangChain
+   (framework) 7 ✶ v4 — was zero in v3**, (8) Zep & Graphiti 7,
+   (8) Generative Agents 7. **The crown is still split**: Mem0 (12
+   integrations) and GraphRAG (12 cites, 11 influential + 1 extends);
+   LangChain enters the top 10 thanks to disambiguation.
+6. **✶ v4 The five-layer model.** Round 12 surfaced a fifth product
+   layer — **operating environment** — distinct from memory / harness
+   / IDE / agent-runtime. The substrate↔harness pairings are now
+   first-class analytical objects: Anthropic Computer Use ↔ Claude
+   for Chrome / Operator / Mariner; NVIDIA GR00T N1 ↔ Apptronik /
+   Figure / 1X; LiveKit ↔ OpenAI Realtime / Vapi / Retell; Anthropic
+   MCP ↔ many harnesses. **See new §15.** The earlier "Mem0 is the
+   integration hub, GraphRAG is the citation hub" finding now sits
+   inside this — those are *memory-layer* hubs, distinct from runtime /
+   environment / harness hubs.
+7. **✶ v4 Three structural inversions and one valuation ramp visible
+   in the new data:**
+   - **NVIDIA GR00T N1 open weights (Mar 2025)** flips the openness
+     gradient: NVIDIA (silicon vendor, open) > Physical Intelligence
+     (FM lab, partial open) > Figure / DeepMind (closed). The hardware
+     vendor going more open than the AI labs is a notable inversion.
+   - **LiveKit (Apache-2.0 OSS) is the WebRTC backbone for OpenAI's
+     Realtime API** — an OSS framework is the production substrate of
+     a hyperscaler's flagship voice API. Direction-of-build inverted
+     from "hyperscaler ships proprietary backbone" to "hyperscaler
+     adopts OSS substrate."
+   - **Browser Use (~60k stars, $17M seed)** is the most-starred
+     AI-agent OSS of 2025 — ETH Zurich-founded. The browser-control
+     mindshare crown is European-research origin, not US Big Tech.
+   - **Figure AI: $2.6B (Feb 2024) → $39.5B (Q2 2025), 15× in
+     16 months** — fastest humanoid valuation ramp on record;
+     Physical Intelligence raised $400M Series A 8 months after
+     founding at $2.4B; **Covariant Amazon acqui-hire Aug-2024**;
+     **ElevenLabs $180M Series C at $3.3B Jan-2025**.
+
+---
+
+## ✶ v3 Executive summary (preserved against 100%-terminal 699-record catalog)
 
 Six things a reader should take away before scrolling further:
 
@@ -93,12 +180,13 @@ Six things a reader should take away before scrolling further:
 - **(Performance)** — Benchmark scores; ⚠ marks disputed claims (cell `perf`)
 - **(Mindshare)** — Inbound integrations + package downloads + jobs + press (cell `mindshare`)
 - **(Citations)** — Total + per-year via Semantic Scholar (cell `citations`)
-- **(Edges)** — `landscape.edges.json`, **299 edges** ✶ v3 (236 cites
-  — all influential; 32 integrates-with; 22 built-on; 3 extends;
-  2 forks; 2 same-team-as; 1 succeeds; 1 competes-with). Round 9's
-  cell-miner re-run added 20 cite edges (278 → 298) and a single
-  `competes-with` edge surfaced in cleanup, bringing the total to 299.
-  *(v2.1: 278; v2: 247.)*
+- **(Edges)** — `landscape.edges.json`, **313 edges** ✶ v4 (239 cites
+  — all influential; 41 integrates-with; 22 built-on; 3 competes-with;
+  3 extends; 2 same-team-as; 2 forks; 1 succeeds). Round-12
+  categorization-hygiene disambiguation lifted the integrates-with
+  count from 32 → 41 (mostly LangChain inbound recovered). Rounds
+  11/12/13 ingestion added ~4 more cites neighbours via
+  `fetch_citations --offline`. *(v3: 299; v2.1: 278; v2: 247.)*
 
 ### Cell population — what's "—" means: dash means "no public data," not "the system has zero."
 
@@ -115,7 +203,7 @@ terminal-with-a-reason. See §13 for the full quality ledger.
 | Tax-governance | **100% across all tiers** | Every record has a non-null governance tag (see §11.3) |
 | Citations | ✶ v3 expanded by Round 9 cite-edge pass | The cell-miner surfaced 20 new influential cite edges |
 | Funding / Customers / Perf / Mindshare | ✶ v3 deep-filled in Round 9 (Paths B1–B8) | Concrete numerics where they exist; depth-floor where they don't |
-| Whole-catalog cell counts | 14,498 real-data / 16,487 N/A / 10,955 depth-floor | Total = 41,940 = 699 × 60 |
+| Whole-catalog cell counts | ✶ v4 **18,009 real-data / 21,961 N/A / 11,570 depth-floor** | Total = 51,540 = 859 × 60 (was 41,940 in v3) |
 
 The v2 / v2.1 per-column count rows (GitHub 150, Funding 220,
 Customers 175, etc.) are retained as historical baselines for the
@@ -126,23 +214,25 @@ that form; the cell-count totals above are the corrected v3 view.
 
 ## 1. The architecture map (from taxonomy columns)
 
-### 1.1 ✶ v2.1 Storage primitive distribution across 699 rows
+### 1.1 ✶ v4 Storage primitive distribution across 859 rows
 
 Counted from the **Storage** column (taxonomy), all values (not just primary):
 
 | Primitive | Count (any) | Count (primary) | Where it dominates |
 |-----------|-------------|------------------|--------------------|
-| `vector` | 219 | 168 | Default everywhere; only primitive without a domain |
-| `n/a` ✶ v2.1 | **182** | **182** | **Training / inference / observability / agent-framework rows — most don't store memory at all** |
-| `graph` | 95 | 76 | Knowledge-graph products + Graph-RAG papers |
-| `kv` | 74 | 62 | KV stores + voice-agent slot-filling |
-| `file` | 61 | 55 | File-backed paradigms; coding agents; Karpathy thread |
+| `vector` | 220 | 168 | Default everywhere; only primitive without a domain |
+| `n/a` | **182** | **182** | Training / inference / observability / agent-framework rows — most don't store memory at all |
+| `kv` ✶ v4 | **107** | **95** | KV stores + voice-agent slot-filling + Round-12 voice-platform rows (Vapi, Retell, ElevenLabs Conv AI) |
+| `graph` | 97 | 78 | Knowledge-graph products + Graph-RAG papers |
+| `file` ✶ v4 | **89** | **79** | Files-as-memory + Round-11 harness rows (Cursor / Windsurf / Kiro) + Round-13 spec-driven verticals |
+| `none-trivial` ✶ v4 NEW | **86** | **86** | **Round-13 use-case-vertical harness rows** — session-only state, no memory layer to characterise |
 | `parametric` | 50 | 48 | Knowledge-editing + continual-learning papers |
 | `relational` | 47 | 28 | Pgvector / MongoDB / observability stack |
 | `hybrid` | 42 | 42 | Multi-primitive products (Mem0, Memory³) |
 | `kv-cache` | 33 | 29 | Transformer-internal compression papers |
+| `weight` ✶ v4 NEW | **15** | **15** | Robotics FM rows (π0, Helix, GR00T) — policy lives in network weights |
 | `proprietary` | 8 | 8 | Closed platform-provider rows |
-| `column` ✶ v2.1 | 5 | — | Columnar storage (Apache Arrow-shaped substrates) |
+| `column` | 5 | 0 | Columnar storage (Apache Arrow-shaped substrates) |
 
 **✶ v2.1 The `n/a` primitive went from 28 → 182.** That's the
 scope-expansion fingerprint: the 176 new Round 7 rows are mostly
@@ -152,6 +242,18 @@ generic vector DBs without a memory framing). The structural read is
 that **about a quarter of the catalog is now memory-adjacent rather
 than memory-shaped**, and the headline architecture distribution
 within the memory-shaped slice is unchanged from v2.
+
+**✶ v4 Two new "non-memory" primitives crystallised after Round 13.**
+`none-trivial` (86) is the dominant fingerprint of Round-13 use-case
+verticals — products where memory is session-scoped or hosted by the
+underlying LLM context, not a first-class architectural feature. `weight`
+(15) is the new primitive for robotics FMs where the agent's "memory"
+is its policy network parameters, not a queryable store. Combined with
+`n/a` (182), there are now **283 catalog rows (~33%) that explicitly do
+not implement a memory abstraction**. This is the v4 honest read: a
+third of the catalog is "agent infrastructure that does not own
+memory" — and the rename to *AI Agent Infrastructure Landscape*
+reflects exactly that.
 
 **Vector remains the memory-shaped commodity primitive** (within the
 ~517 memory-shaped rows, vector is ~32% of any-value entries — same
@@ -178,6 +280,40 @@ diversified across non-memory adjacencies.**
 The Claude Code mechanisms section is the **only** section where graph
 storage outnumbers vector — driven by the MCP-knowledge-graph plugin
 ecosystem and Graphiti MCP integrations.
+
+#### ✶ v4 Four new adjacent-product sections (Rounds 11-13)
+
+Round 11 added **Agent IDEs & coding harnesses** (32 rows — Kiro,
+Cursor, Windsurf, Zed, Claude Code, Codex CLI, Copilot Workspace,
+Amazon Q, JetBrains Junie, Cline, Aider, OpenHands, Manus, etc.).
+Storage fingerprint: predominantly `file` (per-session context files)
++ `none-trivial` (orchestration-only harnesses). Funding: heavy T1
+(13 rows). **Cursor at $9.9B / $200M ARR; Windsurf three-way M&A
+(OpenAI $3B → Google $2.4B → Cognition residual IP).**
+
+Round 12 added three sections (41 rows):
+- **Computer-use & desktop agents** (13) — OpenAI Operator, Browser
+  Use (60k★), Skyvern, Stagehand, Hyperbrowser, Steel.dev, Magnitude,
+  Bytebot, Lutra, Highlight, Claude for Chrome, Project Mariner,
+  UI-TARS. Storage fingerprint: predominantly `kv` slot-filling +
+  `file` for screen state.
+- **Voice agent platforms** (13) — Vapi, Retell, Bland, Synthflow,
+  ElevenLabs Conv AI, OpenAI Realtime, Pipecat, LiveKit Agents,
+  Cartesia Sonic, Hume EVI, Speechmatics Flow, CallRail, Vonage AI.
+  Storage fingerprint: dominant `kv` (turn-taking slot-fill) + ML
+  audio chains.
+- **Robotics foundation models & agent stacks** (15) — Physical
+  Intelligence π, Covariant, Figure AI, 1X, Apptronik, Agility
+  Robotics, Sanctuary AI, Cobot, TRI LBM, NVIDIA GR00T / Isaac,
+  DeepMind Gemini Robotics, LeRobot, K-Scale, OpenMind OM1, Pickle
+  Robot. Storage fingerprint: `weight` (policy in network) + `scene-graph`
+  for spatial layers.
+
+Round 13 added **Use-case-specific agent harnesses** (87 rows across
+7 sub-groups). Storage fingerprint: `none-trivial` dominates because
+these are domain-shaped *agents* whose memory layer (when present) is
+already documented elsewhere in the catalog — these rows characterise
+the user-facing harness. See §16.
 
 #### ✶ v2.1 The six new (Round 7) adjacent-infrastructure sections
 
@@ -333,6 +469,17 @@ specific plugin. The plugin itself never had that velocity.
 MemPalace remains a multi-column anomaly: created 2026-04, 51.3k stars
 in <1 month, 96.6% LMES with the ⚠ disputed flag still in the cell.
 
+**✶ v4 Browser Use enters the high-stars club** at ~60k+ stars (per
+Round 12 ingestion notes) — the most-starred AI-agent OSS of 2025,
+ETH-Zurich-founded (Magnus Müller + Gregor Žunič), $17M seed
+Mar-2025 (Felicis), MIT licence. Sits in the new
+*Computer-use & desktop agents* section. **The browser-control
+mindshare crown is European-research origin, not US Big Tech**;
+Stagehand (Browserbase's OSS) at 9k★ is the closest follower.
+LeRobot (Hugging Face) at 10k★ is the equivalent open-source anchor
+for the robotics layer. Together these three (Browser Use, LeRobot,
+Mem0) form the OSS commons across browser / robot / memory layers.
+
 ### 2.2 Stalled-but-high-stars (active research-paper-repo half-life)
 
 Visible in GitHub col as `<span class="signal-warn">stalled</span>`:
@@ -353,25 +500,38 @@ Computed directly from `landscape.edges.json` — counts inbound
 `integrates-with` + `built-on` + `extends` edges per target. This is
 the leaderboards page's "Highest inbound integrations" board.
 
+✶ v4 Re-counted against the 313-edge graph. Round-12 disambiguation
+recovered seven previously-discarded LangChain inbound edges; it is
+now the #2 hub:
+
 | Hub | Inbound | Notes |
 |-----|---------|-------|
-| **Mem0** | **12** | 2.4× #2; the only commercial memory layer with double-digit inbound |
-| LangGraph Persistence | 5 | Framework hub |
+| **Mem0** | **12** | Unchanged from v3; still the only dedicated memory layer with double-digit inbound |
+| **LangChain (framework)** ✶ v4 | **7** | **Was 0 in v3 due to `ambiguous-substring: langchain` discards.** Round-12 disambiguation table resolved ArangoDB, AWS Bedrock AgentCore Memory, Dgraph, Flowise, LangSmith, Memgraph, pgvector → langchain integrates-with edges |
+| LangGraph Persistence | 6 | Framework hub (was 5 in v3; +1 from disambiguation) |
 | Qdrant | 4 | Substrate |
 | Pinecone | 3 | Substrate |
 | pgvector | 3 | Substrate |
 | Zep & Graphiti | 3 | Pattern B sole representative |
 | Amazon Neptune Analytics | 3 | KG substrate |
 | Cognee | 2 | |
+| AWS Bedrock AgentCore Memory ✶ v4 | 2 | New row Round-11/12; references Mem0 + LangChain |
 | Hindsight (Vectorize) | 2 | |
 | MongoDB Atlas Vector Search | 2 | |
 | Chroma | 2 | |
 
-**Mem0's 12 inbound is the highest in the field on the integration-hub
-metric.** v1's claim of "12 inbound" verifies; the field around it has
-consolidated rather than caught up. Letta = 0 inbound in the edge
-graph, Cognee = 2, Memobase = 0. **Network effect at the integration
-layer is real and concentrated.**
+**✶ v4 Mem0 is still the integration-hub leader at 12, unchanged from
+v3.** Letta = 0 inbound in the edge graph, Cognee = 2, Memobase = 0.
+**LangChain at 7 is the v4 newcomer to the top-of-board** — but the
+finding is a *measurement* improvement, not a real shift: those edges
+were always there in the marketing language ("LangChain integration"
+on every framework's docs page) but the cell-miner's substring
+resolver had been discarding "LangChain" as ambiguous between
+LangChain-the-framework and LangMem-the-product. The disambiguation
+table introduced in Round-12 hygiene fixed it. **Network effect at the
+integration layer is real and concentrated — but its measurement
+ceiling is the cell-miner's resolution depth, not the underlying
+relationships.**
 
 #### ✶ v3 Mem0 vs GraphRAG — two shapes of centrality, same headline
 
@@ -460,17 +620,19 @@ mostly internal openings, not ecosystem demand).
 
 ---
 
-## 3. ✶ v3 Lineages — the descent map, re-detected against 299 edges
+## 3. ✶ v4 Lineages — the descent map, re-detected against 313 edges
 
-✶ v3 The KG now exposes **299 edges** (v2.1: 278; v2: 247). Filtering
-to descent-only (`built-on`, `extends`, `forks`, `succeeds`, and
-influential `cites`) yields **264 descent edges** that imply "B was
-built from A." Lineage detection was re-run against the v3 edge file
-using a Python translation of `web/src/lib/lineages.ts` (union-find
-with path compression + BFS depth-2 expansion for curated seeds; see
-DECISIONS.md for the approach). Detection runs in two passes:
-(1) curated seeds expanded by BFS depth-2, (2) union-find on the
-remainder, keeping components of size ≥3.
+✶ v4 The KG now exposes **313 edges** (v3: 299; v2.1: 278; v2: 247).
+Filtering to descent-only (`built-on`, `extends`, `forks`, `succeeds`,
+and influential `cites`) yields **267 descent edges** that imply "B was
+built from A." Lineage detection was re-run against the v4 edge file
+using a Python translation of `web/src/lib/lineages.ts` —
+`/tmp/lineage_detect.py` at git-sha-of-this-commit. Approach: union-find
+with path compression + BFS depth-2 expansion for curated seeds (see
+DECISIONS.md 2026-05-13 v4 entry). Detection runs in two passes:
+(1) curated seeds expanded by BFS depth-2 (descent kind) or by section
+union (pattern kind), (2) union-find on the remainder, keeping
+components of size ≥3.
 
 `lineages.ts` distinguishes two **kinds** of lineage:
 - **`descent`** — a parent → child chain in the structural-descent graph.
@@ -479,56 +641,89 @@ remainder, keeping components of size ≥3.
   shape by parallel evolution. No descent edges between members; the
   page draws dashed "parallel-implementations" connectors instead.
 
-### 3.1 ✶ v3 Curated lineages (3) — re-detected against 299 edges
+### 3.1 ✶ v4 Curated lineages (4) — re-detected against 313 edges
 
 | Lineage | Kind | Members | Composition |
 |---------|------|---------|-------------|
-| **RSSM / world-model family** | descent | 5 | DreamerV3 (anchor) → DIAMOND, PWM, R2I, Transformer-XL. *Unchanged from v2.1.* |
-| **Graph-RAG hierarchy** ✶ v3 | descent | **21** (was 16 in v2.1) | GraphRAG (Microsoft, anchor) → LightRAG, LazyGraphRAG, PathRAG, RGMem, RouteRAG, StructRAG, HippoRAG / HippoRAG2, RAPTOR, ReadAgent, BGE-M3, SGMem, **Zep & Graphiti**, ComoRAG, CAM, GSW, **+5 new from Round 9 cite-edges: MemTree, LightRAG-GH-repo-row, PathRAG-GH-repo-row, additional RAPTOR/ReadAgent links via BFS depth-2.** |
-| **Files-as-memory thread** ✶ v3 | **pattern** | **32** (was reported as 33 in v2.1) | CLAUDE.md (anchor) + all 13 "File-backed / editor paradigms" rows + all 19 "Claude Code memory mechanisms" rows = 32 total. *v2.1 reported 33; that was an off-by-one (it claimed 20 Claude Code rows but the actual section count is 19). See §3.3.* This may grow with the parallel agent-IDE ingestion in flight — addendum will revise. |
+| **RSSM / world-model family** | descent | 5 | DreamerV3 (anchor) → DIAMOND, PWM, R2I, Transformer-XL. *Unchanged from v2.1 / v3.* |
+| **Graph-RAG hierarchy** | descent | **21** | GraphRAG (Microsoft, anchor) → LightRAG, LazyGraphRAG, PathRAG, RGMem, RouteRAG, StructRAG, HippoRAG / HippoRAG2, RAPTOR, ReadAgent, BGE-M3, SGMem, **Zep & Graphiti**, ComoRAG, CAM, GSW. *Unchanged from v3 (still 21).* Internal descent edges: 24. |
+| **Files-as-memory thread** | **pattern** | **32** | CLAUDE.md (anchor) + all 13 "File-backed / editor paradigms" rows + all 19 "Claude Code memory mechanisms" rows = 32 total. *Unchanged from v3.* Round 11 added file-backed harness rows in *Agent IDEs & coding harnesses* (Kiro, Windsurf, Cursor); these are NOT counted here because the curated seed only expands by the two original section names — by design, to keep the "unstructured documentation" pattern separate from the "structured workflow" pattern below. |
+| **Specs-as-memory thread** ✶ v4 NEW | **pattern** | **5** | Kiro (anchor) + Windsurf Cascade + Devin Spec Mode + Cline Memory Bank + Roo Code. Added as the 4th curated seed in Round-12 hygiene pass (DECISIONS.md 2026-05-13). **Distinguished from Files-as-memory by structure**: specs-as-memory means *structured* per-stage workflow files (Requirements / Design / Tasks; mode directories) committed to source; Files-as-memory means *unstructured* documentation (CLAUDE.md / .cursorrules). Both ship as text in the repo; the difference is whether the file layout encodes the workflow. **Round 11 ingestion's "Possible new lineages" prediction is now realised as a curated seed.** |
 
 The Graph-RAG hierarchy remains the largest descent-kind family in the
 catalog and it pulls Zep & Graphiti in — confirming Pattern B (§1.2)
 is the commercial endpoint of the Graph-RAG research lineage.
 
-### 3.2 ✶ v3 Auto-discovered lineages (size ≥3): 6 components
+**✶ v4 Specs-as-memory is small (5) by design, not by data sparsity.**
+The pattern is defined by *structured workflow files* — and the
+explicitly-curated member list is the universe of products that
+have published a named workflow-file schema. Roo Code added
+mode-specific `.roo/rules-{modeSlug}/` directories; Cline shipped
+projectBrief / productContext / activeContext / systemPatterns /
+techContext / progress; Kiro shipped Requirements / Design / Tasks;
+Devin Spec Mode shipped spec files as the canonical persistence;
+Windsurf Cascade was the earliest spec-driven posture. If a future
+harness ships a schema along these lines, it joins the seed list.
+The 5-member size is the *current accurate population*, not a floor.
+
+### 3.2 ✶ v4 Auto-discovered lineages (size ≥3): 6 components
 
 | Lineage | Size | Anchor | What it represents |
 |---------|------|--------|--------------------|
-| **Influential-cite backbone** ✶ v3 | **117** (was 96 in v2.1) | EWC (Elastic Weight Consolidation) | The full research-paper sub-graph through influential cites. Grew by 21 nodes thanks to Round 9's cell-miner re-run. EWC is now the anchor (oldest dated node, 2018-01); the v2.1 anchor "A-MEM" sits inside the component but isn't the date-anchor. |
-| **Mem0 ecosystem — Qdrant subcluster** ✶ v3 | 4 | Qdrant | Qdrant + pgvector + Agno (Phidata) + Mem0 Security/OpenMemory. *v2.1 reported one 10-node "Mem0 ecosystem" auto-lineage; in v3 it has split into two smaller 4-node clusters because the descent-edges between halves did not survive Round-9 reconciliation.* |
-| **Mem0 ecosystem — FalkorDB subcluster** ✶ v3 | 4 | FalkorDB | FalkorDB + Mem0 + Amazon Neptune Analytics + Strands Agents Memory (AWS). The Mem0-proper cluster. |
-| **ReMEmbR / spatial** | 3 | Milvus | Milvus + NVIDIA ReMEmbR + Meta-Memory. *Unchanged from v2.1.* |
-| **✶ v3 NEW: RLHF descent fragment** | 3 | DPO | DPO → GRPO (cites) + SEAgent (cites DPO). **The first time the RLHF lineage shows internal descent edges in the catalog** — v2.1 reported "zero internal edges, candidate pattern". Round 9's cite-edge pass surfaced GRPO → DPO and SEAgent → DPO. |
+| **Influential-cite backbone** | **117** | EWC (Elastic Weight Consolidation) | The full research-paper sub-graph through influential cites. *Unchanged from v3 at 117.* The +160 row expansion in Rounds 11-13 was overwhelmingly T1/T2 commercial; new rows produced ~10 cite neighbours but did not add to the research backbone. EWC remains the date-anchor. |
+| **RLHF / agent-RL descent fragment** ✶ v4 GREW | **5** (was 3 in v3) | DPO | DPO + GRPO + SEAgent + **UI-TARS** + **LearnAct**. **Grew from 3 to 5** thanks to Round 12 adding UI-TARS (the ByteDance computer-use FM, which cites both DPO and SEAgent influentially) and Round-11 LearnAct paper joining via SEAgent cites. **The new edges came from existing cell-mining surfacing UI-TARS's published GRPO usage and LearnAct's SEAgent cite.** Still does not reach the full RLHF chain (LoRA → QLoRA stays as a 2-node pair, sub-threshold). |
+| **Mem0 ecosystem — Qdrant subcluster** | 4 | Qdrant | Qdrant + pgvector + Agno (Phidata) + Mem0 Security/OpenMemory. *Unchanged from v3.* |
+| **Mem0 ecosystem — FalkorDB subcluster** | 4 | FalkorDB | FalkorDB + Mem0 + Amazon Neptune Analytics + Strands Agents Memory (AWS). *Unchanged from v3.* |
 | **JEPA family** | 3 | I-JEPA | I-JEPA → V-JEPA → V-JEPA 2. *Unchanged from v2.1.* |
+| **ReMEmbR / spatial** | 3 | Milvus | Milvus + NVIDIA ReMEmbR + Meta-Memory. *Unchanged from v2.1.* |
 
-✶ v3 **What changed in the auto-discovery:**
+**✶ v4 net lineage count: 10 of size ≥3** (4 curated + 6 auto) —
+**up from 9 in v3.** The +1 comes from the curated Specs-as-memory
+seed; the auto-discovered count itself is unchanged at 6.
 
-1. **The big backbone grew from 96 → 117 nodes** — adding 21 research
-   papers (LoRA, Hyena, Atlas, EMAT, Memformer, Memorizing
-   Transformers, ITER-RETGEN, Differentiable Search Index, Reflexion,
-   Self-Refine, etc.). EWC took over as the anchor by date-ordering.
-2. **The v2.1 10-node Mem0 ecosystem split into two 4-node
-   subclusters.** Reading the edges: `FalkorDB --built-on--> Mem0`,
-   `Mem0 --built-on--> Amazon Neptune Analytics`,
-   `Strands --built-on--> Mem0`, and `mem0-mcp --built-on--> Mem0`
-   form one cluster (Mem0-proper, 4 nodes). The Qdrant + pgvector +
-   Agno + OpenMemory cluster is a separate 4-node component whose
-   edges connect through Agno's integration with each substrate.
-   **This is the lineage-detection algorithm exposing what's
-   actually connected.** v2's "Mem0 ecosystem (10 nodes)" was a
-   union-of-shorter-paths reading that the v3 algorithm — which
-   only follows descent edges — does not reproduce.
-3. **RLHF lineage appeared.** This is the answer to the v2.1
-   open question: yes, Round 9's cite-edge pass gave RLHF internal
-   descent edges. The 3-node fragment is DPO + GRPO + SEAgent. The
-   full LoRA → QLoRA → DPO → GRPO chain is not yet realised
-   (QLoRA → LoRA is also an influential cite but QLoRA does not
-   reach DPO/GRPO in 2 hops in the current edge graph).
-4. **Two v2.1 auto-lineages did not re-appear in v3.** "Continual
-   learning / EWC" (v2.1 size 4) and "MCP knowledge-graph servers"
-   (v2.1 size 3) and "Hindsight cluster" (v2.1 size 3) merged into
-   the 117-node backbone or were claimed by curated seeds.
+✶ v4 **What changed in the auto-discovery:**
+
+1. **The big backbone is still 117 nodes.** The +160 ingestion was
+   non-paper-heavy; cite edges added were mostly to nodes already in
+   the backbone. The 117-node component is the research substrate of
+   the field at saturation under the current cell-mining depth.
+2. **The RLHF / agent-RL fragment grew from 3 → 5 nodes.** UI-TARS
+   (Round 12) and LearnAct (Round 11) both join via cites to DPO /
+   SEAgent. This is the second consecutive round where this component
+   grew (v2.1: 0, v3: 3, v4: 5). It now reads as the
+   *agent-RL-trained-on-policy-optimisation* lineage rather than a
+   pure RLHF lineage — UI-TARS is a GUI foundation model, LearnAct
+   does agent skill RL, SEAgent does autonomous agent RL. The name
+   should probably evolve.
+3. **Did SSM finally connect? No.** Direct re-check against the 313
+   edges: six SSM rows present (Hyena, Jamba×2 dup-rows, Mamba,
+   Mamba-2, RWKV-7), **0 internal edges among them.** Rounds 11/12
+   added neighbouring papers but none of them surfaced
+   Hyena→Mamba / Mamba→Mamba-2 / Mamba-2→Jamba cites. **Final v4
+   verdict: SSM is genuinely a parallel-evolution pattern, not a
+   descent lineage in the catalog.** Should be promoted to a curated
+   pattern seed in a future revision (DECISIONS.md captures this).
+4. **Did Stanford-agents grow? No.** Re-check: 3-node fragment
+   unchanged (ExpeL → Reflexion → Self-Refine). Round 11/12 ingestion
+   did not add Voyager / Generative-Agents / RAPTOR connecting cites.
+5. **Browser-agent commercial lineage? No.** The brief asked whether
+   Browser Use → Stagehand → Hyperbrowser auto-emerged: it did not.
+   Round 12 added all three rows but **zero internal descent edges**
+   exist among the 13 *Computer-use & desktop agents* rows. They are
+   parallel implementations of browser control, not a descent chain.
+   The cell-miner did not find documented "X is built on Y" claims
+   between them — and indeed, Stagehand is Browserbase's OSS
+   framework rather than a build-on of Browser Use; Hyperbrowser is
+   a Browserbase competitor on cloud browser infra, not a child of
+   Browser Use. **The architectural-shape similarity is not descent.**
+6. **Robotics-FM commercial lineage? No.** Same answer for π0 →
+   π0.5 → GR00T: zero internal descent edges among the 15
+   *Robotics foundation models* rows. Physical Intelligence's π0
+   paper is influentially cited by other research papers (e.g. TRI
+   LBM lineage) but not by the catalog's commercial robotics rows.
+   The commercial humanoid companies do not cite each other; they
+   build on different VLA stacks and document independent
+   architectures.
 
 The "influential-cite backbone" component is **structural**: when 117
 papers are within depth-2 of one another via influential cites, the
@@ -561,7 +756,7 @@ Graph-RAG as curated seeds, KV-cache work shows up scattered through
 the 96-node backbone via Transformer-XL → Compressive Transformer →
 Infini-attention → H2O.
 
-### ✶ v3 3.4 Five Round-7 candidate lineages — re-checked against 299 edges
+### ✶ v4 3.4 Candidate lineages — final verdicts at 313 edges
 
 Round 7's ingestion (`extraction/round-7-ingestion.md`) identified
 five candidate lineages from the 176 new rows. Re-running edge-graph
@@ -584,12 +779,38 @@ introspection against `landscape.edges.json` yields:
 
 The **headline movement is RLHF**: v2.1's "zero internal edges,
 candidate pattern" became "3-node descent lineage auto-discovered" in
-v3. The cell-miner re-run did its job for one of the five. The other
-four candidates' status did not improve in Round 9. **Recommended
-next-pass action:** curate SSM as a pattern-kind seed (parallel
-evolution); it is the strongest remaining no-edge candidate and the
-Hyena → Mamba → Jamba narrative is well-supported in the literature
-even though catalog cites don't connect them.
+v3.
+
+#### ✶ v4 New candidate lineages from Rounds 11–13
+
+| Candidate | Members searched | v4 verdict | Notes |
+|-----------|------------------|------------|-------|
+| **Browser-agent commercial** | Browser Use, Stagehand, Hyperbrowser, Skyvern, Bytebot, OpenAI Operator, Project Mariner, Claude for Chrome, UI-TARS, Steel.dev, Magnitude | **Zero internal descent edges** | Brief asked: did this auto-emerge? No. They share architectural shape but cite different ancestors. Parallel implementations of browser control. Could be curated as a pattern seed. |
+| **Robotics-FM** | π0 / Physical Intelligence, π0.5, NVIDIA GR00T, Figure Helix, 1X, Apptronik, Sanctuary, Cobot, TRI LBM, DeepMind Gemini Robotics, LeRobot | **Zero internal descent edges** | Brief asked: did π0 → π0.5 → GR00T auto-emerge? No. The TRI diffusion-policy line (5000+ S2 cites, Chi et al. 2023) is influential externally but doesn't connect to catalog robotics rows via the cell-miner. Commercial humanoid companies don't cite each other. |
+| **Voice-platform substrate** | LiveKit, Pipecat, OpenAI Realtime, Vapi, Retell, Cartesia, Hume EVI, ElevenLabs Conv AI | **Zero internal descent edges** | Documented substrate↔harness pairings (LiveKit ⊂ OpenAI Realtime; Pipecat used by many) exist in marketing text but did not survive cell-mining. **Edges may surface in Round 14 if disambiguation table extends to LiveKit / Pipecat.** |
+| **Spec-driven harness convergence** | Kiro, Windsurf Cascade, Devin Spec Mode, Cline Memory Bank, Roo Code | **5 nodes — now a curated pattern seed** | Realised as the *Specs-as-memory* curated lineage (§3.1). The closest thing to a "new lineage from Round 11/12" — but it's pattern-kind, not descent. |
+| **OpenDevin / OpenHands → SWE-bench race** | OpenHands, Aider, smol-developer, GPT Engineer, MetaGPT | Zero internal descent edges | Same parallel-implementation pattern; OpenHands is technically a continuation of OpenDevin (project rename, not a fork edge) — no descent edge surfaces. |
+| **Cline → Roo Code fork chain** | Cline, Roo Code | 2 nodes, sub-threshold | Roo Code is a documented Cline fork. The single `forks` edge exists; the chain has no third member. |
+
+**✶ v4 The headline negative finding: none of the post-Round-7
+candidate lineages auto-emerged with size ≥3.** The cell-miner
+surfaces *cites* and *built-on* claims from each row's documented
+text; commercial product rows in the new sections do not document
+their lineage relationships to each other the way research papers do.
+The descent graph is sparse where the products are commercial and
+dense where they are academic — exactly what one would predict, but
+now empirically confirmed at 313 edges.
+
+**Recommended Round 14 actions:**
+1. Curate SSM as a pattern-kind seed — the Hyena → Mamba → Mamba-2 →
+   Jamba narrative is well-supported in the literature even though
+   catalog cites don't connect them.
+2. Curate Browser-agent and Robotics-FM as pattern-kind seeds — they
+   are real architectural families even though descent edges don't
+   connect them.
+3. Extend the edge-disambiguation table to LiveKit, Pipecat, GR00T —
+   marketing pages cite these substrates, but cell-mining is
+   discarding the mentions as `ambiguous-substring`.
 
 ### 3.5 (was 3.4) Sections vs lineages disagree by design
 
@@ -662,6 +883,41 @@ magnitude above any dedicated memory layer." Databricks and Snowflake
 sit at $62B with vector search as one capability among many; Mem0 is
 two and a half orders of magnitude smaller despite the highest
 integration count in the field.
+
+#### ✶ v4 Round 11-13 funding additions (the v4 valuation shifts)
+
+The 160 new rows added in Rounds 11-13 brought a set of substantial
+funding entries that re-shape the pyramid above:
+
+| Tier | Row | Latest valuation | Notes |
+|------|-----|------------------|-------|
+| Hyper-cap (humanoid) ✶ v4 | **Figure AI** | **$39.5B** (reported Q2 2025) | **15× in 16 months** from $2.6B Feb 2024; fastest humanoid valuation ramp on record. |
+| Hyper-cap (coding) ✶ v4 | **Cursor / Anysphere** | **$9.9B** (May 2025) | $200M ARR (May 2025). New highest-valuation coding-agent harness in the catalog (was Devin/Cognition at $10.2B; Cursor is a coding IDE rather than autonomous agent — distinct category). |
+| Mega-cap ✶ v4 | **ElevenLabs (incl. Conv AI)** | **$3.3B** (Series C, Jan 2025) | $180M Series C; Conv AI tier launched Nov 2024. First voice-platform unicorn-plus. |
+| Mega-cap ✶ v4 | **Physical Intelligence (π)** | **$2.4B** (Series A, Nov 2024) | $400M Series A 8 months after founding; π0 paper Oct 2024 (arXiv 2410.24164); OpenPI weights Apache 2.0 Feb 2025. Bezos / OpenAI / Thrive / Lux. |
+| Mega-cap ✶ v4 | **Apptronik** | **~$1B implied** (Series A $350M Feb 2025) | DeepMind Gemini Robotics reference platform; Mercedes-Benz manufacturing pilot. |
+| Mid-cap ✶ v4 | **Magic.dev** | **(not disclosed; $465M raised cumulative)** | Ultra-long-context coding agent (unreleased through 2025). |
+| Mid-cap ✶ v4 | **Hume AI (EVI)** | $50M Series B Mar-2024 | Empathic voice agent. |
+| Small-cap ✶ v4 | **LiveKit Agents** | $300M (Series B $45M Sep-2024) | **Apache 2.0 OSS framework now powering OpenAI Realtime API's WebRTC backbone.** OSS substrate → flagship hyperscaler API. |
+| Small-cap ✶ v4 | **Vapi** | $130M (Series A $20M Dec-2024) | >$10M ARR Q1 2025; most-discussed voice-AI platform of 2024-25. |
+| Acqui-hire ✶ v4 | **Covariant** | ~$1.5B-equivalent (Amazon, Aug 2024) | First major robotics-FM acqui-hire; Pieter Abbeel + 25% of team to Amazon Robotics. |
+| Seed ✶ v4 | **Browser Use** | $17M seed (Mar 2025, Felicis) | 60k+ stars; ETH-Zurich-founded. Most-starred AI-agent OSS of 2025. |
+| Seed ✶ v4 | **Cartesia** | $64M Series A Q1-2025 | Founded by Mamba author Albert Gu; ~40ms TTFB TTS (lowest published). **First commercial SSM-scale validation.** |
+
+**✶ v4 The valuation gap re-broadens at the top.** With Figure AI at
+$39.5B reported, Mem0 vs Figure = **263×**. The Mem0 vs vertical-product
+ratios from v3 widen on the agentic-runtime side:
+
+- Mem0 vs Figure AI: **263×** ✶ v4
+- Mem0 vs Physical Intelligence: **16×** (was unmeasurable in v3)
+- Mem0 vs Cursor/Anysphere: **66×** ✶ v4
+- Mem0 vs ElevenLabs: **22×** ✶ v4
+- Mem0 vs Sierra: **105×** (v3, unchanged)
+- Mem0 vs Harvey: **73×** (v3, unchanged)
+
+**The pattern is identical to v3 but with new max-spread points.** The
+humanoid-FM and voice-platform tiers are now both at higher valuation
+than the entire dedicated-memory-layer category combined.
 
 #### ✶ v3 Round 9 deep-fill funding-cell additions
 
@@ -1432,6 +1688,294 @@ What this analysis cannot tell you, given the populated data:
    near-complete at T1/T2 and ~70% at T3/T4, but the value is
    overwhelmingly `inspectable` (default for OSS). Quality of
    governance engagement is shallow.
+8. ✶ v4 **Edge graph is still sparse compared to relationships in
+   the literature.** 313 edges over 859 records ≈ 0.36 edges/record
+   (was 0.43 in v3 — the ratio *fell* as Rounds 11-13 added rows
+   faster than edges). The descent graph is sparse where the products
+   are commercial and dense where they are academic. Pattern-kind
+   curated seeds are the right tool for the parallel-evolution
+   commercial families; auto-discovery cannot find them.
+9. ✶ v4 **Commercial-product cell-mining floors.** The 86
+   `none-trivial` storage cells correctly mark rows as
+   not-implementing-memory; that does not let the analysis say
+   anything about *which* memory layer those products use (because
+   the cell-miner doesn't follow off-page integration mentions
+   reliably). Round-12 disambiguation table helps but only for the 8
+   umbrellas it covers.
+
+---
+
+## 15. ✶ v4 The five-layer model
+
+Rounds 11-13 made it clear the catalog's framing of "memory / harness
+/ IDE / agent-runtime" was missing a layer. The five layers, with
+canonical catalog sections behind each:
+
+| Layer | What it is | Catalog sections | Anchor rows |
+|-------|------------|------------------|-------------|
+| **1. Memory** | Stores / retrieves agent state across sessions | Dedicated memory layers; Retrieval-as-memory hybrids; Framework-embedded memory; Knowledge-graph platforms; Vector-database infrastructure; Memory observability; Memory governance | Mem0, Letta, Zep, GraphRAG, Pinecone, Qdrant, Neo4j |
+| **2. Harness / IDE** | The user-facing surface that wraps an LLM with tools, context, files | Agent IDEs & coding harnesses (Round 11); File-backed / editor paradigms; Coding-agent memory; Claude Code memory mechanisms | Cursor, Kiro, Claude Code, Windsurf, Cline, Aider |
+| **3. Agent framework / runtime** | The orchestration loop that does plan/act/reflect over tools | Agent frameworks (no first-party memory layer); Framework-embedded memory (overlap) | LangChain, LangGraph, CrewAI, AutoGen, Mastra, Strands Agents |
+| **4. Operating environment** ✶ v4 | The substrate the agent acts *in* (browser, telephony, robot body, OS shell) | Computer-use & desktop agents (Round 12); Voice agent platforms (Round 12); Robotics foundation models & agent stacks (Round 12); parts of *Browser-agent memory* | Browser Use, Stagehand, LiveKit, OpenAI Realtime, Apptronik, NVIDIA GR00T, Figure |
+| **5. Use-case-shaped product** ✶ v4 | Vertical agent product where domain shapes everything | Use-case-specific agent harnesses (Round 13); Vertical / domain-specific AI memory | Harvey, Vanta, 11x.ai, Salesforce Agentforce, Sierra, Lovable |
+
+### 15.1 Substrate ↔ harness pairings (the new analytical lens)
+
+The five-layer reading suggests *which* substrate at layer 4 a layer-2
+harness sits on top of becomes a first-class analytical question. The
+documented pairings the catalog reveals:
+
+| Substrate (layer 4) | Harness consuming it (layer 2) | Notes |
+|---------------------|-------------------------------|-------|
+| **Anthropic Computer Use API** | Claude for Chrome; OpenAI Operator (competitor stack); Project Mariner (competitor) | Computer Use is the substrate API; Claude for Chrome is Anthropic's own Chrome surface. Operator and Mariner are competing hyperscaler-owned harnesses on their own substrates. |
+| **NVIDIA GR00T N1 (open weights)** | Apptronik Apollo; Figure (selective); 1X; Sanctuary; Mentee Robotics | NVIDIA's open-weight foundation policy. Apptronik is also DeepMind Gemini Robotics reference, so it consumes two substrates. |
+| **Physical Intelligence OpenPI (Apache partial)** | Hugging Face LeRobot (integrated) | Single documented integration so far; expect more after OpenPI's late-2024 release. |
+| **LiveKit Agents (Apache 2.0)** | **OpenAI Realtime API** (WebRTC backbone); Vapi (uses); Retell (uses) | The inversion noted in §1: OSS framework powers a hyperscaler API. |
+| **Pipecat (BSD-2)** | Many — integrates with OpenAI Realtime, Anthropic, Deepgram, Cartesia, ElevenLabs | The other major voice substrate; framework-shaped rather than API-shaped. |
+| **Anthropic MCP** | Most modern coding harnesses; many memory products; KG plugins | The universal transport. 138M/mo npm downloads — highest in the catalog. |
+| **Hugging Face LeRobot (OSS)** | K-Scale Labs; OpenMind OM1; many hobbyist humanoid builders | The OSS robotics substrate. |
+| **Browserbase** | Stagehand (its own OSS); Lutra AI; many enterprise browser agents | Browserbase is the cloud-browser substrate; Stagehand is its OSS framework. |
+
+### 15.2 The earlier "Mem0 = integration hub, GraphRAG = citation hub"
+finding fits inside this model
+
+Those are **layer-1** hubs (memory). The five-layer view identifies
+analogous layer-4 hubs:
+
+- **Memory-layer (1) hubs:** Mem0 (integration) + GraphRAG (citation)
+- **Operating-environment-layer (4) hubs:** LiveKit (voice integration
+  substrate) + Anthropic Computer Use (browser-control API) +
+  NVIDIA GR00T N1 (robotics open-weights) + MCP (universal transport)
+- **Framework-layer (3) hubs:** LangChain (7 inbound now, ✶ v4) +
+  LangGraph Persistence (6 inbound)
+- **Harness-layer (2) hubs:** Cursor by ARR + GitHub stars; Claude
+  Code by mindshare
+
+### 15.3 Does the five-layer model hold up under scrutiny?
+
+**Mostly yes, with two caveats.** The five layers are cleanly distinct
+in **architectural posture** (where the boundary of "agent's job"
+lives) but **not always cleanly distinct in vendor strategy**. Examples
+of vendor-level layer-crossing:
+
+- **Vapi sits at layer 2 (harness) AND layer 4 (voice operating
+  environment)** — it ships both the developer-platform surface and
+  the underlying telephony bridge.
+- **Cursor is layer 2 (harness) but also owns parts of layer 1
+  (Cursor Rules / memory features).** Most coding harnesses do.
+- **Anthropic owns layers 1 (Memory API), 2 (Claude Code, Claude for
+  Chrome), 3 (none — explicitly skipped), 4 (Computer Use), 5
+  (none — explicitly skipped).** Layer-3 and layer-5 absence is
+  strategy, not capability.
+
+**The model is a useful lens for the analytical question "which layer
+is X competing in?" — it is less useful as a vendor-classification
+taxonomy.** The catalog correctly treats Cursor as one record and asks
+the layer question per attribute, not per row.
+
+---
+
+## 16. ✶ v4 Use-case verticals — domain-shaped agent products (Round 13)
+
+Round 13 added one section (**Use-case-specific agent harnesses**)
+with 87 rows across 7 sub-domains:
+
+| Sub-domain | Rows | Storage fingerprint | Notable T1 entries |
+|------------|------|---------------------|---------------------|
+| Security (red-team + pentest + SOC + AppSec) | 22 | `none-trivial` dominant; some `relational` (SIEM-shaped) | Datadog Bits AI, Dynatrace Davis CoPilot, Vanta, Drata |
+| Sales / GTM / outbound | 14 | `none-trivial` + `kv` (lead-context slots) | 11x.ai, HubSpot Breeze, Salesforce Agentforce (cross-listing) |
+| SRE / DevOps / observability | 11 | `none-trivial`; some `relational` | Datadog Bits AI, Dynatrace Davis CoPilot, PagerDuty AIOps, New Relic AI |
+| Scientific research agents (deep-research) | 10 | `none-trivial` + `file` (paper-corpus) | OpenAI Deep Research, Perplexity Deep Research, Stanford STORM, Sakana AI Scientist |
+| Legal (matter / contract / CLM agents) | 10 | `none-trivial` + Harvey-shape (cross-list with Vertical) | Legora, DraftWise, Ironclad AI Assistant |
+| Compliance / audit / governance | 10 | `none-trivial` + `relational` (control-frameworks) | Vanta, Drata, AuditBoard |
+| Finance / quant agents | 9 | `none-trivial` | OpenBB, Numerai Signals, Trade Ideas Holly AI, Rogo |
+
+### 16.1 Use-case verticals ≠ vertical-memory products
+
+The catalog has two different "vertical" sections, and they are
+intentionally distinct:
+
+| Section | Focus | Counted records | Memory framing |
+|---------|-------|-----------------|-----------------|
+| **Vertical / domain-specific AI memory** (pre-Round-13) | Documented *memory architecture* in a domain | 64 | First-party (each row characterises its memory subsystem) |
+| **Use-case-specific agent harnesses** (Round 13) ✶ v4 | Domain-shaped *agent product* — memory layer is incidental | 87 | None-trivial; rows characterise the harness, not memory |
+
+**Salesforce Agentforce, Causaly, scite.ai, and Iris.ai are
+intentional cross-listings** — they appear in both sections under
+different framings. The catalog records them twice because the
+"memory architecture" question and the "agent-product shape" question
+have different answers.
+
+### 16.2 Funding density tells the differentiation story
+
+- **Vertical / domain-specific AI memory** (median funding $82.0M; top
+  Harvey at $11B) — funding has clustered into legal / clinical /
+  customer-support shapes.
+- **Use-case-specific agent harnesses (Round 13)** — funding spread
+  evenly across the 7 sub-groups; **no single sub-group has emerged
+  as the "memory shape" did for legal / clinical / CRM**. Security
+  has Vanta ($2.45B) + Drata ($2B); Sales has HubSpot Breeze (part of
+  $35B HubSpot); Scientific has OpenAI Deep Research (part of OpenAI
+  parent). The pattern read: **use-case verticals are still
+  multi-winner; vertical-memory products are already
+  pyramid-shaped**.
+
+### 16.3 Where the two sections meet
+
+A row in *Vertical / domain-specific AI memory* describes a
+*memory-shaped* product (Harvey Memory characterises the memory
+layer of Harvey). A row in *Use-case-specific agent harnesses* with
+the same parent product describes the *agent-shaped* product
+(Harvey-the-agent). When both exist, the cross-listing is preserved
+and the trust walk works in both directions.
+
+This is the same convention as Round 11's harness↔memory pairings
+(Cursor-the-IDE ↔ Cursor Rules-the-memory-layer) — applied at the
+vertical-product level.
+
+---
+
+## 17. ✶ v4 Robotics + voice — new architectural frontiers
+
+Round 12 surfaced two product layers that are sufficiently distinct
+from memory-shaped systems to warrant their own analytical lens.
+
+### 17.1 Openness gradient — robotics
+
+This is the inversion noted in the executive summary. Ranking the 15
+*Robotics foundation models & agent stacks* rows by openness of weights
++ openness of training data:
+
+| Tier | Row | License | Notes |
+|------|-----|---------|-------|
+| Most open ✶ v4 | **NVIDIA GR00T N1** | NVIDIA Open Model License (open weights, Mar 2025) | Hardware vendor releases open FM weights |
+| Open partial | **Physical Intelligence OpenPI** | Apache 2.0 partial weights, Feb 2025 | AI lab releases partial open weights |
+| OSS-only | **Hugging Face LeRobot** | Apache 2.0 (no proprietary weights — substrate) | OSS substrate; integrates Physical Intelligence's OpenPI |
+| OSS-only | **K-Scale Labs**, **OpenMind OM1** | Apache 2.0 / MIT | OSS humanoid hardware + software stacks |
+| Closed weights | **Figure AI (Helix)**, **DeepMind Gemini Robotics**, **1X**, **Apptronik**, **Sanctuary**, **Cobot**, **Toyota Research LBM**, **Covariant** | Proprietary | Foundation labs + humanoid makers — closed |
+
+**The inversion: NVIDIA (silicon vendor, open) > Physical Intelligence
+(FM lab, partial) > Figure / DeepMind (closed).** The hardware vendor
+going more open than the AI labs is unusual: in LLM-land, the
+hyperscalers (OpenAI, Anthropic, Google) are closed and the foundation
+labs (Meta with Llama, Mistral) are open. In humanoid-land, it's the
+silicon vendor (NVIDIA) that's open and the foundation labs (Physical
+Intelligence is partial, Figure / DeepMind closed) that aren't.
+
+**Hypothesis:** NVIDIA's incentive is to commodify the policy layer
+(every humanoid maker buys NVIDIA hardware regardless), so open weights
+*broadens the demand surface*. Figure's incentive is to differentiate
+on the policy layer (BMW pilot value proposition), so closed weights
+*concentrates the value*. The openness gradient is a function of
+where in the stack value capture is targeted.
+
+### 17.2 Latency bands — voice agent platforms
+
+| Latency tier | Platform | Published latency | Notes |
+|--------------|----------|-------------------|-------|
+| **~40ms TTFB TTS** | **Cartesia Sonic** | ~40ms | Lowest published; SSM-based; Mamba author Albert Gu |
+| ~320ms end-to-end | OpenAI Realtime API | ~320ms vendor turn latency | Speech-to-speech with GPT-4o (no STT/LLM/TTS chain) |
+| <1s typical | Vapi, Retell | sub-second | Most-discussed voice-AI platforms |
+| 1-2s typical | Synthflow, CallRail, Vonage AI Studio | varies | Older STT/LLM/TTS chains |
+
+**Cartesia's SSM-based architecture being the lowest-latency
+production voice substrate is the first commercial validation of the
+SSM family at scale.** This is materially relevant to the SSM lineage
+in §3.2 — even though the SSM rows have zero internal catalog edges
+(parallel-evolution pattern), the *commercial* validation now exists
+in Cartesia.
+
+### 17.3 Hardware-software substrate splits
+
+Round 12 surfaced a structural pattern: in robotics and voice, the
+substrate-vs-application split is sharper than in memory. The
+"who owns which layer" question pays off more here:
+
+| Layer | Memory | Robotics | Voice |
+|-------|--------|----------|-------|
+| Substrate-OSS | pgvector, Qdrant | LeRobot, K-Scale | Pipecat, LiveKit |
+| Substrate-FM | (n/a — memory has no policy substrate) | NVIDIA GR00T, OpenPI | Cartesia, ElevenLabs |
+| Application / harness | Mem0, Letta, Zep | Figure, Apptronik, 1X | Vapi, Retell, Bland |
+| Application / vertical | Harvey, Glean | Pickle Robot (truck unload) | CallRail (call tracking) |
+
+**In memory, the substrate is data-shaped (storage primitives); in
+robotics and voice, the substrate is model-shaped (policy / acoustic
+model).** This is why the openness gradient analysis works for
+robotics but not for memory — there is no equivalent "should the
+policy weights be open?" question for a vector store.
+
+---
+
+## 18. ✶ v4 What 'agent infrastructure' now means
+
+The rename moment (2026-05-13, DECISIONS.md) is also a re-framing of
+this document. v3 was titled "AI Memory Systems — Analysis"; v4 is
+"AI Agent Infrastructure Landscape — Analysis." The change isn't
+cosmetic — the catalog is no longer memory-shaped, and an analysis
+that claimed to be memory-shaped would be over-claiming scope.
+
+### 18.1 What the catalog now covers
+
+Counting by section, in v4 (859 records, 31 sections):
+
+| Layer | Rows | Pct |
+|-------|------|-----|
+| Layer 1 — Memory (incl. observability/governance) | ~260 | ~30% |
+| Layer 2 — Harness / IDE | ~96 | ~11% |
+| Layer 3 — Agent framework / runtime | ~70 | ~8% |
+| Layer 4 — Operating environment (Round 12) | ~41 | ~5% |
+| Layer 5 — Use-case vertical (Round 13) | ~151 | ~18% |
+| Layers 0 / cross-cutting (training, eval, embedding, search, etc.) | ~241 | ~28% |
+
+The honest reading: **the largest single category is now layer-0
+adjacent infrastructure**, not memory. Memory at 30% remains the
+single most-developed *analytical* lens because that's where the
+field's vocabulary, the cell-miner's depth, and the lineage detection
+are most mature. But the catalog itself has scope to support layers
+2–5 analyses too.
+
+### 18.2 Memory's role in agent infrastructure
+
+The v3 finding "memory is horizontal at the integration/substrate
+layer but vertical at the value-capture layer" generalises to the
+five-layer model:
+
+- **Layer 1 (Memory) is horizontal.** Mem0 / GraphRAG hub centrality;
+  vector-DB substrate is commodity.
+- **Layer 2 (Harness) is horizontal.** Cursor / Claude Code / Windsurf
+  / Cline are commodity-ish; Cursor's $9.9B valuation is the
+  exception driven by ARR.
+- **Layer 3 (Framework) is horizontal.** LangChain / LangGraph /
+  CrewAI / AutoGen all roughly fungible.
+- **Layer 4 (Operating environment) is bifurcating.** Substrate side
+  is horizontal (LiveKit, Browserbase, NVIDIA GR00T); harness/
+  application side is vertical (Figure $39.5B, Vapi, Apptronik).
+- **Layer 5 (Use-case vertical) is overwhelmingly vertical.** Harvey,
+  Sierra, Vanta, Decagon — each owns its domain.
+
+**The cleanest read:** value capture sits at the top and bottom of
+the stack. Memory is bottom; vertical products are top. Layers 2-4
+are commodity-ish in revenue terms (despite the Cursor exception).
+**The middle of the stack is where the work is dense and the value is
+thin** — exactly the pattern in classical infrastructure markets.
+
+### 18.3 What "agent infrastructure" stops being
+
+It stops being only memory. It stops being only coding. It now spans:
+
+- **Memory + retrieval substrates** (vector DBs, knowledge graphs)
+- **Foundation models** for narrow modalities (voice TTS/STT, robotics
+  VLA, browser-OS multimodal)
+- **Orchestration** (frameworks, agent runtimes, workflow engines)
+- **Surfaces** (IDEs, harnesses, voice platforms, Chrome extensions,
+  desktop overlays, telephony, robot bodies)
+- **Use-case verticals** (Harvey-shape, Vanta-shape, 11x-shape) —
+  the products end-users buy
+
+And the v4 honest read: **memory is one of seven first-class
+categories now, not the central category**. It is the analytical
+lens with the most-developed taxonomy, but it is not the catalog's
+denominator.
 
 ---
 
@@ -1445,7 +1989,7 @@ What this analysis cannot tell you, given the populated data:
 | Performance | `landscape.json` records[*].cells.perf |
 | Mindshare | `landscape.json` records[*].cells.mindshare |
 | Citations | `landscape.json` records[*].cells.citations |
-| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds / competes-with) | `landscape.edges.json` (**299 edges** ✶ v3) |
+| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds / competes-with) | `landscape.edges.json` (**313 edges** ✶ v4) |
 
 App views that compute the figures above:
 
