@@ -139,11 +139,25 @@
       "citation": "https://aws.amazon.com/neptune/"
     },
     {
+      "source": "anthropic-computer-use--anthropic-com",
+      "target": "claude-code-anthropic--anthropic-com",
+      "type": "built-on",
+      "evidence": "d OS-agent products built on Claude.",
+      "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use"
+    },
+    {
       "source": "apache-age--age-apache-org",
       "target": "pgvector--gh-pgvector-pgvector",
       "type": "integrates-with",
       "evidence": "openCypher over Postgres. Pairs with pgvector for graph + vector hybrid retrieval.",
       "citation": "https://age.apache.org"
+    },
+    {
+      "source": "arangodb--arangodb-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "ArangoGraphML for ML pipelines; LangChain integration.",
+      "citation": "https://arangodb.com"
     },
     {
       "source": "arigraph--arxiv-2407-04363",
@@ -182,6 +196,13 @@
       "type": "integrates-with",
       "evidence": "Integrates with Mem0/Zep rather than building deep memory natively.",
       "citation": "https://microsoft.github.io/autogen/"
+    },
+    {
+      "source": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Native integrations with LangChain/LangGraph and Strands.",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-integrate-lang.html"
     },
     {
       "source": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
@@ -239,6 +260,13 @@
       "isInfluential": true
     },
     {
+      "source": "bedrock-agentcore-aws--aws-amazon-com",
+      "target": "strands-agents-aws--strandsagents-com",
+      "type": "integrates-with",
+      "evidence": "framework-agnostic; integrates with Strands Agents, Mem0 as memory provider.",
+      "citation": "https://aws.amazon.com/bedrock/agentcore/"
+    },
+    {
       "source": "beyond-rag-for-agent-memory--arxiv-2602-02007",
       "target": "bai-lab-memoryos--gh-bai-lab-memoryos",
       "type": "cites",
@@ -253,6 +281,13 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2602.02007",
       "isInfluential": true
+    },
+    {
+      "source": "burr-dagworks--gh-dagworks-inc-burr",
+      "target": "langgraph-persistence--docs-langchain-com",
+      "type": "competes-with",
+      "evidence": "itions; lightweight alternative to LangGraph.",
+      "citation": "https://github.com/DAGWorks-Inc/burr"
     },
     {
       "source": "cag-cache-augmented-generation--arxiv-2412-15605",
@@ -309,6 +344,13 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.05520",
       "isInfluential": true
+    },
+    {
+      "source": "chatgpt-codex-cloud-agent--chatgpt-com",
+      "target": "github-copilot-agent-mode--gh-features-copilot",
+      "type": "integrates-with",
+      "evidence": "cloud environments; integrates with GitHub. Cross-listing — the coding-agent-memory row remains canoni",
+      "citation": "https://chatgpt.com/codex"
     },
     {
       "source": "chunkrag--arxiv-2410-19572",
@@ -425,6 +467,13 @@
       "citation": "https://www.crewai.com/"
     },
     {
+      "source": "dgraph--dgraph-io",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Google Gen AI Toolbox integration; LangChain agent orchestration.",
+      "citation": "https://dgraph.io"
+    },
+    {
       "source": "diamond--arxiv-2405-12399",
       "target": "dreamerv3--arxiv-2301-04104",
       "type": "cites",
@@ -524,6 +573,13 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2511.06449",
       "isInfluential": true
+    },
+    {
+      "source": "flowise-memory--docs-flowiseai-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary Buffer)",
+      "citation": "https://docs.flowiseai.com/integrations/langchain/memory"
     },
     {
       "source": "forever--arxiv-2601-03938",
@@ -790,6 +846,13 @@
       "type": "integrates-with",
       "evidence": "First-party LangChain integration so memory composes with retrievers, chains, and graphs without glue code.",
       "citation": "https://langchain-ai.github.io/langmem/"
+    },
+    {
+      "source": "langsmith--langchain-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Best integration with the LangChain / LangGraph stack — debug memory + chain + agent in one trace",
+      "citation": "https://www.langchain.com/langsmith"
     },
     {
       "source": "langsmith--langchain-com",
@@ -1532,6 +1595,13 @@
       "isInfluential": true
     },
     {
+      "source": "memgraph--memgraph-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Memgraph 3.0 adds native vector search alongside graph traversal. LangChain toolkit.",
+      "citation": "https://memgraph.com/"
+    },
+    {
       "source": "meminsight--arxiv-2503-21760",
       "target": "locomo--arxiv-2402-17753",
       "type": "cites",
@@ -1880,6 +1950,13 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/00e92a3b206b7acb75ddb6dfc5fdaa80190cec78",
       "isInfluential": true
+    },
+    {
+      "source": "pgvector--gh-pgvector-pgvector",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Used as agent conversation memory via LangChain + MCP.",
+      "citation": "https://github.com/pgvector/pgvector"
     },
     {
       "source": "pgvector--gh-pgvector-pgvector",

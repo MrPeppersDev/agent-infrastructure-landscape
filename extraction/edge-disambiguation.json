@@ -1,0 +1,76 @@
+{
+  "_comment": "Manual disambiguation for umbrella product names that resolve to multiple catalog records. Built in Round 12 from build_edges.py discard logs ('ambiguous-substring' and 'known-unresolvable: langchain/redis/...'). build_edges.py consults this table BEFORE falling back to its own ambiguity / unresolvable rules. Key matching is case-insensitive on the normalised hint (lowercased + whitespace-collapsed). 'primary_id' is the default catalog target. 'alternates' provides phrase-specific overrides — when the cell context contains one of the alternate phrases, the alternate id wins.",
+  "version": "1.0.0",
+  "generated_at": "2026-05-13",
+  "entries": {
+    "langchain": {
+      "primary_id": "langchain-framework--langchain-com",
+      "reason": "Bare 'LangChain' mentions in adapter/backend cross-refs refer to the LangChain framework integration surface — that's the umbrella row. LangMem (the memory subsystem) is a distinct product with its own row.",
+      "alternates": {
+        "langmem": "langmem-langchain--langchain-ai-github-io",
+        "langchain memory": "langmem-langchain--langchain-ai-github-io"
+      }
+    },
+    "langgraph": {
+      "primary_id": "langgraph-persistence--docs-langchain-com",
+      "reason": "Bare 'LangGraph' mentions in checkpointer/memory-adapter cross-refs default to the persistence (memory) row, which is the memory-tier framing. The orchestration row is for control-flow context.",
+      "alternates": {
+        "langgraph orchestration": "langgraph-orchestration--langchain-com",
+        "langgraph agents": "langgraph-orchestration--langchain-com",
+        "langgraph control flow": "langgraph-orchestration--langchain-com"
+      }
+    },
+    "mem0": {
+      "primary_id": "mem0--mem0-ai",
+      "reason": "Bare 'Mem0' references the core managed memory product. The MCP server and OpenMemory rows are derivative surfaces.",
+      "alternates": {
+        "mem0 mcp": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+        "openmemory": "mem0-security-openmemory--mem0-ai",
+        "mem0 security": "mem0-security-openmemory--mem0-ai"
+      }
+    },
+    "redis": {
+      "primary_id": null,
+      "reason": "No first-party Redis row in the catalog — it's a generic substrate. Mentions remain unresolvable but are documented here so future ingestion knows to add a Redis substrate row if needed.",
+      "alternates": {}
+    },
+    "claude": {
+      "primary_id": "claude-code-anthropic--anthropic-com",
+      "reason": "Bare 'Claude' inside coding-agent / harness cell text most commonly refers to Claude Code (the harness). The Anthropic Claude Memory chat product, CLAUDE.md file pattern, and the auto-memory subsystem are distinct rows reached via more-specific phrasing.",
+      "alternates": {
+        "claude.md": "claude-md--docs-claude-com",
+        "claude md": "claude-md--docs-claude-com",
+        "claude code auto-memory": "claude-code-auto-memory--docs-claude-com",
+        "claude auto-memory": "claude-code-auto-memory--docs-claude-com",
+        "anthropic claude memory": "anthropic-claude-memory--platform-claude-com",
+        "claude memory": "anthropic-claude-memory--platform-claude-com"
+      }
+    },
+    "langsmith": {
+      "primary_id": null,
+      "reason": "LangSmith is listed in the cross-ref CSV but no first-party row exists in the catalog (LangChain ecosystem observability). Documented for future ingestion."
+    },
+    "langgraph persistence": {
+      "primary_id": "langgraph-persistence--docs-langchain-com",
+      "reason": "Explicit phrase; ensures no fallback to orchestration."
+    },
+    "github": {
+      "primary_id": "github-copilot-agent-mode--gh-features-copilot",
+      "reason": "Bare 'GitHub' in coding-agent cell text (e.g. ChatGPT Codex desc 'integrates with GitHub') refers to the Copilot Agent Mode integration in nearly all cases. Workspace and custom-instructions are distinct named surfaces.",
+      "alternates": {
+        "github copilot workspace": "github-copilot-workspace--githubnext-com",
+        "copilot workspace": "github-copilot-workspace--githubnext-com",
+        "github copilot custom instructions": "github-copilot-custom-instructions--gh-copilot-customizing-copilot",
+        "copilot custom instructions": "github-copilot-custom-instructions--gh-copilot-customizing-copilot"
+      }
+    },
+    "strands agents": {
+      "primary_id": "strands-agents-aws--strandsagents-com",
+      "reason": "Bare 'Strands Agents' refers to the AWS Strands Agents product (the agent framework). The memory subsystem is a separate row.",
+      "alternates": {
+        "strands agents memory": "strands-agents-memory-aws--docs-aws-amazon-com",
+        "strands memory": "strands-agents-memory-aws--docs-aws-amazon-com"
+      }
+    }
+  }
+}

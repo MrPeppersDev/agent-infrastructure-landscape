@@ -49,6 +49,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_JSON = REPO_ROOT / "web" / "landscape.json"
 CROSS_REFS_CSV = REPO_ROOT / ".agent-results" / "data-5-cross-references.csv"
 CROSS_LISTINGS_JSON = REPO_ROOT / "extraction" / "cross-listings.json"
+DISAMBIGUATION_JSON = REPO_ROOT / "extraction" / "edge-disambiguation.json"
 OUT_PATH = REPO_ROOT / "web" / "landscape.edges.json"
 
 VALID_EDGE_TYPES = {
@@ -205,10 +206,46 @@ def domain_slug(host: str) -> str:
 # Resolver: name (or hint) -> record id, with multiple lookup strategies.
 # ---------------------------------------------------------------------------
 
+def load_disambiguation() -> dict:
+    """Load the manual disambiguation table (Round 12 hygiene pass).
+
+    Schema: { "entries": { "<normalised_hint>": { "primary_id": str|None,
+              "alternates": { "<phrase>": "<id>", ... } } } }
+
+    Missing file returns an empty dict — the resolver falls back to its
+    own ambiguity / unresolvable rules. All keys are matched against the
+    `normalise_name(hint)` form (lowercase, whitespace-collapsed).
+    """
+    if not DISAMBIGUATION_JSON.exists():
+        return {}
+    try:
+        data = json.loads(DISAMBIGUATION_JSON.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"WARN: could not load {DISAMBIGUATION_JSON}: {exc}", file=sys.stderr)
+        return {}
+    raw_entries = data.get("entries", {})
+    # Normalise keys defensively.
+    out: dict[str, dict] = {}
+    for key, val in raw_entries.items():
+        norm_key = re.sub(r"\s+", " ", key.lower().strip())
+        # Normalise alternate phrase keys too.
+        alts = val.get("alternates", {}) or {}
+        norm_alts = {
+            re.sub(r"\s+", " ", k.lower().strip()): v for k, v in alts.items()
+        }
+        out[norm_key] = {
+            "primary_id": val.get("primary_id"),
+            "alternates": norm_alts,
+            "reason": val.get("reason"),
+        }
+    return out
+
+
 class Resolver:
-    def __init__(self, records: list[dict]):
+    def __init__(self, records: list[dict], disambiguation: dict | None = None):
         self.records = records
         self.by_id: dict[str, dict] = {r["id"]: r for r in records}
+        self.disambiguation: dict = disambiguation or {}
 
         # Exact name match (lowercased)
         self.by_name: dict[str, list[str]] = defaultdict(list)
@@ -243,6 +280,33 @@ class Resolver:
                 # keep the whole tail and match against URL-derived tails).
                 self.by_gh[m.group(1)] = r["id"]
 
+    def _disambiguate(self, norm: str, context_text: str | None) -> tuple[str | None, str] | None:
+        """Consult the manual disambiguation table (Round-12 hygiene).
+
+        Returns `(id, reason)` if the table resolves the hint, or `None`
+        to fall through to the default rules. Alternate phrases are
+        searched in the *context_text* (case-insensitive) before falling
+        back to the entry's `primary_id`. This lets us route bare
+        'LangChain' to the framework row by default, while 'langchain
+        memory' nearby in the same cell routes to LangMem.
+        """
+        entry = self.disambiguation.get(norm)
+        if entry is None:
+            return None
+        ctx_norm = (context_text or "").lower()
+        # Try alternates first — longer phrase wins (sort by length desc).
+        alts = entry.get("alternates") or {}
+        for phrase in sorted(alts.keys(), key=len, reverse=True):
+            if phrase and phrase in ctx_norm:
+                target_id = alts[phrase]
+                if target_id in self.by_id:
+                    return target_id, f"disambig-alt:{phrase}"
+        primary = entry.get("primary_id")
+        if primary and primary in self.by_id:
+            return primary, "disambig-primary"
+        # Documented unresolvable (e.g. Redis with primary_id=null) — log clearly.
+        return None, f"disambig-unresolvable: {norm}"
+
     def resolve(self, hint: str, context_text: str | None = None) -> tuple[str | None, str]:
         """Resolve a free-text product mention to a record id.
 
@@ -255,11 +319,23 @@ class Resolver:
 
         norm = normalise_name(hint)
 
+        # 0. Manual disambiguation table (Round-12 hygiene pass). Runs
+        #    BEFORE the default rules so it can override ambiguous-name,
+        #    ambiguous-substring, and known-unresolvable fallbacks for
+        #    umbrella names like 'LangChain' / 'LangGraph' / 'Mem0'.
+        disambig = self._disambiguate(norm, context_text)
+        if disambig is not None and disambig[0] is not None:
+            return disambig
+
         # 1. Exact name (lowercased)
         if norm in self.by_name:
             ids = self.by_name[norm]
             if len(ids) == 1:
                 return ids[0], "exact-name"
+            # Ambiguous name — consult disambiguation table again for the
+            # bare hint before giving up.
+            if disambig is not None:
+                return disambig
             return None, f"ambiguous-name: {ids}"
 
         # 1b. Alias table
@@ -316,6 +392,9 @@ class Resolver:
             if len(unique_ids) == 1:
                 return next(iter(unique_ids)), f"substring: {candidates[0]}"
             if len(unique_ids) > 1:
+                # Try disambiguation one more time before giving up.
+                if disambig is not None:
+                    return disambig
                 return None, f"ambiguous-substring: {sorted(unique_ids)[:3]}"
 
         return None, f"no-match: {hint!r}"
@@ -670,8 +749,13 @@ def main(argv: list[str] | None = None) -> int:
 
     landscape = json.loads(LANDSCAPE_JSON.read_text(encoding="utf-8"))
     records = landscape["records"]
-    resolver = Resolver(records)
-    print(f"Loaded {len(records)} records.", file=sys.stderr)
+    disambiguation = load_disambiguation()
+    resolver = Resolver(records, disambiguation=disambiguation)
+    print(
+        f"Loaded {len(records)} records; "
+        f"{len(disambiguation)} disambiguation entries.",
+        file=sys.stderr,
+    )
 
     # Mine each source.
     cell_edges, cell_discards = mine_cells(records, resolver)

@@ -107,6 +107,12 @@ interface CuratedSeed {
    *  qualify for the lineage. Records in any of these sections (primary
    *  OR secondary placement) are included. */
   sections?: readonly string[];
+  /** Pattern seeds only: explicit record-id list when section-membership
+   *  doesn't cleanly carve out the pattern. Members may live across
+   *  multiple sections (e.g. Specs-as-memory spans 'Agent IDEs & coding
+   *  harnesses' and 'File-backed / editor paradigms'). When both
+   *  `sections` and `explicitMembers` are set, the union is taken. */
+  explicitMembers?: readonly string[];
 }
 
 const CURATED_SEEDS: CuratedSeed[] = [
@@ -139,6 +145,31 @@ const CURATED_SEEDS: CuratedSeed[] = [
     sections: [
       'File-backed / editor paradigms',
       'Claude Code memory mechanisms'
+    ]
+  },
+  // Specs-as-memory: parallel convergence on durable structured workflow
+  // files (Requirements / Design / Tasks, mode files, memory-bank
+  // schemas) committed to source control as the agent's working memory.
+  // Distinct from Files-as-memory (CLAUDE.md / Cursor Rules / AGENTS.md)
+  // which is unstructured documentation — specs-as-memory rows expose
+  // *structured* workflow stages with named files per stage. Anchor on
+  // Kiro because it's the most-explicit "spec-driven" framing; Windsurf
+  // Cascade is older but spec-driven was a posture-tightening rather
+  // than the launch framing. Members live across multiple sections so
+  // we enumerate explicitly rather than expand by section. Surfaced by
+  // the Round-11 ingestion notes (extraction/round-11-ingestion.md
+  // "Possible new lineages" section).
+  {
+    id: 'specs-as-memory',
+    name: 'Specs-as-memory thread',
+    anchorId: 'kiro--kiro-dev',
+    kind: 'pattern',
+    explicitMembers: [
+      'kiro--kiro-dev',
+      'windsurf-codeium-openai--windsurf-com',
+      'cognition-devin-v2-spec-mode--cognition-ai',
+      'cline-memory-bank--docs-cline-bot',
+      'roo-code--roocode-com'
     ]
   }
 ];
@@ -341,16 +372,22 @@ export function detectLineages(
     let lineageEdges: Edge[];
     if (kind === 'pattern') {
       // Pattern lineage: gather records whose section memberships
-      // intersect the seed's section list.
+      // intersect the seed's section list, plus any explicit members
+      // listed by id. Either or both may be provided.
       const wantSections = new Set(seed.sections ?? []);
       const found = new Set<string>();
-      for (const r of records) {
-        for (const s of r.sections) {
-          if (wantSections.has(s.section)) {
-            found.add(r.id);
-            break;
+      if (wantSections.size > 0) {
+        for (const r of records) {
+          for (const s of r.sections) {
+            if (wantSections.has(s.section)) {
+              found.add(r.id);
+              break;
+            }
           }
         }
+      }
+      for (const id of seed.explicitMembers ?? []) {
+        if (byId.has(id)) found.add(id);
       }
       memberSet = found;
       // No real descent edges between pattern members. The renderer

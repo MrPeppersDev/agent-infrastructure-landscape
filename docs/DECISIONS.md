@@ -5191,3 +5191,152 @@ of the table; the new section name is additive in
 `CANONICAL_SECTIONS`. No edge changes affect existing records. To
 revert: drop the new section from landscape.html + section-explainers
 + extract.py and re-run the pipeline.
+
+## 2026-05-13: Round 12 — categorization hygiene pass (cross-listing audit, specs-as-memory lineage, edge disambiguation)
+
+Three-task hygiene pass against the 731-record terminal catalog. No new
+rows; refines categorization of what exists.
+
+### Task 1 — Round-11 cross-listing audit
+
+Round 11 created 9 cross-listing pairs under the Round-7 convention
+("two distinct framings, two records"): Aider, Cline, Continue.dev,
+Devin, Replit, Bolt.new, Lovable, MetaGPT, ChatGPT Codex. The audit
+checked whether identical-by-construction cells (`license`, `funding`,
+`customers`, `hq`, `founders`, `created`, `latest-release`) had
+drifted between framings, and whether the canonical URL matched.
+
+**Result:** 54 inconsistencies surfaced. 47 are
+*recommend-sync* (one framing has richer or more recent data; the
+other should be brought into line — e.g. Cline framework row's
+`hq=searched not found` should adopt the harness row's `US`). 7 are
+*flagged-difference* — genuinely different release timelines (Replit
+Agent vs Agent v3 → different `created`; Devin product vs Cognition
+v2 release → different `latest-release`) or distinct sub-product
+URLs (e.g. `devin.ai` vs `cognition.ai` — same company, different
+canonical product surface).
+
+**Why we DIDN'T auto-apply the syncs.** The Path B canonical-source
+convention (see "render.py — cross-listings render once" entry
+earlier in this file) says landscape.html is the source of truth;
+edits to web/landscape.json get reverted by reconcile.py on the next
+pipeline run. Programmatic HTML editing of 47 cells across 9 record
+pairs is in scope for a follow-up dedicated edit pass — the audit
+CSV (`extraction/round-12-crosslisting-audit.csv`) captures every
+recommendation row-by-row with the proposed source value. For now
+the audit lives as documentation, not as a JSON mutation.
+
+Reversal cost: zero (audit CSV is read-only).
+
+### Task 2 — Specs-as-memory lineage seed
+
+Added a 4th curated seed to `web/src/lib/lineages.ts`:
+`specs-as-memory`. Pattern kind (parallel implementations, not a
+descent chain). Members enumerated explicitly because they span
+multiple catalog sections:
+
+- `kiro--kiro-dev` — Kiro (AWS, Jul 2025 preview) — spec-driven IDE
+  with Requirements / Design / Tasks files
+- `windsurf-codeium-openai--windsurf-com` — Windsurf Cascade
+- `cognition-devin-v2-spec-mode--cognition-ai` — Devin Spec Mode
+  (Aug 2025 update, post-Windsurf-IP acquisition)
+- `cline-memory-bank--docs-cline-bot` — Cline Memory Bank
+  (projectBrief / productContext / activeContext / systemPatterns /
+  techContext / progress — structured stage files)
+- `roo-code--roocode-com` — Roo Code (.roorules + mode-specific
+  `.roo/rules-{modeSlug}/` directories)
+
+**Distinguishing principle:** "Specs-as-memory" means *structured*
+workflow files (Requirements / Design / Tasks; named per-stage
+markdown; mode-scoped rule directories) committed to source control
+that the agent reads on each invocation as its working memory. This
+is distinct from "Files-as-memory" (CLAUDE.md / .cursorrules /
+AGENTS.md), which is *unstructured* documentation — free-form
+guidance, not workflow stages. Both patterns ship via plain text in
+the repo; the difference is whether the file *layout itself encodes
+the workflow shape*.
+
+**Implementation note.** The existing `pattern` lineage expansion
+strategy was section-membership-only. For specs-as-memory, members
+live across "Agent IDEs & coding harnesses" (Kiro, Windsurf, Devin),
+"Claude Code memory mechanisms" (Cline Memory Bank), and "Agent
+frameworks (no first-party memory layer)" (Roo Code). Added a new
+`explicitMembers` field on `CuratedSeed`; pattern seeds may now
+provide either `sections`, `explicitMembers`, or both (union). The
+files-as-memory seed continues to expand via `sections` and is
+unchanged.
+
+`/analyses/forecast` auto-picks up the new lineage from
+`detectLineages()`. `svelte-check` clean (0 errors).
+
+Reversal cost: low. Remove the seed from `CURATED_SEEDS` in
+`web/src/lib/lineages.ts`; the lineage disappears.
+
+### Task 3 — Edge disambiguation table
+
+The cell-miner and cross-ref resolver were discarding umbrella-name
+mentions ("LangChain", "LangGraph", "Redis", "Claude", "GitHub",
+"Strands Agents", etc.) as `ambiguous-substring` or
+`known-unresolvable`, losing real edges. Built a manual
+disambiguation table at `extraction/edge-disambiguation.json`
+mapping normalised umbrella names to a primary catalog id plus
+phrase-specific alternates. Pattern: `langchain` →
+`langchain-framework--langchain-com` by default; "langmem" in
+nearby context overrides to `langmem-langchain--langchain-ai-github-io`.
+
+`scripts/build_edges.py` now loads this table at startup and
+consults it inside `Resolver.resolve()` BEFORE the default
+ambiguity / unresolvable rules. The disambig path runs three times:
+once before exact-name lookup (for the case where the bare hint IS
+the umbrella), again after exact-name lookup if the name was
+ambiguous, and once more before giving up on substring matching.
+
+**Impact.** Edges before disambiguation: 298 (pre-Round-12 state,
+after Round-11 ingestion). After disambiguation + fetch_citations
+re-merge: **309 edges** (+11). 80% of previously-ambiguous mentions
+now resolve (4 of 5 cell-mining ambiguities, plus 7 cross-ref CSV
+mentions that previously hit `known-unresolvable: langchain`). The
+sole remaining unresolved umbrella is `Redis` — there is no Redis
+substrate row in the catalog (an ingestion gap noted in the
+disambig file's entry for `redis` with `primary_id: null`).
+
+Top new edges surfaced:
+
+- `anthropic-computer-use → claude-code-anthropic` (built-on) — the
+  most-cited ambiguous-substring discard from Round 11
+- 6× `integrates-with langchain-framework` (ArangoDB, AWS Bedrock
+  AgentCore Memory, Dgraph, Flowise Memory, LangSmith, Memgraph,
+  pgvector — were all hitting `known-unresolvable: langchain`)
+- `chatgpt-codex-cloud-agent → github-copilot-agent-mode`
+  (integrates-with)
+- `bedrock-agentcore-aws → strands-agents-aws` (integrates-with) —
+  resolves the `ambiguous-substring: Strands Agents` discard from
+  Round 11
+- `burr-dagworks → langgraph-persistence` (competes-with) —
+  resolves the `ambiguous-substring: LangGraph` discard
+
+`LangChain (framework)` jumped from 0 inbound edges to 7, becoming
+the #2 hub by inbound degree. This better reflects its real role as
+the umbrella framework that many memory products integrate with.
+
+**Files modified.**
+
+- `scripts/build_edges.py` — new `load_disambiguation()` and
+  `Resolver._disambiguate()`; Resolver constructor takes an
+  optional disambiguation dict; main wires it up
+- `extraction/edge-disambiguation.json` — new file, 8 umbrella
+  entries (langchain, langgraph, mem0, redis, claude, langsmith,
+  github, strands agents)
+- `web/landscape.edges.json` — regenerated, 309 edges (was 298)
+- `extraction/round-12-crosslisting-audit.csv` — new, 54 rows
+- `web/src/lib/lineages.ts` — new specs-as-memory seed +
+  `explicitMembers` support on `CuratedSeed`
+
+**Pipeline state.** All four validate.py gates green; svelte-check
+0 errors; render.py NOT re-run (cross-listings preservation).
+
+**Reversal cost.** Low. Delete `extraction/edge-disambiguation.json`
+and the disambig load/consult code in `build_edges.py` reverts
+behaviour. The disambig table is also a strict subset of the kind
+of data that would otherwise need to be hard-coded in `NAME_ALIASES`
+— the JSON file just makes the mapping data-driven and explainable.
