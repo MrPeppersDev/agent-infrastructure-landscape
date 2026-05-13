@@ -117,15 +117,17 @@ Ten things a reader should take away before scrolling further:
 8. **✶ v5 Foundation-model substrate dependency map (§19.5).** The
    13 new *Foundation models (substrate reference)* rows are the
    substrate that the rest of the catalog references via its
-   `backbone` / `model` cells. **Most-depended-on foundation models
-   by inbound substrate references**: (1) **OpenAI GPT family (GPT-5
-   / GPT-4o / o3 / o4) — referenced in ~330 catalog rows**, (2)
-   **Anthropic Claude family — ~190 rows**, (3) **Google Gemini
-   family — ~100 rows**, (4) **Meta Llama family — ~70 rows**. **The
-   single-vendor-risk read**: ~83% of catalog rows that name a
-   backbone depend on OpenAI / Anthropic / Google. The remaining
-   ~17% spread across Meta / Mistral / DeepSeek / Qwen / xAI /
-   Cohere / 01.AI / AI21 / Reka / Amazon Nova. See §19.5 and §21.3.
+   `perf` / `claims` / `desc` / `customers` / `mindshare` cells.
+   Cell-mining across those columns yields the following
+   substrate-reference counts (**non-FM rows mentioning each FM by
+   name**): **OpenAI GPT family 52, Anthropic Claude 52,
+   Google Gemini 22, Alibaba Qwen 16, Mistral 12, Cohere Command 8,
+   DeepSeek 6, AI21 Jamba 3, xAI Grok 2, Amazon Nova 2.** **140
+   catalog rows (~16% of non-FM rows) name at least one foundation
+   model in their cells**; the rest characterise their architecture
+   without a backbone reference. Of the 140 that do, **108 (77.1%)
+   depend on OpenAI / Anthropic / Google** — the single-vendor-risk
+   tier. See §19.5 and §21.3.
 9. **✶ v5 Three structural inversions and one valuation ramp visible
    in the new data — preserved from v4:**
    - **NVIDIA GR00T N1 open weights (Mar 2025)** flips the openness
@@ -2018,6 +2020,296 @@ And the v4 honest read: **memory is one of seven first-class
 categories now, not the central category**. It is the analytical
 lens with the most-developed taxonomy, but it is not the catalog's
 denominator.
+
+---
+
+## 19. ✶ v5 Cross-analysis — combining the existing views
+
+v4's executive summary surfaced four headline findings (Mem0/GraphRAG
+hubs, Files-as-memory 32 implementations, vocabulary trends, the
+five-layer model). v5 cross-references each against the rest of the
+data — survivorship, benchmark coverage, archetype membership, funding
+velocity, lineage cadence — to ask what each finding actually means
+once the other views are loaded.
+
+### 19.1 Mem0 / GraphRAG hub × survivorship × benchmark coverage × archetypes
+
+**Setup.** Mem0 = 12 inbound integrations; GraphRAG (Microsoft) = 12
+inbound (11 influential cites + 1 extends). v3/v4 read this as "two
+shapes of centrality, same headline number." v5 asks: are the two
+hubs *equally surviving*, *equally benchmarked*, *equally archetypal*?
+
+**Cross-check 1: survivorship (Created column).** Mem0 founding date
+in catalog: 2023-06; GraphRAG anchor paper: arxiv 2404.16130, Apr
+2024. **Mem0 is ~10 months older and still actively iterating** (Mem0
+v2 / Mem0g / Mem0 Security / OpenMemory MCP / Mem0 — five
+sibling/successor records share a Mem0-anchored neighbourhood).
+**GraphRAG's neighbourhood is research-active but commercially
+quieter** — LightRAG, LazyGraphRAG, PathRAG (paper + GH rows), RGMem,
+RouteRAG, ComoRAG, CAM, GSW, StructRAG, MemTree — 11 nodes that all
+cite GraphRAG, none of which is a $10M+ commercial entity. **The
+survivorship asymmetry**: Mem0 has commercial descendants; GraphRAG
+has research descendants.
+
+**Cross-check 2: benchmark coverage (§20, perf integrity).**
+*Mem0*: 1 LoCoMo score (91.6, vendor-claimed,
+https://mem0.ai/research) + 1 LongMemEval score (vendor-claimed,
+same host). **Both Mem0 perf entries are vendor-claimed.** No
+peer-reviewed benchmark presence.
+*GraphRAG*: 0 direct perf entries — but **GraphRAG is the most-cited
+in-catalog node at 11 inbound cites**, and its descendants
+(LightRAG, HippoRAG, etc.) have benchmark presence across HotpotQA
+(peer-reviewed: 10/10) and 2WikiMultihopQA. **GraphRAG's
+*ecosystem* is peer-reviewed; Mem0's *own claim* is vendor-claimed.**
+This is a meaningful asymmetry: when industry asks "is GraphRAG
+trustworthy?", the answer is "the research lineage is" — when industry
+asks "is Mem0 trustworthy?", the answer is "the integration count is
+real; the benchmark claim is vendor self-report."
+
+**Cross-check 3: archetypes (§1.1 storage primitive).** Mem0:
+`hybrid` storage (vector + graph + kv) — sits in the *commodity
+hybrid* archetype. GraphRAG: `graph` storage primary — sits in the
+*pure-graph research* archetype. **The two hubs are in different
+archetypes**, which means the "memory subfield has twin centres of
+gravity" finding is sharpened to "the subfield has a *commodity-hybrid
+integration centre* (Mem0) and a *graph-research citation centre*
+(GraphRAG) — they don't compete; they partition." Pinecone / Qdrant
+sit in pure-vector commodity; FalkorDB / Neo4j sit in pure-graph
+commercial. Mem0 and GraphRAG anchor the *layered* corner.
+
+**v5 net finding ✶ (medium confidence).** The Mem0/GraphRAG twin-hub
+reading is structurally **two different products serving two
+different parts of the field**: one is the production-integration
+anchor (Mem0), the other is the academic-descent anchor (GraphRAG).
+**They are not rivals; they are co-anchors of orthogonal axes.**
+
+### 19.2 Files-as-memory 33+ implementations × benchmark coverage × influence
+
+**Setup.** §3.1 lists 32 files-as-memory rows (13 File-backed + 19
+Claude Code mechanisms). Round 11/12 added file-shaped harness rows
+(Cursor, Windsurf, Kiro) that are NOT counted in the curated
+files-as-memory thread (by design — see §3.1) but share the file
+storage primitive. **Counting all `file` primary-storage rows across
+the catalog: 79.** The pattern is the largest single architectural
+fingerprint outside `vector` and `n/a`.
+
+**Cross-check 1: benchmark coverage.** Of the 32 curated
+files-as-memory rows, **only 2 have a real-data `perf` cell**
+(Anthropic Auto Dream and codebase-memory-mcp / DeusData). The
+other 30 carry `not-applicable` or `depth-floor` on `perf`.
+**Files-as-memory has effectively zero benchmark exposure** —
+because the pattern is an *interface decision* (markdown file the
+agent loads) not an *algorithm* you can benchmark.
+
+**Cross-check 2: influence (inbound edges).** Of the 32 curated
+files-as-memory rows, the union has **3 total inbound edges across
+the entire descent graph**. CLAUDE.md (the curated anchor) has 0
+inbound. AGENTS.md has 0. Cursor Rules has 0. **The pattern propagated
+by adoption, not by citation.** Each editor team independently
+shipped their own .rules / .memory / .md file — there's no "we built
+this on top of CLAUDE.md" lineage.
+
+**Cross-check 3: commercial adoption density.** The 79 file-primary
+rows span seven sections (Claude Code mechanisms 19, File-backed
+editors 13, Agent IDEs & coding harnesses 22, Coding-agent memory 8,
+Use-case verticals 8, Platform-provider 5, others 4). **File-as-memory
+is the dominant interface pattern in the harness layer** (layer 2 of
+the five-layer model). Every coding harness ships with one.
+
+**v5 net finding ✶ (high confidence).** Files-as-memory is **a
+near-zero-benchmark, zero-citation, near-universal-adoption pattern**
+— the cleanest example in the catalog of "an architecture that wins
+not because it's measurable but because it's adoptable." The pattern
+is too universal to evaluate; it is the *substrate of every coding
+harness ux*, not an algorithm with peers. **The benchmark-integrity
+treatment (§20) cannot rank this pattern; it can only rank algorithms
+that publish numbers.**
+
+### 19.3 Top archetypes × tier × funding × age × inbound-integration
+
+| Storage primitive | Median funding | T1 count | Inbound-int median | Implied archetype |
+|-------------------|---------------|---------:|-------------------:|--------------------|
+| **hybrid** | **$45.0B** (n=2) | 12 | 6.0 | Substrate consolidator |
+| **kv-cache** | $608M (n=1) | 5 | 0 | Research-grade compression |
+| **parametric** | $12.0B (n=13) | 13 | 0 | Foundation-model / weights |
+| **weight** | $235M (n=12) | 14 | 0 | Robotics policy stack |
+| **file** | $150M (n=33) | 47 | 0 | Coding-harness interface |
+| **kv** | $100M (n=50) | 65 | 0 | Voice slot-fill + agent state |
+| **vector** | $50M (n=61) | 67 | 1 | Commodity memory substrate |
+| **relational** | $50M (n=14) | 14 | 0 | Observability + SIEM |
+| **none-trivial** | $46M (n=84) | 99 | 0 | Use-case harness |
+| **n/a** | $38M (n=73) | 87 | 0 | Adjacency (training, inference, eval) |
+| **graph** | $14M (n=33) | 36 | 4 | Knowledge-graph + Pattern-B |
+| **proprietary** | $30M (n=6) | 8 | 0 | Closed platform-provider |
+
+**Cross-cut reads:**
+
+- **Hybrid is the highest-median archetype** but the sample size is
+  tiny (n=2 with disclosed funding — Databricks $62B parent + one
+  other). The headline number reflects the substrate-parent
+  consolidation noted in §4.1, not the small dedicated-memory hybrid
+  rows.
+- **Parametric is second-highest** at $12B median — this is the
+  Foundation-model substrate-reference tier added in Round 15a.
+  OpenAI / Anthropic / Google parents pull the median up; Mistral /
+  Cohere / Reka pull it down.
+- **Graph at $14M median is the lowest-funded substantive archetype.**
+  Zep ($70M), Neo4j ($2B), FalkorDB ($5M), Memgraph ($35M),
+  Kuzu ($0), Dgraph ($21M). **The disproportion is structural**:
+  graph is a research-rich, commercial-light architecture in this
+  catalog.
+- **Vector at $50M median, n=61 with disclosed funding** is the
+  *true commodity tier* — most products, lowest median per row.
+  Vector is the "default storage of memory" — see §1.1.
+
+**v5 net finding ✶ (medium confidence).** The archetype × funding
+cross-cut **confirms the §7 horizontal-vs-vertical synthesis but
+adds detail**: hybrid is the substrate-parent consolidator,
+parametric is the foundation-model tier, graph is the
+research-overrepresented archetype, vector is the commodity
+production tier. **The funding gradient maps cleanly onto where in
+the agent stack each primitive lives**: substrate-parents > FMs >
+robotics-weights > IDE-files > voice-kv > vector > graph.
+
+### 19.4 Vocabulary trends × actual lineage / archetype membership
+
+v3/v4 noted vocabulary trends: "agentic" everywhere in Round 13,
+"specs" / "specs-as-memory" in Round 11/12, "context engineering"
+crystallised mid-2025. v5 asks: do the vocabulary trends correspond
+to actual lineage or archetype membership?
+
+**Cross-check 1: "agentic" prevalence by section.** The 87
+*Use-case-specific agent harnesses* rows almost all use "agentic" in
+their `desc` / `claims` cells. **The vocabulary trend tracks a real
+architectural fact**: these 87 rows share the `none-trivial` storage
+primitive (no memory layer, by design), the `n/a` taxonomy choice
+on storage being **the** characteristic of the agentic-harness wave.
+The "agentic" label *does* correspond to a coherent
+non-memory-shaped architectural fingerprint.
+
+**Cross-check 2: "specs" / "specs-as-memory" lineage.** Five-member
+curated pattern lineage (§3.1) realises the Round-11/12 candidate.
+The vocabulary trend → curated pattern lineage pipeline worked here:
+the term emerged in the Round-11 ingestion notes, the cell-miner did
+not find descent edges, the manual-curation step ratified it as a
+pattern-kind lineage. **Vocabulary trends that survive cell-mining
+become curated pattern seeds.**
+
+**Cross-check 3: "context engineering" vs catalog scope.** The
+Karpathy June 2025 vocabulary event (T5 row, §11.4) gave the field a
+better name for "what's in the prompt." The catalog still tracks
+memory and "long-context-as-memory" separately — the vocabulary
+sharpening **did not collapse a section** in the catalog, but it did
+sharpen the §9.7 anti-pattern (confusing memory with context).
+Vocabulary events do not always restructure the catalog; some
+just sharpen its anti-patterns.
+
+**v5 net finding ✶ (medium confidence).** Vocabulary trends in this
+field have **two outcomes**: they either crystallise into curated
+pattern lineages (specs-as-memory, agentic-harness) OR they sharpen
+analytical distinctions without changing the section structure
+(context engineering). The catalog is honest about both.
+
+### 19.5 Foundation-model substrate dependencies — single-vendor-risk map
+
+**Setup.** Round 15a added 13 foundation-model substrate-reference
+rows. v5 asks: which catalog rows depend on which FM? What is the
+single-vendor-risk profile of the field?
+
+**Method.** Cell-mine `perf`, `claims`, `desc`, `customers`,
+`mindshare` cells across all 881 non-FM rows for backbone references
+using regex patterns for each FM family.
+
+**Results.**
+
+| Foundation model | Non-FM rows mentioning it | % of FM-using rows (140) |
+|------------------|--------------------------:|-------------------------:|
+| OpenAI GPT (GPT-5 / 4o / o3 / o4) | **52** | 37.1% |
+| Anthropic Claude (3 / 4 / 4.5) | **52** | 37.1% |
+| Google Gemini (1.5 / 2 / 3) | **22** | 15.7% |
+| Alibaba Qwen 3 | 16 | 11.4% |
+| Mistral / Mixtral | 12 | 8.6% |
+| Cohere Command R / A | 8 | 5.7% |
+| DeepSeek R1 / V3 | 6 | 4.3% |
+| AI21 Jamba | 3 | 2.1% |
+| xAI Grok 4 | 2 | 1.4% |
+| Amazon Nova | 2 | 1.4% |
+
+**Key observations:**
+
+1. **140 of 881 non-FM rows (~16%) name a foundation model in their
+   cells**; the other 84% characterise their architecture without a
+   backbone reference. The 16% is concentrated in the harness, IDE,
+   and use-case-vertical layers — these *consume* an FM. Memory
+   substrates (Mem0, Zep, Qdrant) generally do not name a backbone
+   because they're backbone-agnostic.
+2. **The Big Three (OpenAI + Anthropic + Google) account for 108 of
+   140 (77.1%) FM-using rows.** This is the single-vendor-risk
+   concentration: if any one of these three deprecates an API or
+   raises prices, ~77% of FM-using catalog rows feel it.
+3. **OpenAI and Anthropic are tied at 52 mentions each.** This is
+   the v5-data version of the "Anthropic gaining on OpenAI in
+   developer mindshare" narrative — the catalog's cell-mining
+   doesn't pick a winner; the two are at parity in *what catalog
+   products name as their backbone*.
+4. **Multi-backbone support is undermeasured.** Many catalog rows
+   support multiple backbones (Cursor names GPT-5, Claude, Gemini)
+   so a single row can contribute to several FM counts. The 16%
+   denominator is rows that mention at least one; the 77% Big-Three
+   share counts rows that mention any of the three. **The strictly
+   single-vendor-locked share is smaller**; cell-mining doesn't
+   resolve it cleanly.
+5. **The "no Meta Llama in detected mentions" finding is wrong** —
+   the cell-mining regex matched only L\\u2014Llama formal tokens;
+   manual spot-checks show Llama is mentioned in some `desc` cells
+   but with less stable token forms (`llama2`, `llama-3.1`, etc.).
+   **This is a known cell-mining limitation**; the catalog's
+   `landscape.json` likely under-counts Llama dependency by
+   ~10-20 rows. Round 16 disambiguation table would fix.
+
+**v5 net finding ✶ (medium-high confidence).** The agent
+infrastructure field is **structurally OpenAI-or-Anthropic-dependent
+for 77% of its FM-naming rows**. Substrate-consolidation predictions
+(§21.2) should weight the "OpenAI or Anthropic acquires X memory
+layer" scenario higher than the "Mistral acquires X" or "Cohere
+acquires X" scenarios. **The dependency is currently bilateral**;
+neither vendor dominates alone, but together they own three-quarters
+of the field's referenced backbones.
+
+### 19.6 Hub × archetype × lineage triple cross-check
+
+**Setup.** Combine §2.3 (integration hubs), §3.1-3.2 (lineages), and
+§1.1 (storage archetype). For each top-10 hub, identify which
+lineage and which archetype it anchors.
+
+| Hub | Inbound | Storage archetype | Lineage role | Layer (§15) |
+|-----|--------:|-------------------|--------------|--------------|
+| Mem0 | 12 | hybrid | Mem0 ecosystem anchor (auto, 10 nodes) | 1 — Memory |
+| GraphRAG (Microsoft) | 12 | graph | Graph-RAG hierarchy anchor (curated, 21) | 1 — Memory |
+| MemGPT v2 | 10 | hybrid | Influential-cite backbone (auto, 117) | 1 — Memory |
+| Compressive Transformer | 10 | kv-cache | Influential-cite backbone (auto, 117) | 1 — Memory |
+| LoCoMo | 9 | n/a (benchmark) | Influential-cite backbone (auto, 117) | 0 — Eval |
+| A-MEM | 9 | vector | Influential-cite backbone (auto, 117) | 1 — Memory |
+| LangChain (framework) | 8 | n/a (framework) | None (frame substrate) | 3 — Framework |
+| Transformer-XL | 8 | kv-cache | Influential-cite backbone (auto, 117) | 1 — Memory |
+| Zep & Graphiti | 7 | graph | Graph-RAG hierarchy member | 1 — Memory |
+| Generative Agents | 7 | vector | Influential-cite backbone (auto, 117) | 1 — Memory |
+
+**Five hubs of the top-10 are research papers** (LoCoMo, A-MEM,
+MemGPT v2, Compressive Transformer, Transformer-XL, Generative
+Agents) and all sit in the 117-node influential-cite backbone.
+**Three hubs are commercial / substrate** (Mem0 = hybrid memory,
+GraphRAG = graph memory, LangChain = framework). **The hub list is
+60% research-paper memory**, which is the *correct* read of the
+field — most of "what people build memory on" is a paper, not a
+product.
+
+**v5 net finding ✶ (high confidence).** The integration-hub
+leaderboard is structurally *research-paper-heavy*. The two
+commercial hubs (Mem0, LangChain) are the exceptions; everything
+else is a paper. **This is the cleanest signal in the catalog that
+the field is still in its research-led phase** — the network effect
+sits on academic substrates, not on commercial APIs.
 
 ---
 
