@@ -165,6 +165,10 @@ CANONICAL_SECTIONS = {
     "Robotics foundation models & agent stacks",
     # New section added in Round 13 (2026-05-13 use-case-vertical agent harness sweep)
     "Use-case-specific agent harnesses",
+    # New sections added in Round 15 (2026-05-13 substrate / orchestration / sandbox sweep)
+    "Foundation models (substrate reference)",
+    "Multi-agent orchestration platforms",
+    "AI sandbox & runtime environments",
 }
 
 # Status enum values.

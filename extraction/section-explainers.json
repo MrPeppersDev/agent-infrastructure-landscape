@@ -317,6 +317,24 @@
       "subsection": "— Finance / quant AI agents",
       "explainer": "Finance and quantitative-research AI agents. Distinct from generic scientific-research agents because the domain semantics (financial filings, earnings transcripts, expert-call data, market data, trading rules) define the offering. Rogo (investment-banking agent), AlphaSense / Hebbia (research agents — cross-listed under Scientific), Trade Ideas Holly (trading), OpenBB (OSS Bloomberg-Terminal alternative), Composer (retail algorithmic trading), Numerai Signals (crowdsourced AI hedge fund).",
       "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Foundation models (substrate reference)",
+      "subsection": null,
+      "explainer": "Frontier foundation models — the substrate that other catalog rows are built on. Memory here is parametric (in weights) and KV-cache (during inference); discrete episodic memory (chat history, user facts) lives outside the model in the <em>Platform-provider memory</em> section. This section was added in Round 15 (2026-05-13) to make the implicit substrate explicit — so edges from agent frameworks, IDEs, and coding harnesses to the underlying frontier model become resolvable. Includes Anthropic Claude, OpenAI GPT, Google Gemini, Meta Llama, DeepSeek, Mistral, Cohere, xAI Grok, Alibaba Qwen, Microsoft Phi, Amazon Nova, Reka, and 01.AI Yi.",
+      "sub_style": null
+    },
+    {
+      "section": "Multi-agent orchestration platforms",
+      "subsection": null,
+      "explainer": "Commercial and OSS platforms whose primary identity is multi-agent orchestration — distinct from <em>Agent frameworks (no first-party memory layer)</em> (which collects single-purpose framework libraries) and from <em>Agent IDEs &amp; coding harnesses</em> (which collects IDE-shaped coding agents). This section, added in Round 15 (2026-05-13), captures platforms where multi-agent coordination is the productised offering: CrewAI Enterprise, AutoGen Studio, MultiOn, Reflection AI, Adept ACT (historical), Sema4.ai, Imbue Carbon, Steamship, Magic.dev, Phidata/Agno, Burr (DAGWorks), InstructLab (Red Hat / IBM), and Lindy. Memory typically delegates to <em>Dedicated memory layers</em> or to the underlying foundation model — so the rows here are governance / deployment / pricing differentiators, not memory architecture differentiators.",
+      "sub_style": null
+    },
+    {
+      "section": "AI sandbox & runtime environments",
+      "subsection": null,
+      "explainer": "Compute substrate for AI agents — code-execution sandboxes, cloud development environments, headless-browser farms, and serverless container runtimes that AI agent products use to actually run code, navigate the web, or host workspaces. Added in Round 15 (2026-05-13) to make the implicit compute substrate explicit. e2b sandboxes power Anthropic Claude Code artifacts; Modal Sandboxes power batch agent workloads; Daytona / Gitpod / Coder.com host long-running agent workspaces; Browserless and Anchor host headless Chromium for browser agents. Distinct from <em>Inference platforms &amp; gateways</em> (which serve the model) — this section serves the <em>environment</em> the agent operates in.",
+      "sub_style": null
     }
   ]
 }
