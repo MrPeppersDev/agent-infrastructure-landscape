@@ -418,7 +418,7 @@
 </script>
 
 <svelte:head>
-  <title>Memory Systems Landscape — Graph</title>
+  <title>AI Agent Infrastructure Landscape — Graph</title>
 </svelte:head>
 
 <div class="wrap">

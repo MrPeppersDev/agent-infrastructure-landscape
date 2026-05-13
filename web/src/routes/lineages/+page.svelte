@@ -301,7 +301,7 @@
 </script>
 
 <svelte:head>
-  <title>Memory Systems Landscape — Lineages</title>
+  <title>AI Agent Infrastructure Landscape — Lineages</title>
 </svelte:head>
 
 <div class="wrap">

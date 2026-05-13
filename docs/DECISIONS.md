@@ -5340,3 +5340,118 @@ and the disambig load/consult code in `build_edges.py` reverts
 behaviour. The disambig table is also a strict subset of the kind
 of data that would otherwise need to be hard-coded in `NAME_ALIASES`
 — the JSON file just makes the mapping data-driven and explainable.
+
+---
+
+## 2026-05-13: Project rename — "Memory Systems Landscape" → "AI Agent Infrastructure Landscape"
+
+**What.** The user-facing project name evolves to reflect actual scope. Across
+the catalog (731+ records) memory is now ~30-35% of the rows; the other 65%+
+spans harnesses, IDEs, training infrastructure, search substrates, voice
+platforms, robotics stacks, computer-use agents, frameworks, observability,
+and verticals. The "Memory" framing no longer matches what's actually in here.
+
+**New name: "AI Agent Infrastructure Landscape"** — applied to:
+- README.md (h1)
+- web/src/routes/+layout.svelte (top-nav brand)
+- web/src/routes/{+page,about,graph,timeline,lineages,sections}.svelte
+  (svelte:head title + page h1s)
+
+**What stays.** The GitHub repo path remains `MrPeppersDev/memory-analysis-program`
+(the URL is shared and historical commits + git remote references would all
+need updating). The Pages URL stays `mrpeppersdev.github.io/memory-analysis-program/`.
+Historical commit messages remain unchanged. The internal docs (BUILD-PLAN.md,
+SCHEMA.md) keep their wording for now.
+
+**Why this framing.**
+1. "Agent" anchors the catalog — it doesn't try to cover all of AI (no foundation
+   models, no image generation, no diffusion infra). Everything's in service of
+   building agents.
+2. "Infrastructure" matches the consumer — builders making technology decisions
+   need substrate-level comparison, not end-user product picks.
+3. Memory remains a first-class lens; the analysis.md, lineage detection, and
+   archetype work continue to focus there. The catalog isn't memory-only, but
+   memory analysis is its most-developed downstream artifact.
+
+**Options rejected.**
+- "Agentic AI Landscape" — too broad; would inflate scope to e.g. image-agents.
+- "Agent Memory & Context Landscape" — keeps memory primary, but undersells the
+  harness / training / observability rows that are now first-class.
+- "Memory & Agent Systems Landscape" — comma-anchor compromise; user preferred
+  the cleaner #2 framing.
+
+**Reversal cost.** Low. ~7 source files; the historical name is preserved in
+the repo path so nothing breaks for existing links.
+
+
+
+## 2026-05-13: Round 12 — agentic expansion (computer-use / voice agents / robotics)
+
+**Three new top-level sections, +41 records (731 → 772).**
+
+This round broadens the catalog from "memory + harness/IDE" to also
+cover the operating-environment layer where agents act. Three
+sections added:
+
+- **Computer-use & desktop agents** — 13 rows. Substrate / harness for
+  agents that operate keyboards, mice, browsers, and OS sessions:
+  OpenAI Operator, Browser Use, Skyvern, Stagehand, Bytebot,
+  Hyperbrowser, Steel.dev, Magnitude, Lutra AI, Highlight AI,
+  Claude for Chrome, Project Mariner, UI-TARS.
+- **Voice agent platforms** — 13 rows. Developer platforms for voice
+  agents (STT+LLM+TTS+telephony): Vapi, Retell, Bland, Synthflow,
+  ElevenLabs Conversational AI, OpenAI Realtime, Pipecat, LiveKit
+  Agents, Cartesia Sonic, Hume EVI, Speechmatics Flow, CallRail,
+  Vonage AI Studio.
+- **Robotics foundation models & agent stacks** — 15 rows. Humanoid
+  makers + FM labs + warehouse-pick specialists + OSS substrate:
+  Physical Intelligence π, Covariant, Figure AI, 1X, Apptronik,
+  Agility Robotics, Sanctuary AI, Collaborative Robotics, TRI LBM,
+  NVIDIA GR00T / Isaac, Google DeepMind Gemini Robotics, LeRobot,
+  K-Scale Labs, OpenMind OM1, Pickle Robot.
+
+**Distinctions kept clean.** Three existing sections were
+deliberately NOT absorbed:
+
+- *Browser-agent memory* (memory-focused) ≠ *Computer-use & desktop
+  agents* (substrate / harness layer).
+- *Voice-first / wearable AI memory* (consumer products: Limitless,
+  Plaud) ≠ *Voice agent platforms* (developer platforms for building
+  voice agents).
+- *Vertical / robotics-embodied memory* subsection (memory layer of
+  embodied agents) ≠ *Robotics foundation models & agent stacks*
+  (full-stack platform layer).
+
+Cross-listing pattern from Round 11 followed: Retell and Vapi already
+had memory-focused rows; new Round 12 rows are the voice-agent-
+platform framing as separate records. The build_edges + audit_gaps
+pipeline handles duplicate-named rows correctly via id suffixing
+(`retell-ai--retellai-com-2`).
+
+**Pipeline state.** All four `validate.py` gates green;
+`audit_gaps.py` → 0 fillable gaps; 46,320 cells all-terminal
+(16,925 real-data, 17,825 not-applicable, 11,570 depth-floor-reached,
+0 no-data). Render NOT re-run (cross-listings convention).
+
+**Files modified.**
+
+- `landscape.html` — 41 new rows + 3 new section headers + 3
+  explainers.
+- `web/landscape.json` — regenerated, 772 records.
+- `web/landscape.edges.json` — regenerated, 313 edges.
+- `extraction/section-explainers.json` — extended.
+- `scripts/extract.py` — `CANONICAL_SECTIONS` extended with three
+  new sections.
+- `extraction/round-12-ingestion.md` — new.
+
+**What this enables for Track A v4.** The catalog now spans four
+distinct product layers (memory / harness / IDE / agent-runtime)
+plus implicitly a fifth (operating-environment: browser, telephony,
+robot, OS). Per-layer leaderboards, cross-layer ownership analyses,
+and openness gradients (NVIDIA GR00T open weights ≫ DeepMind /
+Figure closed) are now answerable from the data.
+
+**Reversal cost.** Low. Delete the 3 new section entries from
+`section-explainers.json` and `extract.py`, revert the 41 inserted
+HTML rows + 3 section headers, re-run the pipeline. The Retell-ID
+collision suffix would resolve automatically.

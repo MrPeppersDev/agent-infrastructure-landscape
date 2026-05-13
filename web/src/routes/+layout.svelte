@@ -23,7 +23,7 @@
 </script>
 
 <nav class="topnav" aria-label="Primary">
-  <a class="brand" href="{base}/">Memory Landscape</a>
+  <a class="brand" href="{base}/">AI Agent Infrastructure</a>
   <ul>
     {#each routes as r}
       <li>

@@ -1,7 +1,15 @@
-# Memory Analysis Program
+# AI Agent Infrastructure Landscape
 
-A landscape catalog of AI memory systems, frameworks, papers, products, and theoretical
-proposals — built as the foundation for downstream comparative and trend analysis.
+A comprehensive catalog of AI agent infrastructure — memory systems, harnesses, IDEs,
+frameworks, training platforms, search substrates, vertical agent products, voice
+platforms, robotics stacks, and adjacent infrastructure. Built as the foundation for
+comparative and trend analysis for builders making technology decisions.
+
+This project began as a "Memory Systems Landscape" (memory remains the most-developed
+sub-narrative — analysis.md, lineage detection, archetype recipes) and expanded
+in Round 7 / Round 11 / Round 12 to cover the broader agent-infrastructure sphere.
+The repo path and historical commits still reference "memory-analysis-program";
+the URL and Pages deployment remain at that path.
 
 ## What's in here
 

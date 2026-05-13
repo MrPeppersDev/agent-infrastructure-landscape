@@ -15,10 +15,10 @@
 </script>
 
 <svelte:head>
-  <title>About · Memory Landscape</title>
+  <title>About · AI Agent Infrastructure Landscape</title>
   <meta
     name="description"
-    content="How to read the Memory Landscape: tiers, taxonomy axes, cell status, and edge types."
+    content="How to read the AI Agent Infrastructure Landscape: tiers, taxonomy axes, cell status, and edge types."
   />
 </svelte:head>
 

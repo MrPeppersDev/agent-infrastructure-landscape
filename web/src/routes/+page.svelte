@@ -245,13 +245,13 @@
 </script>
 
 <svelte:head>
-  <title>Memory Systems Landscape — Table</title>
+  <title>AI Agent Infrastructure Landscape — Table</title>
 </svelte:head>
 
 <div class="app">
   <header class="toolbar">
     <div class="title-block">
-      <h1>Memory Systems Landscape</h1>
+      <h1>AI Agent Infrastructure Landscape</h1>
       <p class="subtitle">
         {data.recordCount.toLocaleString()} systems · {data.edgeCount.toLocaleString()} edges
         · {visibleRecords.length.toLocaleString()} visible

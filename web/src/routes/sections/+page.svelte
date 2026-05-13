@@ -78,7 +78,7 @@
 </script>
 
 <svelte:head>
-  <title>Sections — Memory Systems Landscape</title>
+  <title>Sections — AI Agent Infrastructure Landscape</title>
 </svelte:head>
 
 <div class="wrap">

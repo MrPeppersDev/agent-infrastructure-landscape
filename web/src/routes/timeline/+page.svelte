@@ -162,7 +162,7 @@
 </script>
 
 <svelte:head>
-  <title>Memory Systems Landscape — Timeline</title>
+  <title>AI Agent Infrastructure Landscape — Timeline</title>
 </svelte:head>
 
 <div class="wrap">
