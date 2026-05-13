@@ -171,6 +171,29 @@ const CURATED_SEEDS: CuratedSeed[] = [
       'cline-memory-bank--docs-cline-bot',
       'roo-code--roocode-com'
     ]
+  },
+  // State-space models: linear-time sequence models that converged on the
+  // same architectural insight (selective SSMs / structured state-space
+  // duality) by parallel evolution. Hyena seeded the long-convolution
+  // framing in 2023; Mamba (2023) introduced selective SSMs; Mamba-2
+  // (2024) unified them with attention via SSD; Jamba (2024) hybridised
+  // SSM with transformer blocks; RWKV-7 (2024) is the linear-RNN sibling.
+  // Members have no built-on edges between them — they're parallel
+  // implementations of the linear-time-sequence-model pattern, hence
+  // `kind: 'pattern'`. Anchor on Mamba as the most-recognised exemplar;
+  // oldestMember() will override to Hyena if dates dictate.
+  {
+    id: 'ssm-state-space',
+    name: 'State-space models',
+    anchorId: 'mamba--arxiv-2312-00752',
+    kind: 'pattern',
+    explicitMembers: [
+      'hyena--arxiv-2302-10866',
+      'mamba--arxiv-2312-00752',
+      'mamba-2-ssd--arxiv-2405-21060',
+      'jamba-ai21--ai21-com',
+      'rwkv-7--gh-blinkdl-rwkv-lm'
+    ]
   }
 ];
 
