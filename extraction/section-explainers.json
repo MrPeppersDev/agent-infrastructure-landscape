@@ -251,6 +251,24 @@
       "subsection": null,
       "explainer": "User-facing agentic IDEs, terminal harnesses, and agent-runtime products — the layer where the harness <em>is</em> the agent. Distinct from 'Coding-agent memory' (which is the memory subsystem of these products, e.g. CLAUDE.md, .cursorrules, Devin Knowledge) and from 'Agent frameworks (no first-party memory layer)' (which is import-and-compose libraries). Added in the 2026-05-13 Round-11 sweep: this is the consumer-product surface — Kiro, Cursor, Windsurf, Zed, Claude Code, Codex CLI, Aider, Cline, Goose, Charm Crush, JetBrains AI / Junie, GitHub Copilot Workspace, Amazon Q Developer, etc. Coverage is broad-and-shallow on the harness layer; memory-layer rows remain canonical for the memory framing.",
       "sub_style": null
+    },
+    {
+      "section": "Computer-use & desktop agents",
+      "subsection": null,
+      "explainer": "Substrate and harness for agents that operate keyboards, mice, browsers, and full OS sessions. Distinct from <em>Browser-agent memory</em> (which focused on memory persisted across browsing sessions) and from <em>Agent IDEs &amp; coding harnesses</em> (where the agent's environment is a code editor). Added in the 2026-05-13 Round-12 sweep: OpenAI Operator, Browser Use, Skyvern, Stagehand, Bytebot, Hyperbrowser, Steel.dev, Magnitude, Lutra AI, Highlight AI, Claude for Chrome, Project Mariner, UI-TARS. Coverage is broad-and-shallow on the harness layer; the Anthropic Computer Use API row (which is the underlying substrate Anthropic itself ships) remains canonical in <em>Agent IDEs &amp; coding harnesses</em> for that framing.",
+      "sub_style": null
+    },
+    {
+      "section": "Voice agent platforms",
+      "subsection": null,
+      "explainer": "Developer platforms for building AI voice agents — STT + LLM + TTS pipelines, telephony adapters, call orchestration. Distinct from <em>Voice-first / wearable AI memory</em> (which is the consumer-product layer — Limitless, Plaud, Rewind) and from <em>Vertical / domain-specific AI memory — Customer support / voice agent memory</em> (which is the CRM-shaped memory layer inside CX products). Added in the 2026-05-13 Round-12 sweep: Vapi, Retell, Bland, Synthflow, ElevenLabs Conversational AI, OpenAI Realtime, Pipecat, LiveKit Agents, Cartesia Sonic, Hume EVI, Speechmatics Flow, CallRail, Vonage AI Studio. Memory in these systems is mostly per-call session state; the interesting differentiation is latency, model integration depth, and telephony breadth — not memory architecture.",
+      "sub_style": null
+    },
+    {
+      "section": "Robotics foundation models & agent stacks",
+      "subsection": null,
+      "explainer": "Full-stack robotics platforms — foundation models (VLA / diffusion-policy), manipulation skills, planners, sim2real stacks. Distinct from the existing <em>Vertical / domain-specific AI memory — Robotics / autonomous-driving / embodied memory</em> subsection (which collects memory architectures for embodied AI as a research-and-product theme). This section is the platform-layer roll-up: humanoid makers (Figure, 1X, Apptronik, Agility, Sanctuary, K-Scale), pure-play FM labs (Physical Intelligence π, TRI LBM, Google DeepMind Gemini Robotics, NVIDIA GR00T), warehouse-pick specialists (Covariant, Pickle), and the OSS substrate (LeRobot, OpenMind OM1). Memory in these systems is mostly parametric (in weights) or trajectory-buffer; the agent runtime layer is the model + simulator + on-robot compute stack.",
+      "sub_style": null
     }
   ]
 }

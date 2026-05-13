@@ -1,7 +1,7 @@
 # Data-gap audit summary
 
-- Records scanned: **731**
-- Cells scanned: **43,860**
+- Records scanned: **772**
+- Cells scanned: **46,320**
 - Gap rows (CSV): **0**
 - High-priority queue (priority >= 10): **0**
 
@@ -12,12 +12,12 @@
 | `fillable-and-missing` | 0 |
 | `real-data-no-citation` | 0 |
 | `shallow-prose` | 0 |
-| `structurally-not-applicable` | 16,993 |
-| `searched-not-found` | 11,321 |
-| `terminal-real-data` | 15,546 |
-| **sum** | **43,860** |
+| `structurally-not-applicable` | 17,825 |
+| `searched-not-found` | 11,570 |
+| `terminal-real-data` | 16,925 |
+| **sum** | **46,320** |
 
-Sanity: 43,860 classified cells vs 43,860 non-name cells (match: **YES**).
+Sanity: 46,320 classified cells vs 46,320 non-name cells (match: **YES**).
 
 ## Top 10 most-gappy columns
 
@@ -43,11 +43,11 @@ Sanity: 43,860 classified cells vs 43,860 non-name cells (match: **YES**).
 | Browser-agent memory | 0 | 0 | 0 | 0 |
 | Claude Code memory mechanisms | 0 | 0 | 0 | 0 |
 | Coding-agent memory | 0 | 0 | 0 | 0 |
+| Computer-use & desktop agents | 0 | 0 | 0 | 0 |
 | Dedicated memory layers | 0 | 0 | 0 | 0 |
 | Embedding & reranker services | 0 | 0 | 0 | 0 |
 | Enterprise-search adjacencies | 0 | 0 | 0 | 0 |
 | Evaluation & observability platforms | 0 | 0 | 0 | 0 |
-| File-backed / editor paradigms | 0 | 0 | 0 | 0 |
 
 ## Top 20 records by total gaps
 

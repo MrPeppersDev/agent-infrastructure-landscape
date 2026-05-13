@@ -158,6 +158,10 @@ CANONICAL_SECTIONS = {
     "Evaluation & observability platforms",
     # New section added in Round 11 (2026-05-13 agentic-harness sweep)
     "Agent IDEs & coding harnesses",
+    # New sections added in Round 12 (2026-05-13 agentic-expansion sweep)
+    "Computer-use & desktop agents",
+    "Voice agent platforms",
+    "Robotics foundation models & agent stacks",
 }
 
 # Status enum values.
