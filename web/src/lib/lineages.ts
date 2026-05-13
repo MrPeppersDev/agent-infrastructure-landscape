@@ -194,6 +194,41 @@ const CURATED_SEEDS: CuratedSeed[] = [
       'jamba-ai21--ai21-com',
       'rwkv-7--gh-blinkdl-rwkv-lm'
     ]
+  },
+  // Browser-agent pattern: parallel convergence on "LLM-driven browser
+  // automation as a memory/context surface" across two cohorts —
+  // Round-12 computer-use & desktop agents (Browser Use, OpenAI
+  // Operator, Project Mariner, Stagehand, etc.) and the earlier
+  // browser-agent memory cohort (Perplexity Comet, Dia, Brave Leo,
+  // Fellou, etc.). Members are parallel products sharing the
+  // browse-and-recall pattern; no descent edges. Anchor on Browser Use
+  // as the most-cited open-source exemplar.
+  {
+    id: 'browser-agent-pattern',
+    name: 'Browser-agent thread',
+    anchorId: 'browser-use--browser-use-com',
+    kind: 'pattern',
+    sections: [
+      'Computer-use & desktop agents',
+      'Browser-agent memory'
+    ]
+  },
+  // Robotics foundation-model pattern: parallel convergence on
+  // multi-modal foundation models for embodied agents across humanoid
+  // platforms (1X, Figure, Agility, Apptronik, Sanctuary), specialised
+  // robotics labs (Physical Intelligence, Covariant, Toyota Research
+  // Institute LBM), and platform stacks (NVIDIA GR00T/Isaac, Gemini
+  // Robotics, Hugging Face LeRobot). Members share the embodied-FM
+  // posture but have no built-on edges between them. Anchor on Physical
+  // Intelligence as the canonical research-led exemplar.
+  {
+    id: 'robotics-fm-pattern',
+    name: 'Robotics foundation-model thread',
+    anchorId: 'physical-intelligence--physicalintelligence-company',
+    kind: 'pattern',
+    sections: [
+      'Robotics foundation models & agent stacks'
+    ]
   }
 ];
 
