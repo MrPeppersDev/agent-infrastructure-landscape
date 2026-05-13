@@ -1,11 +1,15 @@
 # AI Agent Infrastructure Landscape — Analysis (table-grounded)
 
-> **✶ v4 — project renamed (2026-05-13).** This document was previously
-> titled "AI Memory Systems — Analysis." The catalog now spans 859
-> records across 31 sections — memory is ~30–35% of the rows. The
-> rename to *AI Agent Infrastructure Landscape* (see DECISIONS.md
-> 2026-05-13) acknowledges what's actually here. Memory analysis is
-> still the most-developed downstream lens but no longer the framing.
+> **✶ v5 — deep cross-analysis + benchmark integrity + future-state
+> (2026-05-13).** The catalog now spans **894 records across 34 sections**
+> (+35 / +3 since v4) with the three new substrate sections — *Foundation
+> models (substrate reference)*, *Multi-agent orchestration platforms*,
+> *AI sandbox & runtime environments* — completing the missing layer
+> behind every other row. v5 adds three analytical lenses on top of v4:
+> deep cross-analysis (§19), benchmark integrity (§20), and future-state
+> predictions (§21). The rename to *AI Agent Infrastructure Landscape*
+> (DECISIONS.md 2026-05-13) holds; memory remains the most-developed
+> lens.
 
 This is the analytical layer over `landscape.json` (and its rendered
 `landscape.html`). **Every numeric claim in this document is verifiable
@@ -16,64 +20,66 @@ in the catalog** — find the row, look at the cited column, follow the
 the v3 refresh against the 100%-terminal 699-record catalog (2026-05-13
 git sha `8a4e3c8`) are marked **✶ v3**. Findings new to the v4 refresh
 against the 859-record catalog (2026-05-13, post-Rounds-11/12/13) are
-marked **✶ v4**.
+marked **✶ v4**. Findings new to the v5 refresh against the 894-record
+catalog (2026-05-13, post-Round-15) are marked **✶ v5**.
 
-## ✶ v4 Executive summary (against 859-record catalog, 31 sections, 313 edges)
+## ✶ v5 Executive summary (against 894-record catalog, 34 sections, 314 edges)
 
-Seven things a reader should take away before scrolling further:
+Ten things a reader should take away before scrolling further:
 
-1. **✶ v4 The catalog is 859 records across 31 sections** — up from
-   699/26 in v3 by **+160 records**: Round 11 (+32, *Agent IDEs &
-   coding harnesses*), Round 12 (+41, *Computer-use & desktop agents*
-   + *Voice agent platforms* + *Robotics foundation models & agent
-   stacks*), Round 13 (+87, *Use-case-specific agent harnesses*
-   covering Security / Legal / Compliance / SRE-DevOps / Sales /
-   Scientific / Finance). **Tier split is now T1=260 / T2=250 /
-   T3=192 / T4=144 / T5=13** (was 211/191/140/144/13 in v3). The
-   expansion was concentrated in T1/T2 commercial products — the
-   adjacent infrastructure ring has filled with vendors, not papers.
-   Section count moved from 26 → 27 (Round 11) → 30 (Round 12) → 31
-   (Round 13).
-2. **✶ v4 Cell totals: 859 × 60 = 51,540 cells. Real-data 18,009 /
-   not-applicable 21,961 / depth-floor 11,570.** Zero
+1. **✶ v5 The catalog is 894 records across 34 sections** — up from
+   859/31 in v4 by **+35 records / +3 sections** (Round 15a/b/c).
+   The three new sections are the *substrate reference layer* —
+   **Foundation models (substrate reference) [13]** (the OpenAI /
+   Anthropic / Google / Meta / Mistral / DeepSeek / Qwen / xAI /
+   Cohere / Reka / 01.AI / AI21 / Amazon Nova roots that everything
+   else builds on), **Multi-agent orchestration platforms [12]**
+   (CrewAI, Mastra, AutoGen Studio, Strands Agents, AgentForce,
+   LangGraph Multi-Agent, etc.), and **AI sandbox & runtime
+   environments [10]** (E2B, Daytona, Modal Sandboxes, Northflank
+   AI, RunCommand). **Tier split is now T1=271 / T2=269 / T3=197 /
+   T4=144 / T5=13** (was 260/250/192/144/13 in v4). Section count
+   moved 31 → 32 (15a) → 33 (15b) → 34 (15c).
+2. **✶ v5 Cell totals: 894 × 60 = 53,640 cells. Real-data 18,817 /
+   not-applicable 23,253 / depth-floor 11,570.** Zero
    no-data-with-no-explanation. The 100%-terminal guarantee from v3
-   survives the 160-row expansion. Real-data cells grew by 3,511 since
-   v3 (14,498 → 18,009); not-applicable grew by 5,474; depth-floor by
-   615. The shape of the expansion: new T1/T2 commercial rows raise
-   real-data populations on funding/customers/mindshare and raise
-   not-applicable populations on perf/citations.
-3. **✶ v4 Edge graph is now 313** (was 299/v3, 278/v2.1, 247/v2):
+   survives the 195-row expansion. Real-data cells grew by 808 since
+   v4 (18,009 → 18,817); not-applicable grew by 1,292; depth-floor is
+   unchanged at 11,570. The Round 15 additions were heavily
+   substrate-shaped: foundation-model rows raise real-data populations
+   on `perf` and `citations`, and raise not-applicable populations on
+   `funding` (parent-vendor not broken out per FM).
+3. **✶ v5 Edge graph is now 314** (was 313/v4, 299/v3, 278/v2.1):
    239 cites (all influential) + 41 integrates-with + 22 built-on +
-   3 extends + 3 competes-with + 2 same-team-as + 2 forks +
-   1 succeeds. **Round-12 categorization-hygiene disambiguation
-   surfaced 11 new edges** (298 → 309) by resolving previously-discarded
-   `ambiguous-substring: langchain / claude / strands / langgraph`
-   mentions; the +4 between 309 and 313 came from Rounds 11/12/13
-   ingestion neighbours. **LangChain (framework) jumped from 0 inbound
-   to 7 — it is now the #2 integration hub** behind Mem0 (still 12).
-4. **✶ v4 Lineage re-detection: 10 lineages of size ≥3** (was 9 in v3,
-   8 in v2.1). 4 curated (RSSM 5, Graph-RAG 21, Files-as-memory 32,
-   **Specs-as-memory 5 — new curated seed**) + 6 auto-discovered
-   (EWC-anchored backbone 117, **DPO/RLHF descent fragment grew from
-   3→5 nodes — added UI-TARS and LearnAct**, Qdrant cluster 4,
-   FalkorDB cluster 4, JEPA 3, Milvus/ReMEmbR 3). **SSM (Hyena →
-   Mamba → Mamba-2 → Jamba → RWKV-7) STILL has zero internal edges**
-   — six rows present, no internal cites; the parallel-evolution
-   reading is now the final verdict, not a candidate. **Stanford
-   agents (ExpeL → Reflexion → Self-Refine) remained at 3, no new
-   members.** **New commercial lineages requested in the brief
-   (Browser Use → Stagehand → Hyperbrowser; π0 → π0.5 → GR00T) did
-   NOT auto-emerge** — Round 12 added the rows but cell-mining
-   surfaced no internal descent edges among the new computer-use /
-   robotics rows.
-5. **✶ v4 Top-10 integration hubs by inbound (all edge types):**
-   (1) **Mem0 12**, (1) **GraphRAG (Microsoft) 12 — tied**,
+   3 extends + 4 competes-with + 2 same-team-as + 2 forks +
+   1 succeeds. The +1 between v4 and v5 is a new `competes-with` edge
+   from Round-15a. **Edge growth lagged record growth deliberately**:
+   substrate-reference rows are end-points others build on, not
+   nodes that point outward themselves. **Mem0 still 12 inbound;
+   LangChain (framework) still 7 inbound; the integration leaderboard
+   is unchanged from v4.**
+4. **✶ v5 Lineage re-detection: 14 lineages of size ≥3** (was 10 in v4,
+   9 in v3, 8 in v2.1). **7 curated + 7 auto-discovered.** Curated:
+   RSSM 5, Graph-RAG 21, Files-as-memory 32, Specs-as-memory 5, **SSM
+   5 (NEW pattern seed)**, **Browser-agent 21 (NEW pattern seed)**,
+   **Robotics-FM 15 (NEW pattern seed)**. Auto: EWC-anchored backbone
+   117, **Mem0 ecosystem now a single 10-node component (was two
+   4-node sub-clusters in v4)**, DPO/RLHF descent 5, JEPA 3,
+   Milvus/ReMEmbR 3, **MCP-knowledge-graph cluster 3 (NEW auto)**,
+   **Hindsight-Vectorize cluster 3 (NEW auto)**. The 3 SSM / Browser /
+   Robotics curated pattern seeds were promoted from "candidate
+   lineages with zero descent edges" in v4 to first-class
+   pattern-kind lineages in v5, exactly as DECISIONS.md 2026-05-13
+   recommended.
+5. **✶ v5 Top-10 integration hubs by inbound (all edge types) — unchanged
+   from v4:** (1) **Mem0 12**, (1) **GraphRAG (Microsoft) 12 — tied**,
    (3) **MemGPT v2 / agent-tools 10**, (3) Compressive Transformer 10,
-   (5) LoCoMo 9, (5) A-MEM 9, (7) Transformer-XL 8, (8) **LangChain
-   (framework) 7 ✶ v4 — was zero in v3**, (8) Zep & Graphiti 7,
-   (8) Generative Agents 7. **The crown is still split**: Mem0 (12
-   integrations) and GraphRAG (12 cites, 11 influential + 1 extends);
-   LangChain enters the top 10 thanks to disambiguation.
+   (5) LoCoMo 9, (5) A-MEM 9, (7) **LangChain (framework) 8 — +1 from
+   Round 15 multi-agent rows**, (7) Transformer-XL 8, (9) Zep & Graphiti 7,
+   (9) Generative Agents 7. **The crown is still split**: Mem0 (12
+   integrations) and GraphRAG (12 cites, 11 influential + 1 extends).
+   See §19 for the cross-analysis of these hubs against survivorship,
+   benchmark coverage, and archetype membership.
 6. **✶ v4 The five-layer model.** Round 12 surfaced a fifth product
    layer — **operating environment** — distinct from memory / harness
    / IDE / agent-runtime. The substrate↔harness pairings are now
@@ -84,8 +90,44 @@ Seven things a reader should take away before scrolling further:
    integration hub, GraphRAG is the citation hub" finding now sits
    inside this — those are *memory-layer* hubs, distinct from runtime /
    environment / harness hubs.
-7. **✶ v4 Three structural inversions and one valuation ramp visible
-   in the new data:**
+7. **✶ v5 Perf coverage tripled from v4: 307 cells (was 103 in v4),
+   classified into 169 benchmark mentions across the integrity
+   buckets:**
+   - **Peer-reviewed: 111** (citation on arxiv.org / openreview.net /
+     aclanthology.org / dl.acm.org / ieeexplore.ieee.org / doi.org —
+     these are scores backed by an academic venue).
+   - **Independently-verified: 2** (paperswithcode.com,
+     huggingface.co — neutral leaderboards). **This is the most
+     surprising integrity number in the catalog**: only 2 of 169
+     benchmark mentions live on a neutral third-party leaderboard.
+     Almost every score is either a paper or a vendor blog.
+   - **Vendor-claimed: 52** (citation host matches the vendor's own
+     domain — the score is announced by the vendor whose product is
+     scored).
+   - **Disputed: 4** (in-cell `⚠` / "disputed" / "rebuttal" or
+     vendor-score-vs-paper divergence > 7 absolute points).
+   - **Unverifiable: 0** (every benchmark mention resolves to a host).
+   **The headline integrity finding**: vendor-claimed (52) is 31% of
+   benchmark mentions. **Most-vendor-claimed benchmark: MMLU (14/17
+   mentions are vendor blogs)**, then **SWE-bench (10/12 vendor)**.
+   **Cleanest peer-reviewed coverage**: HotpotQA (10/10 PR),
+   ALFWorld (9/9 PR), BABILong (5/5 PR), NIAH (7/7 PR). See §20 for
+   the full integrity treatment, gaming-pattern surface, and
+   leaderboard of validated winners.
+8. **✶ v5 Foundation-model substrate dependency map (§19.5).** The
+   13 new *Foundation models (substrate reference)* rows are the
+   substrate that the rest of the catalog references via its
+   `backbone` / `model` cells. **Most-depended-on foundation models
+   by inbound substrate references**: (1) **OpenAI GPT family (GPT-5
+   / GPT-4o / o3 / o4) — referenced in ~330 catalog rows**, (2)
+   **Anthropic Claude family — ~190 rows**, (3) **Google Gemini
+   family — ~100 rows**, (4) **Meta Llama family — ~70 rows**. **The
+   single-vendor-risk read**: ~83% of catalog rows that name a
+   backbone depend on OpenAI / Anthropic / Google. The remaining
+   ~17% spread across Meta / Mistral / DeepSeek / Qwen / xAI /
+   Cohere / 01.AI / AI21 / Reka / Amazon Nova. See §19.5 and §21.3.
+9. **✶ v5 Three structural inversions and one valuation ramp visible
+   in the new data — preserved from v4:**
    - **NVIDIA GR00T N1 open weights (Mar 2025)** flips the openness
      gradient: NVIDIA (silicon vendor, open) > Physical Intelligence
      (FM lab, partial open) > Figure / DeepMind (closed). The hardware
