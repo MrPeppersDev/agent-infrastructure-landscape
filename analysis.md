@@ -2313,6 +2313,213 @@ sits on academic substrates, not on commercial APIs.
 
 ---
 
+## 20. ✶ v5 Benchmark integrity — what's actually validated
+
+Per user direction: every perf cell in the catalog gets classified by
+the integrity of its citation. The headline question is *not* "who
+scored highest on LoCoMo?" — it is "**which scores are backed by
+peer review or a neutral leaderboard, and which are vendor
+self-reports**?" The integrity treatment uses the classification
+logic in `web/src/lib/analyses/benchmark-integrity.ts` (issue #33's
+companion module). v5 runs that logic over the 307 real-data perf
+cells and surfaces the result here.
+
+### 20.1 Classification rules (operational)
+
+| Bucket | Trigger |
+|--------|---------|
+| **peer-reviewed** | Citation host is `arxiv.org`, `openreview.net`, `proceedings.mlr.press`, `aclanthology.org`, `ieeexplore.ieee.org`, `dl.acm.org`, or `doi.org`. |
+| **independently-verified** | Citation host is a neutral leaderboard (`paperswithcode.com`, `huggingface.co`, `crfm.stanford.edu`, `lmarena.ai`, `evalscope.org`, `scale.com`) OR a non-vendor third-party (independent blog, neutral news outlet). |
+| **vendor-claimed** | Citation host matches the vendor's own apex domain — derived from `record.url` first, falling back to the host token in the record id (e.g. `mem0.ai` for Mem0, `getzep.com` for Zep, `anthropic.com` for Anthropic). |
+| **disputed** | In-cell signal (`⚠`, "disputed", "rebuttal", "lies-damn", "counter-analysis") OR vendor-claimed score diverges from a peer-reviewed score on the same benchmark by more than 7 absolute points (the canonical Mem0 vs Zep LoCoMo case). |
+| **unverifiable** | No citation host resolves OR the cell status is `depth-floor-reached` / `no-data` OR the value is a sentinel ("no public benchmark scores found"). |
+
+### 20.2 Per-bucket counts across the catalog
+
+Classification was run over all perf and claims cells with a
+recognised benchmark mention (25 canonical benchmarks: LongMemEval,
+LoCoMo, BABILong, ConvoMem, RULER, MemoryAgentBench, ImplicitMemBench,
+PersonaBench, NIAH, LongBench, HotpotQA, TriviaQA, NaturalQuestions,
+GAIA, ALFWorld, SWE-bench, OSWorld, WebArena, AppWorld, ScienceWorld,
+Mind2Web, BrowseComp, AIME, MT-Bench, MMLU).
+
+| Bucket | Count | % of 169 |
+|--------|------:|--------:|
+| **peer-reviewed** | **111** | 65.7% |
+| **vendor-claimed** | **52** | 30.8% |
+| **disputed** | **4** | 2.4% |
+| **independently-verified** | **2** | 1.2% |
+| **unverifiable** | 0 | 0.0% |
+| **Total** | **169** | 100.0% |
+
+**Two findings jump off the page:**
+
+1. **Peer-reviewed leads by 2.1× over vendor-claimed (111 vs 52).**
+   The catalog's benchmark presence is mostly academic — most rows
+   that publish a score do so in an arxiv paper. **This is the
+   reverse of what casual reading of vendor blogs would suggest.**
+2. **Independently-verified is essentially zero (2 entries).** Only
+   2 of 169 benchmark mentions live on a neutral third-party
+   leaderboard (paperswithcode.com / huggingface.co / lmarena.ai /
+   etc.). The two entries are Hindsight (Vectorize) cited via
+   VentureBeat and LangMem cited via guptadeepak.com. **The
+   "neutral leaderboard validating product claims" tier is
+   structurally empty in the field.** Vendors do not post to neutral
+   leaderboards; academics post to arxiv.
+
+### 20.3 Per-benchmark integrity breakdown
+
+| Benchmark | Total | PR | IV | VC | D | U | Read |
+|-----------|------:|---:|---:|---:|--:|--:|------|
+| **LoCoMo** | 31 | 22 | 1 | 6 | 2 | 0 | Heavy peer-review (22) but 6 vendor + 2 disputed (Mem0/Zep) — the canonical contested benchmark |
+| **LongMemEval** | 19 | 10 | 1 | 7 | 1 | 0 | Mixed; vendor-claimed share is meaningful (37%) — MemPalace ⚠ disputed |
+| **MMLU** | 17 | 3 | 0 | **14** | 0 | 0 | **82% vendor-claimed** — the worst integrity-density benchmark; foundation-model row dominant |
+| **GAIA** | 13 | 10 | 0 | 3 | 0 | 0 | Mostly peer-reviewed (77%) |
+| **SWE-bench** | 12 | 2 | 0 | **10** | 0 | 0 | **83% vendor-claimed** — second-worst integrity; coding-agent vendor blogs dominate |
+| **HotpotQA** | 10 | **10** | 0 | 0 | 0 | 0 | **100% peer-reviewed** — cleanest benchmark |
+| **ALFWorld** | 9 | **9** | 0 | 0 | 0 | 0 | **100% peer-reviewed** |
+| **AIME** | 8 | 2 | 0 | 6 | 0 | 0 | 75% vendor-claimed — foundation-model AIME-2024/2025 self-report |
+| **NIAH** | 7 | **7** | 0 | 0 | 0 | 0 | **100% peer-reviewed** |
+| **BABILong** | 5 | **5** | 0 | 0 | 0 | 0 | **100% peer-reviewed** |
+| **WebArena** | 5 | 3 | 0 | 2 | 0 | 0 | Mostly peer-reviewed |
+| **OSWorld** | 4 | 2 | 0 | 2 | 0 | 0 | Split — Anthropic Computer Use self-reports |
+| **NaturalQuestions** | 4 | **4** | 0 | 0 | 0 | 0 | **100% peer-reviewed** |
+| **BrowseComp** | 3 | 3 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **MT-Bench** | 3 | 3 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **LongBench** | 3 | 3 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **RULER** | 3 | 3 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **AppWorld** | 2 | 2 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **ScienceWorld** | 2 | 2 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **MemoryAgentBench** | 2 | 1 | 0 | 1 | 0 | 0 | Mixed |
+| **TriviaQA** | 2 | 2 | 0 | 0 | 0 | 0 | 100% peer-reviewed |
+| **ConvoMem** | 2 | 0 | 0 | 1 | 1 | 0 | Disputed (Mem0 self-report vs Salesforce paper) |
+| **PersonaBench** | 1 | 1 | 0 | 0 | 0 | 0 | Peer-reviewed |
+| **ImplicitMemBench** | 1 | 1 | 0 | 0 | 0 | 0 | Peer-reviewed |
+| **Mind2Web** | 1 | 1 | 0 | 0 | 0 | 0 | Peer-reviewed |
+
+**The two worst-integrity benchmarks in the catalog are MMLU (82%
+vendor-claimed) and SWE-bench (83% vendor-claimed)**. They are the
+two benchmarks every foundation-model vendor and every coding-agent
+vendor cites in marketing — and both have lost their independent
+character. **The cleanest benchmarks (100% peer-reviewed) are
+HotpotQA, ALFWorld, NIAH, BABILong, NaturalQuestions, RULER,
+LongBench, MT-Bench, BrowseComp, AppWorld, ScienceWorld, TriviaQA,
+Mind2Web, PersonaBench, ImplicitMemBench** — note that all of these
+are *academic* benchmarks designed in published papers, not vendor
+self-coined evaluations.
+
+### 20.4 Known gaming patterns surfaced
+
+Three gaming patterns the catalog now exposes:
+
+**1. Vendor-self-defined benchmark (the "I made this up" pattern).**
+A benchmark is reported by exactly one record AND that record's
+citation is on the vendor's own domain. The benchmark has no
+external corroboration. **Concrete examples surfaced**:
+- **MemPalace** at 96.6% on LongMemEval — citation:
+  mempalace.net. The score is **disputed inline** with the ⚠ flag
+  because the figure is `recall_any@5` not QA accuracy — different
+  metric than the benchmark's standard scoring.
+- **SuperLocalMemory** on LoCoMo — citation: superlocalmemory.com.
+  No external reproduction.
+- **OMEGA** at 95.4% on LongMemEval — citation: omegamax.co. No
+  external reproduction.
+- **Memoria (MatrixOrigin)** on LongMemEval — citation:
+  medium.com. Single-source, no peer review.
+
+**2. Weak-baseline comparison (the "vs GPT-3.5" pattern).** The only
+comparison baseline is a notoriously weak one (Full-Context,
+GPT-3.5 in 2026, Llama-2 in 2026, "vanilla baseline LLM"). The
+heuristic flags any perf-cell value containing those tokens unless
+the cell *also* contains "overall" / "aggregate" / "average". v5
+ran the heuristic and found these flags concentrated in:
+- Coding-agent rows comparing themselves to "base GPT-4" rather
+  than current SOTA;
+- Memory-layer rows comparing themselves to "no-memory baseline"
+  rather than to other memory layers.
+
+**3. Single-sub-task reporting (the "we picked our best slice"
+pattern).** The perf cell mentions only one sub-task of a
+multi-task benchmark (e.g. "single-fact QA on BABILong" with no
+multi-task or aggregate score). The heuristic flags this when the
+cell contains "single-fact" / "single-hop" / "sub-task" / "only on
+X" / "one task" without also containing "overall" / "aggregate" /
+"macro" / "micro" / "avg". v5 flags these in:
+- ByteRover on LoCoMo (single-task slicing visible in the cell);
+- Some Mem0 LongMemEval reportings (variant-specific without
+  aggregate).
+
+**4. The canonical disputed case: Mem0 vs Zep on LoCoMo.** Mem0
+claims 91.6%; Zep claims 84% with Mem0 publishing a counter
+("lies-damn-lies" rebuttal). Both vendor-claimed and adversarially
+recomputed — neither has been reproduced by a third party. **This
+is the only adversarial cross-check in the catalog**; the practice
+should be the norm, not the exception. v3/§9.4 made this point;
+v5's integrity treatment now quantifies how singular it is.
+
+### 20.5 Leaderboard of "validated winners" (peer-reviewed only)
+
+The validated leaderboard selects the highest peer-reviewed score
+per benchmark — i.e. *the scores that have actually been published
+and refereed.* These are the field's actual top performers (NOT the
+catalog's most-marketed; those are §20.4's vendor-claimed entries).
+
+| Benchmark | Top peer-reviewed scorer (record name) | Source |
+|-----------|----------------------------------------|--------|
+| LoCoMo | Various memory papers (MemMachine, ShadowKV, Agentic Memory, GAM) all in the 70-91% band from arxiv papers | arxiv |
+| LongMemEval | Letta peer-reviewed entry, plus arxiv-hosted method papers | arxiv |
+| HotpotQA | Self-RAG, ReDocRED, RAPTOR, HippoRAG — all arxiv-published | arxiv |
+| ALFWorld | ExpeL, Reflexion, Voyager, Generative Agents | arxiv |
+| NIAH | Compressive Transformer, Memory³, MemoryLLM, A-MEM | arxiv |
+| BABILong | BABILong paper itself + descendants | arxiv |
+| GAIA | Agent KB, DeepAgent, ExpeL family | arxiv |
+| WebArena | Agent KB, AgentFold, ScreenAgent | arxiv |
+| MMLU | Only 3 peer-reviewed entries (most MMLU mentions are vendor blogs) | arxiv |
+| SWE-bench | Only 2 peer-reviewed entries (10 vendor blogs) | arxiv |
+
+**The key validated-winners read**: in **every benchmark with a
+healthy peer-reviewed population** (LoCoMo, LongMemEval, HotpotQA,
+ALFWorld, NIAH, BABILong, GAIA, WebArena), the top scorers are
+**arxiv-published methods, not vendor products**. **Where the
+vendor products dominate the mention count (MMLU, SWE-bench), the
+peer-reviewed share is tiny** — and the vendor scores cannot be
+trivially compared to the academic baselines because they use
+different backbones, different prompting harnesses, different
+shots, different evaluation harnesses.
+
+### 20.6 The honest read on benchmark integrity
+
+**v5 finding ✶ (high confidence).** The catalog's benchmark data
+has a *bifurcated integrity profile*:
+
+- **Memory-research benchmarks** (HotpotQA, LoCoMo, LongMemEval,
+  ALFWorld, NIAH, BABILong, GAIA, WebArena) carry strong
+  peer-reviewed populations and the highest scores belong to
+  arxiv-published methods. **These are the trustworthy
+  comparisons.**
+- **Foundation-model benchmarks** (MMLU, AIME, SWE-bench) are
+  overwhelmingly vendor-claimed (>75% of mentions). The
+  vendor-claimed entries cannot be directly compared because
+  prompting / harness / shot-count / model-version variants are
+  not standardised. **Industry treats these as marketing
+  numbers**, and the catalog's classification confirms that
+  treatment.
+- **Vendor-self-defined benchmarks** (MemPalace's recall_any@5,
+  OMEGA's framing, Backboard's framing) are independent of the
+  above two — they are *new metrics dressed as new scores*. The
+  cleanest signal that a benchmark has been gamed is when the
+  reported metric is not what the benchmark's published spec
+  defines.
+
+**The leaderboard of "actual winners" is not the leaderboard of
+"most-marketed winners."** Industry consumers should weight
+peer-reviewed scores at 5-10× the vendor-claimed scores when
+deciding whether to integrate, and treat single-source disputes
+(Mem0 vs Zep on LoCoMo) as evidence that neither number is reliable
+until a third party reproduces.
+
+---
+
 ## Appendix — Source columns and files (✶ v2 updated)
 
 | Column | Canonical source |
