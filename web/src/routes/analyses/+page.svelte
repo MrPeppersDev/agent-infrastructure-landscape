@@ -46,6 +46,12 @@
       title: 'Lineage forecast',
       summary:
         'For each detected lineage, what does the leading edge tell us about where the next paper/product is likely coming from? Pairs with the influence-vs-adoption view to anticipate Q3 additions.'
+    },
+    {
+      slug: 'trajectory',
+      title: 'Trajectory — used vs growing/dying',
+      summary:
+        'Combines funding cadence, release recency, GH stars, mindshare/citations, and lineage membership into one velocity story per record. Five panels: cohort, substrate-dependency risk, consolidation candidates, billion-$ candidates, dying candidates.'
     }
   ];
 </script>
