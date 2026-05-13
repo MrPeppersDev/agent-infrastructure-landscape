@@ -2520,6 +2520,189 @@ until a third party reproduces.
 
 ---
 
+## 21. ✶ v5 Future-state — what's used today vs what's projected next
+
+Per user direction: "Several new analyses around what is used vs what
+might the future be." This section combines inbound-integration
+rates + funding velocity + GitHub star velocity + lineage cadence to
+forecast 12-month trajectories. Every prediction is marked with
+**confidence (high / medium / low / speculative)** and shows the
+data each prediction rests on.
+
+### 21.1 What's used today — top-of-mind across the layers (high confidence)
+
+| Layer | Used today (anchor + adoption data) |
+|-------|-------------------------------------|
+| **1 — Memory** | Mem0 (12 inbound integrations; ~80k developer signups; $150M val), GraphRAG (11 inbound cites; lineage of 21 descendants), Pinecone / Qdrant / Weaviate (commodity; >150M cumulative monthly downloads) |
+| **2 — Harness** | Cursor ($9.9B / $200M ARR), Claude Code, Windsurf (acquired), Cline ($32M Series A, fork chain to Roo Code), Aider |
+| **3 — Framework** | LangChain (15k+ job postings, 8 inbound integration edges, $1.2B val), LangGraph (6 inbound), CrewAI, AutoGen, Mastra |
+| **4 — Operating environment** | LiveKit (Apache 2.0 substrate for OpenAI Realtime), Browser Use (~60k stars, $17M seed), Anthropic Computer Use, NVIDIA GR00T N1 (open weights), MCP (138M npm/mo) |
+| **5 — Use-case vertical** | Harvey ($11B legal), Sierra ($15.8B CX), Decagon ($4.5B CX), Vanta ($2.45B compliance), Glean ($7.2B / $200M ARR enterprise search), Cognition/Devin ($10.2B coding) |
+
+The above is the *load-bearing* reading of "what is used today" —
+what every cell in the catalog confirms is shipping, integrated,
+funded, and revenue-generating. The rest of §21 looks 12 months
+ahead.
+
+### 21.2 What's projected to be used in 12 months — substrate consolidation predictions
+
+Combining hub finding (§19.1) + acquisition signals (Voyage→MongoDB,
+Covariant→Amazon, Quickwit→Datadog, Windsurf→OpenAI→Google) + the
+77% OpenAI/Anthropic/Google FM dependency (§19.5) + the funding
+density delta (§4.1):
+
+**Prediction set 1 — substrate consolidation (medium confidence,
+data: 3 past acquisitions in 18 months + 13 FM rows + valuation
+gap):**
+
+- **Embedding tier likely consolidates next.** Voyage AI was the
+  first acquisition (Feb 2025, $220M into MongoDB). Cohere, Nomic,
+  Mistral Embed, BGE, GTE, Jina, Mixedbread are the remaining
+  pure-embedding vendors. **At least 1-2 of these will be acquired
+  by a database / data-platform parent within 12 months.** Likely
+  targets: Snowflake (Cortex Search complement), Elastic, Pinecone
+  (defensive), Databricks (Lakehouse complement). **Confidence:
+  medium**, rests on: only one acquisition has happened (n=1 trend
+  with the "first move in 18 months" framing).
+- **Memory layer consolidation lags substrate consolidation by
+  ~12 months.** No memory-layer acquisition has happened yet. The
+  closest signal is Letta's $70M valuation flat for 12 months
+  (slower than the broader market). **Within 18 months, expect
+  1-2 of {Letta, Cognee, Zep, Mem0} to be acquired** — most likely
+  by a framework / harness / hyperscaler (LangChain Inc., Anthropic,
+  Snowflake, MongoDB, Salesforce). **Confidence: medium**, rests on:
+  valuation pressure + zero defensive acquisitions to date + 77%
+  Big-Three FM dependency makes hyperscaler interest plausible.
+- **Vector-DB tier likely sees a *defensive* round, not an
+  acquisition.** Pinecone, Qdrant, Weaviate, Chroma are all
+  commodity-priced; an acquisition would mean Snowflake / Databricks
+  / MongoDB picking one to lock in. The Databricks Vector Search
+  parent-org valuation already covers this — they may not need to
+  buy. **Confidence: low**, the prediction set could easily be
+  inverted; the data is sparse.
+
+**Prediction set 2 — agent-framework concentration (high confidence,
+data: 15k LangChain jobs, 8 inbound edges, $1.25B valuation):**
+
+- **LangChain Inc. consolidates further.** It already absorbed
+  LangGraph + LangSmith; the natural next absorption is either
+  Mastra (Apache 2.0, $0 fundraise visible) or one of CrewAI /
+  AutoGen / Strands. **Confidence: high**, rests on: 15k+ job
+  postings (catalog's highest), LangChain's $125M B round (Oct
+  2025), and the integration-hub network effect (8 inbound).
+
+### 21.3 Foundation-model dependency risk — what breaks if a vendor walks (high confidence)
+
+§19.5 established that 77% of FM-using catalog rows depend on
+OpenAI / Anthropic / Google. This is the *concrete risk surface*.
+
+| Vendor | Catalog rows depending | What breaks if API costs 2× / API deprecates |
+|--------|----------------------:|---------------------------------------------|
+| **OpenAI** | 52 | Most coding agents (Cursor, Codex CLI, OpenHands), most agentic harnesses, most voice platforms via Realtime API, most use-case verticals with LLM tier |
+| **Anthropic** | 52 | Claude Code, Claude for Chrome, Computer Use harnesses, most coding agents that name a backbone, MCP transport ecosystem |
+| **Google** | 22 | Gemini Robotics platforms (Apptronik, deepmind-led integrations), Gemini-as-backbone harnesses |
+| Anthropic + OpenAI both | (~30 dual-vendor rows) | Multi-backbone tooling still has a fallback; single-backbone tooling falls back to the other Big Two |
+
+**The honest risk read (high confidence):**
+- **OpenAI / Anthropic price symmetry holds for at least 12
+  months.** Both are growing rapidly; neither has reason to deviate
+  from the other on per-token economics. **Confidence: high.**
+- **The lock-in risk is asymmetric**: Anthropic Claude is the only
+  current credible browser/computer-use FM (Anthropic Computer Use
+  API); if Anthropic shifts strategy, the entire computer-use
+  cohort (13 rows in §16) has no drop-in replacement.
+  **Confidence: high.**
+- **Most-vulnerable archetype**: voice platforms that wrap OpenAI
+  Realtime API (Vapi, Retell, OpenAI Realtime API itself). If
+  OpenAI raises Realtime prices, this is the cohort with the
+  smallest revenue cushion. **Confidence: medium.**
+- **Least-vulnerable archetype**: memory layers (Mem0, Zep, Letta).
+  They are backbone-agnostic by design — the only FM dependency is
+  the agent that consumes them, not the memory layer itself.
+  **Confidence: high.**
+
+### 21.4 The next billion-$ valuation candidates (speculative-medium confidence)
+
+Combining funding velocity + inbound-integration growth + archetype
+membership + revenue/employee ratios:
+
+| Candidate | Today | Why next-$1B (data signal) | Confidence |
+|-----------|-------|----------------------------|-----------|
+| **Browser Use** | $17M seed (Mar 2025), ~60k stars | Most-starred AI-agent OSS of 2025; ETH founding; €5M ARR rumored; strong network effects with Stagehand / Hyperbrowser | **medium** |
+| **Cartesia** | $64M Series A (Q1 2025) | Lowest-latency voice (~40ms); SSM architecture (Mamba author); commercial validation of SSM family; voice market growing | **medium** |
+| **Mem0** | $150M val (Oct 2025) | 12 inbound integrations (catalog #1 tied); $20M Series A; product-led adoption — needs ARR breakout | **medium** (currently revenue-light; could ramp on enterprise SLA tier or could be acquired before $1B) |
+| **Apptronik** | $1B implied (Feb 2025 $350M raise) | DeepMind Gemini Robotics reference; Mercedes-Benz pilot; OEM scale-up trajectory | **medium** |
+| **LiveKit** | $300M (Sep 2024) | Apache-2.0 OSS substrate for OpenAI Realtime; commodity → revenue tier transition | **low-medium** (OSS substrates rarely break $1B) |
+| **Vapi** | $130M (Dec 2024) | >$10M ARR Q1 2025; most-discussed voice platform; competition is fragmented | **medium** |
+| **Mistral Vibe / Remote Agents** | private (Mistral parent ~$6B) | First European-FM-vendor agent harness; Mistral Medium 3.5 backbone | **low** |
+
+**Speculative-but-low-confidence picks**:
+- A use-case vertical we haven't yet flagged in §21.1 (Sales,
+  Compliance, or Scientific Research sub-segment of Round 13's 87
+  rows) breaking out;
+- A foundation-model wrapper (Magic.dev, Adept-like) raising at $1B+
+  on a coding-IDE thesis;
+- A robotics-FM lab (1X, Sanctuary, Cobot) closing a funding round
+  that brings it to Figure-ramp range.
+
+**The framework for these picks**: high inbound-integration count
+(network effect signal) + revenue/employee >$1M (capital efficiency
+signal) + archetype membership in a category with median funding ramp
+(market signal) + GitHub-star velocity for OSS-led entries.
+**Confidence falls off rapidly** once the catalog has only 1-2
+data points per archetype — most of these are educated speculation,
+not data-driven predictions.
+
+### 21.5 Categories likely to die (medium confidence)
+
+Combining low integration count + low citation count + slow lineage
+cadence + low/no funding velocity:
+
+| Category at risk | Catalog rows in danger | Why | Confidence |
+|------------------|------------------------|-----|-----------|
+| **In-weights / parametric "memory" papers without commercial follow-on** | M+, MemoryLLM, SELF-PARAM, EWC descendants (~15-20 T3/T4 rows) | Zero commercial deployments; vector / KV-based approaches won the production race | **high** |
+| **Generic LLM observability / memory observability** | 5-row memory observability section (AgentOps, LangSmith, Langfuse, Helicone, Phoenix) | All LangChain-coupled; LangChain may absorb / commoditise | **medium** (could survive as features) |
+| **Single-feature voice platforms** | 13 voice platform rows; the harness-shaped ones (Vapi, Retell, Bland, Synthflow, CallRail, Vonage AI Studio) | Margin compression as OpenAI Realtime / ElevenLabs Conv AI become commodity substrates | **medium** |
+| **Self-defined-benchmark memory layers** | MemPalace, OMEGA, SuperLocalMemory (and similar "we invented a new metric" vendors) | §20.4 surfaces the gaming pattern; market may discount once integrity flags propagate | **medium-high** |
+| **Stalled academic-only research repos with declining cite velocity** | ~10 of the 191 *Recent method papers — theorized* rows | Citation lag is recoverable; star-velocity decline + no commercial follow-on is not | **medium** |
+| **"Memory as long-term chat history" PKM products** | Some T2 PKM and personal AI products | §9.2 anti-pattern + ConvoMem 150-turn threshold makes the value proposition shrink as long-context backbones get cheaper | **medium** |
+
+**The honest read on "death predictions"**: catalog rows rarely die
+visibly; they fade as their `created` date ages, their GitHub stars
+plateau, and their funding rounds don't repeat. The catalog is a
+snapshot; future-state predictions of category death require
+3-6 month re-measurement of the same row. **The high-confidence
+death prediction is the academic-only parametric-memory category** —
+it has been research-active for 8+ years (EWC is 2016) with zero
+commercial deployments. **Other death predictions are
+medium-confidence at best.**
+
+### 21.6 What's used today vs what's projected to be used in 12 months — the synthesis
+
+| Lens | Today (high confidence) | 12-month projection | Confidence |
+|------|-------------------------|---------------------|-----------|
+| **Memory layer** | Mem0 + GraphRAG twin-hub; vector-DB commodity | Mem0 acquired or grows ARR; GraphRAG-descendant commercial product crosses $50M val | medium |
+| **Foundation model dependency** | 77% OpenAI/Anthropic/Google | Holds; Meta Llama 5 + DeepSeek R2 + Mistral Vibe make 2-3 percentage-point dent at most | high |
+| **Harness layer** | Cursor + Claude Code dominate | Cursor at $20B+ val OR acquired by hyperscaler; Claude Code stays Anthropic-internal | medium |
+| **Framework layer** | LangChain dominates | LangChain absorbs Mastra or one of CrewAI/AutoGen; remaining 3 stay parallel | high |
+| **Voice substrate** | LiveKit + Pipecat OSS dominate | LiveKit commercial tier (LiveKit Cloud) reaches >$50M ARR; ElevenLabs hits $10B+ val | medium |
+| **Robotics FM** | GR00T (open) + Physical Intelligence π (partial) + Figure (closed) | First public OEM scale-up (Apptronik × Mercedes-Benz); $50B+ valuation for top-2 humanoid | medium-low |
+| **Benchmark integrity** | 30% vendor-claimed in current data | Pressure to add neutral leaderboards (currently 1.2%); HuggingFace evaluates positions itself as the neutral host | medium |
+| **Substrate consolidation** | Voyage → MongoDB precedent | 1-2 more embedding / memory acquisitions; vector-DB tier likely stays independent | medium |
+| **Specs-as-memory** | 5-member curated pattern | Grows to 8-12 members as more harnesses ship spec workflows; merges into mainstream harness UX | medium |
+| **Files-as-memory** | 32-member pattern; 79 file-primary rows | Universal default for harness UX; no benchmark race to win | high |
+
+**v5 net forward-looking synthesis (medium confidence overall).** The
+12-month story is **substrate-consolidation** continuing, **77%
+Big-Three FM dependency** holding, **harness-layer concentration**
+intensifying (LangChain absorbs adjacent frameworks; Cursor either
+breaks out or gets acquired), **voice / robotics commercial ramps**
+maturing into OEM-scale deployments, and **benchmark integrity
+pressure** rising as the gaming-pattern surface (§20.4) becomes
+common knowledge.
+
+---
+
 ## Appendix — Source columns and files (✶ v2 updated)
 
 | Column | Canonical source |
