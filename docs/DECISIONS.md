@@ -5672,3 +5672,146 @@ changes to undo.
 5. **Add a per-layer leaderboards page** to the web app that
    uses the v4 five-layer assignment. Layer-2 (harness) leaderboard
    by ARR; Layer-4 (operating environment) leaderboard by mindshare.
+
+---
+
+## 2026-05-13: Benchmark integrity classification rules (issue #33)
+
+**What.** New analytical view at `/analyses/benchmark-integrity` that
+classifies every benchmark mention in the catalog by the trustworthiness
+of the evidence behind it. Companion to `/analyses/benchmarks` (coverage
+matrix). The pure classifier lives in
+`web/src/lib/analyses/benchmark-integrity.ts`; the UI lives in
+`web/src/routes/analyses/benchmark-integrity/+page.svelte`.
+
+**Why.** Per direction from the user: "accurately depict what's
+winning in benchmarks vs what may have gamed the benchmarks for best
+results but aren't validated by 3rd-party / peer-reviewed evidence."
+The coverage view (#24) tells you *who reports a score on which
+benchmark*. It does not tell you whether to trust the score. The
+canonical disputed case (Mem0's `91.6 LoCoMo` ⚠ from `mem0.ai/research`
+versus the Zep "lies-damn-lies-statistics" rebuttal which measures
+`84% LoCoMo`) is a five-point spread that the coverage view shows as
+two coexisting checkmarks. The integrity view distinguishes them.
+
+### Classification rules (canonical)
+
+Per perf-or-claims cell with a benchmark mention, exactly one bucket:
+
+1. **peer-reviewed** — citation host is in the closed set
+   `{arxiv.org, openreview.net, proceedings.mlr.press,
+   aclanthology.org, ieeexplore.ieee.org, dl.acm.org, doi.org}`.
+   This is the highest-trust bucket and is the only bucket that
+   feeds the "validated winners" leaderboard.
+
+2. **independently-verified** — citation host is a non-vendor third
+   party. We special-case a small known-good set
+   (`paperswithcode.com`, `scale.com`, `crfm.stanford.edu`,
+   `huggingface.co`, `lmarena.ai`, `evalscope.org`) and a small
+   commodity-publishing set (`github.com`, `gitlab.com`, `medium.com`,
+   `substack.com`, `dev.to`) but otherwise default any non-vendor host
+   to this bucket.
+
+3. **vendor-claimed** — citation host matches the vendor's own
+   domain. The vendor's domain is derived from `record.url` first
+   (apex-only — `docs.mem0.ai` resolves to `mem0.ai`); falling back
+   to the host token in the record id (`mem0--mem0-ai` → `mem0.ai`).
+
+4. **disputed** — either:
+   (a) the cell text contains an explicit dispute signal — the warning
+       sigil `⚠`, or any of `disputed`, `rebuttal`, `lies-damn`,
+       `counter-analysis`, `contested`, `unverified`, `unconfirmed`,
+       `misrepresent` (case-insensitive); OR
+   (b) the row is **vendor-claimed** AND at least one peer-reviewed or
+       independently-verified row on the **same canonical benchmark**
+       reports an absolute score that differs by more than the
+       dispute threshold (default 7 absolute points).
+   Score-divergence dispute is deliberately one-sided: it only
+   demotes a vendor-claimed row, never a peer-reviewed row. Two
+   research papers reporting different LoCoMo scores against
+   different base models is not a dispute — it's the normal
+   shape of academic benchmarking. A vendor reporting a score that
+   the academic literature can't reproduce is.
+
+5. **unverifiable** — no citation that resolves to a host, sentinel
+   value (`no public benchmark scores found`), or cell status is
+   `depth-floor-reached` / `no-data`. The catalog's audit-gaps
+   discipline keeps this bucket near-zero on benchmark-bearing
+   cells (the audit closes these as terminal-real-data or
+   terminal-mark-perf), so it's a residual category by design.
+
+### Gaming-pattern heuristics (orthogonal to bucket)
+
+Three flags can attach to any row, independent of its bucket. They
+surface shape-of-evidence concerns rather than redirecting the
+classification:
+
+- **vendor-self-defined**: benchmark reported by exactly one record
+  AND that record's bucket is `vendor-claimed`. The benchmark has no
+  external corroboration in the catalog. (Current catalog: 0 — every
+  vendor-claimed benchmark also has academic coverage.)
+- **weak-baseline-comparison**: the cell's prose explicitly compares
+  against a notoriously weak baseline (`Full-Context`, `GPT-3.5`,
+  `Llama-3.0`, `vanilla`, `no-memory baseline`) and nothing stronger.
+- **single-sub-task-only**: the cell mentions a single sub-task
+  (`single-fact`, `sub-task`, `only on X`) and does not also report
+  an aggregate / overall score.
+
+### Choices considered and rejected
+
+- **Treat every score-spread as disputed.** Rejected. Research
+  papers naturally report wildly different scores against the same
+  benchmark (different base model, different split, different
+  retrieval recipe). Flagging every spread as a dispute drowned out
+  the real signal (Mem0 vs Zep). Restricting score-divergence
+  dispute to *vendor vs external evidence* recovers the canonical
+  case without false-positives.
+- **Hand-curate per-record vendor domains.** Rejected. Apex-from-URL
+  with a fallback to the record-id host token handles every
+  vendor-claimed row in the catalog without a curation table to
+  drift. The handful of multi-part TLDs (`.co.uk`, `.com.au`) are
+  special-cased inline.
+- **Pull in citation counts / Semantic Scholar signals.** Rejected
+  for this iteration. The trust signal we wanted was *host class*,
+  not *citation impact* — a high-impact arxiv preprint is still
+  peer-reviewed-bucket regardless of citation count, and a
+  high-traffic vendor blog is still vendor-claimed.
+- **Make the disputed-threshold tier-aware.** Rejected. The
+  threshold is in absolute score points (default 7) so it travels
+  unchanged across benchmarks that report 0–1 (decimals scaled by
+  10) and 0–100 (percentages). Tier-awareness would require
+  per-benchmark calibration that we don't have headroom for.
+
+### Acceptance state at landing
+
+- Catalog: 894 records, audit_gaps = 0 (unchanged — view is
+  read-only, no JSON edits).
+- Bucket totals on the full catalog (all tiers, all sections):
+  111 peer-reviewed · 2 independently-verified · 29 vendor-claimed
+  · 27 disputed · 0 unverifiable. Total: 169 classified mentions.
+- LoCoMo (the canonical case): 31 mentions — 22 peer-reviewed,
+  1 independently-verified, 3 vendor-claimed, 5 disputed.
+- LongMemEval: 19 mentions — 10 peer-reviewed, 1 independent,
+  8 disputed. The high disputed-count reflects vendor claims of
+  ~91-92% LMES against academic baselines reporting much lower.
+- ConvoMem: 2 mentions — 1 vendor-claimed (Mem0), 1 disputed.
+
+### Reversal cost
+
+Low. Revert by removing the four new files
+(`web/src/lib/analyses/benchmark-integrity.ts`,
+`web/src/routes/analyses/benchmark-integrity/+page.{svelte,ts}`),
+removing the new card from `web/src/routes/analyses/+page.svelte`,
+and deleting this DECISIONS.md entry. No JSON edits to undo.
+
+### What the integrity view is NOT
+
+- **Not a re-audit of the catalog.** No edits to `landscape.json`,
+  `landscape.edges.json`, `scripts/*`, or any extraction artefact.
+  Classifier is a pure function of the existing perf/claims cells
+  and their citations.
+- **Not a replacement for `/analyses/benchmarks`.** The coverage
+  matrix is the right view for "is there critical mass on this
+  benchmark?". The integrity view is the right view for "should I
+  trust this number?". The two are wired together via the hub list
+  and via a cross-link in the integrity page header.

@@ -24,6 +24,12 @@
         'For each headline memory benchmark (LongMemEval, LoCoMo, BABILong, ConvoMem, RULER, MemoryBench), which systems published a score? Reveals which benchmarks have critical mass.'
     },
     {
+      slug: 'benchmark-integrity',
+      title: 'Benchmark integrity',
+      summary:
+        'Companion to coverage. Classifies every benchmark mention as peer-reviewed / independently-verified / vendor-claimed / disputed / unverifiable, exposes gaming patterns, and surfaces the canonical disputed case (Mem0 vs Zep on LoCoMo).'
+    },
+    {
       slug: 'archetypes',
       title: 'Taxonomy archetypes',
       summary:
