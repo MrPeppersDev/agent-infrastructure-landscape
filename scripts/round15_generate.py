@@ -1002,30 +1002,8 @@ MULTI_AGENT_ROWS = [
          runtimes="Python (primary)",
          na_default="orchestration"),
 
-    dict(tier=2, name="Magic.dev",
-         url="https://magic.dev/",
-         type_str="Long-context frontier coding-model lab (LTM-2-mini 100M context)",
-         tax=TAX_AGENT_HARNESS,
-         primary_url="https://magic.dev/",
-         desc=("Founded 2022 by Eric Steinberger and Sebastian De Ro. Building frontier "
-               "long-context coding models — LTM-2-mini (100M token effective context, "
-               "Aug-2024). $465M total raised including $320M Aug-2024 round (Nat Friedman + "
-               "Daniel Gross; Eric Schmidt; CapitalG; Sequoia). Partnership with Google Cloud + "
-               "Nvidia for compute. Less commercial product, more research lab — competing with "
-               "Anthropic / OpenAI on frontier coding capability via 100M context window."),
-         claims="LTM-2-mini 100M token effective context (Aug-2024); $465M total raised ($320M Aug-2024); Google Cloud + Nvidia compute partnership; new HashHop benchmark for long-context",
-         created="2022 (founded)",
-         hq="San Francisco, US",
-         founders="Eric Steinberger (CEO; AI policy + Climate Causes background); Sebastian De Ro (CTO; ex-DataRobot)",
-         funding="$465M total raised; $320M Aug-2024 (Nat Friedman + Daniel Gross; Eric Schmidt; CapitalG; Sequoia; Atlassian, Elad Gil); valuation reportedly ~$1.5-2B",
-         pricing="Private / enterprise sales",
-         pros="Frontier 100M-context research lab; major funding ($465M) + compute partnership with Google/Nvidia; novel HashHop benchmark contribution.",
-         cons="Limited shipped commercial product; HashHop benchmark not independently reproduced; competitive frontier-tier crowded with Anthropic/OpenAI/Gemini/Reflection.",
-         optimised_for="long-context (100M token) code understanding / synthesis",
-         adjacent="Google Cloud (compute partner); Nvidia (compute partner); Anthropic / OpenAI (competitor labs)",
-         agent_abstraction="long-context coding model (research; not yet a deployed agent product)",
-         llm_lock="single-vendor (Magic-proprietary LTM-2-mini)",
-         na_default="orchestration"),
+    # NOTE: Magic.dev already in catalog at "Agent IDEs & coding harnesses"
+    # (id magic-dev--magic-dev); not duplicated here per spec ("verify not duplicate").
 
     dict(tier=2, name="Phidata / Agno",
          url="https://www.agno.com/",

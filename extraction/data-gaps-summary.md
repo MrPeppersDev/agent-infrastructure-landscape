@@ -1,7 +1,7 @@
 # Data-gap audit summary
 
-- Records scanned: **872**
-- Cells scanned: **52,320**
+- Records scanned: **884**
+- Cells scanned: **53,040**
 - Gap rows (CSV): **0**
 - High-priority queue (priority >= 10): **0**
 
@@ -12,12 +12,12 @@
 | `fillable-and-missing` | 0 |
 | `real-data-no-citation` | 0 |
 | `shallow-prose` | 0 |
-| `structurally-not-applicable` | 22,363 |
+| `structurally-not-applicable` | 22,852 |
 | `searched-not-found` | 11,570 |
-| `terminal-real-data` | 18,387 |
-| **sum** | **52,320** |
+| `terminal-real-data` | 18,618 |
+| **sum** | **53,040** |
 
-Sanity: 52,320 classified cells vs 52,320 non-name cells (match: **YES**).
+Sanity: 53,040 classified cells vs 53,040 non-name cells (match: **YES**).
 
 ## Top 10 most-gappy columns
 

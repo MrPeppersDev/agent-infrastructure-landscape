@@ -54,7 +54,36 @@ models don't have memory-write semantics; the "memory" is in their weights.
 **Goal**: ~10-15 platforms whose primary identity is *multi-agent coordination*.
 Distinct from frameworks-without-memory (libraries) and IDE-harnesses.
 
-**Rows shipped**: TBD
+**Rows shipped**: 12
+
+| Name | Tier | URL |
+|------|------|-----|
+| CrewAI Enterprise | 2 | https://www.crewai.com/enterprise |
+| Microsoft AutoGen Studio | 2 | https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html |
+| MultiOn | 2 | https://www.multion.ai/ |
+| Reflection AI | 2 | https://reflection.ai/ |
+| Adept ACT | 3 | https://www.adept.ai/ |
+| Sema4.ai | 2 | https://sema4.ai/ |
+| Imbue (formerly Generally Intelligent) | 3 | https://imbue.com/ |
+| Steamship | 3 | https://www.steamship.com/ |
+| Phidata / Agno | 2 | https://www.agno.com/ |
+| Burr (DAGWorks) | 2 | https://burr.dagworks.io/ |
+| InstructLab (Red Hat / IBM) | 2 | https://instructlab.ai/ |
+| Lindy | 2 | https://www.lindy.ai/ |
+
+**Surprises**:
+- Magic.dev was on the spec list but already exists in catalog at
+  `Agent IDEs & coding harnesses` (id `magic-dev--magic-dev`). Skipped per
+  spec's "verify not duplicate".
+- Phidata's rebrand to Agno (2024) is real; treated as the same product
+  family for one row.
+- Adept ACT marked T3 — Amazon AGI acqui-hire June 2024 ended product
+  development.
+- InstructLab is more a fine-tuning / alignment framework than a
+  multi-agent orchestration platform per se, but included because Red Hat /
+  IBM position it as agent-substrate. Acknowledged in row's pros/cons.
+- Lindy added (not on original list) as a no-code SMB-targeted multi-agent
+  automation platform — fills a gap left by Magic.dev being a duplicate.
 
 **Commit**: TBD
 
