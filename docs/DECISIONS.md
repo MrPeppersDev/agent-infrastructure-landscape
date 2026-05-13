@@ -5675,6 +5675,156 @@ changes to undo.
 
 ---
 
+## 2026-05-13: Trajectory view heuristics (issue #34)
+
+New analytical view at `/analyses/trajectory` that answers the
+"what's used today vs what might the future be" question by combining
+six per-record signals — funding cadence, release recency, last
+commit, GitHub stars, mindshare/citations, inbound edges, and
+lineage membership — into a single velocity bucket. The page renders
+five panels; each carries confidence labels and a documented
+heuristic. The view is openly speculative and is meant to be read
+alongside the survivorship and influence views, not in place of them.
+
+### Bucket rules (Panel 1)
+
+`web/src/lib/analyses/trajectory.ts` is the single source of truth.
+
+- **Dead** — overrides everything else when survivorship classifies
+  the record as Abandoned (no release/commit in 24+ months). We defer
+  to survivorship rather than re-deriving the dead set because the
+  survivorship logic already round-trips three signal sources in
+  priority order and we don't want two competing definitions of
+  "dead" floating in the codebase.
+- **Accelerating** — any positive recent signal wins: funding round
+  within 12 months, or newest member of a detected lineage, or ≥10k
+  GitHub stars, or mindshare score ≥70. Multiple positive signals
+  promote confidence from medium → high.
+- **Decelerating** — at least two of: funding ≥18 months old, last
+  release ≥18 months old, last commit ≥18 months old. The "two
+  signals required" rule prevents a single missing cell from
+  pushing an otherwise-healthy row into decline.
+- **Steady** — has some positive evidence (any inbound edge or any
+  parseable date signal) but no acceleration. Confidence is always
+  low; "steady" is the dump bucket for "alive but not moving fast".
+- **Unknown** — no usable signal in any cell. Distinct from "dead":
+  unknown means we can't see, dead means we can see and the signal
+  is silent.
+
+### Substrate dependency risk (Panel 2)
+
+Substrate detection scans the `desc`, `claims`, `llm-lock`, and
+`embedding-model` cells for canonical FM tokens (Claude, GPT-5,
+GPT-4o, Gemini, Llama, Mistral, DeepSeek, Qwen, Grok, o1, o3). The
+match is substring-based and intentionally lossy — we'd rather
+under-count a substrate dependency than fabricate one. Three-or-more
+matches collapses to a single `multi-FM` bucket so the "agnostic"
+cluster is visible without polluting the per-substrate cards.
+
+Single-vendor risk flags fire on every substrate group that isn't
+multi-FM and isn't a manually-detected duo (e.g. "Claude + GPT-4").
+The risk callout is structural — it doesn't mean the records *will*
+break when their substrate moves, just that they all share the same
+single point of failure.
+
+### Consolidation candidates (Panel 3)
+
+Three M&A categories are hard-coded with their recent seed precedents
+(Voyage→MongoDB, Quickwit→Datadog, Pinecone serverless). Within each
+category we score every matching record by:
+
+    score = 3 * inbound_integrations
+          +     inbound_citations
+          + 4   if tier === 1
+          + 2   if tier === 2
+          + 2   if funding_age_months <= 24
+
+Top 3 per category are surfaced. The keyword match (against name,
+desc, section labels, subsection labels) is intentionally
+permissive — better to over-include candidates and let the reader
+filter than to silently drop edge cases.
+
+Calibration disclaimer: M&A prediction has no ground truth in our
+catalog. The score weighting is editorial and reflects the
+empirical pattern that buyers acquire to inherit existing customer
+integrations, with funding-recency as a proxy for "actively being
+shopped".
+
+### Billion-$ valuation candidates (Panel 4)
+
+Threshold scoring against four signals: recent funding (≤12mo,
+weight 4), GH stars (≥30k weight 4 / ≥10k weight 2), inbound
+integrations (≥5 weight 3 / ≥2 weight 1), mindshare ≥70 (weight 2),
+plus a flat +1 for Tier 1. Records that don't already classify as
+Accelerating or Steady are excluded. We cap the list at 10 rows.
+
+Confidence calibration: score≥10 = high, ≥7 = medium, ≥5 = low.
+These are arbitrary cutoffs picked to make the high-confidence
+list small enough to read (3-5 names typically). The view does
+NOT claim these are the actual next unicorns — it claims they are
+the rows where multiple signals agree, and treats that as
+something worth reading.
+
+### Dying candidates (Panel 5)
+
+Records classified as Decelerating or Unknown (but not Dead — the
+dead are already gone, not dying) are scored against:
+
+    0 integrations          +2
+    0 citations             +1
+    no funding signal       +1   (or)
+    funding ≥24mo old       +2
+    last release ≥18mo old  +2
+    lineage cadence >4 quarters between drops  +1
+
+Threshold 4. Top 10 returned. Confidence: ≥7 high, ≥5 medium, ≥4
+low. The lineage-cadence bonus only fires when the record is a
+member of a detected lineage and that lineage's overall cadence
+(from `forecast.ts`) is slow — it captures families that drop new
+members rarely, which is a different signal from a single-record
+stall.
+
+### Confidence framing
+
+Every panel surfaces a confidence label. The labels are not
+calibrated against held-out data — there is no held-out data. They
+encode "how many independent signals point in the same direction":
+
+- High = ≥2 strong signals
+- Medium = exactly one strong signal
+- Low = one weak signal or signal-only-by-absence
+
+Read the labels as "agreement among heuristics" rather than
+"probability of outcome".
+
+### Cross-references
+
+- `survivorship.ts` for the Dead bucket (no double-counting).
+- `lineages.ts` for "newest member of an active lineage" detection.
+- `forecast.ts` for the lineage cadence map consumed by Panel 5.
+- Drill links from every row go to the main catalog table
+  (`/?q=<name>`), keeping the trajectory view as a lens rather than
+  a separate data model.
+
+### What this view is NOT
+
+- Not a forecast. The page does not predict prices, dates, or
+  outcomes. It surfaces structural patterns and lets the reader
+  draw conclusions.
+- Not a re-implementation of survivorship. Survivorship answers
+  "is this alive?". Trajectory answers "where is this going?".
+- Not a substitute for the influence view. Influence measures
+  inbound edges as a snapshot; trajectory measures direction of
+  travel.
+
+### Reversal cost
+
+Low. Three new files plus one hub-card line and this DECISIONS
+entry. Delete the directory + the hub entry + this section to
+revert.
+
+---
+
 ## 2026-05-13: Benchmark integrity classification rules (issue #33)
 
 **What.** New analytical view at `/analyses/benchmark-integrity` that
