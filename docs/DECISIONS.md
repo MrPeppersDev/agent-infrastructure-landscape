@@ -5455,3 +5455,71 @@ Figure closed) are now answerable from the data.
 `section-explainers.json` and `extract.py`, revert the 41 inserted
 HTML rows + 3 section headers, re-run the pipeline. The Retell-ID
 collision suffix would resolve automatically.
+
+---
+
+## 2026-05-13: Round 13 — Use-case-vertical agent harnesses (+87 rows)
+
+**What.** Added one new top-level section, **"Use-case-specific agent
+harnesses"**, with seven subsections capturing agents whose
+*task and domain* define the offering (regardless of memory-layer
+documentation). 87 new rows total.
+
+| Sub-group | Rows |
+|---|---:|
+| Security (red-team / pentest / SOC / AppSec) | 22 |
+| Legal (matter / contract / CLM agents) | 10 |
+| Compliance / audit / governance | 10 |
+| SRE / DevOps / observability | 11 |
+| Sales / GTM / outbound | 14 |
+| Scientific research agents | 10 |
+| Finance / quant agents | 9 |
+| **Total** | **87** rows (some sub-groups marginally over because of cross-listings) |
+
+(After splice and reconcile the accounting is **+87** for a catalog of
+859.)
+
+**Why.** Track A v4 needed a way to ask "who owns the X work-domain
+agent market?" beyond the memory framing. The existing
+*Vertical / domain-specific AI memory* section only captures products
+with documented memory architecture; *Agent IDEs & coding harnesses*
+covers general-purpose coding agents. The use-case-vertical
+agent-harness layer (Harvey-shape, Vanta-shape, 11x.ai-shape) was
+under-represented.
+
+**Cross-listings.** Several rows are intentional cross-listings of
+existing memory-section rows added under the new harness framing
+(Salesforce Agentforce, Causaly, scite.ai, Iris.ai). The extract
+pipeline handles duplicate-named rows correctly via id suffixing
+(`scite-ai--scite-ai-2`, `iris-ai--iris-ai-2`, `causaly--causaly-com-2`).
+
+**Pipeline state.** All four `validate.py` gates green;
+`audit_gaps.py` → 0 gap rows; 51,540 cells all-terminal
+(18,009 real-data, 21,961 not-applicable, 11,570 depth-floor-reached,
+0 no-data). Render NOT re-run (cross-listings convention).
+
+**Files modified.**
+
+- `landscape.html` — 87 new rows + 1 top-level section header + 7
+  sub-group headers + 8 explainers.
+- `web/landscape.json` — regenerated, 859 records.
+- `web/landscape.edges.json` — regenerated, 313 edges.
+- `extraction/section-explainers.json` — extended with 8 entries
+  (1 top-level + 7 subsections).
+- `scripts/extract.py` — `CANONICAL_SECTIONS` extended with the new
+  section; `SECTIONS_WITH_SUBS` extended.
+- `scripts/round13_generate.py` — new (row generator).
+- `extraction/round-13-ingestion.md` — new.
+
+**Top-level vs subsections framing decision.** We packed seven
+sub-groups under one section ("Use-case-specific agent harnesses")
+rather than promoting each sub-group to a top-level section. This
+follows the *Vertical / domain-specific AI memory* precedent — one
+section with named sub-groups. If a single sub-group later grows past
+~30 rows of dense T1/T2 coverage, it can be promoted (security and
+sales/GTM are the closest candidates).
+
+**Reversal cost.** Low. Delete the 8 new entries from
+`section-explainers.json`, the `Use-case-specific agent harnesses`
+member of `CANONICAL_SECTIONS` and `SECTIONS_WITH_SUBS`, revert the
+HTML insertion block, re-run the pipeline.

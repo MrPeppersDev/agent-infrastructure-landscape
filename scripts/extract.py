@@ -123,6 +123,7 @@ TAXONOMY_AXES: list[str] = [
 SECTIONS_WITH_SUBS = {
     "Recent method papers — theorized, no distinct product",
     "Vertical / domain-specific AI memory",
+    "Use-case-specific agent harnesses",
 }
 
 # Canonical section names — taken from §2.3 in document order. Used by
@@ -162,6 +163,8 @@ CANONICAL_SECTIONS = {
     "Computer-use & desktop agents",
     "Voice agent platforms",
     "Robotics foundation models & agent stacks",
+    # New section added in Round 13 (2026-05-13 use-case-vertical agent harness sweep)
+    "Use-case-specific agent harnesses",
 }
 
 # Status enum values.

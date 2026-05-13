@@ -269,6 +269,54 @@
       "subsection": null,
       "explainer": "Full-stack robotics platforms — foundation models (VLA / diffusion-policy), manipulation skills, planners, sim2real stacks. Distinct from the existing <em>Vertical / domain-specific AI memory — Robotics / autonomous-driving / embodied memory</em> subsection (which collects memory architectures for embodied AI as a research-and-product theme). This section is the platform-layer roll-up: humanoid makers (Figure, 1X, Apptronik, Agility, Sanctuary, K-Scale), pure-play FM labs (Physical Intelligence π, TRI LBM, Google DeepMind Gemini Robotics, NVIDIA GR00T), warehouse-pick specialists (Covariant, Pickle), and the OSS substrate (LeRobot, OpenMind OM1). Memory in these systems is mostly parametric (in weights) or trajectory-buffer; the agent runtime layer is the model + simulator + on-robot compute stack.",
       "sub_style": null
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": null,
+      "explainer": "Agents purpose-built for a specific work domain — security, legal, compliance, SRE/DevOps, sales/GTM, scientific research, and finance. Where the existing <em>Agent IDEs &amp; coding harnesses</em> section captures general-purpose coding agents and <em>Vertical / domain-specific AI memory</em> captures memory architectures with domain semantics, this section is the third axis: products whose <em>task and domain constraints</em> define the offering — regardless of whether they ship a documented memory layer. Added in the 2026-05-13 Round-13 sweep with seven sub-groups: Security (red-team + pentest + SOC + AppSec), Legal (matter and contract agents), Compliance (GRC / audit automation), SRE/DevOps (AIOps + observability + autonomous SRE), Sales/GTM (AI SDRs + RevOps), Scientific (research agents beyond what's in Scientific memory), and Finance (investment-banking + analyst agents).",
+      "sub_style": null
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— Security: red-team, pentest, SOC, AppSec",
+      "explainer": "Agents purpose-built for offensive and defensive security work: LLM red-teaming platforms, autonomous pentesters, AI SOC analysts, AI-augmented AppSec / SAST. Distinct from <em>Memory governance, privacy &amp; safety</em> (which collects memory-poisoning and DLP-shaped tools) — this is the broader cybersecurity operations layer. Lakera Guard / Lakera Red, HiddenLayer, Patronus AI, and Robust Intelligence remain canonical in the Memory-governance section; the rows here are the parallel commercial offerings whose primary identity is security operations rather than memory hygiene.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— Legal: matter / contract agents",
+      "explainer": "Legal-specific agent harnesses that go beyond what is captured in the <em>Vertical / domain-specific AI memory — Legal AI memory</em> subsection (which collects products whose memory architecture is the differentiator). This sub-group adds the harness framing for Legora, LawDroid, DraftWise, Pincites, Litera AI, DocuSign IAM, Ironclad's AI Assistant, and Tonkean LegalWorks — products whose <em>task</em> (drafting, redlining, intake, negotiation, research) defines the offering. The existing Harvey / Casetext / Spellbook / Robin AI / Eve / Lexis+ AI rows remain canonical in the Legal memory subsection.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— Compliance / audit / governance agents",
+      "explainer": "Compliance automation, GRC, and audit platforms with AI agents. Distinct from <em>Memory governance, privacy &amp; safety</em> (memory-specific compliance) and from generic security operations — these are the SOC 2 / ISO 27001 / HIPAA / NIST automation tools (Vanta, Drata, Secureframe), plus enterprise GRC (AuditBoard, LogicGate, Hyperproof, Onspring) and trust-center / questionnaire-fill products. The category is dense at T1+T2 because compliance is one of the highest-ROI applications of LLM agents.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— SRE / DevOps / observability AI agents",
+      "explainer": "AIOps + observability AI agents. Distinct from <em>Evaluation &amp; observability platforms</em> (which is LLM-app observability — LangSmith, Phoenix, Langfuse, Galileo) — this section is for infrastructure-ops AI: Datadog Bits AI, Dynatrace Davis CoPilot, PagerDuty AIOps, New Relic AI, Sysdig Sage, incident.io AI, and the new autonomous-SRE startups Resolve.ai, Cleric, and RunWhen. The agent's task is incident management, root-cause analysis, runbook automation, and engineering productivity.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— Sales / GTM / outbound agents",
+      "explainer": "AI agents for sales, GTM intelligence, and outbound. Distinct from <em>Customer support / voice agent memory</em> (CX-shaped CRM memory) and from <em>Voice agent platforms</em> (developer voice-AI infra) — this is the seller-side AI: AI SDRs (11x.ai, Reggie.ai), revenue intelligence (Gong, People.ai), GTM data (Clay, Common Room, Apollo.io, Toplyne), ABM (6sense, Demandbase), and email coaching (Lavender). Salesforce Agentforce and HubSpot Breeze are listed here as the platform-vendor agent IDEs.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— Scientific research agents",
+      "explainer": "Autonomous research agents whose task is multi-step web research, literature synthesis, or paper-writing. Distinct from the existing <em>Scientific / research AI memory</em> subsection (which collects Elicit, Consensus, PaperQA2, Glass Health — products with documented memory architecture). This sub-group adds OpenAI Deep Research, Perplexity Deep Research, You.com Research, Stanford STORM, Sakana AI Scientist, AlphaSense Genesis, Hebbia Matrix, Liner, scite.ai, and Iris.ai — agents where the task (long-horizon research) defines the product.",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
+      "section": "Use-case-specific agent harnesses",
+      "subsection": "— Finance / quant AI agents",
+      "explainer": "Finance and quantitative-research AI agents. Distinct from generic scientific-research agents because the domain semantics (financial filings, earnings transcripts, expert-call data, market data, trading rules) define the offering. Rogo (investment-banking agent), AlphaSense / Hebbia (research agents — cross-listed under Scientific), Trade Ideas Holly (trading), OpenBB (OSS Bloomberg-Terminal alternative), Composer (retail algorithmic trading), Numerai Signals (crowdsourced AI hedge fund).",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
     }
   ]
 }
