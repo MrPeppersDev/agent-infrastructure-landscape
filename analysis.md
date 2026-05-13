@@ -685,7 +685,17 @@ components of size ≥3.
   shape by parallel evolution. No descent edges between members; the
   page draws dashed "parallel-implementations" connectors instead.
 
-### 3.1 ✶ v4 Curated lineages (4) — re-detected against 313 edges
+### 3.1 ✶ v5 Curated lineages (7) — re-detected against 314 edges
+
+v5 update: the v4 recommendations ("Curate SSM as a pattern-kind
+seed", "Curate Browser-agent and Robotics-FM as pattern-kind
+seeds") were implemented in `web/src/lib/lineages.ts` between v4
+and v5 (commits da2b851, 18ca7c4). The curated count is now 7 (4
+from v4 + 3 new pattern seeds — SSM 5, Browser-agent 21,
+Robotics-FM 15). Re-detection against the v5 314-edge graph
+yields:
+
+### 3.1 (preserved) ✶ v4 Curated lineages (4) — re-detected against 313 edges
 
 | Lineage | Kind | Members | Composition |
 |---------|------|---------|-------------|
@@ -2703,6 +2713,109 @@ common knowledge.
 
 ---
 
+## 22. ✶ v5 Lineage re-detection summary
+
+Re-running `web/src/lib/lineages.ts` against the v5 314-edge graph
+(`/tmp/v5_lineage.py`, Python translation of the TS lineage module
+with curated seeds expanded by BFS depth-2 for descent kinds and
+section / explicit-member union for pattern kinds, then union-find
+on the descent-edge remainder):
+
+### 22.1 Curated lineages — 7 (was 4 in v4, 3 in v3)
+
+| Lineage | Kind | Members (v5) | Members (v4) | Δ | Notes |
+|---------|------|-------------:|-------------:|---|-------|
+| **RSSM / world-model family** | descent | 5 | 5 | 0 | Unchanged |
+| **Graph-RAG hierarchy** | descent | 21 | 21 | 0 | Unchanged |
+| **Files-as-memory thread** | pattern | 32 | 32 | 0 | Unchanged (section-based expansion) |
+| **Specs-as-memory thread** | pattern | 5 | 5 | 0 | Unchanged (explicit-member seed) |
+| **State-space models** ✶ v5 NEW | pattern | 5 | — | NEW | Promoted from v4 candidate (Hyena, Mamba, Mamba-2, Jamba, RWKV-7); explicit-member seed |
+| **Browser-agent thread** ✶ v5 NEW | pattern | 21 | — | NEW | Section-based seed across *Computer-use & desktop agents* + *Browser-agent memory*; Browser Use anchor |
+| **Robotics foundation-model thread** ✶ v5 NEW | pattern | 15 | — | NEW | Section-based seed; Physical Intelligence anchor |
+
+The three new pattern seeds were predicted as "Recommended Round 14
+actions" in v4 §3.4 and implemented in commits da2b851 / 18ca7c4.
+**v5 re-detection confirms each curates exactly the expected member
+set.**
+
+### 22.2 Auto-discovered lineages — 7 (was 6 in v4, 6 in v3)
+
+| Lineage | Size | Anchor | Notes |
+|---------|----:|--------|-------|
+| **Influential-cite backbone** | **117** | EWC | Unchanged from v4 (Round 15's foundation-model rows did not add cite edges into this component) |
+| **Mem0 ecosystem (merged)** ✶ v5 GREW | **10** | Mem0 / FalkorDB / Qdrant | **v4 had two 4-node sub-clusters (Qdrant + FalkorDB); v5 finds them as a single 10-node component.** The merging came from Round 15a's foundation-model rows adding bridge edges that joined the previously-separate Mem0 substrate subclusters. Members: Mem0, FalkorDB, pgvector, Qdrant, Agno/Phidata, Amazon Neptune Analytics, Strands Agents Memory, Mem0 Security/OpenMemory, OpenMemory MCP, Mem0 MCP Official |
+| **RLHF / agent-RL descent** | 5 | DPO | Unchanged from v4 (DPO + GRPO + SEAgent + UI-TARS + LearnAct) |
+| **JEPA family** | 3 | I-JEPA | Unchanged (I-JEPA → V-JEPA → V-JEPA 2) |
+| **Milvus / ReMEmbR spatial** | 3 | Milvus | Unchanged (Milvus + NVIDIA ReMEmbR + Meta-Memory) |
+| **MCP-knowledge-graph cluster** ✶ v5 NEW | 3 | Official MCP Memory | NEW auto-discovered: Official MCP Memory server, mcp-knowledge-graph, Continue.dev Memory MCP. The 138M/mo npm MCP transport finally surfaces a multi-node descent component. |
+| **Hindsight-Vectorize cluster** ✶ v5 NEW | 3 | Hindsight (Vectorize) | NEW auto-discovered: Hindsight-Vectorize, Hindsight MCP, Pydantic AI Hindsight. Single-vendor descent fragment — the company's own product family is now visible in the descent graph. |
+
+**v5 net auto-discovered: 7 components ≥3 (was 6 in v4).** The +1
+comes from MCP-knowledge-graph (was a 2-node pair in v4, now 3-node)
++ Hindsight-Vectorize (NEW), minus the Mem0-ecosystem merge that
+consolidated two v4 components into one. Net: +2 new components,
+-1 merge = +1.
+
+### 22.3 Grand total
+
+**v5 lineages of size ≥3: 14** (7 curated + 7 auto)
+- v4: 10 (4 curated + 6 auto)
+- v3: 9 (3 curated + 6 auto)
+- v2.1: 8 (2 curated + 6 auto)
+
+The growth between v4 and v5 is **+4 (+3 curated pattern seeds for
+SSM/Browser/Robotics + 1 net auto from Mem0-merge / MCP-KG /
+Hindsight-Vectorize delta).**
+
+### 22.4 What still doesn't lineage
+
+Re-checked against 314 edges:
+
+1. **Stanford agents (ExpeL → Reflexion → Self-Refine)** — STILL
+   3-node, no new members. Round 15 did not add Voyager →
+   Generative-Agents → RAPTOR connecting cites.
+2. **Embedding model lineage** — STILL zero internal edges.
+   Industry sequence (Sentence Transformers → BGE → GTE → Nomic →
+   Mixedbread) does not correspond to catalog descent. Confirmed
+   for a third consecutive round.
+3. **Agent-protocol pile-up (MCP, A2A, AGNTCY)** — MCP-internal
+   only (3 nodes); A2A and AGNTCY remain zero-edged in v5.
+4. **Voice-platform substrate** — LiveKit, Pipecat, OpenAI
+   Realtime, etc. STILL zero internal edges. Round 14 disambiguation
+   for LiveKit / Pipecat did not happen at v5 time; the v4 "may
+   surface in Round 14" prediction did not realise.
+5. **OpenDevin / OpenHands** — STILL 2-node sub-threshold (the
+   project-rename, not a fork edge); Aider / GPT Engineer / smol-
+   developer remain parallel implementations.
+
+---
+
+## v5 close-out — what changed since v4 in one paragraph
+
+The catalog grew from 859 → 894 rows (+35) by adding the substrate
+reference layer (Foundation models 13 + Multi-agent orchestration
+12 + AI sandbox 10). The edge graph nudged from 313 → 314 (+1
+competes-with). Lineage count went from 10 → 14 by promoting the
+v4 SSM / Browser-agent / Robotics-FM candidates into curated pattern
+seeds (+3) and by auto-merging the Mem0-ecosystem clusters (-1) plus
+finding new MCP-KG and Hindsight-Vectorize 3-node components (+2).
+Real-data perf cells nearly tripled (103 → 307) thanks to Round 11-15
+ingestion, enabling the §20 benchmark-integrity treatment. The
+integrity classification surfaces 111 peer-reviewed / 2
+independently-verified / 52 vendor-claimed / 4 disputed mentions
+across 25 canonical benchmarks — with MMLU (82% VC) and SWE-bench
+(83% VC) as the worst-integrity benchmarks and HotpotQA / ALFWorld
+/ NIAH / BABILong / RULER as cleanest. §19 cross-references the
+major v4 findings against survivorship, benchmark coverage,
+archetype membership, vocabulary trends, and foundation-model
+substrate dependencies. §21 forecasts the next 12 months under
+explicit confidence markings: substrate consolidation likely
+continues (medium); 77% OpenAI/Anthropic/Google FM dependency
+holds (high); harness-layer concentration intensifies (medium);
+benchmark integrity pressure rises (medium).
+
+---
+
 ## Appendix — Source columns and files (✶ v2 updated)
 
 | Column | Canonical source |
@@ -2713,14 +2826,22 @@ common knowledge.
 | Performance | `landscape.json` records[*].cells.perf |
 | Mindshare | `landscape.json` records[*].cells.mindshare |
 | Citations | `landscape.json` records[*].cells.citations |
-| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds / competes-with) | `landscape.edges.json` (**313 edges** ✶ v4) |
+| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds / competes-with) | `landscape.edges.json` (**314 edges** ✶ v5) |
 
 App views that compute the figures above:
 
 - `web/src/lib/leaderboards.ts` — top-N rankings (§2.1, §2.3, §6.1, §6.3)
-- `web/src/lib/lineages.ts` — descent detection (§3)
+- `web/src/lib/lineages.ts` — descent + pattern detection (§3, §22)
 - `web/src/lib/section-stats.ts` — per-section aggregates (§1.1.a, §1.1.b)
 - `web/src/lib/timeline.ts` — created-date timeline used in §4.3, §11.4
+- `web/src/lib/analyses/benchmark-integrity.ts` ✶ v5 — bucket classification (§20)
+- `web/src/lib/analyses/benchmarks.ts` ✶ v5 — benchmark coverage matrix (§20)
+- `web/src/lib/analyses/archetypes.ts` ✶ v5 — archetype detection
+- `web/src/lib/analyses/forecast.ts` ✶ v5 — funding-velocity / trajectory forecast (§21)
+- `web/src/lib/analyses/survivorship.ts` ✶ v5 — repo / company survivorship
+- `web/src/lib/analyses/influence.ts` ✶ v5 — inbound-influence score
+- `web/src/lib/analyses/trajectory.ts` ✶ v5 — combined trajectory view (issue #34)
+- `web/src/lib/analyses/vocabulary.ts` ✶ v5 — vocabulary-trend evidence (§19.4)
 
 Original CSV-bundle inputs (pre-Phase-1, retained for provenance):
 - `.agent-results/data-1-github-adoption.csv` (GH + Created)

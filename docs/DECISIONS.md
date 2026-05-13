@@ -5965,3 +5965,156 @@ and deleting this DECISIONS.md entry. No JSON edits to undo.
   benchmark?". The integrity view is the right view for "should I
   trust this number?". The two are wired together via the hub list
   and via a cross-link in the integrity page header.
+
+---
+
+## 2026-05-13 — Track A v5: deep cross-analysis + benchmark integrity + future-state (issue #32)
+
+### Context
+
+User direction for analysis.md v5: refresh against the 894-record
+catalog after Round 15 (Foundation models, Multi-agent orchestration,
+AI sandbox & runtime sections added), with three substantively new
+analytical lenses on top of the v4 refresh:
+
+1. **Deep cross-analysis** — cross-reference every major v4 finding
+   against all other available data (survivorship, benchmark
+   coverage, archetypes, funding velocity, lineage cadence,
+   foundation-model substrate dependencies).
+2. **Benchmark integrity** — classify every perf cell by integrity
+   bucket (peer-reviewed / independently-verified / vendor-claimed
+   / disputed / unverifiable) per the rules in
+   `web/src/lib/analyses/benchmark-integrity.ts`.
+3. **Future-state predictions** — combine inbound-integration rates,
+   funding velocity, GitHub star velocity, lineage cadence to
+   forecast 12-month trajectories with explicit confidence markings.
+
+### What landed in analysis.md v5
+
+- **Numeric refresh** (§ executive summary, §1, §2, §3, §4, §5, §6,
+  §12, §13, §15, §16, §17, §18): 894 rows / 34 sections / 314 edges /
+  53,640 cells (18,817 real-data / 23,253 N/A / 11,570 depth-floor)
+  / tier T1=271 T2=269 T3=197 T4=144 T5=13 / 307 perf real-data cells
+  (was 103 in v4) / 14 lineages of size ≥3 (was 10 in v4).
+- **§19 Cross-analysis** — six sub-sections combining 2+ existing
+  views: 19.1 Mem0/GraphRAG hub × survivorship × benchmark ×
+  archetype; 19.2 Files-as-memory × benchmark coverage × influence;
+  19.3 Top archetypes × tier × funding × age × inbound; 19.4
+  Vocabulary trends × actual lineage / archetype; 19.5 Foundation-
+  model substrate dependencies (single-vendor-risk map); 19.6 Hub ×
+  archetype × lineage triple cross-check.
+- **§20 Benchmark integrity** — per-bucket counts (PR=111 / IV=2 /
+  VC=52 / D=4 / U=0), per-benchmark integrity breakdown across 25
+  canonical benchmarks, gaming-pattern surface (vendor-self-defined,
+  weak-baseline, single-sub-task), leaderboard of validated winners.
+- **§21 Future-state** — six sub-sections: 21.1 today (high
+  confidence); 21.2 substrate consolidation (medium); 21.3 FM
+  dependency risk (high); 21.4 next $1B candidates (speculative-
+  medium); 21.5 categories likely to die (medium); 21.6 12-month
+  synthesis matrix.
+- **§22 Lineage re-detection summary** — 7 curated (RSSM 5,
+  Graph-RAG 21, Files-as-memory 32, Specs-as-memory 5, SSM 5 NEW,
+  Browser-agent 21 NEW, Robotics-FM 15 NEW) + 7 auto-discovered
+  (117-node backbone, 10-node Mem0 ecosystem merged, RLHF 5, JEPA
+  3, Milvus/ReMEmbR 3, MCP-knowledge-graph 3 NEW, Hindsight-
+  Vectorize 3 NEW).
+- **v5 close-out paragraph** — one-paragraph summary of what
+  changed since v4.
+- **Appendix updated** — 314 edges, all 8 new `web/src/lib/analyses/*`
+  modules listed as source-of-figures.
+
+### v5 methodology
+
+1. **Numeric refresh pass**: re-run cell counting + section
+   counting + tier counting + edge typing against the v5 catalog
+   commit (`97b52a3`). Document the deltas inline against v4
+   numbers.
+2. **Cross-analysis pass**: pick each major v4 finding (Mem0 /
+   GraphRAG hub, Files-as-memory 32, top archetypes, vocabulary
+   trends, FM dependencies). For each, cross-reference against
+   ALL other available views — survivorship (Created column +
+   GitHub stalled signal), benchmark coverage (perf cell
+   real-data count), archetype membership (storage primary
+   primitive), funding velocity (Funding column), inbound-
+   integration (edge graph), lineage membership (`lineages.ts`
+   output). Report the cross-cut findings with explicit
+   confidence levels.
+3. **Benchmark integrity pass**: run the Python translation of
+   `web/src/lib/analyses/benchmark-integrity.ts` against the
+   894-row catalog. Classify every perf-cell benchmark mention
+   into one of five buckets. Surface per-bucket counts,
+   per-benchmark breakdown, gaming-pattern flags. Build the
+   "validated winners" leaderboard from peer-reviewed entries
+   only.
+4. **Future-state pass**: combine inbound-integration count,
+   GitHub star velocity, funding velocity, lineage cadence,
+   acquisition signals, foundation-model dependency map. Output
+   predictions with confidence labels (high / medium / low /
+   speculative). Show the data each prediction rests on.
+5. **Lineage re-detection pass**: run `/tmp/v5_lineage.py`
+   (Python translation of `lineages.ts`) against the v5 314-edge
+   graph. Confirm the 3 new curated pattern seeds (SSM, Browser-
+   agent, Robotics-FM) materialise as expected. Report any auto-
+   discovered components ≥3.
+
+### Benchmark-integrity classification rules (operational, v5)
+
+Applied to every perf or claims cell that contains a recognised
+benchmark mention (per the 25-benchmark regex set in
+`benchmarks.ts`):
+
+- **peer-reviewed** — citation host in {arxiv.org,
+  openreview.net, proceedings.mlr.press, aclanthology.org,
+  ieeexplore.ieee.org, dl.acm.org, doi.org}.
+- **independently-verified** — citation host in
+  {paperswithcode.com, scale.com, crfm.stanford.edu,
+  huggingface.co, lmarena.ai, evalscope.org} OR non-vendor
+  third-party host (independent blog, neutral news outlet) per
+  the `benchmark-integrity.ts` fallback.
+- **vendor-claimed** — citation host matches the vendor's apex
+  domain (derived from `record.url` first, then from the host
+  token in the record id).
+- **disputed** — in-cell text signal (⚠ / "disputed" /
+  "rebuttal" / "lies-damn" / "counter-analysis") OR
+  vendor-claimed score diverges from a peer-reviewed score on
+  the same benchmark by more than 7 absolute points.
+- **unverifiable** — no citation host resolves OR cell status is
+  `depth-floor-reached` / `no-data` OR sentinel value ("no public
+  benchmark scores found").
+
+The classifier produces 169 integrity rows across 119 distinct
+records. Bucket distribution: peer-reviewed 111 / independently-
+verified 2 / vendor-claimed 52 / disputed 4 / unverifiable 0.
+
+### Editorial honesty
+
+Every prediction in §21 carries a confidence label. The labels
+use the same calibration framework as §2026-05-13's trajectory
+view DECISIONS entry:
+
+- **high** = ≥2 strong signals
+- **medium** = exactly one strong signal
+- **low** = one weak signal or signal-only-by-absence
+- **speculative** = no strong signal, narrative-grounded only
+
+Predictions in §21.4 ("next $1B candidates") are explicitly
+labelled speculative-medium where the catalog has only 1-2
+data points; high-confidence predictions in §21.3 (FM
+dependency) rest on the cell-mined 77% Big-Three share.
+
+### Reversal cost
+
+Low. v5 is additive to v4. Revert by deleting §19, §20, §21, §22
+and the v5 close-out paragraph from analysis.md, restoring the v4
+appendix line ("313 edges"), and removing this DECISIONS.md
+entry. No JSON / route file edits required.
+
+### What v5 explicitly did NOT touch
+
+- `web/landscape.json` / `landscape.edges.json` — analysis-only;
+  zero data edits.
+- `web/src/*` and `landscape.html` — sibling agents (#33, #34)
+  are handling the interactive views; v5 is analysis-only.
+- The v3 quality-ledger commitments (§13) — analysis claims still
+  trace to cited cells; new claims in §19-22 also trace to
+  computed pivots over those cells.
