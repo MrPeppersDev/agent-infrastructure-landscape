@@ -1161,7 +1161,6 @@ SANDBOX_ROWS = [
          gh="github.com/e2b-dev/e2b ~7k+ stars; github.com/e2b-dev/infra (runtime)",
          code_release="Apache 2.0 — SDK + CLI OSS; managed cloud proprietary",
          api_surface="REST + SDK (Python / TS / JS); CLI",
-         deployment_extra="Managed cloud + self-hostable OSS",
          runtimes="Linux microVMs; SDK clients in Python / TS",
          mcp_support="native (MCP server for sandbox tools)",
          na_default="sandbox"),

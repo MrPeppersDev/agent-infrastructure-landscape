@@ -93,6 +93,35 @@ Distinct from frameworks-without-memory (libraries) and IDE-harnesses.
 are substrate for AI agents. Distinct from inference platforms (which serve
 the model) — this serves the *environment* the agent operates in.
 
-**Rows shipped**: TBD
+**Rows shipped**: 10
+
+| Name | Tier | URL |
+|------|------|-----|
+| e2b | 1 | https://e2b.dev/ |
+| Modal Sandboxes | 1 | https://modal.com/docs/guide/sandbox |
+| Daytona | 2 | https://www.daytona.io/ |
+| Browserless.io | 2 | https://www.browserless.io/ |
+| CodeSandbox AI | 2 | https://codesandbox.io/ai |
+| Gitpod AI features | 2 | https://www.gitpod.io/blog/gitpod-flex |
+| Anchor (Anchor Browser) | 3 | https://anchorbrowser.io/ |
+| Coder.com | 2 | https://coder.com/ |
+| Workato AI (Workflow Bot Builder) | 2 | https://www.workato.com/ai |
+| StackBlitz WebContainers | 3 | https://webcontainers.io/ |
+
+**Surprises**:
+- e2b is the standard substrate for Anthropic Claude Code artifacts —
+  this is one of the more important "implicit substrate" rows the catalog
+  was missing.
+- CodeSandbox was acquired by Together AI in Oct-2024 — important
+  consolidation event in the AI dev-experience layer.
+- StackBlitz's WebContainers (browser-native Node.js via WASM) powers
+  Bolt.new — another major implicit-substrate edge that now becomes
+  resolvable.
+- Modal Sandboxes added as feature on top of Modal serverless GPU
+  platform (Modal itself isn't in catalog yet — could be a Pass-D
+  addition).
+- Workato AI included despite being primarily enterprise iPaaS — its
+  Workato AI / Workbot AI 2023-24 features make it agent-substrate-shaped
+  even though identity is "enterprise iPaaS".
 
 **Commit**: TBD

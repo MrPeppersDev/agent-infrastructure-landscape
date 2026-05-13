@@ -1,7 +1,7 @@
 # Data-gap audit summary
 
-- Records scanned: **884**
-- Cells scanned: **53,040**
+- Records scanned: **894**
+- Cells scanned: **53,640**
 - Gap rows (CSV): **0**
 - High-priority queue (priority >= 10): **0**
 
@@ -12,12 +12,12 @@
 | `fillable-and-missing` | 0 |
 | `real-data-no-citation` | 0 |
 | `shallow-prose` | 0 |
-| `structurally-not-applicable` | 22,852 |
+| `structurally-not-applicable` | 23,253 |
 | `searched-not-found` | 11,570 |
-| `terminal-real-data` | 18,618 |
-| **sum** | **53,040** |
+| `terminal-real-data` | 18,817 |
+| **sum** | **53,640** |
 
-Sanity: 53,040 classified cells vs 53,040 non-name cells (match: **YES**).
+Sanity: 53,640 classified cells vs 53,640 non-name cells (match: **YES**).
 
 ## Top 10 most-gappy columns
 
@@ -38,6 +38,7 @@ Sanity: 53,040 classified cells vs 53,040 non-name cells (match: **YES**).
 
 | Section | Gaps | fillable | no-cite | shallow |
 |---|---:|---:|---:|---:|
+| AI sandbox & runtime environments | 0 | 0 | 0 | 0 |
 | Agent IDEs & coding harnesses | 0 | 0 | 0 | 0 |
 | Agent frameworks (no first-party memory layer) | 0 | 0 | 0 | 0 |
 | Browser-agent memory | 0 | 0 | 0 | 0 |
@@ -47,7 +48,6 @@ Sanity: 53,040 classified cells vs 53,040 non-name cells (match: **YES**).
 | Dedicated memory layers | 0 | 0 | 0 | 0 |
 | Embedding & reranker services | 0 | 0 | 0 | 0 |
 | Enterprise-search adjacencies | 0 | 0 | 0 | 0 |
-| Evaluation & observability platforms | 0 | 0 | 0 | 0 |
 
 ## Top 20 records by total gaps
 
