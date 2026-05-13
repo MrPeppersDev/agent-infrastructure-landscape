@@ -56,6 +56,11 @@ HIGH_LEVERAGE_COLS = {
 
 # Columns whose expected type is "long prose" — anything below MIN_PROSE_CHARS
 # under one of these columns is shallow.
+#
+# Several columns previously listed here (orchestration, validated-verticals,
+# api-surface, import-export) accept legitimately-short categorical values
+# ("agnostic", "research only", "REST", "JSON"). Removed from PROSE_COLS after
+# Round 10 surfaced them as residual heuristic false-positives.
 PROSE_COLS = {
     "desc",
     "claims",
@@ -65,16 +70,12 @@ PROSE_COLS = {
     "data-handling",
     "anti-fit",
     "optimised-for",
-    "validated-verticals",
     "memory-primitives",
     "adjacent-infrastructure",
     "vendor-benchmarks",
     "pricing-specifics",
     "session-handling",
-    "import-export",
-    "orchestration",
     "programmatic-control",
-    "api-surface",
 }
 MIN_PROSE_CHARS = 15
 
