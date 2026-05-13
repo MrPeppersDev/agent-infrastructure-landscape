@@ -71,6 +71,72 @@
         "strands agents memory": "strands-agents-memory-aws--docs-aws-amazon-com",
         "strands memory": "strands-agents-memory-aws--docs-aws-amazon-com"
       }
+    },
+    "livekit": {
+      "primary_id": "livekit-agents--docs-livekit-io",
+      "reason": "Bare 'LiveKit' in voice/realtime cell text refers to the LiveKit Agents framework — the canonical first-party row."
+    },
+    "pipecat": {
+      "primary_id": "pipecat-daily--pipecat-ai",
+      "reason": "Bare 'Pipecat' is the Daily-stewarded open-source realtime voice framework."
+    },
+    "gr00t": {
+      "primary_id": "nvidia-gr00t-isaac--developer-nvidia-com",
+      "reason": "Bare 'GR00T' refers to the umbrella NVIDIA GR00T/Isaac developer product. The N1.7 paper row is the specific model release.",
+      "alternates": {
+        "isaac gr00t n1": "nvidia-isaac-gr00t-n1-7--arxiv-2503-14734",
+        "gr00t n1": "nvidia-isaac-gr00t-n1-7--arxiv-2503-14734",
+        "gr00t n1.7": "nvidia-isaac-gr00t-n1-7--arxiv-2503-14734"
+      }
+    },
+    "physical intelligence": {
+      "primary_id": "0-5-physical-intelligence--pi-website",
+      "reason": "Bare 'Physical Intelligence' (or π / pi-zero / π0) in robotics-FM context defaults to the π0.5 model row (the most recent canonical release). The company/org row is used when the mention is explicitly organisational.",
+      "alternates": {
+        "physical intelligence company": "physical-intelligence--physicalintelligence-company",
+        "pi org": "physical-intelligence--physicalintelligence-company",
+        "π company": "physical-intelligence--physicalintelligence-company"
+      }
+    },
+    "mistral": {
+      "primary_id": "mistral-embed--mistral-ai",
+      "reason": "Bare 'Mistral' in embedding/memory-substrate cell text defaults to Mistral Embed (the embedding product). Agents API, Le Chat Memories, and Mistral Medium are reached via more-specific phrasing.",
+      "alternates": {
+        "mistral agents": "mistral-agents-api--docs-mistral-ai",
+        "mistral agents api": "mistral-agents-api--docs-mistral-ai",
+        "le chat": "mistral-le-chat-memories--help-mistral-ai",
+        "le chat memories": "mistral-le-chat-memories--help-mistral-ai",
+        "mistral medium": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+        "mistral vibe": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai"
+      }
+    },
+    "replit": {
+      "primary_id": "replit-agent-v3--replit-com",
+      "reason": "Bare 'Replit' in coding-agent cross-refs defaults to the most-recent Replit Agent v3 row. The original Replit Agent and replit.md spec are distinct rows reached via more-specific phrasing.",
+      "alternates": {
+        "replit agent v1": "replit-agent--replit-com",
+        "replit agent (original)": "replit-agent--replit-com",
+        "replit.md": "replit-replit-md--docs-replit-com",
+        "replit md": "replit-replit-md--docs-replit-com"
+      }
+    },
+    "anthropic": {
+      "primary_id": "anthropic-claude-memory--platform-claude-com",
+      "reason": "Bare 'Anthropic' in memory-product cross-refs defaults to Anthropic Claude Memory (the canonical first-party memory product). Claude Code, Computer Use, Managed Agents Memory, and Circuit Tracing are distinct rows reached via more-specific phrasing.",
+      "alternates": {
+        "claude code": "claude-code-anthropic--anthropic-com",
+        "anthropic computer use": "anthropic-computer-use--docs-anthropic-com",
+        "computer use": "anthropic-computer-use--docs-anthropic-com",
+        "managed agents memory": "anthropic-managed-agents-memory--platform-claude-com",
+        "anthropic managed agents": "anthropic-managed-agents-memory--platform-claude-com",
+        "circuit tracing": "anthropic-circuit-tracing--transformer-circuits-pub",
+        "auto dream": "anthropic-auto-dream--claudefa-st",
+        "claude for chrome": "claude-for-chrome--anthropic-com"
+      }
+    },
+    "_skipped": {
+      "_comment": "Umbrellas considered in Round 14 but not added because primary_id did not resolve in landscape.json.",
+      "deepseek": "No DeepSeek R1 product row exists in catalog (only engram-deepseek--arxiv-2601-07372, a research paper). Documented for future ingestion if DeepSeek R1 is added as a first-party row."
     }
   }
 }
