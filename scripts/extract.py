@@ -156,6 +156,8 @@ CANONICAL_SECTIONS = {
     "Inference platforms & gateways",
     "Embedding & reranker services",
     "Evaluation & observability platforms",
+    # New section added in Round 11 (2026-05-13 agentic-harness sweep)
+    "Agent IDEs & coding harnesses",
 }
 
 # Status enum values.

@@ -5121,3 +5121,73 @@ brief's read-only constraints: `landscape.html`,
 **Reversal cost.** Low. `analysis.md` is a derived artefact (no
 downstream code reads it); this entry is append-only. Revert is
 `git revert` of the v3 commit.
+
+---
+
+## 2026-05-13: Round 11 ingestion — agentic-harness sweep (+32 records)
+
+**What.** Round 11 adds 32 new records inside one new top-level
+section: **"Agent IDEs & coding harnesses"**. The section seats user-
+facing agentic IDEs and terminal harnesses (Kiro, Cursor, Windsurf,
+Zed, Claude Code, Codex CLI, JetBrains AI / Junie, Goose, Cline,
+Opencode, Charm Crush, MetaGPT, OpenHands, Bolt.new, v0, etc.).
+
+Catalog: **699 → 731 records**.
+
+**Why a new section instead of expanding "Coding-agent memory" or
+"Agent frameworks (no first-party memory layer)".** Three reasons.
+
+1. *Coding-agent memory* is already the **memory tier** of these
+   products (CLAUDE.md, .cursorrules, Devin Knowledge). Putting the
+   harness/IDE itself into that section would muddle the memory-layer
+   framing the Track A v2/v3 analyses depend on.
+
+2. *Agent frameworks (no first-party memory layer)* (added Round 7)
+   is **libraries-to-import** (LangChain, CrewAI, AutoGen, Pydantic-AI,
+   Mastra). The harnesses here are **user-facing products** — not
+   something you compose from inside your own code. A new section is
+   the cleanest dimensional split.
+
+3. The harness layer is a distinct **valuation reality**: Cursor
+   $9.9B / Devin $10.2B / Magic.dev $1.6B / Lovable $1.8B are
+   harness valuations, not memory-layer valuations. Keeping the row
+   in the right section makes the per-section funding aggregates
+   in `analysis.md` honest.
+
+**Cross-listing convention (continuation of Round 7).** Rows that have
+an existing memory-tier presence (Devin, Cursor, Replit Agent, Bolt,
+Lovable, Aider, Cline, Continue.dev, MetaGPT, OpenAI Codex) get a
+*second* row in the new section rather than being entered as a
+formal cross-listing. The two rows characterise the product through
+different lenses:
+
+- The memory-tier row covers WHERE the agent's persistence lives
+  (CLAUDE.md / .cursorrules / Knowledge items).
+- The harness row covers WHAT the user installs and points at code.
+
+This duplicates a small amount of identifying metadata but lets each
+row stay clean and self-contained for downstream consumers. If the
+duplication becomes more confusing than useful, the harness row can
+be re-keyed into a `cross-listings.json` entry later.
+
+**Files modified.**
+
+- `landscape.html` — 32 new rows + 1 new section header + 1 explainer
+- `web/landscape.json` — regenerated, 731 records
+- `web/landscape.edges.json` — regenerated, 298 edges (after offline
+  fetch_citations refresh)
+- `extraction/section-explainers.json` — extended with the new section
+- `scripts/extract.py` — `CANONICAL_SECTIONS` extended
+- `extraction/round-11-ingestion.md` — full sweep report
+- `docs/DECISIONS.md` — this entry
+
+**Pipeline state.** All four validate.py gates green; audit_gaps.py
+reports 0 gap rows (every cell across 731 records is in a terminal
+state). render.py NOT re-run — keeping hand-inserted HTML canonical
+to preserve cross-listings (pre-existing render.py limitation).
+
+**Reversal cost.** Low. The 32 new rows are append-only at the bottom
+of the table; the new section name is additive in
+`CANONICAL_SECTIONS`. No edge changes affect existing records. To
+revert: drop the new section from landscape.html + section-explainers
++ extract.py and re-run the pipeline.

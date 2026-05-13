@@ -245,6 +245,12 @@
       "subsection": null,
       "explainer": "LLM/agent evaluation, tracing, and observability platforms (LangSmith, LangFuse, Helicone, Phoenix, Galileo, Patronus, Confident AI, TruEra). Distinct from the memory-specific 'Memory observability & monitoring' section (which focuses on memory-quality dashboards, poisoning detection). This section is for general-purpose eval/observe tooling that any agent — memory-enabled or not — would adopt.",
       "sub_style": null
+    },
+    {
+      "section": "Agent IDEs & coding harnesses",
+      "subsection": null,
+      "explainer": "User-facing agentic IDEs, terminal harnesses, and agent-runtime products — the layer where the harness <em>is</em> the agent. Distinct from 'Coding-agent memory' (which is the memory subsystem of these products, e.g. CLAUDE.md, .cursorrules, Devin Knowledge) and from 'Agent frameworks (no first-party memory layer)' (which is import-and-compose libraries). Added in the 2026-05-13 Round-11 sweep: this is the consumer-product surface — Kiro, Cursor, Windsurf, Zed, Claude Code, Codex CLI, Aider, Cline, Goose, Charm Crush, JetBrains AI / Junie, GitHub Copilot Workspace, Amazon Q Developer, etc. Coverage is broad-and-shallow on the harness layer; memory-layer rows remain canonical for the memory framing.",
+      "sub_style": null
     }
   ]
 }
