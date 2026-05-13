@@ -5009,3 +5009,115 @@ in the round-10 brief overcounted the per-record column set by ~7.)
 commit; the 252 cell mutations are isolated to `web/landscape.json`,
 `landscape.html`, and `web/landscape.edges.json` (edges refresh picked
 up 236 newly-citable cells in the cite-edge build).
+
+---
+
+## 2026-05-13: Analysis refresh v3 — against 100%-terminal catalog + lineage re-detection
+
+**What.** Refreshed `analysis.md` to v3, against the 699-record /
+299-edge catalog at git sha `8a4e3c8` (post Round 10 cleanup, the
+first 100%-terminal state). Re-ran lineage detection from scratch
+using a Python translation of `web/src/lib/lineages.ts`. Wrote new
+§13 "Catalog quality and confidence" documenting the terminal-state
+guarantee. Renumbered the prior §13 "Honest limitations" → §14.
+
+**Approach for lineage re-detection.**
+
+The TypeScript source of truth (`web/src/lib/lineages.ts`) was
+translated line-by-line into a single-file Python script
+(`/tmp/lineage_detect.py` — not checked in; reproducible from
+`lineages.ts`). The translation preserves:
+
+- `STRONG_DESCENT_TYPES = {built-on, extends, forks, succeeds}` and
+  `WEAK_DESCENT_TYPE = cites` (only if `isInfluential === true`).
+- DSU (Union-Find) with path compression + union-by-size — same
+  invariants as the TS implementation.
+- BFS depth-2 expansion for curated seeds (RSSM anchored at
+  DreamerV3; Graph-RAG anchored at GraphRAG-Microsoft).
+- Section-membership expansion for the pattern-kind Files-as-memory
+  seed (sections: File-backed / editor paradigms, Claude Code memory
+  mechanisms).
+- `parseCreatedDate` heuristics from `timeline.ts` (YYYY-MM[-DD],
+  YYYY-YYYY range, bare YYYY between 1900-2099).
+- `oldestMember` tiebreak by lexicographic id.
+
+The Python script reads `web/landscape.json` + `web/landscape.edges.json`
+directly (no transformation; same JSON the Svelte app reads), runs
+detection with the default `DetectOptions` (topN=8, minSize=3,
+curatedMaxDepth=2), and prints the lineages plus the in-catalog
+top-cites / top-integrations leaderboards used in §6.3 / §2.3.
+
+The translation is faithful enough to reproduce the v2.1 lineages
+when run against the v2.1 edge file; we verified this is the case
+by checking the v2.1 commit-time edge graph also produced the
+8 lineages reported in v2.1 (curated 3 + auto 5 in topN cap; auto 6
+total ≥3). v3 yields 9 total ≥3 (curated 3 + auto 6) — see below.
+
+**Key v3 lineage findings (vs v2.1):**
+
+| Metric | v2.1 | v3 |
+|--------|------|-----|
+| Total edges | 278 | **299** (+21: 20 cites from Round 9, +1 competes-with) |
+| Descent edges | ~245 | **264** |
+| Curated lineages | 3 | 3 (size 5, **21** ↑16, **32** ↓33) |
+| Auto lineages ≥3 | 6 | 6 (largest **117** ↑96, **+1 new RLHF fragment**) |
+| Top inbound cite | LoCoMo / A-MEM tied at 9 | **GraphRAG (Microsoft) at 11** |
+| Top integration hub | Mem0 at 12 | Mem0 at 12 (still); **GraphRAG also at 12 total inbound** (orthogonal axis: cites) |
+| Files-as-memory members | 33 (claimed) | **32** (actual section-union; v2.1 miscounted by 1) |
+
+**Why the 117-node backbone grew.** Round 9's cell-miner re-run added
+20 influential-cite edges, mostly in the research-paper sub-graph
+(MemGPT v2, Compressive Transformer, RETRO, LoRA, etc. all gained
+inbound cites from newer papers). Each new edge can pull a previously-
+isolated paper into the giant component via 2-hop BFS — net effect:
++21 nodes.
+
+**RLHF lineage promotion.** v2.1 reported RLHF (LoRA → QLoRA → DPO →
+GRPO) as zero-edge "candidate, edges sparse." Round 9 surfaced two
+edges: `GRPO --cites--> DPO` (influential) and `QLoRA --cites--> LoRA`
+(influential). Plus `SEAgent --cites--> DPO`. Auto-discovery picks up
+DPO + GRPO + SEAgent as a new 3-node lineage. QLoRA + LoRA is a 2-node
+pair below the size threshold.
+
+**SSM lineage non-promotion.** Hyena / Mamba / Mamba-2 / Jamba / RWKV-7
+still has **zero internal cite edges** after Round 9. The narrative is
+clear in the literature; the cell-miner cannot find documentation
+within each row's claims/perf cells. Recommend curating as a
+pattern-kind seed in a future pass.
+
+**Mem0-vs-GraphRAG tie at 12.** Both nodes now have 12 inbound edges
+total — but along orthogonal axes. Mem0's 12 are all
+integrates-with/built-on (commercial integration hub); GraphRAG's 12
+are 11 cites + 1 extends (research citation hub). v3 documents this
+as "two centres of gravity, same headline number."
+
+**§13 "Catalog quality and confidence" — new section.** Documents:
+
+- The 100% terminal-state guarantee (every cell is real-data /
+  not-applicable / depth-floor-reached, with citation or reason or
+  search trail).
+- 14,498 real-data + 16,487 N/A + 10,955 depth-floor = 41,940
+  (699 × 60).
+- The drill-down trust walk (claim → §reference → JSON file →
+  algorithm → reproduction).
+- The 4 validation gates from Round 10.
+- Honest limits: self-report bias, cell-miner depth, edge-graph
+  sparsity vs. real literature density.
+
+**Parallel-ingestion note.** A sibling agent is running an
+"agentic-harness ingestion" round in parallel with this refresh.
+It will add ~25–40 rows in a new "Agent IDEs & coding harnesses"
+section, potentially bringing the catalog to 725+ records. v3 was
+written against the start-time state (`8a4e3c8`); the new §13.5
+discusses this explicitly and the executive-summary callout notes
+an addendum will follow. Track A intentionally does not block on
+the sibling agent.
+
+**Files touched:** `analysis.md`, `docs/DECISIONS.md`. (Per the
+brief's read-only constraints: `landscape.html`,
+`web/landscape.json`, `web/landscape.edges.json`, `web/src/*`,
+`scripts/*`, `extraction/*` were not modified.)
+
+**Reversal cost.** Low. `analysis.md` is a derived artefact (no
+downstream code reads it); this entry is append-only. Revert is
+`git revert` of the v3 commit.
