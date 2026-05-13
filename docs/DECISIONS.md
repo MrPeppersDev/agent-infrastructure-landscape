@@ -4926,3 +4926,86 @@ emits research scratch files to `/tmp/cleanup-fillable/`.
 downstream apply step would copy `new_value` / `citation_url` / `status`
 into the source records (and the auditor's next pass will reclassify
 accordingly).
+
+## 2026-05-07: Round 10 integration — 3 cleanup CSVs applied to catalog
+
+Apply step for the three round-10 cleanup CSVs landed before this entry
+(`extraction/round-10-cleanup-fillable.csv` / 56 rows,
+`extraction/round-10-cleanup-taxonomy-citations.csv` / 106 rows,
+`extraction/round-10-cleanup-shallow-prose.csv` / 134 rows; 296 total).
+
+**Apply mechanics** (`scripts/apply_round10.py`):
+
+- In-memory mutation of `web/landscape.json`, then `scripts/render.py`
+  regenerates `landscape.html`. Same shape as `apply_round9.py`.
+- Status enum normalisation: shallow-prose CSV's `status=resolved` is
+  mapped to `real-data` (per task brief). `terminal-as-is` rows from the
+  same CSV are no-ops: the cell is already terminal, and all 44 such
+  rows already had citations.
+- Downgrade-protection: we *do* allow round-10 to re-bucket a
+  `real-data` cell whose value is itself a placeholder (e.g. "searched
+  not found — not advertised on vendor site") to `depth-floor-reached`.
+  This is the round-10 cleanup pass's whole point. The protection still
+  fires when an incoming placeholder would overwrite a substantive
+  real-data string.
+
+**Apply summary** (see `extraction/round-10-apply-log.csv`):
+
+| source                  | total | applied | skipped         |
+|-------------------------|------:|--------:|----------------:|
+| fillable                |    56 |      56 |               0 |
+| taxonomy-citations      |   106 |     106 |               0 |
+| shallow-prose           |   134 |      90 | 44 terminal-as-is |
+| **all**                 |   296 |     252 |              44 |
+
+Zero unresolved IDs, zero unresolved columns, zero invalid statuses.
+
+**Gap-count delta:** 296 → 44 (-85%). All 44 residual rows are
+`shallow-prose`, all are categorical/enum cells whose terminal values
+("agnostic", "single-agent", "multi-agent") legitimately fall below the
+audit's 15-char prose floor.
+
+**Terminal-state %.** Overall: **99.90%** terminal (41,896 / 41,940
+cells). Per-section:
+
+- 22 of 26 primary sections are at **100.0%**.
+- Dedicated memory layers: 98.9% (26 short orchestration / validated-
+  verticals enum cells).
+- Framework-embedded memory: 99.6% (7 short orchestration enum cells).
+- Research / specialised systems: 98.3% (10 short orchestration cells).
+- Enterprise-search adjacencies: 99.8% (1 short api-surface cell).
+
+**Irreducible floor.** The remaining 44 cells are an artefact of the
+prose-length heuristic, not a content gap. Two ways to make them go
+to zero:
+
+1. Lower MIN_PROSE_CHARS for known-categorical columns
+   (`orchestration`, `validated-verticals`, …) in `audit_gaps.py`.
+2. Expand the cells with parenthetical context (e.g. "single-agent
+   (one cognee instance per process; tool-call interface)").
+
+Both are advisory; the data itself is terminal. We intentionally chose
+to leave the audit honest and not lower the floor — the 44 rows are
+visible in `data-gaps.csv` for anyone who wants to enrich them, but
+they're not blocking terminal-state.
+
+**Validation gates.** All 4 `validate.py` gates pass:
+
+- gate 1: schema (699 records + 299 edges schema-conformant)
+- gate 2: pipeline determinism (extract / reconcile / build_edges /
+  fetch_citations --offline all byte-stable; matches committed)
+- gate 3: cycle stability — render → extract → render diff = 0 lines
+  (ceiling 16; we're well under the documented cross-listing marker
+  drift bound)
+- gate 4: S2 cache integrity (228 cache files, all parse)
+
+**Cell-class sanity reconciliation:** 41,940 cells = 16,487 NA + 10,955
+searched-not-found + 14,454 terminal-real-data + 44 shallow-prose +
+0 fillable-missing + 0 no-citation. (No 67-column schema — every record
+carries 60 cells, so 699 × 60 = 41,940. The "699 × 67 ≈ 46,800" estimate
+in the round-10 brief overcounted the per-record column set by ~7.)
+
+**Reversal cost.** Medium. Reverting means `git revert` the apply
+commit; the 252 cell mutations are isolated to `web/landscape.json`,
+`landscape.html`, and `web/landscape.edges.json` (edges refresh picked
+up 236 newly-citable cells in the cite-edge build).
