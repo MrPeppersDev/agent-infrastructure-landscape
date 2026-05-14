@@ -174,7 +174,14 @@ CANONICAL_SECTIONS = {
 }
 
 # Status enum values.
-STATUS_VALUES = {"real-data", "not-applicable", "depth-floor-reached", "no-data"}
+STATUS_VALUES = {"real-data", "not-applicable", "depth-floor-reached", "no-data", "estimate"}
+
+# Claim-tier values — see SCHEMA.md §3a.
+CLAIM_TIERS = {"T1", "T2", "T3"}
+
+# GitHub URL pattern used by the tier heuristic — anchored at the start so
+# only cells whose citation IS a github.com link get the T1 tier.
+TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
 
 # id regex from §7.1.6.
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*(--[a-z0-9]+(-[a-z0-9]+)*)?$")
@@ -308,6 +315,12 @@ def detect_status(td: Tag) -> tuple[str, str]:
 
     if "not applicable" in inner_lower or inner_lower.startswith("n/a"):
         return "not-applicable", inner
+    # Estimate marker (SCHEMA.md §3a): "<span class='no-data'>estimate</span>"
+    # signals a maintainer-judgement T3 cell.
+    if inner_lower == "estimate":
+        text = cell_text_value(td)
+        text = re.sub(r"\bestimate\b", "", text, count=1).strip()
+        return "estimate", text
     if (
         "searched not found" in inner_lower
         or "depth-floor reached" in inner_lower
@@ -343,25 +356,68 @@ def is_n_a_wrong_section(td: Tag) -> bool:
     return False
 
 
-def parse_cell(td: Tag) -> dict[str, Any]:
-    """Decompose one cell <td> into {value, citation, status}."""
+def classify_tier(citation, status):
+    """Apply the SCHEMA.md §3a auto-detection heuristic.
+
+    Returns (tier, missing_url_warning). The heuristic is top-down (first
+    match wins):
+
+      1. status == "estimate" → T3 (explicit maintainer judgement)
+      2. status == "no-data"  → T3 (transitional placeholder)
+      3. citation matches GitHub URL → T1 (auto-verifiable)
+      4. citation is any other http(s) URL → T2 (resolvable source)
+      5. status == "not-applicable" and citation absent → T3
+         (an N/A annotation is the maintainer's "no claim applies"
+         decision; demanding a citation defeats the purpose)
+      6. citation empty AND status in {real-data, depth-floor-reached}
+         → T2 + warning (we have a claim but lost the URL)
+      7. fallback → T2 (conservative)
+    """
+    if status == "estimate":
+        return "T3", False
+    if status == "no-data":
+        return "T3", False
+    if citation and TIER_GITHUB_URL_RE.match(citation):
+        return "T1", False
+    if citation and (citation.startswith("http://") or citation.startswith("https://")):
+        return "T2", False
+    if status == "not-applicable":
+        return "T3", False
+    if status in {"real-data", "depth-floor-reached"}:
+        return "T2", True
+    return "T2", True
+
+
+def parse_cell(td: Tag, *, warnings=None, where=None) -> dict[str, Any]:
+    """Decompose one cell <td> into {value, citation, status, tier}.
+
+    The tier is computed by classify_tier() from the (citation, status)
+    pair. When the heuristic returns missing_url_warning=True the caller's
+    `warnings` list (if provided) receives a one-line summary.
+    """
     if is_n_a_wrong_section(td):
-        return {
+        cell = {
             "value": cell_text_value(td) or "N/A — wrong section",
             "citation": None,
             "status": "not-applicable",
         }
-    status, override = detect_status(td)
-    if status == "real-data":
-        value = cell_text_value(td)
-    elif status in {"not-applicable", "depth-floor-reached"}:
-        # Use the no-data span text rather than the surrounding cell text,
-        # since the surrounding text is just "↗" or empty.
-        value = override
-    else:  # no-data
-        value = override or ""
-    citation = first_citation_href(td)
-    return {"value": value, "citation": citation, "status": status}
+    else:
+        status, override = detect_status(td)
+        if status == "real-data":
+            value = cell_text_value(td)
+        elif status == "estimate":
+            value = override
+        elif status in {"not-applicable", "depth-floor-reached"}:
+            value = override
+        else:  # no-data
+            value = override or ""
+        citation = first_citation_href(td)
+        cell = {"value": value, "citation": citation, "status": status}
+    tier, missing_url = classify_tier(cell["citation"], cell["status"])
+    cell["tier"] = tier
+    if missing_url and warnings is not None and where is not None:
+        warnings.append(where)
+    return cell
 
 
 # ---------------------------------------------------------------------------
@@ -565,6 +621,9 @@ def validate_record(rec: dict[str, Any]) -> list[str]:
             cit = cell.get("citation")
             if cit is not None and not is_http_url(cit):
                 errs.append(f"{rid}: cells[{slug}].citation must be null or http(s) ({cit!r})")
+            tier = cell.get("tier")
+            if tier not in CLAIM_TIERS:
+                errs.append(f"{rid}: cells[{slug}].tier invalid: {tier!r}")
     return errs
 
 
@@ -573,7 +632,11 @@ def validate_record(rec: dict[str, Any]) -> list[str]:
 # ---------------------------------------------------------------------------
 
 
-def build_record(parsed: dict, used_ids: dict[str, int]) -> dict[str, Any]:
+def build_record(
+    parsed: dict,
+    used_ids: dict[str, int],
+    tier_warnings: list[str] | None = None,
+) -> dict[str, Any]:
     name = parsed["name"]
     url = parsed["url"]
 
@@ -610,9 +673,13 @@ def build_record(parsed: dict, used_ids: dict[str, int]) -> dict[str, Any]:
         taxonomy[axis] = parse_taxonomy_axis(td)
 
     cells = OrderedDict()
-    cells[CELL_COLUMN_SLUGS[0]] = parse_cell(type_td)  # "type"
+    cells[CELL_COLUMN_SLUGS[0]] = parse_cell(
+        type_td, warnings=tier_warnings, where=f"{rec_id}.{CELL_COLUMN_SLUGS[0]}"
+    )  # "type"
     for slug, td in zip(CELL_COLUMN_SLUGS[1:], rest_cell_tds):
-        cells[slug] = parse_cell(td)
+        cells[slug] = parse_cell(
+            td, warnings=tier_warnings, where=f"{rec_id}.{slug}"
+        )
 
     sections = [{
         "section": parsed["section"],
@@ -655,6 +722,9 @@ def main() -> int:
 
     used_ids: dict[str, int] = {}
     records: list[dict[str, Any]] = []
+    # Cells claiming data but lacking a citation are classified T2 with
+    # a soft warning so the population can be tracked and researched.
+    tier_warnings: list[str] = []
     for parsed in iter_records(soup):
         if parsed["section"] is None:
             print(
@@ -662,7 +732,7 @@ def main() -> int:
                 file=sys.stderr,
             )
             continue
-        rec = build_record(parsed, used_ids)
+        rec = build_record(parsed, used_ids, tier_warnings=tier_warnings)
         records.append(rec)
 
     # Stable order: sort by id ASC.
@@ -701,13 +771,22 @@ def main() -> int:
     # Summary.
     by_tier: dict[int, int] = {}
     by_status: dict[str, int] = {s: 0 for s in STATUS_VALUES}
+    by_claim_tier: dict[str, int] = {ct: 0 for ct in CLAIM_TIERS}
     for r in records:
         by_tier[r["tier"]] = by_tier.get(r["tier"], 0) + 1
         for c in r["cells"].values():
             by_status[c["status"]] += 1
+            by_claim_tier[c["tier"]] = by_claim_tier.get(c["tier"], 0) + 1
     print(f"wrote {out_path} ({len(records)} records)")
     print(f"  by tier: " + ", ".join(f"T{t}={by_tier.get(t, 0)}" for t in (1, 2, 3, 4, 5)))
     print(f"  by status: " + ", ".join(f"{k}={v}" for k, v in by_status.items()))
+    print(f"  by claim-tier: " + ", ".join(f"{ct}={by_claim_tier.get(ct, 0)}" for ct in ("T1", "T2", "T3")))
+    if tier_warnings:
+        print(
+            f"  soft-warning: {len(tier_warnings)} cells claim data but have no citation URL "
+            f"(classified T2 — they will fail gate 5 unless researched)",
+            file=sys.stderr,
+        )
     return 0
 
 

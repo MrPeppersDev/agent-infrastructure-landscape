@@ -52,6 +52,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -81,6 +82,9 @@ VALID_EDGE_TYPES = {
     "same-team-as",
     "succeeds",
 }
+
+# Claim-tier validation regex (SCHEMA.md §3a / scripts/extract.py).
+TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
 
 
 # ---------------------------------------------------------------------------
@@ -453,6 +457,58 @@ def gate_cache() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Gate 5: Claim-tier validation (SCHEMA.md §3a).
+# ---------------------------------------------------------------------------
+
+
+def gate_claim_tiers() -> None:
+    gate_header(5, "Claim-tier provenance (SCHEMA.md §3a / §7.1.12)")
+    if not LANDSCAPE_JSON.exists():
+        gate_fail(f"{LANDSCAPE_JSON} not found")
+
+    landscape = json.loads(LANDSCAPE_JSON.read_text())
+    records = landscape.get("records") or []
+
+    tier_errors: list[str] = []
+    counts = {"T1": 0, "T2": 0, "T3": 0}
+    for rec in records:
+        rid = rec.get("id", "<unknown>")
+        for slug, cell in (rec.get("cells") or {}).items():
+            tier = cell.get("tier")
+            if tier not in counts:
+                tier_errors.append(
+                    f"{rid}.cells[{slug}]: tier {tier!r} not in {{T1,T2,T3}}"
+                )
+                continue
+            counts[tier] += 1
+            citation = cell.get("citation")
+            if tier == "T1":
+                if not citation or not TIER_GITHUB_URL_RE.match(citation):
+                    tier_errors.append(
+                        f"{rid}.cells[{slug}]: T1 requires GitHub citation "
+                        f"(got {citation!r})"
+                    )
+            elif tier == "T2":
+                if not citation or not _is_http_url(citation):
+                    tier_errors.append(
+                        f"{rid}.cells[{slug}]: T2 requires non-empty http(s) "
+                        f"citation (got {citation!r})"
+                    )
+
+    if tier_errors:
+        for e in tier_errors[:20]:
+            info(f"  - {e}")
+        if len(tier_errors) > 20:
+            info(f"  ... and {len(tier_errors) - 20} more")
+        gate_fail(f"{len(tier_errors)} claim-tier validation errors")
+
+    info(
+        f"tier distribution: T1={counts['T1']} T2={counts['T2']} T3={counts['T3']}"
+    )
+    gate_pass("all cells satisfy their tier's citation requirement")
+
+
+# ---------------------------------------------------------------------------
 # Driver.
 # ---------------------------------------------------------------------------
 
@@ -462,6 +518,7 @@ GATES = {
     2: ("determinism", gate_determinism),
     3: ("cycle", gate_cycle),
     4: ("cache", gate_cache),
+    5: ("claim-tiers", gate_claim_tiers),
 }
 
 
@@ -471,7 +528,7 @@ def main() -> int:
         "--gate",
         type=int,
         choices=sorted(GATES),
-        help="run only one gate by number (1–4)",
+        help="run only one gate by number (1–5)",
     )
     args = ap.parse_args()
 

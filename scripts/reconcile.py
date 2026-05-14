@@ -217,9 +217,10 @@ AMBIGUOUS_CASES: list[dict[str, Any]] = [
 # (we tried but found nothing), then no-data (transitional placeholder).
 STATUS_PREFERENCE = {
     "real-data": 0,
-    "not-applicable": 1,
-    "depth-floor-reached": 2,
-    "no-data": 3,
+    "estimate": 1,
+    "not-applicable": 2,
+    "depth-floor-reached": 3,
+    "no-data": 4,
 }
 
 

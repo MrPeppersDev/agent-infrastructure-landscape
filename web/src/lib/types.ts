@@ -4,7 +4,21 @@ export type Status =
   | 'real-data'
   | 'not-applicable'
   | 'depth-floor-reached'
-  | 'no-data';
+  | 'no-data'
+  | 'estimate';
+
+/**
+ * Claim-tier provenance — see docs/SCHEMA.md §3a.
+ *
+ *   T1 — auto-verifiable (GitHub-URL citations today)
+ *   T2 — source-URL required (resolvable http(s) URL)
+ *   T3 — estimate / inferred (no citation requirement)
+ *
+ * Populated automatically by scripts/extract.py from the (citation,
+ * status) pair using the conservative heuristic in §3a. Validated by
+ * gate 5 of scripts/validate.py.
+ */
+export type ClaimTier = 'T1' | 'T2' | 'T3';
 
 export interface Cell {
   /** Visible text with HTML stripped, whitespace normalised. */
@@ -12,6 +26,8 @@ export interface Cell {
   /** http(s):// URL the data was sourced from, or null. */
   citation: string | null;
   status: Status;
+  /** Provenance tier — see docs/SCHEMA.md §3a. */
+  tier: ClaimTier;
 }
 
 export interface TaxonomyValue {

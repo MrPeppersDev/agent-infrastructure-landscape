@@ -274,6 +274,16 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
             inner = f"{inner} {cite}"
     elif status == "no-data":
         inner = '<span class="no-data"></span>'
+    elif status == "estimate":
+        # Maintainer-judgement (T3 claim tier — see SCHEMA.md §3a).
+        # Render with an explicit "estimate" marker span so the round-trip
+        # extract picks the status back up.
+        body = _value_passthrough(value)
+        cite = render_citation(citation, "source")
+        marker = '<span class="no-data">estimate</span>'
+        inner = f"{marker} {body}".strip()
+        if cite:
+            inner = f"{inner} {cite}"
     else:
         raise RuntimeError(f"unknown cell status {status!r}")
 

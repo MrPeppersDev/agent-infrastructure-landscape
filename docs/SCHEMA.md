@@ -267,7 +267,8 @@ Each cell value:
 type Cell = {
   value: string;            // The visible text (with HTML stripped, normalised whitespace)
   citation: string | null;  // The href of the cell's <a class="cite"> link, or null
-  status: "real-data" | "not-applicable" | "depth-floor-reached" | "no-data";
+  status: "real-data" | "not-applicable" | "depth-floor-reached" | "no-data" | "estimate";
+  tier: "T1" | "T2" | "T3";  // Claim-tier provenance — see §3a.
 };
 ```
 
@@ -371,6 +372,62 @@ filter:
 - "Show only filled-in data" → `status === "real-data"`.
 - "Show all knowledge gaps" → `status === "depth-floor-reached"`.
 - "Hide N/A noise from sort" → exclude `not-applicable`.
+
+A fifth value, `estimate`, is reserved for maintainer-judgement cells with
+no hard citation (see §3a — tier T3).
+
+---
+
+## 3a. Claim-tier provenance (the `tier` field on every cell)
+
+Every cell carries a `tier` from this three-value enum. The tier is the
+machine-readable answer to "where did this claim come from?" It lets
+consumers (UI, validators, audit scripts) reason about claim quality
+without re-deriving it from the cell's contents.
+
+The motivation: cell-level claims (benchmark scores, integration counts,
+market positioning) are vendor-self-reported. Goodhart's Law applies once
+a leaderboard becomes a reputation signal — we can't manually validate
+everything, so we surface the *provenance* of every claim.
+
+### Tier definitions
+
+| Tier | Name | Definition | Examples |
+|------|------|------------|----------|
+| T1 | Auto-verifiable | Derivable from public signal at build time. The `citation` field MUST be a GitHub URL (the only auto-verifiable source we recognise in v1). | GitHub URL, star count, license file, last-commit date. |
+| T2 | Source-URL required | Not auto-verifiable, but the `citation` field MUST contain a resolvable URL. Gate 5 fails the build if a T2 cell has missing or malformed citation. Default tier when in doubt. | Benchmark scores, integration claims, production deployment claims, customer logos, funding. |
+| T3 | Estimate / inferred | Maintainer judgement, no hard citation. Flagged with `status: "estimate"`, or auto-tagged T3 when the cell is `no-data` or uncited `not-applicable`. T3 cells are NOT validated for citation presence. | Market positioning, "approximate" claims, taxonomy clusters, unsourced N/A annotations. |
+
+### Auto-detection heuristic (applied by `extract.py`)
+
+`extract.py` populates `tier` automatically from the (`citation`,
+`status`) pair using a deterministic, conservative heuristic. The intent
+is **"when in doubt, classify as T2"** — over-classifying as T2 yields
+more validation failures (which we can fix), whereas under-classifying
+yields claims that silently pass without provenance.
+
+The heuristic, top-down (first match wins):
+
+1. **`status === "estimate"`** → `T3`. Explicit maintainer judgement.
+2. **`status === "no-data"`** → `T3`. Transitional placeholder.
+3. **`citation` matches `^https?://github\.com/`** → `T1`.
+4. **`citation` is any other `http(s)://` URL** → `T2`.
+5. **`status === "not-applicable"` and `citation` absent** → `T3`. An
+   N/A annotation is the maintainer's decision that no claim applies;
+   demanding a citation defeats the purpose. (If a `not-applicable`
+   cell *does* carry a URL verifying the N/A judgement, rule 4
+   catches it first as T2.)
+6. **`citation` empty AND `status ∈ {real-data, depth-floor-reached}`**
+   → `T2` + soft warning. We have a claim but lost the URL; classifying
+   T2 ensures gate 5 will eventually surface it.
+
+### Validation rules
+
+`scripts/validate.py` gate 5 enforces:
+
+- For T1 cells: `citation` MUST match `^https?://github\.com/`.
+- For T2 cells: `citation` MUST be a non-empty `http(s)://` URL.
+- For T3 cells: no validation.
 
 ---
 
@@ -611,9 +668,14 @@ file claiming to conform to the schema.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
     - `cells` has exactly the 60 keys listed in §2.5 (no extras, no missing).
-    - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`.
+    - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.
+    - every cell's `tier` is one of `T1`, `T2`, `T3`.
+12. **Claim-tier provenance (gate 5):**
+    - For every cell where `tier === "T1"`, `citation` MUST match the GitHub URL regex `^https?://github\.com/`.
+    - For every cell where `tier === "T2"`, `citation` MUST be a non-empty `http(s)://` URL.
+    - For every cell where `tier === "T3"`, no citation requirement.
 
 ### 7.2 `landscape.edges.json` validation
 
