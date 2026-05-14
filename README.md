@@ -83,6 +83,25 @@ The catalog is comprehensive enough for use as a reference. Honest confidence on
 landscape coverage: ~88-92% as of 2026-05-06. The known gaps and the plan to close
 them are in `PLAN.md`.
 
+## Governance
+
+This catalog has an explicit maintenance contract — see
+[`MAINTAINER.md`](./MAINTAINER.md). It defines:
+
+- What's in scope and what's not (anti-creep armor).
+- Freshness SLA per cell type and per-row status thresholds (active /
+  stale / abandoned).
+- The 3-tier claim-validation schema (T1 auto-verifiable → T3 estimate).
+- Succession plan (one maintainer today; data is published under
+  CC-BY-4.0 so the catalog outlives any single steward).
+- How to submit, where to report, and how to ask for co-maintainer
+  rights.
+
+Adopted to close the catalog-deaths-research-identified governance vacuum
+(single-maintainer bus factor, scope inflation, silent decay). Survivors
+of the catalog-decay graveyard (DB-Engines, State of JS, dbdb.io) all
+publish a maintenance contract; this is ours.
+
 ## Web app
 
 A SvelteKit static-export landing page lives in `web/` (Phase 2). Today it's
