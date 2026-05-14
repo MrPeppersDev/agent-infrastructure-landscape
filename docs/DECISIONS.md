@@ -6427,4 +6427,166 @@ because the label is real (not template-synthetic).
 - `.github/workflows/*` — no workflow needed. Label application
   and title templating happen in the form's YAML schema, not via
   an action.
+
+
+
+## 2026-05-13: Intake batch processor — `scripts/process_intake.py` (#30)
+
+**What.** Added `scripts/process_intake.py`, a manual-trigger batch
+agent that turns open `intake`-labelled GitHub issues into
+landscape.html rows. Closes the intake loop opened by #28 (Svelte
+`/submit` form) and #29 (Issue Form fallback): submitter creates an
+intake-labelled issue, curator runs `python3 scripts/process_intake.py`,
+script parses the labelled-field body, verifies, deduplicates,
+generates a `<tr>` per submission, runs the pipeline, and emits one
+batch commit closing every accepted issue.
+
+CLI: `python3 scripts/process_intake.py [--limit N] [--dry-run]`.
+`--dry-run` prints what would change without editing files, opening
+comments, or closing issues; `--limit N` caps how many open issues
+get processed in a single run. Default (no flags) processes every
+open intake issue and commits + pushes the result.
+
+### Cadence: manual, not scheduled
+
+**Decision: manual invocation only — no cron, no GHA, no git hook.**
+
+Every accepted submission lands as a commit on `main` that mutates
+`landscape.html` and the JSON/edges mirrors. We want a human curator
+to own that commit explicitly — not because the script can't be
+trusted to validate, but because the *editorial* call (does this
+system meet the bar? is the section right? is the tier guess wrong?)
+needs human judgement and the script can't supply it. The acceptance
+criteria in #30 explicitly call for "Round NN: intake batch — N
+submissions accepted (issues #X, #Y, #Z)" commit messages, which
+implies a curator decision per batch rather than a continuous
+ingest stream. Schedule revisit when (a) intake volume exceeds
+~10/week and review fatigue dominates, or (b) we add automated
+post-merge enrichment that brings shallow-but-honest rows up to
+real-data depth, at which point a weekly cron makes more sense.
+
+### Duplicate detection: three checks, all loose
+
+The script flags a submission as duplicate if ANY of the following
+matches an existing record in `web/landscape.json`:
+
+1. **Canonical URL** — host lowercased, `www.` stripped, query +
+   fragment dropped, trailing slash stripped. Catches the
+   "submitter pasted the URL with `?utm_source=…`" case and the
+   `http://x.com/` vs `https://x.com` mismatch.
+2. **Normalised name** — lowercased, non-alphanumeric stripped.
+   Catches "Mem0" vs "mem0", "Claude Code" vs "claude-code", etc.
+   Loose by design: a system with the same canonical name but a
+   different focus (e.g. a fork) gets flagged for human review,
+   not silently accepted.
+3. **Arxiv id** — extracted from either the submitter's primary URL
+   or the optional `arxiv_url` field, matched against existing
+   records' URLs and per-cell citations. Catches "same paper,
+   different mirror".
+
+Strict-exact matching would miss real duplicates (different mirrors,
+case variation, trailing slashes) and the small false-positive cost
+(curator reviews + re-labels with disambiguation in the title) is
+preferable to the alternative (catalog accumulates near-duplicate
+shallow rows). The duplicate path comments on the issue with the
+matched id and leaves it open — explicit re-labelling is required
+to retry.
+
+### Rejection criteria
+
+The script rejects submissions on five conditions, all comment-then-
+leave-open (never close-as-not-planned automatically — the curator
+makes the close call):
+
+1. **Parse failure** — required field missing (`name`, `url`, `type`,
+   `section`, `brief_description`). Mirrors `validateSubmission()`
+   on the Svelte form side; defends against the case where a
+   submitter created a free-form issue with the `intake` label
+   manually but didn't follow the field shape.
+2. **URL verification failure** — HEAD then GET against the
+   submitter's URL must return 200 / 301 / 302. Non-2xx, network
+   errors, and dead-host responses reject. UA is set to
+   `memory-analysis-program-intake/1.0` so site owners can identify
+   the requester in logs.
+3. **Duplicate** (see above).
+4. **Insertion failure** — section name doesn't match any
+   `<tr class="group-row">` in `landscape.html`. The submitter
+   picked a section string the catalog doesn't recognise (typo, or
+   a section that hasn't been created yet). Comment lists the
+   canonical section names per `docs/SCHEMA.md`.
+5. **Pipeline / validation failure** — extract → reconcile →
+   build_edges → validate must all pass before commit. If any
+   step fails after row insertion, the script reverts the edit
+   via `git checkout --` on the four touched files and posts the
+   pipeline output as a code-fenced comment on every accepted
+   issue (the whole batch fails together — single-batch atomicity
+   is simpler than per-row rollback and the curator can re-run
+   after fixing the offending submission).
+
+### Row shape: real-data where submitted, depth-floor everywhere else
+
+The intake row is a *starting point*, not a finished entry. The
+script writes real-data cells (with the submitter's URL as the
+citation) for the eight fields that the form collects (`type`,
+`desc`, `claims`, `funding`, `customers`, `license`, `gh`, `links`),
+emits depth-floor-reached cells (`<span class="no-data">searched not
+found</span>` with the URL as the search-trail citation) for the
+remaining 52, and leaves the 7 taxonomy axes empty for the
+curator to fill post-merge. This is honest about the depth of
+research the script actually performed (one URL fetch + form data;
+no S2 fetch, no funding-DB lookup, no GitHub stars-pull) and
+matches the schema's terminal-cell contract (validate.py §7.1).
+A follow-up enrichment round (manual, or a future agent) deepens
+the depth-floor cells once the curator has confirmed the system
+belongs in the catalog.
+
+**Tier inference:** `tier_guess` from the form maps to
+`row-t{1..5}`. A T1 guess from the submitter is a *hint*, not a
+final tier — the curator can adjust after merge. Default when the
+submitter didn't specify (or the value doesn't parse): T3.
+
+### Audit step omitted from the pipeline gate
+
+The acceptance criteria list "extract → reconcile → build_edges →
+validate → audit" as the pre-commit gate. The script runs the
+first four but skips `scripts/audit_gaps.py`. Rationale:
+audit_gaps is a depth-of-research diagnostic (~30s, prints a gap
+report) — it doesn't enforce schema correctness or determinism;
+those gates live in `validate.py`. The intake row is intentionally
+shallow (depth-floor cells), so audit_gaps would always emit a
+large gap-list for an accepted intake commit, swamping the signal
+the report exists to provide. Curator runs `audit_gaps.py`
+separately during the enrichment round, when depth is the
+question being asked.
+
+### What this entry does NOT touch
+
+- `landscape.html`, `web/landscape*.json` — no rows added; the
+  script will produce these in actual runs against real submitters.
+  At commit time of this entry the open-intake-issue list is
+  empty.
+- `web/src/*` — UI is owned by #28; no changes here.
+- `.github/*` — templates are owned by #29; no changes here.
+- Other scripts — pipeline and extract logic unchanged.
+
+### End-to-end testing: deferred to first real submission
+
+We verified the empty-list path (`No open intake issues found.`),
+the `--dry-run` path on the empty list, the body parser against
+a synthetic in-memory fixture (regex pulls all 14 fields with no
+external roundtrip), the `build_row` output (70 lines = 1 + 1 +
+1 type + 7 tax-axes + 59 remaining cells + 1 = correct shape),
+and the `insert_row` placement against the live
+`landscape.html` (last `</tr>` of the target section, before the
+next group-row). What we did *not* verify is the full live
+chain: URL fetch + duplicate detection + pipeline + commit +
+issue-close. That awaits the first real intake submission;
+deliberately not exercising it with a synthetic test row to avoid
+committing fake systems to `landscape.html`.
+
+### Reversal cost
+
+Trivial. Delete `scripts/process_intake.py`, revert this
+DECISIONS.md entry. No git hook installed, no GHA workflow, no
+external integrations.
 - `web/landscape.json` / data files — zero data edits.
