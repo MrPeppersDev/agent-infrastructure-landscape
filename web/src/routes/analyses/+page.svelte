@@ -30,6 +30,18 @@
         'Companion to coverage. Classifies every benchmark mention as peer-reviewed / independently-verified / vendor-claimed / disputed / unverifiable, exposes gaming patterns, and surfaces the canonical disputed case (Mem0 vs Zep on LoCoMo).'
     },
     {
+      slug: 'product-benchmark-matrix',
+      title: 'Product × benchmark coverage',
+      summary:
+        'Pivot of the benchmark coverage view, flipped from benchmark-centric to product-centric. Rows are products, columns are benchmarks, cells are coloured by integrity tier. The "refuses to publish" filter surfaces every product that mentions benchmarks but has zero peer-reviewed citations behind them.'
+    },
+    {
+      slug: 'benchmark-trust',
+      title: 'Benchmark trust leaderboard',
+      summary:
+        'Pivots the integrity classifications into a single composite trust score per benchmark. Sortable leaderboard with top-5 trusted / most-gamed callouts and per-benchmark drilldowns showing which systems contributed to each integrity bucket.'
+    },
+    {
       slug: 'archetypes',
       title: 'Taxonomy archetypes',
       summary:
