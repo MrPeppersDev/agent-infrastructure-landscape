@@ -64,7 +64,7 @@ export interface SectionMembership {
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 /**
- * The 75 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
+ * The 82 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
  * object MUST contain all of these keys (with status: "not-applicable"
  * when the column is meaningless for that record).
  *
@@ -75,6 +75,11 @@ export type Tier = 1 | 2 | 3 | 4 | 5;
  * Columns 69-75 (the `cost-*` family) were appended in T1-3 (issue #41)
  * to capture cost-control / token-economics governance features. See
  * SCHEMA.md §2.5.2 for semantics.
+ *
+ * Columns 76-82 (the `eval-*` family) were appended in T1-2 (issue #40)
+ * to capture eval-tooling integrations — the next frontier after
+ * observability (LangChain survey: 89% have obs, only 52% have evals).
+ * See SCHEMA.md §2.5.3 for semantics.
  */
 export type ColumnSlug =
   | 'type'
@@ -151,7 +156,14 @@ export type ColumnSlug =
   | 'cost-batching'
   | 'cost-model-routing'
   | 'cost-streaming-only'
-  | 'cost-observability-cost-attribution';
+  | 'cost-observability-cost-attribution'
+  | 'eval-langsmith-evals'
+  | 'eval-braintrust'
+  | 'eval-weights-and-biases-agent'
+  | 'eval-helicone-evals'
+  | 'eval-custom-test-harness'
+  | 'eval-human-loop'
+  | 'eval-production-traffic-replay';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

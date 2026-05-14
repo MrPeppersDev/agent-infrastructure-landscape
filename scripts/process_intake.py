@@ -82,7 +82,7 @@ FIELD_LABELS: list[tuple[str, str]] = [
 # Required fields per the form-side validateSubmission() contract.
 REQUIRED_FIELDS = ("name", "url", "type", "section", "brief_description")
 
-# The 75 cell column slugs in document order, per scripts/extract.py's
+# The 82 cell column slugs in document order, per scripts/extract.py's
 # CELL_COLUMN_SLUGS. Duplicated here rather than imported so the script
 # stays self-contained (extract.py imports BeautifulSoup and we don't
 # need that here).
@@ -108,8 +108,13 @@ CELL_COLUMN_SLUGS: list[str] = [
     "cost-token-budget", "cost-prompt-caching", "cost-semantic-caching",
     "cost-batching", "cost-model-routing", "cost-streaming-only",
     "cost-observability-cost-attribution",
+    # T1-2 eval-tooling columns (issue #40). See docs/SCHEMA.md §2.5.3.
+    "eval-langsmith-evals", "eval-braintrust",
+    "eval-weights-and-biases-agent", "eval-helicone-evals",
+    "eval-custom-test-harness", "eval-human-loop",
+    "eval-production-traffic-replay",
 ]
-assert len(CELL_COLUMN_SLUGS) == 75
+assert len(CELL_COLUMN_SLUGS) == 82
 
 TAXONOMY_AXES = [
     "storage", "retrieval", "persistence", "update", "unit",
@@ -487,7 +492,7 @@ def insert_row(html_text: str, section: str, row_html: str) -> str:
     """
     # Locate the group-row for this section.
     group_pattern = re.compile(
-        r'<tr class="group-row"><td colspan="83"[^>]*>'
+        r'<tr class="group-row"><td colspan="90"[^>]*>'
         + re.escape(html_escape_for_group(section))
         + r'</td></tr>'
     )
@@ -498,7 +503,7 @@ def insert_row(html_text: str, section: str, row_html: str) -> str:
 
     # Find the next group-row OR </tbody> after this one.
     next_group = re.search(
-        r'<tr class="group-row"><td colspan="83"[^>]*>(?!' +
+        r'<tr class="group-row"><td colspan="90"[^>]*>(?!' +
         re.escape(html_escape_for_group(section)) + r')',
         html_text[start_after:],
     )

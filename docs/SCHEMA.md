@@ -258,8 +258,8 @@ vocabularies are governed by the controlled-vocab list in `taxonomy/`.
 ### 2.5 Cells
 
 `cells` is an object keyed by **column slug**, with one entry per
-non-name, non-taxonomy column in `landscape.html`. There are 74 such
-columns (83 total - 1 name - 1 memory-model-type - 7 taxonomy = 74).
+non-name, non-taxonomy column in `landscape.html`. There are 81 such
+columns (90 total - 1 name - 1 memory-model-type - 7 taxonomy = 81).
 
 Each cell value:
 
@@ -351,8 +351,15 @@ The complete column-slug set (in HTML left-to-right order):
 | 73 | `cost-model-routing`    | `cost-model-routing`  | Model routing                    |
 | 74 | `cost-streaming-only`   | `cost-streaming-only` | Streaming-only                   |
 | 75 | `cost-observability-cost-attribution` | `cost-observability-cost-attribution` | Cost attribution     |
+| 76 | `eval-langsmith-evals`  | `eval-langsmith-evals`| LangSmith Evals                  |
+| 77 | `eval-braintrust`       | `eval-braintrust`     | Braintrust                       |
+| 78 | `eval-weights-and-biases-agent` | `eval-weights-and-biases-agent` | W&B Agent Eval         |
+| 79 | `eval-helicone-evals`   | `eval-helicone-evals` | Helicone Evals                   |
+| 80 | `eval-custom-test-harness` | `eval-custom-test-harness` | Custom test harness        |
+| 81 | `eval-human-loop`       | `eval-human-loop`     | Human-in-loop eval               |
+| 82 | `eval-production-traffic-replay` | `eval-production-traffic-replay` | Prod traffic replay |
 
-The `cells` object MUST contain all 75 keys for every record. Records
+The `cells` object MUST contain all 82 keys for every record. Records
 where a column is genuinely meaningless (e.g. `funding` for a research
 paper) use `status: "not-applicable"`. The `value` field for those
 cells is the human-readable annotation copied from the HTML
@@ -420,6 +427,51 @@ Per the spec, per-call pricing data (e.g. `$0.003 / 1k input tokens`) is
 **out of scope** for these columns — pricing changes too fast and goes
 stale within weeks. The cost-* columns capture the *governance features*
 that let a practitioner control spend, not the spend itself.
+
+### 2.5.3 Eval-tooling columns (added in T1-2, issue #40)
+
+The seven `eval-*` columns capture which evaluation / scoring tools each
+product or framework integrates with. They were added because the eval
+gap is the **next frontier after observability**: LangChain's State of
+Agent Engineering 2025 survey found that 89% of practitioners have
+observability adopted but only **52% have evals** — an explicit 37-point
+gap. The Berkeley RDI MAP study (Q1 2026) corroborates: 74% rely
+primarily on human evaluation. The Datadog 2026 State-of-AI-Agents
+report calls "reliable evaluation loops" a top recommendation. The
+catalog-level question "how do I know if my agent is actually getting
+better?" had no good answer before T1-2 — these columns answer the
+integration-support half of it (benchmark methodology comparison is
+T1-4 territory).
+
+Each cell carries a `{value, citation, status, tier}`. The `value` is
+one of `"yes"`, `"no"`, or `""` (empty = unknown, surfaced via the
+standard `no-data` / `depth-floor-reached` status). Boolean cells MAY
+also carry a version string (e.g. `"yes (Braintrust SDK v0.0.x)"`) when
+the integration is gated on a specific release.
+
+Column semantics:
+
+| Slug                                 | Meaning                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `eval-langsmith-evals`               | LangSmith Evals integration (LangChain ecosystem's eval framework — datasets, evaluators, regression detection).         |
+| `eval-braintrust`                    | Braintrust integration (independent eval platform — proxy, scoring, experiments).                                        |
+| `eval-weights-and-biases-agent`      | Weights & Biases Agent Eval / Weave eval support (W&B's agentic evaluation suite).                                       |
+| `eval-helicone-evals`                | Helicone's eval features (request-level evaluations, custom evaluators via OpenLLMetry).                                 |
+| `eval-custom-test-harness`           | Built-in test or eval harness, regardless of vendor (framework ships its own; e.g. DSPy Evaluate, LangGraph testing).    |
+| `eval-human-loop`                    | Human-in-loop eval workflow built in — manual review queue, annotation UI, expert grading integrated with the system.   |
+| `eval-production-traffic-replay`     | Ability to replay production traffic against new agent versions for eval (e.g. capture-replay, golden-set from prod).    |
+
+Coverage callout: only the top ~100 rows (the same selection as T1-1
+observability and T1-3 cost-economics — T1 + select T2 in priority
+sections) have been backfilled. Empty `eval-*` cells on rows below the
+coverage floor are deliberate; the `/analyses/eval-gap` view surfaces
+the observability-vs-eval gap directly and the coverage gap rather than
+papering over either.
+
+Out of scope: eval methodology comparison (eg. LLM-as-judge vs human
+rubric vs canary set), benchmark scores (those are T1-4 territory).
+These columns track *integration support* only — which products plug
+into which eval tooling.
 
 ---
 
@@ -745,7 +797,7 @@ file claiming to conform to the schema.
     - each axis array is non-empty.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
-    - `cells` has exactly the 75 keys listed in §2.5 (no extras, no missing).
+    - `cells` has exactly the 82 keys listed in §2.5 (no extras, no missing).
     - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.

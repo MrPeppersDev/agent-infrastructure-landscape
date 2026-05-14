@@ -128,8 +128,16 @@ CELL_COLUMN_SLUGS: list[str] = [
     "cost-model-routing",
     "cost-streaming-only",
     "cost-observability-cost-attribution",
+    # T1-2 eval-tooling columns (issue #40). See docs/SCHEMA.md §2.5.3.
+    "eval-langsmith-evals",
+    "eval-braintrust",
+    "eval-weights-and-biases-agent",
+    "eval-helicone-evals",
+    "eval-custom-test-harness",
+    "eval-human-loop",
+    "eval-production-traffic-replay",
 ]
-assert len(CELL_COLUMN_SLUGS) == 75
+assert len(CELL_COLUMN_SLUGS) == 82
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -442,11 +450,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="83" '
+            f'  <tr class="group-row"><td colspan="90" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="83">'
+        f'  <tr class="group-row"><td colspan="90">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -455,7 +463,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="83">'
+        '  <tr class="section-explainer"><td colspan="90">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
