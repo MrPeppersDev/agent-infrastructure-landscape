@@ -64,13 +64,17 @@ export interface SectionMembership {
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 /**
- * The 68 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
+ * The 75 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
  * object MUST contain all of these keys (with status: "not-applicable"
  * when the column is meaningless for that record).
  *
  * Columns 61-68 (the `obs-*` family) were appended in T1-1 (issue #39)
  * to capture observability-stack integration support. See SCHEMA.md
  * §2.5.1 for semantics.
+ *
+ * Columns 69-75 (the `cost-*` family) were appended in T1-3 (issue #41)
+ * to capture cost-control / token-economics governance features. See
+ * SCHEMA.md §2.5.2 for semantics.
  */
 export type ColumnSlug =
   | 'type'
@@ -140,7 +144,14 @@ export type ColumnSlug =
   | 'obs-weave'
   | 'obs-langfuse'
   | 'obs-arize'
-  | 'obs-custom';
+  | 'obs-custom'
+  | 'cost-token-budget'
+  | 'cost-prompt-caching'
+  | 'cost-semantic-caching'
+  | 'cost-batching'
+  | 'cost-model-routing'
+  | 'cost-streaming-only'
+  | 'cost-observability-cost-attribution';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

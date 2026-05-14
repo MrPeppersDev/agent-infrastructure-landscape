@@ -82,7 +82,7 @@ FIELD_LABELS: list[tuple[str, str]] = [
 # Required fields per the form-side validateSubmission() contract.
 REQUIRED_FIELDS = ("name", "url", "type", "section", "brief_description")
 
-# The 60 cell column slugs in document order, per scripts/extract.py's
+# The 75 cell column slugs in document order, per scripts/extract.py's
 # CELL_COLUMN_SLUGS. Duplicated here rather than imported so the script
 # stays self-contained (extract.py imports BeautifulSoup and we don't
 # need that here).
@@ -101,8 +101,15 @@ CELL_COLUMN_SLUGS: list[str] = [
     "session-handling", "validated-verticals", "time-to-running",
     "anti-fit", "optimised-for", "adjacent-infrastructure", "pros",
     "cons", "links",
+    # T1-1 observability columns (issue #39). See docs/SCHEMA.md §2.5.1.
+    "obs-langsmith", "obs-opentelemetry", "obs-datadog", "obs-helicone",
+    "obs-weave", "obs-langfuse", "obs-arize", "obs-custom",
+    # T1-3 cost-control columns (issue #41). See docs/SCHEMA.md §2.5.2.
+    "cost-token-budget", "cost-prompt-caching", "cost-semantic-caching",
+    "cost-batching", "cost-model-routing", "cost-streaming-only",
+    "cost-observability-cost-attribution",
 ]
-assert len(CELL_COLUMN_SLUGS) == 60
+assert len(CELL_COLUMN_SLUGS) == 75
 
 TAXONOMY_AXES = [
     "storage", "retrieval", "persistence", "update", "unit",
@@ -480,7 +487,7 @@ def insert_row(html_text: str, section: str, row_html: str) -> str:
     """
     # Locate the group-row for this section.
     group_pattern = re.compile(
-        r'<tr class="group-row"><td colspan="76"[^>]*>'
+        r'<tr class="group-row"><td colspan="83"[^>]*>'
         + re.escape(html_escape_for_group(section))
         + r'</td></tr>'
     )
@@ -491,7 +498,7 @@ def insert_row(html_text: str, section: str, row_html: str) -> str:
 
     # Find the next group-row OR </tbody> after this one.
     next_group = re.search(
-        r'<tr class="group-row"><td colspan="76"[^>]*>(?!' +
+        r'<tr class="group-row"><td colspan="83"[^>]*>(?!' +
         re.escape(html_escape_for_group(section)) + r')',
         html_text[start_after:],
     )

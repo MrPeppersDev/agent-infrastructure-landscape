@@ -79,7 +79,7 @@ Same rationale. `edges` is a flat array; multiple edges between the same
 | `url`      | string \| null                      | yes      | `href` of the `td.name <a>`, or `null` if no link.           |
 | `sections` | array of section-membership objects | yes      | At least one element. Exactly one with `primary: true`.      |
 | `taxonomy` | object with 7 axis arrays           | yes      | All 7 keys present. See [§2.4](#24-taxonomy).                |
-| `cells`    | object keyed by column-name         | yes      | All ~68 column keys present (with `not-applicable` if N/A).  |
+| `cells`    | object keyed by column-name         | yes      | All ~75 column keys present (with `not-applicable` if N/A).  |
 
 Records are JSON objects; field order is not significant but producers
 SHOULD emit fields in the order shown above for diff-friendliness.
@@ -258,8 +258,8 @@ vocabularies are governed by the controlled-vocab list in `taxonomy/`.
 ### 2.5 Cells
 
 `cells` is an object keyed by **column slug**, with one entry per
-non-name, non-taxonomy column in `landscape.html`. There are 67 such
-columns (76 total - 1 name - 1 memory-model-type - 7 taxonomy = 67).
+non-name, non-taxonomy column in `landscape.html`. There are 74 such
+columns (83 total - 1 name - 1 memory-model-type - 7 taxonomy = 74).
 
 Each cell value:
 
@@ -344,8 +344,15 @@ The complete column-slug set (in HTML left-to-right order):
 | 66 | `obs-langfuse`          | `obs-langfuse`        | Langfuse                         |
 | 67 | `obs-arize`             | `obs-arize`           | Arize                            |
 | 68 | `obs-custom`            | `obs-custom`          | Custom observability             |
+| 69 | `cost-token-budget`     | `cost-token-budget`   | Token budget                     |
+| 70 | `cost-prompt-caching`   | `cost-prompt-caching` | Prompt caching                   |
+| 71 | `cost-semantic-caching` | `cost-semantic-caching` | Semantic caching               |
+| 72 | `cost-batching`         | `cost-batching`       | Batch API                        |
+| 73 | `cost-model-routing`    | `cost-model-routing`  | Model routing                    |
+| 74 | `cost-streaming-only`   | `cost-streaming-only` | Streaming-only                   |
+| 75 | `cost-observability-cost-attribution` | `cost-observability-cost-attribution` | Cost attribution     |
 
-The `cells` object MUST contain all 68 keys for every record. Records
+The `cells` object MUST contain all 75 keys for every record. Records
 where a column is genuinely meaningless (e.g. `funding` for a research
 paper) use `status: "not-applicable"`. The `value` field for those
 cells is the human-readable annotation copied from the HTML
@@ -373,6 +380,46 @@ Coverage callout: only the top ~100 rows (T1 + select T2) have been
 backfilled. Empty `obs-*` cells on rows below the coverage floor are
 deliberate; the `/analyses/observability` view surfaces the coverage
 gap rather than papering over it.
+
+### 2.5.2 Cost-control columns (added in T1-3, issue #41)
+
+The seven `cost-*` columns capture which token-economics / cost-governance
+features each product or framework offers. They were added because cost is
+the #2 demand-signal question per the May 2026 volumetric agent (HN 171
+mentions in the last 12 months, Sequoia framing on inference-cost
+sustainability, Datadog 2026 finding that 69% of input tokens go to
+system-prompt overhead). The practitioner question has shifted from "how
+expensive is it?" to "how do I govern spend?" — these columns answer the
+latter.
+
+Each cell carries a `{value, citation, status, tier}`. The `value` is
+one of `"yes"`, `"no"`, or `""` (empty = unknown, surfaced via the
+standard `no-data` / `depth-floor-reached` status). Boolean cells MAY
+also carry a version string (e.g. `"yes (Batch API v1)"`) when the
+support is gated on a specific release or pricing tier.
+
+Column semantics:
+
+| Slug                                       | Meaning                                                                                                              |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| `cost-token-budget`                        | Per-call token-budget enforcement: framework enforces a max-tokens-per-request limit before sending.                 |
+| `cost-prompt-caching`                      | Anthropic-style prompt caching or equivalent (OpenAI Cached Input, Gemini caching, vendor cache_control blocks).     |
+| `cost-semantic-caching`                    | Cache results by semantic similarity of the request (e.g. GPTCache, Helicone caching, LangChain SemanticCache).      |
+| `cost-batching`                            | Batch API support (e.g. OpenAI Batch API, Anthropic Message Batches) — async, discounted bulk requests.              |
+| `cost-model-routing`                       | Dynamic model selection by complexity / cost (e.g. fall back to a cheaper model for simple queries; LLM routers).    |
+| `cost-streaming-only`                      | Forces streaming responses so partial output can be aborted before the full bill lands.                              |
+| `cost-observability-cost-attribution`      | Tracks $ per request / per tool call / per user — distinct from generic observability by exposing dollar amounts.    |
+
+Coverage callout: only the top ~100 rows (T1 + select T2 in cost-relevant
+sections — frameworks, memory layers, agent harnesses, IDEs, vector-database
+infrastructure) have been backfilled. Empty `cost-*` cells on rows below
+the coverage floor are deliberate; the `/analyses/cost-economics` view
+surfaces the coverage gap rather than papering over it.
+
+Per the spec, per-call pricing data (e.g. `$0.003 / 1k input tokens`) is
+**out of scope** for these columns — pricing changes too fast and goes
+stale within weeks. The cost-* columns capture the *governance features*
+that let a practitioner control spend, not the spend itself.
 
 ---
 
@@ -698,7 +745,7 @@ file claiming to conform to the schema.
     - each axis array is non-empty.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
-    - `cells` has exactly the 68 keys listed in §2.5 (no extras, no missing).
+    - `cells` has exactly the 75 keys listed in §2.5 (no extras, no missing).
     - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.

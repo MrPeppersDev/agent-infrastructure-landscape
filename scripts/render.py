@@ -120,8 +120,16 @@ CELL_COLUMN_SLUGS: list[str] = [
     "obs-langfuse",
     "obs-arize",
     "obs-custom",
+    # T1-3 cost-control columns (issue #41). See docs/SCHEMA.md §2.5.2.
+    "cost-token-budget",
+    "cost-prompt-caching",
+    "cost-semantic-caching",
+    "cost-batching",
+    "cost-model-routing",
+    "cost-streaming-only",
+    "cost-observability-cost-attribution",
 ]
-assert len(CELL_COLUMN_SLUGS) == 68
+assert len(CELL_COLUMN_SLUGS) == 75
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -434,11 +442,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="76" '
+            f'  <tr class="group-row"><td colspan="83" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="76">'
+        f'  <tr class="group-row"><td colspan="83">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -447,7 +455,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="76">'
+        '  <tr class="section-explainer"><td colspan="83">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
