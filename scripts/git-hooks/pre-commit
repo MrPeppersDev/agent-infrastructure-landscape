@@ -12,7 +12,7 @@ set -euo pipefail
 
 # Only run if there are staged changes touching files the validator cares
 # about. Editing CLAUDE.md or PLAN.md shouldn't trigger a 25-second pipeline run.
-RELEVANT_PATHS_RE='^(scripts/|web/landscape\.json|web/landscape\.edges\.json|landscape\.html|extraction/s2-cache/|docs/SCHEMA\.md)'
+RELEVANT_PATHS_RE='^(scripts/|data/landscape\.json|data/landscape\.edges\.json|landscape\.html|extraction/s2-cache/|docs/SCHEMA\.md)'
 if ! git diff --cached --name-only | grep -qE "$RELEVANT_PATHS_RE"; then
     echo "pre-commit: no data/pipeline files in this commit, skipping make validate."
     exit 0

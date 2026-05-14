@@ -14,7 +14,7 @@ Reads:
   - extraction/round-9-bucket-8-round7-sections.csv (Path B8)
 
 Normalises the per-CSV column conventions to a common record shape and
-applies each (record_id, column) update to `web/landscape.json` cells.
+applies each (record_id, column) update to `data/landscape.json` cells.
 Then invokes scripts/render.py to write `landscape.html` from the updated
 JSON.
 
@@ -46,7 +46,7 @@ from typing import Iterable
 
 REPO = Path(__file__).resolve().parent.parent
 EXTRACTION = REPO / "extraction"
-LANDSCAPE_JSON = REPO / "web" / "landscape.json"
+LANDSCAPE_JSON = REPO / "data" / "landscape.json"
 LANDSCAPE_HTML = REPO / "landscape.html"
 LOG_CSV = EXTRACTION / "round-9-apply-log.csv"
 

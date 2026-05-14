@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
 fetch_citations.py — pull Semantic Scholar `isInfluential` citations for every
-research-paper row (T3 + T4) in `web/landscape.json` and append `cites` edges
-to `web/landscape.edges.json`.
+research-paper row (T3 + T4) in `data/landscape.json` and append `cites` edges
+to `data/landscape.edges.json`.
 
 This script is the third edge-source for the catalog (after cross-references
 CSV mining and cell-text mining done in `scripts/build_edges.py`). It does
 NOT rebuild the cell-mined / cross-ref edges — it APPENDS new `cites` edges
-on top of whatever `web/landscape.edges.json` already contains, deduplicating
+on top of whatever `data/landscape.edges.json` already contains, deduplicating
 by `(source, target, type)` with cell-mined edges winning on collision.
 
 Determinism contract:
@@ -55,8 +55,8 @@ SCHEMA_VERSION = "1.0.0"
 DEFAULT_GENERATED_AT = "2026-05-07T00:00:00Z"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LANDSCAPE_JSON = REPO_ROOT / "web" / "landscape.json"
-EDGES_JSON = REPO_ROOT / "web" / "landscape.edges.json"
+LANDSCAPE_JSON = REPO_ROOT / "data" / "landscape.json"
+EDGES_JSON = REPO_ROOT / "data" / "landscape.edges.json"
 CACHE_DIR = REPO_ROOT / "extraction" / "s2-cache"
 
 S2_API_BASE = "https://api.semanticscholar.org/graph/v1/paper"

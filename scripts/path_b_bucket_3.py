@@ -10,7 +10,7 @@ Scope (strictly):
     re-cover those here; we only emit non-quintet fills.
 
 Workflow:
-  1. Load web/landscape.json (read-only).
+  1. Load data/landscape.json (read-only).
   2. Load extraction/data-gaps.csv (read-only) and filter to the two sections.
   3. For every gap row, attempt a deterministic fill using these rules:
 
@@ -63,7 +63,7 @@ from collections import Counter
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LANDSCAPE_PATH = REPO_ROOT / "web" / "landscape.json"
+LANDSCAPE_PATH = REPO_ROOT / "data" / "landscape.json"
 GAPS_CSV = REPO_ROOT / "extraction" / "data-gaps.csv"
 OUT_PATH = REPO_ROOT / "extraction" / "round-9-bucket-3-dedicated-retrieval.csv"
 
@@ -335,7 +335,7 @@ def main() -> int:
     summary_lines = [
         "# Round 9 — Path B Bucket 3: dedicated-memory + retrieval-as-memory deep fill",
         "# generated_by: scripts/path_b_bucket_3.py",
-        "# source: web/landscape.json + extraction/data-gaps.csv",
+        "# source: data/landscape.json + extraction/data-gaps.csv",
         f"# sections: {sorted(SECTIONS)}",
         f"# total_gap_rows_in_scope: {len(gap_rows)}",
         f"# fills_emitted: {counters['filled']}",

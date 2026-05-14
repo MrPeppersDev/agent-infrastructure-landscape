@@ -30,7 +30,7 @@ from pathlib import Path
 
 REPO = Path('/Users/b.sayer/src/memory-analysis-program')
 GAPS = REPO / 'extraction' / 'data-gaps.csv'
-LANDSCAPE = REPO / 'web' / 'landscape.json'
+LANDSCAPE = REPO / 'data' / 'landscape.json'
 OUT = REPO / 'extraction' / 'round-9-bucket-5-pkm-voice-claude-files.csv'
 
 TARGET_SECTIONS = {
@@ -279,7 +279,7 @@ def main():
         # Comment block
         f.write('# Round 9 — Path B5 PKM/voice/claude-code/files deep-fill\n')
         f.write('# generated_by: scripts/path_b_bucket_5.py\n')
-        f.write('# source: web/landscape.json, extraction/data-gaps.csv\n')
+        f.write('# source: data/landscape.json, extraction/data-gaps.csv\n')
         f.write('# sections: "Personal AI / PKM / lifelogging memory", "Voice-first / wearable AI memory",\n')
         f.write('#           "Claude Code memory mechanisms", "File-backed / editor paradigms"\n')
         f.write(f'# total_gap_rows: {len(gaps)}\n')

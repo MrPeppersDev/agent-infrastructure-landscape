@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-reconcile.py — dedup + cross-listing reconciliation pass over web/landscape.json
+reconcile.py — dedup + cross-listing reconciliation pass over data/landscape.json
 
 Issue #3. Runs after extract.py. Detects:
 
@@ -27,7 +27,7 @@ Issue #3. Runs after extract.py. Detects:
 
 After running, validates the resulting records against the §7 SCHEMA.md
 rules (delegated to scripts/extract.py's validator) and writes the new
-`web/landscape.json`.
+`data/landscape.json`.
 
 Determinism contract:
   - Records sorted by id ASC after reconciliation.
@@ -36,7 +36,7 @@ Determinism contract:
     extract.py + reconcile.py is byte-stable.
 
 Usage:
-  python3 scripts/reconcile.py            # writes web/landscape.json
+  python3 scripts/reconcile.py            # writes data/landscape.json
   python3 scripts/reconcile.py --check    # dry-run (no file writes)
 """
 
@@ -398,11 +398,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--input",
-        default=str(Path(__file__).resolve().parent.parent / "web" / "landscape.json"),
+        default=str(Path(__file__).resolve().parent.parent / "data" / "landscape.json"),
     )
     parser.add_argument(
         "--output",
-        default=str(Path(__file__).resolve().parent.parent / "web" / "landscape.json"),
+        default=str(Path(__file__).resolve().parent.parent / "data" / "landscape.json"),
     )
     parser.add_argument(
         "--merges",

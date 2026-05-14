@@ -1,16 +1,16 @@
-// Data loaders. The two JSON files live at web/landscape.json and
-// web/landscape.edges.json — alongside this Svelte source tree, not inside
-// src/lib/. We import them via Vite's relative-path JSON import so they are
-// bundled at build time (they are content-addressed: the same JSON shipped
-// to all clients, no fetch round-trip needed at runtime).
+// Data loaders. The two JSON files live at data/landscape.json and
+// data/landscape.edges.json — the canonical standalone dataset, decoupled
+// from this Svelte tree per issue #35 so the data outlives any rendering
+// surface. We import them via Vite's relative-path JSON import so they are
+// bundled at build time (same JSON shipped to all clients, no fetch
+// round-trip at runtime).
 //
-// landscape.json is ~6.4 MB. Vite will emit it as a hashed asset chunk; the
-// landing page (issue #8) only consumes counts so most of the bundle gets
-// tree-shaken on the landing page, and the table view (#9) will load the
-// full set when it needs it.
+// landscape.json is ~11 MB. Vite emits it as a hashed asset chunk; the
+// landing page consumes counts so most of the bundle is tree-shaken there,
+// and the table view loads the full set when it needs it.
 
-import landscapeRaw from '../../landscape.json';
-import edgesRaw from '../../landscape.edges.json';
+import landscapeRaw from '../../../data/landscape.json';
+import edgesRaw from '../../../data/landscape.edges.json';
 import type { EdgesFile, LandscapeFile, LandscapeRecord, Edge } from './types';
 
 const landscape = landscapeRaw as unknown as LandscapeFile;

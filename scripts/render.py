@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-render.py — web/landscape.json → landscape.html
+render.py — data/landscape.json → landscape.html
 
 The reverse of scripts/extract.py. Reads the structured records from
-web/landscape.json and writes a no-JS-readable landscape.html that
+data/landscape.json and writes a no-JS-readable landscape.html that
 mirrors the existing hand-edited landscape.html structure (head, styles,
 column key, cross-cutting analyses, table layout).
 
@@ -153,7 +153,7 @@ NA_SPAN_STYLE = "font-style:italic;color:#555;"
 # ---------------------------------------------------------------------------
 
 DEFAULT_TEMPLATE_HTML = ROOT / "landscape.html"
-DEFAULT_INPUT = ROOT / "web" / "landscape.json"
+DEFAULT_INPUT = ROOT / "data" / "landscape.json"
 DEFAULT_OUTPUT = ROOT / "landscape.html"
 DEFAULT_SECTION_SIDECAR = ROOT / "extraction" / "section-explainers.json"
 
@@ -500,7 +500,7 @@ def main() -> int:
     parser.add_argument(
         "--input",
         default=str(DEFAULT_INPUT),
-        help="path to landscape.json (default: web/landscape.json)",
+        help="path to landscape.json (default: data/landscape.json)",
     )
     parser.add_argument(
         "--output",

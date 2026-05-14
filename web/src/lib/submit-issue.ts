@@ -13,7 +13,7 @@
 // - Stable section list: the 33-section catalog is mirrored here so the
 //   form does not have to load `landscape.json` just to populate the
 //   dropdown. If sections drift, update SECTION_OPTIONS — the source of
-//   truth is still `web/landscape.json`.
+//   truth is still `data/landscape.json`.
 //
 // Reversal cost: low. Pure file; deleting it and the /submit route
 // removes the feature with no data dependency.
@@ -62,7 +62,7 @@ export const EMPTY_FORM: SubmissionFormState = {
   notes: ''
 };
 
-// Mirrored from web/landscape.json @ Round-6 terminal state. The
+// Mirrored from data/landscape.json @ Round-6 terminal state. The
 // "other / new section" sentinel is appended at the end so authors
 // can propose a new top-level bucket via the Subsection field.
 export const SECTION_OPTIONS: readonly string[] = [

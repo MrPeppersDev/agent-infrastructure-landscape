@@ -8,7 +8,7 @@ extraction/round-9-bucket-1-method-papers.csv with:
     record_id, record_name, column, new_value, citation_url,
     status, gap_class_resolved
 
-The orchestrator integrates these into web/landscape.json on its own
+The orchestrator integrates these into data/landscape.json on its own
 pass; this script ONLY writes the CSV.
 
 Strategy
@@ -38,7 +38,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 GAPS_CSV = REPO / "extraction" / "data-gaps.csv"
-LANDSCAPE = REPO / "web" / "landscape.json"
+LANDSCAPE = REPO / "data" / "landscape.json"
 OUT_CSV = REPO / "extraction" / "round-9-bucket-1-method-papers.csv"
 SECTION = "Recent method papers — theorized, no distinct product"
 QUINTET = {"desc", "type", "pros", "cons", "links"}

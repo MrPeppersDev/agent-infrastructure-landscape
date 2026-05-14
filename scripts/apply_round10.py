@@ -13,7 +13,7 @@ Reads:
 Reuses the structure of scripts/apply_round9.py:
   1. read CSVs and normalise each row to (record_id, column, new_value,
      citation_url, status, source_csv)
-  2. apply each update in-memory against web/landscape.json with
+  2. apply each update in-memory against data/landscape.json with
      downgrade protection (don't shorten an existing real-data cell)
   3. write the updated JSON
   4. invoke scripts/render.py to refresh landscape.html
@@ -44,7 +44,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 EXTRACTION = REPO / "extraction"
-LANDSCAPE_JSON = REPO / "web" / "landscape.json"
+LANDSCAPE_JSON = REPO / "data" / "landscape.json"
 LANDSCAPE_HTML = REPO / "landscape.html"
 LOG_CSV = EXTRACTION / "round-10-apply-log.csv"
 

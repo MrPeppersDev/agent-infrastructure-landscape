@@ -2,7 +2,7 @@
 """
 Round-10 cleanup pass 2:
 Resolve `real-data-no-citation` cells by applying a citation fallback chain
-against the row's primary source in web/landscape.json.
+against the row's primary source in data/landscape.json.
 
 Fallback chain (Path A):
   1. record.url (if http://...)
@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 GAPS = ROOT / "extraction" / "data-gaps.csv"
-LANDSCAPE = ROOT / "web" / "landscape.json"
+LANDSCAPE = ROOT / "data" / "landscape.json"
 OUT = ROOT / "extraction" / "round-10-cleanup-taxonomy-citations.csv"
 
 

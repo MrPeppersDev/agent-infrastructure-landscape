@@ -55,7 +55,7 @@ from typing import Any
 REPO = "MrPeppersDev/memory-analysis-program"
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_HTML = ROOT / "landscape.html"
-LANDSCAPE_JSON = ROOT / "web" / "landscape.json"
+LANDSCAPE_JSON = ROOT / "data" / "landscape.json"
 SCRIPTS = ROOT / "scripts"
 
 # Field labels emitted by the Svelte form (web/src/lib/submit-issue.ts) AND
@@ -538,9 +538,9 @@ def run_pipeline() -> tuple[bool, str]:
     the audit here and document the rationale in DECISIONS.md.
     """
     steps = [
-        [sys.executable, "scripts/extract.py", "--output", "web/landscape.json"],
+        [sys.executable, "scripts/extract.py", "--output", "data/landscape.json"],
         [sys.executable, "scripts/reconcile.py",
-         "--input", "web/landscape.json", "--output", "web/landscape.json"],
+         "--input", "data/landscape.json", "--output", "data/landscape.json"],
         [sys.executable, "scripts/build_edges.py"],
         [sys.executable, "scripts/validate.py"],
     ]
@@ -708,7 +708,7 @@ def main() -> int:
         # Revert landscape.html and the staged data files; comment + leave open.
         subprocess.run(
             ["git", "checkout", "--",
-             str(LANDSCAPE_HTML), "web/landscape.json", "web/landscape.edges.json"],
+             str(LANDSCAPE_HTML), "data/landscape.json", "data/landscape.edges.json"],
             cwd=str(ROOT),
         )
         for issue, _row in accepted:
@@ -730,8 +730,8 @@ def main() -> int:
         f"accepted (issues {issue_refs})"
     )
     subprocess.run(
-        ["git", "add", str(LANDSCAPE_HTML), "web/landscape.json",
-         "web/landscape.edges.json"],
+        ["git", "add", str(LANDSCAPE_HTML), "data/landscape.json",
+         "data/landscape.edges.json"],
         check=True, cwd=str(ROOT),
     )
     subprocess.run(["git", "commit", "-m", commit_msg], check=True, cwd=str(ROOT))

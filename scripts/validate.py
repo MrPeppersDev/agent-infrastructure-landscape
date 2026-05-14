@@ -19,11 +19,11 @@ Gates (all run; non-zero exit on any failure):
   2. Determinism of fast steps
      - extract.py twice → byte-identical JSON.
      - reconcile.py from that → byte-identical to committed
-       web/landscape.json.
+       data/landscape.json.
      - build_edges.py twice → byte-identical (and equal to committed
-       web/landscape.edges.json minus the cites edges).
+       data/landscape.edges.json minus the cites edges).
      - fetch_citations.py --offline (cache-only, no network) twice →
-       byte-identical to committed web/landscape.edges.json.
+       byte-identical to committed data/landscape.edges.json.
 
      Network-side fetch_citations is NOT run here — its determinism is
      verified separately when the cache is refreshed via
@@ -60,11 +60,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS = ROOT / "scripts"
-WEB = ROOT / "web"
+DATA = ROOT / "data"
 S2_CACHE = ROOT / "extraction" / "s2-cache"
 
-LANDSCAPE_JSON = WEB / "landscape.json"
-LANDSCAPE_EDGES_JSON = WEB / "landscape.edges.json"
+LANDSCAPE_JSON = DATA / "landscape.json"
+LANDSCAPE_EDGES_JSON = DATA / "landscape.edges.json"
 LANDSCAPE_HTML = ROOT / "landscape.html"
 
 # Cycle-stability ceiling. See docstring + docs/DECISIONS.md.
@@ -302,12 +302,12 @@ def gate_determinism() -> None:
         info("reconcile.py: output matches committed landscape.json")
 
         # build_edges.py — verify byte-stability, but DO NOT clobber the
-        # committed web/landscape.edges.json (which contains S2 cites edges
+        # committed data/landscape.edges.json (which contains S2 cites edges
         # appended by fetch_citations.py and shouldn't be overwritten by
         # the no-citations builder).
         #
         # build_edges.py only supports a default output path
-        # (web/landscape.edges.json), so we snapshot the committed file,
+        # (data/landscape.edges.json), so we snapshot the committed file,
         # run twice, compare the two runs, then restore the snapshot.
         snapshot = LANDSCAPE_EDGES_JSON.read_bytes()
         try:
@@ -359,7 +359,7 @@ def gate_determinism() -> None:
         if fc_run1 != snapshot2:
             gate_fail(
                 "fetch_citations.py --offline output differs from committed "
-                "web/landscape.edges.json (rebuild required, or cache drift)"
+                "data/landscape.edges.json (rebuild required, or cache drift)"
             )
         info(
             "fetch_citations.py --offline: byte-stable, output matches committed"

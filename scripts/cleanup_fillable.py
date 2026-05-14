@@ -7,7 +7,7 @@ uses `curl` to probe vendor pages / arxiv abstracts for the missing field.
 Emits scratch JSON to /tmp/cleanup-fillable/{record_id}__{column}.json so the
 operator can inspect the raw evidence.
 
-This script is READ-ONLY with respect to web/landscape.json. It does NOT
+This script is READ-ONLY with respect to data/landscape.json. It does NOT
 modify the landscape. It only emits research artefacts.
 
 Final CSV is built by hand-curating findings into

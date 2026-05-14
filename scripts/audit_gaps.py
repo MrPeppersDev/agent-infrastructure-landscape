@@ -2,13 +2,13 @@
 """
 Data-gap audit.
 
-Reads `web/landscape.json` (read-only) and classifies every (record, column)
+Reads `data/landscape.json` (read-only) and classifies every (record, column)
 cell into one of six gap classes. Emits:
 
   - extraction/data-gaps.csv          — prioritised work-queue
   - extraction/data-gaps-summary.md   — human-readable report
 
-Determinism: the script is purely a function of `web/landscape.json` plus the
+Determinism: the script is purely a function of `data/landscape.json` plus the
 constants in this file. Re-running over an unchanged input produces byte-
 identical output (stable sort: priority DESC, section ASC, record_id ASC,
 column ASC).
@@ -35,7 +35,7 @@ from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LANDSCAPE_PATH = REPO_ROOT / "web" / "landscape.json"
+LANDSCAPE_PATH = REPO_ROOT / "data" / "landscape.json"
 CSV_OUT = REPO_ROOT / "extraction" / "data-gaps.csv"
 SUMMARY_OUT = REPO_ROOT / "extraction" / "data-gaps-summary.md"
 

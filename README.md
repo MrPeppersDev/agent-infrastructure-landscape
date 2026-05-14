@@ -13,10 +13,17 @@ the URL and Pages deployment remain at that path.
 
 ## What's in here
 
-- **`landscape.html`** — the main artifact. ~510+ entries across 22+ sections /
-  sub-groups, with tier badges (T1 battle-tested → T5 theoretical / informal),
-  sortable by tier within each section, with section explainers and source links.
-  Open in a browser.
+- **`data/landscape.json` + `data/landscape.edges.json`** — the canonical
+  dataset. 912 records × 68 columns of catalog data plus 316 typed edges
+  between them. Released under CC-BY-4.0; semver-tagged via GitHub
+  Releases (`data-v1.0.0` onwards). Decoupled from the web app per
+  [issue #35](https://github.com/MrPeppersDev/memory-analysis-program/issues/35)
+  so the data outlives any single rendering surface. See
+  [`data/README.md`](./data/README.md) for schema + intended use.
+- **`landscape.html`** — the human-edited source of authority. ~912 entries
+  across ~30 sections / sub-groups, with tier badges (T1 battle-tested →
+  T5 theoretical / informal). Run `make build` to regenerate the JSON
+  mirror.
 - **`PLAN.md`** — current state, deferred work, and the data we need to pull in
   before doing real trend / adoption analysis.
 
@@ -105,8 +112,8 @@ publish a maintenance contract; this is ours.
 ## Web app
 
 A SvelteKit static-export landing page lives in `web/` (Phase 2). Today it's
-proof-of-life — the row and edge counts are wired to `web/landscape.json` and
-`web/landscape.edges.json` at build time. Phase 2 issues #9-#12 will fill in
+proof-of-life — the row and edge counts are wired to `data/landscape.json` and
+`data/landscape.edges.json` at build time. Phase 2 issues #9-#12 will fill in
 the table view, search, filters, and URL state.
 
 Live site: <https://mrpeppersdev.github.io/memory-analysis-program/> (after deploy).
@@ -128,7 +135,7 @@ from a fresh checkout (with no base-path) for a quick sanity check.
 ## Editing the catalog
 
 Phase 1 (issues #1–#7) shipped a structured mirror of the catalog in
-`web/landscape.json` and a relationship file in `web/landscape.edges.json`,
+`data/landscape.json` and a relationship file in `data/landscape.edges.json`,
 plus a render-from-JSON script in `scripts/render.py`. **Today's source of
 authority is still `landscape.html`** — `render.py`'s output diffs from the
 hand-edited HTML by ~50k lines (mostly tier-sort row reordering and dropped
@@ -141,8 +148,8 @@ preserves more of that markup. See the Path A vs Path B decision in
 Workflow today (Path B):
 
 1. Edit `landscape.html` by hand as you have through Rounds 1–6.
-2. Run `make build` to refresh `web/landscape.json` and
-   `web/landscape.edges.json` from the new HTML.
+2. Run `make build` to refresh `data/landscape.json` and
+   `data/landscape.edges.json` from the new HTML.
 3. Run `make validate` (described below). Fix any reported failures.
 4. Commit `landscape.html` plus the regenerated JSON mirrors together.
    The CI workflow at `.github/workflows/validate.yml` re-runs the gates on

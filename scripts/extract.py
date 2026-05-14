@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-extract.py — landscape.html → web/landscape.json
+extract.py — landscape.html → data/landscape.json
 
 Parses every data row from landscape.html into the structured per-record schema
 defined in docs/SCHEMA.md, validates each record against the §7 rules, and
-writes the result to web/landscape.json.
+writes the result to data/landscape.json.
 
 Determinism contract:
   - Records are sorted by id ASC.
@@ -15,7 +15,7 @@ Determinism contract:
     output. The spec calls this out as a hard requirement.
 
 Usage:
-  python3 scripts/extract.py            # writes web/landscape.json
+  python3 scripts/extract.py            # writes data/landscape.json
   python3 scripts/extract.py --check    # writes to a temp file and diffs
 """
 
@@ -640,7 +640,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--output",
-        default=str(Path(__file__).resolve().parent.parent / "web" / "landscape.json"),
+        default=str(Path(__file__).resolve().parent.parent / "data" / "landscape.json"),
     )
     args = parser.parse_args()
 

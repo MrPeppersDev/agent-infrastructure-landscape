@@ -20,11 +20,11 @@ help:
 	@echo "  make validate           — schema + determinism + round-trip + cache gates (~25s)"
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
-	@echo "  make render             — re-render landscape.html from web/landscape.json"
+	@echo "  make render             — re-render landscape.html from data/landscape.json"
 	@echo "  make install-hooks      — install scripts/git-hooks/pre-commit into .git/hooks/"
 	@echo
 	@echo "Edit workflow (Path B — see docs/DECISIONS.md): edit landscape.html by hand"
-	@echo "as the source of authority for now; treat web/landscape.json as the queryable"
+	@echo "as the source of authority for now; treat data/landscape.json as the queryable"
 	@echo "mirror. Run \`make build\` to refresh the JSON mirror after HTML edits, then"
 	@echo "\`make validate\` before committing. Path A (JSON-as-source) activates when"
 	@echo "extract.py loses less markup."
@@ -37,8 +37,8 @@ help:
 # fetch would take. When fresh S2 data IS wanted, run `make refresh-citations`
 # explicitly — that one DOES hit the network.
 build:
-	$(PYTHON) scripts/extract.py        --output web/landscape.json
-	$(PYTHON) scripts/reconcile.py      --input  web/landscape.json --output web/landscape.json
+	$(PYTHON) scripts/extract.py        --output data/landscape.json
+	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	$(PYTHON) scripts/build_edges.py
 	$(PYTHON) scripts/fetch_citations.py --offline
 	@echo
@@ -63,7 +63,7 @@ refresh-citations:
 # the JSON. Writes to landscape.html (which is the existing template; render.py
 # slices its head/tail so this is safe to repeat).
 render:
-	$(PYTHON) scripts/render.py --input web/landscape.json --output landscape.html
+	$(PYTHON) scripts/render.py --input data/landscape.json --output landscape.html
 
 # Install the pre-commit hook that runs `make validate` before each commit.
 # The hook lives under scripts/git-hooks/ (tracked); .git/hooks/ is not tracked.

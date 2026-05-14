@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build_edges.py — mine `web/landscape.edges.json` from cells + cross-refs.
+build_edges.py — mine `data/landscape.edges.json` from cells + cross-refs.
 
 Edge sources (in order of confidence):
   1. `.agent-results/data-5-cross-references.csv` — explicit "X integrates
@@ -11,7 +11,7 @@ Edge sources (in order of confidence):
   3. `extraction/cross-listings.json` — explicit pairs (currently four,
      including the `claude-brain → memvid` case noted by issue #3).
 
-The script writes `web/landscape.edges.json` conforming to docs/SCHEMA.md
+The script writes `data/landscape.edges.json` conforming to docs/SCHEMA.md
 §4 / §7.2. It is deterministic: edges are sorted by (source, target, type)
 and the `generatedAt` is fixed (overridable via `BUILD_EDGES_GENERATED_AT`).
 
@@ -46,11 +46,11 @@ SCHEMA_VERSION = "1.0.0"
 DEFAULT_GENERATED_AT = "2026-05-07T00:00:00Z"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LANDSCAPE_JSON = REPO_ROOT / "web" / "landscape.json"
+LANDSCAPE_JSON = REPO_ROOT / "data" / "landscape.json"
 CROSS_REFS_CSV = REPO_ROOT / ".agent-results" / "data-5-cross-references.csv"
 CROSS_LISTINGS_JSON = REPO_ROOT / "extraction" / "cross-listings.json"
 DISAMBIGUATION_JSON = REPO_ROOT / "extraction" / "edge-disambiguation.json"
-OUT_PATH = REPO_ROOT / "web" / "landscape.edges.json"
+OUT_PATH = REPO_ROOT / "data" / "landscape.edges.json"
 
 VALID_EDGE_TYPES = {
     "built-on",

@@ -3,7 +3,7 @@
 Path A: Quintet citation backfill.
 
 Backfills citations for the desc/type/pros/cons/links quintet across every
-record in web/landscape.json that currently has status=real-data but
+record in data/landscape.json that currently has status=real-data but
 citation=null.
 
 Rules (per the Round 9 brief):
@@ -28,7 +28,7 @@ from collections import Counter
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LANDSCAPE_PATH = REPO_ROOT / "web" / "landscape.json"
+LANDSCAPE_PATH = REPO_ROOT / "data" / "landscape.json"
 OUT_PATH = REPO_ROOT / "extraction" / "round-9-quintet-citations.csv"
 
 QUINTET = ("desc", "type", "pros", "cons", "links")
@@ -116,7 +116,7 @@ def main() -> int:
     summary_lines = [
         "# Round 9 — Path A quintet citation backfill",
         f"# generated_by: scripts/path_a_quintet.py",
-        f"# source: web/landscape.json",
+        f"# source: data/landscape.json",
         f"# total_rows: {len(rows)}",
         f"# matched_cells (status=real-data, citation=null): {matched_total}",
         f"# resolved: {total_resolved}",

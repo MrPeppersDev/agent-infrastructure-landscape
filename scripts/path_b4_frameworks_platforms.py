@@ -7,7 +7,7 @@ This is the deliverable script of Round 9 Path B4 (2026-05-07).
 
 Pipeline:
   1. Load gap rows for those four sections from extraction/data-gaps.csv.
-  2. Load web/landscape.json so we can resolve a record's primary URL for
+  2. Load data/landscape.json so we can resolve a record's primary URL for
      citation backfill (and copy through current values).
   3. Process priority 10 -> 5 -> 3 -> 1.
   4. For each gap row emit ONE CSV row with the proposed new_value,
@@ -57,7 +57,7 @@ from pathlib import Path
 
 REPO = Path('/Users/b.sayer/src/memory-analysis-program')
 GAPS = REPO / 'extraction' / 'data-gaps.csv'
-LANDSCAPE = REPO / 'web' / 'landscape.json'
+LANDSCAPE = REPO / 'data' / 'landscape.json'
 OUT = REPO / 'extraction' / 'round-9-bucket-4-frameworks-platforms.csv'
 
 TARGET_SECTIONS = {
@@ -421,7 +421,7 @@ def main() -> None:
     header_lines = [
         '# Round 9 — Path B4: framework-embedded / platform-provider / coding-agent / browser-agent deep-fill',
         '# generated_by: scripts/path_b4_frameworks_platforms.py',
-        '# source: extraction/data-gaps.csv + web/landscape.json',
+        '# source: extraction/data-gaps.csv + data/landscape.json',
         f'# total_rows: {len(out_rows)}',
         f'# curated_fills: {len(curated_used)}',
         '# per_source:',
