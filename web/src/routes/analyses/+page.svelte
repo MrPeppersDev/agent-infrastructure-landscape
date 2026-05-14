@@ -42,6 +42,12 @@
         'Pivots the integrity classifications into a single composite trust score per benchmark. Sortable leaderboard with top-5 trusted / most-gamed callouts and per-benchmark drilldowns showing which systems contributed to each integrity bucket.'
     },
     {
+      slug: 'observability',
+      title: 'Observability coverage',
+      summary:
+        'The #1 demand-signal question in agent infrastructure (807 HN hits, 89% LangChain-survey adoption, 6/7 published surveys). Matrix of products × observability tools (LangSmith, OpenTelemetry, Datadog, Helicone, Weave, Langfuse, Arize). Top ~100 priority rows backfilled; the rest surfaced as "unknown" so the coverage gap is explicit.'
+    },
+    {
       slug: 'archetypes',
       title: 'Taxonomy archetypes',
       summary:
