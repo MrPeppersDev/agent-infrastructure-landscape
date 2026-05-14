@@ -1,7 +1,7 @@
 # Data-gap audit summary
 
-- Records scanned: **894**
-- Cells scanned: **53,640**
+- Records scanned: **912**
+- Cells scanned: **54,720**
 - Gap rows (CSV): **0**
 - High-priority queue (priority >= 10): **0**
 
@@ -12,12 +12,12 @@
 | `fillable-and-missing` | 0 |
 | `real-data-no-citation` | 0 |
 | `shallow-prose` | 0 |
-| `structurally-not-applicable` | 23,253 |
-| `searched-not-found` | 11,570 |
-| `terminal-real-data` | 18,817 |
-| **sum** | **53,640** |
+| `structurally-not-applicable` | 23,955 |
+| `searched-not-found` | 11,571 |
+| `terminal-real-data` | 19,194 |
+| **sum** | **54,720** |
 
-Sanity: 53,640 classified cells vs 53,640 non-name cells (match: **YES**).
+Sanity: 54,720 classified cells vs 54,720 non-name cells (match: **YES**).
 
 ## Top 10 most-gappy columns
 
@@ -59,8 +59,8 @@ Sanity: 53,640 classified cells vs 53,640 non-name cells (match: **YES**).
 | Category | Records | Total cells | Fillable gaps | NA-terminal | Terminal-filled | Gap rate |
 |---|---:|---:|---:|---:|---:|---:|
 | Round-7 sections (Training / Search / Frameworks / Inference / Embedding / Eval) | 146 | 8,760 | 0 | 1,724 | 1,033 | 0.0% |
-| Original memory sections | 553 | 33,180 | 0 | 14,763 | 13,465 | 0.0% |
-| Research papers / theory / benchmarks | 229 | 13,740 | 0 | 8,779 | 3,771 | 0.0% |
+| Original memory sections | 571 | 34,260 | 0 | 15,465 | 13,842 | 0.0% |
+| Research papers / theory / benchmarks | 247 | 14,820 | 0 | 9,481 | 4,148 | 0.0% |
 
 ## Phase-2 effort estimate
 

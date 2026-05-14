@@ -124,6 +124,8 @@ SECTIONS_WITH_SUBS = {
     "Recent method papers — theorized, no distinct product",
     "Vertical / domain-specific AI memory",
     "Use-case-specific agent harnesses",
+    # New subsection added in Round 16 (2026-05-13 game/interactive-env sweep)
+    "Memory benchmarks & evaluation",
 }
 
 # Canonical section names — taken from §2.3 in document order. Used by

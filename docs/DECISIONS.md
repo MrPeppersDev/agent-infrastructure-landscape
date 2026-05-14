@@ -6224,3 +6224,116 @@ follow-ups and can be reverted separately.
   game-benchmarks ingestion there; no overlap.
 - `extraction/*`, `scripts/*` — out of scope per the issue.
 
+
+
+## 2026-05-13 — Round 16: game / interactive-environment benchmarks (#31)
+
+### What changed
+
+Added new subsection **"— Game / interactive-environment benchmarks"**
+under the existing **"Memory benchmarks & evaluation"** section.
+18 new benchmark / agent-product rows characterising the play-shaped,
+long-horizon, partial-observability cohort that was under-represented
+in the existing benchmark coverage (LongMemEval / LoCoMo / GAIA /
+ALFWorld dominate, but Pokemon Red / NetHack / Minecraft / WebArena /
+OSWorld etc. exist as a distinct family).
+
+Rows added (18 total):
+
+1. OSRS Bench (community OSRS agent benchmark) — T4
+2. NetHack Learning Environment (NLE) — T2 (DeepMind/FAIR NeurIPS 2020)
+3. MineRL Diamond Challenge — T2 (CMU/MS Research; DreamerV3 solved 2023)
+4. MineDojo — T3 (NVIDIA NeurIPS 2022 outstanding paper)
+5. Crafter — T3 (Hafner, companion to DreamerV3)
+6. TextWorld — T3 (Microsoft Research, ICML 2018)
+7. Atari 100k — T3 (Kaiser et al. SimPLe protocol, ICLR 2020)
+8. PROCGEN — T3 (OpenAI ICML 2020)
+9. Hanabi Learning Environment — T3 (DeepMind, Bowling et al. AIJ 2020)
+10. OpenAI Gym Retro — T3 (OpenAI 2018, Retro Contest)
+11. Habitat 3.0 (social agents) — T3 (Meta AI ICLR 2024)
+12. AndroidWorld — T3 (Google DeepMind 2024)
+13. WebArena — T3 (CMU ICLR 2024)
+14. OSWorld — T3 (HKU+Salesforce NeurIPS 2024)
+15. SmartPlay — T3 (Microsoft Research ICLR 2024)
+16. BALROG — T4 (AISI UK+Cambridge 2024-11)
+17. Pokemon Red benchmark (speedrun/completion) — T4 (community + academic)
+18. Claude Plays Pokemon (Anthropic Twitch demo) — T2 (agent-product)
+
+### Why a subsection and not a new top-level section
+
+The existing **"Memory benchmarks & evaluation"** section is named
+generically enough to host this cohort. Game benchmarks share the same
+fundamental shape — read-only static evaluation harnesses — with the
+existing rows (BABILong / HELMET / LongMemEval). The play-shaped vs
+academic distinction is real but smaller than the
+benchmark-vs-non-benchmark distinction, so a subsection captures the
+nuance without inflating the top-level section count.
+
+This is the **second case of a "Memory benchmarks & evaluation"
+subsection** — and the first ever subsection under it. We updated
+`scripts/extract.py:SECTIONS_WITH_SUBS` to permit subsections under
+this section (previously only three sections allowed subsections:
+"Recent method papers", "Vertical / domain-specific AI memory",
+"Use-case-specific agent harnesses").
+
+### Schema impact
+
+- `extraction/section-explainers.json` — added one new entry for the
+  subsection with `padding-left: 28px` sub-style.
+- `scripts/extract.py:SECTIONS_WITH_SUBS` — added "Memory benchmarks
+  & evaluation" so subsection validation accepts the new entry.
+- 18 new records added under the new subsection placement.
+- 60/60 cells terminal on every new row.
+- Pipeline gates 1-4 pass. Audit gaps = 0.
+
+### Editorial choices on row content
+
+- **Tier assignment.** Followed established convention: T2 for
+  battle-tested community/research substrates (NLE, MineRL, ClaudePlaysPokemon);
+  T3 for peer-reviewed academic benchmarks with code; T4 for preprints
+  or niche community projects (OSRS, Pokemon Red community RL, BALROG).
+- **Including Claude Plays Pokemon.** Listed at T2 because it is a
+  named Anthropic-operated agent demo with significant public mindshare
+  (~100k+ Twitch viewers). Distinct from the underlying benchmark
+  (Pokemon Red) which is its own row. The issue spec called for "both
+  OSS / community benchmarks AND known agent-plays-game products" —
+  this is the one for Claude. (GeminiPlaysPokemon is mentioned inside
+  the Pokemon Red row but doesn't get its own row this round — Google
+  hasn't published a stable agent-demo brand around it the way
+  Anthropic has.)
+- **OSRS Bench citations.** The community repo (grahamannett/osrs-bench)
+  has no LICENSE file checked; gh stats are minimal. Marked as such
+  in the row rather than fabricating numbers — research-paper rows
+  in this section show the format: real-data with niche-repo qualifier.
+- **Pokemon Red breadth.** Folded the academic / Whiddy-PPO /
+  ClaudePlaysPokemon / GeminiPlaysPokemon variants into one
+  "Pokemon Red benchmark" row to avoid inflating the section with
+  near-duplicates. Claude's run gets its own row because it's a
+  *named Anthropic product*, not just a benchmark variant.
+- **Out-of-scope items from the seed list.** Generals.io / Catanai /
+  Dominion / Chess.com puzzles / Slither.io / Agar.io / AI Dungeon
+  were not added as rows. Rationale: these are not (yet) public
+  benchmarks with citable evaluation protocols — they're at most
+  Twitch / Discord agent comps. Adding them would dilute the "rows
+  must be terminal at commit with real-data citations" quality bar.
+  Documented here so future rounds can revisit if community benchmarks
+  emerge with reproducible scoring.
+
+### Reversal cost
+
+Low. Revert by deleting the 18 new <tr> blocks from `landscape.html`,
+removing the subsection group-row + section-explainer, removing the
+`extraction/section-explainers.json` entry, undoing the
+`SECTIONS_WITH_SUBS` edit in `scripts/extract.py`, removing this
+DECISIONS entry, then re-running the pipeline. No external integrations
+depend on these rows.
+
+### What this entry explicitly did NOT touch
+
+- `web/src/*` — sibling agent (#28) was simultaneously working on the
+  submit form; no overlap.
+- `landscape.edges.json` cites — fetch_citations was already cached
+  for most of the new arxiv-shaped rows (HELMET, BABILong cohort
+  already referenced Atari 100k / Hanabi / Crafter / TextWorld
+  in their S2 cache, so the offline rebuild surfaced 241 cites edges
+  to the newly-added benchmark rows automatically).

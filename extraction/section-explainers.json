@@ -193,6 +193,12 @@
       "sub_style": null
     },
     {
+      "section": "Memory benchmarks & evaluation",
+      "subsection": "— Game / interactive-environment benchmarks",
+      "explainer": "Game and interactive-environment benchmarks for agentic AI — distinct from the academic-benchmark cohort (LongMemEval / LoCoMo / GAIA / ALFWorld) by being play-shaped, long-horizon (hours to days of agent runtime), partial-observability, and often community-built. NetHack / Minecraft / Pokemon / Atari sit alongside web/mobile/desktop agent benchmarks (WebArena, OSWorld, AndroidWorld) — all share long-horizon, partial-observability, agentic-by-construction structure. Includes both OSS / community benchmarks AND known agent-plays-game products (Claude Plays Pokemon). Added in Round 16 (2026-05-13).",
+      "sub_style": "padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"
+    },
+    {
       "section": "Memory observability & monitoring",
       "subsection": null,
       "explainer": "Tools for tracing, drift-detection, and debugging memory in production — Langfuse, Arize Phoenix, custom poisoning detectors, memory-quality dashboards. Adjacent to LLMOps but specifically scoped to memory health: who wrote what, when, did it diverge from the corpus, did anyone slip in poisoned facts.",
