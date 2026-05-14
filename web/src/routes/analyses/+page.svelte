@@ -54,6 +54,12 @@
         'The #2 demand-signal question (171 HN mentions last 12mo, Sequoia framing on inference-cost sustainability, Datadog 2026 found 69% of input tokens are system-prompt overhead). Matrix of products × cost-control features (token budget, prompt caching, semantic caching, batch API, model routing, streaming-only, cost attribution). Per-row governance score (0/7 → 7/7). Top ~100 priority rows backfilled.'
     },
     {
+      slug: 'eval-gap',
+      title: 'Evaluation gap (89% obs vs 52% evals)',
+      summary:
+        'The next frontier after observability. LangChain State of Agent Engineering 2025: 89% have observability adopted but only 52% have evals — a 37-point structural gap. This view is the first catalog-level surface for it: side-by-side obs vs eval adoption %, plus an "eval orphan" filter that surfaces products with observability ≥1 tool but zero eval tools. Matrix of products × eval tools (LangSmith Evals, Braintrust, W&B Agent Eval, Helicone Evals, Custom test harness, Human-in-loop, Prod traffic replay). Top ~100 priority rows backfilled (same set as observability + cost-economics so cross-cuts work cleanly).'
+    },
+    {
       slug: 'archetypes',
       title: 'Taxonomy archetypes',
       summary:
