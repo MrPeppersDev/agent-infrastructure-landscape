@@ -6337,3 +6337,94 @@ depend on these rows.
   already referenced Atari 100k / Hanabi / Crafter / TextWorld
   in their S2 cache, so the offline rebuild surfaced 241 cites edges
   to the newly-added benchmark rows automatically).
+
+
+
+## 2026-05-13: GitHub Issue Form fallback for direct submitters (#29)
+
+**What.** Added `.github/ISSUE_TEMPLATE/intake.yml` (GitHub Issue
+Forms YAML schema) and `.github/ISSUE_TEMPLATE/config.yml`. The
+intake template surfaces in the
+`/issues/new/choose` picker with the same 13 fields as the in-app
+`/submit` form (#28, commit 56fb5d2): name, URL, type, section,
+subsection, tier guess, brief description, claims, known funding,
+known customers, license, GitHub URL, Arxiv URL, submitter notes.
+The `intake` label is applied automatically; the title pre-fills to
+`Intake: <Name>` (submitter fills the name part).
+
+**Why a second entry point at all.** The Svelte form is the
+preferred path — it has inline validation, a live markdown preview,
+and localStorage drafting — but it only works for users who land on
+the web app first. Power users, GitHub-native contributors, and
+anyone who hits the repo's Issues tab directly need a path that
+doesn't make them bounce out to the deployed site and back. The
+Issue Form mirrors the form's schema so the periodic intake agent
+(#30) can parse either entry point with one regex set.
+
+**Field-by-field alignment with #28.**
+
+- **Type / section / tier / license** use `dropdown`. Option strings
+  are copy-pasted from `TYPE_OPTIONS`, `SECTION_OPTIONS`,
+  `TIER_OPTIONS`, `LICENSE_OPTIONS` in
+  `web/src/lib/submit-issue.ts`. The license dropdown reuses the
+  curated 15-license shortlist plus an "Other (specify in notes)"
+  fall-through. The Svelte form has a "free text" toggle button on
+  the license field; Issue Forms doesn't support a dropdown that
+  switches to a text input mid-flight, so the fallback is the
+  notes-field write-in.
+- **Subsection, claims, funding, customers, github_url, arxiv_url,
+  submitter_notes** are `input` / `textarea` with `required: false`.
+- **Name, URL, type, section, brief description** are required,
+  matching `validateSubmission` in `submit-issue.ts`.
+- Field `id`s use snake_case (`known_funding`, `github_url`,
+  `arxiv_url`, `submitter_notes`) per the issue spec. The Svelte
+  form uses camelCase internally (`githubUrl`, `arxivUrl`, `notes`,
+  etc.) but renders to bold-label markdown in the issue body, so
+  the wire format the parser sees is label-based (`**GitHub URL:**
+  …`) regardless of entry point. Two entry points → one schema for
+  the parser.
+
+**`config.yml` decision: keep blank issues enabled.** Blank issues
+stay on. Curators and contributors need a free-form path for bugs,
+ingestion-round bookkeeping, schema-validation chores, and the
+hundred-and-one things that don't fit the `intake` shape (every
+non-#29 issue this week is a counter-example). The intake template
+is offered as a convenience, not a forced funnel. `config.yml` also
+adds a `contact_links` entry pointing back to `/submit` so users
+who open the picker can still be nudged toward the better UX.
+
+**Why GitHub Issue Forms (YAML) and not legacy markdown templates.**
+Forms give us:
+
+- Auto-label application (`labels: ["intake"]`) — no separate
+  workflow needed.
+- Title templating (`title: "Intake: <Name>"`).
+- Validation on required fields (server-side, in the GitHub UI).
+- Mobile-friendly rendering (single-column auto-stack).
+- Dropdown widgets for enum fields (vs. asking the user to type the
+  section name correctly in a markdown block).
+
+Legacy `.md` templates can't do any of that. Reversal cost is
+identical (one file, version-controlled).
+
+**OAuth scope note.** `.github/ISSUE_TEMPLATE/*` does NOT require
+the `workflow` scope to push (unlike `.github/workflows/*`). The
+default `repo` scope is enough. Pushed directly to `main` from the
+working tree.
+
+**Reversal cost.** Trivial. Delete the two YAML files; the picker
+falls back to the blank-issue link automatically. The intake-label
+filter the curator uses still works for already-submitted issues
+because the label is real (not template-synthetic).
+
+**What this entry explicitly did NOT touch.**
+
+- `web/src/*` — the Svelte form is the source of truth for field
+  names and option strings; this entry only consumes that schema.
+  If the Svelte form ever drifts (new section added, license
+  shortlist updated), the issue template must be updated in
+  lockstep — there's no programmatic link.
+- `.github/workflows/*` — no workflow needed. Label application
+  and title templating happen in the form's YAML schema, not via
+  an action.
+- `web/landscape.json` / data files — zero data edits.

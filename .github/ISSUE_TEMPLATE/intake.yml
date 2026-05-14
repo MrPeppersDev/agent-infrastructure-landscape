@@ -1,0 +1,213 @@
+name: System intake
+description: Suggest a new system (product / framework / paper / benchmark / harness / substrate) for the catalog.
+title: "Intake: <Name>"
+labels: ["intake"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a system for the catalog.
+
+        **Prefer the web form?** The in-app form at
+        [/submit](https://mrpeppersdev.github.io/memory-analysis-program/submit)
+        builds the same issue with a live preview and inline validation.
+        This template is the fallback for users who land here directly.
+
+        Curator review happens in the next Round-N+1 mini-ingestion
+        (see issues #28 / #30 for the pipeline). Submissions are
+        *suggestions*, not auto-merged data — every entry gets verified
+        before it lands in `landscape.json`.
+
+        Replace `<Name>` in the title above with the system name (e.g.
+        `Intake: Mem0`). The `intake` label is applied automatically.
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: System name as it should appear in the catalog.
+      placeholder: e.g. Mem0, Letta, MemoryBench-v2
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Canonical project / vendor URL.
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      description: What kind of artefact is this?
+      options:
+        - product (commercial / hosted SaaS)
+        - framework (library / SDK / OSS package)
+        - paper (academic / preprint)
+        - benchmark (eval suite / leaderboard)
+        - harness (agent runtime / scaffolding)
+        - substrate (foundation model / infra primitive)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      description: Best-fit top-level catalog section. If none fit, pick "other / new section" and explain in Subsection / Notes.
+      options:
+        - AI sandbox & runtime environments
+        - Agent IDEs & coding harnesses
+        - Agent frameworks (no first-party memory layer)
+        - Browser-agent memory
+        - Claude Code memory mechanisms
+        - Coding-agent memory
+        - Computer-use & desktop agents
+        - Dedicated memory layers
+        - Embedding & reranker services
+        - Enterprise-search adjacencies
+        - Evaluation & observability platforms
+        - File-backed / editor paradigms
+        - Foundation models (substrate reference)
+        - Framework-embedded memory
+        - Inference platforms & gateways
+        - Knowledge-graph platforms
+        - Memory benchmarks & evaluation
+        - Memory governance, privacy & safety
+        - Memory observability & monitoring
+        - Multi-agent orchestration platforms
+        - Personal AI / PKM / lifelogging memory
+        - Platform-provider memory
+        - Recent method papers — theorized, no distinct product
+        - Research / specialised systems
+        - Retrieval-as-memory hybrids
+        - Robotics foundation models & agent stacks
+        - Search platforms (non-memory)
+        - Theoretical / informal — ideas without a paper
+        - Training infrastructure
+        - Use-case-specific agent harnesses
+        - Vector-database infrastructure
+        - Vertical / domain-specific AI memory
+        - Voice agent platforms
+        - Voice-first / wearable AI memory
+        - other / new section
+    validations:
+      required: true
+
+  - type: input
+    id: subsection
+    attributes:
+      label: Subsection
+      description: Optional. Free text — useful if you picked "other / new section" or want to flag a subset (e.g. "graph-memory subset").
+      placeholder: e.g. graph-memory subset
+    validations:
+      required: false
+
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Tier guess
+      description: Optional. The curator will re-tier if needed. Tier is a *classification*, not a quality score.
+      options:
+        - "— skip (curators will tier) —"
+        - T1 — battle-tested, commercial / mature OSS with real customers
+        - T2 — established / mature OSS, significant traction
+        - T3 — peer-reviewed (ACL/EMNLP/NeurIPS/ICLR/…) with code
+        - T4 — preprint / unpublished, arXiv with implementation
+        - T5 — theoretical / informal, idea-stage, no code
+      default: 0
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Brief description
+      description: One sentence — what is it, who is it for? Target ~140 chars, 240 hard cap.
+      placeholder: One sentence pitch.
+    validations:
+      required: true
+
+  - type: textarea
+    id: claims
+    attributes:
+      label: Claims / pitch
+      description: Optional. Longer free text — benchmarks, throughput claims, novel ideas. Paste the project's own pitch if useful.
+      placeholder: What does the system claim about itself?
+    validations:
+      required: false
+
+  - type: input
+    id: known_funding
+    attributes:
+      label: Known funding
+      description: Optional. Funding round / lead investor / date if public.
+      placeholder: $X Series Y (date, lead investor)
+    validations:
+      required: false
+
+  - type: input
+    id: known_customers
+    attributes:
+      label: Known customers
+      description: Optional. Notable named users / case studies.
+      placeholder: e.g. Acme Corp, BigBank, …
+    validations:
+      required: false
+
+  - type: dropdown
+    id: license
+    attributes:
+      label: License
+      description: Pick the closest match. If none fit, pick "Other (specify in notes)" and write the exact license string in Submitter notes.
+      options:
+        - "— skip —"
+        - Apache-2.0
+        - MIT
+        - BSD-3-Clause
+        - BSD-2-Clause
+        - MPL-2.0
+        - GPL-3.0
+        - AGPL-3.0
+        - LGPL-3.0
+        - Elastic-2.0
+        - SSPL-1.0
+        - BSL-1.1
+        - CC-BY-4.0
+        - CC-BY-SA-4.0
+        - Proprietary / closed source
+        - Other (specify in notes)
+      default: 0
+    validations:
+      required: false
+
+  - type: input
+    id: github_url
+    attributes:
+      label: GitHub URL
+      description: Optional. Repository URL if the system has one.
+      placeholder: https://github.com/org/repo
+    validations:
+      required: false
+
+  - type: input
+    id: arxiv_url
+    attributes:
+      label: Arxiv URL
+      description: Optional. Preprint URL if the system has a paper.
+      placeholder: https://arxiv.org/abs/…
+    validations:
+      required: false
+
+  - type: textarea
+    id: submitter_notes
+    attributes:
+      label: Submitter notes
+      description: Anything else the catalog should know — caveats, related systems, disputed claims, conflict-of-interest disclosure, …
+      placeholder: Optional free text.
+    validations:
+      required: false

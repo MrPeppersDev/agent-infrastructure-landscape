@@ -1,0 +1,14 @@
+# Issue Forms config — see https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser
+#
+# Blank issues remain enabled: curators and contributors still need a
+# free-form path for bugs, feature requests, and ingestion-round bookkeeping
+# that doesn't fit the structured `intake` schema. The intake template is
+# offered as a convenience for system suggestions; everything else stays
+# unstructured.
+
+blank_issues_enabled: true
+
+contact_links:
+  - name: Submit a system (web form with live preview)
+    url: https://mrpeppersdev.github.io/memory-analysis-program/submit
+    about: Preferred path — the in-app /submit form builds the same intake issue with inline validation and a markdown preview before you post.
