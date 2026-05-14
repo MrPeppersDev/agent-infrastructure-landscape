@@ -111,8 +111,17 @@ CELL_COLUMN_SLUGS: list[str] = [
     "pros",
     "cons",
     "links",
+    # T1-1 observability columns (issue #39). See docs/SCHEMA.md §2.5.1.
+    "obs-langsmith",
+    "obs-opentelemetry",
+    "obs-datadog",
+    "obs-helicone",
+    "obs-weave",
+    "obs-langfuse",
+    "obs-arize",
+    "obs-custom",
 ]
-assert len(CELL_COLUMN_SLUGS) == 60
+assert len(CELL_COLUMN_SLUGS) == 68
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -425,11 +434,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="68" '
+            f'  <tr class="group-row"><td colspan="76" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="68">'
+        f'  <tr class="group-row"><td colspan="76">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -438,7 +447,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="68">'
+        '  <tr class="section-explainer"><td colspan="76">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 

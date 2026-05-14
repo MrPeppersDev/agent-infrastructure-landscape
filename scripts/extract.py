@@ -43,8 +43,12 @@ SCHEMA_VERSION = "1.0.0"
 # is intentional.
 DEFAULT_GENERATED_AT = "2026-05-07T00:00:00Z"
 
-# In document order, the 60 cell column slugs (everything except `name`,
+# In document order, the 68 cell column slugs (everything except `name`,
 # the 7 `tax-*` axes, and the implicit `name` column).
+#
+# Columns 61-68 (the `obs-*` family) were appended in T1-1 (issue #39)
+# to record which third-party observability integrations each product
+# supports. See docs/SCHEMA.md §2.5.1 for semantics.
 CELL_COLUMN_SLUGS: list[str] = [
     "type",
     "desc",
@@ -106,8 +110,17 @@ CELL_COLUMN_SLUGS: list[str] = [
     "pros",
     "cons",
     "links",
+    # T1-1 observability columns (issue #39).
+    "obs-langsmith",
+    "obs-opentelemetry",
+    "obs-datadog",
+    "obs-helicone",
+    "obs-weave",
+    "obs-langfuse",
+    "obs-arize",
+    "obs-custom",
 ]
-assert len(CELL_COLUMN_SLUGS) == 60
+assert len(CELL_COLUMN_SLUGS) == 68
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -488,7 +501,7 @@ def section_label(group_row_td_text: str) -> tuple[str, bool]:
     """Return (label, is_subsection) for a group-row's first <td> text.
 
     Subsections in the HTML start with the literal "— " (em-dash + space)
-    inside a `<td colspan="68" style="padding-left: 28px; ...">`. We
+    inside a `<td colspan="76" style="padding-left: 28px; ...">`. We
     preserve the prefix exactly per §2.3.
     """
     txt = group_row_td_text.strip()
@@ -656,17 +669,17 @@ def build_record(
     #   tds[0]   = name
     #   tds[1]   = type (the "Memory model" cell — first cell column)
     #   tds[2..8] = tax-storage .. tax-conflict (7 taxonomy axes)
-    #   tds[9..67] = desc .. links (59 remaining cell columns)
-    # Total: 1 + 1 + 7 + 59 = 68 tds per row.
-    if len(tds) != 68:
+    #   tds[9..75] = desc .. obs-custom (67 remaining cell columns)
+    # Total: 1 + 1 + 7 + 67 = 76 tds per row.
+    if len(tds) != 76:
         raise RuntimeError(
-            f"row {rec_id!r}: expected 68 tds, got {len(tds)}"
+            f"row {rec_id!r}: expected 76 tds, got {len(tds)}"
         )
     type_td = tds[1]
     tax_tds = tds[2:9]
     rest_cell_tds = tds[9:]
     assert len(tax_tds) == 7
-    assert len(rest_cell_tds) == 59
+    assert len(rest_cell_tds) == 67
 
     taxonomy = OrderedDict()
     for axis, td in zip(TAXONOMY_AXES, tax_tds):

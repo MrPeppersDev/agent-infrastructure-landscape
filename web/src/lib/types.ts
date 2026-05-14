@@ -64,9 +64,13 @@ export interface SectionMembership {
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 /**
- * The 60 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
+ * The 68 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
  * object MUST contain all of these keys (with status: "not-applicable"
  * when the column is meaningless for that record).
+ *
+ * Columns 61-68 (the `obs-*` family) were appended in T1-1 (issue #39)
+ * to capture observability-stack integration support. See SCHEMA.md
+ * §2.5.1 for semantics.
  */
 export type ColumnSlug =
   | 'type'
@@ -128,7 +132,15 @@ export type ColumnSlug =
   | 'adjacent-infrastructure'
   | 'pros'
   | 'cons'
-  | 'links';
+  | 'links'
+  | 'obs-langsmith'
+  | 'obs-opentelemetry'
+  | 'obs-datadog'
+  | 'obs-helicone'
+  | 'obs-weave'
+  | 'obs-langfuse'
+  | 'obs-arize'
+  | 'obs-custom';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

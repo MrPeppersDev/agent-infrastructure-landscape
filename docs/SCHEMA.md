@@ -79,7 +79,7 @@ Same rationale. `edges` is a flat array; multiple edges between the same
 | `url`      | string \| null                      | yes      | `href` of the `td.name <a>`, or `null` if no link.           |
 | `sections` | array of section-membership objects | yes      | At least one element. Exactly one with `primary: true`.      |
 | `taxonomy` | object with 7 axis arrays           | yes      | All 7 keys present. See [§2.4](#24-taxonomy).                |
-| `cells`    | object keyed by column-name         | yes      | All ~60 column keys present (with `not-applicable` if N/A).  |
+| `cells`    | object keyed by column-name         | yes      | All ~68 column keys present (with `not-applicable` if N/A).  |
 
 Records are JSON objects; field order is not significant but producers
 SHOULD emit fields in the order shown above for diff-friendliness.
@@ -258,8 +258,8 @@ vocabularies are governed by the controlled-vocab list in `taxonomy/`.
 ### 2.5 Cells
 
 `cells` is an object keyed by **column slug**, with one entry per
-non-name, non-taxonomy column in `landscape.html`. There are 59 such
-columns (68 total - 1 name - 1 memory-model-type - 7 taxonomy = 59).
+non-name, non-taxonomy column in `landscape.html`. There are 67 such
+columns (76 total - 1 name - 1 memory-model-type - 7 taxonomy = 67).
 
 Each cell value:
 
@@ -336,12 +336,43 @@ The complete column-slug set (in HTML left-to-right order):
 | 58 | `pros`                  | `pros`                | Pros                             |
 | 59 | `cons`                  | `cons`                | Cons                             |
 | 60 | `links`                 | `links`               | Project & sources                |
+| 61 | `obs-langsmith`         | `obs-langsmith`       | LangSmith                        |
+| 62 | `obs-opentelemetry`     | `obs-opentelemetry`   | OpenTelemetry                    |
+| 63 | `obs-datadog`           | `obs-datadog`         | Datadog                          |
+| 64 | `obs-helicone`          | `obs-helicone`        | Helicone                         |
+| 65 | `obs-weave`             | `obs-weave`           | Weave (W&B)                      |
+| 66 | `obs-langfuse`          | `obs-langfuse`        | Langfuse                         |
+| 67 | `obs-arize`             | `obs-arize`           | Arize                            |
+| 68 | `obs-custom`            | `obs-custom`          | Custom observability             |
 
-The `cells` object MUST contain all 60 keys for every record. Records
+The `cells` object MUST contain all 68 keys for every record. Records
 where a column is genuinely meaningless (e.g. `funding` for a research
 paper) use `status: "not-applicable"`. The `value` field for those
 cells is the human-readable annotation copied from the HTML
 (typically `"not applicable — <reason>"`).
+
+### 2.5.1 Observability columns (added in T1-1, issue #39)
+
+The eight `obs-*` columns capture which third-party observability
+integrations each product / framework supports. They were added
+because observability/debugging is the highest-demand question in
+agent infrastructure (per the May 2026 volumetric agent: 807 HN
+hits, 89% LangChain-survey adoption, 6/7 published surveys).
+
+For `obs-langsmith` through `obs-arize` the `value` field is one of
+`"yes"`, `"no"`, or `""` (empty = unknown, surfaced as the standard
+`no-data` / `depth-floor-reached` status). Boolean cells MAY also
+carry a version string (e.g. `"yes (LangSmith 0.3.x)"`) when the
+integration is gated on a specific release.
+
+`obs-custom` is a free-text column for non-standard observability
+integrations (Honeycomb, Lightstep, custom OTLP exporters, in-house
+dashboards, etc.).
+
+Coverage callout: only the top ~100 rows (T1 + select T2) have been
+backfilled. Empty `obs-*` cells on rows below the coverage floor are
+deliberate; the `/analyses/observability` view surfaces the coverage
+gap rather than papering over it.
 
 ---
 
@@ -667,7 +698,7 @@ file claiming to conform to the schema.
     - each axis array is non-empty.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
-    - `cells` has exactly the 60 keys listed in §2.5 (no extras, no missing).
+    - `cells` has exactly the 68 keys listed in §2.5 (no extras, no missing).
     - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.
