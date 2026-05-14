@@ -48,6 +48,12 @@
         'The #1 demand-signal question in agent infrastructure (807 HN hits, 89% LangChain-survey adoption, 6/7 published surveys). Matrix of products × observability tools (LangSmith, OpenTelemetry, Datadog, Helicone, Weave, Langfuse, Arize). Top ~100 priority rows backfilled; the rest surfaced as "unknown" so the coverage gap is explicit.'
     },
     {
+      slug: 'cost-economics',
+      title: 'Cost-economics & token-governance',
+      summary:
+        'The #2 demand-signal question (171 HN mentions last 12mo, Sequoia framing on inference-cost sustainability, Datadog 2026 found 69% of input tokens are system-prompt overhead). Matrix of products × cost-control features (token budget, prompt caching, semantic caching, batch API, model routing, streaming-only, cost attribution). Per-row governance score (0/7 → 7/7). Top ~100 priority rows backfilled.'
+    },
+    {
       slug: 'archetypes',
       title: 'Taxonomy archetypes',
       summary:
