@@ -6118,3 +6118,109 @@ entry. No JSON / route file edits required.
 - The v3 quality-ledger commitments (§13) — analysis claims still
   trace to cited cells; new claims in §19-22 also trace to
   computed pivots over those cells.
+
+---
+
+## 2026-05-13: Submit-a-system uses pre-filled GitHub Issue (Option A)
+
+**What.** New `/submit` route in the web app (issue #28). A user
+fills a Svelte form with the new-system fields (name, URL, section,
+type, tier guess, description, claims, funding, customers, license,
+GitHub URL, Arxiv URL, notes), reviews the rendered markdown body,
+and clicks through to a pre-filled GitHub Issue at
+`github.com/MrPeppersDev/memory-analysis-program/issues/new` with
+the `intake` label applied. No backend. No JS deps beyond what the
+app already ships. A separate periodic agent (#30) reads `intake`-
+labelled issues into the next Round-N+1 mini-ingestion; a separate
+issue (#29) lands a `.github/ISSUE_TEMPLATE/intake.yml` for users
+who skip the in-app form.
+
+**Why.** Three options were considered:
+
+- **A: pre-filled GitHub Issue (chosen).** Zero ops cost — uses
+  GitHub's existing infra for spam filtering, auth, history, and
+  reviewer notifications. The form is a thin client over a
+  query-string URL. Loses nothing the catalog actually needs:
+  intake submissions are not high-volume (single-digit per week
+  even at the optimistic adoption ceiling), and they are
+  *suggestions*, not auto-merged data — every submission gets
+  curator review before it lands in `landscape.json`. The cost
+  per submission (one extra click to "Submit new issue" on
+  GitHub) is acceptable when the alternative is running our own
+  spam filter.
+
+- **B: serverless backend (Cloudflare Worker / Vercel Function +
+  Turso).** Rejected on cost / scope. The app is currently a
+  static SvelteKit build that deploys to GitHub Pages with zero
+  runtime infra; introducing a backend means CI/CD changes,
+  secret management, captcha, spam-tolerance review, rate
+  limiting, and an on-call surface for what is fundamentally an
+  intake queue. The marginal UX win (one fewer click) doesn't
+  justify the surface area.
+
+- **C: mailto: link.** Rejected — emails are unstructured, hard
+  to triage at the level we'd want, lose threading vs the GitHub
+  Issues view, and create a private channel that future curators
+  can't audit.
+
+**How (anatomy).**
+
+- `web/src/lib/submit-issue.ts` — pure builder. Takes form state,
+  returns `{ url, title, markdown }`. Title format: `Intake: <name>`.
+  Body format: structured markdown with field labels so the #30
+  periodic agent can regex-parse. URL uses GitHub's
+  `?title=&body=&labels=intake` convention with `%20` spaces (not
+  `+`) for readability when the link is copy-pasted.
+- `web/src/routes/submit/+page.svelte` — two-step UX: edit then
+  review. The review step renders the exact markdown that will
+  land in the issue, so the submitter knows what they're posting
+  before clicking through. Validation is hand-rolled (no
+  libraries): required-field check + loose URL regex
+  (`^https?://[^\s/$.?#].[^\s]*$`). Draft state persists to
+  localStorage so a reload doesn't wipe a half-filled form.
+- `web/src/routes/+layout.svelte` — "Submit" slot added between
+  Analyses and About in the nav.
+
+**Section list.** The 33-section dropdown is hard-coded in
+`submit-issue.ts` (mirrored from `landscape.json` at Round-6
+terminal state) so the form doesn't depend on loading the full
+catalog. A 34th "other / new section" sentinel lets submitters
+propose a brand-new top-level bucket; they explain in
+Subsection/Notes. If the catalog adds or renames a section,
+update the `SECTION_OPTIONS` constant; the form will keep working
+with the old list until then (worst case: submitter picks "other"
+and the curator routes it).
+
+**Field choices vs the issue spec.**
+
+- *Brief description* shows a live character counter against a
+  240-char hard cap (target ~140). At 240 the counter goes red;
+  the validator rejects > 240. Loose enough to permit a
+  sentence-plus-context, tight enough to keep the issue
+  description scannable.
+- *Tier guess* is optional. The form copy reminds the submitter
+  that tier is a classification ("T5 manifesto and T1 product are
+  different artefacts"), not a quality ranking, so they don't
+  self-deprecate when their submission is a paper.
+- *License* defaults to a curated dropdown of the 15 most common
+  licenses in the catalog (per `landscape.json` license-frequency
+  pivot) with a "free text" toggle button for anything custom.
+
+**Privacy.** No data leaves the browser until the user clicks
+through to GitHub. localStorage draft is keyed under
+`mlc:submit:draft` and is cleared by the "Clear draft" button.
+
+**Reversal cost.** Low. Three files added (`submit-issue.ts`, the
+`/submit` route, one line in `+layout.svelte`). Deleting them
+removes the feature with no data dependency. The periodic intake
+agent (#30) and the issue-form template (#29) are independent
+follow-ups and can be reverted separately.
+
+**What this entry explicitly did NOT touch.**
+
+- `web/landscape.json` / `web/landscape.edges.json` — UI-only
+  feature; zero data edits.
+- `landscape.html` — sibling agent (#31) is working on the
+  game-benchmarks ingestion there; no overlap.
+- `extraction/*`, `scripts/*` — out of scope per the issue.
+
