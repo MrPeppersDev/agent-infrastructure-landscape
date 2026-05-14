@@ -90,6 +90,14 @@ The catalog is comprehensive enough for use as a reference. Honest confidence on
 landscape coverage: ~88-92% as of 2026-05-06. The known gaps and the plan to close
 them are in `PLAN.md`.
 
+A weekly staleness check (`.github/workflows/staleness.yml`, scheduled
+Mondays 12:00 UTC) walks every row with a GitHub repo URL and opens a
+`stale-row` labelled issue when the upstream repo hasn't had a commit
+inside the freshness SLA from `MAINTAINER.md` §2 (active <12mo, stale
+12-24mo, abandoned >24mo). Run `make stale-check` for the same scan
+offline. The web app surfaces flagged rows with a small badge in the
+main table.
+
 ## Governance
 
 This catalog has an explicit maintenance contract — see

@@ -125,10 +125,14 @@ commit**:
 - **abandoned** — last release >24 months ago. Presumed dead absent
   contrary evidence (active fork, active research group, etc.).
 
-When a row crosses a threshold, **T0-4** (staleness CI, issue #38) will
-automatically open a GitHub Issue labeled `stale-row` with the row ID,
+When a row crosses a threshold, **T0-4** (staleness CI, issue #38)
+automatically opens a GitHub Issue labeled `stale-row` with the row ID,
 last-known status, days since last commit, and a suggested action
-(re-tier / mark abandoned / cite reason to retain).
+(re-tier / mark abandoned / cite reason to retain). The workflow is
+implemented in `.github/workflows/staleness.yml`; the testable core is
+`scripts/check_staleness.py` (run locally with `make stale-check`). The
+web app surfaces the same flag as a small badge on the row in the main
+table.
 
 ### Section-level reviews
 

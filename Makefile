@@ -12,7 +12,7 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: all build validate refresh-citations render install-hooks help
+.PHONY: all build validate refresh-citations render install-hooks stale-check help
 
 help:
 	@echo "Targets:"
@@ -21,6 +21,7 @@ help:
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
 	@echo "  make render             — re-render landscape.html from data/landscape.json"
+	@echo "  make stale-check        — offline staleness scan against landscape.json (no network)"
 	@echo "  make install-hooks      — install scripts/git-hooks/pre-commit into .git/hooks/"
 	@echo
 	@echo "Edit workflow (Path B — see docs/DECISIONS.md): edit landscape.html by hand"
@@ -71,3 +72,15 @@ install-hooks:
 	cp scripts/git-hooks/pre-commit .git/hooks/pre-commit
 	chmod +x .git/hooks/pre-commit
 	@echo "pre-commit hook installed. Bypass with \`git commit --no-verify\` if needed."
+
+# Local staleness scan. Runs the same script the weekly CI workflow runs,
+# but in --offline mode so it parses dates from landscape.json cells
+# instead of hitting the GitHub API. No token required. Writes the flagged
+# list to extraction/staleness-report.json and a fuller summary to
+# extraction/staleness-summary.json. See MAINTAINER.md §2 for the
+# thresholds (active <12mo, stale 12-24mo, abandoned >24mo) and
+# .github/workflows/staleness.yml for the CI wiring.
+stale-check:
+	$(PYTHON) scripts/check_staleness.py --offline \
+	  --output extraction/staleness-report.json \
+	  --reports-dir extraction

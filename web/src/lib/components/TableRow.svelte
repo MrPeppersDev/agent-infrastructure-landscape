@@ -4,6 +4,7 @@
   import TableCell from './TableCell.svelte';
   import TaxonomyCell from './TaxonomyCell.svelte';
   import { searchQuery, highlightPlain } from '$lib/stores/search';
+  import { classify } from '$lib/analyses/survivorship';
 
   let { record }: { record: LandscapeRecord } = $props();
 
@@ -12,6 +13,15 @@
   const HIGHLIGHT_SLUGS = new Set(['desc', 'claims']);
 
   const nameHtml = $derived(highlightPlain(record.name, $searchQuery));
+
+  // Staleness badge (issue #38 / T0-4). Reuses the survivorship classifier
+  // so the badge and the /analyses/survivorship view agree on which rows
+  // count as stale. Only 'stale' and 'abandoned' get a visible badge here —
+  // 'active', 'unknown', and 'research' would just add noise to the table.
+  const survivorship = $derived(classify(record));
+  const showStaleBadge = $derived(
+    survivorship.status === 'stale' || survivorship.status === 'abandoned'
+  );
 </script>
 
 <tr class="row row-t{record.tier}">
@@ -22,6 +32,14 @@
           <a href={record.url} target="_blank" rel="noopener noreferrer">{@html nameHtml}</a>
         {:else}
           {@html nameHtml}
+        {/if}
+        {#if showStaleBadge}
+          <span
+            class="stale-badge {survivorship.status}"
+            title={`${survivorship.status === 'abandoned' ? 'Abandoned' : 'Stale'} — ${survivorship.signal} (per MAINTAINER.md §2)`}
+          >
+            {survivorship.status === 'abandoned' ? 'abandoned' : 'stale'}
+          </span>
         {/if}
       </td>
     {:else if col.key === 'tier'}
@@ -114,6 +132,30 @@
     background: #2a2a2a;
     color: #999;
     border-color: #3a3a3a;
+  }
+  .stale-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.45;
+    text-transform: uppercase;
+    border: 1px solid;
+    vertical-align: middle;
+    cursor: help;
+  }
+  .stale-badge.stale {
+    background: #3a2e1f;
+    color: #d29922;
+    border-color: #5d4720;
+  }
+  .stale-badge.abandoned {
+    background: #3a1f1f;
+    color: #f85149;
+    border-color: #5d2a2a;
   }
   .trend {
     /* Subtle accent: a 1-px inset on the left edge so trend columns
