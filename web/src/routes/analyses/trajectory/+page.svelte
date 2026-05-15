@@ -905,14 +905,20 @@
         Priority: (1) <strong>commit trajectory</strong> — real monthly
         cumulative commit counts from the GitHub Commits API, populated
         by <code>make refresh-commit-trajectories</code> (T3-prep-1 /
-        issue #50; the strongest signal we have because it is real
-        per-month data, not a synthesised piecewise reconstruction);
-        (2) citations + per-year rate for research papers; (3) dated
-        milestones across created / latest-release / funding / claims
-        / customers / api-surface / compliance / pricing / deployment
-        cells for products; (4) star-growth on OSS repos with +N/mo
-        metadata. Implementation in
-        <code>web/src/lib/analyses/s-curve.ts</code>.
+        issue #50; the strongest signal we have for product / OSS rows
+        because it is real per-month data, not a synthesised piecewise
+        reconstruction); (2) <strong>citation trajectory</strong> —
+        real yearly cumulative within-catalog inbound-citation counts
+        bucketed offline from the S2 reference cache by
+        <code>make bucket-citations</code> (T3-prep-2 / issue #51; the
+        strongest signal we have for academic-paper rows when ≥3 distinct
+        years of inbound citations exist); (3) citations + per-year rate
+        — synthesised piecewise fallback for paper rows without a
+        citation-trajectory cell; (4) dated milestones across created /
+        latest-release / funding / claims / customers / api-surface /
+        compliance / pricing / deployment cells for products; (5)
+        star-growth on OSS repos with +N/mo metadata. Implementation
+        in <code>web/src/lib/analyses/s-curve.ts</code>.
       </dd>
     </div>
   </dl>

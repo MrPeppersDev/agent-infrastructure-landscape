@@ -84,8 +84,30 @@ export interface SCurveFit {
   forecast24mo: number | null;
   /** Short human-readable label of which signal produced the series. */
   source: string;
-  /** Quick-read tag of the dominant signal type. */
-  sourceKind: 'commits' | 'citations' | 'milestones' | 'stars' | 'none';
+  /**
+   * Quick-read tag of the dominant signal type.
+   *
+   * - `commits`: real monthly cumulative-commit series from
+   *   `commit-trajectory` (T3-prep-1 / issue #50). Strongest signal for
+   *   product/OSS rows with a GitHub repo.
+   * - `citation-trajectory`: real yearly cumulative-inbound-citation
+   *   series from `citation-trajectory` (T3-prep-2 / issue #51).
+   *   Strongest signal for academic-paper rows with an S2 cache file.
+   * - `citations`: synthesised piecewise series from
+   *   (total cites, cites/yr, publication date). Fallback for paper rows
+   *   that don't have a citation-trajectory cell.
+   * - `milestones`: dated-marker series from cells like created /
+   *   latest-release / funding etc.
+   * - `stars`: synthesised series from OSS-repo star count + +N/mo rate.
+   * - `none`: insufficient signal in any source.
+   */
+  sourceKind:
+    | 'commits'
+    | 'citation-trajectory'
+    | 'citations'
+    | 'milestones'
+    | 'stars'
+    | 'none';
 }
 
 export interface PhaseCounts {
@@ -275,16 +297,60 @@ function parseCommitTrajectory(
 }
 
 /**
+ * Parse the citation-trajectory cell's stringified JSON. Expected shape:
+ *   [{"year":YYYY,"cum":N,"infl":M}, ...]
+ * Returns the parsed array or null if absent / malformed.
+ *
+ * This is the T3-prep-2 (issue #51) per-row signal for academic-paper
+ * rows — yearly cumulative within-catalog inbound-citation counts
+ * reconstructed offline from the S2 reference cache. The `infl` field
+ * is the influential-only sub-cumulative; we prefer `cum` for the fit
+ * since it has more data points per year, but the existence of `infl`
+ * means downstream consumers can switch.
+ */
+function parseCitationTrajectory(
+  raw: string | null | undefined
+): Array<{ year: number; cum: number; infl: number }> | null {
+  if (!raw) return null;
+  const s = raw.trim();
+  if (!s || s === 'no data' || s === 'searched not found') return null;
+  if (!s.startsWith('[')) return null;
+  try {
+    const arr = JSON.parse(s);
+    if (!Array.isArray(arr)) return null;
+    const out: Array<{ year: number; cum: number; infl: number }> = [];
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const year = (item as { year?: unknown }).year;
+      const cum = (item as { cum?: unknown }).cum;
+      const infl = (item as { infl?: unknown }).infl;
+      if (typeof year !== 'number' || !isFinite(year) || year < 1900 || year > 2099) continue;
+      if (typeof cum !== 'number' || !isFinite(cum) || cum < 0) continue;
+      if (typeof infl !== 'number' || !isFinite(infl) || infl < 0) continue;
+      out.push({ year: Math.round(year), cum, infl });
+    }
+    return out.length > 0 ? out : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Best-effort extraction of an observation series for one record.
  *
  * Tries in order:
  *   1. Commit-trajectory cumulative series (real GitHub Commits API data,
  *      T3-prep-1 / issue #50; the strongest signal we have because it's
  *      real per-month counts, not a synthesised piecewise reconstruction)
- *   2. Citations cumulative series (research papers)
- *   3. Multi-marker release series (products w/ multiple dated milestones)
- *   4. Star-growth series (OSS products with +N/mo signal)
- *   5. None / null
+ *   2. Citation-trajectory cumulative series (real yearly inbound-citation
+ *      counts from the S2 cache, T3-prep-2 / issue #51; canonical signal
+ *      for academic-paper rows — real bucketed counts beat the synthesised
+ *      total-and-rate citations fallback below)
+ *   3. Citations cumulative series — synthesised from (total, rate/yr,
+ *      created-date) for paper rows without a citation-trajectory cell
+ *   4. Multi-marker release series (products w/ multiple dated milestones)
+ *   5. Star-growth series (OSS products with +N/mo signal)
+ *   6. None / null
  */
 function extractSeries(record: LandscapeRecord): ExtractedSeries | null {
   // Commit-trajectory is the strongest temporal signal — real monthly
@@ -318,7 +384,85 @@ function extractSeries(record: LandscapeRecord): ExtractedSeries | null {
     }
   }
 
-  // Try citations next (research-paper canonical signal).
+  // Citation-trajectory is the academic-paper counterpart: real yearly
+  // cumulative inbound-citation counts bucketed offline from the S2
+  // cache (T3-prep-2 / issue #51). Prefer it over the synthesised
+  // (total, rate/yr) citations fallback below for any paper row that
+  // has the real bucketed series.
+  //
+  // Threshold reasoning: a paper needs ≥3 distinct years of inbound
+  // citations to support a meaningful logistic fit. To satisfy the
+  // downstream ≥5-observation requirement we linearly interpolate the
+  // yearly buckets to quarterly granularity — honest under the
+  // assumption that the cumulative curve grows monotonically year-to-
+  // year (which it does by construction). 4 years of yearly data
+  // becomes ~13 quarterly observations spanning 36 months.
+  //
+  // Empty trajectories (paper has S2 cache but no within-catalog
+  // citations) and short trajectories (1-2 years) fall through to the
+  // synthesis fallback below.
+  const citationTrajectory = parseCitationTrajectory(
+    record.cells['citation-trajectory']?.value
+  );
+  if (citationTrajectory && citationTrajectory.length >= 3) {
+    const firstYear = citationTrajectory[0].year;
+    const lastYear = citationTrajectory[citationTrajectory.length - 1].year;
+    const start = new Date(Date.UTC(firstYear, 0, 1));
+    // Anchor points: place each yearly bucket at the mid-year (Jul 1).
+    const anchors = citationTrajectory.map((p) => {
+      const d = new Date(Date.UTC(p.year, 6, 1));
+      return { t: monthsBetween(start, d), y: p.cum, date: isoMonth(d) };
+    });
+    // Build quarterly interpolation from the first anchor to the last.
+    const obs: SeriesObservation[] = [];
+    const totalMonths = anchors[anchors.length - 1].t - anchors[0].t;
+    const quarters = Math.max(2, Math.floor(totalMonths / 3));
+    let anchorIdx = 0;
+    for (let i = 0; i <= quarters; i++) {
+      const t = anchors[0].t + (i * totalMonths) / quarters;
+      // Advance anchorIdx until we straddle t between anchors[anchorIdx]
+      // and anchors[anchorIdx+1].
+      while (
+        anchorIdx < anchors.length - 2 &&
+        t > anchors[anchorIdx + 1].t
+      ) {
+        anchorIdx += 1;
+      }
+      const a = anchors[anchorIdx];
+      const b = anchors[Math.min(anchorIdx + 1, anchors.length - 1)];
+      let y: number;
+      if (b.t === a.t) {
+        y = a.y;
+      } else {
+        const frac = (t - a.t) / (b.t - a.t);
+        y = a.y + (b.y - a.y) * Math.max(0, Math.min(1, frac));
+      }
+      const d = new Date(start.getTime());
+      d.setUTCMonth(d.getUTCMonth() + Math.round(t));
+      obs.push({ t, y, date: isoMonth(d) });
+    }
+    const totalSpan = obs[obs.length - 1].t - obs[0].t;
+    // Need ≥18 months of span (≥2 distinct annual buckets) for the
+    // logistic to have meaningful temporal leverage; the ≥5 observation
+    // requirement is satisfied by the quarterly interpolation above when
+    // the trajectory has ≥3 yearly buckets.
+    if (totalSpan >= 18 && obs.length >= 5) {
+      const lastCum = obs[obs.length - 1].y;
+      const lastInfl =
+        citationTrajectory[citationTrajectory.length - 1].infl;
+      const yearSpan = lastYear - firstYear + 1;
+      return {
+        observations: obs,
+        startDate: start,
+        source: `${Math.round(lastCum).toLocaleString()} cites (${lastInfl.toLocaleString()} infl) · ${yearSpan}yr`,
+        sourceKind: 'citation-trajectory'
+      };
+    }
+  }
+
+  // Try citations next (research-paper canonical signal — synthesis
+  // fallback for papers without a citation-trajectory cell or with
+  // too few distinct years for the real bucketed series).
   const cite = parseCitationCell(record.cells.citations?.value);
   const created = earliestCreatedDate(record);
 
