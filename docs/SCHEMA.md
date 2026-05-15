@@ -675,12 +675,14 @@ Status semantics:
 
 Tier semantics:
 
-- `real-data` cells are T1 (auto-verifiable — both NPM and PyPI public
-  APIs are no-auth and re-runnable; the `citation` is the package URL
-  on the relevant registry).
-- `depth-floor-reached` cells are T3 (no auto-verifiable signal; future
-  work could retry against a different registry or relax the
-  detection heuristics).
+- `real-data` cells are T2 (citation is the package URL on the relevant
+  registry — semi-verifiable; re-running `make refresh-download-trajectories`
+  against live NPM / PyPI APIs will reproduce the trajectory. T1 is
+  reserved for GitHub URLs per §3a; broadening T1 to package registries
+  is deliberately out of scope for this column).
+- `depth-floor-reached` cells are T2 (the citation is the attempted
+  registry URL — still semi-verifiable: future work can retry against a
+  different registry or relax the detection heuristics).
 - `not-applicable` cells are T3 (a maintainer judgement that this row
   doesn't publish a package — paper-only rows, theoretical entries,
   hosted-only commercial products).

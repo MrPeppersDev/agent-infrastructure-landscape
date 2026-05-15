@@ -12,7 +12,7 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: all build validate refresh-citations refresh-commit-trajectories bucket-citations render install-hooks stale-check help
+.PHONY: all build validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help
 
 help:
 	@echo "Targets:"
@@ -21,6 +21,7 @@ help:
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
 	@echo "  make refresh-commit-trajectories — fetch GitHub commit history (slow, network, requires GITHUB_TOKEN)"
+	@echo "  make refresh-download-trajectories — fetch NPM + PyPI download history (slow, network)"
 	@echo "  make bucket-citations   — bucket S2 cache into citation-trajectory cells (offline, fast)"
 	@echo "  make render             — re-render landscape.html from data/landscape.json"
 	@echo "  make stale-check        — offline staleness scan against landscape.json (no network)"
@@ -89,6 +90,19 @@ refresh-commit-trajectories:
 	@echo "Progress lives in extraction/commit-trajectory-progress.json; reruns resume."
 	@echo "Set GITHUB_TOKEN env var to lift the unauthenticated 60/hr rate limit."
 	$(PYTHON) scripts/fetch_commit_trajectories.py
+
+# Slow / network-dependent. NOT run as part of `build` or CI.
+# Walks every row detected as an NPM or PyPI package publisher (~80 rows)
+# and writes a monthly cumulative-download time series into the
+# download-trajectory cell. Both registries are no-auth. PyPI's
+# pypistats.org has soft throttling; the script adds a politeness sleep
+# and retries on 429 with backoff.
+# See docs/SCHEMA.md §2.5.6 and scripts/fetch_download_trajectories.py.
+refresh-download-trajectories:
+	@echo "Fetching NPM + PyPI download history — this can take ~5-10 min."
+	@echo "Cached responses live in extraction/download-cache/ and are committed to git."
+	@echo "Progress lives in extraction/download-trajectory-progress.json; reruns resume."
+	$(PYTHON) scripts/fetch_download_trajectories.py
 
 # Re-render only — useful when iterating on render.py output without rebuilding
 # the JSON. Writes to landscape.html (which is the existing template; render.py
