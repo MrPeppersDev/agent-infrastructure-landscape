@@ -919,6 +919,144 @@ signal honest without forcing maintainers to re-verify on every commit.
 
 ---
 
+## 3c. Decay-cause forensics (issue #56)
+
+Issue #56 added three record-level fields so consumers can distinguish
+*why* a stale or abandoned row stopped shipping. The dichotomy
+"active vs. abandoned" is too coarse for downstream prediction — an
+acquisition is a clean exit, a paper superseded by its own authors is
+intellectual progress, an unfunded vendor is a market signal. The three
+fields below capture that distinction.
+
+The fields are **record-level**, not cell-level: they live at the top
+of each `LandscapeRecord` alongside `id`, `name`, `tier`, and
+`last_verified_at`, mirroring the row-level shape of §3b.
+
+```typescript
+type LandscapeRecord = {
+  id: string;
+  name: string;
+  tier: 1 | 2 | 3 | 4 | 5;
+  url: string | null;
+  last_verified_at: string;
+  // Decay-cause forensics (issue #56) — empty / absent for active rows.
+  decay_cause?: DecayCause;     // enum, see below
+  decay_date?: string;          // ISO YYYY-MM-DD, optional
+  decay_evidence?: string;      // URL or "[unverifiable] <free-text>"
+  sections: SectionMembership[];
+  taxonomy: Taxonomy;
+  cells: Cells;
+};
+
+type DecayCause =
+  | "acquired"
+  | "pivoted"
+  | "unfunded"
+  | "lost-benchmark-race"
+  | "superseded"
+  | "archived"
+  | "unknown";
+```
+
+### Enum values
+
+| Value                  | When to use                                                                                                                                                                                                  | Typical evidence                                              |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| `acquired`             | Company / project was bought by another vendor. The product may continue under new branding or fold into the acquirer's stack.                                                                               | TechCrunch / Crunchbase acquisition page, press release.      |
+| `pivoted`              | Team moved to a different product space. The original artefact remains in catalog history but is no longer the team's focus.                                                                                 | Founder tweet / blog post, new product page, GitHub redirect. |
+| `unfunded`             | Funding ran out, no acquisition. Long inactivity + LinkedIn changes + lack of recent funding round; commercial-only.                                                                                         | Wayback Machine showing primary URL dark for >6 months, HN obit thread, "ceased operations" post. |
+| `lost-benchmark-race`  | Outpaced by a clearly better system in the same niche. The row's claims still hold, but no one would adopt it today.                                                                                          | Benchmark scores trailing competitors over time, comparison posts. |
+| `superseded`           | Academic-paper variant: authors published a follow-up paper that replaces this one. The follow-up cites this row as prior work.                                                                              | S2 cache showing later paper by overlapping authors that cites this one. |
+| `archived`             | Explicit `archived: true` on the GitHub repo. The mechanical signal we trust most — the project's maintainers explicitly flagged it.                                                                          | GitHub repo URL (the `/archived` indicator is visible on the page). |
+| `unknown`              | Researched but no clear cause found. Honest acknowledgement, not a placeholder. Used when the row is plausibly stale but the researcher exhausted the priority sources without resolution.                  | `decay_evidence` records what was searched: e.g. `"[unverifiable] researched: techcrunch, vbeat, hn algolia, wayback; no clear cause found"`. |
+
+### When to populate
+
+- **Active rows** (status not `stale` or `abandoned` per the survivorship
+  classifier in `web/src/lib/analyses/survivorship.ts`): the three
+  fields MUST be absent or empty. An active row with a `decay_cause`
+  is a contradiction — `scripts/validate.py` rejects it.
+- **Stale / abandoned rows**: the three fields SHOULD be populated. The
+  validator emits a *warning* (not failure) for stale/abandoned rows
+  without a `decay_cause`; this lets the backfill land incrementally
+  without blocking the build.
+
+### Evidence-URL conventions
+
+- Prefer a resolvable `http(s)://` URL. Treated as a T2-equivalent
+  citation for downstream provenance reasoning.
+- For unverifiable evidence (e.g. the original landing page is
+  Wayback-only, the only mention is a deleted tweet), use a free-text
+  string prefixed with `[unverifiable] ` — e.g.
+  `"[unverifiable] LinkedIn shows team scattered to FAANG roles 2024-Q3"`.
+- For `archived`: evidence MUST be the GitHub repo URL (the source of
+  truth for the `archived: true` flag).
+
+### HTML representation
+
+In `landscape.html`, the three fields live as `<tr>` attributes
+alongside `data-last-verified`:
+
+```html
+<tr class="row-t1"
+    data-last-verified="2026-05-14"
+    data-decay-cause="acquired"
+    data-decay-date="2024-03-15"
+    data-decay-evidence="https://techcrunch.com/2024/03/14/...">
+  …
+</tr>
+```
+
+Empty / absent attributes mean "active row, no decay." `extract.py`
+reads these attributes and projects them into the JSON; `render.py`
+emits them when present and omits them when absent. The cycle gate
+(`scripts/validate.py` gate 3) enforces round-trip stability.
+
+### Backfill workflow
+
+`scripts/research_decay_causes.py` runs the backfill in three phases:
+
+1. **Phase C — archive-flag sweep** (cheapest): for every row with a
+   GitHub repo URL, hit `GET /repos/{owner}/{repo}` and check
+   `archived`. Mark `archived` with the repo URL as evidence.
+2. **Phase A — commercial products** (research-heavy): for stale /
+   abandoned rows in commercial sections, search TechCrunch /
+   VentureBeat / HN Algolia / Wayback Machine in priority order.
+   Hard 2-minute budget per row; mark `unknown` if unresolved.
+3. **Phase B — academic papers**: for stale / abandoned rows in
+   research sections, search the S2 cache for follow-up papers by the
+   same authors. The dominant cause here is `superseded`.
+
+The per-row research output is cached under
+`extraction/decay-cause-cache/<row-id>.json` so reruns are deterministic
+and skip already-resolved rows.
+
+### Validation
+
+`scripts/validate.py` gate 5 also validates:
+
+- `decay_cause`, when present, MUST be one of the seven enum values.
+- `decay_date`, when present, MUST match `^\d{4}-\d{2}-\d{2}$`.
+- `decay_evidence`, when present, MUST be a string (URL or
+  `[unverifiable] …` prose).
+- Active rows MUST have empty decay fields (hard failure).
+- Stale / abandoned rows SHOULD have non-empty `decay_cause` (soft
+  warning — informational metric, not a build break).
+
+The validator also surfaces an informational distribution count
+("acquired=A pivoted=P unfunded=U lost-benchmark-race=L superseded=S
+archived=Ar unknown=X"). This is the seed metric for the Tier 3
+mortality-cause prediction work.
+
+### MCP / CLI exposure
+
+`find_by_decay_cause(cause)` returns the compact-summary list of all
+records with the given decay cause. Available as an MCP tool and as
+the `landscape decay-cause <cause>` CLI subcommand. Mirrors the existing
+nine-tool surface — same `RecordSummary` shape, same JSON / CSV options.
+
+---
+
 ## 4. Per-edge structure (`landscape.edges.json` → `edges[*]`)
 
 ```typescript

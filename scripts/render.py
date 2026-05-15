@@ -487,6 +487,21 @@ def render_row(record: dict[str, Any]) -> str:
     tr_attrs = f'class="row-t{tier}"'
     if isinstance(lva, str) and lva:
         tr_attrs += f' data-last-verified="{escape(lva, quote=True)}"'
+    # Row-level decay forensics (SCHEMA.md §3c, issue #56). Three
+    # optional attrs — emit each when present, omit when absent. The
+    # extract.py side reads these back into record-level fields; the
+    # cycle gate (gate 3) enforces round-trip stability.
+    decay_cause = record.get("decay_cause")
+    if isinstance(decay_cause, str) and decay_cause:
+        tr_attrs += f' data-decay-cause="{escape(decay_cause, quote=True)}"'
+    decay_date = record.get("decay_date")
+    if isinstance(decay_date, str) and decay_date:
+        tr_attrs += f' data-decay-date="{escape(decay_date, quote=True)}"'
+    decay_evidence = record.get("decay_evidence")
+    if isinstance(decay_evidence, str) and decay_evidence:
+        tr_attrs += (
+            f' data-decay-evidence="{escape(decay_evidence, quote=True)}"'
+        )
     lines.append(f"  <tr {tr_attrs}>")
     # Name with optional cross-listing marker injected after the closing </a>.
     name_cell = render_name_cell(record)

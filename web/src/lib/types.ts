@@ -72,6 +72,21 @@ export interface SectionMembership {
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 /**
+ * Decay-cause forensics (SCHEMA.md §3c, issue #56). One of seven enum
+ * values explaining why a stale or abandoned row stopped shipping.
+ * Empty / absent on active rows. See SCHEMA.md §3c for the full
+ * enum-value semantics and evidence conventions.
+ */
+export type DecayCause =
+  | 'acquired'
+  | 'pivoted'
+  | 'unfunded'
+  | 'lost-benchmark-race'
+  | 'superseded'
+  | 'archived'
+  | 'unknown';
+
+/**
  * The 83 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
  * object MUST contain all of these keys (with status: "not-applicable"
  * when the column is meaningless for that record).
@@ -210,6 +225,16 @@ export interface LandscapeRecord {
    * carry its own `Cell.last_verified_at`. See docs/SCHEMA.md §3b.
    */
   last_verified_at: string;
+  /**
+   * Decay-cause forensics (SCHEMA.md §3c, issue #56). Absent / empty
+   * for active rows. Populated for stale or abandoned rows by
+   * scripts/research_decay_causes.py.
+   */
+  decay_cause?: DecayCause;
+  /** ISO date ("YYYY-MM-DD") when the decay event occurred. Optional. */
+  decay_date?: string;
+  /** Evidence URL, or `"[unverifiable] <prose>"`. Optional. */
+  decay_evidence?: string;
   /** Non-empty array. Exactly one element has primary: true. */
   sections: SectionMembership[];
   taxonomy: Taxonomy;

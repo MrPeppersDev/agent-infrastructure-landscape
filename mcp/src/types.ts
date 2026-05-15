@@ -61,6 +61,16 @@ export interface SectionMembership {
 /** Tier 1 (battle-tested) → Tier 5 (theoretical / informal). */
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
+/** Decay-cause forensics — see docs/SCHEMA.md §3c (issue #56). */
+export type DecayCause =
+  | 'acquired'
+  | 'pivoted'
+  | 'unfunded'
+  | 'lost-benchmark-race'
+  | 'superseded'
+  | 'archived'
+  | 'unknown';
+
 /** The 82 column slugs from docs/SCHEMA.md §2.5. */
 export type ColumnSlug =
   | 'type'
@@ -159,6 +169,10 @@ export interface LandscapeRecord {
    * carry its own `Cell.last_verified_at`. See docs/SCHEMA.md §3b.
    */
   last_verified_at: string;
+  /** Decay-cause forensics — see docs/SCHEMA.md §3c (issue #56). */
+  decay_cause?: DecayCause;
+  decay_date?: string;
+  decay_evidence?: string;
   sections: SectionMembership[];
   taxonomy: Taxonomy;
   cells: Cells;

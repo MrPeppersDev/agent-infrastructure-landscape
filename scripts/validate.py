@@ -91,6 +91,33 @@ TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
 # last_verified_at validation regex (SCHEMA.md §3b).
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+# Decay-cause enum (SCHEMA.md §3c, issue #56). Mirrors
+# scripts/extract.py's DECAY_CAUSE_VALUES.
+DECAY_CAUSE_VALUES = {
+    "acquired",
+    "pivoted",
+    "unfunded",
+    "lost-benchmark-race",
+    "superseded",
+    "archived",
+    "unknown",
+}
+
+# Survivorship-classifier date parsing — mirrors the priority used by
+# web/src/lib/analyses/survivorship.ts (1. latest-release, 2. code-release
+# "last commit YYYY-MM", 3. created). Used by gate 5 to identify
+# stale / abandoned rows for the decay-cause warning.
+DATE_RE = re.compile(r"(\d{4})-(\d{1,2})(?:-(\d{1,2}))?")
+LAST_COMMIT_RE = re.compile(r"last[- ]commit\s+(\d{4})-(\d{1,2})", re.IGNORECASE)
+
+# Tier 3/4/5 records are research artefacts; survivorship classifier
+# routes them to 'research' (no decay expectation).
+RESEARCH_TIERS = {3, 4, 5}
+
+# Bucket boundaries in months (matches survivorship.ts).
+ACTIVE_MAX_MONTHS = 12
+STALE_MAX_MONTHS = 24
+
 # Today's date used for freshness bucketing. Kept as a module-level
 # constant for deterministic test reporting (the value isn't reset
 # from system time on every call — change in lock-step with the
@@ -472,6 +499,115 @@ def gate_cache() -> None:
 # ---------------------------------------------------------------------------
 
 
+def _parse_date_latest(raw: str | None) -> _dt.date | None:
+    """Latest YYYY-MM(-DD) date from free text — mirrors survivorship.ts."""
+    if not raw:
+        return None
+    v = raw.strip()
+    if not v:
+        return None
+    lower = v.lower()
+    if (
+        lower == "no-release no-release"
+        or lower.startswith("no-release")
+        or lower == "no data"
+        or lower == "searched not found"
+        or "pre-existing" in lower
+    ):
+        return None
+    latest: _dt.date | None = None
+    for m in DATE_RE.finditer(v):
+        try:
+            year = int(m.group(1))
+            month = int(m.group(2))
+            day = int(m.group(3)) if m.group(3) else 15
+            if (
+                year < 1900 or year > 2099
+                or month < 1 or month > 12
+                or day < 1 or day > 31
+            ):
+                continue
+            d = _dt.date(year, month, day)
+        except ValueError:
+            continue
+        if latest is None or d > latest:
+            latest = d
+    return latest
+
+
+def _parse_last_commit(raw: str | None) -> _dt.date | None:
+    if not raw:
+        return None
+    m = LAST_COMMIT_RE.search(raw)
+    if not m:
+        return None
+    try:
+        year = int(m.group(1))
+        month = int(m.group(2))
+        if year < 1900 or year > 2099 or month < 1 or month > 12:
+            return None
+        return _dt.date(year, month, 15)
+    except ValueError:
+        return None
+
+
+def _months_between(from_d: _dt.date, to_d: _dt.date) -> int:
+    days = (to_d - from_d).days
+    # 30.4375 days/month (mirrors survivorship.ts).
+    return round(days / 30.4375)
+
+
+def _classify_survivorship(rec: dict) -> str:
+    """Return one of 'active' | 'stale' | 'abandoned' | 'unknown' | 'research'.
+
+    Mirrors web/src/lib/analyses/survivorship.ts. Used by gate 5 to
+    decide whether to expect a decay_cause on a row. Tier 3/4/5 routes
+    to 'research' (no decay expectation regardless of dates).
+    """
+    if rec.get("tier") in RESEARCH_TIERS:
+        return "research"
+    cells = rec.get("cells") or {}
+    today = FRESHNESS_TODAY
+
+    # Priority 1: latest-release.
+    lr = cells.get("latest-release") or {}
+    if lr.get("status") == "real-data":
+        d = _parse_date_latest(lr.get("value"))
+        if d:
+            age = _months_between(d, today)
+            if age <= ACTIVE_MAX_MONTHS:
+                return "active"
+            if age <= STALE_MAX_MONTHS:
+                return "stale"
+            return "abandoned"
+
+    # Priority 2: code-release last-commit.
+    cr = cells.get("code-release") or {}
+    if cr.get("value"):
+        d = _parse_last_commit(cr.get("value"))
+        if d:
+            age = _months_between(d, today)
+            if age <= ACTIVE_MAX_MONTHS:
+                return "active"
+            if age <= STALE_MAX_MONTHS:
+                return "stale"
+            return "abandoned"
+
+    # Priority 3: created.
+    created = cells.get("created") or {}
+    if created.get("value"):
+        d = _parse_date_latest(created.get("value"))
+        if d:
+            age = _months_between(d, today)
+            if age <= ACTIVE_MAX_MONTHS:
+                return "active"
+            # Older created with no release/commit signal → unknown
+            # (the JS classifier also routes here).
+            return "unknown"
+
+    return "unknown"
+
+
 def gate_claim_tiers() -> None:
     gate_header(
         5,
@@ -493,6 +629,13 @@ def gate_claim_tiers() -> None:
     bad_lva: list[str] = []
     bad_cell_lva: list[str] = []
     cell_lva_count = 0
+    # Decay-cause forensics (SCHEMA.md §3c, issue #56).
+    decay_cause_dist: dict[str, int] = {v: 0 for v in DECAY_CAUSE_VALUES}
+    decay_cause_errors: list[str] = []
+    decay_cause_warnings: list[str] = []
+    active_with_decay: list[str] = []
+    stale_abandoned_without_decay: list[str] = []
+    stale_abandoned_count = 0
 
     for rec in records:
         rid = rec.get("id", "<unknown>")
@@ -519,6 +662,41 @@ def gate_claim_tiers() -> None:
                 bad_lva.append(
                     f"{rid}: row last_verified_at unparseable ({row_lva!r})"
                 )
+
+        # Decay-cause validation (SCHEMA.md §3c). Three rules:
+        #   1. enum / shape check (also enforced by extract.py's
+        #      validate_record — repeated here for resilience).
+        #   2. active rows MUST NOT carry a decay_cause (hard failure).
+        #   3. stale/abandoned rows SHOULD carry a decay_cause (warning).
+        dc = rec.get("decay_cause")
+        dd = rec.get("decay_date")
+        de = rec.get("decay_evidence")
+        if dc is not None:
+            if dc in DECAY_CAUSE_VALUES:
+                decay_cause_dist[dc] += 1
+            else:
+                decay_cause_errors.append(
+                    f"{rid}: decay_cause {dc!r} not in enum"
+                )
+        if dd is not None and (
+            not isinstance(dd, str) or not ISO_DATE_RE.match(dd)
+        ):
+            decay_cause_errors.append(
+                f"{rid}: decay_date must match YYYY-MM-DD (got {dd!r})"
+            )
+        if de is not None and (not isinstance(de, str) or not de):
+            decay_cause_errors.append(
+                f"{rid}: decay_evidence must be non-empty string"
+            )
+        status = _classify_survivorship(rec)
+        if status in ("stale", "abandoned"):
+            stale_abandoned_count += 1
+            if not dc:
+                stale_abandoned_without_decay.append(rid)
+        elif status == "active" and dc:
+            active_with_decay.append(
+                f"{rid}: active row carries decay_cause={dc!r}"
+            )
 
         for slug, cell in (rec.get("cells") or {}).items():
             tier = cell.get("tier")
@@ -561,6 +739,12 @@ def gate_claim_tiers() -> None:
         errors.extend(bad_lva)
     if bad_cell_lva:
         errors.extend(bad_cell_lva)
+    # Hard failures: enum/shape violations, and active rows that carry
+    # a decay_cause (the contradiction the spec calls out).
+    if decay_cause_errors:
+        errors.extend(decay_cause_errors)
+    if active_with_decay:
+        errors.extend(active_with_decay)
 
     if errors:
         for e in errors[:20]:
@@ -580,6 +764,18 @@ def gate_claim_tiers() -> None:
         f"very-stale>=24mo={freshness['very_stale']}"
     )
     info(f"per-cell last_verified_at populated: {cell_lva_count}")
+    # Decay-cause forensics (SCHEMA.md §3c, issue #56). Informational.
+    total_with_cause = sum(decay_cause_dist.values())
+    info(
+        "decay-cause distribution: "
+        + " ".join(f"{k}={v}" for k, v in sorted(decay_cause_dist.items()))
+        + f"  total={total_with_cause}"
+    )
+    info(
+        f"stale+abandoned rows: {stale_abandoned_count} "
+        f"(of which {len(stale_abandoned_without_decay)} lack decay_cause — "
+        "soft warning, populate via scripts/research_decay_causes.py)"
+    )
     gate_pass(
         "all cells satisfy their tier's citation requirement; "
         "row-level + per-cell freshness are well-formed"

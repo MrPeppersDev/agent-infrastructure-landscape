@@ -307,6 +307,19 @@ def merge_records_collapse(
     lva = kept.get("last_verified_at") or other.get("last_verified_at")
     if lva:
         out["last_verified_at"] = lva
+    # Preserve decay forensics (SCHEMA.md §3c, issue #56) — use kept's
+    # values first, fall back to other's. If neither has the field it
+    # stays absent. The three fields move together: if `decay_cause` is
+    # present we also carry `decay_date` / `decay_evidence` from the
+    # same record so the trio stays internally consistent.
+    if kept.get("decay_cause") or other.get("decay_cause"):
+        source = kept if kept.get("decay_cause") else other
+        if source.get("decay_cause"):
+            out["decay_cause"] = source["decay_cause"]
+        if source.get("decay_date"):
+            out["decay_date"] = source["decay_date"]
+        if source.get("decay_evidence"):
+            out["decay_evidence"] = source["decay_evidence"]
     out["sections"] = [dict(s) for s in kept["sections"]]
     out["taxonomy"] = new_tax
     out["cells"] = new_cells
@@ -375,6 +388,24 @@ def merge_records_cross_listing(
                 break
     if lva:
         out["last_verified_at"] = lva
+    # Preserve decay forensics (SCHEMA.md §3c, issue #56) — same
+    # priority: primary first, then any additional record. The trio
+    # comes from the same source record to stay internally consistent.
+    decay_source: dict[str, Any] | None = None
+    if primary_rec.get("decay_cause"):
+        decay_source = primary_rec
+    else:
+        for other in additional_recs:
+            if other.get("decay_cause"):
+                decay_source = other
+                break
+    if decay_source is not None:
+        if decay_source.get("decay_cause"):
+            out["decay_cause"] = decay_source["decay_cause"]
+        if decay_source.get("decay_date"):
+            out["decay_date"] = decay_source["decay_date"]
+        if decay_source.get("decay_evidence"):
+            out["decay_evidence"] = decay_source["decay_evidence"]
     out["sections"] = sections
     out["taxonomy"] = new_tax
     out["cells"] = new_cells

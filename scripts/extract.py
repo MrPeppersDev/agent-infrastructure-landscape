@@ -231,6 +231,18 @@ TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
 # ISO date used by data-last-verified attributes (SCHEMA.md §3b).
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+# Decay-cause enum (SCHEMA.md §3c, issue #56). When `data-decay-cause` is
+# present on a <tr>, it MUST be one of these seven values.
+DECAY_CAUSE_VALUES = {
+    "acquired",
+    "pivoted",
+    "unfunded",
+    "lost-benchmark-race",
+    "superseded",
+    "archived",
+    "unknown",
+}
+
 # Volatile cell slugs (SCHEMA.md §3b). The same set is repeated in
 # scripts/render.py and scripts/backfill_verified_at.py. Cells outside
 # this set inherit the row-level last_verified_at — they don't carry
@@ -653,6 +665,29 @@ def iter_records(soup: BeautifulSoup):
             row_verified = row_verified.strip()
         else:
             row_verified = None
+        # Row-level decay forensics (SCHEMA.md §3c, issue #56). Three
+        # optional HTML attributes on the <tr>: data-decay-cause,
+        # data-decay-date, data-decay-evidence. Validated against the
+        # enum in DECAY_CAUSE_VALUES; the date must be ISO YYYY-MM-DD;
+        # evidence is free-text. Absent attributes mean "active row, no
+        # decay cause recorded."
+        decay_cause_raw = tr.get("data-decay-cause")
+        decay_cause = (
+            decay_cause_raw.strip()
+            if isinstance(decay_cause_raw, str) and decay_cause_raw.strip()
+            else None
+        )
+        decay_date_raw = tr.get("data-decay-date")
+        decay_date = None
+        if isinstance(decay_date_raw, str) and decay_date_raw.strip():
+            if ISO_DATE_RE.match(decay_date_raw.strip()):
+                decay_date = decay_date_raw.strip()
+        decay_evidence_raw = tr.get("data-decay-evidence")
+        decay_evidence = (
+            decay_evidence_raw.strip()
+            if isinstance(decay_evidence_raw, str) and decay_evidence_raw.strip()
+            else None
+        )
         # First is name; next 7 are tax-*; rest are cells.
         yield {
             "tier": tier,
@@ -662,6 +697,9 @@ def iter_records(soup: BeautifulSoup):
             "section": current_section,
             "subsection": current_subsection,
             "last_verified_at": row_verified,
+            "decay_cause": decay_cause,
+            "decay_date": decay_date,
+            "decay_evidence": decay_evidence,
         }
 
 
@@ -701,6 +739,30 @@ def validate_record(rec: dict[str, Any]) -> list[str]:
     # 7.1.6 id regex
     if not isinstance(rec.get("id"), str) or not ID_RE.match(rec["id"] or ""):
         errs.append(f"{rid}: id failed regex {ID_RE.pattern}")
+    # Decay-cause forensics (SCHEMA.md §3c, issue #56). When present
+    # the fields must match the documented enum / date / string shape.
+    # Presence/absence semantics (active vs stale/abandoned) are
+    # enforced by scripts/validate.py gate 5 — here we only validate
+    # the value shape.
+    dc = rec.get("decay_cause")
+    if dc is not None:
+        if not isinstance(dc, str) or dc not in DECAY_CAUSE_VALUES:
+            errs.append(
+                f"{rid}: decay_cause {dc!r} not in "
+                f"{sorted(DECAY_CAUSE_VALUES)}"
+            )
+    dd = rec.get("decay_date")
+    if dd is not None:
+        if not isinstance(dd, str) or not ISO_DATE_RE.match(dd):
+            errs.append(
+                f"{rid}: decay_date must match YYYY-MM-DD (got {dd!r})"
+            )
+    de = rec.get("decay_evidence")
+    if de is not None:
+        if not isinstance(de, str) or not de:
+            errs.append(
+                f"{rid}: decay_evidence must be non-empty string (got {de!r})"
+            )
     # 7.1.7 tier
     if rec.get("tier") not in (1, 2, 3, 4, 5):
         errs.append(f"{rid}: tier not in 1..5")
@@ -842,16 +904,32 @@ def build_record(
     # so older / unrenderable rows still pass gate-5 validation.
     last_verified_at = parsed.get("last_verified_at") or "2026-05-06"
 
-    return OrderedDict([
+    rec = OrderedDict([
         ("id", rec_id),
         ("name", name),
         ("tier", parsed["tier"]),
         ("url", url),
         ("last_verified_at", last_verified_at),
-        ("sections", sections),
-        ("taxonomy", taxonomy),
-        ("cells", cells),
     ])
+    # Decay-cause forensics (SCHEMA.md §3c, issue #56) — only emit the
+    # three keys when at least one is populated. Omitting the keys for
+    # active rows keeps the JSON canonical (no empty-string clutter) and
+    # makes the gate-5 "active row must not carry a decay_cause" check
+    # trivially correct: presence of any decay_* key in the record dict
+    # is the signal.
+    decay_cause = parsed.get("decay_cause")
+    decay_date = parsed.get("decay_date")
+    decay_evidence = parsed.get("decay_evidence")
+    if decay_cause:
+        rec["decay_cause"] = decay_cause
+    if decay_date:
+        rec["decay_date"] = decay_date
+    if decay_evidence:
+        rec["decay_evidence"] = decay_evidence
+    rec["sections"] = sections
+    rec["taxonomy"] = taxonomy
+    rec["cells"] = cells
+    return rec
 
 
 def main() -> int:
