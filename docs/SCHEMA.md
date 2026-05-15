@@ -360,8 +360,9 @@ The complete column-slug set (in HTML left-to-right order):
 | 82 | `eval-production-traffic-replay` | `eval-production-traffic-replay` | Prod traffic replay |
 | 83 | `commit-trajectory`     | `commit-trajectory`   | Commit trajectory                |
 | 84 | `citation-trajectory`   | `citation-trajectory` | Citation trajectory              |
+| 85 | `download-trajectory`   | `download-trajectory` | Download trajectory              |
 
-The `cells` object MUST contain all 84 keys for every record. Records
+The `cells` object MUST contain all 85 keys for every record. Records
 where a column is genuinely meaningless (e.g. `funding` for a research
 paper) use `status: "not-applicable"`. The `value` field for those
 cells is the human-readable annotation copied from the HTML
@@ -620,6 +621,97 @@ Out of scope:
   of citation history).
 - Citation velocity / acceleration features (those are Tier 3 modeling
   work, not catalog data).
+
+### 2.5.6 Download-trajectory column (added in T3-prep-3, issue #52)
+
+The single `download-trajectory` column carries a per-row monthly
+cumulative-download time series for library / SDK rows that publish to
+NPM or PyPI. It was added as the third T3-prep adoption signal — paired
+with `commit-trajectory` (real GitHub activity) and `citation-trajectory`
+(real academic uptake) it gives the S-curve maturity fit (T2-4, issue
+#47) a clean monotonic adoption curve for OSS libraries that ship as
+installable packages.
+
+Download trajectories are typically the **smoothest, fit-friendliest
+signal** we have for OSS libraries — packages get installed in
+production CI / dev loops at a rate that swamps stargazer noise and
+isn't driven by the bursty issue / PR churn that commit counts pick up.
+
+The `value` field is a JSON-stringified array of `{ym, monthly, cum}`
+objects in chronological order, one per calendar month from the
+package's first observed downloads to the most recent full month:
+
+```json
+[
+  {"ym": "2024-01", "monthly": 42000, "cum": 42000},
+  {"ym": "2024-02", "monthly": 58000, "cum": 100000},
+  {"ym": "2024-03", "monthly": 71000, "cum": 171000},
+  ...
+]
+```
+
+- `ym` is a `YYYY-MM` string. Months with zero downloads MAY be omitted
+  — the cumulative value in the next present month encodes the gap, so
+  consumers MUST treat the series as a sparse cumulative growth curve
+  rather than a dense per-month delta.
+- `monthly` is the count of downloads in that month (integer ≥ 0).
+- `cum` is the cumulative download count to the end of that month
+  (running total over the package's observed lifetime, never decreasing).
+
+For rows that ship both NPM **and** PyPI packages, the column carries
+the **higher-traffic** of the two (typical pattern: a Python core
+library with a much smaller JS wrapper, or vice versa). The `citation`
+field disambiguates which source was chosen. Cross-source aggregation
+is out of scope — NPM and PyPI count different audiences and combining
+them would mix populations.
+
+Status semantics:
+
+| `status`              | Meaning                                                                                                | `value`                | `citation`                                                  |
+|-----------------------|--------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------|
+| `real-data`           | Trajectory fetched OK.                                                                                  | JSON-stringified array | `https://www.npmjs.com/package/<name>` or `https://pypi.org/project/<name>/` |
+| `depth-floor-reached` | Detected as a library but package-not-found / removed / yanked / fetch failure after retry.             | `""`                   | The attempted package URL                                   |
+| `not-applicable`      | Row isn't a library / SDK (no NPM nor PyPI publication — research paper, hosted service, hardware).     | The N/A annotation     | `null`                                                      |
+
+Tier semantics:
+
+- `real-data` cells are T1 (auto-verifiable — both NPM and PyPI public
+  APIs are no-auth and re-runnable; the `citation` is the package URL
+  on the relevant registry).
+- `depth-floor-reached` cells are T3 (no auto-verifiable signal; future
+  work could retry against a different registry or relax the
+  detection heuristics).
+- `not-applicable` cells are T3 (a maintainer judgement that this row
+  doesn't publish a package — paper-only rows, theoretical entries,
+  hosted-only commercial products).
+
+The fetch script lives at `scripts/fetch_download_trajectories.py` and
+runs via `make refresh-download-trajectories` (slow, network-dependent
+— similar to `make refresh-citations` and `make refresh-commit-trajectories`).
+Raw API responses are cached under `extraction/download-cache/<source>__<sanitized-name>.json`
+so deterministic rebuilds with `make build` work offline against the
+committed cache.
+
+Detection (in priority order):
+1. Cell value or citation contains `npmjs.com/package/<name>` → NPM.
+2. Cell value or citation contains `pypi.org/project/<name>/` → PyPI.
+3. Cell value or citation contains `pip install <name>` (Python keyword)
+   → PyPI, with the captured `<name>`.
+4. Cell value or citation contains `npm install <name>` (JS keyword)
+   → NPM, with the captured `<name>`.
+5. A curated `KNOWN_PACKAGES` mapping (record-id → (source, name))
+   for ambiguous / unstated cases where the catalog says e.g. "Mem0"
+   without spelling out that `pip install mem0ai` is the install path.
+   This is the largest source of coverage in practice.
+
+Out of scope:
+- GitHub release / version-specific download counts (different signal
+  — package-manager downloads dominate post-publication).
+- Crates.io / RubyGems / Go-module downloads (NPM + PyPI cover the
+  bulk of catalog libraries; other registries are a follow-up).
+- Geographic / region breakdowns.
+- Per-version popularity (latest-N popularity is volatile and not what
+  the cumulative S-curve cares about).
 
 ---
 
@@ -946,7 +1038,7 @@ file claiming to conform to the schema.
     - each axis array is non-empty.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
-    - `cells` has exactly the 84 keys listed in §2.5 (no extras, no missing).
+    - `cells` has exactly the 85 keys listed in §2.5 (no extras, no missing).
     - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.

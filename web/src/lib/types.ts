@@ -91,6 +91,13 @@ export type Tier = 1 | 2 | 3 | 4 | 5;
  * academic-paper rows, bucketed offline from the S2 cache. Feeds the
  * S-curve maturity fit as the research-paper counterpart to
  * `commit-trajectory`. See SCHEMA.md §2.5.5 for semantics.
+ *
+ * Column 85 (`download-trajectory`) was appended in T3-prep-3 (issue #52)
+ * to backfill real per-row monthly cumulative download counts for
+ * library / SDK rows that publish to NPM or PyPI. Feeds the S-curve
+ * maturity fit as the cleanest adoption signal we have for OSS
+ * libraries — typically smooth monotonic curves with much less burst
+ * noise than commit / star series. See SCHEMA.md §2.5.6 for semantics.
  */
 export type ColumnSlug =
   | 'type'
@@ -176,7 +183,8 @@ export type ColumnSlug =
   | 'eval-human-loop'
   | 'eval-production-traffic-replay'
   | 'commit-trajectory'
-  | 'citation-trajectory';
+  | 'citation-trajectory'
+  | 'download-trajectory';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

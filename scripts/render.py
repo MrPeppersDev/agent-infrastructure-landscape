@@ -140,8 +140,10 @@ CELL_COLUMN_SLUGS: list[str] = [
     "commit-trajectory",
     # T3-prep-2 citation-trajectory column (issue #51). See docs/SCHEMA.md §2.5.5.
     "citation-trajectory",
+    # T3-prep-3 download-trajectory column (issue #52). See docs/SCHEMA.md §2.5.6.
+    "download-trajectory",
 ]
-assert len(CELL_COLUMN_SLUGS) == 84
+assert len(CELL_COLUMN_SLUGS) == 85
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -454,11 +456,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="92" '
+            f'  <tr class="group-row"><td colspan="93" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="92">'
+        f'  <tr class="group-row"><td colspan="93">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -467,7 +469,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="92">'
+        '  <tr class="section-explainer"><td colspan="93">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
