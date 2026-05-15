@@ -44,11 +44,47 @@
     type InfluencePoint,
     type Quadrant
   } from '$lib/analyses/influence';
+  import {
+    centralityById,
+    computeCentrality,
+    kCoreColor,
+    kCoreLegendSwatches,
+    type CentralityResult
+  } from '$lib/analyses/centrality';
 
   let { data }: { data: { records: LandscapeRecord[]; edges: Edge[] } } =
     $props();
 
   const allPoints = $derived(buildPoints(data.records, data.edges));
+
+  // Centrality: betweenness + k-core. Computed once over the full graph
+  // (the structural measures don't depend on the tier/section filter — they
+  // are properties of the WHOLE graph, so re-running them on each filter
+  // toggle would lie). Brandes' algorithm runs in <100ms on the 912-node
+  // graph at prerender time so we just take it.
+  const centrality = $derived(computeCentrality(data.records, data.edges));
+  const centralityLookup = $derived(centralityById(centrality.results));
+
+  // Toggle: encode centrality on the existing markers? Off by default so the
+  // long-standing "influence vs adoption" reading is preserved.
+  let colorByKCore = $state(false);
+  let sizeByBetweenness = $state(false);
+
+  function bwMarkerRadius(p: InfluencePoint): number {
+    if (!sizeByBetweenness) return tierRadius(p.tier);
+    const c = centralityLookup.get(p.id);
+    if (!c) return tierRadius(p.tier);
+    // Scale from 3px (zero bw) to 11px (max bw). Square-root to compress
+    // the few extreme outliers; otherwise Zep & Graphiti eats the chart.
+    return 3 + Math.sqrt(c.betweenness) * 8;
+  }
+
+  function markerFill(p: InfluencePoint): string {
+    if (!colorByKCore) return sectionColor(p.section);
+    const c = centralityLookup.get(p.id);
+    if (!c) return kCoreColor(0, centrality.maxKCore);
+    return kCoreColor(c.kCore, centrality.maxKCore);
+  }
 
   // Filter state. Empty set = "all included" by convention (see filterPoints).
   // We hydrate the available section list from the data so the dropdown only
@@ -365,7 +401,141 @@
         </li>
       </ul>
     </aside>
+
+    <!-- Structural-centrality callouts (issue #46). Surface bridges and the
+         nucleus BEFORE the chart so the reader sees them up front. -->
+    <section class="centrality-callouts" aria-label="Structural centrality">
+      <article class="callout bridges">
+        <header>
+          <h2>Bridge surprises</h2>
+          <p class="callout-sub">
+            Records whose <b>betweenness rank</b> beats their <b>raw inbound rank</b>
+            by the largest margin — they sit on more shortest paths between
+            clusters than their popularity suggests. Often the
+            mid-tier orchestration / spec records that hold the graph together
+            without being widely cited.
+          </p>
+        </header>
+        {#if centrality.topBridgeSurprises.length === 0}
+          <p class="muted">No positive bridge surprises in this graph snapshot.</p>
+        {:else}
+          <table class="callout-table">
+            <thead>
+              <tr>
+                <th>Record</th>
+                <th>Section</th>
+                <th title="Inbound-rank − betweenness-rank. Higher = bigger surprise."
+                  >Δ rank</th
+                >
+                <th title="Normalised betweenness ∈ [0, 1]">Betw.</th>
+                <th title="Raw inbound edge count">In</th>
+                <th title="K-core membership (graph nucleus depth)">k-core</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each centrality.topBridgeSurprises.slice(0, 5) as r (r.recordId)}
+                <tr>
+                  <td
+                    ><a href={`${base}/?q=${encodeURIComponent(r.recordName)}`}
+                      >{r.recordName}</a
+                    ></td
+                  >
+                  <td class="muted small">{r.section}</td>
+                  <td class="num"><b>+{r.bridgeSurprise}</b></td>
+                  <td class="num">{r.betweenness.toFixed(3)}</td>
+                  <td class="num">{r.inboundCount}</td>
+                  <td class="num">
+                    <span
+                      class="kchip"
+                      style="background:{kCoreColor(r.kCore, centrality.maxKCore)}"
+                      >{r.kCore}</span
+                    >
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+          {#if centrality.topBridgeSurprises.length > 5}
+            <p class="muted small">
+              + {centrality.topBridgeSurprises.length - 5} more positive
+              surprises tracked internally.
+            </p>
+          {/if}
+        {/if}
+      </article>
+
+      <article class="callout nucleus">
+        <header>
+          <h2>Nucleus (k-core = {centrality.maxKCore})</h2>
+          <p class="callout-sub">
+            The deepest k-core in the graph: every record in this set has at
+            least <b>{centrality.maxKCore}</b> neighbours that are themselves
+            in the set. Empirically the zone where next products / papers
+            originate — the densest mutually-connected substrate of the
+            corpus.
+          </p>
+        </header>
+        {#if centrality.nucleus.length === 0}
+          <p class="muted">Graph too sparse — no k-core ≥ 2 detected.</p>
+        {:else}
+          <p class="muted small">
+            <b>{centrality.nucleus.length}</b> records in the nucleus.
+            K-core distribution across the full graph:
+            {#each Object.keys(centrality.kCoreDistribution)
+              .map(Number)
+              .sort((a, b) => a - b) as k (k)}
+              <span class="kdist">
+                <span
+                  class="kchip"
+                  style="background:{kCoreColor(k, centrality.maxKCore)}"
+                  >{k}</span
+                >
+                <span class="muted">{centrality.kCoreDistribution[k]}</span>
+              </span>
+            {/each}
+          </p>
+          <ul class="nucleus-list">
+            {#each centrality.nucleus.slice(0, 10) as r (r.recordId)}
+              <li>
+                <a href={`${base}/?q=${encodeURIComponent(r.recordName)}`}
+                  >{r.recordName}</a
+                >
+                <span class="muted small"
+                  >· bw {r.betweenness.toFixed(2)} · in {r.inboundCount}</span
+                >
+              </li>
+            {/each}
+          </ul>
+          {#if centrality.nucleus.length > 10}
+            <p class="muted small">
+              + {centrality.nucleus.length - 10} more nucleus members.
+            </p>
+          {/if}
+        {/if}
+      </article>
+    </section>
   </header>
+
+  <!-- Centrality encoding toggles. Off by default so the long-standing
+       influence-vs-adoption reading is the first thing the reader sees. -->
+  <section class="centrality-toggles" aria-label="Centrality encoding toggles">
+    <span class="filter-label">Encode centrality on markers</span>
+    <label class="chip-toggle">
+      <input type="checkbox" bind:checked={colorByKCore} />
+      Colour by k-core (nucleus = red, periphery = blue)
+    </label>
+    <label class="chip-toggle">
+      <input type="checkbox" bind:checked={sizeByBetweenness} />
+      Size by betweenness (sqrt-scaled)
+    </label>
+    {#if colorByKCore}
+      <span class="kcore-legend">
+        {#each kCoreLegendSwatches(centrality.maxKCore) as s (s.kCore)}
+          <span class="kchip" style="background:{s.color}">k={s.kCore}</span>
+        {/each}
+      </span>
+    {/if}
+  </section>
 
   <!-- Filters: tier multi-select + section multi-select. -->
   <section class="filters" aria-label="Filters">
@@ -597,8 +767,8 @@
           <circle
             cx={pos.x}
             cy={pos.y}
-            r={tierRadius(p.tier)}
-            fill={sectionColor(p.section)}
+            r={bwMarkerRadius(p)}
+            fill={markerFill(p)}
             fill-opacity={p.citesIn + p.integrationsIn === 0 ? 0.35 : 0.85}
             stroke={isHover ? '#fff' : '#111'}
             stroke-width={isHover ? 1.5 : 0.5}
@@ -615,7 +785,7 @@
         </a>
         {#if isAnnotated}
           <text
-            x={pos.x + tierRadius(p.tier) + 3}
+            x={pos.x + bwMarkerRadius(p) + 3}
             y={pos.y + 3}
             class="anno"
             pointer-events="none">{p.name}</text
@@ -640,6 +810,30 @@
             runtime-deps in: <b>{hoverPoint.runtimeDepsIn}</b>
           </span>
         </div>
+        {#if centralityLookup.get(hoverPoint.id)}
+          {@const c = centralityLookup.get(hoverPoint.id) as CentralityResult}
+          <div class="t-cent">
+            <span title="Normalised Brandes betweenness ∈ [0, 1]">
+              betw: <b>{c.betweenness.toFixed(3)}</b>
+            </span>
+            <span title="K-core coreness number — depth in the graph nucleus">
+              k-core:
+              <span
+                class="kchip"
+                style="background:{kCoreColor(c.kCore, centrality.maxKCore)}"
+                >{c.kCore}</span
+              >
+            </span>
+            {#if c.bridgeSurprise > 0}
+              <span
+                class="surprise"
+                title="Bridge surprise: positive Δrank between betweenness and raw inbound"
+              >
+                Δrank: <b>+{c.bridgeSurprise}</b>
+              </span>
+            {/if}
+          </div>
+        {/if}
         <div class="t-links">
           <a href={tableHref(hoverPoint)}>table →</a>
           <a href={survivorshipHref(hoverPoint)}>survivorship →</a>
@@ -729,6 +923,75 @@
         density underlay — darker = more records binned into that cell.
       </p>
     </article>
+  </section>
+
+  <!-- Methodology: what betweenness and k-core measure, and why we picked
+       them. References the textbook citations so a reader can verify the
+       algorithms. -->
+  <section class="centrality-method" aria-label="Centrality methodology">
+    <h2>How centrality is computed (issue #46)</h2>
+    <p>
+      The structural-centrality measures above run on the <b
+        >undirected projection</b
+      >
+      of the in-catalog edge graph — every record pair joined by any edge of
+      any type counts as adjacent. Centrality is a property of the WHOLE
+      graph, so the bridge and nucleus callouts do
+      <em>not</em> recompute when you toggle the tier/section filters above
+      (those filters only affect the scatter projection).
+    </p>
+    <dl class="method-dl">
+      <dt>Betweenness centrality</dt>
+      <dd>
+        For each pair of records (s, t), the fraction of <em>shortest paths</em>
+        between them that pass through a given record v. Records with high
+        betweenness sit on many shortest paths — they "bridge" otherwise
+        disconnected clusters. Implemented via Brandes' algorithm
+        (O(V·E), single-source BFS + back-accumulation). Scores are
+        normalised to [0, 1] by dividing through the max betweenness in the
+        graph; the legend value is therefore a relative measure, not the
+        textbook combinatorial invariant.
+        <small
+          >Brandes, U. (1986). "A faster algorithm for betweenness
+          centrality." <em>J. Math. Sociol.</em> 25 (2): 163–177.</small
+        >
+      </dd>
+      <dt>K-core decomposition</dt>
+      <dd>
+        The k-core of a graph is the maximal subgraph in which every node has
+        degree ≥ k <em>within that subgraph</em>. The "coreness" of a node
+        is the largest k such that the node belongs to a k-core. Computed
+        by the standard peeling algorithm (Batagelj &amp; Zaversnik 2003,
+        O(E)). The highest k-core is the <b>nucleus</b> — the densest
+        mutually-connected substrate of the corpus, empirically where the
+        next round of products / papers most often originates.
+        <small
+          >Seidman, S. (1983). "Network structure and minimum degree."
+          <em>Social Networks</em> 5 (3): 269–287. · Batagelj, V. &amp;
+          Zaversnik, M. (2003). "An O(m) algorithm for cores decomposition
+          of networks." arXiv:cs/0310049.</small
+        >
+      </dd>
+      <dt>Bridge surprise (Δ rank)</dt>
+      <dd>
+        Rank-by-betweenness minus rank-by-raw-inbound (lower rank number =
+        better, so the difference is positive when betweenness rank is
+        better than inbound rank). A positive value means the record sits
+        on more shortest paths than its inbound count suggests — it earns
+        its structural position from <em>bridging</em>, not from being
+        widely cited. This is the metric the "Bridge surprises" callout
+        above is sorted by. We require non-zero betweenness to qualify
+        (otherwise records with no signal at all would clog the top).
+      </dd>
+    </dl>
+    <p class="muted small">
+      Computed at SvelteKit prerender time over <b>{centrality.nodeCount}</b>
+      records and
+      <b>{centrality.undirectedEdgeCount}</b>
+      unique undirected adjacencies. Maximum k-core observed:
+      <b>{centrality.maxKCore}</b>. Nucleus size:
+      <b>{centrality.nucleus.length}</b> records.
+    </p>
   </section>
 
   <footer class="foot">
@@ -1180,6 +1443,195 @@
   }
   .foot a:hover {
     color: #d4845f;
+  }
+
+  /* Centrality callouts (issue #46) */
+  .centrality-callouts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .callout {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .callout.bridges {
+    border-left: 3px solid #c44e3a;
+  }
+  .callout.nucleus {
+    border-left: 3px solid #a83232;
+  }
+  .callout h2 {
+    margin: 0 0 4px;
+    font-size: 0.92rem;
+    color: #e8e8e8;
+    font-weight: 600;
+  }
+  .callout-sub {
+    margin: 0 0 10px;
+    color: #aaa;
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+  .callout-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+  }
+  .callout-table th,
+  .callout-table td {
+    text-align: left;
+    padding: 4px 6px;
+    border-bottom: 1px solid #222;
+    color: #ccc;
+  }
+  .callout-table th {
+    color: #888;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .callout-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .callout-table a {
+    color: #e8c4ad;
+    text-decoration: none;
+  }
+  .callout-table a:hover {
+    color: #d4845f;
+    text-decoration: underline;
+  }
+  .kchip {
+    display: inline-block;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+  .kdist {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-right: 8px;
+  }
+  .nucleus-list {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 3px 12px;
+  }
+  .nucleus-list li {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+  .nucleus-list a {
+    color: #e8c4ad;
+    text-decoration: none;
+  }
+  .nucleus-list a:hover {
+    color: #d4845f;
+    text-decoration: underline;
+  }
+
+  .centrality-toggles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    color: #ccc;
+  }
+  .chip-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .chip-toggle input {
+    accent-color: #d4845f;
+  }
+  .kcore-legend {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+  }
+
+  .t-cent {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #bbb;
+  }
+  .t-cent .surprise {
+    color: #d4845f;
+  }
+
+  .centrality-method {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    border-left: 3px solid #5fa8d4;
+    padding: 14px 18px;
+    margin: 16px 0;
+    color: #bbb;
+    line-height: 1.55;
+    font-size: 0.9rem;
+  }
+  .centrality-method h2 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    color: #e8e8e8;
+    font-weight: 600;
+  }
+  .centrality-method p {
+    margin: 0 0 8px;
+    color: #bbb;
+  }
+  .method-dl {
+    margin: 8px 0;
+  }
+  .method-dl dt {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #e8c4ad;
+    font-size: 0.92rem;
+  }
+  .method-dl dd {
+    margin: 4px 0 0 0;
+    padding-left: 0;
+    color: #bbb;
+  }
+  .method-dl dd small {
+    display: block;
+    margin-top: 6px;
+    color: #888;
+    font-size: 0.78rem;
+    font-style: italic;
+  }
+  .method-dl dd em {
+    color: #cdcdcd;
   }
 
   @media (max-width: 720px) {
