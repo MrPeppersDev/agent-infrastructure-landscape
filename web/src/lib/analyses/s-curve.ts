@@ -93,6 +93,11 @@ export interface SCurveFit {
    * - `citation-trajectory`: real yearly cumulative-inbound-citation
    *   series from `citation-trajectory` (T3-prep-2 / issue #51).
    *   Strongest signal for academic-paper rows with an S2 cache file.
+   * - `download-trajectory`: real monthly cumulative-download series
+   *   from `download-trajectory` (T3-prep-3 / issue #52). Cleanest
+   *   adoption signal for OSS library / SDK rows that publish to NPM
+   *   or PyPI — typically smooth monotonic curves that the logistic
+   *   fits well.
    * - `citations`: synthesised piecewise series from
    *   (total cites, cites/yr, publication date). Fallback for paper rows
    *   that don't have a citation-trajectory cell.
@@ -104,6 +109,7 @@ export interface SCurveFit {
   sourceKind:
     | 'commits'
     | 'citation-trajectory'
+    | 'download-trajectory'
     | 'citations'
     | 'milestones'
     | 'stars'
@@ -336,6 +342,50 @@ function parseCitationTrajectory(
 }
 
 /**
+ * Parse the download-trajectory cell's stringified JSON. Expected shape:
+ *   [{"ym":"YYYY-MM","monthly":N,"cum":M}, ...]
+ * Returns the parsed array or null if absent / malformed.
+ *
+ * This is the T3-prep-3 (issue #52) per-row signal for OSS library /
+ * SDK rows — monthly cumulative download counts from the NPM or PyPI
+ * public APIs. Empty months are omitted; the cumulative value carries
+ * the count forward.
+ *
+ * Download trajectories are typically the cleanest fit-friendly signal
+ * for libraries: package-manager installs are smooth monotonic curves
+ * with much less burst noise than the issue/PR churn that commit
+ * counts pick up. Used as a fall-back when commit-trajectory isn't
+ * available (paper-derived OSS where the GitHub history is owned by a
+ * different repo than the package, etc.).
+ */
+function parseDownloadTrajectory(
+  raw: string | null | undefined
+): Array<{ ym: string; monthly: number; cum: number }> | null {
+  if (!raw) return null;
+  const s = raw.trim();
+  if (!s || s === 'no data' || s === 'searched not found') return null;
+  if (!s.startsWith('[')) return null;
+  try {
+    const arr = JSON.parse(s);
+    if (!Array.isArray(arr)) return null;
+    const out: Array<{ ym: string; monthly: number; cum: number }> = [];
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const ym = (item as { ym?: unknown }).ym;
+      const monthly = (item as { monthly?: unknown }).monthly;
+      const cum = (item as { cum?: unknown }).cum;
+      if (typeof ym !== 'string' || !/^\d{4}-\d{2}$/.test(ym)) continue;
+      if (typeof monthly !== 'number' || !isFinite(monthly) || monthly < 0) continue;
+      if (typeof cum !== 'number' || !isFinite(cum) || cum < 0) continue;
+      out.push({ ym, monthly, cum });
+    }
+    return out.length > 0 ? out : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Best-effort extraction of an observation series for one record.
  *
  * Tries in order:
@@ -346,11 +396,17 @@ function parseCitationTrajectory(
  *      counts from the S2 cache, T3-prep-2 / issue #51; canonical signal
  *      for academic-paper rows — real bucketed counts beat the synthesised
  *      total-and-rate citations fallback below)
- *   3. Citations cumulative series — synthesised from (total, rate/yr,
+ *   3. Download-trajectory cumulative series (real monthly NPM / PyPI
+ *      download counts, T3-prep-3 / issue #52; canonical adoption signal
+ *      for OSS library / SDK rows — typically smooth monotonic curves
+ *      that the logistic fits cleanly. Picks up rows where the catalog's
+ *      gh cell didn't yield a parseable repo URL but the package
+ *      detection still found a registry entry)
+ *   4. Citations cumulative series — synthesised from (total, rate/yr,
  *      created-date) for paper rows without a citation-trajectory cell
- *   4. Multi-marker release series (products w/ multiple dated milestones)
- *   5. Star-growth series (OSS products with +N/mo signal)
- *   6. None / null
+ *   5. Multi-marker release series (products w/ multiple dated milestones)
+ *   6. Star-growth series (OSS products with +N/mo signal)
+ *   7. None / null
  */
 function extractSeries(record: LandscapeRecord): ExtractedSeries | null {
   // Commit-trajectory is the strongest temporal signal — real monthly
@@ -456,6 +512,48 @@ function extractSeries(record: LandscapeRecord): ExtractedSeries | null {
         startDate: start,
         source: `${Math.round(lastCum).toLocaleString()} cites (${lastInfl.toLocaleString()} infl) · ${yearSpan}yr`,
         sourceKind: 'citation-trajectory'
+      };
+    }
+  }
+
+  // Download-trajectory is the canonical adoption signal for OSS
+  // library / SDK rows (T3-prep-3 / issue #52). Monthly cumulative
+  // download counts from NPM or PyPI are typically smooth monotonic
+  // curves with much less burst noise than commit cadence. Falls
+  // through here only if neither commit-trajectory nor citation-
+  // trajectory was usable (since those are typically more histor-
+  // ically dense), but on rows where this IS the primary signal
+  // (paper-derived OSS, mature libraries with thin commit history,
+  // libraries owned by a different repo than the package) it's the
+  // best logistic fit available.
+  const downloads = parseDownloadTrajectory(
+    record.cells['download-trajectory']?.value
+  );
+  if (downloads && downloads.length >= 5) {
+    const firstYm = downloads[0].ym;
+    const [fy, fm] = firstYm.split('-').map(Number);
+    const start = new Date(Date.UTC(fy, fm - 1, 15));
+    const obs: SeriesObservation[] = downloads.map((p) => {
+      const [py, pm] = p.ym.split('-').map(Number);
+      const d = new Date(Date.UTC(py, pm - 1, 15));
+      return {
+        t: monthsBetween(start, d),
+        y: p.cum,
+        date: isoMonth(d)
+      };
+    });
+    const totalSpan = obs[obs.length - 1].t - obs[0].t;
+    if (totalSpan >= 4) {
+      // 5-observation / 4-month-span threshold: PyPI's pypistats.org
+      // overall endpoint typically returns ~180 days = ~6 monthly
+      // buckets, so we set the spans here to match. NPM trajectories
+      // are usually much longer (30-40 months) and pass trivially.
+      const lastCum = obs[obs.length - 1].y;
+      return {
+        observations: obs,
+        startDate: start,
+        source: `${lastCum.toLocaleString()} downloads · ${obs.length}mo`,
+        sourceKind: 'download-trajectory'
       };
     }
   }

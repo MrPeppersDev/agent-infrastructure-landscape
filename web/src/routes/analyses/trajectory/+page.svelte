@@ -912,11 +912,16 @@
         bucketed offline from the S2 reference cache by
         <code>make bucket-citations</code> (T3-prep-2 / issue #51; the
         strongest signal we have for academic-paper rows when ≥3 distinct
-        years of inbound citations exist); (3) citations + per-year rate
+        years of inbound citations exist); (3) <strong>download
+        trajectory</strong> — real monthly cumulative NPM / PyPI
+        download counts, populated by <code>make refresh-download-trajectories</code>
+        (T3-prep-3 / issue #52; cleanest adoption signal for OSS library
+        / SDK rows that publish to a package registry — smooth monotonic
+        curves that fit the logistic well); (4) citations + per-year rate
         — synthesised piecewise fallback for paper rows without a
-        citation-trajectory cell; (4) dated milestones across created /
+        citation-trajectory cell; (5) dated milestones across created /
         latest-release / funding / claims / customers / api-surface /
-        compliance / pricing / deployment cells for products; (5)
+        compliance / pricing / deployment cells for products; (6)
         star-growth on OSS repos with +N/mo metadata. Implementation
         in <code>web/src/lib/analyses/s-curve.ts</code>.
       </dd>
