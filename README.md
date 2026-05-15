@@ -216,6 +216,12 @@ Workflow today (Path B):
    The CI workflow at `.github/workflows/validate.yml` re-runs the gates on
    push and PR.
 
+**New systems submitted via the [`/submit`](web/src/routes/submit/+page.svelte)
+form (or the `intake` Issue template) are auto-researched by the workflow
+at `.github/workflows/intake-research.yml` — see [docs/INTAKE.md](docs/INTAKE.md)
+for the end-to-end flow, per-cell tier strategy, local-test recipe, and
+failure modes.**
+
 `make refresh-citations` is a separate target that re-pulls Semantic Scholar
 data — it takes ~15 min and is only needed when new research-paper rows have
 been added or the catalog wants to refresh inbound-influence counts.

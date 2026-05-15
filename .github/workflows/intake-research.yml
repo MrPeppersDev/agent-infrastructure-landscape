@@ -1,0 +1,107 @@
+# Auto-research an `intake`-labelled issue (issue #53 / T2.6-1).
+#
+# Trigger: when an Issue is opened OR labelled `intake`. The Issue still
+# gets logged (audit trail). This workflow fans out automated research
+# across the catalog's 85 columns, builds a record dict, opens a draft
+# PR for maintainer review. The maintainer-review gate is the whole
+# point — auto-merging is explicitly out of scope.
+#
+# The pipeline:
+#   research_intake.py  →  /tmp/record.json
+#       (fetches GitHub repo metadata, primary URL HTML, arxiv abstract;
+#        keyword-scans for obs/cost/eval integration mentions; emits a
+#        full 85-cell record dict per docs/SCHEMA.md §3a)
+#   apply_intake_pr.py  →  draft PR
+#       (inserts <tr> into landscape.html, runs `make build` + `make
+#        validate`, opens a draft PR with the run-trail markdown body)
+#
+# Per-cell research is best-effort — depth-floor T3 if no evidence
+# surfaces in <30s. The duplicate-detection step uses the MCP query
+# layer (mcp/dist/tools.js searchRecords) to avoid opening a PR for an
+# already-cataloged system; if a name-similarity >0.9 match is found,
+# the workflow aborts with a "possible duplicate" comment.
+
+name: Auto-research intake
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+# Gate by label. The `opened` event without the `intake` label is a
+# no-op; the `labeled` event runs every time but the if-guard filters
+# to intake-only. Subsequent runs on the same Issue are de-duped by the
+# branch-name check inside apply_intake_pr.py.
+jobs:
+  research:
+    if: contains(github.event.issue.labels.*.name, 'intake')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so branch creation works cleanly
+
+      - name: Configure git identity
+        run: |
+          git config user.name "memory-analysis-intake-bot"
+          git config user.email "intake-bot@users.noreply.github.com"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Python dependencies
+        run: pip install beautifulsoup4 requests
+
+      - name: Build MCP query layer (for duplicate detection)
+        working-directory: mcp
+        run: |
+          npm install
+          npm run build
+
+      - name: Run research script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/research_intake.py \
+            --issue-number ${{ github.event.issue.number }} \
+            --output /tmp/record.json
+
+      - name: Apply intake PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/apply_intake_pr.py \
+            --record /tmp/record.json \
+            --issue-number ${{ github.event.issue.number }}
+
+      - name: Upload failure logs on error
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: intake-failure-logs-${{ github.event.issue.number }}
+          path: intake-failures/
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Comment on Issue if research aborted as duplicate
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # research_intake.py exits 2 on duplicate detection. The
+          # apply step won't run; this step posts a comment so the
+          # submitter knows their Issue wasn't silently dropped.
+          gh issue comment ${{ github.event.issue.number }} --body "Auto-research workflow failed — check the workflow logs for details. If the failure was a duplicate-detection abort, a maintainer will manually triage. Otherwise the artifacts above carry the run trail."
