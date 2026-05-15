@@ -85,7 +85,7 @@ export interface SCurveFit {
   /** Short human-readable label of which signal produced the series. */
   source: string;
   /** Quick-read tag of the dominant signal type. */
-  sourceKind: 'citations' | 'milestones' | 'stars' | 'none';
+  sourceKind: 'commits' | 'citations' | 'milestones' | 'stars' | 'none';
 }
 
 export interface PhaseCounts {
@@ -241,16 +241,84 @@ const MILESTONE_CELLS = [
 ] as const;
 
 /**
+ * Parse the commit-trajectory cell's stringified JSON. Expected shape:
+ *   [{"ym":"YYYY-MM","cum":N}, ...]
+ * Returns the parsed array or null if absent / malformed.
+ *
+ * This is the canonical T3-prep-1 (issue #50) per-row signal — monthly
+ * cumulative commit counts straight from the GitHub Commits API. Empty
+ * months are omitted; the cumulative value carries the count forward.
+ */
+function parseCommitTrajectory(
+  raw: string | null | undefined
+): Array<{ ym: string; cum: number }> | null {
+  if (!raw) return null;
+  const s = raw.trim();
+  if (!s || s === 'no data' || s === 'searched not found') return null;
+  if (!s.startsWith('[')) return null;
+  try {
+    const arr = JSON.parse(s);
+    if (!Array.isArray(arr)) return null;
+    const out: Array<{ ym: string; cum: number }> = [];
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const ym = (item as { ym?: unknown }).ym;
+      const cum = (item as { cum?: unknown }).cum;
+      if (typeof ym !== 'string' || !/^\d{4}-\d{2}$/.test(ym)) continue;
+      if (typeof cum !== 'number' || !isFinite(cum) || cum < 0) continue;
+      out.push({ ym, cum });
+    }
+    return out.length > 0 ? out : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Best-effort extraction of an observation series for one record.
  *
  * Tries in order:
- *   1. Citations cumulative series (research papers)
- *   2. Multi-marker release series (products w/ multiple dated milestones)
- *   3. Star-growth series (OSS products with +N/mo signal)
- *   4. None / null
+ *   1. Commit-trajectory cumulative series (real GitHub Commits API data,
+ *      T3-prep-1 / issue #50; the strongest signal we have because it's
+ *      real per-month counts, not a synthesised piecewise reconstruction)
+ *   2. Citations cumulative series (research papers)
+ *   3. Multi-marker release series (products w/ multiple dated milestones)
+ *   4. Star-growth series (OSS products with +N/mo signal)
+ *   5. None / null
  */
 function extractSeries(record: LandscapeRecord): ExtractedSeries | null {
-  // Try citations first (research-paper canonical signal).
+  // Commit-trajectory is the strongest temporal signal — real monthly
+  // counts straight from the GitHub Commits API. Prefer it over any
+  // synthesised series when available.
+  const trajectory = parseCommitTrajectory(
+    record.cells['commit-trajectory']?.value
+  );
+  if (trajectory && trajectory.length >= 5) {
+    const firstYm = trajectory[0].ym;
+    const [fy, fm] = firstYm.split('-').map(Number);
+    const start = new Date(Date.UTC(fy, fm - 1, 15));
+    const obs: SeriesObservation[] = trajectory.map((p) => {
+      const [py, pm] = p.ym.split('-').map(Number);
+      const d = new Date(Date.UTC(py, pm - 1, 15));
+      return {
+        t: monthsBetween(start, d),
+        y: p.cum,
+        date: isoMonth(d)
+      };
+    });
+    const totalSpan = obs[obs.length - 1].t - obs[0].t;
+    if (totalSpan >= 6) {
+      const lastCum = obs[obs.length - 1].y;
+      return {
+        observations: obs,
+        startDate: start,
+        source: `${lastCum.toLocaleString()} commits · ${obs.length}mo`,
+        sourceKind: 'commits'
+      };
+    }
+  }
+
+  // Try citations next (research-paper canonical signal).
   const cite = parseCitationCell(record.cells.citations?.value);
   const created = earliestCreatedDate(record);
 

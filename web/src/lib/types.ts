@@ -64,7 +64,7 @@ export interface SectionMembership {
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 /**
- * The 82 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
+ * The 83 column slugs from docs/SCHEMA.md §2.5. Every record's `cells`
  * object MUST contain all of these keys (with status: "not-applicable"
  * when the column is meaningless for that record).
  *
@@ -80,6 +80,11 @@ export type Tier = 1 | 2 | 3 | 4 | 5;
  * to capture eval-tooling integrations — the next frontier after
  * observability (LangChain survey: 89% have obs, only 52% have evals).
  * See SCHEMA.md §2.5.3 for semantics.
+ *
+ * Column 83 (`commit-trajectory`) was appended in T3-prep-1 (issue #50)
+ * to backfill real per-row monthly cumulative commit history from the
+ * GitHub Commits API — feeds the S-curve maturity fit. See SCHEMA.md
+ * §2.5.4 for semantics and the JSON-array value shape.
  */
 export type ColumnSlug =
   | 'type'

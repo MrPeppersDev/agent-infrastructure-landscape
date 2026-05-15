@@ -902,11 +902,16 @@
     <div>
       <dt>Signal sources</dt>
       <dd>
-        Priority: (1) citations + per-year rate for research papers,
-        (2) dated milestones across created / latest-release / funding /
-        claims / customers / api-surface / compliance / pricing /
-        deployment cells for products, (3) star-growth on OSS repos
-        with +N/mo metadata. Implementation in
+        Priority: (1) <strong>commit trajectory</strong> — real monthly
+        cumulative commit counts from the GitHub Commits API, populated
+        by <code>make refresh-commit-trajectories</code> (T3-prep-1 /
+        issue #50; the strongest signal we have because it is real
+        per-month data, not a synthesised piecewise reconstruction);
+        (2) citations + per-year rate for research papers; (3) dated
+        milestones across created / latest-release / funding / claims
+        / customers / api-surface / compliance / pricing / deployment
+        cells for products; (4) star-growth on OSS repos with +N/mo
+        metadata. Implementation in
         <code>web/src/lib/analyses/s-curve.ts</code>.
       </dd>
     </div>
