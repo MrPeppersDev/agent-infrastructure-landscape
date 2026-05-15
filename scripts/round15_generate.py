@@ -1430,8 +1430,8 @@ SANDBOX_ROWS = [
 def render_section_header(title: str, explainer: str, subsection: bool = False) -> str:
     style = ' style="padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;"' if subsection else ''
     return (
-        f'\n  <tr class="group-row"><td colspan="91"{style}>{html.escape(title)}</td></tr>\n'
-        f'\n  <tr class="section-explainer"><td colspan="91"><div class="explainer-text">{explainer}</div></td></tr>\n'
+        f'\n  <tr class="group-row"><td colspan="92"{style}>{html.escape(title)}</td></tr>\n'
+        f'\n  <tr class="section-explainer"><td colspan="92"><div class="explainer-text">{explainer}</div></td></tr>\n'
     )
 
 

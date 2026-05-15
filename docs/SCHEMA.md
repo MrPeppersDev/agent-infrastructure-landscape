@@ -359,8 +359,9 @@ The complete column-slug set (in HTML left-to-right order):
 | 81 | `eval-human-loop`       | `eval-human-loop`     | Human-in-loop eval               |
 | 82 | `eval-production-traffic-replay` | `eval-production-traffic-replay` | Prod traffic replay |
 | 83 | `commit-trajectory`     | `commit-trajectory`   | Commit trajectory                |
+| 84 | `citation-trajectory`   | `citation-trajectory` | Citation trajectory              |
 
-The `cells` object MUST contain all 83 keys for every record. Records
+The `cells` object MUST contain all 84 keys for every record. Records
 where a column is genuinely meaningless (e.g. `funding` for a research
 paper) use `status: "not-applicable"`. The `value` field for those
 cells is the human-readable annotation copied from the HTML
@@ -541,6 +542,84 @@ Out of scope:
 - Star history (separate signal, separate API path, deferred to a
   follow-up if needed).
 - Issue / PR activity counts.
+
+### 2.5.5 Citation-trajectory column (added in T3-prep-2, issue #51)
+
+The single `citation-trajectory` column carries a per-row yearly
+cumulative-inbound-citation time series for academic-paper rows,
+reconstructed offline from `extraction/s2-cache/`. It was added as the
+research-paper counterpart to `commit-trajectory` — the S-curve maturity
+fit (T2-4, issue #47) previously had to synthesise a piecewise series
+for every paper from `(total cites, cites/yr, publication date)`. With
+a real yearly trajectory we get a non-decreasing cumulative curve
+spanning the paper's life, which fits the logistic far more honestly
+than the linear-then-tail interpolation the fallback uses.
+
+The trajectory is **within-catalog inbound citations only** — for each
+target record T, we count the catalog rows C that have T in their S2
+references-out cache, grouped by C's publication year (extracted from
+C's arxiv id-suffix). This gives a deterministic, cache-derived signal
+that requires no network calls. The fetch script for the underlying
+S2 cache lives at `scripts/fetch_citations.py` / `make refresh-citations`;
+the offline bucketing script lives at `scripts/bucket_s2_citations.py`
+and runs as part of `make build`.
+
+The `value` field is a JSON-stringified array of `{year, cum, infl}`
+objects in chronological order:
+
+```json
+[
+  {"year": 2023, "cum": 3, "infl": 1},
+  {"year": 2024, "cum": 11, "infl": 5},
+  {"year": 2025, "cum": 28, "infl": 9},
+  {"year": 2026, "cum": 35, "infl": 11}
+]
+```
+
+- `year` is a calendar year (integer). Years with zero new citations
+  MAY be omitted; the cumulative value in the next present year carries
+  the gap forward.
+- `cum` is the cumulative count of all inbound citing-papers from the
+  catalog through the end of that year (running total over the paper's
+  lifetime, never decreasing).
+- `infl` is the cumulative count restricted to citing-papers where S2
+  flagged the citation as `isInfluential: true` (Wang/Song/Barabási
+  show influential citations are more predictive of long-term impact
+  than raw count). Always `infl <= cum`.
+
+Status semantics:
+
+| `status`              | Meaning                                                                                                                  | `value`                | `citation`                                                |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------|------------------------|-----------------------------------------------------------|
+| `real-data`           | Paper has an S2 cache file; trajectory built from cached references-out across the catalog. May be `[]` if no inbound.    | JSON-stringified array | `https://www.semanticscholar.org/paper/<paperId>`         |
+| `depth-floor-reached` | Paper has cache file but parse / resolution failed (corrupt cache, no externalIds, etc.).                                 | `""`                   | The S2 paper URL that was attempted                       |
+| `not-applicable`      | Row is not an academic paper (no arxiv URL, no DOI, no S2 paper hash — e.g. commercial product, blog post, OSS framework). | The N/A annotation     | `null`                                                    |
+
+Tier semantics:
+
+- `real-data` cells are T2 (citation is the S2 paper URL — semi-verifiable;
+  re-running `make refresh-citations` against live S2 plus the bucket
+  script will reproduce the trajectory).
+- `depth-floor-reached` cells are T3 (no auto-verifiable signal).
+- `not-applicable` cells are T3 (maintainer judgement that this row
+  has no S2 paper to bucket).
+
+Coverage callout: only rows with a parseable arxiv URL or S2 hash and
+a populated cache file (~230 of 912 rows) are eligible for `real-data`.
+A trajectory of `[]` (empty array) is a valid `real-data` value — it
+means "we know about this paper, no in-catalog citations yet." All
+non-paper rows are `not-applicable`. The S-curve view picks up these
+trajectories automatically — see `web/src/lib/analyses/s-curve.ts`.
+
+Out of scope:
+- Citations from outside the catalog (would require a different S2
+  endpoint and ~10x more API calls).
+- Per-month granularity (S2 references don't carry month resolution
+  consistently; arxiv IDs encode YYMM but the year alone is enough
+  signal for the S-curve fit on papers, which typically have <8 years
+  of citation history).
+- Citation velocity / acceleration features (those are Tier 3 modeling
+  work, not catalog data).
 
 ---
 
@@ -867,7 +946,7 @@ file claiming to conform to the schema.
     - each axis array is non-empty.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
-    - `cells` has exactly the 83 keys listed in §2.5 (no extras, no missing).
+    - `cells` has exactly the 84 keys listed in §2.5 (no extras, no missing).
     - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.

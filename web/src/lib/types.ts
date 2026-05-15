@@ -85,6 +85,12 @@ export type Tier = 1 | 2 | 3 | 4 | 5;
  * to backfill real per-row monthly cumulative commit history from the
  * GitHub Commits API — feeds the S-curve maturity fit. See SCHEMA.md
  * §2.5.4 for semantics and the JSON-array value shape.
+ *
+ * Column 84 (`citation-trajectory`) was appended in T3-prep-2 (issue #51)
+ * to backfill real per-row yearly cumulative inbound-citation counts for
+ * academic-paper rows, bucketed offline from the S2 cache. Feeds the
+ * S-curve maturity fit as the research-paper counterpart to
+ * `commit-trajectory`. See SCHEMA.md §2.5.5 for semantics.
  */
 export type ColumnSlug =
   | 'type'
@@ -169,7 +175,8 @@ export type ColumnSlug =
   | 'eval-custom-test-harness'
   | 'eval-human-loop'
   | 'eval-production-traffic-replay'
-  | 'commit-trajectory';
+  | 'commit-trajectory'
+  | 'citation-trajectory';
 
 export type Cells = Record<ColumnSlug, Cell>;
 
