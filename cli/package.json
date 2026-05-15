@@ -1,0 +1,36 @@
+{
+  "name": "landscape-cli",
+  "version": "1.0.0",
+  "description": "Headless CLI for the AI agent infrastructure landscape catalog (912 records, 528 edges). Wraps the same pure query layer used by the local-stdio MCP server in ../mcp.",
+  "type": "module",
+  "bin": {
+    "landscape": "./dist/landscape.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/landscape.js",
+    "prepare": "tsc"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai-agents",
+    "memory",
+    "landscape",
+    "catalog",
+    "cli"
+  ],
+  "license": "MIT"
+}

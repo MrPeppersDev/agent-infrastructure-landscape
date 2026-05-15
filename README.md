@@ -140,6 +140,36 @@ The MCP server is the first alternative consumption surface for the
 standalone dataset (T0-1). A local CLI tool (issue #49) will follow,
 sharing the same pure query layer in [`mcp/src/tools.ts`](./mcp/src/tools.ts).
 
+## CLI
+
+A headless command-line interface lives in [`cli/`](./cli) and exposes the
+same nine query functions as `landscape <subcommand>` calls. Use it for
+terminal exploration, scripting, agentic pipelines that aren't MCP-based,
+and CI integrations. See [`cli/README.md`](./cli/README.md) for the full
+reference.
+
+Quickstart from a local clone:
+
+```
+cd mcp && npm install && npm run build
+cd ../cli && npm install && npm run build
+./dist/landscape.js sections        # smoke test
+```
+
+Examples:
+
+```
+landscape search "memory" --tier 1 --section "Dedicated memory layers"
+landscape substrate-risk Anthropic
+landscape compare mem0--mem0-ai zep-graphiti--getzep-com
+landscape eval-orphans --json | jq -r '.orphans[] | .id'
+```
+
+Output is text by default with optional ANSI colour; pass `--json` for a
+machine-readable result (verbatim from `tools.ts`) or `--csv` where the
+result is tabular (search / sections / recent / eval-orphans / coverage /
+substrate-risk).
+
 ## Web app
 
 A SvelteKit static-export landing page lives in `web/` (Phase 2). Today it's
