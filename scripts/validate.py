@@ -73,6 +73,7 @@ CYCLE_DIFF_CEILING = 16
 
 VALID_EDGE_TYPES = {
     "built-on",
+    "runtime-dependency",
     "extends",
     "forks",
     "integrates-with",

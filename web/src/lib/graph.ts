@@ -110,15 +110,21 @@ export interface EdgeStyle {
 }
 
 export const EDGE_STYLES: Record<EdgeType, EdgeStyle> = {
-  'built-on':        { colour: '#bc8cff', lineStyle: 'solid',  width: 2,   label: 'built-on' },
-  'extends':         { colour: '#7ee787', lineStyle: 'solid',  width: 1.6, label: 'extends' },
-  'forks':           { colour: '#ffa657', lineStyle: 'dashed', width: 1.6, label: 'forks' },
-  'integrates-with': { colour: '#39d0d8', lineStyle: 'solid',  width: 1.2, label: 'integrates-with' },
-  'competes-with':   { colour: '#ff7b72', lineStyle: 'dashed', width: 1.2, label: 'competes-with' },
-  'inspired-by':     { colour: '#d29922', lineStyle: 'dotted', width: 1.2, label: 'inspired-by' },
-  'cites':           { colour: '#6e7681', lineStyle: 'solid',  width: 0.6, label: 'cites' },
-  'same-team-as':    { colour: '#f778ba', lineStyle: 'dotted', width: 1.6, label: 'same-team-as' },
-  'succeeds':        { colour: '#79c0ff', lineStyle: 'dashed', width: 1.6, label: 'succeeds' }
+  'built-on':           { colour: '#bc8cff', lineStyle: 'solid',  width: 2,   label: 'built-on' },
+  // runtime-dependency: distinct orange + dashed so the production-substrate
+  // edges stand out from architectural lineage ('built-on') and academic
+  // citations ('cites'). Width sits between built-on and integrates-with
+  // because dependency edges are the "production graph" — the highest-stakes
+  // relationship type in the corpus.
+  'runtime-dependency': { colour: '#d4845f', lineStyle: 'dashed', width: 1.8, label: 'runtime-dependency' },
+  'extends':            { colour: '#7ee787', lineStyle: 'solid',  width: 1.6, label: 'extends' },
+  'forks':              { colour: '#ffa657', lineStyle: 'dashed', width: 1.6, label: 'forks' },
+  'integrates-with':    { colour: '#39d0d8', lineStyle: 'solid',  width: 1.2, label: 'integrates-with' },
+  'competes-with':      { colour: '#ff7b72', lineStyle: 'dashed', width: 1.2, label: 'competes-with' },
+  'inspired-by':        { colour: '#d29922', lineStyle: 'dotted', width: 1.2, label: 'inspired-by' },
+  'cites':              { colour: '#6e7681', lineStyle: 'solid',  width: 0.6, label: 'cites' },
+  'same-team-as':       { colour: '#f778ba', lineStyle: 'dotted', width: 1.6, label: 'same-team-as' },
+  'succeeds':           { colour: '#79c0ff', lineStyle: 'dashed', width: 1.6, label: 'succeeds' }
 };
 
 // --- Element shaping ---------------------------------------------------

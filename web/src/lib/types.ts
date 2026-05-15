@@ -190,6 +190,7 @@ export interface LandscapeFile {
 
 export type EdgeType =
   | 'built-on'
+  | 'runtime-dependency'
   | 'extends'
   | 'forks'
   | 'integrates-with'

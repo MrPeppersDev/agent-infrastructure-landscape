@@ -54,6 +54,7 @@ OUT_PATH = REPO_ROOT / "data" / "landscape.edges.json"
 
 VALID_EDGE_TYPES = {
     "built-on",
+    "runtime-dependency",
     "extends",
     "forks",
     "integrates-with",
@@ -167,6 +168,192 @@ KNOWN_UNRESOLVABLE = {
     "mcp servers (general)",         # umbrella reference
     "opensearch",                    # only listed as 'Elasticsearch / OpenSearch' compound
 }
+
+# ---------------------------------------------------------------------------
+# Substrate alias table for `runtime-dependency` mining (issue #44).
+#
+# Each key is a lowercased phrase that, when found in a cell next to a
+# runtime-dependency trigger (e.g. "powered by", "built on", "requires"),
+# resolves to the canonical catalog record id for that substrate. The phrases
+# are matched as whole tokens / right-bounded substrings against the captured
+# regex group; specific multi-word phrases are tried before bare names so
+# "azure openai" wins over "azure" alone.
+#
+# These IDs are verified against data/landscape.json at mining time —
+# unresolved aliases are logged as discards rather than written. When a
+# substrate has multiple plausible rows (e.g. "Mistral" has 5+ rows in the
+# catalog), we point at the foundation-model row, because runtime-dependency
+# mining is about "what cloud do you call to run this", not "which memory
+# product do you integrate with".
+#
+# The list is deliberately conservative — we'd rather miss a true dependency
+# than fabricate one. Add to it when discard logs reveal repeated misses.
+SUBSTRATE_ALIASES: dict[str, str] = {
+    # --- Foundation-model provider substrates ---
+    "openai":                  "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "openai gpt":              "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "gpt-4":                   "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "gpt-4o":                  "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "gpt-5":                   "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "gpt-3.5":                 "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "openai embeddings":       "openai-embeddings--platform-openai-com",
+    "text-embedding-3":        "openai-embeddings--platform-openai-com",
+    "text-embedding-ada":      "openai-embeddings--platform-openai-com",
+    "anthropic":               "anthropic-claude-foundation-models--anthropic-com",
+    "anthropic claude":        "anthropic-claude-foundation-models--anthropic-com",
+    "claude":                  "anthropic-claude-foundation-models--anthropic-com",
+    "claude 3":                "anthropic-claude-foundation-models--anthropic-com",
+    "claude 3.5":              "anthropic-claude-foundation-models--anthropic-com",
+    "claude sonnet":           "anthropic-claude-foundation-models--anthropic-com",
+    "claude opus":             "anthropic-claude-foundation-models--anthropic-com",
+    "claude haiku":            "anthropic-claude-foundation-models--anthropic-com",
+    "google gemini":           "google-gemini-3-family--blog-google",
+    "gemini":                  "google-gemini-3-family--blog-google",
+    "gemini 1.5":              "google-gemini-3-family--blog-google",
+    "gemini 2":                "google-gemini-3-family--blog-google",
+    "gemini 2.0":              "google-gemini-3-family--blog-google",
+    "gemini pro":              "google-gemini-3-family--blog-google",
+    "meta llama":              "meta-llama-4-family--ai-meta-com",
+    "llama":                   "meta-llama-4-family--ai-meta-com",
+    "llama 3":                 "meta-llama-4-family--ai-meta-com",
+    "llama 3.1":               "meta-llama-4-family--ai-meta-com",
+    "llama 4":                 "meta-llama-4-family--ai-meta-com",
+    "mistral":                 "mistral-large-2-mixtral-family--mistral-ai",
+    "mixtral":                 "mistral-large-2-mixtral-family--mistral-ai",
+    "mistral large":           "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere":                  "cohere-command-r-command-a--cohere-com",
+    "command r":               "cohere-command-r-command-a--cohere-com",
+    "cohere embed":            "cohere-embed--cohere-com",
+    "deepseek":                "deepseek-r1-v3-family--deepseek-com",
+    "deepseek r1":             "deepseek-r1-v3-family--deepseek-com",
+    "deepseek v3":             "deepseek-r1-v3-family--deepseek-com",
+    "grok":                    "xai-grok-4--x-ai",
+    "xai":                     "xai-grok-4--x-ai",
+    "grok 4":                  "xai-grok-4--x-ai",
+    "azure openai":            "azure-machine-learning--azure-microsoft-com",
+    "azure ml":                "azure-machine-learning--azure-microsoft-com",
+    "azure":                   "azure-machine-learning--azure-microsoft-com",
+    "aws bedrock":             "bedrock-agentcore-aws--aws-amazon-com",
+    "amazon bedrock":          "bedrock-agentcore-aws--aws-amazon-com",
+    "bedrock":                 "bedrock-agentcore-aws--aws-amazon-com",
+
+    # --- Vector / search substrates ---
+    "pinecone":                "pinecone--pinecone-io",
+    "weaviate":                "weaviate--weaviate-io",
+    "qdrant":                  "qdrant--qdrant-tech",
+    "chroma":                  "chroma--trychroma-com",
+    "chromadb":                "chroma--trychroma-com",
+    "milvus":                  "milvus--milvus-io",
+    "pgvector":                "pgvector--gh-pgvector-pgvector",
+    "postgres pgvector":       "pgvector--gh-pgvector-pgvector",
+    "postgresql pgvector":     "pgvector--gh-pgvector-pgvector",
+    "elasticsearch":           "elasticsearch-opensearch--elastic-co",
+    "elastic":                 "elasticsearch-opensearch--elastic-co",
+    "lancedb":                 "lancedb--lancedb-com",
+    "mongodb atlas":           "mongodb-atlas-vector-search--mongodb-com",
+    "mongodb vector":          "mongodb-atlas-vector-search--mongodb-com",
+    "neo4j":                   "neo4j--neo4j-com",
+
+    # --- Framework substrates ---
+    "langchain":               "langchain-framework--langchain-com",
+    "langgraph":               "langgraph-orchestration--langchain-com",
+    "llamaindex":              "llamaindex-framework--llamaindex-ai",
+    "llama-index":             "llamaindex-framework--llamaindex-ai",
+    "llama index":             "llamaindex-framework--llamaindex-ai",
+    "litellm":                 "litellm--gh-berriai-litellm",
+
+    # --- Memory-layer peer substrates (frequently referenced as a runtime
+    # store by adapters / wrappers / MCPs that wrap them) ---
+    "mem0":                    "mem0--mem0-ai",
+    "letta":                   "letta-memgpt--letta-com",
+    "memgpt":                  "letta-memgpt--letta-com",
+    "zep":                     "zep-graphiti--getzep-com",
+    "graphiti":                "zep-graphiti--getzep-com",
+
+    # --- Embedding peer substrates ---
+    "voyage":                  "voyage-ai-mongodb--voyageai-com",
+    "voyage ai":               "voyage-ai-mongodb--voyageai-com",
+    "jina":                    "jina-ai-embeddings--jina-ai",
+    "jina embeddings":         "jina-ai-embeddings--jina-ai",
+
+    # --- Additional FM family extras ---
+    "qwen":                    "alibaba-qwen-3-family--qwenlm-github-io",
+    "qwen 3":                  "alibaba-qwen-3-family--qwenlm-github-io",
+    "alibaba qwen":            "alibaba-qwen-3-family--qwenlm-github-io",
+    "gemini robotics":         "google-deepmind-gemini-robotics--deepmind-google",
+
+    # --- Model Context Protocol substrate (every "MCP-compatible" or
+    # "via MCP" mention is a runtime dependency on the protocol layer) ---
+    "mcp":                     "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "model context protocol":  "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+}
+
+# Phrase rules for `runtime-dependency` mining. The capture group is the
+# substrate name; resolved against SUBSTRATE_ALIASES (longest-prefix match
+# wins). These overlap with PHRASE_RULES on purpose: "powered by Qdrant"
+# emits BOTH a `built-on` edge AND a `runtime-dependency` edge — they
+# answer different questions, and the schema explicitly allows multiple
+# edges per (source, target) when types differ (§4 "Multiple edges
+# between the same pair").
+#
+# Capture group 1 = a permissive identifier-like span. We resolve it to
+# a substrate alias by walking down the captured text token-by-token
+# (longest match wins) — so "powered by OpenAI GPT-4o" matches against
+# alias "openai gpt" (or "gpt-4o", whichever sorts longer in the table).
+_RT_TAIL = r"([A-Za-z][A-Za-z0-9\-\.\+/]*(?:\s+[A-Za-z0-9][A-Za-z0-9\-\.\+/]*){0,3})"
+
+RUNTIME_PHRASE_RULES: list[re.Pattern] = [
+    re.compile(r"\bpowered by\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbuilt on\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbuilt with\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbuilt atop\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbuilt around\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbased on\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\brequires\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bdepends on\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bdepend on\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bdependent on\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bruns on\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bruns against\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\buses\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\busing\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbacked by\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbackend for\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bcalls\s+" + _RT_TAIL + r"\s+(?:api|endpoint)", re.IGNORECASE),
+    re.compile(r"\bdefault\s+\w+\s+store(?:\s+is)?\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bdefault\s+substrate(?:\s+is)?\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bdefault\s+model(?:\s+is)?\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bvector store\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bbyo\s+" + _RT_TAIL + r"\s+(?:provider|model|llm)", re.IGNORECASE),
+    re.compile(r"\bvia\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bon top of\s+" + _RT_TAIL, re.IGNORECASE),
+    re.compile(r"\bwraps\s+" + _RT_TAIL, re.IGNORECASE),
+    # `<substrate>-compatible` / `<substrate>-native` / `<substrate>-backed`
+    # patterns — a record describing itself this way is declaring a runtime
+    # dependency on that substrate. We bind the captured name as group 1
+    # via a leading optional `the ` so the resolver gets a clean span.
+    re.compile(r"\b" + _RT_TAIL + r"-compatible\b", re.IGNORECASE),
+    re.compile(r"\b" + _RT_TAIL + r"-native\b", re.IGNORECASE),
+    re.compile(r"\b" + _RT_TAIL + r"-backed\b", re.IGNORECASE),
+]
+
+# Cells scanned for runtime-dependency mining. A superset of MINED_CELLS
+# (which mines other relationship types) because substrate mentions live
+# in adjacent-infrastructure, backend-storage, embedding-model, and the
+# free-text type / desc / claims cells too.
+RT_MINED_CELLS = (
+    "desc",
+    "claims",
+    "repro",
+    "code-release",
+    "adjacent-infrastructure",
+    "backend-storage",
+    "embedding-model",
+    "type",
+    "links",
+    "pros",
+    "optimised-for",
+)
 
 # ---------------------------------------------------------------------------
 # Helpers.
@@ -501,6 +688,251 @@ def mine_cells(records: list[dict], resolver: Resolver) -> tuple[list[dict], lis
 
 
 # ---------------------------------------------------------------------------
+# Runtime-dependency mining (issue #44).
+#
+# A separate pass from `mine_cells` because the resolver here is constrained
+# to a curated substrate alias table (SUBSTRATE_ALIASES) rather than the
+# full corpus. Without that constraint, "uses Mem0" or "uses Letta" would
+# fabricate edges to peer products — those are integrations, not runtime
+# dependencies. The substrate list intentionally includes only foundation
+# models, vector / search stores, and framework runtimes that other rows
+# can be considered "built atop".
+# ---------------------------------------------------------------------------
+
+# Sorted substrate phrases, longest-first, so multi-word matches win.
+_SUBSTRATE_PHRASES_SORTED = sorted(
+    SUBSTRATE_ALIASES.keys(), key=lambda s: (-len(s), s)
+)
+
+
+def _resolve_substrate(candidate: str) -> tuple[str | None, str | None]:
+    """Walk down a captured span looking for the longest substrate phrase
+    that appears as a prefix or whole-token region.
+
+    Returns (substrate_id, phrase) or (None, None) if no substrate matched.
+    The matcher is anchored to token boundaries to avoid the `retro` vs
+    `retrospective` false-positive class — a substrate phrase must either
+    be the full normalised candidate or be followed by a whitespace
+    boundary within the candidate.
+    """
+    norm = re.sub(r"\s+", " ", candidate.lower().strip().rstrip(".,;:)("))
+    if not norm:
+        return None, None
+    for phrase in _SUBSTRATE_PHRASES_SORTED:
+        # Prefix-match anchored at a word boundary on the right.
+        if norm == phrase:
+            return SUBSTRATE_ALIASES[phrase], phrase
+        if norm.startswith(phrase + " ") or norm.startswith(phrase + "/"):
+            return SUBSTRATE_ALIASES[phrase], phrase
+        # Whole-word substring (e.g. "default OpenAI provider")
+        idx = norm.find(phrase)
+        if idx >= 0:
+            left_ok = (idx == 0) or not norm[idx - 1].isalnum()
+            right_idx = idx + len(phrase)
+            right_ok = (right_idx == len(norm)) or not norm[right_idx].isalnum()
+            if left_ok and right_ok:
+                return SUBSTRATE_ALIASES[phrase], phrase
+    return None, None
+
+
+def _add_edge_if_new(
+    edges_by_key: dict[tuple[str, str, str], dict],
+    source_id: str,
+    target_id: str,
+    evidence: str,
+    citation: str,
+) -> None:
+    """Insert a (source, target, runtime-dependency) edge, or upgrade the
+    evidence of an existing one if longer.
+
+    Centralised here so the trigger-phrase pass and the substrate-scan pass
+    follow exactly the same dedup rules. The schema's pair+type
+    uniqueness invariant (§7.2.8) is the canonical contract.
+    """
+    key = (source_id, target_id, "runtime-dependency")
+    if key in edges_by_key:
+        existing = edges_by_key[key]
+        if len(evidence) > len(existing["evidence"]):
+            existing["evidence"] = evidence
+            existing["citation"] = citation
+    else:
+        edges_by_key[key] = {
+            "source": source_id,
+            "target": target_id,
+            "type": "runtime-dependency",
+            "evidence": evidence,
+            "citation": citation,
+        }
+
+
+# Cells where a bare substrate name (without a trigger phrase) is itself
+# evidence of a runtime dependency. These cells are dedicated to listing
+# the substrate stack (`adjacent-infrastructure`, `backend-storage`,
+# `embedding-model`). For other cells we require a trigger phrase to
+# avoid false positives from prose mentions.
+RT_BARE_CELLS = (
+    "adjacent-infrastructure",
+    "backend-storage",
+    "embedding-model",
+)
+
+
+def _scan_bare_substrates(text: str) -> list[tuple[str, str]]:
+    """Find every (substrate_id, phrase) pair mentioned as a whole-word
+    token in `text`. Used for cells where the cell name itself implies a
+    substrate-listing context (see RT_BARE_CELLS).
+
+    Returns a list of (substrate_id, matched_phrase) — one entry per
+    distinct substrate phrase observed. The phrase is the lowercased key
+    from SUBSTRATE_ALIASES so the caller can build evidence text.
+    """
+    norm_text = text.lower()
+    hits: list[tuple[str, str]] = []
+    seen_ids: set[str] = set()
+    for phrase in _SUBSTRATE_PHRASES_SORTED:
+        if phrase not in norm_text:
+            continue
+        # Whole-word check: bounded on both ends by non-alphanumeric.
+        # Use re.finditer with explicit word-boundary so "mcp" doesn't
+        # match inside "mcpserver" or "memcpy".
+        rx = re.compile(r"(?<![A-Za-z0-9])" + re.escape(phrase) + r"(?![A-Za-z0-9])")
+        if not rx.search(norm_text):
+            continue
+        sid = SUBSTRATE_ALIASES[phrase]
+        if sid in seen_ids:
+            continue
+        seen_ids.add(sid)
+        hits.append((sid, phrase))
+    return hits
+
+
+def mine_runtime_dependencies(
+    records: list[dict], resolver: Resolver
+) -> tuple[list[dict], list[dict]]:
+    """Mine `runtime-dependency` edges in two passes:
+
+    1. **Trigger-phrase pass** — scan `RT_MINED_CELLS` for regex
+       matches against `RUNTIME_PHRASE_RULES`. The captured span is
+       resolved against `SUBSTRATE_ALIASES`. High precision, decent
+       recall.
+
+    2. **Bare-substrate scan** — for cells in `RT_BARE_CELLS`
+       (`adjacent-infrastructure`, `backend-storage`,
+       `embedding-model`), a bare substrate-name mention is itself
+       evidence of a runtime dependency. The cell name supplies the
+       context "this is a substrate listing". Higher recall but
+       still bounded by the curated alias table.
+
+    Both passes write into the same `edges_by_key` map and follow the
+    same dedup rule (longer evidence wins). The schema invariant
+    `(source, target, type)` is unique is preserved by going through
+    `_add_edge_if_new`.
+
+    A record never gets a runtime-dependency edge to itself — the
+    SUBSTRATE_ALIASES table sometimes maps a phrase to a row that IS
+    the source record (e.g. the LangChain framework row using the word
+    "LangChain" in its own description).
+
+    Returns `(edges, discarded)`. Discarded entries explain why a
+    trigger-phrase match failed to resolve, used to tune the alias
+    table.
+    """
+    valid_ids = set(resolver.by_id)
+    edges_by_key: dict[tuple[str, str, str], dict] = {}
+    discarded: list[dict] = []
+
+    for r in records:
+        source_id = r["id"]
+        primary_url = r.get("url")
+
+        # --- Pass 1: trigger-phrase mining ---
+        for cell_key in RT_MINED_CELLS:
+            cell = r["cells"].get(cell_key)
+            if not cell:
+                continue
+            if cell.get("status") not in {"real-data", "depth-floor-reached"}:
+                continue
+            text = cell.get("value") or ""
+            if not text or len(text) < 10:
+                continue
+            cell_citation = cell.get("citation")
+            for pattern in RUNTIME_PHRASE_RULES:
+                for m in pattern.finditer(text):
+                    raw_target = m.group(1)
+                    target_id, phrase = _resolve_substrate(raw_target)
+                    if not target_id:
+                        discarded.append({
+                            "source": source_id,
+                            "cell": cell_key,
+                            "raw": raw_target,
+                            "reason": "no-substrate-alias-match",
+                        })
+                        continue
+                    if target_id not in valid_ids:
+                        discarded.append({
+                            "source": source_id,
+                            "cell": cell_key,
+                            "raw": raw_target,
+                            "reason": f"substrate-id-not-in-catalog: {target_id}",
+                        })
+                        continue
+                    if target_id == source_id:
+                        continue  # self-edge, harmless
+                    citation = cell_citation or primary_url or ""
+                    if not citation:
+                        discarded.append({
+                            "source": source_id,
+                            "cell": cell_key,
+                            "raw": raw_target,
+                            "reason": "no-citation",
+                        })
+                        continue
+                    _add_edge_if_new(
+                        edges_by_key,
+                        source_id,
+                        target_id,
+                        evidence_window(text, m),
+                        citation,
+                    )
+
+        # --- Pass 2: bare-substrate scan on dedicated substrate cells ---
+        for cell_key in RT_BARE_CELLS:
+            cell = r["cells"].get(cell_key)
+            if not cell:
+                continue
+            if cell.get("status") not in {"real-data", "depth-floor-reached"}:
+                continue
+            text = cell.get("value") or ""
+            if not text or len(text) < 4:
+                continue
+            cell_citation = cell.get("citation")
+            citation = cell_citation or primary_url or ""
+            if not citation:
+                continue
+            for substrate_id, phrase in _scan_bare_substrates(text):
+                if substrate_id not in valid_ids:
+                    continue
+                if substrate_id == source_id:
+                    continue
+                # Evidence: the (truncated) cell text, prefixed with the
+                # cell name so a reader can see why this counts as a
+                # dependency without needing the schema docs.
+                snippet = text if len(text) <= 200 else text[:200].rstrip() + "..."
+                evidence = f"{cell_key} cell: {snippet}"
+                if len(evidence) > 480:  # SCHEMA §7.2.10 soft cap is 500
+                    evidence = evidence[:480].rstrip() + "..."
+                _add_edge_if_new(
+                    edges_by_key,
+                    source_id,
+                    substrate_id,
+                    evidence,
+                    citation,
+                )
+
+    return list(edges_by_key.values()), discarded
+
+
+# ---------------------------------------------------------------------------
 # Cross-references CSV.
 # ---------------------------------------------------------------------------
 
@@ -760,6 +1192,11 @@ def main(argv: list[str] | None = None) -> int:
     # Mine each source.
     cell_edges, cell_discards = mine_cells(records, resolver)
     print(f"Cell mining: {len(cell_edges)} edges, {len(cell_discards)} discarded.", file=sys.stderr)
+    rt_edges, rt_discards = mine_runtime_dependencies(records, resolver)
+    print(
+        f"Runtime-deps: {len(rt_edges)} edges, {len(rt_discards)} discarded.",
+        file=sys.stderr,
+    )
     xref_edges, xref_discards = mine_cross_refs(resolver)
     print(f"Cross-refs:  {len(xref_edges)} edges, {len(xref_discards)} discarded.", file=sys.stderr)
     listing_edges = mine_cross_listings(resolver)
@@ -767,7 +1204,9 @@ def main(argv: list[str] | None = None) -> int:
     team_edges = infer_same_team_from_gh(resolver)
     print(f"Same-team (GH org):     {len(team_edges)} edges.", file=sys.stderr)
 
-    all_edges = cell_edges + xref_edges + listing_edges + team_edges
+    all_edges = (
+        cell_edges + rt_edges + xref_edges + listing_edges + team_edges
+    )
     all_edges = dedupe(all_edges)
     validate(all_edges, resolver)
 

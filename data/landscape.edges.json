@@ -3,6 +3,13 @@
   "generatedAt": "2026-05-07T00:00:00Z",
   "edges": [
     {
+      "source": "1x-technologies--1x-tech",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI Startup Fund portfolio; Norwegian / US robotics ecosystem",
+      "citation": "https://www.1x.tech/"
+    },
+    {
       "source": "a-mem--gh-wujiangxu-a-mem",
       "target": "locomo--arxiv-2402-17753",
       "type": "cites",
@@ -33,6 +40,27 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/e5e8c6ac537e0f5b5db14170bc232d6f9e641bbc",
       "isInfluential": true
+    },
+    {
+      "source": "adept-act--adept-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Amazon AGI (parent post-acquisition); spiritual predecessor to Anthropic Computer Use + OpenAI Operator + Project Mariner",
+      "citation": "https://www.adept.ai/"
+    },
+    {
+      "source": "adept-act--adept-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Amazon AGI (parent post-acquisition); spiritual predecessor to Anthropic Computer Use + OpenAI Operator + Project Mariner",
+      "citation": "https://www.adept.ai/"
+    },
+    {
+      "source": "agency-swarm--gh-vrsen-agency-swarm",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "Agent framework built on OpenAI Assistants API — agencies (roles + comm flow); replaced after Assistants v",
+      "citation": "https://github.com/VRSEN/agency-swarm"
     },
     {
       "source": "agent-reconfigure-reconfigurable-agent--arxiv-2410-21465",
@@ -117,12 +145,33 @@
       "citation": "https://docs.phidata.com/agents/memory"
     },
     {
+      "source": "aider-harness--aider-chat",
+      "target": "litellm--gh-berriai-litellm",
+      "type": "runtime-dependency",
+      "evidence": "po-map for context; uses any LiteLLM-compatible model. Memory via CONVENTIONS.md and .aider.conf.yml — author-edited mark",
+      "citation": "https://aider.chat"
+    },
+    {
+      "source": "alita--arxiv-2505-20286",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "imal self-evolution via MCP generation. Headline: 75.15% pass@1 and 87.27% pass@3 on GAIA validation; 74.00%",
+      "citation": "https://arxiv.org/abs/2505.20286"
+    },
+    {
       "source": "alita-g--arxiv-2510-23601",
       "target": "alita--arxiv-2505-20286",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.23601",
       "isInfluential": true
+    },
+    {
+      "source": "alita-g--arxiv-2510-23601",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "st to domain expert via MCP synthesis, abstraction, and curation into MCP Box. Headline: 83.03% p",
+      "citation": "https://arxiv.org/abs/2510.23601"
     },
     {
       "source": "amazon-neptune-analytics--aws-amazon-com",
@@ -139,6 +188,48 @@
       "citation": "https://aws.amazon.com/neptune/"
     },
     {
+      "source": "amazon-neptune-analytics--aws-amazon-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "aph nodes queryable via openCypher. Mem0 integration GA 2025; Cognee integration for agentic RAG. Combines semantic",
+      "citation": "https://aws.amazon.com/neptune/"
+    },
+    {
+      "source": "amazon-nova-family--aboutamazon-com",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: AWS Bedrock (distribution); Amazon Q Developer / Q Business; Alexa+; Trainium/Inferentia chips",
+      "citation": "https://www.aboutamazon.com/news/aws/amazon-nova-foundation-models"
+    },
+    {
+      "source": "amazon-q-developer--aws-amazon-com",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: AWS Bedrock; AWS IAM; CloudWatch",
+      "citation": "https://aws.amazon.com/q/developer/"
+    },
+    {
+      "source": "anthropic-auto-dream--claudefa-st",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code v2.1.59+; local filesystem; no external store",
+      "citation": "https://claudefa.st/blog/guide/mechanics/auto-dream"
+    },
+    {
+      "source": "anthropic-claude-memory--platform-claude-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: self-contained Claude consumer product",
+      "citation": "https://www.anthropic.com/news/memory"
+    },
+    {
+      "source": "anthropic-computer-use--anthropic-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "d OS-agent products built on Claude.",
+      "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use"
+    },
+    {
       "source": "anthropic-computer-use--anthropic-com",
       "target": "claude-code-anthropic--anthropic-com",
       "type": "built-on",
@@ -146,11 +237,39 @@
       "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use"
     },
     {
+      "source": "anthropic-computer-use--docs-anthropic-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic API; Docker / E2B for safe sandboxing",
+      "citation": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use"
+    },
+    {
+      "source": "anthropic-managed-agents-memory--platform-claude-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude API + managed filesystem",
+      "citation": "https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool"
+    },
+    {
       "source": "apache-age--age-apache-org",
       "target": "pgvector--gh-pgvector-pgvector",
       "type": "integrates-with",
       "evidence": "openCypher over Postgres. Pairs with pgvector for graph + vector hybrid retrieval.",
       "citation": "https://age.apache.org"
+    },
+    {
+      "source": "apptronik--apptronik-com",
+      "target": "google-deepmind-gemini-robotics--deepmind-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Google DeepMind Gemini Robotics; Mercedes manufacturing",
+      "citation": "https://deepmind.google/technologies/gemini-robotics/"
+    },
+    {
+      "source": "apptronik--apptronik-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Google DeepMind Gemini Robotics; Mercedes manufacturing",
+      "citation": "https://deepmind.google/technologies/gemini-robotics/"
     },
     {
       "source": "arangodb--arangodb-com",
@@ -196,6 +315,13 @@
       "type": "integrates-with",
       "evidence": "Integrates with Mem0/Zep rather than building deep memory natively.",
       "citation": "https://microsoft.github.io/autogen/"
+    },
+    {
+      "source": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires AWS Bedrock + AgentCore",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-getting-started.html"
     },
     {
       "source": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
@@ -252,12 +378,47 @@
       "isInfluential": true
     },
     {
+      "source": "babyagi--gh-yoheinakajima-babyagi",
+      "target": "pinecone--pinecone-io",
+      "type": "runtime-dependency",
+      "evidence": "k-list agent loop — Pinecone-backed memory, OpenAI for execution; ~150 LOC. Influence-dispropor",
+      "citation": "https://github.com/yoheinakajima/babyagi"
+    },
+    {
+      "source": "backboard--github-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM (OpenAI/Anthropic/Gemini/Ollama keys)",
+      "citation": "https://backboard.io/docs"
+    },
+    {
+      "source": "backboard--github-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM (OpenAI/Anthropic/Gemini/Ollama keys)",
+      "citation": "https://backboard.io/docs"
+    },
+    {
+      "source": "backboard--github-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM (OpenAI/Anthropic/Gemini/Ollama keys)",
+      "citation": "https://backboard.io/docs"
+    },
+    {
       "source": "bai-lab-memoryos--gh-bai-lab-memoryos",
       "target": "a-mem--gh-wujiangxu-a-mem",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/680ce7341b47e2979073142e4a7388b34257cdbc",
       "isInfluential": true
+    },
+    {
+      "source": "bedrock-agentcore-aws--aws-amazon-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: AWS Bedrock; Mem0 (as memory provider); Strands Agents",
+      "citation": "https://aws.amazon.com/bedrock/agentcore/"
     },
     {
       "source": "bedrock-agentcore-aws--aws-amazon-com",
@@ -281,6 +442,41 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2602.02007",
       "isInfluential": true
+    },
+    {
+      "source": "bolt-new-stackblitz-harness--bolt-new",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: StackBlitz WebContainer; Anthropic Claude",
+      "citation": "https://bolt.new"
+    },
+    {
+      "source": "browser-use--browser-use-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Anthropic / OpenAI / Gemini APIs; Browserbase / Hyperbrowser substrates",
+      "citation": "https://github.com/browser-use/browser-use"
+    },
+    {
+      "source": "browser-use--browser-use-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Anthropic / OpenAI / Gemini APIs; Browserbase / Hyperbrowser substrates",
+      "citation": "https://github.com/browser-use/browser-use"
+    },
+    {
+      "source": "browser-use--browser-use-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Anthropic / OpenAI / Gemini APIs; Browserbase / Hyperbrowser substrates",
+      "citation": "https://github.com/browser-use/browser-use"
+    },
+    {
+      "source": "burr-dagworks--burr-dagworks-io",
+      "target": "langgraph-orchestration--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Hamilton (sister OSS framework, same company); LangGraph (closest competitor); MLflow / Phoenix observability",
+      "citation": "https://burr.dagworks.io/"
     },
     {
       "source": "burr-dagworks--gh-dagworks-inc-burr",
@@ -353,12 +549,26 @@
       "citation": "https://chatgpt.com/codex"
     },
     {
+      "source": "chatgpt-codex-cloud-agent--chatgpt-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI Codex (model) + cloud sandbox",
+      "citation": "https://chatgpt.com/codex"
+    },
+    {
       "source": "chunkrag--arxiv-2410-19572",
       "target": "self-rag--arxiv-2310-11511",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2410.19572",
       "isInfluential": true
+    },
+    {
+      "source": "cipher-byterover--gh-campfirein-cipher",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "aude Code, Roo Code via MCP. Maintains a coding-context memory across sessions and across IDEs.",
+      "citation": "https://github.com/campfirein/cipher"
     },
     {
       "source": "cl-of-llms-survey--dl-acm-org",
@@ -378,6 +588,13 @@
     },
     {
       "source": "claude-brain--gh-memvid-claude-brain",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/memvid/claude-brain"
+    },
+    {
+      "source": "claude-brain--gh-memvid-claude-brain",
       "target": "memvid--gh-memvid-memvid",
       "type": "built-on",
       "evidence": "claude-brain packages memvid (same GitHub org memvid/) as a Claude Code plugin; cross-listings note flagged this pair.",
@@ -391,6 +608,97 @@
       "citation": "https://github.com/memvid/claude-brain"
     },
     {
+      "source": "claude-brain--gh-memvid-claude-brain",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/memvid/claude-brain"
+    },
+    {
+      "source": "claude-code-anthropic--anthropic-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic API; MCP server ecosystem",
+      "citation": "https://www.anthropic.com/claude-code"
+    },
+    {
+      "source": "claude-code-anthropic--anthropic-com",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic API; MCP server ecosystem",
+      "citation": "https://www.anthropic.com/claude-code"
+    },
+    {
+      "source": "claude-code-auto-memory--docs-claude-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://docs.claude.com/en/docs/claude-code/memory"
+    },
+    {
+      "source": "claude-code-auto-memory--docs-claude-com",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://docs.claude.com/en/docs/claude-code/memory"
+    },
+    {
+      "source": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP"
+    },
+    {
+      "source": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP"
+    },
+    {
+      "source": "claude-for-chrome--anthropic-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Chrome; Anthropic Computer Use API; Claude Memory",
+      "citation": "https://www.anthropic.com/news/claude-for-chrome"
+    },
+    {
+      "source": "claude-md--docs-claude-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: file (CLAUDE.md)",
+      "citation": "https://docs.claude.com/en/docs/claude-code/memory"
+    },
+    {
+      "source": "claude-mem--gh-thedotmack-claude-mem",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "-token observations via Claude's agent SDK. SQLite + FTS5 with optional Chroma vector. \"En",
+      "citation": "https://github.com/thedotmack/claude-mem"
+    },
+    {
+      "source": "claude-mem--gh-thedotmack-claude-mem",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/thedotmack/claude-mem"
+    },
+    {
+      "source": "claude-supermemory--gh-supermemoryai-claude-supermemory",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/supermemoryai/claude-supermemory"
+    },
+    {
+      "source": "claude-supermemory--gh-supermemoryai-claude-supermemory",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/supermemoryai/claude-supermemory"
+    },
+    {
       "source": "claude-supermemory--gh-supermemoryai-claude-supermemory",
       "target": "supermemory--supermemory-ai",
       "type": "built-on",
@@ -398,11 +706,95 @@
       "citation": "https://github.com/supermemoryai/claude-supermemory"
     },
     {
+      "source": "cline-framework--cline-bot",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "+ edit operations; uses Anthropic Computer Use style flow.",
+      "citation": "https://cline.bot/"
+    },
+    {
+      "source": "cline-harness--cline-bot",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI-compatible API; MCP",
+      "citation": "https://cline.bot"
+    },
+    {
+      "source": "cline-harness--cline-bot",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "VS Code extensions; multi-model via standard OpenAI-compatible APIs.",
+      "citation": "https://cline.bot"
+    },
+    {
+      "source": "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: self-contained binary + SQLite WAL; MCP client (Claude Code/Codex CLI/etc.); no LLM lock-in",
+      "citation": "https://github.com/DeusData/codebase-memory-mcp"
+    },
+    {
+      "source": "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: self-contained binary + SQLite WAL; MCP client (Claude Code/Codex CLI/etc.); no LLM lock-in",
+      "citation": "https://github.com/DeusData/codebase-memory-mcp"
+    },
+    {
+      "source": "cognee--cognee-ai",
+      "target": "lancedb--lancedb-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM; bundles Kuzu/Neo4j for graph + LanceDB for vectors",
+      "citation": "https://docs.cognee.ai/"
+    },
+    {
+      "source": "cognee--cognee-ai",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM; bundles Kuzu/Neo4j for graph + LanceDB for vectors",
+      "citation": "https://docs.cognee.ai/"
+    },
+    {
+      "source": "cognee-mcp--gh-topoteretes-cognee",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/topoteretes/cognee"
+    },
+    {
       "source": "cognee-mcp--gh-topoteretes-cognee",
       "target": "cognee--cognee-ai",
       "type": "built-on",
       "evidence": "Cognee MCP — Bundled in Cognee v0.3.5+",
       "citation": "https://github.com/topoteretes/cognee"
+    },
+    {
+      "source": "cognee-mcp--gh-topoteretes-cognee",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/topoteretes/cognee"
+    },
+    {
+      "source": "cognition-devin-v2-spec-mode--cognition-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: absorbed Windsurf IP (Aug 2025); Anthropic + OpenAI models",
+      "citation": "https://cognition.ai"
+    },
+    {
+      "source": "cognition-devin-v2-spec-mode--cognition-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: absorbed Windsurf IP (Aug 2025); Anthropic + OpenAI models",
+      "citation": "https://cognition.ai"
+    },
+    {
+      "source": "cohere-command-r-command-a--cohere-com",
+      "target": "cohere-embed--cohere-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Cohere Embed v4; Cohere Rerank v3; Oracle Cloud Infrastructure deep integration",
+      "citation": "https://cohere.com/command"
     },
     {
       "source": "cola--arxiv-2503-09263",
@@ -445,11 +837,39 @@
       "isInfluential": true
     },
     {
+      "source": "continue-dev-harness--continue-dev",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: any OpenAI-compatible API; MCP",
+      "citation": "https://continue.dev"
+    },
+    {
+      "source": "continue-dev-harness--continue-dev",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: any OpenAI-compatible API; MCP",
+      "citation": "https://continue.dev"
+    },
+    {
+      "source": "continue-dev-memory-mcp--hub-continue-dev",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "Memory is injected via MCP rather than native to the Continue core. Scope depends on MCP server deploymen",
+      "citation": "https://hub.continue.dev/continuedev/memory-mcp"
+    },
+    {
       "source": "continue-dev-memory-mcp--hub-continue-dev",
       "target": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
       "type": "built-on",
       "evidence": "Official Memory MCP (Mar 2025) backed by a knowledge graph. Memory is injected via MCP",
       "citation": "https://hub.continue.dev/continuedev/memory-mcp"
+    },
+    {
+      "source": "coveo--coveo-com",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "for AWS (Dec 2025) via hosted MCP server grounding Amazon Bedrock agents in enterprise knowledge. Passage retr",
+      "citation": "https://www.coveo.com/"
     },
     {
       "source": "crag--arxiv-2401-15884",
@@ -460,11 +880,67 @@
       "isInfluential": true
     },
     {
+      "source": "crewai--crewai-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "e. Memory available via Mem0 / Letta adapters (CrewAI Memory cross-listed).",
+      "citation": "https://www.crewai.com/"
+    },
+    {
+      "source": "crewai-enterprise--crewai-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OSS CrewAI (already in catalog); typically paired with Mem0 / Zep for memory + Langfuse / LangSmith for observability",
+      "citation": "https://www.crewai.com/enterprise"
+    },
+    {
+      "source": "crewai-enterprise--crewai-com",
+      "target": "zep-graphiti--getzep-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OSS CrewAI (already in catalog); typically paired with Mem0 / Zep for memory + Langfuse / LangSmith for observability",
+      "citation": "https://www.crewai.com/enterprise"
+    },
+    {
+      "source": "crewai-memory--crewai-com",
+      "target": "chroma--trychroma-com",
+      "type": "runtime-dependency",
+      "evidence": ". Short-term memory backed by ChromaDB + RAG; long-term + entity memory layers built in. Mature mu",
+      "citation": "https://www.insightpartners.com/ideas/crewai-scaleup-ai-story/"
+    },
+    {
       "source": "crewai-memory--crewai-com",
       "target": "mem0--mem0-ai",
       "type": "integrates-with",
       "evidence": "Memory subsystem inside the CrewAI orchestration framework; integrates with Mem0 for the long-term tier.",
       "citation": "https://www.crewai.com/"
+    },
+    {
+      "source": "crewai-memory--crewai-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires CrewAI; integrates Mem0 for long-term",
+      "citation": "https://docs.crewai.com/concepts/memory"
+    },
+    {
+      "source": "cursor-ide--cursor-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude + OpenAI GPT + own Cursor-Tab model",
+      "citation": "https://cursor.com"
+    },
+    {
+      "source": "cursor-ide--cursor-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude + OpenAI GPT + own Cursor-Tab model",
+      "citation": "https://cursor.com"
+    },
+    {
+      "source": "decagon--decagon-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "Backed by OpenAI. ElevenLabs partnership for voice (2025).",
+      "citation": "https://decagon.ai/blog/decagon-series-d"
     },
     {
       "source": "dgraph--dgraph-io",
@@ -490,11 +966,25 @@
       "isInfluential": true
     },
     {
+      "source": "diffbot--diffbot-com",
+      "target": "meta-llama-4-family--ai-meta-com",
+      "type": "runtime-dependency",
+      "evidence": "AG-fine-tuned model based on open-source Llama 3.3.",
+      "citation": "https://www.diffbot.com/"
+    },
+    {
       "source": "dspy-history--dspy-ai",
       "target": "mem0--mem0-ai",
       "type": "integrates-with",
       "evidence": "Official Mem0+DSPy tutorial.",
       "citation": "https://dspy.ai/api/primitives/History/"
+    },
+    {
+      "source": "e2b--e2b-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Firecracker (substrate); Anthropic Claude Code; Perplexity; Hugging Face Spaces; competes with Modal Sandboxes / Daytona",
+      "citation": "https://e2b.dev/"
     },
     {
       "source": "em-llm--arxiv-2407-09450",
@@ -519,6 +1009,20 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2403.01112",
       "isInfluential": true
+    },
+    {
+      "source": "engram--gh-gentleman-programming-engram",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/Gentleman-Programming/engram"
+    },
+    {
+      "source": "engram--gh-gentleman-programming-engram",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/Gentleman-Programming/engram"
     },
     {
       "source": "evermemos--arxiv-2601-02163",
@@ -561,10 +1065,38 @@
     },
     {
       "source": "falkordb--falkordb-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "G SDK. Graph-memory backend for Mem0; MCP server via Graphiti integration; context graphs for lo",
+      "citation": "https://www.falkordb.com/"
+    },
+    {
+      "source": "falkordb--falkordb-com",
       "target": "zep-graphiti--getzep-com",
       "type": "integrates-with",
       "evidence": "MCP server via Graphiti integration",
       "citation": "https://www.falkordb.com/"
+    },
+    {
+      "source": "falkordb--falkordb-com",
+      "target": "zep-graphiti--getzep-com",
+      "type": "runtime-dependency",
+      "evidence": "or Mem0; MCP server via Graphiti integration; context graphs for long-term agent memory.",
+      "citation": "https://www.falkordb.com/"
+    },
+    {
+      "source": "figure-ai--figure-ai",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BMW manufacturing; OpenAI partnership (ended Feb 2025); Microsoft Azure",
+      "citation": "https://www.figure.ai/"
+    },
+    {
+      "source": "figure-ai--figure-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BMW manufacturing; OpenAI partnership (ended Feb 2025); Microsoft Azure",
+      "citation": "https://www.figure.ai/"
     },
     {
       "source": "fincon--arxiv-2407-06567",
@@ -587,6 +1119,13 @@
       "target": "langchain-framework--langchain-com",
       "type": "integrates-with",
       "evidence": "LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary Buffer)",
+      "citation": "https://docs.flowiseai.com/integrations/langchain/memory"
+    },
+    {
+      "source": "flowise-memory--docs-flowiseai-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "Visual LangChain canvas. LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary B",
       "citation": "https://docs.flowiseai.com/integrations/langchain/memory"
     },
     {
@@ -670,6 +1209,20 @@
       "isInfluential": true
     },
     {
+      "source": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires GCP (Vertex AI / Gemini Enterprise); on-prem option via open-source Gemma 4; managed MCP servers; Pub/Sub + Cloud Trace + IAM",
+      "citation": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform"
+    },
+    {
+      "source": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires GCP (Vertex AI / Gemini Enterprise); on-prem option via open-source Gemma 4; managed MCP servers; Pub/Sub + Cloud Trace + IAM",
+      "citation": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform"
+    },
+    {
       "source": "generative-semantic-workspace-gsw--arxiv-2511-07587",
       "target": "graphrag-microsoft--microsoft-com",
       "type": "cites",
@@ -678,11 +1231,109 @@
       "isInfluential": true
     },
     {
+      "source": "github-copilot-agent-mode--gh-features-copilot",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude + Google Gemini (multi-model 2024+)",
+      "citation": "https://github.com/features/copilot"
+    },
+    {
+      "source": "github-copilot-agent-mode--gh-features-copilot",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude + Google Gemini (multi-model 2024+)",
+      "citation": "https://github.com/features/copilot"
+    },
+    {
+      "source": "github-copilot-agent-mode--gh-features-copilot",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude + Google Gemini (multi-model 2024+)",
+      "citation": "https://github.com/features/copilot"
+    },
+    {
+      "source": "github-copilot-agent-mode--gh-features-copilot",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude + Google Gemini (multi-model 2024+)",
+      "citation": "https://github.com/features/copilot"
+    },
+    {
+      "source": "github-copilot-workspace--githubnext-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude (GitHub-hosted models)",
+      "citation": "https://githubnext.com/projects/copilot-workspace"
+    },
+    {
+      "source": "github-copilot-workspace--githubnext-com",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "25 with broader GA. Backed by Microsoft Azure OpenAI + Anthropic Claude (added 2024). Companion to in-editor Cop",
+      "citation": "https://githubnext.com/projects/copilot-workspace"
+    },
+    {
+      "source": "github-copilot-workspace--githubnext-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude (GitHub-hosted models)",
+      "citation": "https://githubnext.com/projects/copilot-workspace"
+    },
+    {
+      "source": "google-deepmind-gemini-robotics--deepmind-google",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "ar-2025. VLA models built on Gemini 2.0 backbone. Reference platform: Apptronik Apollo. The DeepMind line of robotics-F",
+      "citation": "https://deepmind.google/technologies/gemini-robotics/"
+    },
+    {
+      "source": "goose-block--block-github-io",
+      "target": "litellm--gh-berriai-litellm",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: LiteLLM for multi-model routing; MCP for tool integrations; Block-internal extensions (square/cash app workflows)",
+      "citation": "https://block.github.io/goose/"
+    },
+    {
+      "source": "goose-block--block-github-io",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: LiteLLM for multi-model routing; MCP for tool integrations; Block-internal extensions (square/cash app workflows)",
+      "citation": "https://block.github.io/goose/"
+    },
+    {
+      "source": "graphiti-mcp-server-zep--getzep-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://www.getzep.com/product/knowledge-graph-mcp"
+    },
+    {
+      "source": "graphiti-mcp-server-zep--getzep-com",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://www.getzep.com/product/knowledge-graph-mcp"
+    },
+    {
+      "source": "graphiti-mcp-server-zep--getzep-com",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: Neo4j",
+      "citation": "https://github.com/getzep/graphiti"
+    },
+    {
       "source": "graphiti-mcp-server-zep--getzep-com",
       "target": "zep-graphiti--getzep-com",
       "type": "built-on",
       "evidence": "Graphiti is the open-source core; MCP exposure of Graphiti's bi-temporal KG",
       "citation": "https://www.getzep.com/product/knowledge-graph-mcp"
+    },
+    {
+      "source": "grok-memory-xai--maginative-com",
+      "target": "xai-grok-4--x-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: self-contained xAI / X",
+      "citation": "https://x.ai/"
     },
     {
       "source": "grpo--arxiv-2402-03300",
@@ -740,10 +1391,45 @@
       "isInfluential": true
     },
     {
+      "source": "highlight-ai--highlightai-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic / OpenAI APIs; local Llama option",
+      "citation": "https://highlightai.com/"
+    },
+    {
+      "source": "highlight-ai--highlightai-com",
+      "target": "meta-llama-4-family--ai-meta-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic / OpenAI APIs; local Llama option",
+      "citation": "https://highlightai.com/"
+    },
+    {
+      "source": "highlight-ai--highlightai-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic / OpenAI APIs; local Llama option",
+      "citation": "https://highlightai.com/"
+    },
+    {
+      "source": "hindsight-mcp--hindsight-vectorize-io",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://hindsight.vectorize.io/developer/mcp-server"
+    },
+    {
       "source": "hindsight-mcp--hindsight-vectorize-io",
       "target": "hindsight-vectorize--hindsight-vectorize-io",
       "type": "built-on",
       "evidence": "MCP server for Hindsight memory layer; gives any MCP agent access to Vectorize-tuned retrieval.",
+      "citation": "https://hindsight.vectorize.io/developer/mcp-server"
+    },
+    {
+      "source": "hindsight-mcp--hindsight-vectorize-io",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
       "citation": "https://hindsight.vectorize.io/developer/mcp-server"
     },
     {
@@ -761,6 +1447,20 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.10150",
       "isInfluential": true
+    },
+    {
+      "source": "hume-evi--hume-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio (telephony); Anthropic / OpenAI LLMs (or Hume's eLLM)",
+      "citation": "https://www.hume.ai/"
+    },
+    {
+      "source": "hume-evi--hume-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio (telephony); Anthropic / OpenAI LLMs (or Hume's eLLM)",
+      "citation": "https://www.hume.ai/"
     },
     {
       "source": "hyena--arxiv-2302-10866",
@@ -819,6 +1519,20 @@
       "isInfluential": true
     },
     {
+      "source": "jetbrains-ai-assistant--jetbrains-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: JetBrains Cloud (OpenAI + Anthropic + Google)",
+      "citation": "https://www.jetbrains.com/ai/"
+    },
+    {
+      "source": "jetbrains-ai-assistant--jetbrains-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: JetBrains Cloud (OpenAI + Anthropic + Google)",
+      "citation": "https://www.jetbrains.com/ai/"
+    },
+    {
       "source": "kag--arxiv-2409-13731",
       "target": "hipporag-hipporag2--gh-osu-nlp-group-hipporag",
       "type": "cites",
@@ -835,6 +1549,27 @@
       "isInfluential": true
     },
     {
+      "source": "kiro--kiro-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: AWS Bedrock (model routing); Anthropic Claude + Amazon Nova",
+      "citation": "https://kiro.dev"
+    },
+    {
+      "source": "kiro--kiro-dev",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: AWS Bedrock (model routing); Anthropic Claude + Amazon Nova",
+      "citation": "https://kiro.dev"
+    },
+    {
+      "source": "kuzu--kuzudb-github-io",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "Sub-3ms recall via MCP.",
+      "citation": "https://blog.kuzudb.com/post/kuzu-0.4.0-release/"
+    },
+    {
       "source": "langflow-memory--docs-langflow-org",
       "target": "mem0--mem0-ai",
       "type": "integrates-with",
@@ -843,10 +1578,31 @@
     },
     {
       "source": "langgraph-persistence--docs-langchain-com",
+      "target": "langgraph-orchestration--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires LangGraph; checkpointer (SQLite/Postgres)",
+      "citation": "https://langchain-ai.github.io/langgraph/concepts/persistence/"
+    },
+    {
+      "source": "langgraph-persistence--docs-langchain-com",
       "target": "mongodb-atlas-vector-search--mongodb-com",
       "type": "built-on",
       "evidence": "Postgres / Mongo / Redis stores for production.",
       "citation": "https://docs.langchain.com/oss/python/langgraph/persistence"
+    },
+    {
+      "source": "langmem-langchain--langchain-ai-github-io",
+      "target": "langchain-framework--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires LangChain / LangGraph; BYO LLM + store",
+      "citation": "https://langchain-ai.github.io/langmem/"
+    },
+    {
+      "source": "langmem-langchain--langchain-ai-github-io",
+      "target": "langgraph-orchestration--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires LangChain / LangGraph; BYO LLM + store",
+      "citation": "https://langchain-ai.github.io/langmem/"
     },
     {
       "source": "langmem-langchain--langchain-ai-github-io",
@@ -860,6 +1616,13 @@
       "target": "langchain-framework--langchain-com",
       "type": "integrates-with",
       "evidence": "Best integration with the LangChain / LangGraph stack — debug memory + chain + agent in one trace",
+      "citation": "https://www.langchain.com/langsmith"
+    },
+    {
+      "source": "langsmith--langchain-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: custom (LangChain-managed)",
       "citation": "https://www.langchain.com/langsmith"
     },
     {
@@ -883,6 +1646,27 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2504.13805",
       "isInfluential": true
+    },
+    {
+      "source": "letta-memgpt--letta-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM (OpenAI/Anthropic/local); bundled storage (Postgres/SQLite)",
+      "citation": "https://docs.letta.com/install"
+    },
+    {
+      "source": "letta-memgpt--letta-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM (OpenAI/Anthropic/local); bundled storage (Postgres/SQLite)",
+      "citation": "https://docs.letta.com/install"
+    },
+    {
+      "source": "letta-memgpt--letta-com",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: Postgres + pgvector",
+      "citation": "https://docs.letta.com/"
     },
     {
       "source": "licomemory--arxiv-2511-01448",
@@ -949,12 +1733,54 @@
       "isInfluential": true
     },
     {
+      "source": "litellm--gh-berriai-litellm",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "~14k stars; 100+ LLM providers behind OpenAI-compatible API; widely used as proxy/gateway.",
+      "citation": "https://github.com/BerriAI/litellm"
+    },
+    {
+      "source": "livekit-agents--docs-livekit-io",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI Realtime; Anthropic; Deepgram / Cartesia / Eleven STT-TTS; Twilio (for PSTN)",
+      "citation": "https://docs.livekit.io/agents/"
+    },
+    {
+      "source": "livekit-agents--docs-livekit-io",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI Realtime; Anthropic; Deepgram / Cartesia / Eleven STT-TTS; Twilio (for PSTN)",
+      "citation": "https://docs.livekit.io/agents/"
+    },
+    {
+      "source": "llamaindex-memory--llamaindex-ai",
+      "target": "llamaindex-framework--llamaindex-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires LlamaIndex; BYO LLM + vector store",
+      "citation": "https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/memory/"
+    },
+    {
       "source": "lm2--arxiv-2502-06049",
       "target": "babilong--arxiv-2406-10149",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2502.06049",
       "isInfluential": true
+    },
+    {
+      "source": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/studiomeyer-io/local-memory-mcp"
+    },
+    {
+      "source": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/studiomeyer-io/local-memory-mcp"
     },
     {
       "source": "locomo--arxiv-2402-17753",
@@ -1053,6 +1879,34 @@
       "isInfluential": true
     },
     {
+      "source": "lovable-dev-harness--lovable-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Supabase (default DB); Anthropic Claude + OpenAI",
+      "citation": "https://lovable.dev"
+    },
+    {
+      "source": "lovable-dev-harness--lovable-dev",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Supabase (default DB); Anthropic Claude + OpenAI",
+      "citation": "https://lovable.dev"
+    },
+    {
+      "source": "lutra-ai--lutra-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OAuth providers; Anthropic / OpenAI; Google Workspace",
+      "citation": "https://lutra.ai/"
+    },
+    {
+      "source": "lutra-ai--lutra-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OAuth providers; Anthropic / OpenAI; Google Workspace",
+      "citation": "https://lutra.ai/"
+    },
+    {
       "source": "lyfe-agents--arxiv-2310-02172",
       "target": "generative-agents--arxiv-2304-03442",
       "type": "cites",
@@ -1132,6 +1986,34 @@
       "isInfluential": true
     },
     {
+      "source": "magnitude--magnitude-run",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Anthropic / OpenAI APIs",
+      "citation": "https://magnitude.run/"
+    },
+    {
+      "source": "magnitude--magnitude-run",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Anthropic / OpenAI APIs",
+      "citation": "https://magnitude.run/"
+    },
+    {
+      "source": "manus-ai--manus-im",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude (reported) + OpenAI",
+      "citation": "https://manus.im"
+    },
+    {
+      "source": "manus-ai--manus-im",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude (reported) + OpenAI",
+      "citation": "https://manus.im"
+    },
+    {
       "source": "matter--arxiv-2406-04670",
       "target": "emat--arxiv-2210-16773",
       "type": "cites",
@@ -1141,10 +2023,45 @@
     },
     {
       "source": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/shaneholloman/mcp-knowledge-graph"
+    },
+    {
+      "source": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/shaneholloman/mcp-knowledge-graph"
+    },
+    {
+      "source": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
       "target": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
       "type": "forks",
       "evidence": "KG-based local fork of @modelcontextprotocol/server-memory",
       "citation": "https://github.com/shaneholloman/mcp-knowledge-graph"
+    },
+    {
+      "source": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/Puliczek/mcp-memory"
+    },
+    {
+      "source": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/Puliczek/mcp-memory"
+    },
+    {
+      "source": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/doobidoo/mcp-memory-service"
     },
     {
       "source": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
@@ -1166,6 +2083,20 @@
       "type": "integrates-with",
       "evidence": "Agent-pipeline focused (LangGraph, CrewAI, AutoGen)",
       "citation": "https://github.com/doobidoo/mcp-memory-service"
+    },
+    {
+      "source": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/doobidoo/mcp-memory-service"
+    },
+    {
+      "source": "meilisearch--meilisearch-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "eneration + caching via OpenAI / HuggingFace / Ollama. Multi-modal (text + images); hybrid",
+      "citation": "https://www.meilisearch.com/"
     },
     {
       "source": "mem--arxiv-2509-25911",
@@ -1206,10 +2137,38 @@
       "citation": "https://mem0.ai/"
     },
     {
+      "source": "mem0--mem0-ai",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM provider; bundles vector store (Qdrant default) and graph store (Neo4j optional)",
+      "citation": "https://docs.mem0.ai/components/vectordbs/overview"
+    },
+    {
+      "source": "mem0--mem0-ai",
+      "target": "qdrant--qdrant-tech",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM provider; bundles vector store (Qdrant default) and graph store (Neo4j optional)",
+      "citation": "https://docs.mem0.ai/components/vectordbs/overview"
+    },
+    {
+      "source": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/mem0ai/mem0-mcp"
+    },
+    {
       "source": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
       "target": "mem0--mem0-ai",
       "type": "built-on",
       "evidence": "Mem0's managed cloud API exposed as MCP tools.",
+      "citation": "https://github.com/mem0ai/mem0-mcp"
+    },
+    {
+      "source": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "hat brings the Mem0 layer into any MCP-compatible agent — including Claude Code — without rewriting code.",
       "citation": "https://github.com/mem0ai/mem0-mcp"
     },
     {
@@ -1225,6 +2184,13 @@
       "type": "built-on",
       "evidence": "OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant)",
       "citation": "https://mem0.ai/security"
+    },
+    {
+      "source": "memary--gh-kingjulio8238-memary",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM; Neo4j required",
+      "citation": "https://github.com/kingjulio8238/Memary"
     },
     {
       "source": "membart",
@@ -1642,6 +2608,20 @@
       "isInfluential": true
     },
     {
+      "source": "memobase--gh-memodb-io-memobase",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "r Claude / Cursor / MCP-compatible agents.",
+      "citation": "https://github.com/memodb-io/memobase"
+    },
+    {
+      "source": "memobase--gh-memodb-io-memobase",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: Postgres + pgvector",
+      "citation": "https://github.com/memodb-io/memobase"
+    },
+    {
       "source": "memochat--arxiv-2308-08239",
       "target": "memorybank--arxiv-2305-10250",
       "type": "cites",
@@ -1817,12 +2797,47 @@
       "isInfluential": true
     },
     {
+      "source": "meta-llama-4-family--ai-meta-com",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; vLLM; llama.cpp; Together AI; Groq; AWS Bedrock; Azure AI Foundry",
+      "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    },
+    {
+      "source": "meta-llama-4-family--ai-meta-com",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; vLLM; llama.cpp; Together AI; Groq; AWS Bedrock; Azure AI Foundry",
+      "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    },
+    {
       "source": "meta-memory--arxiv-2509-20754",
       "target": "nvidia-remembr--arxiv-2409-13682",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2509.20754",
       "isInfluential": true
+    },
+    {
+      "source": "metagpt-harness--gh-foundationagents-metagpt",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI + Anthropic + Azure OpenAI",
+      "citation": "https://github.com/FoundationAgents/MetaGPT"
+    },
+    {
+      "source": "metagpt-harness--gh-foundationagents-metagpt",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI + Anthropic + Azure OpenAI",
+      "citation": "https://github.com/FoundationAgents/MetaGPT"
+    },
+    {
+      "source": "metagpt-harness--gh-foundationagents-metagpt",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI + Anthropic + Azure OpenAI",
+      "citation": "https://github.com/FoundationAgents/MetaGPT"
     },
     {
       "source": "mia-memory-intelligence-agent--arxiv-2604-04503",
@@ -1849,6 +2864,20 @@
       "isInfluential": true
     },
     {
+      "source": "microsoft-autogen-studio--microsoft-github-io",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: AutoGen framework (OSS, already in catalog); Azure AI; Microsoft Semantic Kernel",
+      "citation": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html"
+    },
+    {
+      "source": "microsoft-phi-4-family--azure-microsoft-com",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Azure AI Foundry; ONNX Runtime; Windows Copilot+ PCs; HuggingFace Transformers; Ollama",
+      "citation": "https://azure.microsoft.com/en-us/blog/welcome-phi-4/"
+    },
+    {
       "source": "mirix--arxiv-2507-07957",
       "target": "locomo--arxiv-2402-17753",
       "type": "cites",
@@ -1873,11 +2902,67 @@
       "isInfluential": true
     },
     {
+      "source": "mistral-agents-api--docs-mistral-ai",
+      "target": "mistral-large-2-mixtral-family--mistral-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: self-contained Mistral platform",
+      "citation": "https://docs.mistral.ai/agents/"
+    },
+    {
+      "source": "mistral-embed--mistral-ai",
+      "target": "mistral-large-2-mixtral-family--mistral-ai",
+      "type": "runtime-dependency",
+      "evidence": "al-embed; available via Mistral La Plateforme and Azure AI.",
+      "citation": "https://mistral.ai/news/mistral-embed"
+    },
+    {
+      "source": "mistral-large-2-mixtral-family--mistral-ai",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Mistral Le Chat consumer (separate row); Codestral for code agents; Mistral Forge on-prem; AWS Bedrock / Azure AI distribution",
+      "citation": "https://mistral.ai/news/mistral-large-2/"
+    },
+    {
+      "source": "mistral-large-2-mixtral-family--mistral-ai",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Mistral Le Chat consumer (separate row); Codestral for code agents; Mistral Forge on-prem; AWS Bedrock / Azure AI distribution",
+      "citation": "https://mistral.ai/news/mistral-large-2/"
+    },
+    {
+      "source": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+      "target": "mistral-large-2-mixtral-family--mistral-ai",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Mistral la Plateforme + Le Chat; integrates GitHub/Linear/Jira/Sentry/Slack/Teams; NVIDIA NIM containers for self-host",
+      "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5"
+    },
+    {
       "source": "mongodb-atlas-vector-search--mongodb-com",
       "target": "langgraph-persistence--docs-langchain-com",
       "type": "integrates-with",
       "evidence": "LangGraph checkpointer for stateful agents.",
       "citation": "https://www.mongodb.com/products/platform/atlas-vector-search"
+    },
+    {
+      "source": "multion--multion-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Chromium-headless infrastructure; computer-use models (Claude / GPT-5 / Gemini)",
+      "citation": "https://www.multion.ai/"
+    },
+    {
+      "source": "multion--multion-ai",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Chromium-headless infrastructure; computer-use models (Claude / GPT-5 / Gemini)",
+      "citation": "https://www.multion.ai/"
+    },
+    {
+      "source": "multion--multion-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Chromium-headless infrastructure; computer-use models (Claude / GPT-5 / Gemini)",
+      "citation": "https://www.multion.ai/"
     },
     {
       "source": "n8n-ai-agent-memory--docs-n8n-io",
@@ -1932,11 +3017,39 @@
       "citation": "https://arxiv.org/abs/2409.13682"
     },
     {
+      "source": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory"
+    },
+    {
+      "source": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory"
+    },
+    {
+      "source": "openai-agents-sdk--gh-openai-openai-agents-python",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "~9k★; built on the OpenAI Responses API and tools.",
+      "citation": "https://github.com/openai/openai-agents-python"
+    },
+    {
       "source": "openai-agents-sdk--gh-openai-openai-agents-python",
       "target": "openai-swarm-deprecated--gh-openai-swarm",
       "type": "succeeds",
       "evidence": ", tracing built in. Successor to OpenAI Swarm (experimental); officially supported.",
       "citation": "https://github.com/openai/openai-agents-python"
+    },
+    {
+      "source": "openai-agents-sdk-memory--openai-github-io",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires OpenAI API; BYO persistence layer",
+      "citation": "https://openai.github.io/openai-agents-python/"
     },
     {
       "source": "openai-agents-sdk-memory--openai-github-io",
@@ -1946,10 +3059,87 @@
       "citation": "https://openai.github.io/openai-agents-python/ref/memory/"
     },
     {
+      "source": "openai-chatgpt-memory--openai-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: custom (OpenAI-managed)",
+      "citation": "https://help.openai.com/en/articles/8590148-memory-faq"
+    },
+    {
+      "source": "openai-codex-cli--gh-openai-codex",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI API (Codex / o-series); MCP for tool extensibility; runs locally with TLS-only network egress",
+      "citation": "https://github.com/openai/codex"
+    },
+    {
+      "source": "openai-codex-cli--gh-openai-codex",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI API (Codex / o-series); MCP for tool extensibility; runs locally with TLS-only network egress",
+      "citation": "https://github.com/openai/codex"
+    },
+    {
+      "source": "openai-operator--openai-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: OpenAI-hosted browser session state; no durable cross-session memory by default",
+      "citation": "https://openai.com/index/introducing-operator/"
+    },
+    {
+      "source": "opencode-sst--opencode-ai",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "cript, multi-model, MCP-native. Released 2025; explicitly positioned as a permissively-lic",
+      "citation": "https://opencode.ai"
+    },
+    {
+      "source": "opencode-sst--opencode-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: any OpenAI-compatible API; MCP",
+      "citation": "https://opencode.ai"
+    },
+    {
+      "source": "openhands-all-hands-ai--all-hands-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Docker; Anthropic + OpenAI APIs",
+      "citation": "https://www.all-hands.dev"
+    },
+    {
+      "source": "openhands-all-hands-ai--all-hands-dev",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Docker; Anthropic + OpenAI APIs",
+      "citation": "https://www.all-hands.dev"
+    },
+    {
+      "source": "openmemory--gh-caviraoss-openmemory",
+      "target": "qdrant--qdrant-tech",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: BYO LLM; self-hosted Postgres + Qdrant",
+      "citation": "https://github.com/mem0ai/mem0/tree/main/openmemory"
+    },
+    {
+      "source": "openmemory-mcp--mem0-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://mem0.ai/openmemory"
+    },
+    {
       "source": "openmemory-mcp--mem0-ai",
       "target": "mem0--mem0-ai",
       "type": "built-on",
       "evidence": "Local-first self-hosted Mem0 variant. Shared memory layer bridges Claude Desktop, Cursor, and Windsurf in one session.",
+      "citation": "https://mem0.ai/openmemory"
+    },
+    {
+      "source": "openmemory-mcp--mem0-ai",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
       "citation": "https://mem0.ai/openmemory"
     },
     {
@@ -1984,10 +3174,31 @@
     },
     {
       "source": "pgvector--gh-pgvector-pgvector",
+      "target": "langchain-framework--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "conversation memory via LangChain + MCP. Foundation of Supabase AI and many self-hosted RAG s",
+      "citation": "https://github.com/pgvector/pgvector"
+    },
+    {
+      "source": "pgvector--gh-pgvector-pgvector",
       "target": "postgresql-pgvector--gh-pgvector-pgvector",
       "type": "same-team-as",
       "evidence": "Same GitHub organisation `pgvector` publishes both repos.",
       "citation": "https://github.com/pgvector/pgvector"
+    },
+    {
+      "source": "phidata-agno--agno-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; OpenAI / Anthropic / Gemini SDKs; YC W22 alumni network",
+      "citation": "https://www.agno.com/"
+    },
+    {
+      "source": "phidata-agno--agno-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; OpenAI / Anthropic / Gemini SDKs; YC W22 alumni network",
+      "citation": "https://www.agno.com/"
     },
     {
       "source": "phidata-agno--agno-com",
@@ -1997,12 +3208,47 @@
       "citation": "https://www.agno.com/"
     },
     {
+      "source": "phidata-agno--agno-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; OpenAI / Anthropic / Gemini SDKs; YC W22 alumni network",
+      "citation": "https://www.agno.com/"
+    },
+    {
+      "source": "pieces-for-developers-ltm--pieces-app",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "on-device, exposes via MCP for any IDE/agent.",
+      "citation": "https://pieces.app/"
+    },
+    {
+      "source": "pipecat-daily--pipecat-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Daily WebRTC; OpenAI Realtime; Anthropic; Deepgram + Cartesia STT/TTS",
+      "citation": "https://www.pipecat.ai/"
+    },
+    {
+      "source": "pipecat-daily--pipecat-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Daily WebRTC; OpenAI Realtime; Anthropic; Deepgram + Cartesia STT/TTS",
+      "citation": "https://www.pipecat.ai/"
+    },
+    {
       "source": "pose--arxiv-2309-10400",
       "target": "yarn--arxiv-2309-00071",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2309.10400",
       "isInfluential": true
+    },
+    {
+      "source": "project-mariner--deepmind-google",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "ental browser agent built on Gemini 2.0 — Chrome extension that takes actions on the user's behalf.",
+      "citation": "https://deepmind.google/technologies/project-mariner/"
     },
     {
       "source": "pwm-policy-learning-with-large-world-models--arxiv-2407-02466",
@@ -2018,6 +3264,13 @@
       "type": "built-on",
       "evidence": "Long-term memory typically added via third-party integration (e.g. Hindsight)",
       "citation": "https://hindsight.vectorize.io/blog/2026/03/09/pydantic-ai-persistent-memory"
+    },
+    {
+      "source": "pydantic-ai-memorytool--pydantic-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "Memory exposed via Anthropic SDK's BetaAbstractMemoryTool when Anthropic provider is active.",
+      "citation": "https://pydantic.dev/docs/ai/tools-toolsets/builtin-tools/"
     },
     {
       "source": "qlora--arxiv-2305-14314",
@@ -2114,6 +3367,34 @@
       "isInfluential": true
     },
     {
+      "source": "repairagent--arxiv-2403-17134",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "~$0.14 USD) per bug using GPT-3.5 pricing",
+      "citation": "https://arxiv.org/abs/2403.17134"
+    },
+    {
+      "source": "replit-agent-v3--replit-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Replit Nix-based runtimes; Anthropic Claude (primary)",
+      "citation": "https://replit.com/ai"
+    },
+    {
+      "source": "retell-ai--retellai-com-2",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio SIP; in-house STT/TTS; Anthropic / OpenAI LLMs",
+      "citation": "https://www.retellai.com/"
+    },
+    {
+      "source": "retell-ai--retellai-com-2",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio SIP; in-house STT/TTS; Anthropic / OpenAI LLMs",
+      "citation": "https://www.retellai.com/"
+    },
+    {
       "source": "retell-ai--retellai-com-2",
       "target": "vapi--vapi-ai",
       "type": "competes-with",
@@ -2151,6 +3432,20 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2510.16392",
       "isInfluential": true
+    },
+    {
+      "source": "rl-developer-memory--arxiv-2605-01567",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Model Context Protocol (MCP)-native architecture; logged contextual-bandit policy gates; static (11/11) and dynamic (10/10) integration test harness",
+      "citation": "https://arxiv.org/abs/2605.01567"
+    },
+    {
+      "source": "roo-code--roocode-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI-compatible APIs",
+      "citation": "https://roocode.com"
     },
     {
       "source": "roo-code-roorules--docs-roocode-com",
@@ -2215,6 +3510,13 @@
       "isInfluential": true
     },
     {
+      "source": "semantic-kernel-memory--learn-microsoft-com",
+      "target": "azure-machine-learning--azure-microsoft-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Semantic Kernel; BYO LLM (Azure-first); BYO vector store",
+      "citation": "https://learn.microsoft.com/en-us/semantic-kernel/"
+    },
+    {
       "source": "sglang--gh-sgl-project-sglang",
       "target": "vllm--gh-vllm-project-vllm",
       "type": "competes-with",
@@ -2238,12 +3540,61 @@
       "isInfluential": true
     },
     {
+      "source": "skyvern--skyvern-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Postgres; Anthropic/OpenAI/Gemini APIs",
+      "citation": "https://github.com/Skyvern-AI/skyvern"
+    },
+    {
+      "source": "skyvern--skyvern-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Postgres; Anthropic/OpenAI/Gemini APIs",
+      "citation": "https://github.com/Skyvern-AI/skyvern"
+    },
+    {
+      "source": "skyvern--skyvern-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Playwright; Postgres; Anthropic/OpenAI/Gemini APIs",
+      "citation": "https://github.com/Skyvern-AI/skyvern"
+    },
+    {
+      "source": "smol-developer--gh-smol-ai-developer",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: OpenAI API (GPT-3.5/4); single-file Python script; no other dependencies beyond LLM provider",
+      "citation": "https://github.com/smol-ai/developer"
+    },
+    {
       "source": "snapkv",
       "target": "longbench--arxiv-2308-14508",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2404.14469",
       "isInfluential": true
+    },
+    {
+      "source": "sourcegraph-cody-agent--sourcegraph-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Sourcegraph search graph; OpenAI + Anthropic + Google APIs",
+      "citation": "https://sourcegraph.com/cody"
+    },
+    {
+      "source": "sourcegraph-cody-agent--sourcegraph-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Sourcegraph search graph; OpenAI + Anthropic + Google APIs",
+      "citation": "https://sourcegraph.com/cody"
+    },
+    {
+      "source": "speak--speak-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "tightly integrated; OpenAI-backed.",
+      "citation": "https://www.speak.com/"
     },
     {
       "source": "speculative-rag--arxiv-2407-08223",
@@ -2269,6 +3620,13 @@
       "citation": "https://docs.spring.io/spring-ai/reference/api/chat-memory.html"
     },
     {
+      "source": "steamship--steamship-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: LangChain (deep integration); Heroku-style PaaS heritage; YC alumni network",
+      "citation": "https://www.steamship.com/"
+    },
+    {
       "source": "strands-agents-aws--strandsagents-com",
       "target": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
       "type": "integrates-with",
@@ -2291,9 +3649,23 @@
     },
     {
       "source": "strands-agents-memory-aws--docs-aws-amazon-com",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires AWS; Bedrock + Mem0 / AgentCore Memory",
+      "citation": "https://strandsagents.com/"
+    },
+    {
+      "source": "strands-agents-memory-aws--docs-aws-amazon-com",
       "target": "mem0--mem0-ai",
       "type": "integrates-with",
       "evidence": "Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics) or Bedrock AgentCore Memory. AWS+Mem0 partnership.",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
+    },
+    {
+      "source": "strands-agents-memory-aws--docs-aws-amazon-com",
+      "target": "mem0--mem0-ai",
+      "type": "runtime-dependency",
+      "evidence": "ni, OpenAI). Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics) or Bedrock Age",
       "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
     },
     {
@@ -2314,9 +3686,23 @@
     },
     {
       "source": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
+      "citation": "https://github.com/obra/episodic-memory"
+    },
+    {
+      "source": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
       "target": "chroma--trychroma-com",
       "type": "integrates-with",
       "evidence": "SQLite + FTS5 with optional Chroma vector",
+      "citation": "https://github.com/obra/episodic-memory"
+    },
+    {
+      "source": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "s search/show tools via MCP. Distributed via obra/superpowers-marketplace ; install with /plugin install episodic-memory@superpowers-",
       "citation": "https://github.com/obra/episodic-memory"
     },
     {
@@ -2334,6 +3720,20 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2601.02744",
       "isInfluential": true
+    },
+    {
+      "source": "synthflow--synthflow-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio; Deepgram; ElevenLabs; OpenAI / Anthropic",
+      "citation": "https://synthflow.ai/"
+    },
+    {
+      "source": "synthflow--synthflow-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio; Deepgram; ElevenLabs; OpenAI / Anthropic",
+      "citation": "https://synthflow.ai/"
     },
     {
       "source": "test-time-training-ttt--arxiv-2407-04620",
@@ -2448,12 +3848,96 @@
       "isInfluential": true
     },
     {
+      "source": "v0-vercel--v0-app",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Vercel deploy; Anthropic + OpenAI + Vercel-trained models",
+      "citation": "https://v0.app"
+    },
+    {
+      "source": "v0-vercel--v0-app",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Vercel deploy; Anthropic + OpenAI + Vercel-trained models",
+      "citation": "https://v0.app"
+    },
+    {
+      "source": "vapi--vapi-ai",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio / Vonage SIP; Deepgram + Cartesia + Eleven STT/TTS; Anthropic / OpenAI LLMs",
+      "citation": "https://vapi.ai/"
+    },
+    {
+      "source": "vapi--vapi-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Twilio / Vonage SIP; Deepgram + Cartesia + Eleven STT/TTS; Anthropic / OpenAI LLMs",
+      "citation": "https://vapi.ai/"
+    },
+    {
+      "source": "vonage-ai-studio--vonage-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Vonage CPaaS; Ericsson telco infra; OpenAI / Anthropic / Google Cloud",
+      "citation": "https://www.vonage.com/"
+    },
+    {
+      "source": "vonage-ai-studio--vonage-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Vonage CPaaS; Ericsson telco infra; OpenAI / Anthropic / Google Cloud",
+      "citation": "https://www.vonage.com/"
+    },
+    {
+      "source": "windsurf-codeium-openai--windsurf-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude + OpenAI + Codeium-own models",
+      "citation": "https://windsurf.com"
+    },
+    {
+      "source": "windsurf-codeium-openai--windsurf-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude + OpenAI + Codeium-own models",
+      "citation": "https://windsurf.com"
+    },
+    {
       "source": "wise",
       "target": "ewc-elastic-weight-consolidation--arxiv-1612-00796",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2405.14768",
       "isInfluential": true
+    },
+    {
+      "source": "zed-agentic-editing--zed-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude + OpenAI + local models (Ollama)",
+      "citation": "https://zed.dev"
+    },
+    {
+      "source": "zed-agentic-editing--zed-dev",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "adjacent-infrastructure cell: Anthropic Claude + OpenAI + local models (Ollama)",
+      "citation": "https://zed.dev"
+    },
+    {
+      "source": "zep-governance-posture--getzep-com",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: Postgres + Neo4j",
+      "citation": "https://www.getzep.com/"
+    },
+    {
+      "source": "zep-graphiti--getzep-com",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: Postgres + Neo4j (Graphiti)",
+      "citation": "https://help.getzep.com/"
     }
   ]
 }

@@ -64,8 +64,8 @@ S2_FIELDS = "isInfluential,citedPaper.externalIds,citedPaper.title"
 S2_LIMIT = 1000
 
 VALID_EDGE_TYPES = {
-    "built-on", "extends", "forks", "integrates-with", "competes-with",
-    "inspired-by", "cites", "same-team-as", "succeeds",
+    "built-on", "runtime-dependency", "extends", "forks", "integrates-with",
+    "competes-with", "inspired-by", "cites", "same-team-as", "succeeds",
 }
 
 # Same arxiv extraction regex as build_edges.py / extract.py.

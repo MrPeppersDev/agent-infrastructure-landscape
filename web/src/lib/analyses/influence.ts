@@ -18,6 +18,12 @@ export type InfluencePoint = {
   section: string;
   citesIn: number;
   integrationsIn: number;
+  /** Inbound `runtime-dependency` edges (issue #44). Surfaced as a tooltip
+   * value and prose annotation; not used for axis placement to preserve
+   * the original two-axis "academic vs commercial" framing. Substrates
+   * with high runtime-dependency counts but low cites/integrations are the
+   * "production graph" view of the same corpus. */
+  runtimeDepsIn: number;
 };
 
 export type Quadrant = 'both' | 'engineering' | 'orphan' | 'tail';
@@ -34,6 +40,7 @@ export function buildPoints(
 ): InfluencePoint[] {
   const cites = inboundEdgeCounts(edges, ['cites']);
   const integ = inboundEdgeCounts(edges, ['integrates-with', 'built-on']);
+  const runtimeDeps = inboundEdgeCounts(edges, ['runtime-dependency']);
   const out: InfluencePoint[] = [];
   for (const r of records) {
     out.push({
@@ -42,7 +49,8 @@ export function buildPoints(
       tier: r.tier,
       section: primarySection(r),
       citesIn: cites.get(r.id) ?? 0,
-      integrationsIn: integ.get(r.id) ?? 0
+      integrationsIn: integ.get(r.id) ?? 0,
+      runtimeDepsIn: runtimeDeps.get(r.id) ?? 0
     });
   }
   return out;

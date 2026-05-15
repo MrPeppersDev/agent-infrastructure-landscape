@@ -305,8 +305,10 @@
         <code>built-on</code> + <code>integrates-with</code> edges (commercial
         adoption — how many other records build on or integrate against this
         one). The chart is sliced into four named quadrants by the
-        non-zero medians on each axis. Headline finding:
-        <strong>{HEADLINE_FINDING}</strong>
+        non-zero medians on each axis. Hover any point for a third lens —
+        <strong>inbound <code>runtime-dependency</code> edges</strong> (issue
+        #44) — answering "who breaks if this record goes down". Headline
+        finding: <strong>{HEADLINE_FINDING}</strong>
       </p>
     </section>
 
@@ -326,6 +328,19 @@
           types collapse to a single Y value because the distinction is fuzzy
           at the catalog level — they both mean "another record in this
           corpus depends on this one".
+        </li>
+        <li>
+          <b>Runtime-dependency count</b> (issue #44; visible per-point in
+          the tooltip) is the number of inbound <code>runtime-dependency</code>
+          edges — records that <em>break if this one goes down</em>. It is
+          intentionally <em>not</em> folded into the Y axis because
+          citation-influence ("who cites this paper") and
+          dependency-influence ("who breaks without this substrate") answer
+          different questions. The two-axis scatter shows the academic vs
+          commercial-integration tension; the tooltip exposes a third lens:
+          the production-runtime graph. A record can be a substrate (high
+          runtime-deps) without being an integration target (low built-on)
+          when downstreams call its API rather than embedding it.
         </li>
         <li>
           <b>Marker size</b> encodes tier: T1 = 7px, T2 = 6px … T5 = 3px
@@ -590,7 +605,7 @@
             class="pt"
             role="button"
             tabindex="0"
-            aria-label="{p.name}: {p.citesIn} cites in, {p.integrationsIn} integrations in"
+            aria-label="{p.name}: {p.citesIn} cites in, {p.integrationsIn} integrations in, {p.runtimeDepsIn} runtime-deps in"
             onmouseenter={(ev) => onPointEnter(p, ev)}
             onmousemove={(ev) => onPointEnter(p, ev)}
             onmouseleave={onPointLeave}
@@ -621,6 +636,9 @@
         <div class="t-nums">
           <span>cites in: <b>{hoverPoint.citesIn}</b></span>
           <span>integrations in: <b>{hoverPoint.integrationsIn}</b></span>
+          <span title="Inbound runtime-dependency edges — records that break if this one goes down (issue #44)">
+            runtime-deps in: <b>{hoverPoint.runtimeDepsIn}</b>
+          </span>
         </div>
         <div class="t-links">
           <a href={tableHref(hoverPoint)}>table →</a>

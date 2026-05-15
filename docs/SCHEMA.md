@@ -8,7 +8,7 @@ It locks in:
 - top-level structure of both files
 - the exhaustive per-record field set
 - the four-state `status` enum semantics
-- the nine edge-type vocabulary
+- the ten edge-type vocabulary
 - validation rules a build step (or future JSON Schema) must enforce
 
 If something downstream is unclear, the answer should be reachable from
@@ -574,19 +574,20 @@ type Edge = {
 };
 ```
 
-### Edge type enum (9 values)
+### Edge type enum (10 values)
 
-| `type`            | Direction semantics (source → target)                                                                                    | Typical evidence source                                       |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| `built-on`        | source's product is implemented on top of target's product (target is a dependency or runtime).                           | `desc`/`adjacent-infrastructure` cell mining                  |
-| `extends`         | source extends or generalises target's method (paper-to-paper or product-to-product), keeping target's core idea.         | paper abstracts, product changelogs                           |
-| `forks`           | source is a literal code fork of target.                                                                                 | GitHub fork relationships, README acknowledgements            |
-| `integrates-with` | source has an integration / connector / first-class adapter to target. Symmetric in spirit but stored directionally.      | docs, integration count cell, integration matrices            |
-| `competes-with`   | source and target are positioned by the market (or by themselves) as alternatives in the same buyer's mind.               | comparison pages, vendor "vs" docs, analyst writeups          |
-| `inspired-by`     | source explicitly cites target as conceptual inspiration without building on its code or extending its method directly.    | author posts, blog posts, talks                               |
-| `cites`           | source's paper cites target's paper. The most common edge type, populated from Semantic Scholar.                          | Semantic Scholar API                                          |
-| `same-team-as`    | source and target are by the same author / lab / company. Captures lineage where one team produces multiple systems.      | `founders` cell, paper authors, GitHub org                    |
-| `succeeds`        | source is an explicit successor / next-version of target by the same team (e.g. MemGPT → Letta).                          | release notes, blog posts                                     |
+| `type`               | Direction semantics (source → target)                                                                                    | Typical evidence source                                       |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| `built-on`           | source's product is implemented on top of target's product (target is a dependency or runtime).                           | `desc`/`adjacent-infrastructure` cell mining                  |
+| `runtime-dependency` | source explicitly requires target at runtime to function (target is a substrate, model, or library that source is built on). Distinct from `built-on` (broader, architectural lineage) and `integrates-with` (looser, optional integration). MUST point from the consumer (source) to the substrate (target). | cell-text mining: `powered by`, `built on`, `built with`, `requires`, `depends on`, `runs on`, `uses` + provider/memory/framework substrate alias table |
+| `extends`            | source extends or generalises target's method (paper-to-paper or product-to-product), keeping target's core idea.         | paper abstracts, product changelogs                           |
+| `forks`              | source is a literal code fork of target.                                                                                 | GitHub fork relationships, README acknowledgements            |
+| `integrates-with`    | source has an integration / connector / first-class adapter to target. Symmetric in spirit but stored directionally.      | docs, integration count cell, integration matrices            |
+| `competes-with`      | source and target are positioned by the market (or by themselves) as alternatives in the same buyer's mind.               | comparison pages, vendor "vs" docs, analyst writeups          |
+| `inspired-by`        | source explicitly cites target as conceptual inspiration without building on its code or extending its method directly.    | author posts, blog posts, talks                               |
+| `cites`              | source's paper cites target's paper. The most common edge type, populated from Semantic Scholar.                          | Semantic Scholar API                                          |
+| `same-team-as`       | source and target are by the same author / lab / company. Captures lineage where one team produces multiple systems.      | `founders` cell, paper authors, GitHub org                    |
+| `succeeds`           | source is an explicit successor / next-version of target by the same team (e.g. MemGPT → Letta).                          | release notes, blog posts                                     |
 
 Choosing the right type when more than one fits:
 
@@ -814,7 +815,7 @@ file claiming to conform to the schema.
 3. Every edge has required keys: `source`, `target`, `type`, `evidence`, `citation`.
 4. **Referential integrity:** `source` and `target` must each match a `record.id` in `landscape.json`.
 5. **No self-edges:** `source !== target`.
-6. **`type`** is one of the nine values in §4.
+6. **`type`** is one of the ten values in §4.
 7. **`isInfluential`** is present iff `type === "cites"`. When present, it's a boolean.
 8. **Pair+type uniqueness:** the multiset of `(source, target, type)` triples is a set.
 9. **`citation`** is a non-empty `http(s)://` URL.

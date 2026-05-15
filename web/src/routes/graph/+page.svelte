@@ -1,9 +1,15 @@
 <script lang="ts">
-  // Force-directed graph view (issue #16). 523 nodes, 247 edges. Cytoscape
-  // 3.x + fcose layout. See $lib/graph.ts for the pure data-shaping
-  // helpers (palette, edge styles, neighbour index, hub selection) and
-  // docs/DECISIONS.md (2026-05-07 "Graph view") for the layout-choice and
-  // bundle-size rationale.
+  // Force-directed graph view (issue #16). 912 nodes, 528 edges (241 cites
+  // from S2 + 212 runtime-dependency + 75 misc). Cytoscape 3.x + fcose
+  // layout. See $lib/graph.ts for the pure data-shaping helpers (palette,
+  // edge styles, neighbour index, hub selection) and docs/DECISIONS.md
+  // (2026-05-07 "Graph view") for the layout-choice and bundle-size
+  // rationale.
+  //
+  // Runtime-dependency edges (issue #44) get a distinct orange / dashed
+  // style and a one-click preset (see EDGE_STYLES + edgePreset) so the
+  // production substrate graph can be read in isolation from the academic
+  // citation graph.
   //
   // Why client-only: Cytoscape constructs against a live DOM container
   // and the fcose worker spins the layout client-side. `ssr = false` in
@@ -73,6 +79,29 @@
 
   // Edge-type visibility (legend toggles). Default: all on.
   let visibleEdgeTypes = $state<Set<EdgeType>>(new Set(presentEdgeTypes));
+
+  // View preset: quickly switch between the three meaningful slices of the
+  // graph. Issue #44 introduced `runtime-dependency` as a separate edge
+  // type from the `cites` academic graph, so a one-click way to flip
+  // between "academic graph" / "production graph" / "all" is the fastest
+  // way to read either view in isolation. 'custom' is the implicit state
+  // when a user has toggled legend checkboxes manually.
+  type EdgePreset = 'all' | 'cites' | 'runtime-dependency' | 'custom';
+  let edgePreset = $state<EdgePreset>('all');
+
+  function applyPreset(p: EdgePreset) {
+    edgePreset = p;
+    if (p === 'all') {
+      visibleEdgeTypes = new Set(presentEdgeTypes);
+    } else if (p === 'cites') {
+      visibleEdgeTypes = new Set(presentEdgeTypes.filter((t) => t === 'cites'));
+    } else if (p === 'runtime-dependency') {
+      visibleEdgeTypes = new Set(
+        presentEdgeTypes.filter((t) => t === 'runtime-dependency')
+      );
+    }
+    // 'custom' state is set when a legend checkbox is toggled — no-op here.
+  }
 
   // Search box.
   let query = $state('');
@@ -397,6 +426,11 @@
     if (next.has(t)) next.delete(t);
     else next.add(t);
     visibleEdgeTypes = next;
+    // A manual toggle puts us in the implicit 'custom' preset state, so the
+    // preset chips below display as unselected. This also avoids the
+    // confusing UI where the 'all' chip stays highlighted while the user
+    // has manually hidden several types.
+    edgePreset = 'custom';
   }
 
   function resetView() {
@@ -451,6 +485,34 @@
           Hub view (top {HUB_N} by degree)
         </label>
         <button class="reset" onclick={resetView}>Reset view</button>
+      </div>
+
+      <div class="control-group">
+        <div class="ctrl-label">Edge view</div>
+        <!-- Preset chips: one-click switch between the academic graph
+             (cites only), the production graph (runtime-dependency only),
+             and the full graph. Manual legend toggles below put the UI
+             into the 'custom' state. -->
+        <div class="preset-chips">
+          <button
+            class="preset"
+            class:on={edgePreset === 'all'}
+            onclick={() => applyPreset('all')}
+            title="Show every edge type"
+          >All</button>
+          <button
+            class="preset"
+            class:on={edgePreset === 'cites'}
+            onclick={() => applyPreset('cites')}
+            title="Show only academic citation edges"
+          >Cites only</button>
+          <button
+            class="preset"
+            class:on={edgePreset === 'runtime-dependency'}
+            onclick={() => applyPreset('runtime-dependency')}
+            title="Show only production-runtime dependency edges — the 'who breaks if X goes down' graph"
+          >Runtime deps</button>
+        </div>
       </div>
 
       <div class="control-group">
@@ -608,6 +670,30 @@
   .controls input[type="search"]:focus {
     outline: 1px solid #58a6ff;
     border-color: #58a6ff;
+  }
+  .preset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .preset {
+    background: #161b22;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 999px;
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .preset:hover {
+    border-color: #d4845f;
+    color: #d4845f;
+  }
+  .preset.on {
+    background: #2a1f17;
+    border-color: #d4845f;
+    color: #e8c4ad;
   }
   .reset {
     align-self: flex-start;
