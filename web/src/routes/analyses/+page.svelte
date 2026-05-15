@@ -81,7 +81,7 @@
       slug: 'trajectory',
       title: 'Trajectory — used vs growing/dying',
       summary:
-        'Combines funding cadence, release recency, GH stars, mindshare/citations, and lineage membership into one velocity story per record. Five panels: cohort, substrate-dependency risk, consolidation candidates, billion-$ candidates, dying candidates.'
+        'Combines funding cadence, release recency, GH stars, mindshare/citations, and lineage membership into one velocity story per record. Six panels: cohort, substrate-dependency risk, consolidation candidates, billion-$ candidates, dying candidates, and a BIMATEM-style logistic S-curve fit per row that reads pre-growth / growth / saturation / decline straight off the inflection date — the math the Gartner Hype Cycle waves at without ever publishing.'
     },
     {
       slug: 'co-citation',

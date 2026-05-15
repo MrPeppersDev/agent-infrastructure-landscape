@@ -1,16 +1,20 @@
 <script lang="ts">
-  // Trajectory view (issue #34). "What's used today vs what's growing/dying."
+  // Trajectory view (issues #34, #47). "What's used today vs what's
+  // growing/dying", upgraded with empirical S-curve maturity fits.
   //
-  // Five panels:
+  // Six panels:
   //   1. Growth-decline cohort table (every record bucketed)
   //   2. Substrate dependency risk (Claude / GPT-5 / Gemini etc.)
   //   3. Next-likely consolidation candidates (embedding / inference / vector-DB)
   //   4. Next billion-$ valuation candidates
   //   5. Categories likely to die
+  //   6. S-curve maturity fit (BIMATEM-style logistic fit per row)
   //
-  // Heuristic confidence labels live next to each callout. Methodology
-  // is documented in docs/DECISIONS.md under
-  // "2026-05-13: Trajectory view heuristics".
+  // Panels 1-5 are heuristic with confidence labels (methodology in
+  // docs/DECISIONS.md under "2026-05-13: Trajectory view heuristics").
+  // Panel 6 is quantitative — logistic L/k/t0 with R² and inflection-date
+  // prediction; the math is in web/src/lib/analyses/s-curve.ts and the
+  // methodology footer at the bottom of this page.
 
   import { base } from '$app/paths';
   import type { LandscapeRecord, Edge, Tier } from '$lib/types';
@@ -31,6 +35,17 @@
     type Trajectory,
     type TrajectoryClassification
   } from '$lib/analyses/trajectory';
+  import {
+    countPhases,
+    medianR2,
+    formatInflectionAsQuarter,
+    PHASE_ORDER,
+    PHASE_LABELS,
+    PHASE_COLOURS,
+    PHASE_DESCRIPTION,
+    type SCurveFit,
+    type SCurvePhase
+  } from '$lib/analyses/s-curve';
 
   let {
     data
@@ -40,6 +55,7 @@
       edges: Edge[];
       lineages: Lineage[];
       forecasts: LineageForecast[];
+      sCurveFits: SCurveFit[];
     };
   } = $props();
 
@@ -190,6 +206,150 @@
     dyingCandidates(filteredRecords, classifications, cadenceByMember)
   );
 
+  // --- Panel 6: S-curve fits ------------------------------------------
+  // Build a fast lookup so the filtered-records pass below is O(1) per row.
+  const fitsById = $derived.by(() => {
+    const m = new Map<string, SCurveFit>();
+    for (const f of data.sCurveFits) m.set(f.recordId, f);
+    return m;
+  });
+  const filteredFits = $derived(
+    filteredRecords
+      .map((r) => fitsById.get(r.id))
+      .filter((f): f is SCurveFit => f !== undefined)
+  );
+  const phaseCounts = $derived(countPhases(filteredFits));
+  const overallMedianR2 = $derived(medianR2(filteredFits));
+
+  let scurvePhaseFilter = $state<SCurvePhase | 'all'>('all');
+  type SCurveSortKey = 'name' | 'phase' | 'r2' | 'k' | 'inflection' | 'points';
+  let scurveSortKey = $state<SCurveSortKey>('r2');
+  let scurveSortDir = $state<'asc' | 'desc'>('desc');
+
+  const phaseRank: Record<SCurvePhase, number> = {
+    'pre-growth': 0,
+    growth: 1,
+    saturation: 2,
+    decline: 3,
+    'insufficient-data': 4
+  };
+
+  const scurveRows = $derived.by(() => {
+    const filtered = filteredFits.filter(
+      (f) => scurvePhaseFilter === 'all' || f.phase === scurvePhaseFilter
+    );
+    const dir = scurveSortDir === 'asc' ? 1 : -1;
+    return filtered.slice().sort((a, b) => {
+      let cmp = 0;
+      switch (scurveSortKey) {
+        case 'name':
+          cmp = a.recordName.localeCompare(b.recordName);
+          break;
+        case 'phase':
+          cmp = phaseRank[a.phase] - phaseRank[b.phase];
+          break;
+        case 'r2':
+          cmp =
+            (isFinite(a.fitR2) ? a.fitR2 : -1) -
+            (isFinite(b.fitR2) ? b.fitR2 : -1);
+          break;
+        case 'k':
+          cmp =
+            (isFinite(a.growthRate) ? a.growthRate : -1) -
+            (isFinite(b.growthRate) ? b.growthRate : -1);
+          break;
+        case 'inflection':
+          cmp = (a.inflectionDate ?? '').localeCompare(b.inflectionDate ?? '');
+          break;
+        case 'points':
+          cmp = a.dataPoints - b.dataPoints;
+          break;
+      }
+      return cmp * dir;
+    });
+  });
+
+  function setScurveSort(k: SCurveSortKey) {
+    if (scurveSortKey === k) {
+      scurveSortDir = scurveSortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      scurveSortKey = k;
+      scurveSortDir = k === 'name' || k === 'inflection' ? 'asc' : 'desc';
+    }
+  }
+
+  // Sparkline geometry. Tiny chart fits in a single table cell.
+  const SPARK_W = 96;
+  const SPARK_H = 28;
+  const SPARK_PAD = 2;
+
+  function sparklinePaths(
+    fit: SCurveFit
+  ): { observed: string; predicted: string } {
+    if (fit.series.length === 0) return { observed: '', predicted: '' };
+    const xs = [...fit.series, ...fit.predictedSeries];
+    if (xs.length === 0) return { observed: '', predicted: '' };
+    const ts = xs.map((p) => Date.parse(p.date));
+    const ys = xs.map((p) => p.value);
+    const tMin = Math.min(...ts);
+    const tMax = Math.max(...ts);
+    const yMin = Math.min(...ys);
+    const yMax = Math.max(...ys);
+    const tRange = Math.max(1, tMax - tMin);
+    const yRange = Math.max(1e-9, yMax - yMin);
+
+    function xy(d: { date: string; value: number }): [number, number] {
+      const x =
+        SPARK_PAD + ((Date.parse(d.date) - tMin) / tRange) * (SPARK_W - 2 * SPARK_PAD);
+      const y =
+        SPARK_H -
+        SPARK_PAD -
+        ((d.value - yMin) / yRange) * (SPARK_H - 2 * SPARK_PAD);
+      return [x, y];
+    }
+
+    let observed = '';
+    fit.series.forEach((p, i) => {
+      const [x, y] = xy(p);
+      observed += `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)} `;
+    });
+    let predicted = '';
+    fit.predictedSeries.forEach((p, i) => {
+      const [x, y] = xy(p);
+      predicted += `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)} `;
+    });
+    return { observed: observed.trim(), predicted: predicted.trim() };
+  }
+
+  function r2Label(r2: number): string {
+    if (!isFinite(r2)) return '—';
+    return r2.toFixed(2);
+  }
+
+  function kLabel(k: number): string {
+    if (!isFinite(k)) return '—';
+    if (k >= 1) return k.toFixed(2);
+    return k.toFixed(3);
+  }
+
+  function inflectionLabel(fit: SCurveFit): string {
+    if (fit.phase === 'insufficient-data') return '—';
+    const q = formatInflectionAsQuarter(fit.inflectionDate);
+    if (!q) return '—';
+    if (fit.phase === 'growth') return `saturation expected ~${q}`;
+    if (fit.phase === 'pre-growth') return `growth expected ~${q}`;
+    if (fit.phase === 'saturation') return `inflection passed ${q}`;
+    return q;
+  }
+
+  function capacityLabel(fit: SCurveFit): string {
+    if (!isFinite(fit.carryingCapacity)) return '—';
+    const L = fit.carryingCapacity;
+    if (L >= 10000) return `${(L / 1000).toFixed(0)}k`;
+    if (L >= 1000) return `${(L / 1000).toFixed(1)}k`;
+    return L.toFixed(0);
+  }
+
   // --- Helpers ---------------------------------------------------------
   function pct(n: number, total: number): string {
     if (total === 0) return '0%';
@@ -216,12 +376,15 @@
   </p>
   <h1>Trajectory — what's used today vs what's growing or dying</h1>
   <p class="lede">
-    Combines funding cadence, release recency, GitHub stars,
-    mindshare/citations, inbound integration edges, and lineage
-    membership into a single velocity story per record. Buckets are
-    heuristic — confidence labels are surfaced everywhere so a reader
-    can weigh each callout. This view answers the "what is used vs
-    what might the future be" question that motivated the catalog.
+    Six panels. The first five combine funding cadence, release
+    recency, GitHub stars, mindshare/citations, inbound integration
+    edges, and lineage membership into a heuristic velocity story per
+    record — confidence labels are surfaced everywhere so a reader can
+    weigh each callout. The sixth fits a BIMATEM-style logistic
+    S-curve to every row with enough temporal signal and reads
+    pre-growth / growth / saturation / decline straight off the
+    inflection — quantitative complement to the heuristic buckets, and
+    the math the Gartner Hype Cycle waves at without ever publishing.
   </p>
 </header>
 
@@ -539,6 +702,216 @@
     </ol>
   {/if}
 </section>
+
+<!-- Panel 6: S-curve maturity fit (issue #47) -------------------------- -->
+<section class="panel scurve">
+  <header class="panel-header">
+    <h2>Panel 6 — S-curve maturity fit</h2>
+    <p>
+      Quantitative complement to Panels 1-5. For every row we fit a
+      3-parameter logistic — y = L / (1 + exp(-k·(t-t<sub>0</sub>))) —
+      to its cumulative temporal series (citations / dated milestones /
+      OSS stars). The inflection date t<sub>0</sub> divides growth from
+      saturation; the fitted k tells us how steep the transition is.
+      This is the math Gartner's Hype Cycle waves at without ever
+      publishing — ours has the math.
+    </p>
+  </header>
+
+  <div class="scurve-counters">
+    {#each PHASE_ORDER as ph}
+      {@const n = phaseCounts[ph]}
+      <button
+        type="button"
+        class="counter"
+        class:active={scurvePhaseFilter === ph}
+        style:--c={PHASE_COLOURS[ph]}
+        onclick={() => (scurvePhaseFilter = scurvePhaseFilter === ph ? 'all' : ph)}
+        aria-pressed={scurvePhaseFilter === ph}
+        title={PHASE_DESCRIPTION[ph]}
+      >
+        <span class="counter-dot" aria-hidden="true"></span>
+        <span class="counter-n">{n}</span>
+        <span class="counter-label">{PHASE_LABELS[ph]}</span>
+        <span class="counter-pct">{pct(n, phaseCounts.total)}</span>
+      </button>
+    {/each}
+  </div>
+
+  <p class="scurve-summary">
+    {filteredFits.filter((f) => f.phase !== 'insufficient-data').length}
+    rows fit · median R² =
+    <strong>{isFinite(overallMedianR2) ? overallMedianR2.toFixed(2) : '—'}</strong>
+    · click a counter to filter the table below.
+  </p>
+
+  <div class="table-wrap">
+    <table class="scurve-table">
+      <thead>
+        <tr>
+          <th><button type="button" onclick={() => setScurveSort('name')}>Record</button></th>
+          <th>Section</th>
+          <th><button type="button" onclick={() => setScurveSort('phase')}>Phase</button></th>
+          <th>Curve</th>
+          <th>
+            <button
+              type="button"
+              onclick={() => setScurveSort('r2')}
+              title="Coefficient of determination — higher = tighter fit"
+            >R²</button>
+          </th>
+          <th>
+            <button
+              type="button"
+              onclick={() => setScurveSort('k')}
+              title="Logistic growth rate — higher = steeper transition"
+            >k</button>
+          </th>
+          <th title="Estimated carrying capacity (L)">L</th>
+          <th>
+            <button type="button" onclick={() => setScurveSort('inflection')}>
+              Inflection
+            </button>
+          </th>
+          <th>
+            <button type="button" onclick={() => setScurveSort('points')}>
+              Points
+            </button>
+          </th>
+          <th>Signal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {#each scurveRows.slice(0, 250) as fit}
+          {@const paths = sparklinePaths(fit)}
+          <tr>
+            <td>
+              <a href={tableHref(fit.recordName)} class="row-link">{fit.recordName}</a>
+            </td>
+            <td class="sec">{fit.section}</td>
+            <td>
+              <span class="badge" style:--c={PHASE_COLOURS[fit.phase]}>
+                {PHASE_LABELS[fit.phase]}
+              </span>
+            </td>
+            <td class="spark-cell">
+              {#if fit.phase === 'insufficient-data' || paths.observed === ''}
+                <span class="dashes">—</span>
+              {:else}
+                <svg
+                  viewBox="0 0 {SPARK_W} {SPARK_H}"
+                  width={SPARK_W}
+                  height={SPARK_H}
+                  role="img"
+                  aria-label="Cumulative observations and fitted logistic curve"
+                >
+                  {#if paths.predicted}
+                    <path
+                      d={paths.predicted}
+                      fill="none"
+                      stroke={PHASE_COLOURS[fit.phase]}
+                      stroke-width="1.4"
+                      stroke-dasharray="2 2"
+                      opacity="0.85"
+                    />
+                  {/if}
+                  {#if paths.observed}
+                    <path
+                      d={paths.observed}
+                      fill="none"
+                      stroke="#e8e8e8"
+                      stroke-width="1.1"
+                      opacity="0.9"
+                    />
+                  {/if}
+                </svg>
+              {/if}
+            </td>
+            <td>{r2Label(fit.fitR2)}</td>
+            <td>{kLabel(fit.growthRate)}</td>
+            <td>{capacityLabel(fit)}</td>
+            <td class="inflection">{inflectionLabel(fit)}</td>
+            <td>{fit.dataPoints || '—'}</td>
+            <td class="signal">{fit.source}</td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+    {#if scurveRows.length > 250}
+      <p class="more-note">
+        Showing first 250 of {scurveRows.length} rows. Narrow filters above
+        or click a phase counter to focus.
+      </p>
+    {/if}
+  </div>
+</section>
+
+<!-- Methodology footer (Panel 6 detail) -------------------------------- -->
+<aside class="method method-bottom">
+  <h2>Panel 6 methodology — BIMATEM-style logistic fit</h2>
+  <p>
+    For each row with at least 5 dated observation points spanning at
+    least 12 months, we fit the logistic
+    <code>y = L / (1 + exp(-k · (t − t<sub>0</sub>)))</code>
+    via coarse grid search over (L, k, t<sub>0</sub>) followed by three
+    local refinement passes. The framework follows the BIMATEM
+    bibliometric tradition (Bengisu &amp; Nekhili 2006 onwards) and the
+    citation-trajectory work in Wang, Song &amp; Barabási
+    <em>Science</em> 2013 — both fit a 3-parameter logistic to
+    cumulative event counts and read maturity off the inflection point.
+  </p>
+  <dl>
+    <div>
+      <dt>Pre-growth</dt>
+      <dd>
+        Observation time below t<sub>0</sub> − 2σ where σ = 2/k. Below
+        ~12% of estimated carrying capacity.
+      </dd>
+    </div>
+    <div>
+      <dt>Growth</dt>
+      <dd>
+        t<sub>0</sub> − 2σ ≤ t &lt; t<sub>0</sub>. Steepest part of the
+        ramp; saturation date predicted as t<sub>0</sub>.
+      </dd>
+    </div>
+    <div>
+      <dt>Saturation</dt>
+      <dd>
+        t<sub>0</sub> ≤ t &lt; t<sub>0</sub> + 2σ. Post-inflection;
+        rate is slowing toward the plateau.
+      </dd>
+    </div>
+    <div>
+      <dt>Decline</dt>
+      <dd>
+        Past saturation AND the most-recent 2-of-3 observations sit
+        below 95 % of the fitted curve — distinguishes a real fall-off
+        from a long plateau tail.
+      </dd>
+    </div>
+    <div>
+      <dt>Insufficient data</dt>
+      <dd>
+        Fewer than 5 distinct cumulative-count anchors or under 12
+        months of observable history. We refuse to force a 3-parameter
+        fit on too little signal; the bias toward this bucket is a
+        property of catalog-level data, not the underlying technology.
+      </dd>
+    </div>
+    <div>
+      <dt>Signal sources</dt>
+      <dd>
+        Priority: (1) citations + per-year rate for research papers,
+        (2) dated milestones across created / latest-release / funding /
+        claims / customers / api-surface / compliance / pricing /
+        deployment cells for products, (3) star-growth on OSS repos
+        with +N/mo metadata. Implementation in
+        <code>web/src/lib/analyses/s-curve.ts</code>.
+      </dd>
+    </div>
+  </dl>
+</aside>
 
 <style>
   .page-header {
@@ -998,5 +1371,110 @@
     color: #aaa;
     font-size: 0.8rem;
     line-height: 1.45;
+  }
+
+  /* --- Panel 6: S-curve fits ---------------------------------------- */
+  .scurve {
+    max-width: 1280px;
+  }
+  .scurve-counters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin: 0 0 12px;
+  }
+  .scurve-summary {
+    margin: 0 0 10px;
+    color: #888;
+    font-size: 0.85rem;
+  }
+  .scurve-summary strong {
+    color: #e8e8e8;
+  }
+  .scurve-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .scurve-table thead {
+    background: #161616;
+  }
+  .scurve-table th {
+    text-align: left;
+    padding: 8px 10px;
+    color: #aaa;
+    font-weight: 600;
+    border-bottom: 1px solid #2a2a2a;
+    white-space: nowrap;
+  }
+  .scurve-table th button {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+  .scurve-table th button:hover {
+    color: #d4845f;
+  }
+  .scurve-table td {
+    padding: 5px 10px;
+    border-bottom: 1px solid #1f1f1f;
+    color: #ccc;
+    vertical-align: middle;
+  }
+  .scurve-table tbody tr:hover {
+    background: #161616;
+  }
+  .scurve-table .sec {
+    color: #888;
+    font-size: 0.78rem;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .scurve-table .spark-cell {
+    padding: 2px 8px;
+    line-height: 0;
+  }
+  .scurve-table .spark-cell svg {
+    display: block;
+  }
+  .scurve-table .dashes {
+    color: #555;
+  }
+  .scurve-table .inflection {
+    color: #aaa;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .scurve-table .signal {
+    color: #777;
+    font-size: 0.75rem;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .method-bottom {
+    margin-top: 24px;
+    max-width: 1100px;
+  }
+  .method-bottom p {
+    margin: 0 0 12px;
+    color: #aaa;
+    line-height: 1.5;
+    font-size: 0.88rem;
+  }
+  .method-bottom code {
+    background: #0f0f0f;
+    border: 1px solid #262626;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 0.82em;
+    color: #d29922;
   }
 </style>
