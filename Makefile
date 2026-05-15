@@ -12,7 +12,7 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: all build validate refresh-citations render install-hooks stale-check help
+.PHONY: all build validate refresh-citations refresh-commit-trajectories render install-hooks stale-check help
 
 help:
 	@echo "Targets:"
@@ -20,6 +20,7 @@ help:
 	@echo "  make validate           — schema + determinism + round-trip + cache gates (~25s)"
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
+	@echo "  make refresh-commit-trajectories — fetch GitHub commit history (slow, network, requires GITHUB_TOKEN)"
 	@echo "  make render             — re-render landscape.html from data/landscape.json"
 	@echo "  make stale-check        — offline staleness scan against landscape.json (no network)"
 	@echo "  make install-hooks      — install scripts/git-hooks/pre-commit into .git/hooks/"
@@ -59,6 +60,17 @@ refresh-citations:
 	@echo "Refreshing Semantic Scholar citation data — this can take ~15 minutes."
 	@echo "Cached responses live in extraction/s2-cache/ and are committed to git."
 	$(PYTHON) scripts/fetch_citations.py
+
+# Slow / network-dependent. NOT run as part of `build` or CI.
+# Walks every row with a parseable GitHub repo URL (~230 rows) and writes a
+# monthly cumulative-commit time series into the commit-trajectory cell.
+# See docs/SCHEMA.md §2.5.4 and scripts/fetch_commit_trajectories.py.
+refresh-commit-trajectories:
+	@echo "Fetching GitHub commit history — this can take ~15-30 minutes."
+	@echo "Cached responses live in extraction/commit-cache/ and are committed to git."
+	@echo "Progress lives in extraction/commit-trajectory-progress.json; reruns resume."
+	@echo "Set GITHUB_TOKEN env var to lift the unauthenticated 60/hr rate limit."
+	$(PYTHON) scripts/fetch_commit_trajectories.py
 
 # Re-render only — useful when iterating on render.py output without rebuilding
 # the JSON. Writes to landscape.html (which is the existing template; render.py
