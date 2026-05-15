@@ -74,6 +74,55 @@
     return { kind: 'cell', cell: record.cells[slug] };
   }
 
+  // ---------------------------------------------------------------------
+  // last_verified_at freshness — SCHEMA.md §3b / issue #54.
+  // ---------------------------------------------------------------------
+  // Today is hard-pinned to match the survivorship analyses + the
+  // validate.py FRESHNESS_TODAY constant. Move all three in lockstep
+  // when bumping the catalog snapshot date.
+  const FRESHNESS_TODAY = new Date('2026-05-14T00:00:00Z');
+
+  function ageMonths(iso: string | undefined): number | null {
+    if (!iso) return null;
+    const d = new Date(iso + 'T00:00:00Z');
+    if (Number.isNaN(d.getTime())) return null;
+    const ms = FRESHNESS_TODAY.getTime() - d.getTime();
+    return ms / (1000 * 60 * 60 * 24 * 30.4375);
+  }
+
+  function freshnessBadge(iso: string | undefined): {
+    label: string;
+    tone: 'fresh' | 'aging' | 'stale';
+  } | null {
+    const m = ageMonths(iso);
+    if (m === null) return null;
+    if (m >= 12) return { label: 'stale', tone: 'stale' };
+    if (m >= 6) return { label: 'needs re-audit', tone: 'aging' };
+    return null; // fresh — no badge
+  }
+
+  const rowLva = $derived(record.last_verified_at);
+  const rowBadge = $derived(freshnessBadge(rowLva));
+
+  // Per-cell freshness override — when a cell carries its own
+  // last_verified_at, the effective verification date for that cell
+  // is the cell-level date (not the row-level one). The badge applies
+  // to that override, displayed inline beside the cell value.
+  function effectiveCellLva(cell: Cell | undefined): string | undefined {
+    return cell?.last_verified_at ?? rowLva;
+  }
+
+  function cellBadge(cell: Cell | undefined): {
+    label: string;
+    tone: 'fresh' | 'aging' | 'stale';
+  } | null {
+    // Only show a per-cell badge when the cell carries its own date AND
+    // that date is staler than fresh. Cells inheriting the row-level
+    // date get no extra badge — the row's badge already covers them.
+    if (!cell?.last_verified_at) return null;
+    return freshnessBadge(cell.last_verified_at);
+  }
+
   // Pre-compute sorted taxonomy values per axis for stable rendering.
   function sortTax(values: TaxonomyValue[] | undefined): TaxonomyValue[] {
     if (!values) return [];
@@ -115,6 +164,19 @@
           </span>
         {/each}
       </div>
+      {#if rowLva}
+        <div class="verified-row">
+          <span class="verified-label">Last verified:</span>
+          <span class="verified-date">{rowLva}</span>
+          {#if rowBadge}
+            <span
+              class="freshness-badge {rowBadge.tone}"
+              title="Row-level last_verified_at is older than {rowBadge.tone === 'stale' ? 12 : 6} months — see SCHEMA.md §3b"
+              >{rowBadge.label}</span
+            >
+          {/if}
+        </div>
+      {/if}
       <button class="close" onclick={onClose} aria-label="Close modal">×</button>
     </header>
 
@@ -144,6 +206,7 @@
                     {/if}
                   {:else if fv.cell}
                     {@const cell = fv.cell}
+                    {@const cb = cellBadge(cell)}
                     {#if cell.status === 'not-applicable'}
                       <span class="no-data na">{cell.value || 'not applicable'}</span>
                     {:else if cell.status === 'depth-floor-reached'}
@@ -158,6 +221,15 @@
                       {#if cell.citation}
                         <a class="cite" href={cell.citation} target="_blank" rel="noopener noreferrer">↗</a>
                       {/if}
+                    {/if}
+                    {#if cell.last_verified_at}
+                      <span
+                        class="cell-verified"
+                        title={`Cell verified ${cell.last_verified_at} (overrides row date)`}
+                      >verified {cell.last_verified_at}</span>
+                    {/if}
+                    {#if cb}
+                      <span class="freshness-badge {cb.tone} mini" title="Cell last_verified_at is older than {cb.tone === 'stale' ? 12 : 6} months">{cb.label}</span>
                     {/if}
                   {:else}
                     <span class="no-data">—</span>
@@ -248,6 +320,57 @@
     background: #24201a;
     border-color: #53432c;
     color: #c8a868;
+  }
+  .verified-row {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #8b949e;
+  }
+  .verified-label {
+    color: #6e7681;
+    letter-spacing: 0.02em;
+  }
+  .verified-date {
+    color: #c9d1d9;
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .freshness-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    border: 1px solid;
+    cursor: help;
+  }
+  .freshness-badge.aging {
+    background: #3a2e1f;
+    color: #d29922;
+    border-color: #5d4720;
+  }
+  .freshness-badge.stale {
+    background: #3a2419;
+    color: #db6d28;
+    border-color: #5d3a1f;
+  }
+  .freshness-badge.mini {
+    font-size: 9px;
+    margin-left: 4px;
+    padding: 0 4px;
+  }
+  .cell-verified {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 10px;
+    color: #6e7681;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    cursor: help;
   }
   .close {
     position: absolute;

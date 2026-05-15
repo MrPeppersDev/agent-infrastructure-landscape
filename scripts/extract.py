@@ -228,6 +228,49 @@ CLAIM_TIERS = {"T1", "T2", "T3"}
 # only cells whose citation IS a github.com link get the T1 tier.
 TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
 
+# ISO date used by data-last-verified attributes (SCHEMA.md §3b).
+ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+# Volatile cell slugs (SCHEMA.md §3b). The same set is repeated in
+# scripts/render.py and scripts/backfill_verified_at.py. Cells outside
+# this set inherit the row-level last_verified_at — they don't carry
+# their own attribute and extract.py drops any per-cell last_verified_at
+# field for non-volatile slugs to keep the JSON canonical.
+VOLATILE_CELL_SLUGS = {
+    "created",
+    "latest-release",
+    "gh",
+    "mindshare",
+    "citations",
+    "funding",
+    "vendor-benchmarks",
+    "commit-trajectory",
+    "citation-trajectory",
+    "download-trajectory",
+    "obs-langsmith",
+    "obs-opentelemetry",
+    "obs-datadog",
+    "obs-helicone",
+    "obs-weave",
+    "obs-langfuse",
+    "obs-arize",
+    "obs-custom",
+    "cost-token-budget",
+    "cost-prompt-caching",
+    "cost-semantic-caching",
+    "cost-batching",
+    "cost-model-routing",
+    "cost-streaming-only",
+    "cost-observability-cost-attribution",
+    "eval-langsmith-evals",
+    "eval-braintrust",
+    "eval-weights-and-biases-agent",
+    "eval-helicone-evals",
+    "eval-custom-test-harness",
+    "eval-human-loop",
+    "eval-production-traffic-replay",
+}
+
 # id regex from §7.1.6.
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*(--[a-z0-9]+(-[a-z0-9]+)*)?$")
 
@@ -433,12 +476,21 @@ def classify_tier(citation, status):
     return "T2", True
 
 
-def parse_cell(td: Tag, *, warnings=None, where=None) -> dict[str, Any]:
-    """Decompose one cell <td> into {value, citation, status, tier}.
+def parse_cell(
+    td: Tag, *, warnings=None, where=None, slug: str | None = None
+) -> dict[str, Any]:
+    """Decompose one cell <td> into {value, citation, status, tier[, last_verified_at]}.
 
     The tier is computed by classify_tier() from the (citation, status)
     pair. When the heuristic returns missing_url_warning=True the caller's
     `warnings` list (if provided) receives a one-line summary.
+
+    When the cell carries a `data-last-verified="YYYY-MM-DD"` HTML
+    attribute AND the cell's slug is in VOLATILE_CELL_SLUGS (SCHEMA.md
+    §3b), the parsed date is added to the cell dict as
+    `last_verified_at`. Non-volatile cells inherit the row-level date
+    and drop the per-cell field even if the HTML carries one — keeps
+    the JSON canonical.
     """
     if is_n_a_wrong_section(td):
         cell = {
@@ -460,6 +512,12 @@ def parse_cell(td: Tag, *, warnings=None, where=None) -> dict[str, Any]:
         cell = {"value": value, "citation": citation, "status": status}
     tier, missing_url = classify_tier(cell["citation"], cell["status"])
     cell["tier"] = tier
+    # Read per-cell last_verified_at — but only retain it for volatile
+    # slugs per SCHEMA.md §3b.
+    if slug in VOLATILE_CELL_SLUGS:
+        attr = td.get("data-last-verified")
+        if isinstance(attr, str) and ISO_DATE_RE.match(attr.strip()):
+            cell["last_verified_at"] = attr.strip()
     if missing_url and warnings is not None and where is not None:
         warnings.append(where)
     return cell
@@ -586,6 +644,15 @@ def iter_records(soup: BeautifulSoup):
             name = name_td.get_text(" ", strip=True)
         # The 67 trailing <td>s for the row.
         tds = tr.find_all("td", recursive=False)
+        # Row-level last_verified_at: HTML attribute data-last-verified
+        # on the <tr> itself. See SCHEMA.md §3b.
+        row_verified = tr.get("data-last-verified")
+        if isinstance(row_verified, str) and ISO_DATE_RE.match(
+            row_verified.strip()
+        ):
+            row_verified = row_verified.strip()
+        else:
+            row_verified = None
         # First is name; next 7 are tax-*; rest are cells.
         yield {
             "tier": tier,
@@ -594,6 +661,7 @@ def iter_records(soup: BeautifulSoup):
             "tds": tds,
             "section": current_section,
             "subsection": current_subsection,
+            "last_verified_at": row_verified,
         }
 
 
@@ -612,9 +680,24 @@ def validate_record(rec: dict[str, Any]) -> list[str]:
     rid = rec.get("id", "<missing>")
 
     # 7.1.4 required keys
-    for key in ("id", "name", "tier", "url", "sections", "taxonomy", "cells"):
+    for key in (
+        "id",
+        "name",
+        "tier",
+        "url",
+        "last_verified_at",
+        "sections",
+        "taxonomy",
+        "cells",
+    ):
         if key not in rec:
             errs.append(f"{rid}: missing key {key!r}")
+    # Row-level last_verified_at — SCHEMA.md §3b.
+    lva = rec.get("last_verified_at")
+    if not isinstance(lva, str) or not ISO_DATE_RE.match(lva or ""):
+        errs.append(
+            f"{rid}: last_verified_at must match YYYY-MM-DD (got {lva!r})"
+        )
     # 7.1.6 id regex
     if not isinstance(rec.get("id"), str) or not ID_RE.match(rec["id"] or ""):
         errs.append(f"{rid}: id failed regex {ID_RE.pattern}")
@@ -669,6 +752,23 @@ def validate_record(rec: dict[str, Any]) -> list[str]:
             tier = cell.get("tier")
             if tier not in CLAIM_TIERS:
                 errs.append(f"{rid}: cells[{slug}].tier invalid: {tier!r}")
+            # Per-cell last_verified_at (SCHEMA.md §3b) — optional but
+            # if present MUST match YYYY-MM-DD and slug MUST be volatile.
+            cell_lva = cell.get("last_verified_at")
+            if cell_lva is not None:
+                if not isinstance(cell_lva, str) or not ISO_DATE_RE.match(
+                    cell_lva
+                ):
+                    errs.append(
+                        f"{rid}: cells[{slug}].last_verified_at must match "
+                        f"YYYY-MM-DD (got {cell_lva!r})"
+                    )
+                elif slug not in VOLATILE_CELL_SLUGS:
+                    errs.append(
+                        f"{rid}: cells[{slug}].last_verified_at present "
+                        f"but slug {slug!r} is not in the volatile set "
+                        "(SCHEMA.md §3b)"
+                    )
     return errs
 
 
@@ -719,11 +819,14 @@ def build_record(
 
     cells = OrderedDict()
     cells[CELL_COLUMN_SLUGS[0]] = parse_cell(
-        type_td, warnings=tier_warnings, where=f"{rec_id}.{CELL_COLUMN_SLUGS[0]}"
+        type_td,
+        warnings=tier_warnings,
+        where=f"{rec_id}.{CELL_COLUMN_SLUGS[0]}",
+        slug=CELL_COLUMN_SLUGS[0],
     )  # "type"
     for slug, td in zip(CELL_COLUMN_SLUGS[1:], rest_cell_tds):
         cells[slug] = parse_cell(
-            td, warnings=tier_warnings, where=f"{rec_id}.{slug}"
+            td, warnings=tier_warnings, where=f"{rec_id}.{slug}", slug=slug
         )
 
     sections = [{
@@ -733,11 +836,18 @@ def build_record(
         "reason": None,
     }]
 
+    # Row-level last_verified_at — required per SCHEMA.md §3b. Falls
+    # back to the schema's documented default ("2026-05-06", the first
+    # commit touching landscape.html) if the HTML lacks an attribute,
+    # so older / unrenderable rows still pass gate-5 validation.
+    last_verified_at = parsed.get("last_verified_at") or "2026-05-06"
+
     return OrderedDict([
         ("id", rec_id),
         ("name", name),
         ("tier", parsed["tier"]),
         ("url", url),
+        ("last_verified_at", last_verified_at),
         ("sections", sections),
         ("taxonomy", taxonomy),
         ("cells", cells),

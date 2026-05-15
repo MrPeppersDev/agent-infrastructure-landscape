@@ -155,6 +155,43 @@ TAXONOMY_AXES: list[str] = [
     "conflict",
 ]
 
+# Volatile slugs that may carry per-cell data-last-verified attributes
+# (SCHEMA.md §3b). Mirrors scripts/extract.py / backfill_verified_at.py.
+VOLATILE_CELL_SLUGS = {
+    "created",
+    "latest-release",
+    "gh",
+    "mindshare",
+    "citations",
+    "funding",
+    "vendor-benchmarks",
+    "commit-trajectory",
+    "citation-trajectory",
+    "download-trajectory",
+    "obs-langsmith",
+    "obs-opentelemetry",
+    "obs-datadog",
+    "obs-helicone",
+    "obs-weave",
+    "obs-langfuse",
+    "obs-arize",
+    "obs-custom",
+    "cost-token-budget",
+    "cost-prompt-caching",
+    "cost-semantic-caching",
+    "cost-batching",
+    "cost-model-routing",
+    "cost-streaming-only",
+    "cost-observability-cost-attribution",
+    "eval-langsmith-evals",
+    "eval-braintrust",
+    "eval-weights-and-biases-agent",
+    "eval-helicone-evals",
+    "eval-custom-test-harness",
+    "eval-human-loop",
+    "eval-production-traffic-replay",
+}
+
 # Style attribute reused on every level-2 group-row td (subsection header).
 SUB_GROUP_STYLE = (
     "padding-left: 28px; text-transform: none; "
@@ -259,10 +296,15 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
 
     `td_class` is the css class (e.g. "type", "desc", "perf"). `cell` is
     the JSON record's cell dict.
+
+    Volatile cells (SCHEMA.md §3b) emit a `data-last-verified="YYYY-MM-DD"`
+    attribute on the <td> when the cell carries one. Non-volatile cells
+    never emit the attribute (they inherit the row-level date).
     """
     status = cell.get("status")
     value = cell.get("value", "") or ""
     citation = cell.get("citation")
+    last_verified = cell.get("last_verified_at")
 
     if status == "real-data":
         body = _value_passthrough(value)
@@ -318,7 +360,14 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
     else:
         raise RuntimeError(f"unknown cell status {status!r}")
 
-    return f'    <td class="{escape(td_class, quote=True)}">{inner}</td>'
+    attrs = f'class="{escape(td_class, quote=True)}"'
+    if (
+        td_class in VOLATILE_CELL_SLUGS
+        and isinstance(last_verified, str)
+        and last_verified
+    ):
+        attrs += f' data-last-verified="{escape(last_verified, quote=True)}"'
+    return f"    <td {attrs}>{inner}</td>"
 
 
 def render_taxonomy_cell(axis: str, axis_values: list[dict[str, Any]]) -> str:
@@ -430,7 +479,15 @@ def render_cross_listing_marker(record: dict[str, Any]) -> str:
 def render_row(record: dict[str, Any]) -> str:
     tier = record["tier"]
     lines: list[str] = []
-    lines.append(f'  <tr class="row-t{tier}">')
+    # Row-level data-last-verified (SCHEMA.md §3b). Always present for
+    # post-backfill records; older serialisations without one render the
+    # row without the attribute (the cycle gate would then catch a
+    # round-trip drift, which is the correct signal to re-run backfill).
+    lva = record.get("last_verified_at")
+    tr_attrs = f'class="row-t{tier}"'
+    if isinstance(lva, str) and lva:
+        tr_attrs += f' data-last-verified="{escape(lva, quote=True)}"'
+    lines.append(f"  <tr {tr_attrs}>")
     # Name with optional cross-listing marker injected after the closing </a>.
     name_cell = render_name_cell(record)
     marker = render_cross_listing_marker(record)

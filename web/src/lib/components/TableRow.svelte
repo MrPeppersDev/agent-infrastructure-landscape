@@ -22,6 +22,25 @@
   const showStaleBadge = $derived(
     survivorship.status === 'stale' || survivorship.status === 'abandoned'
   );
+
+  // last_verified_at freshness indicator (issue #54 / SCHEMA.md §3b).
+  // A tiny dot beside the name keeps visual noise low on the main table
+  // while still surfacing rows whose last verification is stale (>= 6
+  // months ago). The full date + badge live on the detail modal. Today
+  // is pinned in lockstep with the survivorship classifier.
+  const FRESHNESS_TODAY = new Date('2026-05-14T00:00:00Z');
+  const lvaDot = $derived.by(() => {
+    const iso = record.last_verified_at;
+    if (!iso) return null;
+    const d = new Date(iso + 'T00:00:00Z');
+    if (Number.isNaN(d.getTime())) return null;
+    const months =
+      (FRESHNESS_TODAY.getTime() - d.getTime()) /
+      (1000 * 60 * 60 * 24 * 30.4375);
+    if (months >= 12) return { tone: 'stale' as const, iso, months };
+    if (months >= 6) return { tone: 'aging' as const, iso, months };
+    return null;
+  });
 </script>
 
 <tr class="row row-t{record.tier}">
@@ -40,6 +59,13 @@
           >
             {survivorship.status === 'abandoned' ? 'abandoned' : 'stale'}
           </span>
+        {/if}
+        {#if lvaDot}
+          <span
+            class="lva-dot {lvaDot.tone}"
+            title={`Last verified ${lvaDot.iso} — ${lvaDot.tone === 'stale' ? 'stale (>=12mo)' : 'needs re-audit (>=6mo)'} (SCHEMA.md §3b)`}
+            aria-label={`Last verified ${lvaDot.iso}`}
+          ></span>
         {/if}
       </td>
     {:else if col.key === 'tier'}
@@ -156,6 +182,24 @@
     background: #3a1f1f;
     color: #f85149;
     border-color: #5d2a2a;
+  }
+  .lva-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 6px;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: help;
+    border: 1px solid;
+  }
+  .lva-dot.aging {
+    background: #d29922;
+    border-color: #5d4720;
+  }
+  .lva-dot.stale {
+    background: #db6d28;
+    border-color: #5d3a1f;
   }
   .trend {
     /* Subtle accent: a 1-px inset on the left edge so trend columns

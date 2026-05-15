@@ -51,6 +51,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import datetime as _dt
 import json
 import re
 import shutil
@@ -86,6 +87,15 @@ VALID_EDGE_TYPES = {
 
 # Claim-tier validation regex (SCHEMA.md §3a / scripts/extract.py).
 TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
+
+# last_verified_at validation regex (SCHEMA.md §3b).
+ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+# Today's date used for freshness bucketing. Kept as a module-level
+# constant for deterministic test reporting (the value isn't reset
+# from system time on every call — change in lock-step with the
+# survivorship analyses if/when the catalog snapshot date moves).
+FRESHNESS_TODAY = _dt.date.fromisoformat("2026-05-14")
 
 
 # ---------------------------------------------------------------------------
@@ -463,7 +473,10 @@ def gate_cache() -> None:
 
 
 def gate_claim_tiers() -> None:
-    gate_header(5, "Claim-tier provenance (SCHEMA.md §3a / §7.1.12)")
+    gate_header(
+        5,
+        "Claim-tier provenance + freshness (SCHEMA.md §3a / §3b / §7.1.12)",
+    )
     if not LANDSCAPE_JSON.exists():
         gate_fail(f"{LANDSCAPE_JSON} not found")
 
@@ -472,8 +485,41 @@ def gate_claim_tiers() -> None:
 
     tier_errors: list[str] = []
     counts = {"T1": 0, "T2": 0, "T3": 0}
+    # Freshness buckets — see SCHEMA.md §3b. We bucket every record by
+    # its row-level last_verified_at, NOT every cell, because the
+    # row-level date is what an audit / re-sweep workflow keys off.
+    freshness = {"fresh": 0, "aging": 0, "stale": 0, "very_stale": 0}
+    missing_lva = 0
+    bad_lva: list[str] = []
+    bad_cell_lva: list[str] = []
+    cell_lva_count = 0
+
     for rec in records:
         rid = rec.get("id", "<unknown>")
+        # Row-level last_verified_at (SCHEMA.md §3b).
+        row_lva = rec.get("last_verified_at")
+        if not isinstance(row_lva, str) or not ISO_DATE_RE.match(row_lva or ""):
+            bad_lva.append(
+                f"{rid}: row last_verified_at must match YYYY-MM-DD (got {row_lva!r})"
+            )
+            missing_lva += 1
+        else:
+            try:
+                d = _dt.date.fromisoformat(row_lva)
+                age_days = (FRESHNESS_TODAY - d).days
+                if age_days < 183:
+                    freshness["fresh"] += 1
+                elif age_days < 365:
+                    freshness["aging"] += 1
+                elif age_days < 730:
+                    freshness["stale"] += 1
+                else:
+                    freshness["very_stale"] += 1
+            except ValueError:
+                bad_lva.append(
+                    f"{rid}: row last_verified_at unparseable ({row_lva!r})"
+                )
+
         for slug, cell in (rec.get("cells") or {}).items():
             tier = cell.get("tier")
             if tier not in counts:
@@ -495,18 +541,49 @@ def gate_claim_tiers() -> None:
                         f"{rid}.cells[{slug}]: T2 requires non-empty http(s) "
                         f"citation (got {citation!r})"
                     )
+            # Per-cell last_verified_at (SCHEMA.md §3b). Optional; when
+            # present must be ISO date. We don't enforce the volatile-slug
+            # check here — that's caught by extract.py's per-record
+            # validator (gate 1 invokes the same logic).
+            cell_lva = cell.get("last_verified_at")
+            if cell_lva is not None:
+                cell_lva_count += 1
+                if not isinstance(cell_lva, str) or not ISO_DATE_RE.match(cell_lva):
+                    bad_cell_lva.append(
+                        f"{rid}.cells[{slug}]: last_verified_at "
+                        f"must match YYYY-MM-DD (got {cell_lva!r})"
+                    )
 
+    errors: list[str] = []
     if tier_errors:
-        for e in tier_errors[:20]:
+        errors.extend(tier_errors)
+    if bad_lva:
+        errors.extend(bad_lva)
+    if bad_cell_lva:
+        errors.extend(bad_cell_lva)
+
+    if errors:
+        for e in errors[:20]:
             info(f"  - {e}")
-        if len(tier_errors) > 20:
-            info(f"  ... and {len(tier_errors) - 20} more")
-        gate_fail(f"{len(tier_errors)} claim-tier validation errors")
+        if len(errors) > 20:
+            info(f"  ... and {len(errors) - 20} more")
+        gate_fail(f"{len(errors)} claim-tier / freshness validation errors")
 
     info(
         f"tier distribution: T1={counts['T1']} T2={counts['T2']} T3={counts['T3']}"
     )
-    gate_pass("all cells satisfy their tier's citation requirement")
+    info(
+        "row freshness: "
+        f"fresh<6mo={freshness['fresh']}  "
+        f"aging=6-12mo={freshness['aging']}  "
+        f"stale=12-24mo={freshness['stale']}  "
+        f"very-stale>=24mo={freshness['very_stale']}"
+    )
+    info(f"per-cell last_verified_at populated: {cell_lva_count}")
+    gate_pass(
+        "all cells satisfy their tier's citation requirement; "
+        "row-level + per-cell freshness are well-formed"
+    )
 
 
 # ---------------------------------------------------------------------------

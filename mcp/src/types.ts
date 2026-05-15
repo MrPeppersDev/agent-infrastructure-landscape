@@ -26,6 +26,13 @@ export interface Cell {
   citation: string | null;
   status: Status;
   tier: ClaimTier;
+  /**
+   * Per-cell ISO date ("YYYY-MM-DD") of the most recent verification of
+   * this cell's claim. Present only on high-volatility cells (see
+   * docs/SCHEMA.md §3b); other cells inherit the row-level
+   * `LandscapeRecord.last_verified_at`.
+   */
+  last_verified_at?: string;
 }
 
 export interface TaxonomyValue {
@@ -146,6 +153,12 @@ export interface LandscapeRecord {
   name: string;
   tier: Tier;
   url: string | null;
+  /**
+   * Row-level ISO date ("YYYY-MM-DD") of the most recent verification
+   * of any field on this record. Inherited by every cell that does not
+   * carry its own `Cell.last_verified_at`. See docs/SCHEMA.md §3b.
+   */
+  last_verified_at: string;
   sections: SectionMembership[];
   taxonomy: Taxonomy;
   cells: Cells;

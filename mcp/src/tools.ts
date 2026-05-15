@@ -42,6 +42,11 @@ export interface RecordSummary {
   primarySubsection: string | null;
   /** Short description from the `desc` cell, truncated to 200 chars. */
   description: string;
+  /**
+   * Row-level ISO date ("YYYY-MM-DD") of the most recent verification
+   * of this record's claims. See docs/SCHEMA.md §3b. Issue #54.
+   */
+  lastVerifiedAt: string;
 }
 
 export interface SearchResult {
@@ -113,6 +118,12 @@ export interface RecentChange {
   /** Date string from `created` cell, or null. */
   created: string | null;
   primarySection: string;
+  /**
+   * Row-level ISO date ("YYYY-MM-DD") of the most recent catalog
+   * verification — distinct from latestRelease/created which describe
+   * upstream product activity. See docs/SCHEMA.md §3b. Issue #54.
+   */
+  lastVerifiedAt: string;
 }
 
 export interface RecentResult {
@@ -168,7 +179,8 @@ function toSummary(record: LandscapeRecord): RecordSummary {
     url: record.url,
     primarySection: primarySection(record),
     primarySubsection: primarySubsection(record),
-    description: desc.length > 200 ? desc.slice(0, 197) + '...' : desc
+    description: desc.length > 200 ? desc.slice(0, 197) + '...' : desc,
+    lastVerifiedAt: record.last_verified_at
   };
 }
 
@@ -597,7 +609,8 @@ export function recentChanges(
       name: record.name,
       latestRelease: latest ? new Date(latest).toISOString().slice(0, 10) : null,
       created: created ? new Date(created).toISOString().slice(0, 10) : null,
-      primarySection: primarySection(record)
+      primarySection: primarySection(record),
+      lastVerifiedAt: record.last_verified_at
     }))
   };
 }

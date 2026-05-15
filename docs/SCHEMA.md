@@ -803,6 +803,122 @@ The heuristic, top-down (first match wins):
 
 ---
 
+## 3b. Catalog freshness (`last_verified_at`)
+
+Issue #54 added explicit row-level and per-cell freshness timestamps so
+consumers can answer "is this claim still likely to be true?" without
+inspecting git history. Honest catalogs caveat their freshness; this is
+the cheapest, most direct user-facing signal of catalog quality.
+
+### Row-level `last_verified_at`
+
+Every record carries a `last_verified_at` field at the top level
+(alongside `id`, `name`, `tier`):
+
+```typescript
+type LandscapeRecord = {
+  id: string;
+  name: string;
+  tier: 1 | 2 | 3 | 4 | 5;
+  url: string | null;
+  last_verified_at: string;  // ISO date "YYYY-MM-DD"
+  sections: SectionMembership[];
+  taxonomy: Taxonomy;
+  cells: Cells;
+};
+```
+
+The row-level date represents "the most recent commit that modified any
+part of this row's `<tr>` block." It is the **inherited default** for
+every cell in the row: a cell with no per-cell `last_verified_at` is
+considered verified as of the row-level date.
+
+### Per-cell `last_verified_at` (high-volatility only)
+
+For high-volatility cells, the per-cell `Cell` shape extends to:
+
+```typescript
+type Cell = {
+  value: string;
+  citation: string | null;
+  status: Status;
+  tier: ClaimTier;
+  last_verified_at?: string;  // ISO date — present only on volatile cells
+};
+```
+
+The per-cell field, **when present, overrides** the row-level date for
+that cell. When absent, the cell inherits the row-level date.
+
+### Volatile cell set (per-cell `last_verified_at` enabled)
+
+The following column slugs are considered high-volatility and therefore
+carry per-cell `last_verified_at`. All other slugs inherit the row
+date.
+
+| Group                              | Column slugs                                                                                                   |
+|------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Lifecycle / release dates          | `created`, `latest-release`                                                                                    |
+| Adoption / inbound signals         | `gh` (star count + last-commit date), `mindshare`, `citations`                                                 |
+| Funding state                      | `funding`                                                                                                      |
+| Benchmark scores                   | `vendor-benchmarks`                                                                                            |
+| Observability integrations (8)     | `obs-langsmith`, `obs-opentelemetry`, `obs-datadog`, `obs-helicone`, `obs-weave`, `obs-langfuse`, `obs-arize`, `obs-custom` |
+| Cost-control features (7)          | `cost-token-budget`, `cost-prompt-caching`, `cost-semantic-caching`, `cost-batching`, `cost-model-routing`, `cost-streaming-only`, `cost-observability-cost-attribution` |
+| Eval-tooling integrations (7)      | `eval-langsmith-evals`, `eval-braintrust`, `eval-weights-and-biases-agent`, `eval-helicone-evals`, `eval-custom-test-harness`, `eval-human-loop`, `eval-production-traffic-replay` |
+| Trajectory time-series             | `commit-trajectory`, `citation-trajectory`, `download-trajectory`                                              |
+
+That's 32 volatile cell slugs in total. The remaining 53 slugs
+(taxonomy axes, license, primary URL, descriptions, etc.) are
+low-volatility and inherit the row-level date.
+
+### HTML representation
+
+In `landscape.html`, the timestamps live as attributes:
+
+```html
+<tr class="row-t1" data-last-verified="2026-05-14">
+  <td class="vendor-benchmarks" data-last-verified="2026-05-12">…</td>
+</tr>
+```
+
+`scripts/extract.py` reads these attributes and projects them into
+`record.last_verified_at` (row-level) and `cell.last_verified_at`
+(per-cell, only on volatile cells). `scripts/render.py` emits them
+when present and omits them when absent. The cycle gate
+(`scripts/validate.py` gate 3) enforces round-trip stability of the
+attributes.
+
+### Initial backfill
+
+`scripts/backfill_verified_at.py` populates `landscape.html` with the
+initial dates derived from `git blame -p landscape.html`. The row-level
+date is the *latest* blame date across every line in the `<tr>` block.
+The per-cell date for a volatile cell is the blame date of that cell's
+specific line.
+
+Re-running the backfill is idempotent for unmodified rows: blame dates
+stay attributed to the most recent meaningful commit, even if the only
+change is the `data-last-verified` attribute itself.
+
+### Validation
+
+`scripts/validate.py` gate 5 also validates:
+
+- Every record MUST have `last_verified_at` matching `^\d{4}-\d{2}-\d{2}$`.
+- Volatile cells MAY have `last_verified_at`; when present it MUST
+  match the same regex.
+- The build does NOT fail on stale rows. Stale rows are reported as an
+  informational metric (counts in four freshness buckets):
+    - **fresh** — verified < 6 months ago
+    - **aging** — 6-12 months
+    - **stale** — 12-24 months
+    - **very stale** — ≥ 24 months
+
+Surfacing the metric rather than failing the build keeps the freshness
+signal honest without forcing maintainers to re-verify on every commit.
+
+---
+
 ## 4. Per-edge structure (`landscape.edges.json` → `edges[*]`)
 
 ```typescript

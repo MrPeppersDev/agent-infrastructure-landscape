@@ -99,6 +99,30 @@ function toJson<T>(value: T): string {
 }
 
 // ===========================================================================
+// last_verified_at freshness helper — issue #54 / SCHEMA.md §3b
+// ===========================================================================
+// `tone` is shared with the Svelte UI's badge palette (see
+// DetailModal.svelte / TableRow.svelte). Today is pinned in lockstep
+// with scripts/validate.py's FRESHNESS_TODAY constant.
+
+const FRESHNESS_TODAY = new Date('2026-05-14T00:00:00Z');
+
+function freshnessLabel(iso: string | undefined): {
+  tone: 'fresh' | 'aging' | 'stale';
+  months: number | null;
+} {
+  if (!iso) return { tone: 'fresh', months: null };
+  const d = new Date(iso + 'T00:00:00Z');
+  if (Number.isNaN(d.getTime())) return { tone: 'fresh', months: null };
+  const months =
+    (FRESHNESS_TODAY.getTime() - d.getTime()) /
+    (1000 * 60 * 60 * 24 * 30.4375);
+  if (months >= 12) return { tone: 'stale', months };
+  if (months >= 6) return { tone: 'aging', months };
+  return { tone: 'fresh', months };
+}
+
+// ===========================================================================
 // search_records
 // ===========================================================================
 
@@ -106,13 +130,22 @@ export function formatSearch(result: SearchResult, opts: FormatOptions): string 
   if (opts.json) return toJson(result);
   if (opts.csv) {
     return toCsv(
-      ['id', 'name', 'tier', 'primarySection', 'url', 'description'],
+      [
+        'id',
+        'name',
+        'tier',
+        'primarySection',
+        'url',
+        'last_verified_at',
+        'description'
+      ],
       result.results.map((r) => [
         r.id,
         r.name,
         r.tier,
         r.primarySection,
         r.url ?? '',
+        r.lastVerifiedAt ?? '',
         r.description
       ])
     );
@@ -157,6 +190,7 @@ export function formatRecord(
       ['name', record.name],
       ['tier', record.tier],
       ['url', record.url ?? ''],
+      ['last_verified_at', record.last_verified_at ?? ''],
       [
         'primarySection',
         record.sections.find((s) => s.primary)?.section ?? ''
@@ -185,6 +219,19 @@ export function formatRecord(
         c.magenta(primarySec.section) +
         (primarySec.subsection ? c.dim(' / ') + primarySec.subsection : '')
     );
+  }
+
+  // Last-verified caption — issue #54 / SCHEMA.md §3b. Shown
+  // prominently after the section line so it lands above-the-fold and
+  // colourised when the date is older than 6 months (yellow) or 12
+  // months (red-ish).
+  if (record.last_verified_at) {
+    const lvaBadge = freshnessLabel(record.last_verified_at);
+    let line = c.dim('verified: ') + record.last_verified_at;
+    if (lvaBadge.tone === 'aging')
+      line += '  ' + c.yellow('(needs re-audit)');
+    else if (lvaBadge.tone === 'stale') line += '  ' + c.red('(stale)');
+    lines.push(line);
   }
 
   // Highlight a curated set of high-signal cells; show the rest only on --json.
@@ -416,13 +463,21 @@ export function formatRecent(result: RecentResult, opts: FormatOptions): string 
   if (opts.json) return toJson(result);
   if (opts.csv) {
     return toCsv(
-      ['id', 'name', 'latest_release', 'created', 'primary_section'],
+      [
+        'id',
+        'name',
+        'latest_release',
+        'created',
+        'primary_section',
+        'last_verified_at'
+      ],
       result.records.map((r) => [
         r.id,
         r.name,
         r.latestRelease ?? '',
         r.created ?? '',
-        r.primarySection
+        r.primarySection,
+        r.lastVerifiedAt ?? ''
       ])
     );
   }

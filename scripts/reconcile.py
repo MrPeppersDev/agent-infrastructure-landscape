@@ -295,15 +295,22 @@ def merge_records_collapse(
         new_cells[slug] = merge_cell(cell, other["cells"].get(slug, cell))
     new_tax = merge_taxonomy(kept["taxonomy"], other["taxonomy"])
 
-    return OrderedDict([
+    out = OrderedDict([
         ("id", kept["id"]),
         ("name", kept["name"]),
         ("tier", kept["tier"]),
         ("url", kept["url"]),
-        ("sections", [dict(s) for s in kept["sections"]]),
-        ("taxonomy", new_tax),
-        ("cells", new_cells),
     ])
+    # Preserve row-level last_verified_at (SCHEMA.md §3b) — use kept's date
+    # since it's the canonical record. Falls back to the other record's
+    # date or omits the field if neither provides one.
+    lva = kept.get("last_verified_at") or other.get("last_verified_at")
+    if lva:
+        out["last_verified_at"] = lva
+    out["sections"] = [dict(s) for s in kept["sections"]]
+    out["taxonomy"] = new_tax
+    out["cells"] = new_cells
+    return out
 
 
 def merge_records_cross_listing(
@@ -352,15 +359,26 @@ def merge_records_cross_listing(
                 "reason": rule.get("reason"),
             })
 
-    return OrderedDict([
+    out = OrderedDict([
         ("id", primary_rec["id"]),
         ("name", primary_rec["name"]),
         ("tier", primary_rec["tier"]),
         ("url", primary_rec["url"]),
-        ("sections", sections),
-        ("taxonomy", new_tax),
-        ("cells", new_cells),
     ])
+    # Preserve row-level last_verified_at (SCHEMA.md §3b) from the primary
+    # record; cross-listings keep primary's framing for every other field.
+    lva = primary_rec.get("last_verified_at")
+    if not lva:
+        for other in additional_recs:
+            if other.get("last_verified_at"):
+                lva = other["last_verified_at"]
+                break
+    if lva:
+        out["last_verified_at"] = lva
+    out["sections"] = sections
+    out["taxonomy"] = new_tax
+    out["cells"] = new_cells
+    return out
 
 
 # ---------------------------------------------------------------------------
