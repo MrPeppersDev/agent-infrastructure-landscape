@@ -758,9 +758,9 @@ ROWS.append(agent_product_row(
 def main():
     out = []
     # The subsection group-row
-    out.append('  <tr class="group-row"><td colspan="90" style="padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;">— Game / interactive-environment benchmarks</td></tr>')
+    out.append('  <tr class="group-row"><td colspan="91" style="padding-left: 28px; text-transform: none; letter-spacing: 0.04em; color: #b8b8b8;">— Game / interactive-environment benchmarks</td></tr>')
     out.append('')
-    out.append('  <tr class="section-explainer"><td colspan="90"><div class="explainer-text">Game and interactive-environment benchmarks for agentic AI — distinct from the academic-benchmark cohort (LongMemEval / LoCoMo / GAIA / ALFWorld) by being play-shaped, long-horizon (hours to days of agent runtime), partial-observability, and often community-built. NetHack / Minecraft / Pokemon / Atari sit alongside web/mobile/desktop agent benchmarks (WebArena, OSWorld, AndroidWorld) — all share long-horizon, partial-observability, agentic-by-construction structure. Includes both OSS / community benchmarks AND known agent-plays-game products (Claude Plays Pokemon).</div></td></tr>')
+    out.append('  <tr class="section-explainer"><td colspan="91"><div class="explainer-text">Game and interactive-environment benchmarks for agentic AI — distinct from the academic-benchmark cohort (LongMemEval / LoCoMo / GAIA / ALFWorld) by being play-shaped, long-horizon (hours to days of agent runtime), partial-observability, and often community-built. NetHack / Minecraft / Pokemon / Atari sit alongside web/mobile/desktop agent benchmarks (WebArena, OSWorld, AndroidWorld) — all share long-horizon, partial-observability, agentic-by-construction structure. Includes both OSS / community benchmarks AND known agent-plays-game products (Claude Plays Pokemon).</div></td></tr>')
     out.append('')
     for r in ROWS:
         out.append(r)

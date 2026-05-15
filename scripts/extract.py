@@ -43,7 +43,7 @@ SCHEMA_VERSION = "1.0.0"
 # is intentional.
 DEFAULT_GENERATED_AT = "2026-05-07T00:00:00Z"
 
-# In document order, the 82 cell column slugs (everything except `name`,
+# In document order, the 83 cell column slugs (everything except `name`,
 # the 7 `tax-*` axes, and the implicit `name` column).
 #
 # Columns 61-68 (the `obs-*` family) were appended in T1-1 (issue #39)
@@ -145,8 +145,10 @@ CELL_COLUMN_SLUGS: list[str] = [
     "eval-custom-test-harness",
     "eval-human-loop",
     "eval-production-traffic-replay",
+    # T3-prep-1 commit-trajectory column (issue #50). See docs/SCHEMA.md §2.5.4.
+    "commit-trajectory",
 ]
-assert len(CELL_COLUMN_SLUGS) == 82
+assert len(CELL_COLUMN_SLUGS) == 83
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -527,7 +529,7 @@ def section_label(group_row_td_text: str) -> tuple[str, bool]:
     """Return (label, is_subsection) for a group-row's first <td> text.
 
     Subsections in the HTML start with the literal "— " (em-dash + space)
-    inside a `<td colspan="90" style="padding-left: 28px; ...">`. We
+    inside a `<td colspan="91" style="padding-left: 28px; ...">`. We
     preserve the prefix exactly per §2.3.
     """
     txt = group_row_td_text.strip()
@@ -692,20 +694,20 @@ def build_record(
 
     tds = parsed["tds"]
     # HTML layout (left-to-right):
-    #   tds[0]   = name
-    #   tds[1]   = type (the "Memory model" cell — first cell column)
+    #   tds[0]    = name
+    #   tds[1]    = type (the "Memory model" cell — first cell column)
     #   tds[2..8] = tax-storage .. tax-conflict (7 taxonomy axes)
-    #   tds[9..89] = desc .. eval-production-traffic-replay (81 remaining cell columns)
-    # Total: 1 + 1 + 7 + 81 = 90 tds per row.
-    if len(tds) != 90:
+    #   tds[9..90] = desc .. commit-trajectory (82 remaining cell columns)
+    # Total: 1 + 1 + 7 + 82 = 91 tds per row.
+    if len(tds) != 91:
         raise RuntimeError(
-            f"row {rec_id!r}: expected 90 tds, got {len(tds)}"
+            f"row {rec_id!r}: expected 91 tds, got {len(tds)}"
         )
     type_td = tds[1]
     tax_tds = tds[2:9]
     rest_cell_tds = tds[9:]
     assert len(tax_tds) == 7
-    assert len(rest_cell_tds) == 81
+    assert len(rest_cell_tds) == 82
 
     taxonomy = OrderedDict()
     for axis, td in zip(TAXONOMY_AXES, tax_tds):

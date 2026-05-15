@@ -258,8 +258,8 @@ vocabularies are governed by the controlled-vocab list in `taxonomy/`.
 ### 2.5 Cells
 
 `cells` is an object keyed by **column slug**, with one entry per
-non-name, non-taxonomy column in `landscape.html`. There are 81 such
-columns (90 total - 1 name - 1 memory-model-type - 7 taxonomy = 81).
+non-name, non-taxonomy column in `landscape.html`. There are 82 such
+columns (91 total - 1 name - 1 memory-model-type - 7 taxonomy = 82).
 
 Each cell value:
 
@@ -358,8 +358,9 @@ The complete column-slug set (in HTML left-to-right order):
 | 80 | `eval-custom-test-harness` | `eval-custom-test-harness` | Custom test harness        |
 | 81 | `eval-human-loop`       | `eval-human-loop`     | Human-in-loop eval               |
 | 82 | `eval-production-traffic-replay` | `eval-production-traffic-replay` | Prod traffic replay |
+| 83 | `commit-trajectory`     | `commit-trajectory`   | Commit trajectory                |
 
-The `cells` object MUST contain all 82 keys for every record. Records
+The `cells` object MUST contain all 83 keys for every record. Records
 where a column is genuinely meaningless (e.g. `funding` for a research
 paper) use `status: "not-applicable"`. The `value` field for those
 cells is the human-readable annotation copied from the HTML
@@ -472,6 +473,74 @@ Out of scope: eval methodology comparison (eg. LLM-as-judge vs human
 rubric vs canary set), benchmark scores (those are T1-4 territory).
 These columns track *integration support* only — which products plug
 into which eval tooling.
+
+### 2.5.4 Commit-trajectory column (added in T3-prep-1, issue #50)
+
+The single `commit-trajectory` column carries a per-row monthly
+cumulative-commit-count time series, fetched from the GitHub Commits
+API. It was added to backfill temporal signal for the S-curve maturity
+fit (T2-4, issue #47), which previously could fit only 15.7% of rows
+because most records lacked a per-quarter cumulative history. With a
+real commit trajectory we get a monthly granularity series spanning the
+project's life, which fits the logistic far more honestly than the
+piecewise synthetic series used as a fallback.
+
+The `value` field is a JSON-stringified array of `{ym, cum}` objects in
+chronological order, one per calendar month from the repo's first
+commit to its most recent:
+
+```json
+[
+  {"ym": "2023-01", "cum": 4},
+  {"ym": "2023-02", "cum": 11},
+  {"ym": "2023-03", "cum": 23},
+  ...
+]
+```
+
+- `ym` is a `YYYY-MM` string. Months with zero commits MAY be omitted —
+  the cumulative value in the next present month encodes the gap, so
+  consumers MUST treat the series as a sparse cumulative growth curve
+  rather than a dense per-month delta.
+- `cum` is the cumulative commit count to the end of that month
+  (running total over the project's lifetime, never decreasing).
+
+Status semantics:
+
+| `status`              | Meaning                                                                                                | `value`               | `citation`                            |
+|-----------------------|--------------------------------------------------------------------------------------------------------|-----------------------|---------------------------------------|
+| `real-data`           | Trajectory fetched OK.                                                                                  | JSON-stringified array | `https://github.com/<owner>/<repo>`  |
+| `depth-floor-reached` | Fetch failed (404 / archived-with-no-history / rate-limited-after-retry / private repo).                | `""`                  | The attempted GitHub URL              |
+| `not-applicable`      | Row has no `repo-url` cell (research paper without code, theoretical entry, benchmark without repo).    | The N/A annotation     | `null`                                |
+
+Tier semantics:
+
+- `real-data` cells are T1 (auto-verifiable — the same API call can be
+  re-run to produce the same data; the `citation` is the GitHub URL).
+- `depth-floor-reached` cells are T3 (no auto-verifiable signal; future
+  work could retry against a less-bottlenecked auth context).
+- `not-applicable` cells are T3 (a maintainer judgement that this row
+  has no GitHub repo to fetch — paper-only rows, theoretical entries).
+
+The fetch script lives at `scripts/fetch_commit_trajectories.py` and
+runs via `make refresh-commit-trajectories` (slow, network-dependent —
+similar to `make refresh-citations`). Raw API responses are cached
+under `extraction/commit-cache/<owner>__<repo>.json` so deterministic
+rebuilds with `make build` work offline against the committed cache.
+
+Coverage callout: only rows with a parseable GitHub repo URL (the same
+~230 rows the staleness CI walks) are eligible for `real-data`. All
+other rows are `not-applicable`. The S-curve view picks up these
+trajectories automatically (preferring them over the synthesised
+piecewise series used by T2-4 before this column existed) — see
+`web/src/lib/analyses/s-curve.ts`.
+
+Out of scope:
+- Per-quarter granularity (monthly is enough resolution for the S-curve
+  fit; per-quarter aggregation is trivial downstream).
+- Star history (separate signal, separate API path, deferred to a
+  follow-up if needed).
+- Issue / PR activity counts.
 
 ---
 
@@ -798,7 +867,7 @@ file claiming to conform to the schema.
     - each axis array is non-empty.
     - exactly one element per axis has `primary: true`.
 11. **Cells:**
-    - `cells` has exactly the 82 keys listed in §2.5 (no extras, no missing).
+    - `cells` has exactly the 83 keys listed in §2.5 (no extras, no missing).
     - every cell's `status` is one of `real-data`, `not-applicable`, `depth-floor-reached`, `no-data`, `estimate`.
     - every cell's `value` is a string (possibly empty).
     - every cell's `citation` is either `null` or an `http(s)://` URL.

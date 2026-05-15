@@ -136,8 +136,10 @@ CELL_COLUMN_SLUGS: list[str] = [
     "eval-custom-test-harness",
     "eval-human-loop",
     "eval-production-traffic-replay",
+    # T3-prep-1 commit-trajectory column (issue #50). See docs/SCHEMA.md §2.5.4.
+    "commit-trajectory",
 ]
-assert len(CELL_COLUMN_SLUGS) == 82
+assert len(CELL_COLUMN_SLUGS) == 83
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -450,11 +452,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="90" '
+            f'  <tr class="group-row"><td colspan="91" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="90">'
+        f'  <tr class="group-row"><td colspan="91">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -463,7 +465,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="90">'
+        '  <tr class="section-explainer"><td colspan="91">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
