@@ -117,6 +117,16 @@ Adopted to close the catalog-deaths-research-identified governance vacuum
 of the catalog-decay graveyard (DB-Engines, State of JS, dbdb.io) all
 publish a maintenance contract; this is ours.
 
+Three automated workflows enforce the contract:
+
+- **[`docs/INTAKE.md`](docs/INTAKE.md)** — `intake`-labelled Issues are
+  auto-researched into draft PRs (T2.6-1).
+- **[`docs/AUDIT.md`](docs/AUDIT.md)** — sections are periodically
+  re-validated (reverify) and expanded (search for missing systems)
+  via the weekly section-audit cron (T2.6-3).
+- **`.github/workflows/staleness.yml`** — rows with abandoned upstream
+  repos get flagged as `stale-row` Issues weekly (T0-4).
+
 ## MCP server
 
 A local-stdio MCP server lives in [`mcp/`](./mcp) and exposes the catalog as
@@ -221,6 +231,12 @@ form (or the `intake` Issue template) are auto-researched by the workflow
 at `.github/workflows/intake-research.yml` — see [docs/INTAKE.md](docs/INTAKE.md)
 for the end-to-end flow, per-cell tier strategy, local-test recipe, and
 failure modes.**
+
+**Existing rows are periodically re-audited section-by-section by the
+workflow at `.github/workflows/audit-section.yml` (weekly cron;
+oldest-audited section first; reverify + expand modes) — see
+[docs/AUDIT.md](docs/AUDIT.md) for the rotation policy, PR review
+workflow, and failure modes.**
 
 `make refresh-citations` is a separate target that re-pulls Semantic Scholar
 data — it takes ~15 min and is only needed when new research-paper rows have

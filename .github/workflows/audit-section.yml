@@ -1,0 +1,132 @@
+# Section audit (issue #55 / T2.6-3).
+#
+# Periodic re-verification + expansion sweep of one section at a time.
+# Pairs with the staleness check (.github/workflows/staleness.yml) and
+# the auto-intake pipeline (.github/workflows/intake-research.yml):
+#
+#   - staleness:        flags abandoned rows for triage. Reactive.
+#   - intake-research:  fans research across a new submission. Reactive.
+#   - audit-section:    sweeps an entire section for drift AND searches
+#                       for missing systems. Proactive — the catalog's
+#                       antibody system against silent decay.
+#
+# Cadence: every Tuesday at 14:00 UTC; one section per run. Section is
+# picked by `scripts/audit_pick_section.py` (oldest last-audited date
+# wins; ties broken alphabetically). Manual `workflow_dispatch` runs
+# override the picker and the mode.
+#
+# Outcome: a draft PR (branch `audit/<section-slug>-<YYYY-MM-DD>`) with
+# the staged proposals. Maintainer reviews via the checkbox UI in the PR
+# body and either applies each delta inline or closes the PR. NO
+# auto-merge — this is the catalog's correctness checkpoint.
+
+name: Section audit
+
+on:
+  schedule:
+    # Tuesdays 14:00 UTC. cron syntax: minute hour day-of-month month day-of-week
+    - cron: '0 14 * * 2'
+  workflow_dispatch:
+    inputs:
+      section:
+        description: "Section name to audit (leave blank for picker)"
+        required: false
+        type: string
+      mode:
+        description: "Audit mode"
+        required: false
+        default: full
+        type: choice
+        options:
+          - reverify
+          - expand
+          - full
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+# Audit runs are independent — but we don't want two of them clobbering
+# each other on landscape.html. Group by workflow name, queue rather
+# than cancel (a manual dispatch shouldn't ditch a scheduled run halfway).
+concurrency:
+  group: audit-section
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so the branch creation works cleanly
+
+      - name: Configure git identity
+        run: |
+          git config user.name "memory-analysis-audit-bot"
+          git config user.email "audit-bot@users.noreply.github.com"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Python dependencies
+        run: pip install beautifulsoup4 requests
+
+      - name: Build MCP query layer (for duplicate detection)
+        working-directory: mcp
+        run: |
+          npm install
+          npm run build
+
+      - name: Pick section + mode
+        id: pick
+        run: |
+          set -euo pipefail
+          if [ -n "${{ inputs.section }}" ]; then
+            SECTION="${{ inputs.section }}"
+            MODE="${{ inputs.mode }}"
+          else
+            SECTION=$(python3 scripts/audit_pick_section.py)
+            MODE="full"
+          fi
+          echo "section=$SECTION" >> "$GITHUB_OUTPUT"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "Picked: section=$SECTION mode=$MODE"
+
+      - name: Run section audit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/audit_section.py \
+            "${{ steps.pick.outputs.section }}" \
+            --mode "${{ steps.pick.outputs.mode }}"
+
+      - name: Apply audit PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/apply_audit_pr.py \
+            --section "${{ steps.pick.outputs.section }}" \
+            --mode "${{ steps.pick.outputs.mode }}"
+
+      - name: Upload failure logs on error
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-failure-logs-${{ steps.pick.outputs.section }}
+          path: |
+            audit/*.log
+            audit/*.json
+            intake-pr-bodies/audit-*.md
+          retention-days: 30
+          if-no-files-found: ignore
