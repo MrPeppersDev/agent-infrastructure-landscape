@@ -117,6 +117,29 @@ Adopted to close the catalog-deaths-research-identified governance vacuum
 of the catalog-decay graveyard (DB-Engines, State of JS, dbdb.io) all
 publish a maintenance contract; this is ours.
 
+## MCP server
+
+A local-stdio MCP server lives in [`mcp/`](./mcp) and exposes the catalog as
+a structured query interface for Claude Code, Claude Desktop, and any other
+MCP-capable client. Nine read-only tools cover search, get-by-id, edge
+traversal, coverage stats, comparison, recent-changes, eval-orphan detection,
+and substrate blast-radius analysis. See [`mcp/README.md`](./mcp/README.md)
+for the tool reference and client config snippets.
+
+Quickstart from a local clone:
+
+```
+cd mcp && npm install && npm run build
+claude mcp add landscape -- node $PWD/dist/server.js
+```
+
+Once published to npm (gated on a separate release-cadence decision), it
+collapses to `claude mcp add landscape -- npx -y landscape-mcp`.
+
+The MCP server is the first alternative consumption surface for the
+standalone dataset (T0-1). A local CLI tool (issue #49) will follow,
+sharing the same pure query layer in [`mcp/src/tools.ts`](./mcp/src/tools.ts).
+
 ## Web app
 
 A SvelteKit static-export landing page lives in `web/` (Phase 2). Today it's

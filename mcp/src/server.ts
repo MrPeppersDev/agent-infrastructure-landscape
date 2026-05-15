@@ -1,0 +1,333 @@
+#!/usr/bin/env node
+// MCP server entrypoint — local stdio transport.
+//
+// Wraps the 9 pure query helpers from tools.ts in MCP tool-handler
+// plumbing. The server is read-only: there are no mutation tools. Data
+// is loaded lazily on first tool call and cached in-process for the
+// duration of the connection.
+//
+// Run via:
+//   - Direct:   node dist/server.js
+//   - npx:      npx -y landscape-mcp
+//   - Claude:   see mcp/README.md for client config snippets
+
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { z } from 'zod';
+import { loadRecords, loadEdges, getMeta } from './data.js';
+import {
+  searchRecords,
+  getRecord,
+  findRelated,
+  coverageSummary,
+  compareWithEdges,
+  listSections,
+  recentChanges,
+  findEvalOrphans,
+  findSubstrateRisk
+} from './tools.js';
+import type { EdgeType } from './types.js';
+
+const EDGE_TYPES: readonly EdgeType[] = [
+  'built-on',
+  'runtime-dependency',
+  'extends',
+  'forks',
+  'integrates-with',
+  'competes-with',
+  'inspired-by',
+  'cites',
+  'same-team-as',
+  'succeeds'
+] as const;
+
+/**
+ * Convenience: wrap any tools.ts result in the MCP CallToolResult shape.
+ * MCP expects a `content` array of typed parts; we serialise the JSON
+ * result as a single text part — clients can re-parse it for structured
+ * use, or render it as-is for human consumption.
+ */
+function jsonResult<T>(value: T) {
+  return {
+    content: [
+      {
+        type: 'text' as const,
+        text: JSON.stringify(value, null, 2)
+      }
+    ]
+  };
+}
+
+async function main() {
+  const meta = (() => {
+    try {
+      // Trigger eager load so we fail fast if the data files are missing.
+      loadRecords();
+      return getMeta();
+    } catch (err) {
+      console.error('[landscape-mcp] failed to load catalog:', err);
+      throw err;
+    }
+  })();
+
+  const server = new McpServer(
+    {
+      name: 'landscape-mcp',
+      version: '1.0.0',
+      description: `AI agent infrastructure landscape catalog. Schema ${meta.schemaVersion}, generated ${meta.generatedAt}.`
+    },
+    {
+      capabilities: {
+        tools: {}
+      }
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 1. search_records
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'search_records',
+    {
+      title: 'Search the landscape catalog',
+      description:
+        'Free-text substring search over record id, name, description, and claims. ' +
+        'Returns compact summaries — use get_record for full details. Filters: ' +
+        'section (exact match on primary section), tier (1=battle-tested → 5=theoretical).',
+      inputSchema: {
+        query: z.string().describe('Search query (case-insensitive substring match).'),
+        section: z
+          .string()
+          .optional()
+          .describe('Filter to records whose primary section equals this exact value.'),
+        tier: z
+          .number()
+          .int()
+          .min(1)
+          .max(5)
+          .optional()
+          .describe('Filter to records of this tier (1-5).'),
+        limit: z
+          .number()
+          .int()
+          .min(1)
+          .max(200)
+          .optional()
+          .describe('Max results to return (default 25, max 200).')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      return jsonResult(searchRecords(records, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 2. get_record
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'get_record',
+    {
+      title: 'Get a full record by id',
+      description:
+        'Returns the complete record (all cells, taxonomy, section memberships) for the given stable id. ' +
+        'Use search_records to find ids; ids look like "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com".',
+      inputSchema: {
+        id: z.string().describe('Stable record id from the catalog.')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      const record = getRecord(records, args);
+      if (!record) {
+        return jsonResult({ error: `Record not found: ${args.id}` });
+      }
+      return jsonResult(record);
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 3. find_related
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'find_related',
+    {
+      title: 'Find records linked to a given record',
+      description:
+        'Returns all edges touching the given record id (both incoming and outgoing), ' +
+        'plus summaries of the records on the other end. Optionally filter by edge_type. ' +
+        'Edge types: built-on, runtime-dependency, extends, forks, integrates-with, ' +
+        'competes-with, inspired-by, cites, same-team-as, succeeds.',
+      inputSchema: {
+        id: z.string().describe('Stable record id from the catalog.'),
+        edge_type: z
+          .enum(EDGE_TYPES as unknown as [EdgeType, ...EdgeType[]])
+          .optional()
+          .describe('Restrict to a specific edge type (omit for all types).')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      const edges = loadEdges();
+      return jsonResult(findRelated(records, edges, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 4. coverage_summary
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'coverage_summary',
+    {
+      title: 'Catalog-wide coverage stats per dimension',
+      description:
+        'Per-feature counts for one of four dimensions: ' +
+        '"observability" (8 obs-* columns), ' +
+        '"cost" (7 cost-* columns), ' +
+        '"eval" (7 eval-* columns), ' +
+        '"benchmark" (per-section counts for benchmark-bearing sections). ' +
+        'Use this to answer questions like "what fraction of products support LangSmith?".',
+      inputSchema: {
+        dimension: z
+          .enum(['observability', 'cost', 'eval', 'benchmark'])
+          .describe('Which coverage dimension to summarise.')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      return jsonResult(coverageSummary(records, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 5. compare
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'compare',
+    {
+      title: 'Compare two records side by side',
+      description:
+        'Returns cell-by-cell comparison of two records across every column. ' +
+        'Includes any direct edges between them. Use for "X vs Y" research questions.',
+      inputSchema: {
+        id_a: z.string().describe('First record id.'),
+        id_b: z.string().describe('Second record id.')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      const edges = loadEdges();
+      try {
+        return jsonResult(compareWithEdges(records, edges, args));
+      } catch (err) {
+        return jsonResult({
+          error: err instanceof Error ? err.message : String(err)
+        });
+      }
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 6. list_sections
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'list_sections',
+    {
+      title: 'List all top-level catalog sections',
+      description:
+        'Returns the alphabetised set of primary section names. Use these values as the ' +
+        '`section` filter on search_records.',
+      inputSchema: {}
+    },
+    async () => {
+      const records = loadRecords();
+      return jsonResult({ sections: listSections(records) });
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 7. recent_changes
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'recent_changes',
+    {
+      title: 'Records updated since a date',
+      description:
+        'Returns records whose latest-release (or created, if no release) is on or after the given date. ' +
+        'Omit `since` to return the 20 most-recently-shipped records. ' +
+        'Date is the shipping date of the underlying product, not when the catalog was updated.',
+      inputSchema: {
+        since: z
+          .string()
+          .optional()
+          .describe(
+            'ISO date (YYYY-MM-DD or full ISO timestamp), or a bare year (e.g. "2025"). Omit for the 20 most-recent.'
+          )
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      return jsonResult(recentChanges(records, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 8. find_eval_orphans
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'find_eval_orphans',
+    {
+      title: 'Find products with observability but no evals',
+      description:
+        'Returns products that have observability integration (≥1 obs-* tool) but ZERO eval tools, ' +
+        'AND have been researched for evals (so the absence is verified). This surfaces the structural ' +
+        'failure mode the LangChain State of Agent Engineering 2025 survey identified: 89% have obs, ' +
+        'only 52% have evals — a 37-point gap.',
+      inputSchema: {}
+    },
+    async () => {
+      const records = loadRecords();
+      return jsonResult({ orphans: findEvalOrphans(records) });
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 9. find_substrate_risk
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'find_substrate_risk',
+    {
+      title: 'Find products that runtime-depend on a substrate',
+      description:
+        'Returns records that runtime-depend on a given substrate (e.g. "OpenAI", "Anthropic", ' +
+        '"MCP"). Useful for blast-radius questions ("what breaks if X changes pricing?") and ' +
+        'lock-in analysis. Resolves the substrate by exact id, then by case-insensitive name/id ' +
+        'substring (picks the match with the most incoming runtime-dependency edges).',
+      inputSchema: {
+        substrate: z
+          .string()
+          .describe(
+            'Substrate name or id (e.g. "OpenAI", "Anthropic", "MCP", or a full record id).'
+          )
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      const edges = loadEdges();
+      return jsonResult(findSubstrateRisk(records, edges, args));
+    }
+  );
+
+  // Wire up stdio and start listening.
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  // Stderr only — stdout is reserved for MCP traffic.
+  console.error(
+    `[landscape-mcp] ready. schema=${meta.schemaVersion} generated=${meta.generatedAt}`
+  );
+}
+
+main().catch((err) => {
+  console.error('[landscape-mcp] fatal:', err);
+  process.exit(1);
+});
