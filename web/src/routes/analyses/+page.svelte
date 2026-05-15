@@ -9,7 +9,7 @@
       slug: 'influence',
       title: 'Influence vs adoption',
       summary:
-        'Every system plotted on two axes: inbound citations (academic influence) × inbound integrations (commercial adoption). Surfaces research orphans, engineering wins, and the diagonal of both-cited-and-adopted.'
+        'Every system plotted on two axes: inbound citations (academic influence) × inbound integrations (commercial adoption). Surfaces research orphans, engineering wins, and the diagonal of both-cited-and-adopted. Now includes Brandes betweenness + k-core decomposition — the "bridge surprises" callout flags records that hold the graph together without showing up in raw citation counts, and the nucleus callout lists the densest mutually-connected substrate.'
     },
     {
       slug: 'survivorship',
@@ -82,6 +82,12 @@
       title: 'Trajectory — used vs growing/dying',
       summary:
         'Combines funding cadence, release recency, GH stars, mindshare/citations, and lineage membership into one velocity story per record. Five panels: cohort, substrate-dependency risk, consolidation candidates, billion-$ candidates, dying candidates.'
+    },
+    {
+      slug: 'co-citation',
+      title: 'Co-citation & bibliographic coupling',
+      summary:
+        'Bibliometric staple since Henry Small 1973: cluster systems by how the community pairs them (co-citation) and by what they collectively cite (bibliographic coupling). Force-directed map plus a disagreement panel that flags pairs the community pairs tightly together but our hand-built taxonomy splits across sections — the headline finding no comparable catalog publishes.'
     }
   ];
 </script>
