@@ -694,9 +694,15 @@ def gate_claim_tiers() -> None:
             if not dc:
                 stale_abandoned_without_decay.append(rid)
         elif status == "active" and dc:
-            active_with_decay.append(
-                f"{rid}: active row carries decay_cause={dc!r}"
-            )
+            # `archived` is an explicit state (repo flagged archived on
+            # GitHub) and can coexist with `active` survivorship — a repo
+            # archived yesterday hasn't yet decayed by activity metrics.
+            # Other decay causes (acquired, pivoted, unfunded, ...) imply
+            # the project is no longer active and are an error here.
+            if dc != "archived":
+                active_with_decay.append(
+                    f"{rid}: active row carries decay_cause={dc!r}"
+                )
 
         for slug, cell in (rec.get("cells") or {}).items():
             tier = cell.get("tier")
