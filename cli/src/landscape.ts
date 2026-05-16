@@ -26,7 +26,8 @@ import {
   listSections,
   recentChanges,
   findEvalOrphans,
-  findSubstrateRisk
+  findSubstrateRisk,
+  findByDecayCause
 } from '../../mcp/dist/tools.js';
 import { loadRecords, loadEdges, getMeta } from '../../mcp/dist/data.js';
 import type { EdgeType } from '../../mcp/dist/tools.js';
@@ -40,6 +41,7 @@ import {
   formatRecent,
   formatEvalOrphans,
   formatSubstrate,
+  formatDecayCause,
   type FormatOptions
 } from './format.js';
 
@@ -284,6 +286,25 @@ program
     const edges = loadEdges();
     const result = findSubstrateRisk(records, edges, { substrate });
     emit(formatSubstrate(result, globalOpts(cmd)));
+  });
+
+// ===========================================================================
+// 10. decay-cause
+// ===========================================================================
+
+program
+  .command('decay-cause')
+  .description(
+    'Records labeled with a given decay cause from the T3-1 forensics backfill. ' +
+      'Enum: acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | unknown.'
+  )
+  .argument('<cause>', 'decay cause (e.g. archived, acquired, superseded)')
+  .option('--json', 'emit JSON')
+  .option('--csv', 'emit CSV')
+  .action((cause: string, _opts, cmd: Command) => {
+    const records = loadRecords();
+    const result = findByDecayCause(records, { cause });
+    emit(formatDecayCause(result, globalOpts(cmd)));
   });
 
 // ===========================================================================

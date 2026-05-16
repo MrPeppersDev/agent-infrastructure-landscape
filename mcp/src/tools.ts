@@ -777,6 +777,58 @@ export function findSubstrateRisk(
 }
 
 // ===========================================================================
+// 10. findByDecayCause
+// ===========================================================================
+
+export type DecayCause =
+  | 'acquired'
+  | 'pivoted'
+  | 'unfunded'
+  | 'lost-benchmark-race'
+  | 'superseded'
+  | 'archived'
+  | 'unknown';
+
+export interface DecayCauseArgs {
+  /** One of acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | unknown. */
+  cause: string;
+}
+
+export interface DecayCauseResult {
+  cause: string;
+  totalMatches: number;
+  records: Array<RecordSummary & {
+    decay_cause: string;
+    decay_date?: string;
+    decay_evidence?: string;
+  }>;
+}
+
+/**
+ * Records whose decay_cause matches the given cause. Surfaces the
+ * mortality forensics from T3-1 — useful for "which products in this
+ * space were acquired vs ran out of funding vs were archived?"
+ */
+export function findByDecayCause(
+  records: LandscapeRecord[],
+  args: DecayCauseArgs
+): DecayCauseResult {
+  const want = args.cause.trim().toLowerCase();
+  const matches = records.filter((r) => (r.decay_cause ?? '').toLowerCase() === want);
+  matches.sort((a, b) => a.name.localeCompare(b.name));
+  return {
+    cause: want,
+    totalMatches: matches.length,
+    records: matches.map((r) => ({
+      ...toSummary(r),
+      decay_cause: r.decay_cause ?? '',
+      decay_date: r.decay_date,
+      decay_evidence: r.decay_evidence
+    }))
+  };
+}
+
+// ===========================================================================
 // Re-exports for the CLI in #49
 // ===========================================================================
 

@@ -24,7 +24,8 @@ import {
   listSections,
   recentChanges,
   findEvalOrphans,
-  findSubstrateRisk
+  findSubstrateRisk,
+  findByDecayCause
 } from './tools.js';
 import type { EdgeType } from './types.js';
 
@@ -315,6 +316,32 @@ async function main() {
       const records = loadRecords();
       const edges = loadEdges();
       return jsonResult(findSubstrateRisk(records, edges, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 10. find_by_decay_cause
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'find_by_decay_cause',
+    {
+      title: 'Find records by decay-cause forensics label',
+      description:
+        'Returns records whose decay_cause matches the given cause. Enum: ' +
+        'acquired, pivoted, unfunded, lost-benchmark-race, superseded, archived, unknown. ' +
+        'Surfaces mortality forensics from T3-1 — useful for "which products in this space ' +
+        'were acquired vs ran out of funding vs were archived on GitHub?"',
+      inputSchema: {
+        cause: z
+          .string()
+          .describe(
+            'Decay cause: acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | unknown.'
+          )
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      return jsonResult(findByDecayCause(records, args));
     }
   );
 

@@ -17,6 +17,7 @@ import type {
   CompareResult,
   RecentResult,
   SubstrateResult,
+  DecayCauseResult,
   RecordSummary,
   LandscapeRecord
 } from '../../mcp/dist/tools.js';
@@ -577,6 +578,50 @@ export function formatSubstrate(result: SubstrateResult, opts: FormatOptions): s
       `  ${c.cyan(d.name)} ${c.dim('[T' + d.tier + ']')} ${c.dim('— ' + d.primarySection)}`
     );
     lines.push(`    ${c.dim('id:')} ${d.id}`);
+  }
+  return lines.join('\n');
+}
+
+// ===========================================================================
+// find_by_decay_cause
+// ===========================================================================
+
+export function formatDecayCause(
+  result: DecayCauseResult,
+  opts: FormatOptions
+): string {
+  if (opts.json) return toJson(result);
+  if (opts.csv) {
+    return toCsv(
+      ['id', 'name', 'tier', 'primary_section', 'decay_cause', 'decay_date', 'decay_evidence'],
+      result.records.map((r) => [
+        r.id,
+        r.name,
+        r.tier,
+        r.primarySection,
+        r.decay_cause,
+        r.decay_date ?? '',
+        r.decay_evidence ?? ''
+      ])
+    );
+  }
+  const c = makeColors(resolveColor(opts));
+  const lines: string[] = [];
+  lines.push(
+    c.bold('Decay cause: ') + c.yellow(result.cause) +
+      c.dim(' — ') + c.yellow(String(result.totalMatches)) + c.dim(' records')
+  );
+  if (result.totalMatches === 0) {
+    lines.push('');
+    lines.push(c.dim('No records match that cause.'));
+    return lines.join('\n');
+  }
+  lines.push('');
+  for (const r of result.records) {
+    lines.push(`  ${c.cyan(r.name)} ${c.dim('[T' + r.tier + ']')} ${c.dim('— ' + r.primarySection)}`);
+    if (r.decay_date) lines.push(`    ${c.dim('decay-date:')} ${r.decay_date}`);
+    if (r.decay_evidence) lines.push(`    ${c.dim('evidence:')} ${r.decay_evidence}`);
+    lines.push(`    ${c.dim('id:')} ${r.id}`);
   }
   return lines.join('\n');
 }
