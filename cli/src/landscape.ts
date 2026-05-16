@@ -29,6 +29,12 @@ import {
   findSubstrateRisk,
   findByDecayCause
 } from '../../mcp/dist/tools.js';
+import {
+  fitCitationCurves,
+  topBreakouts,
+  findFitById,
+  type CitationFit
+} from '../../mcp/dist/citation-prediction.js';
 import { loadRecords, loadEdges, getMeta } from '../../mcp/dist/data.js';
 import type { EdgeType } from '../../mcp/dist/tools.js';
 import {
@@ -42,6 +48,8 @@ import {
   formatEvalOrphans,
   formatSubstrate,
   formatDecayCause,
+  formatPredict,
+  formatBreakouts,
   type FormatOptions
 } from './format.js';
 
@@ -305,6 +313,65 @@ program
     const records = loadRecords();
     const result = findByDecayCause(records, { cause });
     emit(formatDecayCause(result, globalOpts(cmd)));
+  });
+
+// ===========================================================================
+// 11. predict — single-paper WSB citation forecast
+// ===========================================================================
+
+// Memoise so `landscape predict` followed by `landscape breakouts` only
+// pays the ~5sec fit cost once. CitationFit is plain data — caching the
+// whole result is cheap.
+let cachedFits: CitationFit[] | null = null;
+function getFits(): CitationFit[] {
+  if (cachedFits === null) {
+    cachedFits = fitCitationCurves(loadRecords());
+  }
+  return cachedFits;
+}
+
+program
+  .command('predict')
+  .description(
+    'Wang-Song-Barabási citation breakout forecast for a paper. Returns lambda/mu/sigma, ' +
+      'predicted asymptote with 90% CI, R², phase, and breakout probability. ' +
+      'See `landscape breakouts` for the top-N watchlist across the catalog.'
+  )
+  .argument('<id>', 'stable record id of an academic-paper row')
+  .option('--json', 'emit JSON')
+  .option('--csv', 'emit CSV (single-row summary)')
+  .action((id: string, _opts, cmd: Command) => {
+    const fits = getFits();
+    const fit = findFitById(fits, id);
+    const opts = globalOpts(cmd);
+    if (!fit && !opts.json && !opts.csv) {
+      die(
+        `no fit for record_id "${id}". Run \`landscape show ${id}\` to confirm it's an academic-paper row with a populated citation trajectory.`
+      );
+    }
+    emit(formatPredict(fit ?? null, id, opts));
+    if (!fit) process.exit(1);
+  });
+
+// ===========================================================================
+// 12. breakouts — top predicted citation breakouts
+// ===========================================================================
+
+program
+  .command('breakouts')
+  .description(
+    'Top predicted citation breakouts — growth-phase papers with the largest ' +
+      'asymptote/observed ratio (still-growing fastest), restricted to rows with ' +
+      'real bucketed citation trajectories. Read as the catalog\'s watchlist.'
+  )
+  .option('-l, --limit <n>', 'max breakouts to return (default 15, max 50)', (v) => parseInt(v, 10))
+  .option('--json', 'emit JSON')
+  .option('--csv', 'emit CSV')
+  .action((opts: { limit?: number }, cmd: Command) => {
+    const fits = getFits();
+    const limit = Math.max(1, Math.min(50, opts.limit ?? 15));
+    const top = topBreakouts(fits, limit);
+    emit(formatBreakouts(top, limit, globalOpts(cmd)));
   });
 
 // ===========================================================================

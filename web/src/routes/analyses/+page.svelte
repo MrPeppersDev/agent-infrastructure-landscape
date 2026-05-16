@@ -88,6 +88,12 @@
       title: 'Co-citation & bibliographic coupling',
       summary:
         'Bibliometric staple since Henry Small 1973: cluster systems by how the community pairs them (co-citation) and by what they collectively cite (bibliographic coupling). Force-directed map plus a disagreement panel that flags pairs the community pairs tightly together but our hand-built taxonomy splits across sections — the headline finding no comparable catalog publishes.'
+    },
+    {
+      slug: 'breakout-prediction',
+      title: 'Citation breakout prediction',
+      summary:
+        'Fits the Wang-Song-Barabási (Science 2013) log-normal citation model to every paper row with a citation trajectory — the academic gold-standard for paper-level impact prediction. Three views: papers most likely to break out (still-growing fastest), hyped-but-won\'t-last identification (saturation below cohort median), and sleeping beauties (slow-burn impact with low immediacy but long tail). The catalog\'s watchlist for what to add next quarter.'
     }
   ];
 </script>

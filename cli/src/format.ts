@@ -21,6 +21,7 @@ import type {
   RecordSummary,
   LandscapeRecord
 } from '../../mcp/dist/tools.js';
+import type { CitationFit } from '../../mcp/dist/citation-prediction.js';
 
 export interface FormatOptions {
   json: boolean;
@@ -623,5 +624,205 @@ export function formatDecayCause(
     if (r.decay_evidence) lines.push(`    ${c.dim('evidence:')} ${r.decay_evidence}`);
     lines.push(`    ${c.dim('id:')} ${r.id}`);
   }
+  return lines.join('\n');
+}
+
+// ===========================================================================
+// predict — single-paper WSB fit
+// ===========================================================================
+
+function fmtN(n: number): string {
+  if (!isFinite(n)) return '—';
+  if (n >= 10000) return `${(n / 1000).toFixed(0)}k`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return Math.round(n).toLocaleString();
+}
+
+export function formatPredict(
+  fit: CitationFit | null,
+  id: string,
+  opts: FormatOptions
+): string {
+  if (opts.json) return toJson(fit);
+  if (opts.csv) {
+    if (!fit) return `field,value\nerror,no fit for ${csvEscape(id)}`;
+    return toCsv(
+      ['field', 'value'],
+      [
+        ['recordId', fit.recordId],
+        ['recordName', fit.recordName],
+        ['section', fit.section],
+        ['tier', fit.tier],
+        ['publishedYear', fit.publishedYear],
+        ['yearsObserved', fit.yearsObserved],
+        ['observedCitations', fit.observedCitations],
+        ['observedInfluential', fit.observedInfluential],
+        ['lambda', fit.lambda],
+        ['mu', fit.mu],
+        ['sigma', fit.sigma],
+        ['asymptote', fit.asymptote],
+        ['asymptoteCI_low', fit.asymptoteCI[0]],
+        ['asymptoteCI_high', fit.asymptoteCI[1]],
+        ['predictedAt10y', fit.predictedAt10y],
+        ['fitR2', fit.fitR2],
+        ['phase', fit.phase],
+        ['breakoutProbability', fit.breakoutProbability],
+        ['sourceKind', fit.sourceKind],
+        ['source', fit.source]
+      ]
+    );
+  }
+
+  const c = makeColors(resolveColor(opts));
+  if (!fit) {
+    return c.red(`No fit for "${id}". Run \`landscape show ${id}\` to inspect.`);
+  }
+
+  const lines: string[] = [];
+  lines.push(
+    c.bold(fit.recordName) +
+      c.dim(`  [T${fit.tier}] · ${fit.section}`)
+  );
+  lines.push(c.dim('id:           ') + fit.recordId);
+  lines.push(c.dim('phase:        ') + c.yellow(fit.phase));
+  lines.push(c.dim('source:       ') + fit.source);
+  lines.push('');
+  lines.push(c.bold('Observed'));
+  lines.push(c.dim('  published:  ') + (fit.publishedYear || '—'));
+  lines.push(
+    c.dim('  observed:   ') +
+      fmtN(fit.observedCitations) +
+      c.dim(` cites · ${fit.yearsObserved.toFixed(1)}yr · ${fmtN(fit.observedInfluential)} influential`)
+  );
+  lines.push('');
+  lines.push(c.bold('Wang-Song-Barabási fit'));
+  lines.push(c.dim('  λ (immediacy):  ') + fmtR(fit.lambda));
+  lines.push(c.dim('  μ (peak log-t): ') + fmtR(fit.mu));
+  lines.push(c.dim('  σ (longevity):  ') + fmtR(fit.sigma));
+  lines.push(c.dim('  R²:             ') + fmtR(fit.fitR2));
+  lines.push('');
+  lines.push(c.bold('Predictions'));
+  lines.push(
+    c.dim('  asymptote:    ') +
+      c.green(fmtN(fit.asymptote)) +
+      c.dim(' cites (long-run ceiling)')
+  );
+  lines.push(
+    c.dim('  90% CI:       ') +
+      fmtN(fit.asymptoteCI[0]) +
+      c.dim(' – ') +
+      fmtN(fit.asymptoteCI[1])
+  );
+  lines.push(
+    c.dim('  10y count:    ') +
+      fmtN(fit.predictedAt10y) +
+      c.dim(' cites at t=10yr from publication')
+  );
+  lines.push(
+    c.dim('  breakout P:   ') +
+      `${Math.round(fit.breakoutProbability * 100)}%` +
+      c.dim(' (asymptote > 3× catalog median)')
+  );
+  return lines.join('\n');
+}
+
+function fmtR(n: number): string {
+  if (!isFinite(n)) return '—';
+  if (Math.abs(n) >= 1) return n.toFixed(2);
+  return n.toFixed(3);
+}
+
+// ===========================================================================
+// breakouts — top-N predicted breakouts
+// ===========================================================================
+
+export function formatBreakouts(
+  top: CitationFit[],
+  limit: number,
+  opts: FormatOptions
+): string {
+  if (opts.json) {
+    return toJson({ limit, totalMatches: top.length, breakouts: top });
+  }
+  if (opts.csv) {
+    return toCsv(
+      [
+        'rank',
+        'name',
+        'section',
+        'tier',
+        'publishedYear',
+        'observedCitations',
+        'asymptote',
+        'asymptoteCI_low',
+        'asymptoteCI_high',
+        'predictedAt10y',
+        'lambda',
+        'mu',
+        'sigma',
+        'fitR2',
+        'breakoutProbability',
+        'recordId'
+      ],
+      top.map((f, i) => [
+        i + 1,
+        f.recordName,
+        f.section,
+        f.tier,
+        f.publishedYear,
+        f.observedCitations,
+        f.asymptote,
+        f.asymptoteCI[0],
+        f.asymptoteCI[1],
+        f.predictedAt10y,
+        f.lambda,
+        f.mu,
+        f.sigma,
+        f.fitR2,
+        f.breakoutProbability,
+        f.recordId
+      ])
+    );
+  }
+
+  const c = makeColors(resolveColor(opts));
+  const lines: string[] = [];
+  lines.push(
+    c.bold(`Top ${top.length} predicted citation breakouts`) +
+      c.dim(' (Wang-Song-Barabási, growth-phase, trajectory-fit only)')
+  );
+  if (top.length === 0) {
+    lines.push('');
+    lines.push(c.dim('No breakout candidates clear the bar.'));
+    return lines.join('\n');
+  }
+  lines.push('');
+  // Header line
+  lines.push(
+    c.dim(
+      '  rank  obs    c_inf    run-up  R²    paper'
+    )
+  );
+  for (let i = 0; i < top.length; i++) {
+    const f = top[i];
+    const rank = String(i + 1).padStart(4);
+    const obs = fmtN(f.observedCitations).padStart(5);
+    const asymp = fmtN(f.asymptote).padStart(7);
+    const ratio =
+      f.observedCitations > 0
+        ? `${(f.asymptote / f.observedCitations).toFixed(1)}×`.padStart(7)
+        : '—'.padStart(7);
+    const r2 = fmtR(f.fitR2).padStart(5);
+    lines.push(
+      `  ${rank}  ${obs}  ${asymp}  ${ratio}  ${r2}  ${c.cyan(f.recordName)} ${c.dim('[T' + f.tier + ']')}`
+    );
+  }
+  lines.push('');
+  lines.push(
+    c.dim(
+      `Methodology: Wang, Song & Barabási, Science 342:127 (2013). ` +
+        `Use \`landscape predict <id>\` for full per-paper detail.`
+    )
+  );
   return lines.join('\n');
 }

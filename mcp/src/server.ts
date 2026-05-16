@@ -27,6 +27,11 @@ import {
   findSubstrateRisk,
   findByDecayCause
 } from './tools.js';
+import {
+  fitCitationCurves,
+  topBreakouts,
+  findFitById
+} from './citation-prediction.js';
 import type { EdgeType } from './types.js';
 
 const EDGE_TYPES: readonly EdgeType[] = [
@@ -342,6 +347,79 @@ async function main() {
     async (args) => {
       const records = loadRecords();
       return jsonResult(findByDecayCause(records, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 11. predict_citations
+  // -----------------------------------------------------------------------
+  //
+  // Memoise the fitter — fitting all ~196 academic papers takes ~5 sec
+  // and the result is deterministic, so we compute once per server.
+  let cachedFits: ReturnType<typeof fitCitationCurves> | null = null;
+  function getFits() {
+    if (cachedFits === null) {
+      const records = loadRecords();
+      cachedFits = fitCitationCurves(records);
+    }
+    return cachedFits;
+  }
+
+  server.registerTool(
+    'predict_citations',
+    {
+      title: 'Wang-Song-Barabási citation breakout prediction for a paper',
+      description:
+        'Returns the fitted WSB log-normal citation model for one academic-paper row: ' +
+        'λ (immediacy), μ (peak time), σ (longevity), predicted asymptote with 90% CI, ' +
+        '10-year prediction, R², phase (pre-growth/growth/saturation/underfit-data), ' +
+        'and breakout probability. Methodology: Wang, Song & Barabási, Science 342:127 (2013). ' +
+        'See `list_breakouts` for the leaderboard of top predicted breakouts.',
+      inputSchema: {
+        record_id: z
+          .string()
+          .describe('Stable record id (use search_records to find one).')
+      }
+    },
+    async (args) => {
+      const fits = getFits();
+      const fit = findFitById(fits, args.record_id);
+      if (!fit) {
+        return jsonResult({
+          error: `No fit for record_id "${args.record_id}". The record may not be an academic paper, or its citation trajectory is missing.`
+        });
+      }
+      return jsonResult(fit);
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 12. list_breakouts
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'list_breakouts',
+    {
+      title: 'Top predicted citation breakouts (WSB log-normal)',
+      description:
+        'Returns the top-N predicted citation breakouts — growth-phase papers with the ' +
+        'largest asymptote/observed ratio (still-growing fastest), restricted to rows ' +
+        'with real bucketed citation trajectories. Use this as the watchlist for which ' +
+        'papers to track for citation impact over the next 12-24 months.',
+      inputSchema: {
+        limit: z
+          .number()
+          .int()
+          .min(1)
+          .max(50)
+          .optional()
+          .describe('Max breakouts to return (default 15, max 50).')
+      }
+    },
+    async (args) => {
+      const fits = getFits();
+      const limit = args.limit ?? 15;
+      const top = topBreakouts(fits, limit);
+      return jsonResult({ limit, totalMatches: top.length, breakouts: top });
     }
   );
 

@@ -154,7 +154,10 @@ export type ColumnSlug =
   | 'eval-helicone-evals'
   | 'eval-custom-test-harness'
   | 'eval-human-loop'
-  | 'eval-production-traffic-replay';
+  | 'eval-production-traffic-replay'
+  | 'commit-trajectory'
+  | 'citation-trajectory'
+  | 'download-trajectory';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

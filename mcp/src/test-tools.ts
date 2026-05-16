@@ -23,6 +23,11 @@ import {
   findEvalOrphans,
   findSubstrateRisk
 } from './tools.js';
+import {
+  fitCitationCurves,
+  topBreakouts,
+  findFitById
+} from './citation-prediction.js';
 
 function banner(title: string) {
   console.log('\n' + '='.repeat(70));
@@ -194,7 +199,34 @@ function main() {
   console.log(`  resolved to:    ${openai.substrateRecord?.name ?? '(not found)'}`);
   console.log(`  dependents:     ${openai.totalDependents}`);
 
-  banner('All 9 tools exercised successfully.');
+  // -----------------------------------------------------------------
+  // 11. predict_citations + 12. list_breakouts (issue #58)
+  // -----------------------------------------------------------------
+  banner('11. fitCitationCurves(records) + list_breakouts');
+  const t0 = Date.now();
+  const fits = fitCitationCurves(records);
+  const t1 = Date.now();
+  console.log(`  fit time:        ${t1 - t0}ms`);
+  console.log(`  fits total:      ${fits.length}`);
+  const nonUnderfit = fits.filter((f) => f.phase !== 'underfit-data');
+  console.log(`  non-underfit:    ${nonUnderfit.length}`);
+  const trajectoryFits = fits.filter((f) => f.sourceKind === 'trajectory');
+  console.log(`  trajectory:      ${trajectoryFits.length}`);
+  const top = topBreakouts(fits, 3);
+  console.log(`  top 3 breakouts:`);
+  for (const t of top) {
+    console.log(
+      `    - ${t.recordName.padEnd(40)} obs=${t.observedCitations} asymp=${Math.round(t.asymptote)} R²=${t.fitR2.toFixed(2)}`
+    );
+  }
+  // Pick the first breakout and run predict_citations on it.
+  if (top.length > 0) {
+    const fit = findFitById(fits, top[0].recordId);
+    if (!fit) throw new Error('findFitById returned undefined for known id');
+    console.log(`  predict ${fit.recordName}: λ=${fit.lambda.toFixed(2)} μ=${fit.mu.toFixed(2)} σ=${fit.sigma.toFixed(2)}`);
+  }
+
+  banner('All 11 tools exercised successfully.');
   console.log('  Smoke test PASSED.');
 }
 
