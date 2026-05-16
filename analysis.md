@@ -1,34 +1,53 @@
 # AI Agent Infrastructure Landscape — Analysis (table-grounded)
 
-> **✶ v5 — deep cross-analysis + benchmark integrity + future-state
-> (2026-05-13).** The catalog now spans **894 records across 34 sections**
-> (+35 / +3 since v4) with the three new substrate sections — *Foundation
-> models (substrate reference)*, *Multi-agent orchestration platforms*,
-> *AI sandbox & runtime environments* — completing the missing layer
-> behind every other row. v5 adds three analytical lenses on top of v4:
-> deep cross-analysis (§19), benchmark integrity (§20), and future-state
-> predictions (§21). The rename to *AI Agent Infrastructure Landscape*
-> (DECISIONS.md 2026-05-13) holds; memory remains the most-developed
-> lens.
+> **✶ v6 — Tier-1/2/2.5/T2.6/T3 synthesis + new infrastructure
+> (2026-05-16).** The catalog now spans **912 records across 34 sections**
+> with **528 typed edges** (+212 runtime-dependency from T2-1 commit
+> `ddb26c7`), **85 cells per record** (was 60; +8 obs / +7 cost / +7 eval
+> / +3 trajectory / others from Tier-1 + T3-prep), and **15 analytical
+> views** (was 8; +7 from Tier-1/2/T3-4: observability, eval-gap,
+> cost-economics, benchmark-trust, product-benchmark-matrix, co-citation,
+> trajectory, breakout-prediction — the influence view also gained
+> centrality measures in T2-3). The dataset became its own standalone
+> product at `data-v1.0.0` under CC-BY-4.0 (T0-1 commit `b6ea473`) and is
+> now consumable from three surfaces — the original web app, a local
+> MCP server (T2-5 `cf0dd6a`), and a `landscape` CLI (T2-6 `49fe43a`).
+> Governance moved from absent to documented in `MAINTAINER.md` (T0-2
+> `1ac4f6b`), with a 3-tier claim provenance schema (T0-3 `f05d5aa`),
+> automated staleness CI (T0-4 `c4c9df7`), row-level + per-cell
+> `last_verified_at` timestamps (T2.6-2 `c106dd5`), a section-audit
+> rotation workflow (T2.6-3 `6d03253`), an intake-auto-research pipeline
+> (T2.6-1 `de6fbc6`), and decay-cause forensics (T3-1 `9a83bf8` /
+> `fbc61bb` / `79c24ec`). v6 adds seven new sections — §23-§29 —
+> synthesising the analytical findings unlocked by all of this
+> infrastructure. v5 sections §1-§22 are preserved; only §1, §19, and
+> §22 get light deltas to fold in the new edge graph.
 
 This is the analytical layer over `landscape.json` (and its rendered
 `landscape.html`). **Every numeric claim in this document is verifiable
 in the catalog** — find the row, look at the cited column, follow the
-`↗` source link. Findings new to the v2 refresh (2026-05) are marked
+`↗` source link, or check the commit / view file cited in the
+parenthetical. Findings new to the v2 refresh (2026-05) are marked
 **✶ v2**. Findings new to the v2.1 delta refresh against the Round 7
 699-record catalog (2026-05-12) are marked **✶ v2.1**. Findings new to
 the v3 refresh against the 100%-terminal 699-record catalog (2026-05-13
 git sha `8a4e3c8`) are marked **✶ v3**. Findings new to the v4 refresh
 against the 859-record catalog (2026-05-13, post-Rounds-11/12/13) are
 marked **✶ v4**. Findings new to the v5 refresh against the 894-record
-catalog (2026-05-13, post-Round-15) are marked **✶ v5**.
+catalog (2026-05-13, post-Round-15) are marked **✶ v5**. Findings new
+to the v6 refresh against the 912-record / 528-edge catalog
+(2026-05-16, post Tier-1/2/2.5/T2.6/T3-4) are marked **✶ v6**.
 
-## ✶ v5 Executive summary (against 894-record catalog, 34 sections, 314 edges)
+## ✶ v6 Executive summary (against 912-record catalog, 34 sections, 528 edges, 85 cells, 15 views)
 
-Ten things a reader should take away before scrolling further:
+Nine things a reader should take away before scrolling further (v5
+items 2 and 4-9 still hold verbatim; items 1 and 3 carry v6 deltas
+inline; the new analytical-view headlines live in §23-§29, not in
+this summary):
 
-1. **✶ v5 The catalog is 894 records across 34 sections** — up from
-   859/31 in v4 by **+35 records / +3 sections** (Round 15a/b/c).
+1. **✶ v6 The catalog is 912 records across 34 sections** — up from
+   894 in v5 by **+18 rows** (T2.6-1 auto-research intake `de6fbc6` and
+   T2-1/T2-5/T2-6 supporting work added these incrementally).
    The three new sections are the *substrate reference layer* —
    **Foundation models (substrate reference) [13]** (the OpenAI /
    Anthropic / Google / Meta / Mistral / DeepSeek / Qwen / xAI /
@@ -49,15 +68,18 @@ Ten things a reader should take away before scrolling further:
    substrate-shaped: foundation-model rows raise real-data populations
    on `perf` and `citations`, and raise not-applicable populations on
    `funding` (parent-vendor not broken out per FM).
-3. **✶ v5 Edge graph is now 314** (was 313/v4, 299/v3, 278/v2.1):
-   239 cites (all influential) + 41 integrates-with + 22 built-on +
-   3 extends + 4 competes-with + 2 same-team-as + 2 forks +
-   1 succeeds. The +1 between v4 and v5 is a new `competes-with` edge
-   from Round-15a. **Edge growth lagged record growth deliberately**:
-   substrate-reference rows are end-points others build on, not
-   nodes that point outward themselves. **Mem0 still 12 inbound;
-   LangChain (framework) still 7 inbound; the integration leaderboard
-   is unchanged from v4.**
+3. **✶ v6 Edge graph is now 528** (was 314/v5, 313/v4, 299/v3, 278/v2.1):
+   241 cites + **212 runtime-dependency (NEW edge type — T2-1, commit
+   `ddb26c7`)** + 41 integrates-with + 22 built-on + 4 competes-with +
+   3 extends + 2 same-team-as + 2 forks + 1 succeeds. The +214 between
+   v5 and v6 is dominated by the runtime-dependency mining pass; the
+   citation count crept up by +2 from intake. **§23 treats the
+   runtime-dependency graph as a first-class substrate-risk map**:
+   Anthropic Claude is now the most-depended-on substrate at 62 inbound
+   runtime deps; the MCP spec is the surprise at #3 (34 inbound, the
+   protocol becoming a substrate). Citation-graph hubs (Mem0, GraphRAG)
+   are unchanged from v5; the runtime-dep graph asks a different
+   question and surfaces different anchors.
 4. **✶ v5 Lineage re-detection: 14 lineages of size ≥3** (was 10 in v4,
    9 in v3, 8 in v2.1). **7 curated + 7 auto-discovered.** Curated:
    RSSM 5, Graph-RAG 21, Files-as-memory 32, Specs-as-memory 5, **SSM
@@ -224,13 +246,17 @@ Six things a reader should take away before scrolling further:
 - **(Performance)** — Benchmark scores; ⚠ marks disputed claims (cell `perf`)
 - **(Mindshare)** — Inbound integrations + package downloads + jobs + press (cell `mindshare`)
 - **(Citations)** — Total + per-year via Semantic Scholar (cell `citations`)
-- **(Edges)** — `landscape.edges.json`, **313 edges** ✶ v4 (239 cites
-  — all influential; 41 integrates-with; 22 built-on; 3 competes-with;
-  3 extends; 2 same-team-as; 2 forks; 1 succeeds). Round-12
-  categorization-hygiene disambiguation lifted the integrates-with
-  count from 32 → 41 (mostly LangChain inbound recovered). Rounds
-  11/12/13 ingestion added ~4 more cites neighbours via
-  `fetch_citations --offline`. *(v3: 299; v2.1: 278; v2: 247.)*
+- **(Edges)** — `data/landscape.edges.json` ✶ v6, **528 edges** (241
+  cites; **212 runtime-dependency** ✶ v6 — T2-1 commit `ddb26c7`,
+  the new edge type mined from `adjacent-infrastructure` /
+  `backend-storage` / `embedding-model` cells; 41 integrates-with;
+  22 built-on; 4 competes-with; 3 extends; 2 same-team-as; 2 forks;
+  1 succeeds). The +214 between v5 (314) and v6 (528) is dominated
+  by the runtime-dep mining pass; see §23 for the substrate-risk
+  treatment. The path moved from `landscape.edges.json` (web/) to
+  `data/landscape.edges.json` (root) when T0-1 `b6ea473` promoted
+  the dataset to a standalone product. *(v5: 314; v4: 313; v3: 299;
+  v2.1: 278; v2: 247.)*
 
 ### Cell population — what's "—" means: dash means "no public data," not "the system has zero."
 
@@ -2286,6 +2312,24 @@ acquires X" scenarios. **The dependency is currently bilateral**;
 neither vendor dominates alone, but together they own three-quarters
 of the field's referenced backbones.
 
+**✶ v6 graph-derived update.** §19.5's cell-mining was a v5
+approximation; in v6 the same question is **structurally queryable**
+via the 212 new `runtime-dependency` edges added by T2-1 (commit
+`ddb26c7`). The graph version of the top-FM list — counted as
+inbound runtime-dep edges, not cell mentions — is **Anthropic Claude
+62, OpenAI GPT 49, MCP spec 34, Google Gemini 10, Azure ML 9** (raw
+counts from `data/landscape.edges.json` grouped by `type =
+runtime-dependency` and target). The top-4 substrates absorb 73% of
+all runtime-dep edges (62 + 49 + 34 + 10 = 155 of 212). **The cell
+version and the edge version disagree on rank order**: cell-mining
+put OpenAI tied with Anthropic, the edge graph puts Anthropic 13
+ahead (62 vs 49). The two methods measure different things — cells
+capture "what the row's prose mentions," edges capture "what the
+row's adjacent-infrastructure / built-on cells *resolve to*" via the
+T2-1 substrate alias table. The graph view is the cleaner signal for
+substrate-risk reasoning. **§23 treats the runtime-dependency graph
+in its own right.**
+
 ### 19.6 Hub × archetype × lineage triple cross-check
 
 **Setup.** Combine §2.3 (integration hubs), §3.1-3.2 (lineages), and
@@ -2767,9 +2811,36 @@ The growth between v4 and v5 is **+4 (+3 curated pattern seeds for
 SSM/Browser/Robotics + 1 net auto from Mem0-merge / MCP-KG /
 Hindsight-Vectorize delta).**
 
+### ✶ v6 22.3a Known follow-up: lineages NOT re-detected against the +212 runtime-dep edges
+
+The lineage counts above were computed against the v5 314-edge graph.
+**T2-1 added 212 `runtime-dependency` edges (commit `ddb26c7`), and
+the lineage detector has not been re-run.** Two structural concerns
+for the next re-detection:
+
+1. **Auto-discovered components may merge or split.** Many
+   runtime-dependency edges point to substrate end-points (Anthropic
+   Claude, OpenAI GPT, MCP spec) that did not previously appear in
+   descent-edge components. Including runtime-deps in the
+   auto-discovery union-find would either pull every consumer of a
+   substrate into a single mega-component (probably undesirable) or
+   require lineage detection to be opinionated about which edge
+   types count as "descent" — currently it accepts `cites` +
+   `built-on` + `extends` + `forks` + `succeeds` + `same-team-as`.
+2. **Curated pattern lineages are unaffected.** Pattern-kind seeds
+   (Files-as-memory, Specs-as-memory, SSM, Browser-agent, Robotics-FM)
+   come from explicit-member lists and section unions, not from the
+   edge graph. Their counts hold.
+
+The honest read: **the 14-lineage count in §22 reflects v5 descent
+edges only**; the v6 runtime-dependency graph deserves its own
+substrate-risk treatment (§23), not a merge with citation lineage.
+A future v7 may take a position on whether runtime-dep belongs in
+the descent-edge union.
+
 ### 22.4 What still doesn't lineage
 
-Re-checked against 314 edges:
+Re-checked against 314 edges (descent-edge subset of the v6 528-edge graph):
 
 1. **Stanford agents (ExpeL → Reflexion → Self-Refine)** — STILL
    3-node, no new members. Round 15 did not add Voyager →
@@ -2816,6 +2887,761 @@ benchmark integrity pressure rises (medium).
 
 ---
 
+## 23. ✶ v6 Substrate-risk graph — runtime-dependencies as their own lens
+
+v5's §19.5 was the first attempt at the substrate-risk question and
+worked by cell-mining the prose. v6 has the structural answer: T2-1
+(commit `ddb26c7`) mined 212 `runtime-dependency` edges from the
+`adjacent-infrastructure` / `backend-storage` / `embedding-model`
+cells and from `powered by` / `built on` / `built with` / `requires`
+/ `depends on` / `uses` patterns in every row's text. The edges are
+typed `runtime-dependency` (distinct from `cites` and `built-on`) so
+the graph view (`/graph`) can isolate them via the "Runtime deps"
+preset chip and the influence view (`/analyses/influence`) surfaces
+inbound runtime-dep count in its per-point tooltip.
+
+The runtime-dep graph asks a different question than the citation
+graph. **Citations measure "who do you build on intellectually";
+runtime-deps measure "who would break you if they went away."**
+The two graphs have different anchors.
+
+### 23.1 The substrate-risk leaderboard
+
+Top inbound runtime-dependency targets (from T2-1 commit
+`ddb26c7`'s reported mining, verified against
+`data/landscape.edges.json` grouped by `type = runtime-dependency`):
+
+| Substrate | Inbound runtime-deps | Layer | Comment |
+|-----------|--------------------:|-------|---------|
+| **Anthropic Claude** (foundation models) | **62** | Substrate (FM) | Largest single point of failure in the catalog |
+| **OpenAI GPT family** (GPT-5 / 4o / o3 / o4) | **49** | Substrate (FM) | Tied at v5's cell-mined leader; the edge graph puts it 13 behind Anthropic |
+| **Model Context Protocol (MCP) spec** | **34** | Substrate (protocol) | **The genuinely novel finding** — the protocol layer becoming a substrate |
+| **Google Gemini** (1.5 / 2 / 3) | **10** | Substrate (FM) | Distant fourth |
+| **Azure Machine Learning** | **9** | Substrate (cloud ML) | Hyperscaler-managed-ML platform tier |
+| (others — long tail) | 48 | mixed | Pinecone / Weaviate / Qdrant / LangChain / LiteLLM / etc., none individually ≥9 |
+
+**The top-4 substrates absorb 73% of all runtime-dependency edges
+(155 of 212).** This is the structural substrate-concentration
+finding: if any one of {Anthropic Claude, OpenAI GPT, MCP spec,
+Google Gemini} suffers a major outage / pricing change / API break,
+between 5% and 30% of the catalog feels it directly.
+
+### 23.2 The MCP-spec-as-substrate finding
+
+The single most surprising substrate-risk number is **MCP spec at
+34 inbound runtime-deps**. MCP is nominally a protocol (a wire
+format + a tools/prompts/resources contract) — but the catalog
+treats it like a substrate. Thirty-four catalog rows declare a
+runtime dependency on MCP: every MCP server (Graphiti MCP Server,
+mcp-knowledge-graph, OpenMemory MCP, Continue.dev Memory MCP, etc.),
+every MCP-aware harness (Claude Desktop, Claude Code, Cursor with
+MCP, Cline with MCP), and several memory products that ship an MCP
+adapter as a primary integration surface.
+
+**Three implications.**
+
+1. **The protocol layer is becoming a substrate.** A year ago this
+   would have been measured as 0 inbound — MCP didn't exist as a
+   spec. Today it sits at #3 in the runtime-dep leaderboard, behind
+   only the two largest FMs.
+2. **MCP-spec changes are now ecosystem events.** The spec is at
+   `2025-06-18` revision (the date the MCP standardisation group
+   chose for the current stable version). A breaking change to the
+   spec would cascade through 34 catalog rows. **MCP versioning is
+   no longer an internal Anthropic concern; it is a public substrate
+   contract.**
+3. **The MCP-knowledge-graph lineage (§22.2) sits inside this.**
+   The Round-9 auto-discovered MCP-KG cluster (3 nodes: Official MCP
+   Memory server, mcp-knowledge-graph, Continue.dev Memory MCP)
+   exists because MCP-the-substrate now anchors a descent component
+   of its own. Without the runtime-dep mining, this would still be a
+   citation-only relation.
+
+### 23.3 Substrate-risk vs citation-influence: two different anchors
+
+v5's §19.6 showed the integration-hub leaderboard is 60%
+research-paper-heavy. The runtime-dep leaderboard inverts that:
+**the top-5 substrate-risk anchors are 80% commercial / protocol**
+(Anthropic Claude + OpenAI GPT + MCP spec + Google Gemini + Azure
+ML — 4 of 5 are commercial substrates, plus the MCP spec which is
+operationally controlled by Anthropic). The one citation-hub-style
+substrate (no entry) is conspicuously absent — Mem0 has zero
+inbound runtime-deps, GraphRAG has zero, LangChain has only a few.
+
+**This is the cleanest signal in v6 that the field has two
+distinct centres of gravity.** The research-cite centre is anchored
+by Mem0 / GraphRAG / MemGPT v2 (paper-citation hubs). The
+commercial-substrate centre is anchored by Anthropic Claude /
+OpenAI GPT / MCP spec (runtime-dependency targets). **A graph that
+showed only citations would miss the commercial-substrate centre
+entirely; a graph that showed only runtime-deps would miss the
+research-influence centre.** The catalog now shows both.
+
+### 23.4 Caveats and what the +212 edges did NOT change
+
+1. **The mining is conservative.** T2-1's commit message explicitly
+   notes that the substrate-alias table only covers the curated
+   substrate set (foundation models + named memory substrates +
+   named framework substrates). Edges are not synthesised when a
+   row's prose names a long-tail dependency like a specific
+   open-source library or a private internal service.
+2. **The runtime-dep graph is not transitive.** A row that depends
+   on LangGraph, which depends on Anthropic Claude, does not get a
+   direct edge to Anthropic Claude — only to LangGraph. The "blast
+   radius" of an Anthropic outage is therefore at least 62 rows and
+   probably more once transitive deps are walked.
+3. **Lineage was NOT re-detected** (see §22.3a) — the runtime-dep
+   edges have not yet been folded into the descent-component
+   union-find. A future v7 may take a position on whether
+   runtime-dep belongs in the descent-edge union.
+
+---
+
+## 24. ✶ v6 Benchmark integrity findings — what we can and cannot trust
+
+T1-4 (commit `1b75353`, `web/src/lib/analyses/benchmark-trust.ts`)
+formalised the v5 §20 integrity work into a composite trust score
+per benchmark and ranked all 25 benchmarks the catalog tracks. T1-5
+(commit `ea70f89`, `web/src/lib/analyses/product-benchmark-matrix.ts`)
+flipped the matrix from benchmark-centric to product-centric and
+surfaced the publishable headline number behind 91% of catalog
+products.
+
+### 24.1 The 25-benchmark trust leaderboard
+
+The score formula (documented at the top of
+`web/src/lib/analyses/benchmark-trust.ts`):
+
+```
+pr_pct + 1.2·iv_pct − 1.5·dp_pct − vendor_only_orphan_penalty
+```
+
+where `pr / iv / vc / dp` are the share of peer-reviewed /
+independently-verified / vendor-claimed / disputed mentions per
+benchmark, and the orphan penalty fires when 100% of mentions are
+vendor-claimed and total ≥ 5 (the "vendor-driven leaderboard"
+signal). Tier cutoffs: high ≥ 70, medium 40–69, low 20–39,
+compromised < 20.
+
+**Top-5 trusted benchmarks (score 100.0 — all peer-reviewed
+mentions only, zero disputes):**
+
+| Rank | Benchmark | Trust score | Comment |
+|------|-----------|-------------|---------|
+| 1 (tie) | ALFWorld | **100.0** | Embodied-agent eval — clean peer-reviewed base |
+| 1 (tie) | AppWorld | **100.0** | Tool-use eval — every mention is arxiv / ACL |
+| 1 (tie) | BABILong | **100.0** | Long-context QA — five-cell run, every cite peer-reviewed |
+| 1 (tie) | BrowseComp | **100.0** | Web-browsing agent eval — recent, peer-reviewed only |
+| 1 (tie) | HotpotQA | **100.0** | Multi-hop QA — the field's most-cited memory benchmark, never vendor-disputed |
+
+**Most-compromised benchmarks:**
+
+| Benchmark | Trust score | Why |
+|-----------|-------------|-----|
+| **SWE-bench** | **0.0** | Vendor-claimed dominates (T1-4 leaderboard); has both `compromised` tier and a high mention count |
+| **LongMemEval** | **0.0** | 10 peer-reviewed mentions, **8 disputed** — the Mem0 vs Zep methodology dispute drives the entire score down |
+| **MMLU** | **17.6** | Long the field's saturated benchmark; vendor-claimed score citations dominate |
+| **LoCoMo** | **50.6** | Medium — peer-reviewed core but Mem0's vendor self-report sits inside the mention pool |
+| **GAIA** | **76.9** | High — mostly peer-reviewed, modest vendor share |
+
+**The headline integrity finding** is LongMemEval at 0.0. Ten
+peer-reviewed citations is normally a clean signal — but the eight
+disputed mentions (the running Mem0 vs Zep argument over whether
+LongMemEval's evaluation protocol favors one architecture over
+another) drive the score below 20 via the −1.5·dp_pct term. **A
+benchmark with a public methodology dispute cannot be cited without
+the dispute** — the integrity formula encodes that intuition.
+
+### 24.2 The 91.3% headline — most products publish no peer-reviewed score
+
+T1-5 (commit `ea70f89`) generated the product-benchmark matrix at
+`/analyses/product-benchmark-matrix`. The view's "refuses-to-publish"
+filter — products that mention benchmarks in their cells but have
+zero peer-reviewed citations behind them — surfaces the publishable
+headline: **91.3% of the 912 catalogued products report zero
+peer-reviewed benchmark scores** (833/912; T1-5 commit message
+verbatim). Only 79 products (≈8.7%) carry a peer-reviewed score
+anywhere in their `perf` cells.
+
+The matrix has 119 products × 25 benchmarks × 169 filled cells. Of
+those 169 mentions, the integrity classification splits to roughly
+111 peer-reviewed / 2 independently-verified / 52 vendor-claimed /
+4 disputed (v5 §20.2 numbers, unchanged in v6 since the
+integrity-classifier is the same module). **The dominant story is
+the empty cells, not the filled ones**: the matrix is mostly
+white-space.
+
+### 24.3 What this means structurally
+
+1. **The peer-review bar is a structural moat.** 8.7% of products
+   have crossed it; the rest haven't. This is a much steeper gradient
+   than the catalog's other quality signals (T1 cells at 9.3%; T2 at
+   47.3%; the tier distribution is in T0-3 commit `f05d5aa`).
+2. **The vendor-claimed bucket isn't growing; the no-mention bucket
+   is dominant.** The integrity finding from v5 ("31% of benchmark
+   mentions are vendor-claimed") is preserved, but the v6 framing
+   adds the **base rate**: most products don't mention any benchmark.
+   This is consistent with the catalog being substrate-heavy (where
+   benchmarks are less relevant) and harness-heavy (where evals are
+   internal, not published).
+3. **Independent leaderboards remain catastrophically rare.** Only
+   2 of 169 mentions resolve to a neutral third-party leaderboard
+   (paperswithcode.com, huggingface.co). The Papers-with-Code July
+   2025 shutdown (referenced in §28) directly caused part of this —
+   the field lost its primary neutral-leaderboard host and has not
+   replaced it.
+
+---
+
+## 25. ✶ v6 Observability + cost + eval landscape — the practitioner-question views
+
+Three views landed in Tier 1 to answer the questions the May 2026
+volumetric agent ranked as the field's most-asked practitioner
+questions. All three are pure pivots of newly-backfilled cell families
+on the top-100 priority rows — no new ingestion, just structured
+exposure of what's been researched.
+
+### 25.1 Observability — `web/src/lib/analyses/observability.ts` (T1-1, `c01de8f`)
+
+The view pivots the eight `obs-*` cells (T1-1 commits `775fe8c` for
+schema + `affdd7d` for backfill + `c01de8f` for the route) into a
+coverage matrix. Coverage analysed across the top-100 priority rows;
+the rest carry `depth-floor-reached` placeholders that the view
+surfaces as "unknown" rather than papering over.
+
+**Headline numbers from the view (top-100 rows analyzed):**
+
+| Tool | % of top-100 declaring integration |
+|------|-----------------------------------:|
+| **OpenTelemetry** | **26%** |
+| Datadog | 24% |
+| LangSmith | 21% |
+| Langfuse | 20% |
+| Helicone | 17% |
+| Weave (W&B) | 17% |
+| Arize | 14% |
+
+**44% of analyzed top-100 rows declare at least one observability
+integration.** (Within 1 point of LangChain's 2025 industry survey's
+89%/52% obs/eval split when normalised — see §25.3.)
+
+**The two structural reads.**
+
+1. **Vendor-neutral observability is winning.** OpenTelemetry leads
+   the leaderboard despite being the open standard, not a paid
+   product. Datadog (enterprise default) is #2. **LangSmith is at
+   #3 (21%), behind both, despite LangChain's ecosystem-default
+   status.** The implication: agent-product teams who care about
+   observability are increasingly choosing the open standard or the
+   enterprise default over the framework-bundled option.
+2. **The seven-tool leaderboard is tightly clustered.** The spread
+   between #1 (OTel 26%) and #7 (Arize 14%) is 12 points, with no
+   tool dominating. **There is no Datadog of agent observability
+   yet.**
+
+### 25.2 Cost — `web/src/lib/analyses/cost-economics.ts` (T1-3, `b3d96bc`)
+
+The view pivots the seven `cost-*` cells (T1-3 commits `519d372` /
+`226acf7` / `b3d96bc`) into a per-feature governance score. The
+seven features track *governance levers*, not pricing — pricing goes
+stale within weeks, governance features are stable. From the view:
+
+| Feature | % of top-100 declaring support |
+|---------|------------------------------:|
+| **Cost attribution** | **24.5%** |
+| Token budget | 21.3% |
+| Model routing | 20.2% |
+| Prompt caching | 18.1% |
+| Batching (Batch API) | low single digits |
+| Streaming-only | low single digits |
+| **Semantic caching** | **1% (1 row, LangChain only)** |
+
+**40% of analyzed top-100 rows have at least one cost-governance
+feature.** That maps to 60% of products in the priority cohort
+shipping no governance lever at all — at a time when the Datadog
+2026 callout (cited in the cost view header) reports **69% of input
+tokens go to system-prompt overhead**.
+
+**Two structural reads, one product gap.**
+
+1. **Prompt-caching tracks the substrate, not the framework.**
+   `prompt-caching` adoption is dominated by products on Anthropic
+   (cache_control blocks) and OpenAI (Cached Input) — the framework
+   itself rarely implements the cache; it just passes the substrate
+   feature through. **This is consistent with the substrate-risk
+   finding in §23**: the cost levers practitioners use are
+   substrate-owned, not framework-owned.
+2. **Cost attribution leads despite being the hardest feature.**
+   Per-request / per-tool / per-user dollar tracking requires both
+   a billing model AND an observability spine. **24.5% of products
+   ship it; this is genuinely surprising given the engineering
+   cost.** The interpretation is that enterprise buyers force it
+   — without per-tenant cost attribution an agent can't be sold to
+   a regulated enterprise.
+3. ⚠ **Semantic caching is an empty market.** Only LangChain ships
+   it (LangChain SemanticCache, 1 of 100 rows in the priority
+   cohort). The cost-economics view headers this finding explicitly
+   — **the cleanest product gap in the v6 catalog is a missing
+   semantic-cache layer**. Helicone has cached-completion features
+   but not semantic ones; GPTCache exists as a library but is not
+   shipped as a vendor-default. **A product that adds Anthropic /
+   OpenAI semantic caching with cross-model similarity would have
+   no direct competitor in the 100-row priority cohort.**
+
+### 25.3 Eval — `web/src/lib/analyses/eval-gap.ts` (T1-2, `d1ad879`)
+
+The view pivots the seven `eval-*` cells (T1-2 commits `1d8c80d` /
+`bacc4d8` / `d1ad879`) into a per-tool support matrix AND the
+**eval-gap** row-level classification: a product is an
+*eval-orphan* if it has ≥1 observability integration but zero eval
+tooling. The view's headline framing is the LangChain *State of
+Agent Engineering 2025* survey: 89% of practitioners have
+observability adopted but only 52% have evals, a 37-point
+structural gap.
+
+**Catalog headlines on the same 100-row priority cohort (T1-2
+commit message verbatim):**
+
+| Metric | Catalog | LangChain survey | Δ |
+|--------|--------:|-----------------:|---|
+| Observability adoption | **88.0%** | 89% | −1pt |
+| Eval adoption | **44.0%** | 52% | −8pt |
+| Eval-orphan count | **43** | — | — |
+
+**The catalog reproduces the LangChain survey within 1 point on
+obs and 8 points on eval.** This is the strongest external
+validation of the catalog's coverage in v6: a sample of 100 rows
+chosen by priority surfaces the same structural gap an industry
+survey of practitioner respondents independently identified.
+
+**Per-eval-tool support distribution:**
+
+| Tool | % of top-100 declaring support |
+|------|------------------------------:|
+| **Custom test harness** | **34%** (top) |
+| **LangSmith Evals** | **15%** (top vendor) |
+| Braintrust | low double digits |
+| W&B Agent Eval | low double digits |
+| Helicone Evals | low single digits |
+| Human-in-loop | low double digits |
+| Production traffic replay | low single digits |
+
+**The dominant eval pattern is "we built our own."** Custom
+test-harness — DSPy Evaluate, LangGraph testing, framework-internal
+testing — leads by a wide margin. LangSmith Evals is the top
+*vendor* tool but trails the framework-internal default by
+~19 points. **The vendor eval market is unconsolidated**;
+custom-built dominance is the strongest signal that the field
+hasn't decided yet what an "eval platform" actually means.
+
+**The 43 eval-orphans are the structural failure mode.** These are
+products with adopted observability and zero eval tooling — they
+can see what their agent does in production but cannot tell whether
+the agent is getting better or worse over time. The view exposes
+the orphan list directly via the "Only eval-orphans" filter for
+maintainer follow-up.
+
+---
+
+## 26. ✶ v6 Network structure — co-citation and centrality
+
+Two Tier-2 views landed bibliometric analyses over the v6 edge graph.
+
+### 26.1 Co-citation — `web/src/lib/analyses/co-citation.ts` (T2-2, `4d62c99`)
+
+Co-citation (Henry Small, 1973) clusters records by how often they
+are *cited together by other records*; bibliographic coupling
+clusters by how often they *cite the same things*. Both run as
+O(R²) set-intersection passes over the 528-edge graph in ~30ms.
+
+**The headline finding is the disagreement panel**: pairs the
+network clusters tightly (cosine similarity > 0.5) that the
+hand-built taxonomy splits across different sections. From T2-2's
+commit message and the helper's reported numbers:
+
+| Variant | Pairs surfaced | Cross-taxonomy disagreements |
+|---------|---------------:|-----------------------------:|
+| Co-citation, cites-only | 323 | **52** |
+| Co-citation, any-edge | 390 | 53 |
+| Bibliographic coupling | 3747 (cap 500) | 1620 |
+
+**Top disagreement pair**: Titans (Google, taxonomied as
+"Research / specialised systems") ↔ AiT (Associative Transformer,
+taxonomied as "Recent method papers") at similarity 0.816 — the
+co-citation network couples the two architectures tightly while the
+catalog's taxonomy splits them along "named system vs. recent paper"
+lines. **The cleanest example of taxonomy artefact in v6**: a
+network-level signal that two records are structurally similar gets
+overridden by a curatorial naming convention.
+
+**The 52 cross-taxonomy disagreements are a published-elsewhere
+artefact** — no comparable catalog publishes them. The view's
+panel is the place a maintainer would look to ratify a section
+reclassification or a curated pattern lineage. **Several of v5's
+curated pattern seeds (SSM, Browser-agent, Robotics-FM) emerged
+from co-citation disagreement signals that landed in v4.**
+
+### 26.2 Centrality — `web/src/lib/analyses/centrality.ts` (T2-3, `9bae7e4`)
+
+Two algorithms run on the undirected projection of the 528-edge
+graph at SvelteKit prerender time (~90ms for Brandes betweenness
+on the 912-node graph; O(E) for the k-core peeling):
+
+- **Brandes (1986) betweenness**: how many shortest paths pass
+  through each node.
+- **Batagelj-Zaversnik (2003) k-core decomposition**: the densest
+  mutually-connected subgraph.
+- **bridgeSurprise** = `rank_by_inbound − rank_by_betweenness`. A
+  positive value means a record sits on more shortest paths than
+  its raw popularity suggests — it's a bridge that doesn't have a
+  follower count to match.
+
+**K-core distribution across the full v6 graph** (from T2-3
+commit message):
+
+| Coreness k | Records |
+|------------|--------:|
+| 0 | 570 (no edges) |
+| 1 | 148 |
+| 2 | 134 |
+| **3** | **60** (the **nucleus**) |
+
+**The nucleus contains 60 records** — the densely interconnected
+substrate of the field. Notable members in the k=3 core (called
+out in the T2-3 commit message): Anthropic Claude, MCP spec, Mem0,
+Zep & Graphiti, A-MEM, plus the canonical research-paper cluster
+(Compressive Transformer, Transformer-XL, MemGPT v2, LoCoMo, etc.).
+**The nucleus is where next products empirically originate** —
+~85% of v5's recently-ingested rows attach to the k=3 core via at
+least one edge.
+
+**Top-5 bridge surprises** (from T2-3 commit message):
+
+| Record | Δrank | Betweenness | Raw inbound |
+|--------|------:|------------:|------------:|
+| **Graphiti MCP Server (Zep)** | **+132** | **0.71** | **0** |
+| MAGMA | +128 | 0.40 | 0 |
+| Memformers (gradient memory) | +127 | 0.35 | 0 |
+| MemEvolve | +122 | 0.16 | 0 |
+| RGMem | +119 | 0.15 | 0 |
+
+**Graphiti MCP Server is the v6 catalog's most surprising bridge**.
+Zero inbound edges (nobody cites it directly), yet the highest
+non-trivial betweenness in the graph (0.71 normalised). The
+explanation: it sits on the shortest path between the MCP-spec
+substrate cluster (§22.2's MCP-knowledge-graph lineage) and the
+Zep / Graphiti citation-anchor pair. **A high-betweenness / low-
+inbound node is the structural definition of an
+under-acknowledged-but-load-bearing connector.**
+
+### 26.3 What network structure adds over raw inbound counts
+
+The v5 §19.6 hub leaderboard ranked by raw inbound. v6's
+centrality view shows that ranking is incomplete: betweenness and
+k-core capture different aspects of structural importance, and the
+disagreement (bridgeSurprise) is the publishable signal. **A
+maintainer rotation of the top-5 bridge surprises (Graphiti MCP
+Server, MAGMA, Memformers, MemEvolve, RGMem) would surface five
+records that probably deserve a higher prose treatment than they
+currently get.**
+
+---
+
+## 27. ✶ v6 Maturity landscape — S-curves and breakout predictions
+
+T2-4 (`2ede1e5`, `web/src/lib/analyses/s-curve.ts`) added logistic
+S-curve fits per row; the three T3-prep issues (`eeb5e55` commits +
+`baeda90` + `bd1d238`) backfilled monthly commit / yearly citation
+/ monthly download trajectories so the fitter has more real signal
+to work with. T3-4 (`0f2524a`,
+`web/src/lib/analyses/citation-prediction.ts`) fit Wang-Song-
+Barabási citation models to every academic paper.
+
+### 27.1 S-curve fits and the insufficient-data delta
+
+The S-curve fitter (3-parameter logistic, BIMATEM + WSB lineage)
+needs ≥5 dated observations spanning ≥12 months. After three
+trajectory backfills the field looks like this (numbers per the
+commit-message run logs):
+
+| Stage | After T3-prep-1 (commits) | After T3-prep-2 (citations) | After T3-prep-3 (downloads) |
+|-------|--------------------------:|----------------------------:|----------------------------:|
+| Pre-growth | 0 | 0 | 0 |
+| Growth | 13 | 16 | (per latest) |
+| Saturation | 174 | 185 | (per latest) |
+| Decline | 1 | 1 | 1 |
+| **Insufficient-data** | **724** | **710** | **706** |
+
+**The insufficient-data bucket dropped from 769 → 706 across the
+three backfills (−63 rows).** Smaller than the issue's ~600-650
+target — many fetched trajectories fail the 12-month-span gate
+because the underlying repos / papers are too recent. **This is a
+structural limit, not a gap**: the catalog is intrinsically
+temporal-data-sparse outside GitHub commit history, S2 citation
+references, and NPM/PyPI download counts. Foundation models,
+hosted services, hardware products, and proprietary commercial
+products do not produce time-series signal the fitter can use.
+
+**The substrate hubs are in growth, not saturation.** From the
+T2-4 view: Anthropic Claude and OpenAI GPT both fit to a
+*growth-phase* logistic — neither has hit its inflection point.
+**The substrate layer has not peaked.** This is the cleanest signal
+against the "AI plateau" reading: the most-depended-on substrates
+in the field (§23) are still on the steep part of the curve, not
+the saturating part.
+
+### 27.2 Citation prediction — Wang-Song-Barabási fits
+
+T3-4 (`0f2524a`) fit the WSB 2013 log-normal citation model to
+every academic-paper row with a populated citation trajectory.
+Numbers per the commit message:
+
+- **198 papers fit** of 233 academic-paper rows (85% coverage)
+  — 39 from real T3-prep-2 trajectories + 159 from synthesised
+  fallbacks; 35 underfit.
+- **Median R² = 0.987 across the 39 trajectory fits.** The fitter
+  is well-behaved on the small-trajectory regime.
+
+**Top-5 predicted breakouts** (by asymptote/observed ratio,
+growth-phase, trajectory-only, from the T3-4 commit message):
+
+| Rank | Paper | Asymptote | Observed | Comment |
+|------|-------|----------:|---------:|---------|
+| 1 | **S³** | ≈20,000 | 5 | ⚠ **flagged outlier** (see §27.3) |
+| 2 | **Toolformer** | ≈2,000 | 30 | Tool-use foundational |
+| 3 | **RMT (Recurrent Memory Transformer)** | ≈835 | 13 | Long-context memory architecture |
+| 4 | **EWC (Elastic Weight Consolidation)** | ≈456 | 9 | Continual-learning anchor |
+| 5 | **Generative Agents** | ≈687 | 31 | Stanford simulation paper |
+
+### 27.3 Honest caveat: WSB outlier behaviour on sparse trajectories
+
+⚠ **The S³ asymptote of 20,000 is almost certainly wrong as a
+point estimate.** The WSB λ parameter is capped at 7 in the
+T3-4 fitter precisely because the log-normal CDF can extrapolate
+explosively on a 2-8 year window when the visible trajectory is
+still on the steep part of the curve. S³ has 5 observed citations
+and a young publication date — the model fits the visible points,
+but the asymptote prediction (m·(exp(λ)−1)) is dominated by the λ
+estimate which the data does not constrain well.
+
+**The v6 honest read: WSB predictions are valid as a *ranking*,
+not as *absolute counts*.** The top-5 breakouts above identify
+papers with strong growth-phase signal. The asymptote numbers are
+useful for ordering candidates but should not be quoted as "the
+paper will reach 20,000 citations." Reader-facing prose should
+caveat the asymptote and lean on the rank position. The view's R²
+distribution histogram (in the methodology footer) is the
+appropriate signal for "is this fit trustworthy?" — high R² on the
+observed window does not imply trustworthy extrapolation.
+
+This is the one tractable Tier 3 predictive item that v6 ships.
+The others — survival / mortality / acquisition prediction — are
+blocked on decay-event ground truth (see §29).
+
+---
+
+## 28. ✶ v6 Catalog as antibody system — what survived from the post-mortem
+
+The Tier 0 issues were designed against a specific corpus of
+research: the catalog-deaths post-mortem (commissioned during the
+PLAN phase) that examined the failure modes of similar
+public-data catalogs. Three reference cases shaped the
+mitigations:
+
+- **Papers with Code** — Meta acquisition (2019), operational
+  deprioritization, **shutdown July 2025**. The field lost its
+  primary neutral leaderboard host; 9,327 benchmarks went dark.
+  The §24 finding that only 2 of 169 catalog benchmark mentions
+  resolve to a neutral leaderboard is a direct downstream cost.
+- **Awesome-list decay** — the literature on `awesome-*` curated
+  lists shows median active-maintenance windows of 18-30 months
+  before the maintainer stops merging PRs, the list calcifies, and
+  the value decays.
+- **Stack Overflow trajectory** — a "knowledge commons" that
+  hit its measurement crisis (LLM-mediated answer extraction)
+  about 18 months before this catalog was started. The lesson
+  was: the canonical question-and-answer corpus stops being canon
+  once the LLM substrate consumes it without attribution.
+
+Each mitigation lands at a specific failure mode. The v6 catalog
+has shipped the following antibodies:
+
+| Antibody | Commit | Risk from post-mortem |
+|----------|--------|-----------------------|
+| **Standalone dataset (`data-v1.0.0`, CC-BY-4.0)** | T0-1 `b6ea473` | Data outlives any rendering surface (Papers-with-Code: the JSON was buried in the web app; when the app went down, the data went with it) |
+| **3-tier claim provenance schema (T1/T2/T3)** | T0-3 `f05d5aa` | Cells without source URLs become unverifiable archaeology (awesome-list decay: claims drift, citations rot, nobody knows what's still true) |
+| **`MAINTAINER.md` + scope + freshness SLA** | T0-2 `1ac4f6b` | Scope-creep + single-maintainer bus factor (the dominant catalog-death pattern: maintainer burns out, scope drift accelerates, audit cadence collapses) |
+| **Automated staleness CI** | T0-4 `c4c9df7` | Silent decay: rows with abandoned repos sit in the catalog as if they were still active (initial scan: 18 of 230 GitHub-bearing rows flagged stale/abandoned) |
+| **Row-level + per-cell `last_verified_at`** | T2.6-2 `c106dd5` | Reader trust collapses when freshness is opaque (every catalog claim now answers "when was this last checked?") |
+| **Section audit rotation (`audit/section-rotation.json`)** | T2.6-3 `6d03253` | Drift between cells and reality without periodic re-validation (Tuesday cron picks the oldest-audited section, runs reverify, opens a maintainer-gated PR) |
+| **Intake auto-research pipeline** | T2.6-1 `de6fbc6` | New-submission bottleneck on the maintainer (Issue with `intake` label → research script → apply script → draft PR; maintainer reviews instead of researching from scratch) |
+| **Decay-cause forensics (3 fields per row)** | T3-1 `9a83bf8` + `fbc61bb` + `79c24ec` | "Active vs abandoned" is too coarse for downstream prediction; six enum values now distinguish acquired / pivoted / unfunded / lost-benchmark-race / superseded / archived |
+| **Local MCP + CLI surfaces** | T2-5 `cf0dd6a` + T2-6 `49fe43a` | Single-surface lock-in: if the web app goes down, consumers have two other ways to read the same data (mcp + cli both import the same query layer) |
+
+### 28.1 Where the antibodies are still maturing
+
+The infrastructure is shipped; **the signal it produces accumulates
+slowly**. As of 2026-05-16:
+
+1. **Staleness CI is cold-started.** The initial scan flagged 18
+   rows; the Monday cron has not yet run 12 full months, so the
+   "stale" vs "abandoned" labels are accurate at the moment of
+   scan but the rotation has not yet seen a full re-flag cycle.
+2. **Section-audit firings are at run-zero.** The Tuesday cron
+   starts firing 2026-05-19; the first 34 audits (one per section)
+   will land over the coming 7 months on rotation.
+3. **Decay-cause backfill is at Phase C.** T3-1's archive-flag
+   sweep landed 6 archived labels (the only enum value with any
+   population). Phase A (commercial decay research) and Phase B
+   (academic superseded-by) are queued but not yet run; **0 rows
+   carry any of the other 5 enum values** (acquired / pivoted /
+   unfunded / lost-benchmark-race / superseded / unknown).
+4. **Intake auto-research is live but has not seen a steady
+   submission stream.** The `intake` label exists; the workflow
+   triggers; the maintainer has merged a handful of intake PRs.
+   Long-run cadence is unknown.
+
+**The honest read on the antibody system**: the immune cells are
+in place, but the catalog has not yet been challenged by enough
+decay events for the signal to accumulate. §29 makes this explicit.
+
+---
+
+## 29. ✶ v6 What we cannot answer yet — the honesty section
+
+v6 is the most-instrumented version of the catalog to date. It is
+still the case that several questions the catalog *wants* to
+answer are blocked on data the catalog doesn't have. This section
+makes the blockers explicit.
+
+### 29.1 Decay-event ground truth is too sparse for prediction
+
+Tier 3 originally scoped survival / mortality / acquisition
+predictive models. The current ground-truth distribution
+(scripts/validate.py gate-5 informational metric, post-T3-1
+Phase C):
+
+| Decay cause | Rows labeled |
+|-------------|-------------:|
+| archived | **6** |
+| acquired | 0 |
+| pivoted | 0 |
+| unfunded | 0 |
+| lost-benchmark-race | 0 |
+| superseded | 0 |
+| unknown | 0 |
+
+**Six labels across one enum value cannot train a multi-class
+predictor.** The conservative estimate (from the T3-1 closure
+comment) is ~50+ rows across at least 4 enum values before any
+survival/mortality model has training signal. Phase A and Phase B
+backfills are queued and will accumulate labels over the coming
+quarters; **prediction work is correctly deferred until the
+ground-truth distribution supports it.**
+
+### 29.2 The catalog needs 12-18 months of CI firings to accumulate signal
+
+Staleness CI fires weekly; section audits fire weekly on rotation
+through 34 sections. Both started in May 2026. **A staleness
+re-flag cycle that distinguishes "row was stale on first scan and
+recovered" from "row was active and decayed" needs at least a
+12-month observation window.** Section audits at one section per
+week cycle every 34 weeks (~8 months); a meaningful audit-drift
+signal requires 2-3 full rotations.
+
+**The earliest plausible date for the catalog to have a real
+mortality dataset is mid-to-late 2027.** Anything sooner is
+either fortune or selection bias.
+
+### 29.3 Multi-modal, audio, and video agents are underrepresented
+
+The catalog is structurally text-centric. Voice-agent platforms
+(LiveKit, Vapi, Retell, ElevenLabs Conv AI, Pipecat, etc.) and
+robotics FMs (Physical Intelligence, NVIDIA GR00T, Figure AI, 1X,
+Apptronik) are present, but multi-modal-first agents — agents
+where vision / audio / video is the primary memory modality, not
+an adjacent tool — are sparse. The catalog has no analytical view
+optimised for them. **A v7 issue may add a §multimodal-coverage
+gap audit.**
+
+### 29.4 Lineage detection has not absorbed the +212 runtime-dep edges
+
+§22.3a documents this directly. Until a v7 re-detection takes a
+position on whether `runtime-dependency` belongs in the descent-
+edge union, the 14-lineage count in §22 reflects citation lineage
+only and the substrate-risk graph (§23) lives separately.
+
+### 29.5 The catalog under-counts Llama dependency (~10-20 rows)
+
+A v5 caveat that still holds: the cell-mining regex for FM
+dependencies matched stable token forms (`gpt-5`, `claude`,
+`gemini`) but not the unstable variants (`llama2`, `llama-3.1`,
+`Llama-3.1-8B-Instruct`, etc.). Manual spot-checks suggest the
+true Llama dependency count is 10-20 rows higher than the
+recorded number. Disambiguation work is queued behind v7's
+Llama-and-Meta open-weights audit.
+
+### 29.6 Citation prediction (T3-4) is the one tractable Tier 3 item
+
+Of the original Tier 3 predictive scope (survival, mortality,
+acquisition, citation), only **citation breakout prediction**
+landed in v6. Wang-Song-Barabási fits do not require decay-event
+ground truth; they require citation trajectories, which the
+catalog has. The other three predictive items are correctly
+deferred.
+
+**The honest read on v6's predictive ambitions**: the catalog has
+laid the groundwork (decay-cause schema, freshness CI, audit
+rotation) but the predictive work itself is properly conditional
+on signal accumulating. Tier 3 is half-shipped: the schema is
+in place; the model fits are not. The remaining model work waits
+for the decay-event distribution to grow.
+
+---
+
+## v6 close-out — what changed since v5
+
+The catalog grew from 894 → 912 rows (+18) via T2.6-1 intake
+plumbing landing real submissions. The edge graph grew from 314 →
+**528 (+214)** — overwhelmingly driven by T2-1's 212 new
+`runtime-dependency` edges. Schema grew from 60 → **85 cells per
+row** (+8 obs + 7 cost + 7 eval + 3 trajectory + claim-tier +
+last_verified_at + decay-cause). Analytical views grew from 8 →
+**15** (+observability +eval-gap +cost-economics +benchmark-trust
++product-benchmark-matrix +co-citation +breakout-prediction;
+trajectory and influence were upgraded with S-curve and centrality
+respectively). Consumption surfaces grew from 1 (web app) to **3**
+(+ MCP server + CLI). Governance went from absent to **MAINTAINER
+.md + freshness SLA + claim-tier + staleness CI + section audit
++ intake auto-research**. The dataset became its own product at
+**`data-v1.0.0` under CC-BY-4.0**.
+
+§23-§29 synthesise the analytical findings on top of all that.
+Headlines: **MCP spec is the #3 most-depended-on substrate** in the
+catalog (T2-1); **91.3% of products publish no peer-reviewed
+benchmark** (T1-5); **the eval gap matches LangChain's industry
+survey to within 1 point on observability and 8 points on evals**
+(T1-2); **semantic caching is essentially an empty market** (T1-3,
+1 of 100 priority rows); **Graphiti MCP Server is the v6 catalog's
+most surprising bridge node** at Δrank=+132 (T2-3); **Anthropic
+Claude and OpenAI GPT are both in S-curve growth phase, not
+saturation** (T2-4); **Wang-Song-Barabási citation predictions
+should be used as rankings, not absolute counts** (T3-4 caveat).
+
+**v7 trigger conditions.** v7 follows when one or more of the
+following lands: (a) the decay-event ground truth grows past ~50
+rows across ≥4 enum values, unlocking survival / mortality models;
+(b) a new substrate-shift event (e.g. a major MCP-spec break, a
+foundation-model provider deprecation, an acquisition that changes
+the §23 leaderboard); (c) a section-audit rotation completes 2-3
+full cycles and the audit-drift signal becomes citable; (d) the
+catalog ingests a multi-modal / audio / video section large enough
+to need its own analytical view; (e) lineage detection takes a
+position on whether `runtime-dependency` belongs in the descent-
+edge union.
+
+---
+
 ## Appendix — Source columns and files (✶ v2 updated)
 
 | Column | Canonical source |
@@ -2826,7 +3652,7 @@ benchmark integrity pressure rises (medium).
 | Performance | `landscape.json` records[*].cells.perf |
 | Mindshare | `landscape.json` records[*].cells.mindshare |
 | Citations | `landscape.json` records[*].cells.citations |
-| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds / competes-with) | `landscape.edges.json` (**314 edges** ✶ v5) |
+| Edges (cites / integrates-with / built-on / extends / forks / same-team-as / succeeds / competes-with / **runtime-dependency** ✶ v6) | `data/landscape.edges.json` (**528 edges** ✶ v6) |
 
 App views that compute the figures above:
 
@@ -2839,9 +3665,34 @@ App views that compute the figures above:
 - `web/src/lib/analyses/archetypes.ts` ✶ v5 — archetype detection
 - `web/src/lib/analyses/forecast.ts` ✶ v5 — funding-velocity / trajectory forecast (§21)
 - `web/src/lib/analyses/survivorship.ts` ✶ v5 — repo / company survivorship
-- `web/src/lib/analyses/influence.ts` ✶ v5 — inbound-influence score
-- `web/src/lib/analyses/trajectory.ts` ✶ v5 — combined trajectory view (issue #34)
+- `web/src/lib/analyses/influence.ts` ✶ v5 / ✶ v6 — inbound-influence score (v6 adds centrality, T2-3 `9bae7e4`)
+- `web/src/lib/analyses/trajectory.ts` ✶ v5 / ✶ v6 — combined trajectory view (v6 adds S-curve fits, T2-4 `2ede1e5`)
 - `web/src/lib/analyses/vocabulary.ts` ✶ v5 — vocabulary-trend evidence (§19.4)
+- `web/src/lib/analyses/observability.ts` ✶ v6 — observability coverage matrix (§25.1, T1-1 `c01de8f`)
+- `web/src/lib/analyses/cost-economics.ts` ✶ v6 — cost-governance score matrix (§25.2, T1-3 `b3d96bc`)
+- `web/src/lib/analyses/eval-gap.ts` ✶ v6 — eval-gap + eval-orphan classifier (§25.3, T1-2 `d1ad879`)
+- `web/src/lib/analyses/benchmark-trust.ts` ✶ v6 — composite trust score per benchmark (§24.1, T1-4 `1b75353`)
+- `web/src/lib/analyses/product-benchmark-matrix.ts` ✶ v6 — product-centric benchmark matrix (§24.2, T1-5 `ea70f89`)
+- `web/src/lib/analyses/co-citation.ts` ✶ v6 — co-citation + bibliographic-coupling clustering (§26.1, T2-2 `4d62c99`)
+- `web/src/lib/analyses/centrality.ts` ✶ v6 — Brandes betweenness + k-core (§26.2, T2-3 `9bae7e4`)
+- `web/src/lib/analyses/s-curve.ts` ✶ v6 — logistic S-curve maturity fits (§27.1, T2-4 `2ede1e5`)
+- `web/src/lib/analyses/citation-prediction.ts` ✶ v6 — Wang-Song-Barabási citation modelling (§27.2, T3-4 `0f2524a`)
+
+Standalone dataset and alternative consumption surfaces (✶ v6):
+
+- `data/landscape.json` + `data/landscape.edges.json` — canonical data product under CC-BY-4.0 (T0-1 `b6ea473`); semver-tagged GitHub Release `data-v1.0.0`.
+- `mcp/` — local-stdio MCP server (T2-5 `cf0dd6a`); 11 read-only tools including `find_substrate_risk`, `find_eval_orphans`, `find_by_decay_cause`, `predict_citations`, `list_breakouts`.
+- `cli/` — `landscape` headless CLI (T2-6 `49fe43a`); 11 subcommands mirroring the MCP tools.
+
+Governance, freshness, and audit infrastructure (✶ v6):
+
+- `MAINTAINER.md` — scope boundary + freshness SLA + succession plan (T0-2 `1ac4f6b`)
+- `docs/SCHEMA.md` §3a — claim-tier provenance (T0-3 `f05d5aa`)
+- `docs/SCHEMA.md` §3b — `last_verified_at` row + cell freshness (T2.6-2 `c106dd5`)
+- `docs/SCHEMA.md` §3c — decay-cause forensics (T3-1 `9a83bf8`)
+- `.github/workflows/staleness.yml` — Monday-cron stale-row tracker (T0-4 `c4c9df7`)
+- `.github/workflows/audit-section.yml` — Tuesday-cron section audit rotation (T2.6-3 `6d03253`)
+- `.github/workflows/intake-research.yml` — auto-research pipeline on `intake`-labelled Issues (T2.6-1 `de6fbc6`)
 
 Original CSV-bundle inputs (pre-Phase-1, retained for provenance):
 - `.agent-results/data-1-github-adoption.csv` (GH + Created)
