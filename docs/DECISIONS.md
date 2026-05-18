@@ -107,6 +107,58 @@ to re-pull and rebuild.
 
 ---
 
+## 2026-05-18: Path A is the target architecture; inversion scheduled as follow-up work (#67)
+
+**What.** The Path A vs Path B question (JSON-authoritative vs HTML-
+authoritative) was previously deferred in `README.md` ("until `extract.py`
+preserves more inline markup"). The deferral condition no longer holds.
+Decision: **Path A is the architectural target.** The actual pipeline
+flip is scoped as a follow-up implementation issue rather than executed
+in this commit, because re-targeting the ~6 scripts that currently write
+to `landscape.html` (`fetch_citations.py`, `bucket_s2_citations.py`,
+`fetch_*_trajectories.py`, `apply_intake_pr.py`, `apply_audit_pr.py`,
+`research_decay_causes.py`) is its own multi-commit work item with
+its own review surface.
+
+**Why.** Quantified the deferral condition. Ran `extract.py` against
+the current `landscape.html`, then `render.py` against the resulting
+JSON using the same HTML as the template. Diff: **1952 lines, every
+single one in trajectory cells (citation/commit/download), all
+attributable to a missing `<span class="trajectory-data">` wrapper
+in `render.py`.** Zero semantic data loss. No hand-edited inline markup
+is lost in `extract.py`. The 2026-05-07 deferral rationale ("`<span
+class="signal-num">`, `<br>`, etc. that `extract.py` collapses to plain
+text") is empirically false against the current HTML — those markup
+forms either no longer exist in the catalog or are accurately preserved.
+
+Architectural pressure has also shifted since the original deferral:
+
+- **T0-1 made `data/` a first-class product** (CC-BY-4.0, separately
+  versioned). The MCP server (#48) and CLI (#49) consume the JSON,
+  not the HTML. The HTML is one of several rendering surfaces, not
+  the data's home.
+- **Co-maintainer onboarding** (MAINTAINER §4) is harder if the
+  source of truth is an 88K-line / 12 MB HTML file. JSON edits are
+  per-record targeted; HTML edits require scrolling.
+- **Auto-research tooling already round-trips JSON.** The intake
+  pipeline and section-audit workflow both already serialize their
+  output as cell-level JSON deltas before applying — the HTML write
+  step is a translation layer that adds no value.
+
+Also fixed as a no-regrets prerequisite: the trajectory-span render
+bug in `render.py`, so the cycle-stability gate in `validate.py`
+catches anything else that drifts from now on.
+
+**Reversal cost.** Low to medium. This entry only commits to the
+target direction. The actual inversion happens in a separate scoped
+issue; if execution surfaces evidence that Path A is worse than the
+quantification suggested (e.g., reviewer pushback on JSON-diff PRs
+from the intake pipeline), that issue can be closed with a re-affirm
+of Path B and this entry amended with an addendum. No code is
+committed today that locks the direction.
+
+---
+
 ## 2026-05-07: Path B4 — framework / platform / coding / browser deep-fill (1,058 cells)
 
 **What.** Generated `extraction/round-9-bucket-4-frameworks-platforms.csv`

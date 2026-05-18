@@ -209,15 +209,15 @@ from a fresh checkout (with no base-path) for a quick sanity check.
 Phase 1 (issues #1–#7) shipped a structured mirror of the catalog in
 `data/landscape.json` and a relationship file in `data/landscape.edges.json`,
 plus a render-from-JSON script in `scripts/render.py`. **Today's source of
-authority is still `landscape.html`** — `render.py`'s output diffs from the
-hand-edited HTML by ~50k lines (mostly tier-sort row reordering and dropped
-inline markup like `<span class="signal-num">`, `<br>`, etc. that
-`extract.py` collapses to plain text). Inverting that — making JSON the
-authority and HTML a build artefact — is **deferred** until `extract.py`
-preserves more of that markup. See the Path A vs Path B decision in
-`docs/DECISIONS.md`.
+authority is still `landscape.html`** — but only as a transitional state.
+A 2026-05-18 re-quantification confirmed `extract.py` no longer loses any
+semantic markup (`docs/DECISIONS.md` 2026-05-18 Path A entry, refs #67),
+so Path A — JSON as authority, HTML as build artefact — is now the
+architectural target. The pipeline flip is scheduled as a separate
+follow-up issue because re-targeting the auto-research writers is its
+own work item.
 
-Workflow today (Path B):
+Workflow today (Path B, transitional):
 
 1. Edit `landscape.html` by hand as you have through Rounds 1–6.
 2. Run `make build` to refresh `data/landscape.json` and

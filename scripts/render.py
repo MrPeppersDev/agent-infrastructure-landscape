@@ -155,6 +155,15 @@ TAXONOMY_AXES: list[str] = [
     "conflict",
 ]
 
+# Trajectory cells wrap their JSON payload in a <span class="trajectory-data">
+# so the sparkline JS can find it. Source-HTML invariant; round-tripped by
+# extract.py via the data-as-text capture.
+TRAJECTORY_CELL_SLUGS = {
+    "commit-trajectory",
+    "citation-trajectory",
+    "download-trajectory",
+}
+
 # Volatile slugs that may carry per-cell data-last-verified attributes
 # (SCHEMA.md §3b). Mirrors scripts/extract.py / backfill_verified_at.py.
 VOLATILE_CELL_SLUGS = {
@@ -308,6 +317,8 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
 
     if status == "real-data":
         body = _value_passthrough(value)
+        if td_class in TRAJECTORY_CELL_SLUGS:
+            body = f'<span class="trajectory-data">{body}</span>'
         cite = render_citation(citation, "source")
         # If there's a citation, separate the value from the link with a
         # space — this matches the existing HTML's pattern.
