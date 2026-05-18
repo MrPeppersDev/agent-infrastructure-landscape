@@ -52,7 +52,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-REPO = "MrPeppersDev/memory-analysis-program"
+REPO = "MrPeppersDev/agent-infrastructure-landscape"
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_HTML = ROOT / "landscape.html"
 LANDSCAPE_JSON = ROOT / "data" / "landscape.json"
@@ -241,7 +241,7 @@ def verify_url(url: str, *, timeout: float = 10.0) -> tuple[bool, str]:
     """HEAD/GET the URL; return (ok, reason)."""
     try:
         req = urllib.request.Request(url, method="HEAD", headers={
-            "User-Agent": "memory-analysis-program-intake/1.0",
+            "User-Agent": "agent-infrastructure-landscape-intake/1.0",
         })
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             code = resp.status
@@ -261,7 +261,7 @@ def verify_url(url: str, *, timeout: float = 10.0) -> tuple[bool, str]:
 def _verify_url_via_get(url: str, *, timeout: float, fallback_reason: str = "") -> tuple[bool, str]:
     try:
         req = urllib.request.Request(url, method="GET", headers={
-            "User-Agent": "memory-analysis-program-intake/1.0",
+            "User-Agent": "agent-infrastructure-landscape-intake/1.0",
         })
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             code = resp.status

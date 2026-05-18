@@ -113,7 +113,7 @@ The dataset is released under
 attribution. Suggested citation:
 
 > AI Agent Infrastructure Landscape (Memory Analysis Program), Dataset v1.0.0.
-> https://github.com/MrPeppersDev/memory-analysis-program
+> https://github.com/MrPeppersDev/agent-infrastructure-landscape
 
 The repository code (scripts, web app, build pipeline) uses a separate
 license; see the repo root for details. Code and data licenses are

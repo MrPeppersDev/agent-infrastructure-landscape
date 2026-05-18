@@ -72,7 +72,7 @@ DEFAULT_HTML = ROOT / "landscape.html"
 CACHE_DIR = ROOT / "extraction" / "download-cache"
 PROGRESS_FILE = ROOT / "extraction" / "download-trajectory-progress.json"
 
-USER_AGENT = "memory-analysis-program-download-trajectories (https://github.com/MrPeppersDev/memory-analysis-program)"
+USER_AGENT = "agent-infrastructure-landscape-download-trajectories (https://github.com/MrPeppersDev/agent-infrastructure-landscape)"
 PYPI_SLEEP_BETWEEN = 2.0  # politeness floor for pypistats.org (their rate limit is ~1 req/sec)
 NPM_SLEEP_BETWEEN = 0.05  # NPM's range API is generous; small floor is fine
 REQUEST_TIMEOUT = 30.0

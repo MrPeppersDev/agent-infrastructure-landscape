@@ -249,7 +249,7 @@ def fetch_latest_commit(
     req = urllib.request.Request(url)
     req.add_header("Accept", "application/vnd.github+json")
     req.add_header("X-GitHub-Api-Version", "2022-11-28")
-    req.add_header("User-Agent", "memory-analysis-program-staleness-check")
+    req.add_header("User-Agent", "agent-infrastructure-landscape-staleness-check")
     if token:
         req.add_header("Authorization", f"Bearer {token}")
     try:

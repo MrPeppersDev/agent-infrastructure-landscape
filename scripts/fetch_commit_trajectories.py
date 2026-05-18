@@ -68,7 +68,7 @@ GITHUB_URL_RE = re.compile(
 )
 
 PER_PAGE = 100
-USER_AGENT = "memory-analysis-program-commit-trajectories"
+USER_AGENT = "agent-infrastructure-landscape-commit-trajectories"
 RATE_LIMIT_SLEEP_MARGIN = 5  # seconds of slack to add after a rate-limit reset
 RATE_LIMIT_FLOOR = 10        # if remaining drops at-or-below this, sleep until reset
 # Hard cap on pages per repo. At 100 commits/page that's 1000 commits which

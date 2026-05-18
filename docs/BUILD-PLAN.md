@@ -23,7 +23,7 @@ best-of-category and inform future additions**.
 
 ## Issue tracker
 
-GitHub issues #1–#21 in `MrPeppersDev/memory-analysis-program`.
+GitHub issues #1–#21 in `MrPeppersDev/agent-infrastructure-landscape`.
 Each issue has a milestone (one of the five phases) and a checklist of
 acceptance criteria. Issues are filed serial-first: Phase 1 must finish
 before Phase 2; within Phase 2 most issues can parallelize once the project

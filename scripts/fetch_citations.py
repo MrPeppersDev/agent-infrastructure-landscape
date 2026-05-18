@@ -281,7 +281,7 @@ class S2Client:
         for attempt in range(self.max_retries):
             self._wait_rate_limit()
             self.api_calls += 1
-            req = Request(url, headers={"User-Agent": "memory-analysis-program/1.0 (issue #5)"})
+            req = Request(url, headers={"User-Agent": "agent-infrastructure-landscape/1.0 (issue #5)"})
             try:
                 with urlopen(req, timeout=30) as resp:
                     body = resp.read().decode("utf-8")

@@ -12,8 +12,8 @@ The pure query layer lives in [`../mcp/src/tools.ts`](../mcp/src/tools.ts) and i
 From a fresh checkout:
 
 ```bash
-git clone https://github.com/MrPeppersDev/memory-analysis-program.git
-cd memory-analysis-program/mcp && npm install && npm run build
+git clone https://github.com/MrPeppersDev/agent-infrastructure-landscape.git
+cd agent-infrastructure-landscape/mcp && npm install && npm run build
 cd ../cli && npm install && npm run build
 ./dist/landscape.js sections        # smoke test
 ```
@@ -119,11 +119,11 @@ The CLI loads `data/landscape.json` and `data/landscape.edges.json` from the rep
 
 - **One runtime dep**: `commander` (12.x). Colour output is zero-dep ANSI escapes.
 - **TypeScript**, compiled to ES2022 ESM, output to `dist/`.
-- **No write commands**, no interactive REPL, no plugin system — see issue [#49](https://github.com/MrPeppersDev/memory-analysis-program/issues/49) for the scope decision.
+- **No write commands**, no interactive REPL, no plugin system — see issue [#49](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/49) for the scope decision.
 - **Exit codes**: 0 success, 1 on usage errors (record not found, unknown dimension, …). All errors go to stderr; output goes to stdout.
 
 ## Related work
 
-- [#48](https://github.com/MrPeppersDev/memory-analysis-program/issues/48) — MCP server (shares query layer)
-- [#35](https://github.com/MrPeppersDev/memory-analysis-program/issues/35) — standalone versioned dataset (T0-1)
-- [#46](https://github.com/MrPeppersDev/memory-analysis-program/issues/46) — runtime-dependency edges (powers `substrate-risk`)
+- [#48](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/48) — MCP server (shares query layer)
+- [#35](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/35) — standalone versioned dataset (T0-1)
+- [#46](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/46) — runtime-dependency edges (powers `substrate-risk`)

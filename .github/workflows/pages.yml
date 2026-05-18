@@ -6,7 +6,7 @@
 #
 # Base-path handling: svelte.config.js reads `BASE_PATH` at build time
 # (defaults to ''). For the live Pages deploy we set it to
-# `/memory-analysis-program` so asset URLs resolve under the project
+# `/agent-infrastructure-landscape` so asset URLs resolve under the project
 # subpath. For local dev / preview leave it unset.
 #
 # Prerequisites in the repo settings:
@@ -55,7 +55,7 @@ jobs:
       - name: Build (with Pages base path)
         working-directory: web
         env:
-          BASE_PATH: /memory-analysis-program
+          BASE_PATH: /agent-infrastructure-landscape
         run: npm run build
 
       - name: Upload Pages artifact

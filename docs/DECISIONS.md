@@ -14,6 +14,99 @@ that were on the table.
 
 ---
 
+## 2026-05-18: Active phase pivots from build to distribute + steady-state operate (#63)
+
+**What.** The T0→T3 build ladder is complete (23 closed tier issues; v6
+analysis.md shipped in commit `ad449da`). No new analytical-view tickets
+(no T4-build phase). Going forward, two workstreams stay active:
+
+- **Distribute what exists.** Publish the MCP server to npm (closes the
+  gate referenced in README, see #66). Write up the v6 headline findings
+  (semantic-caching empty market; 91.3% no peer-reviewed benchmark;
+  MCP-spec-as-substrate) for external audiences. Actively recruit a
+  co-maintainer per MAINTAINER §4 (currently passive posture).
+- **Steady-state operate.** The three cron workflows (`staleness.yml`,
+  `audit-section.yml`, `intake-research.yml`) continue running. The
+  maintainer holds a documented weekly review block to triage their
+  output (see #64). Catalog drift gets folded into a periodic v7/v8 doc
+  refresh on roughly the same cadence as v5→v6.
+
+**Why.** The build cadence has been intense (35+ closed issues in three
+weeks). v6 delivered all the planned analytical lenses; there is no
+obvious next-thing-to-build that the user actually wants. Continuing to
+manufacture build issues for the sake of momentum would invert the
+dataset-as-asset story (MAINTAINER §4) — the catalog's value is
+already-realised; the gap is in *reaching* people who would use it.
+Distribution + operation addresses that gap directly. Picking the
+"pause" alternative would forfeit the in-flight cron workflows that
+need light human attendance to stay credible.
+
+**Reversal cost.** Low. If a compelling T4 candidate surfaces, open the
+issue and the build cadence resumes; nothing about this decision is
+load-bearing on the codebase. PLAN.md will be rewritten under #60 to
+reflect the new posture; that document is the operational expression of
+this decision.
+
+---
+
+## 2026-05-18: Rename GitHub repo memory-analysis-program → agent-infrastructure-landscape (#62)
+
+**What.** The GitHub repo, Pages URL, and all internal references
+migrate from `memory-analysis-program` to
+`agent-infrastructure-landscape`. The latter matches the README title
+verbatim, the project as analysed in v6, and the scope as defined in
+MAINTAINER §1. The CLI binary (`landscape`), the MCP server slug
+(`landscape`), and the planned npm package name are untouched — they
+were already aligned to the new identity. The user executes
+`gh repo rename` via the GitHub UI at a moment of their choosing; this
+commit lands the matching internal-reference flip so the prose, the
+Pages BASE_PATH, the issue-template URLs, and the submit-form URL all
+flip in lockstep.
+
+**Why.** The old name was a vestige of the project's origin as a
+memory-systems-only catalog. Round 7 (2026-04) expanded scope to
+agent infrastructure broadly; Round 15 (2026-05) added foundation
+models, multi-agent orchestration, and sandbox/runtime layers; v6
+analysis.md treats the whole thing as a single "AI agent infrastructure
+landscape." Three options were considered:
+
+- *Migrate* (chosen): one-time cost; ends the prose-reconciliation
+  burden; aligns external identity with current scope.
+- *Embrace the split* (rejected): would mean writing DECISIONS.md
+  entries that say "the URL is wrong on purpose," which is hostile to
+  external contributors landing on the repo.
+- *Defer until npm publish* (rejected): bundles two decisions and
+  delays both; the rename is independently valuable and shouldn't wait
+  on a separate gate.
+
+**Functional impact.** Pages BASE_PATH flips from `/memory-analysis-program`
+to `/agent-infrastructure-landscape`. The deployed site URL becomes
+`https://mrpeppersdev.github.io/agent-infrastructure-landscape/`. The
+GitHub Issue submit-URL in `web/src/lib/submit-issue.ts` updates to
+the new repo path; the issue-template `config.yml` and `intake.yml`
+URLs likewise. Historical DECISIONS.md entries are *not* rewritten —
+they describe state at the time of the decision and remain accurate
+with the old name; only entries dated 2026-05-18 onwards use the new
+name.
+
+**`data/LICENSE` attribution URL.** The CC-BY-4.0 attribution target in
+`data/LICENSE` updates to the new repo URL. GitHub maintains
+permanent-feeling redirects from renamed repos (until someone else
+claims the old name), so external citations of the old URL continue to
+resolve. The standard practice for renamed CC-BY datasets is to flip
+the attribution URL and rely on the redirect; no new
+`data-vX.Y.Z` tag is required.
+
+**Reversal cost.** Medium. `gh repo rename` can be inverted with a
+second `gh repo rename` call. The internal-reference flip in this
+commit is a `git revert` away. External cites that linked to the old
+URL will follow GitHub's redirect either way. Open PRs on the old
+repo URL stay valid through the redirect. The hard cost is to anyone
+who hard-coded `BASE_PATH=/memory-analysis-program` locally — they need
+to re-pull and rebuild.
+
+---
+
 ## 2026-05-07: Path B4 — framework / platform / coding / browser deep-fill (1,058 cells)
 
 **What.** Generated `extraction/round-9-bucket-4-frameworks-platforms.csv`

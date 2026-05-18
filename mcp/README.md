@@ -8,13 +8,13 @@ A local-stdio MCP server that exposes the [AI Agent Infrastructure Landscape](..
 
 The catalog's edge over LLM synthesis is structured, maintained data. This MCP server makes that data directly addressable from any MCP-capable client — search, compare, drill into edges, surface coverage gaps. Instead of competing with LLMs, it becomes a tool LLMs use.
 
-See [issue #48](https://github.com/MrPeppersDev/memory-analysis-program/issues/48) for context.
+See [issue #48](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/48) for context.
 
 ## Quickstart — local clone (recommended today)
 
 ```bash
-git clone https://github.com/MrPeppersDev/memory-analysis-program.git
-cd memory-analysis-program/mcp
+git clone https://github.com/MrPeppersDev/agent-infrastructure-landscape.git
+cd agent-infrastructure-landscape/mcp
 npm install
 npm run build
 node dist/test-tools.js   # smoke test — calls every tool, prints results
@@ -160,7 +160,7 @@ The server loads `data/landscape.json` and `data/landscape.edges.json` from the 
 
 ## Related work
 
-- [#35](https://github.com/MrPeppersDev/memory-analysis-program/issues/35) — standalone versioned dataset (T0-1)
-- [#37](https://github.com/MrPeppersDev/memory-analysis-program/issues/37) — claim-tier provenance (T0-3)
-- [#46](https://github.com/MrPeppersDev/memory-analysis-program/issues/46) — runtime-dependency edges (T2-1) — powers `find_substrate_risk`
-- [#49](https://github.com/MrPeppersDev/memory-analysis-program/issues/49) — local CLI tool (consumes `tools.ts` directly)
+- [#35](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/35) — standalone versioned dataset (T0-1)
+- [#37](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/37) — claim-tier provenance (T0-3)
+- [#46](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/46) — runtime-dependency edges (T2-1) — powers `find_substrate_risk`
+- [#49](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/49) — local CLI tool (consumes `tools.ts` directly)

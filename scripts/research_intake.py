@@ -67,7 +67,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-REPO = "MrPeppersDev/memory-analysis-program"
+REPO = "MrPeppersDev/agent-infrastructure-landscape"
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_JSON = ROOT / "data" / "landscape.json"
 INTAKE_CACHE = ROOT / "extraction" / "intake-cache"
@@ -172,7 +172,7 @@ FUNDING_TO_TIER: list[tuple[re.Pattern, int]] = [
 ]
 
 GITHUB_API = "https://api.github.com"
-USER_AGENT = "memory-analysis-program-intake-research/1.0"
+USER_AGENT = "agent-infrastructure-landscape-intake-research/1.0"
 DEFAULT_TIMEOUT = 25.0  # bounded < 30s per cell rule
 ARXIV_RE = re.compile(
     r"arxiv\.org/(?:abs|pdf)/(?P<id>\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE,

@@ -271,7 +271,7 @@ export interface BuiltIssue {
 }
 
 const REPO_NEW_ISSUE_URL =
-  'https://github.com/MrPeppersDev/memory-analysis-program/issues/new';
+  'https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/new';
 
 export function buildIssueUrl(
   s: SubmissionFormState,

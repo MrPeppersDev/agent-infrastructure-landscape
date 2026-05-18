@@ -166,7 +166,7 @@ than guess.
 ### How to submit a claim or new row
 
 1. **Web form (preferred)** — `/submit` route on the deployed site.
-   Lives at <https://mrpeppersdev.github.io/memory-analysis-program/submit>.
+   Lives at <https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit>.
    The form has a live preview and inline validation; it opens a GitHub
    Issue using the schema below.
 2. **GitHub Issue form (fallback)** — `.github/ISSUE_TEMPLATE/intake.yml`.
@@ -253,7 +253,7 @@ Open a GitHub Issue for:
 - Corrections to existing rows
 - Co-maintainer interest
 
-Tracker: <https://github.com/MrPeppersDev/memory-analysis-program/issues>
+Tracker: <https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues>
 
 ### Sensitive issues
 

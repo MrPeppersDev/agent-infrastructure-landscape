@@ -8,8 +8,9 @@ comparative and trend analysis for builders making technology decisions.
 This project began as a "Memory Systems Landscape" (memory remains the most-developed
 sub-narrative — analysis.md, lineage detection, archetype recipes) and expanded
 in Round 7 / Round 11 / Round 12 to cover the broader agent-infrastructure sphere.
-The repo path and historical commits still reference "memory-analysis-program";
-the URL and Pages deployment remain at that path.
+The repo was renamed from `agent-infrastructure-landscape` to `agent-infrastructure-landscape`
+on 2026-05-18 to reflect the current scope; GitHub maintains a permanent redirect
+from the old URL. See `docs/DECISIONS.md` for the rename rationale.
 
 ## What's in here
 
@@ -17,7 +18,7 @@ the URL and Pages deployment remain at that path.
   dataset. 912 records × 68 columns of catalog data plus 316 typed edges
   between them. Released under CC-BY-4.0; semver-tagged via GitHub
   Releases (`data-v1.0.0` onwards). Decoupled from the web app per
-  [issue #35](https://github.com/MrPeppersDev/memory-analysis-program/issues/35)
+  [issue #35](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/35)
   so the data outlives any single rendering surface. See
   [`data/README.md`](./data/README.md) for schema + intended use.
 - **`landscape.html`** — the human-edited source of authority. ~912 entries
@@ -187,7 +188,7 @@ proof-of-life — the row and edge counts are wired to `data/landscape.json` and
 `data/landscape.edges.json` at build time. Phase 2 issues #9-#12 will fill in
 the table view, search, filters, and URL state.
 
-Live site: <https://mrpeppersdev.github.io/memory-analysis-program/> (after deploy).
+Live site: <https://mrpeppersdev.github.io/agent-infrastructure-landscape/> (after deploy).
 
 ```
 cd web
@@ -199,7 +200,7 @@ npm run build    # static export → ../docs/ (committed for GitHub Pages)
 The build output is checked in under `docs/` (alongside the project markdown
 in the same directory). The deploy is wired by
 `.github/workflows/pages.yml` — push to main, the workflow rebuilds with
-`BASE_PATH=/memory-analysis-program` and publishes via
+`BASE_PATH=/agent-infrastructure-landscape` and publishes via
 `actions/deploy-pages@v4`. Locally you can still open `docs/index.html`
 from a fresh checkout (with no base-path) for a quick sanity check.
 

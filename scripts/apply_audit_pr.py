@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_HTML = ROOT / "landscape.html"
 AUDIT_DIR = ROOT / "audit"
 INTAKE_PR_BODIES = ROOT / "intake-pr-bodies"
-REPO = "MrPeppersDev/memory-analysis-program"
+REPO = "MrPeppersDev/agent-infrastructure-landscape"
 
 # Reuse render.py's row renderer for new-row stubs.
 sys.path.insert(0, str(ROOT / "scripts"))

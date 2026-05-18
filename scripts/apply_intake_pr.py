@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_HTML = ROOT / "landscape.html"
 INTAKE_FAILURES = ROOT / "intake-failures"
 INTAKE_PR_BODIES = ROOT / "intake-pr-bodies"
-REPO = "MrPeppersDev/memory-analysis-program"
+REPO = "MrPeppersDev/agent-infrastructure-landscape"
 
 # Import render.py's row rendering. We add `scripts/` to sys.path so the
 # import works regardless of where the script is invoked from.

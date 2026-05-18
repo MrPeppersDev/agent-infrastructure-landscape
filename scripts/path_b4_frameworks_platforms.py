@@ -55,7 +55,7 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-REPO = Path('/Users/b.sayer/src/memory-analysis-program')
+REPO = Path('/Users/b.sayer/src/agent-infrastructure-landscape')
 GAPS = REPO / 'extraction' / 'data-gaps.csv'
 LANDSCAPE = REPO / 'data' / 'landscape.json'
 OUT = REPO / 'extraction' / 'round-9-bucket-4-frameworks-platforms.csv'
