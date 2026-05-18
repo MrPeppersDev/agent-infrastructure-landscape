@@ -67,9 +67,8 @@ sensitive issues.
 | # | Title | State |
 |---|-------|-------|
 | 57 | T3-1 revisit (13 stale rows) | Waiting on external trigger (foundation-models section audit). Passive. |
-| 64 | Cron-workflow review cadence | Resolved by this file + MAINTAINER §6. |
-| 66 | MCP npm publish gate | Active. Top of distribute queue. |
-| 67 | Path A vs B (HTML vs JSON authoritative) | Independent. Worth revisiting now that dataset-as-product is the dominant story; medium effort. |
+| 66 | MCP npm publish gate | Prep landed (`7b0ee1a`); awaiting cadence decision + `npm publish`. |
+| 68 | Path A pipeline flip (#67 follow-up) | Scoped. Re-targets 7 writer scripts from HTML to JSON. Medium effort. |
 
 ## When to revisit this posture
 
