@@ -15,7 +15,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "node dist/test-tools.js",
-    "prepare": "tsc"
+    "prepare": "tsc",
+    "prepack": "tsc && mkdir -p data && cp ../data/landscape.json ../data/landscape.edges.json data/"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
@@ -35,5 +36,18 @@
     "landscape",
     "catalog"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "author": "MrPeppersDev",
+  "homepage": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/tree/main/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrPeppersDev/agent-infrastructure-landscape.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
