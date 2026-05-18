@@ -50,13 +50,13 @@ Add:
 
 Restart Claude Desktop. The `landscape` server should appear in the MCP menu.
 
-## Quickstart — npx (once published)
+## Quickstart — npx
 
-Once `landscape-mcp` is published to npm (the package is structured for it — `bin` field, bundled `data/`), the install collapses to one line:
+The package is published to npm with a bundled dataset snapshot, so the install collapses to one line:
 
 ```bash
 # Claude Code
-claude mcp add landscape -- npx -y landscape-mcp
+claude mcp add landscape -- npx -y landscape-mcp@1.0.0
 ```
 
 ```json
@@ -65,13 +65,15 @@ claude mcp add landscape -- npx -y landscape-mcp
   "mcpServers": {
     "landscape": {
       "command": "npx",
-      "args": ["-y", "landscape-mcp"]
+      "args": ["-y", "landscape-mcp@1.0.0"]
     }
   }
 }
 ```
 
-Publishing is gated on a separate decision (do we want to maintain an npm release cadence alongside the GitHub `data-v*` tag?). Today, the local-clone path is the supported one.
+### Versions
+
+npm version tracks the bundled `data-vX.Y.Z` tag; bump on dataset releases only. Pin to a specific version (e.g. `landscape-mcp@1.0.0`) when you care about reproducibility — otherwise `npx -y landscape-mcp` picks up whichever dataset shipped most recently.
 
 ## Tools
 

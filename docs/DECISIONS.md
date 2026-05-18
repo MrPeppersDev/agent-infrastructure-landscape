@@ -107,6 +107,43 @@ to re-pull and rebuild.
 
 ---
 
+## 2026-05-18: MCP npm release cadence — pin-to-dataset-tag, no rolling re-publish (#66)
+
+**What.** `landscape-mcp` on npm is pinned to the dataset's
+`data-vX.Y.Z` tag cadence. `npm publish` runs only when a new
+`data-vX.Y.Z` dataset release ships — *not* on every commit to `main`,
+not on every MCP-server source change that doesn't alter the public
+tool shape. The npm `version` field tracks the bundled dataset
+version: if `data/landscape.json` came from `data-v1.2.0`, the npm
+release is `1.2.0` (or `1.2.0-N` for a re-roll against the same
+dataset). The MCP server semver-bumps independently *only* when the
+tool shape changes — new MCP tools, renamed tools, breaking arg
+changes — and that bump rides the next dataset release rather than
+triggering its own.
+
+**Why.** The dataset is the load-bearing artifact; `mcp/` and `cli/`
+are thin wrappers over `tools.ts` over `data/landscape.json`. A
+rolling re-publish on every `main` commit would (a) churn the install
+surface with versions that contain identical query results, (b)
+desynchronise the npm version from the dataset version users actually
+cite, and (c) make `npx -y landscape-mcp@1.0.0` ambiguous about which
+dataset snapshot it pins. Pinning to `data-vX.Y.Z` makes
+`npm view landscape-mcp version` answer "which dataset am I
+shipping?" directly, and makes `@1.2.0` a reproducible install
+target. The cost is that pure server-code fixes between dataset
+releases don't reach npm users until the next dataset ships — judged
+acceptable because the local-clone path remains supported for anyone
+who needs unreleased fixes.
+
+**Reversal cost.** Low. Switching to per-commit publish is a workflow
+change (a GitHub Action on `main` push instead of on `data-v*` tag
+push), not a code change. Already-published versions stay valid; the
+cadence flip only changes what gets published *next*. The npm version
+namespace is large enough to absorb a strategy change without
+collision.
+
+---
+
 ## 2026-05-18: Path A is the target architecture; inversion scheduled as follow-up work (#67)
 
 **What.** The Path A vs Path B question (JSON-authoritative vs HTML-
