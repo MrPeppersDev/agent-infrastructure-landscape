@@ -44,21 +44,19 @@ help:
 # explicitly — that one DOES hit the network.
 #
 # bucket_s2_citations.py runs after fetch_citations to refresh the
-# citation-trajectory cell content in landscape.html from the committed
-# S2 cache. After it runs, a second extract pass re-projects the patched
-# HTML into landscape.json so the JSON mirror reflects the new cells.
+# citation-trajectory cell content. Under Path A (issue #68) it writes
+# directly to data/landscape.json, so the second extract+reconcile pass
+# that previously re-projected the HTML→JSON is no longer needed.
 build:
 	$(PYTHON) scripts/extract.py        --output data/landscape.json
 	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	$(PYTHON) scripts/build_edges.py
 	$(PYTHON) scripts/fetch_citations.py --offline
 	$(PYTHON) scripts/bucket_s2_citations.py --quiet
-	$(PYTHON) scripts/extract.py        --output data/landscape.json
-	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	@echo
 	@echo "build: ran fetch_citations.py --offline (cache-only) and"
-	@echo "       bucket_s2_citations.py (citation-trajectory backfill). For"
-	@echo "       fresh S2 data, run \`make refresh-citations\` first."
+	@echo "       bucket_s2_citations.py (citation-trajectory backfill, Path A)."
+	@echo "       For fresh S2 data, run \`make refresh-citations\` first."
 	@echo
 
 # Path A byte-identity gate (refs #68 Stream B step 1). Renders

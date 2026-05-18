@@ -66,6 +66,8 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from _cell_writer import load_landscape, save_landscape, update_cell
+
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_LANDSCAPE = ROOT / "data" / "landscape.json"
 DEFAULT_HTML = ROOT / "landscape.html"
@@ -660,25 +662,53 @@ def fetch_one(source: str, name: str) -> dict[str, Any]:
         raise FetchError(f"unknown-source: {source}")
 
 
+def _cell_payload(
+    detection: tuple[str, str, str] | None,
+    trajectory: list[dict[str, Any]] | None,
+    *,
+    have_trajectory: bool,
+) -> tuple[str, str, str | None]:
+    """Map (detection, trajectory) → (value, status, citation) for Path A.
+
+    Mirrors render_real_cell / render_depth_floor_cell / render_not_applicable_cell.
+    """
+    if detection is None:
+        return "not applicable — not published as a package", "not-applicable", None
+    _, _, display_url = detection
+    if have_trajectory:
+        value = json.dumps(trajectory or [], separators=(",", ":"))
+        return value, "real-data", display_url
+    return "searched not found", "depth-floor-reached", display_url
+
+
 def run(args: argparse.Namespace) -> int:
     landscape_path: Path = args.landscape
     html_path: Path = args.html
 
+    target_json = args.target == "landscape.json"
+    if not target_json:
+        print(
+            "warning: --target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            file=sys.stderr,
+        )
+
     if not landscape_path.exists():
         print(f"error: landscape not found: {landscape_path}", file=sys.stderr)
         return 1
-    if not html_path.exists():
+    if not target_json and not html_path.exists():
         print(f"error: landscape.html not found: {html_path}", file=sys.stderr)
         return 1
 
-    data = json.loads(landscape_path.read_text(encoding="utf-8"))
-    records = data.get("records") or []
+    landscape = load_landscape(landscape_path)
+    records = landscape.get("records") or []
 
     progress = {"done": {}} if args.force else load_progress()
     done: dict[str, Any] = progress.setdefault("done", {})
 
     print(
         f"fetch_download_trajectories: records={len(records)} "
+        f"target={args.target} "
         f"offline={args.offline} "
         f"resume-from-progress={'no' if args.force else 'yes'} "
         f"already-done={len(done)}",
@@ -687,7 +717,7 @@ def run(args: argparse.Namespace) -> int:
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-    html = html_path.read_text(encoding="utf-8")
+    html = html_path.read_text(encoding="utf-8") if not target_json and html_path.exists() else ""
 
     counts = {
         "real-data": 0,
@@ -704,6 +734,37 @@ def run(args: argparse.Namespace) -> int:
 
     occurrence_counter: dict[tuple[str, str | None], int] = {}
 
+    def _write_cell(
+        rec: dict[str, Any],
+        rec_name: str,
+        rec_url: str | None,
+        occ: int,
+        detection: tuple[str, str, str] | None,
+        trajectory: list[dict[str, Any]] | None,
+        have_trajectory: bool,
+    ) -> bool:
+        nonlocal html
+        if target_json:
+            value, status, citation = _cell_payload(
+                detection, trajectory, have_trajectory=have_trajectory
+            )
+            update_cell(
+                rec,
+                "download-trajectory",
+                value=value,
+                status=status,
+                citation=citation,
+            )
+            return True
+        if detection is None:
+            new_cell = render_not_applicable_cell()
+        elif have_trajectory:
+            new_cell = render_real_cell(trajectory or [], detection[2])
+        else:
+            new_cell = render_depth_floor_cell(detection[2])
+        html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+        return ok
+
     attempted = 0
     for rec in records:
         rec_id = rec.get("id") or "?"
@@ -718,8 +779,7 @@ def run(args: argparse.Namespace) -> int:
 
         detection = detect_package(rec)
         if detection is None:
-            new_cell = render_not_applicable_cell()
-            html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+            ok = _write_cell(rec, rec_name, rec_url, occ, None, None, False)
             if ok:
                 counts["not-applicable"] += 1
                 done[rec_id] = {"status": "not-applicable"}
@@ -733,11 +793,11 @@ def run(args: argparse.Namespace) -> int:
             # Re-render from cache (deterministic for `make build`).
             if existing["status"] == "real-data":
                 cached = load_cache(source, name)
-                if cached is not None:
-                    new_cell = render_real_cell(cached.get("trajectory") or [], display_url)
-                else:
-                    new_cell = render_depth_floor_cell(display_url)
-                html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+                have_t = cached is not None
+                traj = cached.get("trajectory") if cached else None
+                ok = _write_cell(
+                    rec, rec_name, rec_url, occ, detection, traj, have_t
+                )
                 if ok:
                     counts["real-data" if cached else "depth-floor"] += 1
                     counts["cache-hit"] += 1
@@ -748,8 +808,9 @@ def run(args: argparse.Namespace) -> int:
                 else:
                     counts["skipped-row-not-found"] += 1
             else:
-                new_cell = render_depth_floor_cell(display_url)
-                html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+                ok = _write_cell(
+                    rec, rec_name, rec_url, occ, detection, None, False
+                )
                 if ok:
                     counts["depth-floor"] += 1
                     counts["cache-hit"] += 1
@@ -788,13 +849,15 @@ def run(args: argparse.Namespace) -> int:
                 counts["errors"] += 1
 
             if rate_limited_skip:
-                # Skip patching HTML for this row this run — the empty
-                # scaffold placeholder stays in place until next retry.
+                # Skip writing this row this run — leave the cell as-is so
+                # the next retry can fill it. (Under Path A, "as-is" means
+                # the existing JSON cell stays untouched.)
                 continue
 
         if trajectory:
-            new_cell = render_real_cell(trajectory, display_url)
-            html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+            ok = _write_cell(
+                rec, rec_name, rec_url, occ, detection, trajectory, True
+            )
             if ok:
                 counts["real-data"] += 1
                 if source == "npm":
@@ -810,8 +873,9 @@ def run(args: argparse.Namespace) -> int:
             else:
                 counts["skipped-row-not-found"] += 1
         else:
-            new_cell = render_depth_floor_cell(display_url)
-            html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+            ok = _write_cell(
+                rec, rec_name, rec_url, occ, detection, None, False
+            )
             if ok:
                 counts["depth-floor"] += 1
                 done[rec_id] = {
@@ -826,7 +890,10 @@ def run(args: argparse.Namespace) -> int:
         # Checkpoint every 20 live fetches.
         if fetched and counts["live-fetch"] % 20 == 0:
             save_progress(progress)
-            html_path.write_text(html, encoding="utf-8")
+            if target_json:
+                save_landscape(landscape, landscape_path)
+            else:
+                html_path.write_text(html, encoding="utf-8")
             print(
                 f"  checkpoint: real-data={counts['real-data']} "
                 f"depth-floor={counts['depth-floor']} "
@@ -837,7 +904,10 @@ def run(args: argparse.Namespace) -> int:
             )
 
     save_progress(progress)
-    html_path.write_text(html, encoding="utf-8")
+    if target_json:
+        save_landscape(landscape, landscape_path)
+    else:
+        html_path.write_text(html, encoding="utf-8")
 
     print(
         "\nfetch_download_trajectories: summary\n"
@@ -891,6 +961,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--force",
         action="store_true",
         help="Ignore extraction/download-trajectory-progress.json (restart fresh).",
+    )
+    p.add_argument(
+        "--target",
+        choices=["landscape.json", "landscape.html"],
+        default="landscape.json",
+        help=(
+            "Where to write trajectory cells. Default (Path A) is "
+            "landscape.json; landscape.html remains as a deprecated legacy "
+            "path during the #68 transition window."
+        ),
     )
     return p.parse_args(argv)
 
