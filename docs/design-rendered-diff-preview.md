@@ -201,11 +201,17 @@ jobs:
 
 ## Open questions
 
-1. **Should the preview render the full row context** (all 85 cells)
-   of a changed record, or only the changed cells? Full row is
-   closer to today's reviewer experience but blows up comment
-   length. Default: changed cells only, with a `<details>` block
-   that holds full-row render on demand.
+1. ~~Should the preview render the full row context~~ **DECIDED
+   2026-05-18:** Always render the full row for every touched
+   record (all 85 cells). Reviewer sees the same context they get
+   today from the HTML diff. Comment length is managed via the
+   truncation rules above (hard cap at 20 records; rest listed by
+   id with a "see JSON diff" footer). Changed cells within each
+   rendered row get a visual highlight (e.g. `🔸` prefix or
+   `<mark>` wrap on the cell label) so the reviewer's eye lands on
+   the delta without losing surrounding context. Implementation
+   implication: `diff_preview.py` calls `render.py`'s `render_row()`
+   per touched record, not `render_cell()` per changed cell.
 2. **Should edge diffs render the records on each end** of the
    edge? Useful but adds two cell renders per edge. Default: just
    show id → id with edge type and metadata, no record render.
