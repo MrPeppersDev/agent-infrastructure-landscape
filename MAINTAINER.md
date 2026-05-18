@@ -181,16 +181,25 @@ Anyone. Submissions are public; review is by the maintainer.
 
 ### Review SLA
 
-New submissions are reviewed within **7 days** (target). Review can
-result in:
+**Best-effort, no fixed cadence.** The project is in steady-state
+operation (see `PLAN.md`); the maintainer reviews submissions and
+cron-generated PRs when time allows, not on a weekly schedule.
+Quarterly catch-up sweeps are the worst-case turnaround.
 
-- Accepted into the next Round-N+1 ingestion batch.
+Review can result in:
+
+- Accepted into a near-term ingestion batch (timing depends on
+  available maintainer attention; not promised within N days).
 - Held with a follow-up question (commented on the issue).
 - Declined with a pointer to §1 (Scope) explaining which boundary it
   crosses.
 
 Per the intake template, every submission is verified before it lands in
 `data/landscape.json` — no auto-merge.
+
+If a submission is time-sensitive (e.g., disclosure of incorrect or
+outdated information about a vendor), apply the **`urgent`** label and
+the maintainer will prioritise. Otherwise treat the queue as quarterly.
 
 ---
 
@@ -271,6 +280,71 @@ it via issue and it'll be turned on.
 
 ---
 
-*Last reviewed: 2026-05-14. This file is the governance contract; if
+## 6. Operational cadence
+
+Honest description of how the maintenance work actually happens, so
+contributors know what to expect from the review queue.
+
+### What runs automatically
+
+Three GitHub Actions workflows generate signal without human action:
+
+- **`.github/workflows/staleness.yml`** — weekly cron. Walks every row
+  with a GitHub URL; opens `stale-row` issues for repos that crossed
+  the freshness threshold in §2.
+- **`.github/workflows/audit-section.yml`** — weekly cron. Picks the
+  oldest-audited section, opens a reverify or expand PR with proposed
+  delta. Rotation policy in `docs/AUDIT.md`.
+- **`.github/workflows/intake-research.yml`** — fires on `intake`-
+  labeled issues. Runs auto-research; opens a draft PR with proposed
+  catalog row. Process documented in `docs/INTAKE.md`.
+
+These workflows produce queue, not throughput. They are useful even
+when not acted on immediately — the issues and PRs serve as a durable
+record of what changed upstream.
+
+### Human cadence
+
+**Ad-hoc, best-effort.** No fixed weekly review block. The maintainer
+processes the queue when time allows. Worst-case turnaround is the
+**quarterly catch-up sweep** described below.
+
+### Quarterly catch-up sweep
+
+Approximately every three months (loosely tied to the §2 section-level
+review timing), the maintainer does a focused triage pass:
+
+- Close stale `stale-row` issues that the row's status moved past.
+- Merge clean reverify PRs from `audit-section.yml`.
+- Decide on or close auto-research draft PRs from
+  `intake-research.yml`.
+- Re-read MAINTAINER.md and DECISIONS.md for drift; update if practice
+  has changed.
+- Decide whether a vN+1 analysis.md refresh is warranted (the v5→v6
+  pattern; typically warranted when row count or schema has shifted
+  >5% or a major new analytical view has landed).
+
+### Expectations for contributors
+
+- A submission or comment may sit for **weeks** before the maintainer
+  responds. Silence is queue-depth, not rejection.
+- Apply the `urgent` label only for time-sensitive issues (vendor
+  data is wrong, takedown request, broken-link disclosure that affects
+  trust). Overuse erodes the signal.
+- The cron workflows mean the catalog stays *measurably* fresh even
+  during long gaps in human attention — staleness CI flags drift, the
+  section-audit reverify finds dead links, intake-research drafts
+  proposals that wait safely until reviewed.
+
+### When this section is wrong
+
+If practice drifts above or below the ad-hoc steady state — e.g., the
+project enters a new active build phase, or human attention drops to
+zero for >6 months — update this section before the practice gap
+becomes a contributor-trust problem.
+
+---
+
+*Last reviewed: 2026-05-18. This file is the governance contract; if
 something here disagrees with day-to-day practice, fix this file before
 the practice drifts further.*
