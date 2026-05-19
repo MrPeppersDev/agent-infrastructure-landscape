@@ -31,13 +31,20 @@ pushed_at, updated_at, stargazers_count, archived, ...).
 Usage
 -----
   python3 scripts/research_decay_causes.py archive-sweep
-      Phase C run; writes data-decay-* attrs back into landscape.html.
+      Phase C run; writes decay_cause / decay_date / decay_evidence /
+      last_verified_at onto each archived record in data/landscape.json
+      (Path A, default since #68 Stream C). The legacy landscape.html
+      writer is still available via --target landscape.html.
 
   python3 scripts/research_decay_causes.py archive-sweep --dry-run
-      Phase C; reports what WOULD be written without modifying HTML.
+      Phase C; reports what WOULD be written without modifying anything.
 
   python3 scripts/research_decay_causes.py archive-sweep --rate-limit 30
       Limit to 30 API calls (testing).
+
+  python3 scripts/research_decay_causes.py archive-sweep --target landscape.html
+      Legacy Path B: patch landscape.html instead of data/landscape.json
+      (emits a deprecation warning).
 
 Environment
 -----------
@@ -59,6 +66,10 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
+
+# Path A helper for landscape.json writes (issue #68 Stream C).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _cell_writer import load_landscape, save_landscape  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_LANDSCAPE = ROOT / "data" / "landscape.json"
@@ -355,16 +366,32 @@ def find_tr_by_repo_url(html: str, repo_full_url: str) -> tuple[int, int, str] |
 
 
 def phase_c_archive_sweep(args: argparse.Namespace) -> int:
-    """Sweep every GitHub-bearing row's archived flag, label archived
-    rows, and patch landscape.html."""
+    """Sweep every GitHub-bearing row's archived flag and label archived
+    rows. Writes either data/landscape.json (Path A, default) or
+    landscape.html (legacy) depending on --target."""
+    target_json = args.target == "landscape.json"
+    if not target_json:
+        import warnings
+        warnings.warn(
+            "--target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        print(
+            "warning: --target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            file=sys.stderr,
+        )
+
     if not DATA_LANDSCAPE.exists():
         print(f"error: {DATA_LANDSCAPE} not found", file=sys.stderr)
         return 1
-    if not HTML_LANDSCAPE.exists():
+    if not target_json and not HTML_LANDSCAPE.exists():
         print(f"error: {HTML_LANDSCAPE} not found", file=sys.stderr)
         return 1
 
-    landscape = json.loads(DATA_LANDSCAPE.read_text(encoding="utf-8"))
+    landscape = load_landscape(DATA_LANDSCAPE)
     records = landscape.get("records") or []
 
     # Resolve GitHub repos per record (id → (owner, repo, repo_url)).
@@ -490,49 +517,73 @@ def phase_c_archive_sweep(args: argparse.Namespace) -> int:
             print(f"    {rec_id}: {msg}", file=sys.stderr)
 
     if args.dry_run:
-        print("  --dry-run: not patching landscape.html", file=sys.stderr)
+        print(
+            f"  --dry-run: not patching {'landscape.json' if target_json else 'landscape.html'}",
+            file=sys.stderr,
+        )
         return 0
 
-    # Patch landscape.html. We open it once, edit in memory, write once.
-    html_text = HTML_LANDSCAPE.read_text(encoding="utf-8")
     patched = 0
     not_found: list[str] = []
-    for r in archived_results:
-        rec_id = r["id"]
-        # Find the record in the landscape data to get its primary
-        # URL — that's the href our row scanner anchors on.
-        rec = next((x for x in records if x["id"] == rec_id), None)
-        if rec is None:
-            not_found.append(rec_id)
-            continue
-        # Try matching by the record's primary URL first, then by the
-        # repo URL (fallback for rows whose `url` is not the repo).
-        hit = None
-        if rec.get("url"):
-            hit = find_tr_for_url(html_text, rec["url"])
-        if hit is None:
-            hit = find_tr_by_repo_url(html_text, r["repo_url"])
-        if hit is None:
-            not_found.append(rec_id)
-            continue
-        tr_start, tr_end, full_tag = hit
-        new_tag = patch_row_attrs(
-            full_tag,
-            new_decay_cause="archived",
-            new_decay_date=r["decay_date"],
-            new_decay_evidence=r["repo_url"],
-            new_last_verified=TODAY.isoformat(),
-        )
-        html_text = html_text[:tr_start] + new_tag + html_text[tr_end:]
-        patched += 1
 
-    if patched:
-        HTML_LANDSCAPE.write_text(html_text, encoding="utf-8")
-    print(
-        f"  patched {patched} rows in landscape.html "
-        f"({len(not_found)} rows not located in HTML)",
-        file=sys.stderr,
-    )
+    if target_json:
+        # Path A: stamp top-level decay_* fields onto each archived record
+        # in landscape.json. extract.py also writes these as top-level
+        # fields, so render.py picks them up directly.
+        for r in archived_results:
+            rec_id = r["id"]
+            rec = next((x for x in records if x["id"] == rec_id), None)
+            if rec is None:
+                not_found.append(rec_id)
+                continue
+            rec["decay_cause"] = "archived"
+            rec["decay_date"] = r["decay_date"]
+            rec["decay_evidence"] = r["repo_url"]
+            rec["last_verified_at"] = TODAY.isoformat()
+            patched += 1
+        if patched:
+            save_landscape(landscape, DATA_LANDSCAPE)
+        print(
+            f"  patched {patched} records in {DATA_LANDSCAPE.name} "
+            f"({len(not_found)} records not located)",
+            file=sys.stderr,
+        )
+    else:
+        # Legacy Path B: patch landscape.html as before.
+        html_text = HTML_LANDSCAPE.read_text(encoding="utf-8")
+        for r in archived_results:
+            rec_id = r["id"]
+            rec = next((x for x in records if x["id"] == rec_id), None)
+            if rec is None:
+                not_found.append(rec_id)
+                continue
+            hit = None
+            if rec.get("url"):
+                hit = find_tr_for_url(html_text, rec["url"])
+            if hit is None:
+                hit = find_tr_by_repo_url(html_text, r["repo_url"])
+            if hit is None:
+                not_found.append(rec_id)
+                continue
+            tr_start, tr_end, full_tag = hit
+            new_tag = patch_row_attrs(
+                full_tag,
+                new_decay_cause="archived",
+                new_decay_date=r["decay_date"],
+                new_decay_evidence=r["repo_url"],
+                new_last_verified=TODAY.isoformat(),
+            )
+            html_text = html_text[:tr_start] + new_tag + html_text[tr_end:]
+            patched += 1
+
+        if patched:
+            HTML_LANDSCAPE.write_text(html_text, encoding="utf-8")
+        print(
+            f"  patched {patched} rows in landscape.html "
+            f"({len(not_found)} rows not located in HTML)",
+            file=sys.stderr,
+        )
+
     if not_found:
         for rid in not_found[:10]:
             print(f"    not located: {rid}", file=sys.stderr)
@@ -578,6 +629,16 @@ def main() -> int:
         "--no-sleep",
         action="store_true",
         help="Disable politeness sleep (use only with a token).",
+    )
+    p_arch.add_argument(
+        "--target",
+        choices=["landscape.json", "landscape.html"],
+        default="landscape.json",
+        help=(
+            "Where to write decay-cause fields. Default (Path A, refs #68) "
+            "is landscape.json; landscape.html remains as a deprecated "
+            "legacy path during the transition window."
+        ),
     )
 
     args = parser.parse_args()

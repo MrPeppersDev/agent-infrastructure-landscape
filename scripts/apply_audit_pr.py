@@ -41,6 +41,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_HTML = ROOT / "landscape.html"
+LANDSCAPE_JSON = ROOT / "data" / "landscape.json"
 AUDIT_DIR = ROOT / "audit"
 INTAKE_PR_BODIES = ROOT / "intake-pr-bodies"
 REPO = "MrPeppersDev/agent-infrastructure-landscape"
@@ -49,6 +50,11 @@ REPO = "MrPeppersDev/agent-infrastructure-landscape"
 sys.path.insert(0, str(ROOT / "scripts"))
 from render import render_row  # noqa: E402
 import research_intake as ri  # noqa: E402
+from _cell_writer import (  # noqa: E402
+    find_record,
+    load_landscape,
+    save_landscape,
+)
 
 
 def today() -> str:
@@ -269,6 +275,90 @@ def insert_new_row(html: str, section: str, row_html: str, comment: str) -> str:
     return html[:insertion_point] + inserted + html[insertion_point:]
 
 
+# ---------------------------------------------------------------------------
+# JSON patchers (Path A, issue #68 Stream C)
+# ---------------------------------------------------------------------------
+
+
+def json_set_row_last_verified(record: dict, new_date: str) -> None:
+    """Path A equivalent of patch_row_last_verified — set the top-level
+    last_verified_at on the record dict."""
+    record["last_verified_at"] = new_date
+
+
+def json_set_cell_last_verified(
+    record: dict, cell_slug: str, new_date: str,
+) -> None:
+    """Path A equivalent of patch_cell_last_verified — stamp
+    last_verified_at on the cell, leaving value/status/citation alone."""
+    cells = record.setdefault("cells", {})
+    cell = cells.get(cell_slug)
+    if cell is None:
+        # The cell may not have been extracted yet; create a minimal stub
+        # so the date doesn't get lost. Subsequent extract.py round-trips
+        # will replace this with the rendered cell.
+        cells[cell_slug] = {
+            "value": None,
+            "status": "no-data",
+            "last_verified_at": new_date,
+        }
+        return
+    cell["last_verified_at"] = new_date
+
+
+def json_annotate_cell_needs_review(record: dict, delta: dict) -> None:
+    """Path A equivalent of annotate_cell_needs_review.
+
+    Under Path B the audit script writes an HTML comment inside the
+    affected <td> so the maintainer reviews/approves the proposal in
+    the rendered diff. Under Path A there's no <td> to annotate; we
+    encode the same maintainer-gating intent as a per-cell `needs_review`
+    object on the JSON cell:
+
+        cell["needs_review"] = {
+            "proposed_value": "...",
+            "source_url": "...",
+        }
+
+    Re-running the audit replaces any prior needs_review block for the
+    same cell (idempotent). The actual value/status/citation are NOT
+    mutated — the maintainer still has to accept the proposal manually
+    by editing the cell. render.py's HTML output is unaffected by the
+    needs_review key (it's stripped at render-time).
+    """
+    cell_slug = delta["cell_slug"]
+    cells = record.setdefault("cells", {})
+    cell = cells.get(cell_slug)
+    if cell is None:
+        cell = {"value": None, "status": "no-data"}
+        cells[cell_slug] = cell
+    cell["needs_review"] = {
+        "proposed_value": delta.get("proposed_value", ""),
+        "source_url": delta.get("source_url", ""),
+    }
+
+
+def json_insert_new_record(landscape: dict, record: dict) -> None:
+    """Append the candidate stub record to landscape['records'].
+
+    Idempotent on `id`: replaces an existing record with the same id
+    rather than duplicating. Section/subsection placement is governed
+    by render.py's grouping logic, not by JSON insertion order.
+    """
+    records = landscape.setdefault("records", [])
+    rid = record["id"]
+    for i, existing in enumerate(records):
+        if existing.get("id") == rid:
+            records[i] = record
+            return
+    records.append(record)
+
+
+# ---------------------------------------------------------------------------
+# Stub-record builder (shared between Path A and Path B)
+# ---------------------------------------------------------------------------
+
+
 def candidate_to_stub_record(cand: dict) -> dict:
     """Build a minimum-viable record dict that render.py can serialise.
 
@@ -458,6 +548,62 @@ def _truncate(s: str | None, n: int) -> str:
 # ---------------------------------------------------------------------------
 
 
+def apply_staged_updates_json(
+    landscape: dict, staged: dict,
+) -> dict:
+    """Path A: apply refresh-last-verified actions in place; encode
+    propose-update actions as cell-level `needs_review` blocks. Returns
+    a stats dict matching the HTML variant's keys for symmetric logging.
+    """
+    stats = {
+        "rows_touched": 0,
+        "row_dates_set": 0,
+        "cell_dates_set": 0,
+        "needs_review_comments": 0,
+        "missing_rows": [],
+    }
+    for row in staged.get("rows", []):
+        rid = row["id"]
+        rec = find_record(landscape, rid)
+        if rec is None:
+            stats["missing_rows"].append(rid)
+            continue
+        stats["rows_touched"] += 1
+        for d in row.get("deltas", []):
+            action = d.get("action")
+            if action == "refresh-row-last-verified":
+                json_set_row_last_verified(rec, d["last_verified_at"])
+                stats["row_dates_set"] += 1
+            elif action == "refresh-last-verified":
+                json_set_cell_last_verified(
+                    rec, d["cell_slug"], d["last_verified_at"],
+                )
+                stats["cell_dates_set"] += 1
+            elif action == "propose-update":
+                json_annotate_cell_needs_review(rec, d)
+                stats["needs_review_comments"] += 1
+    return stats
+
+
+def apply_new_rows_json(landscape: dict, payload: dict) -> dict:
+    """Path A: insert candidate stub records into landscape['records']."""
+    stats: dict = {"inserted": 0, "skipped": []}
+    for cand in payload.get("candidates", []):
+        try:
+            record = candidate_to_stub_record(cand)
+        except Exception as exc:  # noqa: BLE001
+            stats["skipped"].append(
+                f"{cand.get('name')}: candidate_to_stub_record failed: {exc}"
+            )
+            continue
+        try:
+            json_insert_new_record(landscape, record)
+            stats["inserted"] += 1
+        except Exception as exc:  # noqa: BLE001
+            stats["skipped"].append(f"{cand.get('name')}: {exc}")
+    return stats
+
+
 def apply_staged_updates(html: str, staged: dict) -> tuple[str, dict]:
     """Apply refresh-last-verified actions in place; insert needs-review
     HTML comments for propose-update actions. Return (new_html, stats)."""
@@ -550,7 +696,32 @@ def main() -> int:
                     help="Skip git push and PR creation")
     ap.add_argument("--no-commit", action="store_true",
                     help="Skip branch/commit; only patch + validate")
+    ap.add_argument(
+        "--target",
+        choices=["landscape.json", "landscape.html"],
+        default="landscape.json",
+        help=(
+            "Where to apply audit actions. Default (Path A, refs #68) is "
+            "data/landscape.json; landscape.html remains as a deprecated "
+            "legacy path during the transition window."
+        ),
+    )
     args = ap.parse_args()
+
+    target_json = args.target == "landscape.json"
+    if not target_json:
+        import warnings
+        warnings.warn(
+            "--target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        print(
+            "warning: --target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            file=sys.stderr,
+        )
 
     date_str = args.date or today()
     slug = section_slug(args.section)
@@ -575,34 +746,53 @@ def main() -> int:
             return 1
         new_rows = json.loads(new_rows_path.read_text())
 
-    # ---- Patch landscape.html ----
-    html_text = LANDSCAPE_HTML.read_text()
-    original = html_text
-
+    # ---- Apply audit actions to landscape.{json,html} ----
     stats_reverify: dict = {}
     stats_expand: dict = {}
-    if staged_updates is not None:
-        html_text, stats_reverify = apply_staged_updates(html_text, staged_updates)
-    if new_rows is not None:
-        html_text, stats_expand = apply_new_rows(html_text, new_rows)
 
-    if html_text != original:
-        LANDSCAPE_HTML.write_text(html_text)
-        print(f"patched landscape.html")
-        if stats_reverify:
-            print(f"  reverify: rows_touched={stats_reverify['rows_touched']}, "
-                  f"row_dates_set={stats_reverify['row_dates_set']}, "
-                  f"cell_dates_set={stats_reverify['cell_dates_set']}, "
-                  f"needs_review_comments={stats_reverify['needs_review_comments']}")
-            if stats_reverify.get("missing_rows"):
-                print(f"  reverify: WARNING missing_rows={stats_reverify['missing_rows']}")
-        if stats_expand:
-            print(f"  expand: inserted={stats_expand['inserted']}, "
-                  f"skipped={len(stats_expand.get('skipped', []))}")
-            for sk in stats_expand.get("skipped", []):
-                print(f"    - {sk}")
+    if target_json:
+        if not LANDSCAPE_JSON.exists():
+            print(f"error: {LANDSCAPE_JSON} not found", file=sys.stderr)
+            return 2
+        landscape = load_landscape(LANDSCAPE_JSON)
+        # Snapshot for change-detection so we don't rewrite the file when
+        # nothing changed (keeps `git diff` clean on no-op runs).
+        original_dump = json.dumps(landscape, sort_keys=True)
+        if staged_updates is not None:
+            stats_reverify = apply_staged_updates_json(landscape, staged_updates)
+        if new_rows is not None:
+            stats_expand = apply_new_rows_json(landscape, new_rows)
+        new_dump = json.dumps(landscape, sort_keys=True)
+        if new_dump != original_dump:
+            save_landscape(landscape, LANDSCAPE_JSON)
+            print(f"patched {LANDSCAPE_JSON.name}")
+        else:
+            print(f"note: no {LANDSCAPE_JSON.name} patches applied (nothing actionable to write)")
     else:
-        print("note: no HTML patches applied (nothing actionable to write)")
+        html_text = LANDSCAPE_HTML.read_text()
+        original = html_text
+        if staged_updates is not None:
+            html_text, stats_reverify = apply_staged_updates(html_text, staged_updates)
+        if new_rows is not None:
+            html_text, stats_expand = apply_new_rows(html_text, new_rows)
+        if html_text != original:
+            LANDSCAPE_HTML.write_text(html_text)
+            print(f"patched landscape.html")
+        else:
+            print("note: no HTML patches applied (nothing actionable to write)")
+
+    if stats_reverify:
+        print(f"  reverify: rows_touched={stats_reverify['rows_touched']}, "
+              f"row_dates_set={stats_reverify['row_dates_set']}, "
+              f"cell_dates_set={stats_reverify['cell_dates_set']}, "
+              f"needs_review_comments={stats_reverify['needs_review_comments']}")
+        if stats_reverify.get("missing_rows"):
+            print(f"  reverify: WARNING missing_rows={stats_reverify['missing_rows']}")
+    if stats_expand:
+        print(f"  expand: inserted={stats_expand['inserted']}, "
+              f"skipped={len(stats_expand.get('skipped', []))}")
+        for sk in stats_expand.get("skipped", []):
+            print(f"    - {sk}")
 
     # ---- build + validate ----
     build_ok, build_out = run_build()
