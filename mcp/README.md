@@ -2,7 +2,7 @@
 
 A local-stdio MCP server that exposes the [AI Agent Infrastructure Landscape](../README.md) catalog as a structured query interface for MCP clients (Claude Desktop, Claude Code, Cursor, Cline, etc).
 
-**Read-only.** Wraps `data/landscape.json` (912 records × 68 columns) plus `data/landscape.edges.json` (528 typed edges). Submissions still go through the [/submit route](../web) and GitHub Issues.
+**Read-only.** Wraps `data/landscape.json` (912 records × 85 columns) plus `data/landscape.edges.json` (528 typed edges). Submissions still go through the [/submit route](../web) and GitHub Issues.
 
 ## Why this exists
 
@@ -27,7 +27,7 @@ To wire your local clone into Claude Code:
 claude mcp add landscape -- node /absolute/path/to/repo/mcp/dist/server.js
 ```
 
-Restart Claude Code; the 9 tools below are now available.
+Restart Claude Code; the 12 tools below are now available.
 
 To wire your local clone into Claude Desktop, edit your config:
 
@@ -77,7 +77,7 @@ npm version tracks the bundled `data-vX.Y.Z` tag; bump on dataset releases only.
 
 ## Tools
 
-All 9 tools are read-only. Inputs are JSON; outputs are JSON-serialisable.
+All 12 tools are read-only. Inputs are JSON; outputs are JSON-serialisable.
 
 ### `search_records(query, section?, tier?, limit?)`
 
@@ -143,6 +143,24 @@ Substrate resolves by exact id first, then by case-insensitive name/id substring
 - `Anthropic` → resolves to Anthropic Claude foundation models, ~62 dependents
 - `OpenAI` → resolves to OpenAI GPT family, ~49 dependents
 - `MCP` → resolves to the MCP spec, ~34 dependents
+
+### `find_by_decay_cause(cause)`
+
+Records whose `decay_cause` field matches the given cause. Surfaces the mortality forensics from T3-1 — useful for "which products in this space were acquired vs ran out of funding vs were archived on GitHub?"
+
+Enum values: `acquired`, `pivoted`, `unfunded`, `lost-benchmark-race`, `superseded`, `archived`, `unknown`.
+
+### `predict_citations(record_id)`
+
+Wang-Song-Barabási log-normal citation breakout prediction for a single academic-paper row. Returns the fitted parameters (λ immediacy, μ peak time, σ longevity), predicted asymptote with 90% CI, 10-year prediction, R², phase (`pre-growth` / `growth` / `saturation` / `underfit-data`), and breakout probability. Methodology: Wang, Song & Barabási, *Science* 342:127 (2013).
+
+Returns an error if the record is not an academic paper or its citation trajectory is missing. Use `list_breakouts` for the leaderboard of top predicted breakouts.
+
+### `list_breakouts(limit?)`
+
+Top-N predicted citation breakouts — growth-phase papers with the largest asymptote/observed ratio (still-growing fastest), restricted to rows with real bucketed citation trajectories. Use as a watchlist for which papers to track for citation impact over the next 12-24 months.
+
+- `limit` — default 15, max 50
 
 ## Data freshness
 
