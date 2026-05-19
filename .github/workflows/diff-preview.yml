@@ -1,0 +1,90 @@
+name: Rendered diff preview
+
+# Posts a per-record rendered preview comment on every PR that touches
+# data/landscape.json or data/landscape.edges.json. Restores the visual-
+# context review experience under Path A (#68): once the auto-research
+# and section-audit writers land cell deltas in JSON instead of HTML,
+# reviewers see a markdown comment that renders each touched record's
+# full row with changed cells highlighted.
+#
+# See docs/design-rendered-diff-preview.md for the contract, comment
+# structure, truncation rules, edge cases, and rationale.
+#
+# The script (scripts/diff_preview.py) handles all rendering and
+# truncation; this workflow is the thin GitHub-side wrapper that does
+# the checkout, extracts both shas of the JSON, runs the script, and
+# posts (or updates) the comment via the well-known marker.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'data/landscape.json'
+      - 'data/landscape.edges.json'
+      - 'scripts/render.py'
+      - 'scripts/diff_preview.py'
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install beautifulsoup4
+
+      - name: Extract base + head JSON snapshots
+        run: |
+          mkdir -p /tmp/diff-preview
+          git show ${{ github.event.pull_request.base.sha }}:data/landscape.json \
+            > /tmp/diff-preview/base.json
+          cp data/landscape.json /tmp/diff-preview/head.json
+          # Edges file is optional — only extract if it exists at both shas.
+          if git cat-file -e ${{ github.event.pull_request.base.sha }}:data/landscape.edges.json 2>/dev/null \
+              && [ -f data/landscape.edges.json ]; then
+            git show ${{ github.event.pull_request.base.sha }}:data/landscape.edges.json \
+              > /tmp/diff-preview/base.edges.json
+            cp data/landscape.edges.json /tmp/diff-preview/head.edges.json
+            echo "EDGES_ARGS=--edges-base /tmp/diff-preview/base.edges.json --edges-head /tmp/diff-preview/head.edges.json" >> "$GITHUB_ENV"
+          else
+            echo "EDGES_ARGS=" >> "$GITHUB_ENV"
+          fi
+
+      - name: Render preview
+        run: |
+          python3 scripts/diff_preview.py \
+            --base /tmp/diff-preview/base.json \
+            --head /tmp/diff-preview/head.json \
+            $EDGES_ARGS \
+            --output /tmp/diff-preview/comment.md
+          # Sanity floor — the script always emits at least the marker line.
+          # If the comment file is empty, something is structurally wrong.
+          if [ ! -s /tmp/diff-preview/comment.md ]; then
+            echo "diff_preview.py produced an empty output file" >&2
+            exit 1
+          fi
+
+      - name: Post (or update) preview comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: /tmp/diff-preview/comment.md
+          edit-mode: replace
+          # Idempotency marker — diff_preview.py emits this on line 1 of
+          # every comment. peter-evans/create-or-update-comment edits the
+          # existing comment in place when this string is found in any
+          # comment body on the PR.
+          body-includes: '<!-- diff-preview-bot -->'
