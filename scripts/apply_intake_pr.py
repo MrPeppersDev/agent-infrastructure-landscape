@@ -39,6 +39,17 @@ INTAKE_FAILURES = ROOT / "intake-failures"
 INTAKE_PR_BODIES = ROOT / "intake-pr-bodies"
 REPO = "MrPeppersDev/agent-infrastructure-landscape"
 
+
+def _write_failure_log(name: str, msg: str) -> None:
+    """Write a failure log under INTAKE_FAILURES, creating the dir if needed.
+
+    Defensive against early-return paths that fire before the upfront
+    mkdir in main(): each write ensures the parent directory exists, so
+    no caller can hit FileNotFoundError regardless of control flow.
+    """
+    INTAKE_FAILURES.mkdir(parents=True, exist_ok=True)
+    (INTAKE_FAILURES / name).write_text(msg)
+
 # Import render.py's row rendering. We add `scripts/` to sys.path so the
 # import works regardless of where the script is invoked from.
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -306,7 +317,7 @@ def main() -> int:
         if not LANDSCAPE_JSON.exists():
             msg = f"landscape.json not found at {LANDSCAPE_JSON}"
             print(f"error: {msg}", file=sys.stderr)
-            (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
+            _write_failure_log(f"{args.issue_number}-insert.log", msg)
             return 3
         landscape = load_landscape(LANDSCAPE_JSON)
         try:
@@ -314,7 +325,7 @@ def main() -> int:
         except (KeyError, ValueError) as exc:
             msg = f"record insertion failed: {exc}"
             print(f"error: {msg}", file=sys.stderr)
-            (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
+            _write_failure_log(f"{args.issue_number}-insert.log", msg)
             return 3
         save_landscape(landscape, LANDSCAPE_JSON)
         print(f"inserted record id=`{record['id']}` into section `{section}` "
@@ -327,7 +338,7 @@ def main() -> int:
         except ValueError as exc:
             msg = f"row insertion failed: {exc}"
             print(f"error: {msg}", file=sys.stderr)
-            (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
+            _write_failure_log(f"{args.issue_number}-insert.log", msg)
             return 3
         LANDSCAPE_HTML.write_text(new_html)
         print(f"inserted row into section `{section}` (target: landscape.html)")
@@ -336,7 +347,7 @@ def main() -> int:
     build_ok, build_out = run_build()
     if not build_ok:
         log_path = INTAKE_FAILURES / f"{args.issue_number}-build.log"
-        log_path.write_text(build_out)
+        _write_failure_log(log_path.name, build_out)
         print(f"error: `make build` failed — see {log_path}", file=sys.stderr)
         subprocess.run(
             ["git", "checkout", "--",
@@ -349,7 +360,7 @@ def main() -> int:
     validate_ok, validate_out = run_validate()
     if not validate_ok:
         log_path = INTAKE_FAILURES / f"{args.issue_number}-validate.log"
-        log_path.write_text(validate_out)
+        _write_failure_log(log_path.name, validate_out)
         print(f"error: `make validate` failed — see {log_path}", file=sys.stderr)
         # Don't revert here — leave the diff for the developer to inspect.
         return 5
