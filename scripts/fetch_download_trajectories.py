@@ -84,8 +84,13 @@ REQUEST_TIMEOUT = 30.0
 # Detection
 # ---------------------------------------------------------------------------
 
+# Matches both scoped (@scope/name) and unscoped (name) npm packages.
+# The two alternatives are ordered scoped-first so the engine prefers the
+# longer match; previously a single non-greedy [^/]+? truncated scoped
+# names at the first `/` (e.g. `@byterover/cipher` → `@byterover`).
 NPM_PKG_URL_RE = re.compile(
-    r"npmjs\.com/package/(@?[A-Za-z0-9._/\-]+?)(?:/|\"|\s|$|[?#)])",
+    r"npmjs\.com/package/(@[A-Za-z0-9._\-]+/[A-Za-z0-9._\-]+|[A-Za-z0-9._\-]+)"
+    r"(?=[/\"\s?#)]|$)",
     re.IGNORECASE,
 )
 PYPI_PKG_URL_RE = re.compile(
@@ -979,5 +984,48 @@ def main(argv: list[str] | None = None) -> int:
     return run(parse_args(argv))
 
 
+def _test_detect_package() -> int:
+    """Smoke test for detect_package regex coverage.
+
+    Verifies scoped NPM names (e.g. `@byterover/cipher`) are captured as
+    a single unit rather than being truncated at the first `/`. Added as
+    a regression guard for a previously-shipped non-greedy regex bug.
+    """
+    cases: list[tuple[str, tuple[str, str, str] | None]] = [
+        (
+            "https://www.npmjs.com/package/@byterover/cipher",
+            ("npm", "@byterover/cipher", "https://www.npmjs.com/package/@byterover/cipher"),
+        ),
+        (
+            "https://www.npmjs.com/package/@anthropic-ai/claude-code",
+            ("npm", "@anthropic-ai/claude-code", "https://www.npmjs.com/package/@anthropic-ai/claude-code"),
+        ),
+        (
+            "https://www.npmjs.com/package/supermemory",
+            ("npm", "supermemory", "https://www.npmjs.com/package/supermemory"),
+        ),
+        (
+            "see https://pypi.org/project/mem0ai/ for details",
+            ("pypi", "mem0ai", "https://pypi.org/project/mem0ai/"),
+        ),
+    ]
+    failures = 0
+    for url, expected in cases:
+        rec = {"id": "test", "cells": {"x": {"value": "", "citation": url}}}
+        got = detect_package(rec)
+        if got != expected:
+            print(f"FAIL: {url!r}\n  expected={expected!r}\n  got={got!r}", file=sys.stderr)
+            failures += 1
+        else:
+            print(f"ok: {url!r} -> {got!r}")
+    if failures:
+        print(f"\n{failures} test(s) failed", file=sys.stderr)
+        return 1
+    print("\nall detect_package smoke tests passed")
+    return 0
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "--test-detect-package":
+        sys.exit(_test_detect_package())
     sys.exit(main())
