@@ -5,6 +5,9 @@ frameworks, training platforms, search substrates, vertical agent products, voic
 platforms, robotics stacks, and adjacent infrastructure. Built as the foundation for
 comparative and trend analysis for builders making technology decisions.
 
+**New here?** [`docs/FINDINGS.md`](docs/FINDINGS.md) — five publishable headlines
+from the v6 catalog (semantic-cache market gap, the 91.3% no-benchmark finding, MCP-spec-as-substrate, the under-acknowledged bridge node, single-vendor FM concentration).
+
 This project began as a "Memory Systems Landscape" (memory remains the most-developed
 sub-narrative — analysis.md, lineage detection, archetype recipes) and expanded
 in Round 7 / Round 11 / Round 12 to cover the broader agent-infrastructure sphere.
