@@ -383,6 +383,17 @@ def candidate_to_stub_record(cand: dict) -> dict:
         cells["desc"] = ri.cell_depth_floor("searched not found", url or "")
     cells["type"] = ri.cell_estimate("Product")
 
+    # Trajectory cells get pre-populated as not-applicable (T3). Otherwise
+    # cell_depth_floor would emit T2 (because url is truthy) and the
+    # downstream bucket / fetch passes would overwrite the citation to None
+    # while update_cell preserves the existing T2 tier — violating gate 5
+    # ("T2 requires non-empty http(s) citation").
+    for traj_slug in ("citation-trajectory", "commit-trajectory", "download-trajectory"):
+        if traj_slug in ri.CELL_COLUMN_SLUGS:
+            cells[traj_slug] = ri.cell_not_applicable(
+                "candidate row — not yet processed by trajectory pipeline"
+            )
+
     for slug in ri.CELL_COLUMN_SLUGS:
         if slug in cells:
             continue
@@ -404,7 +415,11 @@ def candidate_to_stub_record(cand: dict) -> dict:
             axis: [{
                 "value": "n/a",
                 "primary": True,
-                "reason": "candidate row — not yet researched",
+                # Must start with "n/a" or "not applicable" so render.py picks
+                # the no-data-span branch; otherwise extract.py's free-text
+                # path reads the first word ("candidate") as the value and
+                # gate 2 (determinism) fails on the round-trip.
+                "reason": "n/a — candidate row, not yet researched",
             }]
             for axis in ("storage", "retrieval", "persistence", "update",
                          "unit", "governance", "conflict")
