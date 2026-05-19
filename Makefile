@@ -16,9 +16,9 @@ ROOT   := $(CURDIR)
 
 help:
 	@echo "Targets:"
-	@echo "  make build              — extract → reconcile → build_edges → fetch_citations --offline → bucket_s2_citations"
-	@echo "  make build-path-a       — assert render.py(landscape.json) is byte-identical to committed landscape.html (Path A gate, refs #68)"
-	@echo "  make validate           — schema + determinism + round-trip + cache gates (~25s)"
+	@echo "  make build              — Path A pipeline: reconcile JSON → build_edges → fetch_citations --offline → bucket_s2_citations → render HTML"
+	@echo "  make build-path-a       — assert render.py(landscape.json) is byte-identical to committed landscape.html (refs #68)"
+	@echo "  make validate           — schema + determinism + round-trip + cache + tier-provenance gates (~25s)"
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
 	@echo "  make refresh-commit-trajectories — fetch GitHub commit history (slow, network, requires GITHUB_TOKEN)"
@@ -28,14 +28,20 @@ help:
 	@echo "  make stale-check        — offline staleness scan against landscape.json (no network)"
 	@echo "  make install-hooks      — install scripts/git-hooks/pre-commit into .git/hooks/"
 	@echo
-	@echo "Edit workflow (Path B, transitional — see docs/DECISIONS.md 2026-05-18 Path A entry):"
-	@echo "edit landscape.html by hand; treat data/landscape.json as the queryable mirror."
-	@echo "Run \`make build\` to refresh the JSON mirror after HTML edits, then"
-	@echo "\`make validate\` before committing. Path A (JSON-as-source) target was declared"
-	@echo "in c9b55d2; pipeline flip is tracked in #68. \`make build-path-a\` is the"
-	@echo "byte-identity gate that proves the inversion is safe."
+	@echo "Edit workflow (Path A — see docs/DECISIONS.md 2026-05-18 Path A entry):"
+	@echo "edit data/landscape.json (or use the auto-research / section-audit bots);"
+	@echo "run \`make build\` to refresh edges + trajectories and re-render landscape.html;"
+	@echo "run \`make validate\` before committing. \`make build-path-a\` is the byte-identity"
+	@echo "gate that asserts the committed HTML matches the committed JSON."
 
 # `build` re-runs the full pipeline against the committed S2 cache.
+#
+# Under Path A (#68), data/landscape.json is the source of authority and
+# landscape.html is a rendered artefact. The build order reflects that:
+# reconcile JSON in place, derive edges + citation trajectories, then
+# render the HTML artefact at the end. The pre-Path-A first `extract.py`
+# call (HTML → JSON projection) is gone; running it would clobber JSON-
+# side writes from the trajectory / intake / audit / decay writers.
 #
 # fetch_citations.py runs in --offline mode here: it reads from the committed
 # extraction/s2-cache/ instead of hitting the Semantic Scholar API, so the
@@ -43,20 +49,18 @@ help:
 # fetch would take. When fresh S2 data IS wanted, run `make refresh-citations`
 # explicitly — that one DOES hit the network.
 #
-# bucket_s2_citations.py runs after fetch_citations to refresh the
-# citation-trajectory cell content. Under Path A (issue #68) it writes
-# directly to data/landscape.json, so the second extract+reconcile pass
-# that previously re-projected the HTML→JSON is no longer needed.
+# The closing `render.py` step keeps landscape.html in sync with the JSON
+# source. `build-path-a` (the byte-identity gate) catches any drift.
 build:
-	$(PYTHON) scripts/extract.py        --output data/landscape.json
 	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	$(PYTHON) scripts/build_edges.py
 	$(PYTHON) scripts/fetch_citations.py --offline
 	$(PYTHON) scripts/bucket_s2_citations.py --quiet
+	$(PYTHON) scripts/render.py         --input  data/landscape.json --output landscape.html
 	@echo
-	@echo "build: ran fetch_citations.py --offline (cache-only) and"
-	@echo "       bucket_s2_citations.py (citation-trajectory backfill, Path A)."
-	@echo "       For fresh S2 data, run \`make refresh-citations\` first."
+	@echo "build (Path A): reconciled JSON, rebuilt edges + citation trajectories,"
+	@echo "                and re-rendered landscape.html as the build artefact."
+	@echo "                For fresh S2 data, run \`make refresh-citations\` first."
 	@echo
 
 # Path A byte-identity gate (refs #68 Stream B step 1). Renders
