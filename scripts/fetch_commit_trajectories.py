@@ -55,6 +55,8 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from _cell_writer import load_landscape, save_landscape, update_cell
+
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_LANDSCAPE = ROOT / "data" / "landscape.json"
 DEFAULT_HTML = ROOT / "landscape.html"
@@ -568,26 +570,63 @@ def save_progress(progress: dict[str, Any]) -> None:
 # ---------------------------------------------------------------------------
 
 
+def _cell_payload_from_repo(
+    repo_info: tuple[str, str, str] | None,
+    trajectory: list[dict[str, Any]] | None,
+    *,
+    have_trajectory: bool,
+) -> tuple[str, str, str | None]:
+    """Map (repo_info, trajectory) → (value, status, citation) for Path A.
+
+    Mirrors the three render_* HTML functions exactly:
+      - no repo_info        → not-applicable, value preserved
+      - trajectory present  → real-data, JSON-array value
+      - trajectory absent   → depth-floor-reached, "searched not found"
+
+    `have_trajectory` distinguishes "we got data" from "we got no data" so
+    the empty-list case (real-data, []) is still treated as real-data.
+    """
+    if repo_info is None:
+        return "not applicable — no GitHub repo", "not-applicable", None
+    _, _, repo_url = repo_info
+    if have_trajectory:
+        value = json.dumps(trajectory or [], separators=(",", ":"))
+        return value, "real-data", repo_url
+    return "searched not found", "depth-floor-reached", repo_url
+
+
 def run(args: argparse.Namespace) -> int:
     landscape_path: Path = args.landscape
     html_path: Path = args.html
     token = args.github_token or os.environ.get("GITHUB_TOKEN")
 
+    target_json = args.target == "landscape.json"
+    if not target_json:
+        print(
+            "warning: --target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            file=sys.stderr,
+        )
+
     if not landscape_path.exists():
         print(f"error: landscape not found: {landscape_path}", file=sys.stderr)
         return 1
-    if not html_path.exists():
+    if target_json:
+        # Path A: we never touch HTML; only the JSON file must exist.
+        pass
+    elif not html_path.exists():
         print(f"error: landscape.html not found: {html_path}", file=sys.stderr)
         return 1
 
-    data = json.loads(landscape_path.read_text(encoding="utf-8"))
-    records = data.get("records") or []
+    landscape = load_landscape(landscape_path)
+    records = landscape.get("records") or []
 
     progress = {"done": {}} if args.force else load_progress()
     done: dict[str, Any] = progress.setdefault("done", {})
 
     print(
         f"fetch_commit_trajectories: records={len(records)} "
+        f"target={args.target} "
         f"offline={args.offline} have-token={bool(token)} "
         f"resume-from-progress={'no' if args.force else 'yes'} "
         f"already-done={len(done)}",
@@ -596,7 +635,7 @@ def run(args: argparse.Namespace) -> int:
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-    html = html_path.read_text(encoding="utf-8")
+    html = html_path.read_text(encoding="utf-8") if not target_json and html_path.exists() else ""
 
     counts = {
         "real-data": 0,
@@ -613,6 +652,48 @@ def run(args: argparse.Namespace) -> int:
     # map onto the correct HTML row in document order.
     occurrence_counter: dict[tuple[str, str | None], int] = {}
 
+    def _write_cell(
+        rec: dict[str, Any],
+        rec_name: str,
+        rec_url: str | None,
+        occ: int,
+        repo_info: tuple[str, str, str] | None,
+        trajectory: list[dict[str, Any]] | None,
+        have_trajectory: bool,
+    ) -> bool:
+        """Dispatch the actual write — JSON helper or legacy HTML patcher.
+
+        Returns True iff the cell was located/updated; False means the row
+        couldn't be matched (HTML mode) or wasn't in the JSON file.
+        """
+        nonlocal html
+        if target_json:
+            if rec is None:
+                return False
+            value, status, citation = _cell_payload_from_repo(
+                repo_info, trajectory, have_trajectory=have_trajectory
+            )
+            update_cell(
+                rec,
+                "commit-trajectory",
+                value=value,
+                status=status,
+                citation=citation,
+            )
+            return True
+        # Legacy HTML path.
+        if repo_info is None:
+            new_cell = render_not_applicable_cell()
+        elif have_trajectory:
+            new_cell = render_real_cell(trajectory or [], repo_info[2])
+        else:
+            new_cell = render_depth_floor_cell(repo_info[2])
+        html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+        return ok
+
+    # Build an id→record map for JSON-target lookups.
+    rec_by_id = {r.get("id"): r for r in records}
+
     attempted = 0
     for rec in records:
         rec_id = rec.get("id") or "?"
@@ -628,8 +709,7 @@ def run(args: argparse.Namespace) -> int:
         repo_info = extract_repo(rec)
         if repo_info is None:
             # No GitHub repo for this row.
-            new_cell = render_not_applicable_cell()
-            html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+            ok = _write_cell(rec, rec_name, rec_url, occ, None, None, False)
             if ok:
                 counts["not-applicable"] += 1
                 done[rec_id] = {"status": "not-applicable"}
@@ -640,19 +720,22 @@ def run(args: argparse.Namespace) -> int:
         owner, repo, repo_url = repo_info
         existing = done.get(rec_id)
         if existing and existing.get("status") in {"real-data", "depth-floor"}:
-            # Re-render from cache (HTML may be regenerated). Don't recount.
+            # Re-render from cache. Don't recount as new.
             cached = load_cache(owner, repo)
             if existing["status"] == "real-data" and cached is not None:
-                new_cell = render_real_cell(cached.get("trajectory") or [], repo_url)
-                html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+                ok = _write_cell(
+                    rec, rec_name, rec_url, occ, repo_info,
+                    cached.get("trajectory") or [], True,
+                )
                 if ok:
                     counts["real-data"] += 1
                     counts["cache-hit"] += 1
                 else:
                     counts["skipped-row-not-found"] += 1
             elif existing["status"] == "depth-floor":
-                new_cell = render_depth_floor_cell(repo_url)
-                html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+                ok = _write_cell(
+                    rec, rec_name, rec_url, occ, repo_info, None, False
+                )
                 if ok:
                     counts["depth-floor"] += 1
                     counts["cache-hit"] += 1
@@ -707,8 +790,9 @@ def run(args: argparse.Namespace) -> int:
                 counts["errors"] += 1
 
         if trajectory:
-            new_cell = render_real_cell(trajectory, repo_url)
-            html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+            ok = _write_cell(
+                rec, rec_name, rec_url, occ, repo_info, trajectory, True
+            )
             if ok:
                 counts["real-data"] += 1
                 done[rec_id] = {"status": "real-data", "repo": repo_url}
@@ -716,18 +800,22 @@ def run(args: argparse.Namespace) -> int:
                 counts["skipped-row-not-found"] += 1
         else:
             # No trajectory available — depth-floor.
-            new_cell = render_depth_floor_cell(repo_url)
-            html, ok = patch_html_for_row(html, rec_name, rec_url, new_cell, occ)
+            ok = _write_cell(
+                rec, rec_name, rec_url, occ, repo_info, None, False
+            )
             if ok:
                 counts["depth-floor"] += 1
                 done[rec_id] = {"status": "depth-floor", "repo": repo_url}
             else:
                 counts["skipped-row-not-found"] += 1
 
-        # Periodically flush progress + html (every 25 fetched).
+        # Periodically flush progress + landscape (every 25 fetched).
         if fetched and counts["live-fetch"] % 25 == 0:
             save_progress(progress)
-            html_path.write_text(html, encoding="utf-8")
+            if target_json:
+                save_landscape(landscape, landscape_path)
+            else:
+                html_path.write_text(html, encoding="utf-8")
             print(
                 f"  checkpoint: real-data={counts['real-data']} "
                 f"depth-floor={counts['depth-floor']} "
@@ -739,7 +827,10 @@ def run(args: argparse.Namespace) -> int:
 
     # Final write.
     save_progress(progress)
-    html_path.write_text(html, encoding="utf-8")
+    if target_json:
+        save_landscape(landscape, landscape_path)
+    else:
+        html_path.write_text(html, encoding="utf-8")
 
     print(
         "\nfetch_commit_trajectories: summary\n"
@@ -803,6 +894,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         type=float,
         default=0.2,
         help="Pause (s) between successive API calls (default 0.2).",
+    )
+    p.add_argument(
+        "--target",
+        choices=["landscape.json", "landscape.html"],
+        default="landscape.json",
+        help=(
+            "Where to write trajectory cells. Default (Path A) is "
+            "landscape.json; landscape.html remains as a deprecated legacy "
+            "path during the #68 transition window."
+        ),
     )
     return p.parse_args(argv)
 

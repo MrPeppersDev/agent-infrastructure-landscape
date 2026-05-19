@@ -1,0 +1,47 @@
+name: validate
+
+# Runs the cheap correctness gates on every push to main and on every
+# pull request. Two jobs:
+#
+#   1. validate     — scripts/validate.py (5 gates: schema, determinism,
+#                     cycle stability, S2 cache integrity, claim-tier
+#                     provenance + freshness). ~25-45s.
+#   2. build-path-a — Path A byte-identity gate (refs #68 Stream B step 1).
+#                     Asserts render.py(data/landscape.json) is byte-
+#                     identical to the committed landscape.html. ~5s.
+#
+# Both jobs are intentionally network-free (no Semantic Scholar fetch,
+# no GitHub API, no NPM/PyPI). The slow refreshes have their own
+# workflows or are run on-demand via the corresponding `make refresh-*`
+# targets.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: pip install beautifulsoup4
+      - name: Run validate.py
+        run: make validate
+
+  build-path-a:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: pip install beautifulsoup4
+      - name: Path A byte-identity gate
+        run: make build-path-a

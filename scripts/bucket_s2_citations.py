@@ -65,6 +65,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from _cell_writer import load_landscape, save_landscape, update_cell
+
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_JSON = ROOT / "data" / "landscape.json"
 LANDSCAPE_HTML = ROOT / "landscape.html"
@@ -457,18 +459,27 @@ def patch_html_for_row(
 
 
 def run(args: argparse.Namespace) -> int:
+    target_json = args.target == "landscape.json"
+    if not target_json:
+        print(
+            "warning: --target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            file=sys.stderr,
+        )
+
     if not LANDSCAPE_JSON.exists():
         print(f"error: {LANDSCAPE_JSON} not found", file=sys.stderr)
         return 1
-    if not LANDSCAPE_HTML.exists():
+    if not target_json and not LANDSCAPE_HTML.exists():
         print(f"error: {LANDSCAPE_HTML} not found", file=sys.stderr)
         return 1
     if not CACHE_DIR.exists():
         print(f"error: {CACHE_DIR} not found", file=sys.stderr)
         return 1
 
-    data = json.loads(LANDSCAPE_JSON.read_text(encoding="utf-8"))
-    records = data["records"]
+    landscape = load_landscape(LANDSCAPE_JSON)
+    data = landscape
+    records = landscape["records"]
     if not args.quiet:
         print(f"bucket_s2_citations: loaded {len(records)} records", file=sys.stderr)
 
@@ -502,8 +513,8 @@ def run(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
 
-    # Patch HTML row-by-row
-    html = LANDSCAPE_HTML.read_text(encoding="utf-8")
+    # Per-row writes — either update landscape.json cells or patch HTML.
+    html = LANDSCAPE_HTML.read_text(encoding="utf-8") if not target_json and LANDSCAPE_HTML.exists() else ""
     occurrence_counter: dict[tuple[str, str | None], int] = {}
 
     counts = Counter()
@@ -522,20 +533,38 @@ def run(args: argparse.Namespace) -> int:
 
         if paper_id is not None:
             # Real-data: has cache → has a trajectory (possibly [])
-            cell_html = render_real_cell(traj or [], paper_id)
             kind = "real-data"
+            value = json.dumps(traj or [], separators=(",", ":"))
+            citation = s2_paper_url(paper_id)
+            status = "real-data"
         else:
             # No usable paperId means no S2 cache for this row.
-            cell_html = render_not_applicable_cell()
             kind = "not-applicable"
+            value = "not applicable — non-paper row"
+            citation = None
+            status = "not-applicable"
 
-        new_html, ok = patch_html_for_row(html, name, url, cell_html, occurrence=occ)
-        if not ok:
-            failed.append((rec_id, name))
-            counts["skip-row-not-found"] += 1
-            continue
-        html = new_html
-        counts[kind] += 1
+        if target_json:
+            update_cell(
+                rec,
+                "citation-trajectory",
+                value=value,
+                status=status,
+                citation=citation,
+            )
+            counts[kind] += 1
+        else:
+            if paper_id is not None:
+                cell_html = render_real_cell(traj or [], paper_id)
+            else:
+                cell_html = render_not_applicable_cell()
+            new_html, ok = patch_html_for_row(html, name, url, cell_html, occurrence=occ)
+            if not ok:
+                failed.append((rec_id, name))
+                counts["skip-row-not-found"] += 1
+                continue
+            html = new_html
+            counts[kind] += 1
 
     if not args.quiet:
         print("Patched HTML row totals:", file=sys.stderr)
@@ -568,11 +597,18 @@ def run(args: argparse.Namespace) -> int:
 
     # Write out
     if args.check:
-        out_path = Path("/tmp/landscape.html.bucketed")
-        out_path.write_text(html, encoding="utf-8")
-        # Diff
-        existing = LANDSCAPE_HTML.read_bytes()
-        new = out_path.read_bytes()
+        if target_json:
+            import tempfile
+            tmp = Path(tempfile.mktemp(suffix=".json", prefix="landscape.bucketed."))
+            save_landscape(landscape, tmp)
+            existing = LANDSCAPE_JSON.read_bytes()
+            new = tmp.read_bytes()
+            tmp.unlink(missing_ok=True)
+        else:
+            out_path = Path("/tmp/landscape.html.bucketed")
+            out_path.write_text(html, encoding="utf-8")
+            existing = LANDSCAPE_HTML.read_bytes()
+            new = out_path.read_bytes()
         if existing == new:
             print("CHECK: byte-identical to existing output.", file=sys.stderr)
             return 0
@@ -583,9 +619,14 @@ def run(args: argparse.Namespace) -> int:
             )
             return 1
 
-    LANDSCAPE_HTML.write_text(html, encoding="utf-8")
-    if not args.quiet:
-        print(f"wrote {LANDSCAPE_HTML}", file=sys.stderr)
+    if target_json:
+        save_landscape(landscape, LANDSCAPE_JSON)
+        if not args.quiet:
+            print(f"wrote {LANDSCAPE_JSON}", file=sys.stderr)
+    else:
+        LANDSCAPE_HTML.write_text(html, encoding="utf-8")
+        if not args.quiet:
+            print(f"wrote {LANDSCAPE_HTML}", file=sys.stderr)
     return 0
 
 
@@ -598,6 +639,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--quiet", action="store_true",
         help="Suppress progress output (errors still go to stderr).",
+    )
+    parser.add_argument(
+        "--target",
+        choices=["landscape.json", "landscape.html"],
+        default="landscape.json",
+        help=(
+            "Where to write citation-trajectory cells. Default (Path A) is "
+            "landscape.json; landscape.html remains as a deprecated legacy "
+            "path during the #68 transition window."
+        ),
     )
     args = parser.parse_args(argv)
     return run(args)

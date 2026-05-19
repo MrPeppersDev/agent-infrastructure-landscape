@@ -12,11 +12,12 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: all build validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help
+.PHONY: all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help
 
 help:
 	@echo "Targets:"
 	@echo "  make build              — extract → reconcile → build_edges → fetch_citations --offline → bucket_s2_citations"
+	@echo "  make build-path-a       — assert render.py(landscape.json) is byte-identical to committed landscape.html (Path A gate, refs #68)"
 	@echo "  make validate           — schema + determinism + round-trip + cache gates (~25s)"
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
@@ -27,11 +28,12 @@ help:
 	@echo "  make stale-check        — offline staleness scan against landscape.json (no network)"
 	@echo "  make install-hooks      — install scripts/git-hooks/pre-commit into .git/hooks/"
 	@echo
-	@echo "Edit workflow (Path B — see docs/DECISIONS.md): edit landscape.html by hand"
-	@echo "as the source of authority for now; treat data/landscape.json as the queryable"
-	@echo "mirror. Run \`make build\` to refresh the JSON mirror after HTML edits, then"
-	@echo "\`make validate\` before committing. Path A (JSON-as-source) activates when"
-	@echo "extract.py loses less markup."
+	@echo "Edit workflow (Path B, transitional — see docs/DECISIONS.md 2026-05-18 Path A entry):"
+	@echo "edit landscape.html by hand; treat data/landscape.json as the queryable mirror."
+	@echo "Run \`make build\` to refresh the JSON mirror after HTML edits, then"
+	@echo "\`make validate\` before committing. Path A (JSON-as-source) target was declared"
+	@echo "in c9b55d2; pipeline flip is tracked in #68. \`make build-path-a\` is the"
+	@echo "byte-identity gate that proves the inversion is safe."
 
 # `build` re-runs the full pipeline against the committed S2 cache.
 #
@@ -42,22 +44,48 @@ help:
 # explicitly — that one DOES hit the network.
 #
 # bucket_s2_citations.py runs after fetch_citations to refresh the
-# citation-trajectory cell content in landscape.html from the committed
-# S2 cache. After it runs, a second extract pass re-projects the patched
-# HTML into landscape.json so the JSON mirror reflects the new cells.
+# citation-trajectory cell content. Under Path A (issue #68) it writes
+# directly to data/landscape.json, so the second extract+reconcile pass
+# that previously re-projected the HTML→JSON is no longer needed.
 build:
 	$(PYTHON) scripts/extract.py        --output data/landscape.json
 	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	$(PYTHON) scripts/build_edges.py
 	$(PYTHON) scripts/fetch_citations.py --offline
 	$(PYTHON) scripts/bucket_s2_citations.py --quiet
-	$(PYTHON) scripts/extract.py        --output data/landscape.json
-	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	@echo
 	@echo "build: ran fetch_citations.py --offline (cache-only) and"
-	@echo "       bucket_s2_citations.py (citation-trajectory backfill). For"
-	@echo "       fresh S2 data, run \`make refresh-citations\` first."
+	@echo "       bucket_s2_citations.py (citation-trajectory backfill, Path A)."
+	@echo "       For fresh S2 data, run \`make refresh-citations\` first."
 	@echo
+
+# Path A byte-identity gate (refs #68 Stream B step 1). Renders
+# data/landscape.json through scripts/render.py and asserts the output
+# is byte-identical to the committed landscape.html. This is the
+# acceptance test for Path A inversion: once this passes reliably, the
+# remaining writer-script flips in #68 are safe because we've proven
+# that the JSON round-trips cleanly to the HTML surface.
+#
+# Distinct from `validate.py` gate 3 (which tests render → extract →
+# render cycle stability). gate 3 catches renderer/extractor drift in
+# isolation; build-path-a catches drift between the committed JSON and
+# the committed HTML, which is the property Path A actually depends on.
+#
+# Trajectory-span fix in c9b55d2 made this pass at 0 diff lines. If
+# this target ever fails, it means either (a) a hand edit to
+# landscape.html bypassed the JSON, or (b) render.py drifted from the
+# HTML surface. Both are Path A bugs that need fixing before #68 step 2.
+build-path-a:
+	@tmp_html=$$(mktemp -t landscape-path-a.XXXXXX.html); \
+	$(PYTHON) scripts/render.py --input data/landscape.json --template landscape.html --output $$tmp_html; \
+	diff_lines=$$(diff landscape.html $$tmp_html | wc -l | tr -d ' '); \
+	rm -f $$tmp_html; \
+	if [ "$$diff_lines" -ne 0 ]; then \
+	  echo "✗ build-path-a FAILED: render.py(landscape.json) differs from landscape.html by $$diff_lines diff lines"; \
+	  echo "  Run 'diff landscape.html <(python3 scripts/render.py --input data/landscape.json --template landscape.html --output /dev/stdout)' to inspect."; \
+	  exit 1; \
+	fi; \
+	echo "✓ build-path-a PASS: render.py(landscape.json) is byte-identical to landscape.html"
 
 # Cheap round-trip validation gates. <30s.
 validate:
