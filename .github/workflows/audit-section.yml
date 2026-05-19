@@ -97,7 +97,10 @@ jobs:
             MODE="${{ inputs.mode }}"
           else
             SECTION=$(python3 scripts/audit_pick_section.py)
-            MODE="full"
+            # Scheduled runs use reverify (re-checks existing rows only)
+            # while the candidate-stub pipeline used by `expand` and `full`
+            # is broken — see issue #89. Restore to "full" when #89 lands.
+            MODE="reverify"
           fi
           echo "section=$SECTION" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
