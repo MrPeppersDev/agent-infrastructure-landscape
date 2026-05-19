@@ -212,13 +212,29 @@ jobs:
    the delta without losing surrounding context. Implementation
    implication: `diff_preview.py` calls `render.py`'s `render_row()`
    per touched record, not `render_cell()` per changed cell.
-2. **Should edge diffs render the records on each end** of the
-   edge? Useful but adds two cell renders per edge. Default: just
-   show id → id with edge type and metadata, no record render.
-3. **PR title parsing for bot identification** — do we want the
-   preview to behave differently for bot-opened PRs vs human PRs?
-   Likely no (the renderer doesn't care who opened the PR), but
-   worth a checkbox.
+2. ~~Should edge diffs render the records on each end~~ **DECIDED
+   2026-05-18:** Keep the `from | to | type | direction` table for
+   at-a-glance scanning, then append a short bullet list under
+   "Endpoint records (for context)" with one line per endpoint:
+   `` `record-id` — record name (Section / Subsection) ``. We do
+   **not** render the full row for each endpoint — edges in the
+   catalog are rare (under a hundred total across 528 records), edge
+   *changes* in any single PR are rarer still, and the marginal
+   comment-length cost of a one-line endpoint summary is tiny
+   compared to the reviewer-pain of staring at an opaque id like
+   `mcp-knowledge-graph--gh-modelcontextprotocol-mcp-knowledge-graph`
+   without any context. Endpoint summaries fall back to the base-side
+   record when the head-side removed it, and to an `(unknown record)`
+   placeholder when neither side knows the id (edge ref to a record
+   that lives in a separate PR).
+3. ~~PR title parsing for bot identification~~ **DECIDED 2026-05-18:**
+   The preview renderer stays author-agnostic. Bot-vs-human styling
+   (a 🤖 banner, a per-bot review checklist, etc.) is deferred until
+   we have a steady stream of real bot PRs to compare reviewer
+   experience against. The renderer's value is the rendered content
+   itself; styling differences add maintenance burden without a
+   demonstrated payoff. Revisit if bot-PR review fatigue surfaces
+   once Stream C writers (#48 ecosystem) start opening PRs in volume.
 
 ## Dependencies
 

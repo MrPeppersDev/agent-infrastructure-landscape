@@ -19,9 +19,16 @@ Failure modes (per design doc §Failure modes):
   - per-cell render errors degrade to `<error rendering cell: {exc}>`
   - top-level JSON-parse errors write an error comment and exit 0
 
-Open questions still open (per design doc):
-  - Q2: should edge-endpoint records get full row renders? Default no.
-  - Q3: bot-vs-human styling. Not surfaced here.
+Open questions (per design doc):
+  - Q2 (DECIDED 2026-05-18): edges section now lists each endpoint as a
+    one-line summary (id / name / section) below the edges table. The
+    table stays for at-a-glance scanning; the summaries give reviewers
+    enough context to recognise the records without clicking through.
+    No full row render — that would balloon the comment for what is
+    nearly always a low-cardinality edges change.
+  - Q3 (DECIDED 2026-05-18): renderer stays author-agnostic. Bot-vs-human
+    PR styling is deferred until there's enough bot-PR volume to make
+    a real call on what banner/checklist actually helps.
 """
 
 from __future__ import annotations
@@ -534,8 +541,31 @@ def _diff_edges(
     return added, removed, changed
 
 
+def _endpoint_summary(
+    rid: str,
+    base_records: dict[str, dict[str, Any]],
+    head_records: dict[str, dict[str, Any]],
+) -> str:
+    """One-line summary for an edge endpoint: `id` — name (section).
+
+    Prefer head-side record (post-merge state). Fall back to base if
+    the record was removed in this PR, or to a `(unknown record)`
+    placeholder if neither side knows about it (e.g. edge references
+    a record that lives in a separate PR).
+    """
+    rec = head_records.get(rid) or base_records.get(rid)
+    if not rec:
+        return f"- `{rid}` — _(unknown record — not present in base or head landscape.json)_"
+    name = rec.get("name") or "(no name)"
+    section = _section_label(rec)
+    return f"- `{rid}` — {name} ({section})"
+
+
 def _render_edges_section(
-    edges_base_path: Path | None, edges_head_path: Path | None
+    edges_base_path: Path | None,
+    edges_head_path: Path | None,
+    base_records: dict[str, dict[str, Any]] | None = None,
+    head_records: dict[str, dict[str, Any]] | None = None,
 ) -> str:
     if not edges_base_path or not edges_head_path:
         return ""
@@ -576,6 +606,26 @@ def _render_edges_section(
             f"`{h.get('type', '')}` | changed |"
         )
     out.append("")
+
+    # Endpoint summaries (Q2 — DECIDED 2026-05-18): collect every record
+    # referenced by an added/removed/changed edge and emit a one-line
+    # summary so reviewers don't have to grep `data/landscape.json` to
+    # remember what `mcp-knowledge-graph--gh-modelcontextprotocol-...` is.
+    base_records = base_records or {}
+    head_records = head_records or {}
+    endpoint_ids: list[str] = []
+    seen: set[str] = set()
+    for e in added + removed + [h for _b, h in changed]:
+        for rid in (e.get("source", ""), e.get("target", "")):
+            if rid and rid not in seen:
+                seen.add(rid)
+                endpoint_ids.append(rid)
+    if endpoint_ids:
+        out.append("**Endpoint records** (for context):")
+        out.append("")
+        for rid in sorted(endpoint_ids):
+            out.append(_endpoint_summary(rid, base_records, head_records))
+        out.append("")
     return "\n".join(out)
 
 
@@ -623,9 +673,9 @@ def build_comment(
             f"```\n{traceback.format_exc()}\n```\n"
         )
 
-    diff = _diff_records(
-        _records_by_id(base_payload), _records_by_id(head_payload)
-    )
+    base_records = _records_by_id(base_payload)
+    head_records = _records_by_id(head_payload)
+    diff = _diff_records(base_records, head_records)
 
     parts: list[str] = [MARKER, "## 🪞 Rendered cell preview", ""]
 
@@ -647,7 +697,12 @@ def build_comment(
     refreshed = _render_refreshed_only(diff)
     if refreshed:
         parts.append(refreshed)
-    edges_md = _render_edges_section(edges_base_path, edges_head_path)
+    edges_md = _render_edges_section(
+        edges_base_path,
+        edges_head_path,
+        base_records=base_records,
+        head_records=head_records,
+    )
     if edges_md:
         parts.append(edges_md)
 
