@@ -66,10 +66,10 @@ the output of this cap; the full summary still lands in the
 Exit codes
 ----------
 
-  0 — clean run (may still emit stale rows; non-empty output ≠ failure).
+  0 — script ran (may still emit stale rows, and partial fetches are
+      reported via `partial: true` in the summary artifact; non-empty
+      output ≠ failure).
   1 — usage / IO error (bad path, malformed JSON, unauthorised API).
-  2 — partial: some rows fetched, others failed (API rate limit, deleted
-      repo). Continue but flag in the summary.
 """
 
 from __future__ import annotations
@@ -409,6 +409,7 @@ def run(args: argparse.Namespace) -> int:
         "emitted_count": len(capped),
         "max_emit": args.max_emit,
         "errors": errors,
+        "partial": partial,
         "flagged": capped,
     }
 
@@ -435,7 +436,16 @@ def run(args: argparse.Namespace) -> int:
         file=sys.stderr,
     )
 
-    return 2 if partial else 0
+    if partial:
+        # Surface partiality without failing CI — the dedupe + issue-opening
+        # step depends on this exit code being 0 to run at all. Consumers
+        # that care can read `partial: true` from the summary artifact.
+        print(
+            f"check_staleness: partial run — {len(errors)} row(s) errored "
+            "(see summary.errors); continuing.",
+            file=sys.stderr,
+        )
+    return 0
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

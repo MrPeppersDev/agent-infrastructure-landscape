@@ -370,7 +370,9 @@ def candidate_to_stub_record(cand: dict) -> dict:
     name = cand["name"]
     url = cand.get("url") or ""
     desc = (cand.get("brief_description") or "").strip()
-    record_id = ri.make_id(name, url) + "--audit-candidate"
+    # tier=4 below already encodes "candidate / unverified" — no need for an
+    # id suffix, which would violate the schema regex (one `--` separator max).
+    record_id = ri.make_id(name, url)
 
     cells: dict[str, dict] = {}
     if desc and url:
