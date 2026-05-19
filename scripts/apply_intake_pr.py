@@ -34,6 +34,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE_HTML = ROOT / "landscape.html"
+LANDSCAPE_JSON = ROOT / "data" / "landscape.json"
 INTAKE_FAILURES = ROOT / "intake-failures"
 INTAKE_PR_BODIES = ROOT / "intake-pr-bodies"
 REPO = "MrPeppersDev/agent-infrastructure-landscape"
@@ -42,6 +43,7 @@ REPO = "MrPeppersDev/agent-infrastructure-landscape"
 # import works regardless of where the script is invoked from.
 sys.path.insert(0, str(ROOT / "scripts"))
 from render import render_row  # noqa: E402
+from _cell_writer import load_landscape, save_landscape  # noqa: E402
 
 
 def html_escape_for_group_label(section: str) -> str:
@@ -89,6 +91,31 @@ def insert_row(html_text: str, section: str, row_html: str) -> str:
 
     inserted = "\n\n" + row_html
     return html_text[:insertion_point] + inserted + html_text[insertion_point:]
+
+
+# ---------------------------------------------------------------------------
+# JSON record insert (Path A, issue #68 Stream C)
+# ---------------------------------------------------------------------------
+
+
+def insert_record_json(landscape: dict, record: dict) -> dict:
+    """Append `record` to `landscape['records']`, replacing any existing
+    record with the same id (idempotent re-run safety).
+
+    Path A equivalent of insert_row(): instead of stitching HTML into
+    landscape.html, we mutate the JSON record list. render.py's next
+    `make build` regenerates landscape.html from this list, so row
+    placement within a section is governed by render.py's section/
+    subsection grouping rather than by HTML insertion order.
+    """
+    records = landscape.setdefault("records", [])
+    rid = record["id"]
+    for i, existing in enumerate(records):
+        if existing.get("id") == rid:
+            records[i] = record
+            return landscape
+    records.append(record)
+    return landscape
 
 
 # ---------------------------------------------------------------------------
@@ -224,8 +251,33 @@ def main() -> int:
     ap.add_argument("--no-comment", action="store_true",
                     help="skip the Issue comment with the PR link")
     ap.add_argument("--no-commit", action="store_true",
-                    help="skip the branch/commit; just patch landscape.html and validate")
+                    help="skip the branch/commit; just patch landscape and validate")
+    ap.add_argument(
+        "--target",
+        choices=["landscape.json", "landscape.html"],
+        default="landscape.json",
+        help=(
+            "Where to write the new row. Default (Path A, refs #68) is "
+            "data/landscape.json; landscape.html remains as a deprecated "
+            "legacy path during the transition window."
+        ),
+    )
     args = ap.parse_args()
+
+    target_json = args.target == "landscape.json"
+    if not target_json:
+        import warnings
+        warnings.warn(
+            "--target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        print(
+            "warning: --target landscape.html is deprecated under Path A; "
+            "writes will go to landscape.html for legacy compatibility only.",
+            file=sys.stderr,
+        )
 
     record_path = Path(args.record)
     if not record_path.exists():
@@ -242,23 +294,43 @@ def main() -> int:
               "run trail will be sparse", file=sys.stderr)
         source_map = {}
 
-    # 1. Insert row into landscape.html.
+    # 1. Insert row. Path A writes the record dict into landscape.json;
+    # the legacy HTML path renders a <tr> and stitches it into the
+    # section's tbody.
     section = record["sections"][0]["section"]
-    row_html = render_row(record)
 
     INTAKE_FAILURES.mkdir(parents=True, exist_ok=True)
     INTAKE_PR_BODIES.mkdir(parents=True, exist_ok=True)
 
-    html_text = LANDSCAPE_HTML.read_text()
-    try:
-        new_html = insert_row(html_text, section, row_html)
-    except ValueError as exc:
-        msg = f"row insertion failed: {exc}"
-        print(f"error: {msg}", file=sys.stderr)
-        (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
-        return 3
-    LANDSCAPE_HTML.write_text(new_html)
-    print(f"inserted row into section `{section}`")
+    if target_json:
+        if not LANDSCAPE_JSON.exists():
+            msg = f"landscape.json not found at {LANDSCAPE_JSON}"
+            print(f"error: {msg}", file=sys.stderr)
+            (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
+            return 3
+        landscape = load_landscape(LANDSCAPE_JSON)
+        try:
+            insert_record_json(landscape, record)
+        except (KeyError, ValueError) as exc:
+            msg = f"record insertion failed: {exc}"
+            print(f"error: {msg}", file=sys.stderr)
+            (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
+            return 3
+        save_landscape(landscape, LANDSCAPE_JSON)
+        print(f"inserted record id=`{record['id']}` into section `{section}` "
+              f"(target: {LANDSCAPE_JSON.name})")
+    else:
+        row_html = render_row(record)
+        html_text = LANDSCAPE_HTML.read_text()
+        try:
+            new_html = insert_row(html_text, section, row_html)
+        except ValueError as exc:
+            msg = f"row insertion failed: {exc}"
+            print(f"error: {msg}", file=sys.stderr)
+            (INTAKE_FAILURES / f"{args.issue_number}-insert.log").write_text(msg)
+            return 3
+        LANDSCAPE_HTML.write_text(new_html)
+        print(f"inserted row into section `{section}` (target: landscape.html)")
 
     # 2. Run build.
     build_ok, build_out = run_build()
