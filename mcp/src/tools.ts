@@ -253,7 +253,7 @@ export interface GetRecordArgs {
 }
 
 /**
- * Returns the full record (all 68 cells + taxonomy + sections) by
+ * Returns the full record (all 85 cells + taxonomy + sections) by
  * stable id. Returns null if the id isn't in the catalog.
  */
 export function getRecord(

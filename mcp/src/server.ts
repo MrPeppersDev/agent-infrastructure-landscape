@@ -188,7 +188,7 @@ async function main() {
       title: 'Catalog-wide coverage stats per dimension',
       description:
         'Per-feature counts for one of four dimensions: ' +
-        '"observability" (8 obs-* columns), ' +
+        '"observability" (7 boolean obs-* columns + obs-custom free-text), ' +
         '"cost" (7 cost-* columns), ' +
         '"eval" (7 eval-* columns), ' +
         '"benchmark" (per-section counts for benchmark-bearing sections). ' +
