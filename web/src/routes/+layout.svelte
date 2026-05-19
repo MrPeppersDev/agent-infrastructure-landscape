@@ -7,6 +7,7 @@
 
   const routes = [
     { path: '/', label: 'Table' },
+    { path: '/findings', label: 'Findings' },
     { path: '/timeline', label: 'Timeline' },
     { path: '/leaderboards', label: 'Leaderboards' },
     { path: '/sections', label: 'Sections' },

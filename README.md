@@ -7,6 +7,8 @@ comparative and trend analysis for builders making technology decisions.
 
 **New here?** [`docs/FINDINGS.md`](docs/FINDINGS.md) — five publishable headlines
 from the v6 catalog (semantic-cache market gap, the 91.3% no-benchmark finding, MCP-spec-as-substrate, the under-acknowledged bridge node, single-vendor FM concentration).
+Or read the same five as visually scannable cards on the live site:
+[**/findings**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings).
 
 This project began as a "Memory Systems Landscape" (memory remains the most-developed
 sub-narrative — analysis.md, lineage detection, archetype recipes) and expanded
