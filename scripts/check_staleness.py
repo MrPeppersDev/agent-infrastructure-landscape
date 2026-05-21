@@ -328,6 +328,12 @@ def run(args: argparse.Namespace) -> int:
         repo_info = extract_repo(rec)
         if not repo_info:
             continue
+        if rec.get("decay_cause"):
+            # Row's lifecycle is already classified (SCHEMA.md §3c). The
+            # catalog is a museum, not an active-only registry — once a
+            # decay_cause is recorded the staleness signal is no longer a
+            # question that needs an issue, just a fact in the schema.
+            continue
         seen_repo_count += 1
         owner, repo, repo_url = repo_info
 
