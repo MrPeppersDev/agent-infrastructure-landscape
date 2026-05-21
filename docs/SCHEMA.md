@@ -955,6 +955,7 @@ type DecayCause =
   | "lost-benchmark-race"
   | "superseded"
   | "archived"
+  | "research-complete"
   | "unknown";
 ```
 
@@ -968,6 +969,7 @@ type DecayCause =
 | `lost-benchmark-race`  | Outpaced by a clearly better system in the same niche. The row's claims still hold, but no one would adopt it today.                                                                                          | Benchmark scores trailing competitors over time, comparison posts. |
 | `superseded`           | Academic-paper variant: authors published a follow-up paper that replaces this one. The follow-up cites this row as prior work.                                                                              | S2 cache showing later paper by overlapping authors that cites this one. |
 | `archived`             | Explicit `archived: true` on the GitHub repo. The mechanical signal we trust most — the project's maintainers explicitly flagged it.                                                                          | GitHub repo URL (the `/archived` indicator is visible on the page). |
+| `research-complete`    | Academic-paper variant where the artefact IS the paper and no maintained software was ever intended (e.g. arXiv-only releases, conference workshop pieces, one-shot research demos). The row isn't "decayed" in a market sense — it shipped, did its job, and the team moved on. Distinct from `superseded` (which requires a specific follow-up paper) and `unknown` (which signals exhausted research). | A URL to the arXiv / paper page; or `[unverifiable] research paper; no maintained codebase intended`; or any explicit "research-only" attribution. |
 | `unknown`              | Researched but no clear cause found. Honest acknowledgement, not a placeholder. Used when the row is plausibly stale but the researcher exhausted the priority sources without resolution.                  | `decay_evidence` records what was searched: e.g. `"[unverifiable] researched: techcrunch, vbeat, hn algolia, wayback; no clear cause found"`. |
 
 ### When to populate
@@ -1035,7 +1037,7 @@ and skip already-resolved rows.
 
 `scripts/validate.py` gate 5 also validates:
 
-- `decay_cause`, when present, MUST be one of the seven enum values.
+- `decay_cause`, when present, MUST be one of the eight enum values.
 - `decay_date`, when present, MUST match `^\d{4}-\d{2}-\d{2}$`.
 - `decay_evidence`, when present, MUST be a string (URL or
   `[unverifiable] …` prose).
@@ -1045,15 +1047,16 @@ and skip already-resolved rows.
 
 The validator also surfaces an informational distribution count
 ("acquired=A pivoted=P unfunded=U lost-benchmark-race=L superseded=S
-archived=Ar unknown=X"). This is the seed metric for the Tier 3
-mortality-cause prediction work.
+archived=Ar research-complete=Rc unknown=X"). This is the seed metric
+for the Tier 3 mortality-cause prediction work.
 
 ### MCP / CLI exposure
 
 `find_by_decay_cause(cause)` returns the compact-summary list of all
-records with the given decay cause. Available as an MCP tool and as
-the `landscape decay-cause <cause>` CLI subcommand. Mirrors the existing
-nine-tool surface — same `RecordSummary` shape, same JSON / CSV options.
+records with the given decay cause (one of the eight enum values).
+Available as an MCP tool and as the `landscape decay-cause <cause>` CLI
+subcommand. Mirrors the existing nine-tool surface — same `RecordSummary`
+shape, same JSON / CSV options.
 
 ---
 

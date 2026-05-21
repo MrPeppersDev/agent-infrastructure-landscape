@@ -100,6 +100,7 @@ DECAY_CAUSE_VALUES = {
     "lost-benchmark-race",
     "superseded",
     "archived",
+    "research-complete",
     "unknown",
 }
 

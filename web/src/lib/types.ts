@@ -72,7 +72,7 @@ export interface SectionMembership {
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 /**
- * Decay-cause forensics (SCHEMA.md §3c, issue #56). One of seven enum
+ * Decay-cause forensics (SCHEMA.md §3c, issue #56). One of eight enum
  * values explaining why a stale or abandoned row stopped shipping.
  * Empty / absent on active rows. See SCHEMA.md §3c for the full
  * enum-value semantics and evidence conventions.
@@ -84,6 +84,7 @@ export type DecayCause =
   | 'lost-benchmark-race'
   | 'superseded'
   | 'archived'
+  | 'research-complete'
   | 'unknown';
 
 /**

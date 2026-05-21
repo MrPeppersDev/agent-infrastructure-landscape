@@ -304,9 +304,9 @@ program
   .command('decay-cause')
   .description(
     'Records labeled with a given decay cause from the T3-1 forensics backfill. ' +
-      'Enum: acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | unknown.'
+      'Enum: acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | research-complete | unknown.'
   )
-  .argument('<cause>', 'decay cause (e.g. archived, acquired, superseded)')
+  .argument('<cause>', 'decay cause (e.g. archived, acquired, superseded, research-complete)')
   .option('--json', 'emit JSON')
   .option('--csv', 'emit CSV')
   .action((cause: string, _opts, cmd: Command) => {

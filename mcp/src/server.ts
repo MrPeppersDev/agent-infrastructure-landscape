@@ -333,14 +333,14 @@ async function main() {
       title: 'Find records by decay-cause forensics label',
       description:
         'Returns records whose decay_cause matches the given cause. Enum: ' +
-        'acquired, pivoted, unfunded, lost-benchmark-race, superseded, archived, unknown. ' +
+        'acquired, pivoted, unfunded, lost-benchmark-race, superseded, archived, research-complete, unknown. ' +
         'Surfaces mortality forensics from T3-1 — useful for "which products in this space ' +
         'were acquired vs ran out of funding vs were archived on GitHub?"',
       inputSchema: {
         cause: z
           .string()
           .describe(
-            'Decay cause: acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | unknown.'
+            'Decay cause: acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | research-complete | unknown.'
           )
       }
     },

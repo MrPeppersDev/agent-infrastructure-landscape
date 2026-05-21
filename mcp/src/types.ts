@@ -69,6 +69,7 @@ export type DecayCause =
   | 'lost-benchmark-race'
   | 'superseded'
   | 'archived'
+  | 'research-complete'
   | 'unknown';
 
 /** The 82 column slugs from docs/SCHEMA.md §2.5. */

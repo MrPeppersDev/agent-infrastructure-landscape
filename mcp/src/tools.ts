@@ -787,10 +787,11 @@ export type DecayCause =
   | 'lost-benchmark-race'
   | 'superseded'
   | 'archived'
+  | 'research-complete'
   | 'unknown';
 
 export interface DecayCauseArgs {
-  /** One of acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | unknown. */
+  /** One of acquired | pivoted | unfunded | lost-benchmark-race | superseded | archived | research-complete | unknown. */
   cause: string;
 }
 
