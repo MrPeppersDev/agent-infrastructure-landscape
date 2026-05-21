@@ -232,7 +232,7 @@ TIER_GITHUB_URL_RE = re.compile(r"^https?://github\.com/", re.IGNORECASE)
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 # Decay-cause enum (SCHEMA.md §3c, issue #56). When `data-decay-cause` is
-# present on a <tr>, it MUST be one of these seven values.
+# present on a <tr>, it MUST be one of these eight values.
 DECAY_CAUSE_VALUES = {
     "acquired",
     "pivoted",
@@ -240,6 +240,7 @@ DECAY_CAUSE_VALUES = {
     "lost-benchmark-race",
     "superseded",
     "archived",
+    "research-complete",
     "unknown",
 }
 

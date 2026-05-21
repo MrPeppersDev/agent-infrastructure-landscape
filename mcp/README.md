@@ -148,7 +148,7 @@ Substrate resolves by exact id first, then by case-insensitive name/id substring
 
 Records whose `decay_cause` field matches the given cause. Surfaces the mortality forensics from T3-1 — useful for "which products in this space were acquired vs ran out of funding vs were archived on GitHub?"
 
-Enum values: `acquired`, `pivoted`, `unfunded`, `lost-benchmark-race`, `superseded`, `archived`, `unknown`.
+Enum values: `acquired`, `pivoted`, `unfunded`, `lost-benchmark-race`, `superseded`, `archived`, `research-complete`, `unknown`.
 
 ### `predict_citations(record_id)`
 
