@@ -321,21 +321,32 @@ def run(args: argparse.Namespace) -> int:
 
     flagged: list[dict[str, Any]] = []
     errors: list[dict[str, Any]] = []
-    seen_repo_count = 0
+    seen_repo_count = 0  # rows with a parseable github.com URL
+    seen_checkable_count = 0  # rows the active mode could meaningfully check
     partial = False
 
     for rec in records:
-        repo_info = extract_repo(rec)
-        if not repo_info:
-            continue
         if rec.get("decay_cause"):
             # Row's lifecycle is already classified (SCHEMA.md §3c). The
             # catalog is a museum, not an active-only registry — once a
             # decay_cause is recorded the staleness signal is no longer a
             # question that needs an issue, just a fact in the schema.
             continue
-        seen_repo_count += 1
-        owner, repo, repo_url = repo_info
+
+        repo_info = extract_repo(rec)
+        if repo_info:
+            seen_repo_count += 1
+        # Online mode needs a GitHub URL — there's no equivalent "ping the
+        # project's website" API. Offline mode can read latest-release /
+        # code-release cells for any row, so non-GitHub rows are fair game.
+        if not offline and not repo_info:
+            continue
+
+        owner = repo = ""
+        if repo_info:
+            owner, repo, repo_url = repo_info
+        else:
+            repo_url = rec.get("url") or "<no-url>"
 
         last_commit: dt.date | None = None
         signal = ""
@@ -344,8 +355,10 @@ def run(args: argparse.Namespace) -> int:
             sig = offline_signal(rec)
             if not sig:
                 continue
+            seen_checkable_count += 1
             last_commit, signal = sig
         else:
+            seen_checkable_count += 1
             try:
                 last_commit = fetch_latest_commit(owner, repo, token)
                 signal = f"github-api {last_commit.isoformat()}"
@@ -409,6 +422,7 @@ def run(args: argparse.Namespace) -> int:
         "threshold_abandoned_days": args.threshold_abandoned,
         "records_total": len(records),
         "records_with_github_repo": seen_repo_count,
+        "records_checkable": seen_checkable_count,
         "flagged_total": len(flagged),
         "flagged_stale": sum(1 for r in flagged if r["severity"] == "stale"),
         "flagged_abandoned": sum(1 for r in flagged if r["severity"] == "abandoned"),
@@ -438,7 +452,8 @@ def run(args: argparse.Namespace) -> int:
     print(
         f"check_staleness: {len(flagged)} flagged "
         f"(stale={summary['flagged_stale']} abandoned={summary['flagged_abandoned']}) "
-        f"out of {seen_repo_count} github-bearing rows; emitting {len(capped)}.",
+        f"out of {seen_checkable_count} checkable rows "
+        f"({seen_repo_count} github-bearing); emitting {len(capped)}.",
         file=sys.stderr,
     )
 
