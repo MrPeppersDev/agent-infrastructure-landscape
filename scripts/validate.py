@@ -790,6 +790,125 @@ def gate_claim_tiers() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Gate 6: Cell-level staleness visibility (soft warning).
+# ---------------------------------------------------------------------------
+
+
+# Cell-level freshness buckets (days). Mirror MAINTAINER.md §2's
+# wall-clock thresholds (active <12mo, stale 12-24mo, abandoned >24mo)
+# and the row-level buckets reported by gate 5: fresh <6mo, aging
+# 6-12mo, stale 12-24mo, very-stale >=24mo.
+CELL_FRESH_MAX_DAYS = 183     # <6 months
+CELL_AGING_MAX_DAYS = 365     # 6-12 months
+CELL_STALE_MAX_DAYS = 730     # 12-24 months; everything >= is very-stale
+
+# How many of the most-stale cells to surface in the report.
+CELL_ROT_TOP_N = 10
+
+
+def gate_cell_rot() -> None:
+    """Soft-warning gate: surface per-cell staleness without ever failing.
+
+    Walks every record × cell, computes days since each cell's
+    ``last_verified_at`` (skipping cells without one), buckets the
+    counts (fresh / aging / stale / very-stale), and prints the top
+    N most-stale (record-id, cell-slug, days-since) tuples.
+
+    Rationale: we already track per-cell ``last_verified_at`` and
+    gate 5 reports the populated count, but nothing aggregates the
+    age distribution. This gate fills that blind spot for human
+    triage. It always passes — flipping CI red the moment any cell
+    crosses a threshold would explode the moment the gate is added,
+    and the row-level staleness signal is the actionable one anyway.
+
+    Only CELL-level ``last_verified_at`` is counted; row-level
+    ``last_verified_at`` is reported by gate 5.
+    """
+    gate_header(6, "Cell-level staleness visibility (soft warning, always passes)")
+
+    if not LANDSCAPE_JSON.exists():
+        gate_fail(f"{LANDSCAPE_JSON} not found")
+
+    landscape = json.loads(LANDSCAPE_JSON.read_text())
+    records = landscape.get("records") or []
+
+    today = _dt.date.today()
+    buckets = {"fresh": 0, "aging": 0, "stale": 0, "very_stale": 0}
+    total_cells_with_lva = 0
+    # Heap-equivalent: collect (days_since, record_id, slug) and sort.
+    aged: list[tuple[int, str, str]] = []
+    malformed = 0
+
+    for rec in records:
+        rid = rec.get("id", "<unknown>")
+        for slug, cell in (rec.get("cells") or {}).items():
+            if not isinstance(cell, dict):
+                continue
+            lva = cell.get("last_verified_at")
+            if lva is None:
+                continue  # cells without last_verified_at: skip silently
+            if not isinstance(lva, str) or not ISO_DATE_RE.match(lva):
+                print(
+                    f"warning: {rid}.cells[{slug}]: malformed last_verified_at "
+                    f"({lva!r}); skipping",
+                    file=sys.stderr,
+                )
+                malformed += 1
+                continue
+            try:
+                d = _dt.date.fromisoformat(lva)
+            except ValueError:
+                print(
+                    f"warning: {rid}.cells[{slug}]: unparseable last_verified_at "
+                    f"({lva!r}); skipping",
+                    file=sys.stderr,
+                )
+                malformed += 1
+                continue
+            days = (today - d).days
+            total_cells_with_lva += 1
+            if days < CELL_FRESH_MAX_DAYS:
+                buckets["fresh"] += 1
+            elif days < CELL_AGING_MAX_DAYS:
+                buckets["aging"] += 1
+            elif days < CELL_STALE_MAX_DAYS:
+                buckets["stale"] += 1
+            else:
+                buckets["very_stale"] += 1
+            aged.append((days, rid, slug))
+
+    info(f"per-cell last_verified_at considered: {total_cells_with_lva}")
+    if malformed:
+        info(f"malformed last_verified_at skipped: {malformed} (see stderr)")
+
+    if total_cells_with_lva == 0:
+        info("no cells carry last_verified_at — nothing to bucket")
+        gate_pass("cell-level staleness surfaced (no data)")
+        return
+
+    def pct(n: int) -> str:
+        return f"{(n / total_cells_with_lva) * 100:.1f}%"
+
+    info(
+        "cell freshness: "
+        f"fresh<6mo={buckets['fresh']} ({pct(buckets['fresh'])})  "
+        f"aging=6-12mo={buckets['aging']} ({pct(buckets['aging'])})  "
+        f"stale=12-24mo={buckets['stale']} ({pct(buckets['stale'])})  "
+        f"very-stale>=24mo={buckets['very_stale']} ({pct(buckets['very_stale'])})"
+    )
+
+    # Top-N most-stale cells (descending days_since, deterministic
+    # tie-break on (rid, slug)).
+    aged.sort(key=lambda t: (-t[0], t[1], t[2]))
+    top = aged[:CELL_ROT_TOP_N]
+    info(f"top {len(top)} most-stale cells (record id | cell slug | days since):")
+    for days, rid, slug in top:
+        info(f"  - {rid} | {slug} | {days} days")
+
+    gate_pass("cell-level staleness surfaced (visibility-only; never fails)")
+
+
+# ---------------------------------------------------------------------------
 # Driver.
 # ---------------------------------------------------------------------------
 
@@ -800,6 +919,7 @@ GATES = {
     3: ("cycle", gate_cycle),
     4: ("cache", gate_cache),
     5: ("claim-tiers", gate_claim_tiers),
+    6: ("cell-rot", gate_cell_rot),
 }
 
 
@@ -809,7 +929,7 @@ def main() -> int:
         "--gate",
         type=int,
         choices=sorted(GATES),
-        help="run only one gate by number (1–5)",
+        help="run only one gate by number (1–6)",
     )
     args = ap.parse_args()
 
