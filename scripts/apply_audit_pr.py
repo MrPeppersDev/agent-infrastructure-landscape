@@ -374,30 +374,42 @@ def candidate_to_stub_record(cand: dict) -> dict:
     # id suffix, which would violate the schema regex (one `--` separator max).
     record_id = ri.make_id(name, url)
 
-    cells: dict[str, dict] = {}
+    # Build the special cells first, then assemble in canonical column order.
+    # Canonical order is required: render→extract reconstructs cells in
+    # CELL_COLUMN_SLUGS order, so any deviation here trips gate 2 (the
+    # committed JSON's dict-insertion order won't match the reconciled one).
+    special: dict[str, dict] = {}
     if desc and url:
-        cells["desc"] = ri.cell_real(desc[:1000], url, tier="T2")
+        special["desc"] = ri.cell_real(desc[:1000], url, tier="T2")
     elif desc:
-        cells["desc"] = ri.cell_estimate(desc[:1000])
+        special["desc"] = ri.cell_estimate(desc[:1000])
     else:
-        cells["desc"] = ri.cell_depth_floor("searched not found", url or "")
-    cells["type"] = ri.cell_estimate("Product")
+        special["desc"] = ri.cell_depth_floor("searched not found", url or "")
+    special["type"] = ri.cell_estimate("Product")
 
     # Trajectory cells get pre-populated as not-applicable (T3). Otherwise
     # cell_depth_floor would emit T2 (because url is truthy) and the
     # downstream bucket / fetch passes would overwrite the citation to None
     # while update_cell preserves the existing T2 tier — violating gate 5
     # ("T2 requires non-empty http(s) citation").
+    #
+    # The "n/a — " prefix is also required: extract.py's detect_status()
+    # only classifies a cell as not-applicable when the value text begins
+    # with "n/a" or "not applicable". Without it the round-trip re-classifies
+    # as depth-floor-reached, dropping NA_SPAN_STYLE on re-render and
+    # tripping gate 3 (cycle stability).
     for traj_slug in ("citation-trajectory", "commit-trajectory", "download-trajectory"):
         if traj_slug in ri.CELL_COLUMN_SLUGS:
-            cells[traj_slug] = ri.cell_not_applicable(
-                "candidate row — not yet processed by trajectory pipeline"
+            special[traj_slug] = ri.cell_not_applicable(
+                "n/a — candidate row, not yet processed by trajectory pipeline"
             )
 
+    cells: dict[str, dict] = {}
     for slug in ri.CELL_COLUMN_SLUGS:
-        if slug in cells:
-            continue
-        cells[slug] = ri.cell_depth_floor("searched not found", url or "")
+        if slug in special:
+            cells[slug] = special[slug]
+        else:
+            cells[slug] = ri.cell_depth_floor("searched not found", url or "")
 
     record = {
         "id": record_id,
