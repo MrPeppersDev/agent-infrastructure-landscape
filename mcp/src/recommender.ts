@@ -317,6 +317,284 @@ function scoreOne(
 }
 
 // =========================================================================
+// Free-text & structured-form parsers (issue #98 — Gate 4)
+// =========================================================================
+
+export interface ParsedConstraints {
+  constraints: ConstraintSet;
+  matched_terms: string[];
+  unmatched_terms: string[];
+}
+
+export interface StructuredForm {
+  project_shape?: 'single-agent' | 'multi-agent' | 'chat' | 'pipeline';
+  scale?: 'prototype' | 'production' | 'large-scale';
+  latency_budget_ms?: number;
+  persistence?: 'none' | 'session' | 'long-term';
+  deployment?: 'cloud' | 'self-hosted' | 'offline';
+  cost_ceiling_usd_per_mtok?: number;
+}
+
+export const USE_CASE_TAGS = [
+  'scoped-agentic',
+  'long-running-session',
+  'multi-agent-coordination',
+  'memory-augmented-chat',
+  'code-generation-focused',
+  'analytical-summarization',
+  'latency-sensitive',
+  'offline-capable'
+] as const;
+
+export type UseCaseTag = (typeof USE_CASE_TAGS)[number];
+
+const SYNONYM_TABLE: ReadonlyArray<[string, UseCaseTag]> = [
+  ['scoped agentic', 'scoped-agentic'],
+  ['long running session', 'long-running-session'],
+  ['multi agent coordination', 'multi-agent-coordination'],
+  ['memory augmented chat', 'memory-augmented-chat'],
+  ['code generation focused', 'code-generation-focused'],
+  ['analytical summarization', 'analytical-summarization'],
+  ['latency sensitive', 'latency-sensitive'],
+  ['offline capable', 'offline-capable'],
+
+  ['narrow agent', 'scoped-agentic'],
+  ['scoped agent', 'scoped-agentic'],
+  ['single agent', 'scoped-agentic'],
+
+  ['long running', 'long-running-session'],
+  ['long session', 'long-running-session'],
+  ['long lived', 'long-running-session'],
+  ['persistent session', 'long-running-session'],
+
+  ['multi agent', 'multi-agent-coordination'],
+  ['multiagent', 'multi-agent-coordination'],
+
+  ['memory augmented', 'memory-augmented-chat'],
+  ['chat memory', 'memory-augmented-chat'],
+  ['chatbot', 'memory-augmented-chat'],
+
+  ['code generation', 'code-generation-focused'],
+  ['code completion', 'code-generation-focused'],
+  ['codegen', 'code-generation-focused'],
+
+  ['summarization', 'analytical-summarization'],
+  ['summarisation', 'analytical-summarization'],
+  ['summarizing', 'analytical-summarization'],
+  ['summarising', 'analytical-summarization'],
+
+  ['low latency', 'latency-sensitive'],
+  ['real time', 'latency-sensitive'],
+  ['realtime', 'latency-sensitive'],
+  ['fast response', 'latency-sensitive'],
+
+  ['offline', 'offline-capable'],
+  ['airgap', 'offline-capable'],
+  ['airgapped', 'offline-capable'],
+  ['air gap', 'offline-capable'],
+  ['air gapped', 'offline-capable'],
+  ['on prem', 'offline-capable'],
+  ['on premises', 'offline-capable']
+];
+
+const SORTED_SYNONYMS: ReadonlyArray<[string, UseCaseTag]> = [...SYNONYM_TABLE].sort((a, b) => {
+  const wa = a[0].split(' ').length;
+  const wb = b[0].split(' ').length;
+  if (wa !== wb) return wb - wa;
+  if (b[0].length !== a[0].length) return b[0].length - a[0].length;
+  return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
+});
+
+const STOPWORDS: ReadonlySet<string> = new Set([
+  'a', 'an', 'the', 'and', 'or', 'but',
+  'is', 'are', 'was', 'were', 'be', 'been', 'being',
+  'with', 'without', 'for', 'to', 'of', 'in', 'on', 'at', 'by', 'as', 'from',
+  'that', 'this', 'these', 'those', 'it', 'its',
+  'system', 'systems', 'project', 'projects', 'app', 'apps', 'application', 'applications',
+  'need', 'needs', 'needed', 'needing',
+  'has', 'have', 'having', 'had',
+  'requires', 'require', 'required', 'requiring',
+  'use', 'using', 'used', 'usage',
+  'we', 'i', 'you', 'they', 'our', 'my', 'your', 'their',
+  'one', 'two', 'some', 'any', 'all', 'most', 'many',
+  'can', 'should', 'would', 'could', 'must',
+  'do', 'does', 'did',
+  'capability', 'capabilities', 'support', 'supports', 'supporting', 'supported'
+]);
+
+function normaliseInput(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[-_]/g, ' ')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function parseFreeTextConstraints(text: string): ParsedConstraints {
+  const normalised = normaliseInput(text);
+  const tokens = normalised.length > 0 ? normalised.split(' ') : [];
+  const claimed: boolean[] = new Array(tokens.length).fill(false);
+  const tags = new Set<UseCaseTag>();
+  const matched: string[] = [];
+
+  for (const [phrase, tag] of SORTED_SYNONYMS) {
+    const phraseTokens = phrase.split(' ');
+    const n = phraseTokens.length;
+    for (let i = 0; i + n <= tokens.length; i++) {
+      let canClaim = true;
+      for (let j = 0; j < n; j++) {
+        if (claimed[i + j]) { canClaim = false; break; }
+      }
+      if (!canClaim) continue;
+      let isMatch = true;
+      for (let j = 0; j < n; j++) {
+        if (tokens[i + j] !== phraseTokens[j]) { isMatch = false; break; }
+      }
+      if (!isMatch) continue;
+      for (let j = 0; j < n; j++) claimed[i + j] = true;
+      tags.add(tag);
+      matched.push(phrase);
+    }
+  }
+
+  const unmatched: string[] = [];
+  for (let i = 0; i < tokens.length; i++) {
+    if (claimed[i]) continue;
+    const tok = tokens[i];
+    if (tok.length === 0) continue;
+    if (STOPWORDS.has(tok)) continue;
+    unmatched.push(tok);
+  }
+
+  const constraints: ConstraintSet = {};
+  if (tags.size > 0) {
+    constraints.use_case_tags = Array.from(tags).sort();
+  }
+  return { constraints, matched_terms: matched, unmatched_terms: unmatched };
+}
+
+export function structuredFormToConstraints(form: StructuredForm): ConstraintSet {
+  const tags = new Set<UseCaseTag>();
+
+  switch (form.project_shape) {
+    case 'single-agent':
+      tags.add('scoped-agentic');
+      break;
+    case 'multi-agent':
+      tags.add('multi-agent-coordination');
+      break;
+    case 'chat':
+      tags.add('memory-augmented-chat');
+      break;
+    case 'pipeline':
+      tags.add('analytical-summarization');
+      break;
+  }
+
+  if (form.persistence === 'long-term') tags.add('long-running-session');
+  if (form.deployment === 'offline') tags.add('offline-capable');
+  if (form.latency_budget_ms != null && form.latency_budget_ms <= 1000) {
+    tags.add('latency-sensitive');
+  }
+
+  const constraints: ConstraintSet = {};
+  if (tags.size > 0) constraints.use_case_tags = Array.from(tags).sort();
+  if (form.cost_ceiling_usd_per_mtok != null) {
+    constraints.cost_max_input_usd_per_mtok = form.cost_ceiling_usd_per_mtok;
+  }
+  if (form.scale === 'large-scale') constraints.capability_band_min = 'frontier';
+  else if (form.scale === 'production') constraints.capability_band_min = 'competent';
+  return constraints;
+}
+
+// =========================================================================
+// recommend_for_project surface adapter (issue #98 — Gate 4)
+// =========================================================================
+
+export type RecommendCategory = 'memory' | 'harness' | 'model';
+
+export interface RecommendForProjectArgs {
+  description?: string;
+  structured?: StructuredForm;
+  max_results?: number;
+  categories?: RecommendCategory[];
+}
+
+export interface RecommendForProjectResult {
+  parsed_constraints: ConstraintSet;
+  matched_terms: string[];
+  unmatched_terms: string[];
+  candidates: Record<RecommendCategory, Candidate[]>;
+}
+
+const ALL_CATEGORIES: readonly RecommendCategory[] = ['memory', 'harness', 'model'];
+
+function categoryOf(record: LandscapeRecord): RecommendCategory | null {
+  const sections = (record.sections ?? []).map((s) => s.section.toLowerCase());
+  if (sections.some((s) => s.includes('foundation model'))) return 'model';
+  if (sections.some((s) => s.includes('memory'))) return 'memory';
+  if (sections.some((s) =>
+    s.includes('harness') ||
+    s.includes('framework') ||
+    s.includes('orchestration') ||
+    s.includes('agent ides') ||
+    s.includes('sandbox') ||
+    s.includes('computer-use') ||
+    s.includes('voice agent')
+  )) return 'harness';
+  return null;
+}
+
+export function recommendForProject(
+  records: LandscapeRecord[],
+  args: RecommendForProjectArgs,
+  options?: RankOptions
+): RecommendForProjectResult {
+  let constraints: ConstraintSet = {};
+  let matched_terms: string[] = [];
+  let unmatched_terms: string[] = [];
+
+  if (args.structured) {
+    constraints = structuredFormToConstraints(args.structured);
+  } else if (args.description) {
+    const parsed = parseFreeTextConstraints(args.description);
+    constraints = parsed.constraints;
+    matched_terms = parsed.matched_terms;
+    unmatched_terms = parsed.unmatched_terms;
+  }
+
+  const k = Math.max(1, args.max_results ?? DEFAULT_K);
+  const cats = args.categories && args.categories.length > 0 ? args.categories : ALL_CATEGORIES;
+
+  const buckets: Record<RecommendCategory, LandscapeRecord[]> = {
+    memory: [],
+    harness: [],
+    model: []
+  };
+  for (const r of records) {
+    const c = categoryOf(r);
+    if (c) buckets[c].push(r);
+  }
+
+  const candidates: Record<RecommendCategory, Candidate[]> = {
+    memory: [],
+    harness: [],
+    model: []
+  };
+  for (const c of cats) {
+    candidates[c] = rankCandidates(buckets[c], constraints, undefined, k, options);
+  }
+
+  return {
+    parsed_constraints: constraints,
+    matched_terms,
+    unmatched_terms,
+    candidates
+  };
+}
+
+// =========================================================================
 // Public API
 // =========================================================================
 

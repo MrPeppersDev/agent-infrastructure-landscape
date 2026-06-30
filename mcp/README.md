@@ -27,7 +27,7 @@ To wire your local clone into Claude Code:
 claude mcp add landscape -- node /absolute/path/to/repo/mcp/dist/server.js
 ```
 
-Restart Claude Code; the 12 tools below are now available.
+Restart Claude Code; the 13 tools below are now available.
 
 To wire your local clone into Claude Desktop, edit your config:
 
@@ -77,7 +77,7 @@ npm version tracks the bundled `data-vX.Y.Z` tag; bump on dataset releases only.
 
 ## Tools
 
-All 12 tools are read-only. Inputs are JSON; outputs are JSON-serialisable.
+All 13 tools are read-only. Inputs are JSON; outputs are JSON-serialisable.
 
 ### `search_records(query, section?, tier?, limit?)`
 
@@ -171,6 +171,19 @@ Phase 2 / Gate 3 (issue #97) — positioning recommender. Returns records whose 
 - `k` — default 5, max 50
 
 Identical contract is exposed by the `landscape recommend between` CLI subcommand and the `/recommend/between` web route.
+
+### `recommend_for_project(description?, structured?, max_results?, categories?)`
+
+Phase 2 / Gate 4 (issue #98) — constraint-matching recommender. Given either a free-text project description OR a structured form, returns ranked candidates split by category (`memory` / `harness` / `model`). Parsing is **deterministic keyword/synonym matching** against the 8-tag controlled vocabulary — not an LLM (spec §4 keeps the recommender auditable and reproducible).
+
+- `description` — free-text project description. Parsed via keyword + synonym matching (e.g. `airgap` → `offline-capable`, `multi agent` → `multi-agent-coordination`). Terms outside the vocabulary surface in `unmatched_terms`.
+- `structured` — alternate path: an object with optional `project_shape` (`single-agent` | `multi-agent` | `chat` | `pipeline`), `scale` (`prototype` | `production` | `large-scale`), `latency_budget_ms`, `persistence` (`none` | `session` | `long-term`), `deployment` (`cloud` | `self-hosted` | `offline`), `cost_ceiling_usd_per_mtok`. When both `description` and `structured` are supplied, `structured` wins.
+- `max_results` — per-category k, default 5, max 50.
+- `categories` — optional subset of `['memory', 'harness', 'model']`. Defaults to all three.
+
+Returns `{parsed_constraints, matched_terms, unmatched_terms, candidates: {memory, harness, model}}`. Each Candidate carries `score`, `rationale`, and `caveats` with the same provenance gate as `between_models` (LLM-unverified cells excluded from scoring and surfaced as caveats per §3.4).
+
+Identical contract is exposed by the `landscape recommend for` CLI subcommand and the `/recommend/by-constraints` web route.
 
 ## Data freshness
 

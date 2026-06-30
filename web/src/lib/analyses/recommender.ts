@@ -379,6 +379,381 @@ function scoreOne(
 // Public API
 // =========================================================================
 
+// =========================================================================
+// Free-text & structured-form parsers (issue #98 — Gate 4)
+// =========================================================================
+//
+// The recommender exposes two parsers so all three surfaces (web / MCP /
+// CLI) translate user input into a `ConstraintSet` identically:
+//
+//   parseFreeTextConstraints("long-running multi-agent + offline")
+//     → { use_case_tags: ['long-running-session', 'multi-agent-coordination', 'offline-capable'] }
+//
+//   structuredFormToConstraints({ deployment: 'offline', persistence: 'long-term' })
+//     → { use_case_tags: ['long-running-session', 'offline-capable'] }
+//
+// The free-text parser is deterministic keyword/phrase matching against
+// a synonym table — explicitly NOT an LLM (PHASE_2_SPEC §4 calls this
+// out as a hard constraint: "keeps the recommender auditable and
+// reproducible"). The synonym table lives next to the parser and grows
+// by PR.
+
+/** Result shape returned by `parseFreeTextConstraints`. */
+export interface ParsedConstraints {
+  constraints: ConstraintSet;
+  /** Phrases the parser identified, in canonical (space-separated) form. */
+  matched_terms: string[];
+  /** Tokens the parser ignored — exposed so users can see what was dropped. */
+  unmatched_terms: string[];
+}
+
+/** Structured-form shape for the `/recommend/by-constraints` UX. */
+export interface StructuredForm {
+  project_shape?: 'single-agent' | 'multi-agent' | 'chat' | 'pipeline';
+  scale?: 'prototype' | 'production' | 'large-scale';
+  /** Anything ≤ 1000ms triggers `latency-sensitive`. */
+  latency_budget_ms?: number;
+  persistence?: 'none' | 'session' | 'long-term';
+  deployment?: 'cloud' | 'self-hosted' | 'offline';
+  cost_ceiling_usd_per_mtok?: number;
+}
+
+/** The 8-tag controlled vocabulary (PHASE_2_SPEC §3.3). */
+export const USE_CASE_TAGS = [
+  'scoped-agentic',
+  'long-running-session',
+  'multi-agent-coordination',
+  'memory-augmented-chat',
+  'code-generation-focused',
+  'analytical-summarization',
+  'latency-sensitive',
+  'offline-capable'
+] as const;
+
+export type UseCaseTag = (typeof USE_CASE_TAGS)[number];
+
+// Synonym table — array of `[phrase, tag]` tuples. Phrases are stored
+// lowercase, space-separated. The matcher normalises input
+// (lowercase + hyphens/underscores → space + non-alphanumeric → space +
+// collapse whitespace) before scanning, so users can write
+// "long-running", "long_running", or "long running" and hit the same
+// synonym.
+//
+// Adding a synonym: append `[phrase, tag]`. Phrases that share a prefix
+// with a longer phrase do NOT need ordering — the matcher pre-sorts
+// longest-first below.
+const SYNONYM_TABLE: ReadonlyArray<[string, UseCaseTag]> = [
+  // Canonical vocab keys (space-form).
+  ['scoped agentic', 'scoped-agentic'],
+  ['long running session', 'long-running-session'],
+  ['multi agent coordination', 'multi-agent-coordination'],
+  ['memory augmented chat', 'memory-augmented-chat'],
+  ['code generation focused', 'code-generation-focused'],
+  ['analytical summarization', 'analytical-summarization'],
+  ['latency sensitive', 'latency-sensitive'],
+  ['offline capable', 'offline-capable'],
+
+  // scoped-agentic
+  ['narrow agent', 'scoped-agentic'],
+  ['scoped agent', 'scoped-agentic'],
+  ['single agent', 'scoped-agentic'],
+
+  // long-running-session
+  ['long running', 'long-running-session'],
+  ['long session', 'long-running-session'],
+  ['long lived', 'long-running-session'],
+  ['persistent session', 'long-running-session'],
+
+  // multi-agent-coordination
+  ['multi agent', 'multi-agent-coordination'],
+  ['multiagent', 'multi-agent-coordination'],
+
+  // memory-augmented-chat
+  ['memory augmented', 'memory-augmented-chat'],
+  ['chat memory', 'memory-augmented-chat'],
+  ['chatbot', 'memory-augmented-chat'],
+
+  // code-generation-focused
+  ['code generation', 'code-generation-focused'],
+  ['code completion', 'code-generation-focused'],
+  ['codegen', 'code-generation-focused'],
+
+  // analytical-summarization
+  ['summarization', 'analytical-summarization'],
+  ['summarisation', 'analytical-summarization'],
+  ['summarizing', 'analytical-summarization'],
+  ['summarising', 'analytical-summarization'],
+
+  // latency-sensitive
+  ['low latency', 'latency-sensitive'],
+  ['real time', 'latency-sensitive'],
+  ['realtime', 'latency-sensitive'],
+  ['fast response', 'latency-sensitive'],
+
+  // offline-capable
+  ['offline', 'offline-capable'],
+  ['airgap', 'offline-capable'],
+  ['airgapped', 'offline-capable'],
+  ['air gap', 'offline-capable'],
+  ['air gapped', 'offline-capable'],
+  ['on prem', 'offline-capable'],
+  ['on premises', 'offline-capable']
+];
+
+// Pre-sorted longest-first so "long running session" wins over
+// "long running" when both could match.
+const SORTED_SYNONYMS: ReadonlyArray<[string, UseCaseTag]> = [...SYNONYM_TABLE].sort((a, b) => {
+  const wa = a[0].split(' ').length;
+  const wb = b[0].split(' ').length;
+  if (wa !== wb) return wb - wa;
+  if (b[0].length !== a[0].length) return b[0].length - a[0].length;
+  return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
+});
+
+// Filler tokens dropped from `unmatched_terms` so users see substantive
+// dropped words (e.g. a vendor name) rather than English connective tissue.
+const STOPWORDS: ReadonlySet<string> = new Set([
+  'a', 'an', 'the', 'and', 'or', 'but',
+  'is', 'are', 'was', 'were', 'be', 'been', 'being',
+  'with', 'without', 'for', 'to', 'of', 'in', 'on', 'at', 'by', 'as', 'from',
+  'that', 'this', 'these', 'those', 'it', 'its',
+  'system', 'systems', 'project', 'projects', 'app', 'apps', 'application', 'applications',
+  'need', 'needs', 'needed', 'needing',
+  'has', 'have', 'having', 'had',
+  'requires', 'require', 'required', 'requiring',
+  'use', 'using', 'used', 'usage',
+  'we', 'i', 'you', 'they', 'our', 'my', 'your', 'their',
+  'one', 'two', 'some', 'any', 'all', 'most', 'many',
+  'can', 'should', 'would', 'could', 'must',
+  'do', 'does', 'did',
+  'capability', 'capabilities', 'support', 'supports', 'supporting', 'supported'
+]);
+
+function normaliseInput(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[-_]/g, ' ')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Parse free-text into a `ConstraintSet`. Deterministic — no LLM, no
+ * network. Same input string ⇒ same parse on every runtime.
+ *
+ * Behaviour:
+ *   • Matches whole-token phrases from `SYNONYM_TABLE` longest-first.
+ *   • Each token belongs to at most one phrase (no overlap).
+ *   • `matched_terms` reports the canonical phrase per match (insertion
+ *     order, which is left-to-right sweep through the synonym table).
+ *   • `unmatched_terms` reports tokens left un-claimed after filtering
+ *     out stopwords.
+ *   • `constraints.use_case_tags` is sorted alphabetically for stable
+ *     downstream serialisation.
+ */
+export function parseFreeTextConstraints(text: string): ParsedConstraints {
+  const normalised = normaliseInput(text);
+  const tokens = normalised.length > 0 ? normalised.split(' ') : [];
+  const claimed: boolean[] = new Array(tokens.length).fill(false);
+  const tags = new Set<UseCaseTag>();
+  const matched: string[] = [];
+
+  for (const [phrase, tag] of SORTED_SYNONYMS) {
+    const phraseTokens = phrase.split(' ');
+    const n = phraseTokens.length;
+    for (let i = 0; i + n <= tokens.length; i++) {
+      let canClaim = true;
+      for (let j = 0; j < n; j++) {
+        if (claimed[i + j]) { canClaim = false; break; }
+      }
+      if (!canClaim) continue;
+      let isMatch = true;
+      for (let j = 0; j < n; j++) {
+        if (tokens[i + j] !== phraseTokens[j]) { isMatch = false; break; }
+      }
+      if (!isMatch) continue;
+      for (let j = 0; j < n; j++) claimed[i + j] = true;
+      tags.add(tag);
+      matched.push(phrase);
+    }
+  }
+
+  const unmatched: string[] = [];
+  for (let i = 0; i < tokens.length; i++) {
+    if (claimed[i]) continue;
+    const tok = tokens[i];
+    if (tok.length === 0) continue;
+    if (STOPWORDS.has(tok)) continue;
+    unmatched.push(tok);
+  }
+
+  const constraints: ConstraintSet = {};
+  if (tags.size > 0) {
+    constraints.use_case_tags = Array.from(tags).sort();
+  }
+  return { constraints, matched_terms: matched, unmatched_terms: unmatched };
+}
+
+/**
+ * Translate a structured-form shape into a `ConstraintSet`. Used by the
+ * web `by-constraints` form and the CLI's `--shape`/`--scale`/... flags.
+ *
+ * Mapping rules (all deterministic, inline-tested by fixtures):
+ *   • project_shape → tag (single-agent → scoped-agentic, ...)
+ *   • persistence='long-term' → long-running-session
+ *   • deployment='offline' → offline-capable
+ *   • latency_budget_ms ≤ 1000 → latency-sensitive
+ *   • scale='large-scale' → capability_band_min='frontier'
+ *   • scale='production' → capability_band_min='competent'
+ *   • cost_ceiling_usd_per_mtok → cost_max_input_usd_per_mtok (pass-through)
+ */
+export function structuredFormToConstraints(form: StructuredForm): ConstraintSet {
+  const tags = new Set<UseCaseTag>();
+
+  switch (form.project_shape) {
+    case 'single-agent':
+      tags.add('scoped-agentic');
+      break;
+    case 'multi-agent':
+      tags.add('multi-agent-coordination');
+      break;
+    case 'chat':
+      tags.add('memory-augmented-chat');
+      break;
+    case 'pipeline':
+      tags.add('analytical-summarization');
+      break;
+  }
+
+  if (form.persistence === 'long-term') tags.add('long-running-session');
+  if (form.deployment === 'offline') tags.add('offline-capable');
+  if (form.latency_budget_ms != null && form.latency_budget_ms <= 1000) {
+    tags.add('latency-sensitive');
+  }
+
+  const constraints: ConstraintSet = {};
+  if (tags.size > 0) constraints.use_case_tags = Array.from(tags).sort();
+  if (form.cost_ceiling_usd_per_mtok != null) {
+    constraints.cost_max_input_usd_per_mtok = form.cost_ceiling_usd_per_mtok;
+  }
+  if (form.scale === 'large-scale') constraints.capability_band_min = 'frontier';
+  else if (form.scale === 'production') constraints.capability_band_min = 'competent';
+  return constraints;
+}
+
+// =========================================================================
+// recommend_for_project surface adapter (issue #98 — Gate 4)
+// =========================================================================
+
+export type RecommendCategory = 'memory' | 'harness' | 'model';
+
+/** Snake-cased wire shape for `recommend_for_project` (MCP + CLI). */
+export interface RecommendForProjectArgs {
+  description?: string;
+  structured?: StructuredForm;
+  /** Default 5. */
+  max_results?: number;
+  /** Default `['memory', 'harness', 'model']`. */
+  categories?: RecommendCategory[];
+}
+
+/** Output shape — `Candidate[]` per category plus the parsed input. */
+export interface RecommendForProjectResult {
+  parsed_constraints: ConstraintSet;
+  matched_terms: string[];
+  unmatched_terms: string[];
+  candidates: Record<RecommendCategory, Candidate[]>;
+}
+
+const ALL_CATEGORIES: readonly RecommendCategory[] = ['memory', 'harness', 'model'];
+
+/**
+ * Classify a record into one of `memory`, `harness`, `model`, or `null`
+ * (which means "don't surface in any category panel"). Heuristic only —
+ * matches against the record's primary section names, in priority order
+ * so a record like "Robotics foundation models & agent stacks" lands
+ * in `model` and not `harness`.
+ */
+function categoryOf(record: LandscapeRecord): RecommendCategory | null {
+  const sections = (record.sections ?? []).map((s) => s.section.toLowerCase());
+  // Model first — "foundation models" beats anything else.
+  if (sections.some((s) => s.includes('foundation model'))) return 'model';
+  // Memory next — explicit "memory" in the section name.
+  if (sections.some((s) => s.includes('memory'))) return 'memory';
+  // Harness last — agent/framework/orchestration/IDE/sandbox.
+  if (sections.some((s) =>
+    s.includes('harness') ||
+    s.includes('framework') ||
+    s.includes('orchestration') ||
+    s.includes('agent ides') ||
+    s.includes('sandbox') ||
+    s.includes('computer-use') ||
+    s.includes('voice agent')
+  )) return 'harness';
+  return null;
+}
+
+/**
+ * Surface adapter for the `/recommend/by-constraints` route, the
+ * `recommend_for_project` MCP tool, and the `landscape recommend for`
+ * CLI subcommand. Translates free-text or a structured form into a
+ * `ConstraintSet`, ranks records inside each requested category, and
+ * returns the parsed input alongside the ranked candidates so callers
+ * can echo the interpretation ("I read your request as …").
+ *
+ * Determinism: identical args ⇒ byte-identical output. The structured
+ * path wins if both `structured` and `description` are present, matching
+ * the spec §4.3 contract.
+ */
+export function recommendForProject(
+  records: LandscapeRecord[],
+  args: RecommendForProjectArgs,
+  options?: RankOptions
+): RecommendForProjectResult {
+  let constraints: ConstraintSet = {};
+  let matched_terms: string[] = [];
+  let unmatched_terms: string[] = [];
+
+  if (args.structured) {
+    constraints = structuredFormToConstraints(args.structured);
+  } else if (args.description) {
+    const parsed = parseFreeTextConstraints(args.description);
+    constraints = parsed.constraints;
+    matched_terms = parsed.matched_terms;
+    unmatched_terms = parsed.unmatched_terms;
+  }
+
+  const k = Math.max(1, args.max_results ?? DEFAULT_K);
+  const cats = args.categories && args.categories.length > 0 ? args.categories : ALL_CATEGORIES;
+
+  const buckets: Record<RecommendCategory, LandscapeRecord[]> = {
+    memory: [],
+    harness: [],
+    model: []
+  };
+  for (const r of records) {
+    const c = categoryOf(r);
+    if (c) buckets[c].push(r);
+  }
+
+  const candidates: Record<RecommendCategory, Candidate[]> = {
+    memory: [],
+    harness: [],
+    model: []
+  };
+  for (const c of cats) {
+    candidates[c] = rankCandidates(buckets[c], constraints, undefined, k, options);
+  }
+
+  return {
+    parsed_constraints: constraints,
+    matched_terms,
+    unmatched_terms,
+    candidates
+  };
+}
+
 /**
  * Snake-cased argument shape for the MCP `between_models` tool and the
  * `landscape recommend between` CLI subcommand (issue #97). Surfaces
