@@ -206,8 +206,23 @@
         — source curated list for graph-memory systems.
       </li>
       <li>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub repo</a>
+        <a
+          href="https://github.com/MrPeppersDev/agent-infrastructure-landscape"
+          target="_blank"
+          rel="noopener noreferrer">GitHub repo</a
+        >
         — issue tracker, build plan, decision log, raw <code>landscape.json</code>.
+      </li>
+      <li>
+        <a
+          href="https://github.com/MrPeppersDev/library-consortium"
+          target="_blank"
+          rel="noopener noreferrer">Library Consortium</a
+        >
+        — sister project: a governed knowledge substrate for AI systems (quality
+        gates, evidence-weight, provenance). LC answers "how do I run a memory
+        substrate"; this catalog answers "what does the broader landscape look
+        like".
       </li>
     </ul>
   </section>
