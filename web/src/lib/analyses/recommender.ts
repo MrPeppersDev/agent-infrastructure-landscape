@@ -380,6 +380,42 @@ function scoreOne(
 // =========================================================================
 
 /**
+ * Snake-cased argument shape for the MCP `between_models` tool and the
+ * `landscape recommend between` CLI subcommand (issue #97). Surfaces
+ * keep one wire shape so determinism tests can serialise a single set
+ * of inputs across web / MCP / CLI.
+ */
+export interface BetweenModelsArgs {
+  anchor_low_id: string;
+  anchor_high_id: string;
+  /** Single tag from the controlled vocabulary. Optional. */
+  use_case?: string;
+  /** Max candidates to return (default 5). */
+  k?: number;
+}
+
+/**
+ * Surface adapter around `rankCandidates`. Resolves anchor ids into an
+ * `AnchorPair`, wraps an optional single `use_case` into a one-element
+ * `ConstraintSet.use_case_tags`, and delegates ranking. Returns the
+ * same `Candidate[]` shape — see `rankCandidates`.
+ */
+export function betweenModels(
+  records: LandscapeRecord[],
+  args: BetweenModelsArgs,
+  options?: RankOptions
+): Candidate[] {
+  const constraints: ConstraintSet = args.use_case
+    ? { use_case_tags: [args.use_case] }
+    : {};
+  const anchors: AnchorPair = {
+    low: args.anchor_low_id,
+    high: args.anchor_high_id
+  };
+  return rankCandidates(records, constraints, anchors, args.k, options);
+}
+
+/**
  * Rank catalog records against a constraint set and/or an anchor pair.
  * See the module docstring for behavioural contract.
  *

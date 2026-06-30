@@ -16,6 +16,7 @@ import type {
 } from './types.js';
 import {
   rankCandidates,
+  betweenModels,
   type AnchorPair,
   type Candidate,
   type ConstraintSet
@@ -507,6 +508,85 @@ function testEmptyAndKCap() {
 // Main
 // =========================================================================
 
+// =========================================================================
+// 9. betweenModels — surface adapter contract (issue #97 / Gate 3)
+// =========================================================================
+// Asserts that the snake_cased argument shape consumed by the MCP tool
+// and the CLI subcommand produces the SAME ranking the underlying
+// rankCandidates would for the equivalent constraint/anchor pair.
+// Because web/MCP/CLI all import this single function (via verbatim
+// mirror), surface-level identity reduces to this adapter test.
+
+function testBetweenModelsAdapter() {
+  banner('9. betweenModels — surface adapter matches rankCandidates 1:1');
+
+  const pool = buildPool();
+
+  // No use-case → adapter passes empty constraints.
+  const viaAdapter = betweenModels(pool, {
+    anchor_low_id: 'delta',
+    anchor_high_id: 'beta',
+    k: 5
+  });
+  const viaCore = rankCandidates(pool, {}, { low: 'delta', high: 'beta' }, 5);
+  assertEqual(
+    JSON.stringify(viaAdapter.map((c) => [c.record.id, c.score])),
+    JSON.stringify(viaCore.map((c) => [c.record.id, c.score])),
+    'adapter without use_case matches rankCandidates with empty constraints'
+  );
+  console.log(`    pass-through (no use_case): ${viaAdapter.length} candidate(s)`);
+
+  // With use-case → adapter wraps it into use_case_tags: [tag].
+  const viaAdapterTag = betweenModels(pool, {
+    anchor_low_id: 'delta',
+    anchor_high_id: 'beta',
+    use_case: 'scoped-agentic',
+    k: 5
+  });
+  const viaCoreTag = rankCandidates(
+    pool,
+    { use_case_tags: ['scoped-agentic'] },
+    { low: 'delta', high: 'beta' },
+    5
+  );
+  assertEqual(
+    JSON.stringify(viaAdapterTag.map((c) => [c.record.id, c.score])),
+    JSON.stringify(viaCoreTag.map((c) => [c.record.id, c.score])),
+    'adapter with use_case matches rankCandidates with use_case_tags: [tag]'
+  );
+  console.log(`    pass-through (use_case): ${viaAdapterTag[0]?.record.id ?? '(empty)'} first`);
+
+  // Default k = 5 (rankCandidates' default propagates).
+  const defaultK = betweenModels(pool, {
+    anchor_low_id: 'delta',
+    anchor_high_id: 'beta'
+  });
+  if (defaultK.length > 5) {
+    throw new Error(`betweenModels default k should cap at 5, got ${defaultK.length}`);
+  }
+  console.log(`    default-k cap honoured (≤5)`);
+
+  // Determinism via the adapter — two calls byte-identical.
+  const a = JSON.stringify(
+    betweenModels(pool, {
+      anchor_low_id: 'delta',
+      anchor_high_id: 'beta',
+      use_case: 'scoped-agentic',
+      k: 5
+    }).map(({ record, ...rest }) => ({ id: record.id, ...rest }))
+  );
+  const b = JSON.stringify(
+    betweenModels(pool, {
+      anchor_low_id: 'delta',
+      anchor_high_id: 'beta',
+      use_case: 'scoped-agentic',
+      k: 5
+    }).map(({ record, ...rest }) => ({ id: record.id, ...rest }))
+  );
+  assertEqual(a, b, 'two betweenModels calls must be byte-identical');
+  console.log('    adapter is deterministic across runs');
+}
+
 function main() {
   testAnchorMode();
   testConstraintMode();
@@ -516,6 +596,7 @@ function main() {
   testDeterminism();
   testAnchorPlusConstraints();
   testEmptyAndKCap();
+  testBetweenModelsAdapter();
 
   banner('All recommender tests PASSED.');
 }

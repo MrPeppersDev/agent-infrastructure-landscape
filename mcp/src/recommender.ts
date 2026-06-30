@@ -320,6 +320,28 @@ function scoreOne(
 // Public API
 // =========================================================================
 
+export interface BetweenModelsArgs {
+  anchor_low_id: string;
+  anchor_high_id: string;
+  use_case?: string;
+  k?: number;
+}
+
+export function betweenModels(
+  records: LandscapeRecord[],
+  args: BetweenModelsArgs,
+  options?: RankOptions
+): Candidate[] {
+  const constraints: ConstraintSet = args.use_case
+    ? { use_case_tags: [args.use_case] }
+    : {};
+  const anchors: AnchorPair = {
+    low: args.anchor_low_id,
+    high: args.anchor_high_id
+  };
+  return rankCandidates(records, constraints, anchors, args.k, options);
+}
+
 export function rankCandidates(
   records: LandscapeRecord[],
   constraints: ConstraintSet,
