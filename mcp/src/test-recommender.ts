@@ -17,9 +17,13 @@ import type {
 import {
   rankCandidates,
   betweenModels,
+  parseFreeTextConstraints,
+  structuredFormToConstraints,
+  recommendForProject,
   type AnchorPair,
   type Candidate,
-  type ConstraintSet
+  type ConstraintSet,
+  type StructuredForm
 } from './recommender.js';
 
 // =========================================================================
@@ -587,6 +591,263 @@ function testBetweenModelsAdapter() {
   console.log('    adapter is deterministic across runs');
 }
 
+// =========================================================================
+// 10. parseFreeTextConstraints — free-text → ConstraintSet (issue #98 / Gate 4)
+// =========================================================================
+// Spec §4.3 acceptance: the canonical example
+// "long-running multi-agent system that needs offline capability" must yield
+// the exact three-tag set, sorted. Synonym entries ('airgap' → offline-capable)
+// must apply. Terms outside the controlled vocabulary must surface as
+// unmatched_terms so the user can see what the parser ignored.
+
+function testParseFreeText() {
+  banner('10. parseFreeTextConstraints — free-text → ConstraintSet');
+
+  // Canonical spec example.
+  const canonical = parseFreeTextConstraints(
+    'long-running multi-agent system that needs offline capability'
+  );
+  console.log(`    canonical tags: ${JSON.stringify(canonical.constraints.use_case_tags)}`);
+  console.log(`    canonical matched: ${JSON.stringify(canonical.matched_terms)}`);
+  assertEqual(
+    JSON.stringify(canonical.constraints.use_case_tags),
+    JSON.stringify(['long-running-session', 'multi-agent-coordination', 'offline-capable']),
+    'canonical free-text yields the spec three-tag set'
+  );
+
+  // Synonym fixture — 'airgap' is in the synonym table.
+  const synonym = parseFreeTextConstraints('airgap deployment with code generation');
+  console.log(`    synonym tags: ${JSON.stringify(synonym.constraints.use_case_tags)}`);
+  assertEqual(
+    JSON.stringify(synonym.constraints.use_case_tags),
+    JSON.stringify(['code-generation-focused', 'offline-capable']),
+    'airgap → offline-capable; code generation → code-generation-focused'
+  );
+
+  // Unmatched-terms fixture — vendor names are not in the vocabulary.
+  const vendor = parseFreeTextConstraints(
+    'anthropic claude project with airgap and code generation'
+  );
+  console.log(`    vendor matched:   ${JSON.stringify(vendor.matched_terms)}`);
+  console.log(`    vendor unmatched: ${JSON.stringify(vendor.unmatched_terms)}`);
+  assert(
+    vendor.unmatched_terms.includes('anthropic'),
+    'vendor names outside the vocabulary surface in unmatched_terms'
+  );
+  assert(
+    vendor.unmatched_terms.includes('claude'),
+    'vendor names outside the vocabulary surface in unmatched_terms'
+  );
+  assert(
+    (vendor.constraints.use_case_tags ?? []).includes('offline-capable'),
+    'matched synonym still applies alongside unmatched vendor terms'
+  );
+
+  // Empty input → empty constraints, no terms.
+  const empty = parseFreeTextConstraints('');
+  assertEqual(
+    JSON.stringify(empty.constraints),
+    JSON.stringify({}),
+    'empty input → empty ConstraintSet'
+  );
+  assertEqual(empty.matched_terms.length, 0, 'empty input → no matched terms');
+  assertEqual(empty.unmatched_terms.length, 0, 'empty input → no unmatched terms');
+}
+
+// =========================================================================
+// 11. structuredFormToConstraints — every field of the structured form
+// =========================================================================
+// Per spec §4.3: project_shape, persistence, deployment, latency, scale, and
+// cost_ceiling each translate to ConstraintSet keys. Verified field by field.
+
+function testStructuredForm() {
+  banner('11. structuredFormToConstraints — each field translates correctly');
+
+  // project_shape → use_case_tag
+  const shapes: Array<[StructuredForm['project_shape'], string]> = [
+    ['single-agent', 'scoped-agentic'],
+    ['multi-agent', 'multi-agent-coordination'],
+    ['chat', 'memory-augmented-chat'],
+    ['pipeline', 'analytical-summarization']
+  ];
+  for (const [shape, expectedTag] of shapes) {
+    const out = structuredFormToConstraints({ project_shape: shape });
+    assertEqual(
+      JSON.stringify(out.use_case_tags),
+      JSON.stringify([expectedTag]),
+      `project_shape=${shape} → use_case_tags=[${expectedTag}]`
+    );
+  }
+
+  // persistence=long-term → long-running-session
+  const persist = structuredFormToConstraints({ persistence: 'long-term' });
+  assertEqual(
+    JSON.stringify(persist.use_case_tags),
+    JSON.stringify(['long-running-session']),
+    'persistence=long-term → long-running-session'
+  );
+
+  // deployment=offline → offline-capable
+  const deploy = structuredFormToConstraints({ deployment: 'offline' });
+  assertEqual(
+    JSON.stringify(deploy.use_case_tags),
+    JSON.stringify(['offline-capable']),
+    'deployment=offline → offline-capable'
+  );
+
+  // latency_budget_ms ≤ 1000 → latency-sensitive
+  const lat = structuredFormToConstraints({ latency_budget_ms: 800 });
+  assertEqual(
+    JSON.stringify(lat.use_case_tags),
+    JSON.stringify(['latency-sensitive']),
+    'latency_budget_ms=800 → latency-sensitive'
+  );
+  // Above the 1000ms threshold → no tag.
+  const latNo = structuredFormToConstraints({ latency_budget_ms: 5000 });
+  assertEqual(
+    latNo.use_case_tags,
+    undefined,
+    'latency_budget_ms=5000 → no latency-sensitive tag'
+  );
+
+  // scale=large-scale → capability_band_min=frontier
+  const scaleLarge = structuredFormToConstraints({ scale: 'large-scale' });
+  assertEqual(
+    scaleLarge.capability_band_min,
+    'frontier',
+    'scale=large-scale → capability_band_min=frontier'
+  );
+  // scale=production → capability_band_min=competent
+  const scaleProd = structuredFormToConstraints({ scale: 'production' });
+  assertEqual(
+    scaleProd.capability_band_min,
+    'competent',
+    'scale=production → capability_band_min=competent'
+  );
+
+  // cost_ceiling pass-through
+  const cost = structuredFormToConstraints({ cost_ceiling_usd_per_mtok: 2.5 });
+  assertEqual(
+    cost.cost_max_input_usd_per_mtok,
+    2.5,
+    'cost_ceiling_usd_per_mtok=2.5 → cost_max_input_usd_per_mtok=2.5'
+  );
+
+  // Canonical example — three signals combine to the spec tag set.
+  const full = structuredFormToConstraints({
+    project_shape: 'multi-agent',
+    persistence: 'long-term',
+    deployment: 'offline'
+  });
+  assertEqual(
+    JSON.stringify(full.use_case_tags),
+    JSON.stringify(['long-running-session', 'multi-agent-coordination', 'offline-capable']),
+    'structured form mirrors the canonical free-text three-tag set'
+  );
+}
+
+// =========================================================================
+// 12. recommendForProject — deterministic, category-bucketed output
+// =========================================================================
+// Two calls with the same args must yield byte-identical results. Also asserts
+// that categoryOf bucketing routes records by primary section name and that a
+// structured form takes precedence over a free-text description when both are
+// supplied (spec §4.3).
+
+function testRecommendForProjectDeterminism() {
+  banner('12. recommendForProject — determinism + category bucketing');
+
+  // Three records, one per category, classified by primary section name.
+  const records: LandscapeRecord[] = [
+    {
+      ...makeRecord({
+        id: 'mem-row',
+        capScore: '80',
+        capBand: 'frontier',
+        tags: 'multi-agent-coordination',
+        costUsd: '0.5',
+        costTier: 'budget'
+      }),
+      sections: [
+        { section: 'Memory layer', subsection: null, primary: true, reason: null }
+      ]
+    },
+    {
+      ...makeRecord({
+        id: 'harness-row',
+        capScore: '70',
+        capBand: 'competent',
+        tags: 'multi-agent-coordination',
+        costUsd: '0.3',
+        costTier: 'budget'
+      }),
+      sections: [
+        { section: 'Agent harness', subsection: null, primary: true, reason: null }
+      ]
+    },
+    {
+      ...makeRecord({
+        id: 'model-row',
+        capScore: '90',
+        capBand: 'frontier',
+        tags: 'multi-agent-coordination',
+        costUsd: '0.4',
+        costTier: 'budget'
+      }),
+      sections: [
+        { section: 'Foundation models', subsection: null, primary: true, reason: null }
+      ]
+    }
+  ];
+
+  const args = {
+    description: 'long-running multi-agent system that needs offline capability'
+  };
+  const a = recommendForProject(records, args);
+  const b = recommendForProject(records, args);
+
+  const serialize = (r: typeof a) =>
+    JSON.stringify({
+      parsed_constraints: r.parsed_constraints,
+      matched_terms: r.matched_terms,
+      unmatched_terms: r.unmatched_terms,
+      candidates: {
+        memory: r.candidates.memory.map(({ record, ...rest }) => ({ id: record.id, ...rest })),
+        harness: r.candidates.harness.map(({ record, ...rest }) => ({ id: record.id, ...rest })),
+        model: r.candidates.model.map(({ record, ...rest }) => ({ id: record.id, ...rest }))
+      }
+    });
+  assertEqual(serialize(a), serialize(b), 'two recommendForProject calls must be byte-identical');
+
+  // Bucketing — each row lands in its category.
+  console.log(`    memory:  ${a.candidates.memory.map((c) => c.record.id).join(', ') || '(none)'}`);
+  console.log(`    harness: ${a.candidates.harness.map((c) => c.record.id).join(', ') || '(none)'}`);
+  console.log(`    model:   ${a.candidates.model.map((c) => c.record.id).join(', ') || '(none)'}`);
+  assertEqual(a.candidates.memory[0]?.record.id, 'mem-row', 'memory bucket holds the memory row');
+  assertEqual(a.candidates.harness[0]?.record.id, 'harness-row', 'harness bucket holds the harness row');
+  assertEqual(a.candidates.model[0]?.record.id, 'model-row', 'model bucket holds the model row');
+
+  // Structured wins when both supplied — should yield the same canonical tag set.
+  const both = recommendForProject(records, {
+    description: 'this text would parse to memory-augmented-chat only',
+    structured: {
+      project_shape: 'multi-agent',
+      persistence: 'long-term',
+      deployment: 'offline'
+    } as StructuredForm
+  });
+  assertEqual(
+    JSON.stringify(both.parsed_constraints.use_case_tags),
+    JSON.stringify(['long-running-session', 'multi-agent-coordination', 'offline-capable']),
+    'structured form overrides description when both supplied'
+  );
+  assertEqual(
+    both.matched_terms.length,
+    0,
+    'structured-form path emits no matched_terms (free-text was bypassed)'
+  );
+}
+
 function main() {
   testAnchorMode();
   testConstraintMode();
@@ -597,6 +858,9 @@ function main() {
   testAnchorPlusConstraints();
   testEmptyAndKCap();
   testBetweenModelsAdapter();
+  testParseFreeText();
+  testStructuredForm();
+  testRecommendForProjectDeterminism();
 
   banner('All recommender tests PASSED.');
 }

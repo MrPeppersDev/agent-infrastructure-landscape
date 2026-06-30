@@ -22,7 +22,11 @@ import type {
   LandscapeRecord
 } from '../../mcp/dist/tools.js';
 import type { CitationFit } from '../../mcp/dist/citation-prediction.js';
-import type { Candidate } from '../../mcp/dist/recommender.js';
+import type {
+  Candidate,
+  RecommendForProjectResult,
+  RecommendCategory
+} from '../../mcp/dist/recommender.js';
 
 export interface FormatOptions {
   json: boolean;
@@ -894,4 +898,95 @@ export function formatBetween(
     if (i < candidates.length - 1) lines.push('');
   }
   return lines.join('\n');
+}
+
+// ===========================================================================
+// recommend for — Phase 2 / Gate 4 (issue #98)
+// ===========================================================================
+
+export function formatRecommendation(
+  result: RecommendForProjectResult,
+  opts: FormatOptions
+): string {
+  if (opts.json) return toJson(result);
+  if (opts.csv) {
+    const rows: Array<Array<unknown>> = [];
+    const cats: RecommendCategory[] = ['memory', 'harness', 'model'];
+    for (const cat of cats) {
+      const list = result.candidates[cat];
+      list.forEach((cand, i) => {
+        rows.push([
+          cat,
+          i + 1,
+          cand.record.id,
+          cand.record.name,
+          cand.record.tier,
+          cand.score.toFixed(4),
+          cand.rationale.join(' | '),
+          cand.caveats.join(' | ')
+        ]);
+      });
+    }
+    return toCsv(
+      ['category', 'rank', 'id', 'name', 'tier', 'score', 'rationale', 'caveats'],
+      rows
+    );
+  }
+
+  const c = makeColors(resolveColor(opts));
+  const lines: string[] = [];
+
+  const tags = result.parsed_constraints.use_case_tags ?? [];
+  const parsedSummary: string[] = [];
+  if (tags.length > 0) parsedSummary.push(`use-case-tags: ${tags.join(', ')}`);
+  if (result.parsed_constraints.cost_max_input_usd_per_mtok != null) {
+    parsedSummary.push(`cost ≤ $${result.parsed_constraints.cost_max_input_usd_per_mtok}/Mtok`);
+  }
+  if (result.parsed_constraints.capability_band_min) {
+    parsedSummary.push(`capability ≥ ${result.parsed_constraints.capability_band_min}`);
+  }
+  lines.push(
+    c.bold('Parsed as: ') +
+      (parsedSummary.length > 0 ? parsedSummary.join('; ') : c.dim('(no constraints matched)'))
+  );
+  if (result.matched_terms.length > 0) {
+    lines.push(c.dim('  matched terms:   ') + result.matched_terms.join(', '));
+  }
+  if (result.unmatched_terms.length > 0) {
+    lines.push(
+      c.dim('  unmatched terms: ') + c.yellow(result.unmatched_terms.join(', '))
+    );
+  }
+  lines.push('');
+
+  const labels: Record<RecommendCategory, string> = {
+    memory: 'Memory',
+    harness: 'Harness',
+    model: 'Model'
+  };
+  const cats: RecommendCategory[] = ['memory', 'harness', 'model'];
+  for (const cat of cats) {
+    const list = result.candidates[cat];
+    lines.push(c.bold(labels[cat]) + c.dim(` (${list.length} candidate${list.length === 1 ? '' : 's'})`));
+    if (list.length === 0) {
+      lines.push(c.dim('  (none)'));
+      lines.push('');
+      continue;
+    }
+    for (let i = 0; i < list.length; i++) {
+      const cand = list[i]!;
+      lines.push(
+        `  ${i + 1}. ${c.bold(cand.record.name)}` +
+          c.dim(`  [T${cand.record.tier}] · score ${cand.score.toFixed(3)}`)
+      );
+      lines.push(c.dim('     id: ') + cand.record.id);
+      for (const r of cand.rationale) lines.push(c.green('     ✓ ') + r);
+      for (const cv of cand.caveats) {
+        const tag = /LLM-unverified/i.test(cv) ? c.yellow('[LLM-unverified] ') : '';
+        lines.push(c.yellow('     ! ') + tag + cv);
+      }
+    }
+    lines.push('');
+  }
+  return lines.join('\n').trimEnd();
 }

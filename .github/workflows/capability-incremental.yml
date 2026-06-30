@@ -1,0 +1,58 @@
+# Capability-incremental cron (Phase 2 / Gate 6 — issue #100).
+#
+# Once a day, walk every catalog row and flag those whose
+# capability-benchmark-sources cell changed in the past 24h. For each
+# affected row, open a draft "review pin" PR so the maintainer can
+# decide whether the score (capability-composite-score) needs updating.
+#
+# Daily runs move signal, not state — this workflow never writes the
+# numeric score itself; live benchmark re-scoring is Gate 8's job. The
+# PR is an empty commit that carries the diff metadata in its body.
+#
+# Operational properties:
+#   - Schedule: 14:00 UTC daily (staggered after recommendation-drift at 13:00).
+#   - Manual trigger: workflow_dispatch is enabled.
+#   - Permissions: contents:write (branch + push), pull-requests:write.
+#   - Auth: GITHUB_TOKEN.
+#   - Cap: --max-emit 20 PRs per run, same soft fuse as staleness.
+
+name: Capability incremental
+
+on:
+  schedule:
+    # Daily 14:00 UTC.
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: capability-incremental
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history is needed for the git-log fallback that detects
+          # rows touched by a recent commit even when per-cell timestamps
+          # are missing.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run capability-incremental cron
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python scripts/cron_capability_incremental.py --max-emit 20

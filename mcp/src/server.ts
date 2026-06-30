@@ -32,7 +32,8 @@ import {
   topBreakouts,
   findFitById
 } from './citation-prediction.js';
-import { betweenModels } from './recommender.js';
+import { betweenModels, recommendForProject } from './recommender.js';
+import type { RecommendCategory, StructuredForm } from './recommender.js';
 import type { EdgeType } from './types.js';
 
 const USE_CASE_TAGS = [
@@ -474,6 +475,65 @@ async function main() {
     async (args) => {
       const records = loadRecords();
       return jsonResult(betweenModels(records, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 14. recommend_for_project
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'recommend_for_project',
+    {
+      title: 'Recommend records by free-text or structured-form constraints',
+      description:
+        'Given a free-text project description OR a structured form, returns ranked candidates ' +
+        'split by category (memory / harness / model). Parsing is deterministic keyword/synonym ' +
+        'matching against the 8-tag controlled vocabulary — NOT an LLM (Phase 2 §4). The response ' +
+        'includes `parsed_constraints` plus `matched_terms` / `unmatched_terms` so clients can echo ' +
+        '"I interpreted your request as …" before reporting results. If both `description` and ' +
+        '`structured` are passed, `structured` wins (spec §4.3). LLM-unverified cells are excluded ' +
+        'from scoring and surfaced as caveats per §3.4.',
+      inputSchema: {
+        description: z
+          .string()
+          .optional()
+          .describe('Free-text project description. Parsed via keyword/synonym matching.'),
+        structured: z
+          .object({
+            project_shape: z
+              .enum(['single-agent', 'multi-agent', 'chat', 'pipeline'])
+              .optional(),
+            scale: z.enum(['prototype', 'production', 'large-scale']).optional(),
+            latency_budget_ms: z.number().optional(),
+            persistence: z.enum(['none', 'session', 'long-term']).optional(),
+            deployment: z.enum(['cloud', 'self-hosted', 'offline']).optional(),
+            cost_ceiling_usd_per_mtok: z.number().optional()
+          })
+          .optional()
+          .describe('Structured form. If present, overrides `description`.'),
+        max_results: z
+          .number()
+          .int()
+          .min(1)
+          .max(50)
+          .optional()
+          .describe('Max candidates per category (default 5, max 50).'),
+        categories: z
+          .array(z.enum(['memory', 'harness', 'model']))
+          .optional()
+          .describe('Categories to return. Default all three.')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      return jsonResult(
+        recommendForProject(records, {
+          description: args.description,
+          structured: args.structured as StructuredForm | undefined,
+          max_results: args.max_results,
+          categories: args.categories as RecommendCategory[] | undefined
+        })
+      );
     }
   );
 

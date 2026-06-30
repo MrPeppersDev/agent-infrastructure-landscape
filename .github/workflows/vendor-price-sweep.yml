@@ -1,0 +1,66 @@
+# Vendor price-sweep cron (Phase 2 / Gate 6 — issue #100).
+#
+# Once a day, scrape vendor pricing pages for every hosted-service row
+# (rows whose cost-pricing-model is per-token, per-request, or
+# subscription). Diff against the stored cost-input-usd-per-mtok /
+# cost-output-usd-per-mtok cells. Open one auto-PR per change. If the
+# change crosses a cost_tier boundary, also open an issue labelled
+# cost-tier-crossed.
+#
+# Daily runs move signal, not state — the PR is the gate. data/landscape.json
+# is never written by this workflow; the maintainer applies the diff
+# manually after reviewing the proposed _provenance.
+#
+# Operational properties:
+#   - Schedule: 16:00 UTC daily (after catalog-pulse at 15:00).
+#   - Manual trigger: workflow_dispatch is enabled.
+#   - Permissions: contents:write (branch + push), pull-requests:write,
+#     issues:write.
+#   - Auth: GITHUB_TOKEN.
+#   - Cap: --max-emit 20 rows per run.
+
+name: Vendor price sweep
+
+on:
+  schedule:
+    # Daily 16:00 UTC.
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: vendor-price-sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Ensure cost-tier-crossed label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create cost-tier-crossed \
+            --description "Vendor price sweep detected a change that crosses a cost-tier boundary." \
+            --color D93F0B \
+            --force || true
+
+      - name: Run vendor-price-sweep cron
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python scripts/cron_vendor_price_sweep.py --max-emit 20

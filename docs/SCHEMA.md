@@ -1524,3 +1524,136 @@ file claiming to conform to the schema.
 - **Edge weighting.** Some edge types (e.g. `cites`) have a natural
   weight (Semantic Scholar similarity score). v1 stores `isInfluential`
   only; numeric weights are deferred.
+
+---
+
+## 9. `docs/canonical-questions.yml` — canonical question schema
+
+Added in Phase 2 / Gate 5 (issue #99). The file powers the
+`recommendation-drift.yml` daily cron (Gate 6), which replays each question
+against the Phase 2 recommender surfaces to detect ranking movement.
+
+### 9.1 Top-level structure
+
+A YAML sequence. Each element is a **question entry**. Order is not
+significant; the drift cron replays all entries unconditionally.
+
+### 9.2 Per-entry fields
+
+| Field        | Type                    | Required | Notes |
+|--------------|-------------------------|----------|-------|
+| `id`         | string (kebab-case)     | yes      | Stable slug. Never reuse a retired id. |
+| `text`       | string                  | yes      | The original question text, verbatim or lightly cleaned. |
+| `category`   | enum (see §9.3)         | yes      | Bucketing for diversity enforcement. |
+| `surface`    | `between` \| `by-constraints` | yes | Which Phase 2 recommender surface answers it. |
+| `inputs`     | object (see §9.4)       | yes      | Replayable inputs for the named surface. |
+| `source`     | object (see §9.5)       | yes      | Where the question was captured. |
+| `notes`      | string (multi-line)     | no       | Context about why it's interesting. |
+
+### 9.3 `category` enum
+
+| Value            | When to use |
+|------------------|-------------|
+| `positioning`    | "What sits between X and Y on some axis?" → `between` surface. |
+| `fit-for-purpose`| "What should I use for project Z?" → `by-constraints` surface. |
+| `cost-tradeoff`  | Cheapest / best-value option meeting a stated bar → either surface. |
+| `capability-floor` | Minimum tier that meets a capability bar → either surface. |
+| `comparison`     | Direct X-vs-Y questions — not a current Phase 2 surface; captured for future gate. |
+
+Diversity rule: **no single category may exceed 40% of total entries**.
+Memory / harness / observability / orchestration questions must account for
+**≥ 20% of entries** (model-only questions are not sufficient).
+
+### 9.4 `inputs` object
+
+Shape depends on `surface`:
+
+**`between` surface** — fields match `between_models()` parameters:
+
+```yaml
+inputs:
+  anchor_low_id: <catalog id>   # must exist in data/landscape.json
+  anchor_high_id: <catalog id>  # must exist in data/landscape.json
+  use_case: <tag>               # must be in the §9.6 controlled vocabulary
+```
+
+**`by-constraints` surface** — either free text or structured form (or both):
+
+```yaml
+inputs:
+  description: "free-text project description"
+  # OR structured:
+  structured:
+    project_shape: single-agent | multi-agent | chat | pipeline
+    scale: prototype | production | large-scale
+    latency_budget_ms: <integer or null>
+    persistence: none | session | long-term
+    deployment: cloud | self-hosted | offline
+    cost_ceiling_usd_per_mtok: <number or null>
+```
+
+When both `description` and `structured` are present, the structured form
+takes precedence for the ranking function; `description` is kept as
+human-readable context.
+
+### 9.5 `source` object
+
+```yaml
+source:
+  channel: hn | reddit | stackoverflow | discord | blog | discussions | twitter
+  url: <https://...> or "private-channel"   # "private-channel" for Discord / closed channels
+  captured_at: YYYY-MM-DD
+```
+
+### 9.6 `use_case` controlled vocabulary
+
+From Phase 2 §3.3 (column family C). These are the only valid values for
+`inputs.use_case` in `between` surface entries:
+
+| Tag | Meaning |
+|-----|---------|
+| `scoped-agentic` | Well-defined task, short horizon, single-tool sequences. |
+| `long-running-session` | Multi-turn, persistent state, hours-to-days lifespan. |
+| `multi-agent-coordination` | Shared context across agents, orchestration-heavy. |
+| `memory-augmented-chat` | Single-user conversational, retrieval-focused. |
+| `code-generation-focused` | IDE / code-task primary use. |
+| `analytical-summarization` | Long-context, factual extraction. |
+| `latency-sensitive` | Sub-second response requirements. |
+| `offline-capable` | Air-gapped or local-first deployment. |
+
+### 9.7 Validation
+
+Run before every PR that modifies `canonical-questions.yml`:
+
+```bash
+python3 -c "
+import yaml, json, sys
+records = {r['id'] for r in json.load(open('data/landscape.json'))['records']}
+qs = yaml.safe_load(open('docs/canonical-questions.yml'))
+bad = []
+for q in qs:
+    inp = q.get('inputs', {})
+    for k in ('anchor_low_id', 'anchor_high_id'):
+        if k in inp and inp[k] not in records:
+            bad.append((q['id'], k, inp[k]))
+if bad:
+    print('BROKEN IDS:'); [print(' ', *b) for b in bad]; sys.exit(1)
+print(f'OK: {len(qs)} questions, all IDs valid')
+"
+```
+
+Valid use_case tags and structured-form enum values must also be checked;
+see the Gate 5 issue (#99) for the full validation snippet.
+
+### 9.8 Curation rules
+
+- **Real questions only.** Every entry must come from an identifiable source
+  (a URL or `"private-channel"` with a known community). Synthetic or
+  marketing-copy questions are rejected.
+- **Specific enough to evaluate.** "What's the best model?" fails; "best
+  model under $5/Mtok for code review" passes.
+- **Diversity enforcement.** See §9.3 for the category caps. Maintainer
+  reviews category distribution on every PR that adds > 5 entries.
+- **PRs to add questions are accepted from anyone** — community submissions
+  follow the same schema and quality bar. Use the intake form or open a PR
+  directly.

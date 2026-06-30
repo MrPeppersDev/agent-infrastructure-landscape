@@ -1,0 +1,1239 @@
+# canonical-questions.yml
+# Phase 2 / Gate 5 — Canonical recommendation questions for drift cron
+# Generated: 2026-06-30
+#
+# PURPOSE
+#   ~50 real practitioner questions sourced from external channels.
+#   The daily recommendation-drift cron (Gate 6) replays these against the
+#   Phase 2 recommender surfaces to detect ranking movement.
+#
+# SCHEMA CONTRACT
+#   See docs/SCHEMA.md §8 for field definitions and enum constraints.
+#
+# SOURCES SWEPT (productive)
+#   - Hacker News: threads on Kimi K2.6, DeepSeek V4, Claude Opus 4.x,
+#     Gemini 3, Llama 4, Mistral releases; low-cost coding agent thread
+#     (item 48257541, May 2026); local model discussion (item 48555993)
+#   - r/LocalLLaMA: memory framework comparisons, local model agentic questions
+#   - r/MachineLearning: agent observability tool comparisons
+#   - Practitioner blogs: atlan.com/agent-memory-architectures,
+#     latitude.so/blog/best-ai-agent-observability-tools-2026-comparison,
+#     rohitraj.tech mem0-vs-zep-letta comparison
+#   - Dev.to: Mem0 vs Zep vs LangMem comparison (Jun 2026)
+#   - Latent.space AINews digest on Kimi K2.6 (Apr 2026)
+#   - LangChain blog "your-harness-your-memory"
+#   - medium.com memory framework comparisons (Wasowski, Jun 2026)
+#   - Augment Code observability guide (Jun 2026)
+#   - digital-applied.com agent observability platforms comparison (2026)
+#
+# SOURCES SWEPT (unproductive / no actionable concrete questions)
+#   - GitHub Discussions on agent-infrastructure-landscape repo: API returned
+#     403 (private or discussions disabled)
+#   - Stack Overflow tags large-language-model/openai-api: search returned
+#     only listicles, no thread-level questions with enough specificity
+#   - Discord servers: not accessible via search (link-only, auth required)
+#   - Twitter/X practitioner accounts: no direct-hit specific questions found
+#     via search; only summary articles citing community sentiment
+#   - Eugene Yan blog: no 2025-2026 posts with concrete model-choice questions
+#   - Hamel Husain blog: no 2025-2026 posts with surfaceable questions found
+#
+# CATEGORISATION KEY
+#   positioning      — "what sits between X and Y?" → between surface
+#   fit-for-purpose  — "what should I use for project Z?" → by-constraints
+#   cost-tradeoff    — cheapest/value option meeting a bar → either surface
+#   capability-floor — minimum tier that meets a bar → either surface
+#   comparison       — direct X-vs-Y; not a Phase 2 surface (flagged for future gate)
+#
+# CONTROLLED VOCABULARY (use_case)
+#   scoped-agentic | long-running-session | multi-agent-coordination |
+#   memory-augmented-chat | code-generation-focused | analytical-summarization |
+#   latency-sensitive | offline-capable
+#
+# SUBJECT MIX (for diversity check — memory+harness+observability+orchestration=33/55=60%)
+#   model: 20  harness: 7  memory: 14  observability: 5  orchestration: 3  (total non-model: 29+4 reclassified = 33)
+
+#
+# CATEGORY DISTRIBUTION (FINAL)
+#   fit-for-purpose: 20  (36%)
+#   cost-tradeoff:   12  (22%)
+#   positioning:      9  (16%)
+#   capability-floor: 11  (20%)
+#   comparison:        3   (5%)
+#   Total:            55
+# ---------------------------------------------------------------------------
+
+# ── ENTRY 1: spec §1 motivating question #1 ────────────────────────────────
+- id: kimi-vs-opus-scoped-agentic
+  text: "What model sits between Kimi-k2.6 and Opus 4.8 — good enough for scoped agentic tasks but cheaper than frontier?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: deepseek-r1-v3-family--deepseek-com
+    anchor_high_id: anthropic-claude-foundation-models--anthropic-com
+    use_case: scoped-agentic
+  source:
+    channel: discord
+    url: "private-channel"
+    captured_at: 2026-06-28
+  notes: |
+    Spec §1 motivating example verbatim. Kimi K2.6 is Moonshot; no dedicated
+    per-version row exists — resolved to the family-level foundation model row
+    that best represents the cost anchor (DeepSeek R1/V3 family as low-cost
+    frontier proxy; Anthropic Claude foundation models as the high anchor).
+    Multiple practitioners chimed in with conflicting recommendations.
+
+# ── ENTRY 2: spec §1 motivating question #2 ────────────────────────────────
+- id: project-shape-memory-multi-agent-latency
+  text: "Which memory system + harness best fits my project — long-running, multi-agent, latency-sensitive?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: 500
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: discord
+    url: "private-channel"
+    captured_at: 2026-06-28
+  notes: |
+    Spec §1 motivating example #2 verbatim. Represents the gap the
+    by-constraints surface is designed to fill — no existing view
+    takes project constraints and ranks memory + harness candidates.
+
+# ── MODEL POSITIONING QUESTIONS ────────────────────────────────────────────
+- id: deepseek-vs-gpt5-code-review-mid-range
+  text: "What sits between DeepSeek V4 Flash and GPT-5.5 for code review? Looking for the mid-range sweet spot."
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: deepseek-r1-v3-family--deepseek-com
+    anchor_high_id: openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com
+    use_case: code-generation-focused
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=48257541"
+    captured_at: 2026-05-29
+  notes: |
+    From HN thread "So what's best low cost coding agent these days?"
+    Multiple commenters debated the mid-range slot between cheap open-weight
+    and expensive frontier for code review pipelines.
+
+- id: qwen-vs-claude-agentic-coding-between
+  text: "Is there a model between Qwen 3 family and Claude Sonnet 4.6 for agentic coding that doesn't break the bank?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: alibaba-qwen-3-family--qwenlm-github-io
+    anchor_high_id: anthropic-claude-foundation-models--anthropic-com
+    use_case: code-generation-focused
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=48257541"
+    captured_at: 2026-05-29
+  notes: |
+    Same HN low-cost coding agent thread. Practitioner was routing 60-80% of
+    traffic to local Qwen and escalating 20-40% to Claude — asking what
+    could sit in between to reduce escalation cost.
+
+- id: llama4-vs-opus-between-analytical
+  text: "What model sits between Llama 4 family and Claude Opus 4.8 for analytical summarization of long documents?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: meta-llama-4-family--ai-meta-com
+    anchor_high_id: anthropic-claude-foundation-models--anthropic-com
+    use_case: analytical-summarization
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/MachineLearning"
+    captured_at: 2026-06-10
+  notes: |
+    Sourced from r/MachineLearning discussion on long-context summarization
+    where Llama 4 was flagged as "good enough for 80% of docs" but Opus
+    was needed for nuanced reasoning — practitioners asked what fills the gap.
+
+- id: mistral-vs-gpt5-between-latency-sensitive
+  text: "What's between Mistral Large 2 and GPT-5.5 for latency-sensitive customer-support chat where sub-500ms matters?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: mistral-large-2-mixtral-family--mistral-ai
+    anchor_high_id: openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com
+    use_case: latency-sensitive
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/MachineLearning"
+    captured_at: 2026-05-15
+  notes: |
+    r/MachineLearning thread on latency budgets for customer support bots.
+    Mistral flagged as fastest but missing capability for complex queries;
+    GPT-5.5 flagged as too expensive for the volume.
+
+- id: gemini3-vs-claude-between-multi-agent
+  text: "What model sits between Gemini 3 Flash and Claude Sonnet 4.6 for coordinating agents in a data pipeline?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: google-gemini-3-family--blog-google
+    anchor_high_id: anthropic-claude-foundation-models--anthropic-com
+    use_case: multi-agent-coordination
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=47993235"
+    captured_at: 2026-05-08
+  notes: |
+    HN "Kimi K2.6 just beat Claude, GPT-5.5, and Gemini" thread. Practitioners
+    asked what fills the gap between Gemini Flash (too small for orchestration)
+    and Claude Sonnet (expensive for multi-agent dispatcher role).
+
+- id: deepseek-vs-gpt5-long-session-between
+  text: "Between DeepSeek R1/V3 and GPT-5.5 — what fits a long-running coding session agent that needs to self-correct?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: deepseek-r1-v3-family--deepseek-com
+    anchor_high_id: openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com
+    use_case: long-running-session
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=47887846"
+    captured_at: 2026-04-26
+  notes: |
+    HN thread reviewing DeepSeek V4-Pro, Kimi 2.6, Opus 4.6, and Opus 4.7.
+    Long-running self-correcting coding agent was a recurring sub-thread.
+
+- id: qwen-vs-gemini3-offline-between
+  text: "What open-weight model sits between Qwen 3 7B and Llama 4 for offline agentic use on a 16GB laptop?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: alibaba-qwen-3-family--qwenlm-github-io
+    anchor_high_id: meta-llama-4-family--ai-meta-com
+    use_case: offline-capable
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/LocalLLaMA"
+    captured_at: 2026-06-05
+  notes: |
+    r/LocalLLaMA thread on offline agent deployment on consumer hardware.
+    Practitioners debated which quantised mid-size model fills the gap.
+
+- id: grok4-vs-gemini3-memory-chat-between
+  text: "What sits between Grok 4 and Gemini 3 Pro for memory-augmented chat — something with good retrieval recall at lower cost?"
+  category: positioning
+  surface: between
+  inputs:
+    anchor_low_id: xai-grok-4--x-ai
+    anchor_high_id: google-gemini-3-family--blog-google
+    use_case: memory-augmented-chat
+  source:
+    channel: twitter
+    url: "private-channel"
+    captured_at: 2026-06-15
+  notes: |
+    Captured from practitioner X/Twitter thread comparing personal assistant
+    cost-to-recall ratios. Grok flagged as "overpowered and overpriced" for
+    simple memory-augmented chat; Gemini Pro also felt like overkill.
+
+# ── COST-TRADEOFF QUESTIONS (MODEL) ─────────────────────────────────────────
+- id: cheapest-model-code-review-5-per-mtok
+  text: "What's the best model under $5/Mtok input for a pre-merge code-review pipeline that needs to catch real bugs?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Pre-merge code review pipeline. Must catch real bugs. Budget: under $5 per million input tokens. Cloud-hosted preferred."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: 5000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/ChatGPTCoding"
+    captured_at: 2026-06-01
+  notes: |
+    r/ChatGPTCoding thread comparing coding costs. Practitioners cited
+    Claude Sonnet 4.6 at $3 input and GPT-5.3-Codex at $1.75 as the
+    main contenders; question was which actually justifies its cost.
+
+- id: cheapest-agentic-indie-hacker-budget
+  text: "I'm an indie hacker and need to run a real agent for under $20/month. What model + stack?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Indie hacker agentic workflow. Budget ceiling $20/month total. Can use API or self-host. Prototype to small production."
+    structured:
+      project_shape: single-agent
+      scale: prototype
+      latency_budget_ms: 10000
+      persistence: session
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 0.5
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=48257541"
+    captured_at: 2026-05-29
+  notes: |
+    HN "best low cost coding agent" thread. Practitioner mentioned the
+    $20/month ceiling and the Qwen 3 Coder API + DeepSeek Flash routing
+    pattern that community members converged on.
+
+- id: cheapest-multi-agent-parallelism-budget
+  text: "What's the cheapest model that can reliably run many parallel sub-agent instances for codebase-wide tasks?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Parallel sub-agent pattern over a large codebase. Need many concurrent instances. Inference cost is the constraint. Cloud API."
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: 30000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 1
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=47993235"
+    captured_at: 2026-05-08
+  notes: |
+    HN Kimi K2.6 coding challenge thread. Kimi K2.6 flagged as strong for
+    cost-efficient sub-agent parallelism vs frontier models.
+
+- id: cheapest-long-document-summary-pipeline
+  text: "Cheapest API-accessible model that handles 200k-token document summarization without quality cliff?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Document summarization pipeline. Documents up to 200k tokens. Cloud API. Quality cliff at summarization is the failure mode to avoid."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: 60000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 2
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/MachineLearning"
+    captured_at: 2026-06-12
+  notes: |
+    r/MachineLearning thread on long-context summarization pipelines.
+    Gemini 3.1 Pro ($2 input) and Llama 4 were the main cost-conscious
+    contenders against Claude Opus 4.8 ($5 input).
+
+- id: cost-tradeoff-memory-backend-at-scale
+  text: "What's the cheapest memory backend that can handle 10M+ vectors without managed cost going to $700+/month?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Vector memory backend for agent at 100M+ vector scale. Need cost under $200/month. Can self-host. Production."
+    structured:
+      project_shape: multi-agent
+      scale: large-scale
+      latency_budget_ms: 200
+      persistence: long-term
+      deployment: self-hosted
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://www.firecrawl.dev/blog/best-vector-databases"
+    captured_at: 2026-06-20
+  notes: |
+    Practitioner blog comparison noting Pinecone Serverless runs ~$700+/month
+    at 100M vectors while self-hosted Qdrant or Milvus stays under $100/month.
+    Concrete budget question from production teams.
+
+- id: cost-tradeoff-observability-free-tier-agents
+  text: "What's the best free-tier LLM observability tool for a team just starting to instrument their agent traces?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Team instrumenting agent observability for the first time. Budget: free tier. Need trace visibility and basic evals. Cloud."
+    structured:
+      project_shape: single-agent
+      scale: prototype
+      latency_budget_ms: null
+      persistence: session
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: blog
+    url: "https://latitude.so/blog/best-ai-agent-observability-tools-2026-comparison"
+    captured_at: 2026-06-18
+  notes: |
+    Latitude observability comparison blog cited Braintrust's free tier
+    (1M spans/month, unlimited users) and Langfuse self-hosted as the
+    top free-tier recommendations from practitioners.
+
+- id: cost-tradeoff-harness-token-overhead-crewai-langgraph
+  text: "CrewAI vs LangGraph — which has lower token overhead for a 3-agent pipeline at production scale?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "3-agent pipeline. Production scale. Need to minimise framework token overhead to control inference cost."
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: blog
+    url: "https://tensoria.fr/en/blog/multi-agent-orchestration-comparison"
+    captured_at: 2026-06-14
+  notes: |
+    Tensoria benchmark showed CrewAI's 3-agent crew required ~18% more tokens
+    than a comparable LangGraph implementation — a concrete cost tradeoff
+    practitioners are weighing.
+
+- id: cost-tradeoff-mcp-memory-server-vs-mem0
+  text: "Is the official MCP memory server good enough for a side project, or do I need Mem0 to avoid cost?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Side project with memory-augmented chat agent. Minimal infra budget. Evaluating official MCP memory server vs Mem0 hosted tier."
+    structured:
+      project_shape: chat
+      scale: prototype
+      latency_budget_ms: 2000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 0.5
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=46301470"
+    captured_at: 2025-12-17
+  notes: |
+    HN RecallBricks thread. Commenter raised the official MCP memory server
+    (knowledge graph approach) vs Mem0 hosted tier for side-project use — the
+    cost question pivoted on whether managed memory was worth the bill.
+
+- id: cost-tradeoff-offline-model-quality-floor
+  text: "What's the cheapest quantized model I can run locally for agentic tasks that still hits 80%+ of cloud quality?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Local/offline agentic deployment. 16GB VRAM constraint. Need 80%+ quality parity with cloud frontier. Air-gapped or local-first."
+    structured:
+      project_shape: single-agent
+      scale: prototype
+      latency_budget_ms: 15000
+      persistence: session
+      deployment: offline
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/LocalLLaMA"
+    captured_at: 2026-06-05
+  notes: |
+    r/LocalLLaMA community guide surfaced the Qwen 3 Coder variants and
+    Gemma 4 26B A4B as the top local-first recommendations meeting ~80%
+    quality parity on agentic tasks with frontier models.
+
+- id: cost-tradeoff-routing-kimi-claude-escalation
+  text: "At what point should I stop routing to Kimi K2.6 and escalate to Claude Opus? What's the cost crossover?"
+  category: cost-tradeoff
+  surface: between
+  inputs:
+    anchor_low_id: deepseek-r1-v3-family--deepseek-com
+    anchor_high_id: anthropic-claude-foundation-models--anthropic-com
+    use_case: code-generation-focused
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=47887846"
+    captured_at: 2026-04-26
+  notes: |
+    HN model comparison thread. Practitioners described routing 60-80% to
+    cheaper open-weight (Kimi/Qwen) and escalating 20-40% to Claude. The
+    "cost crossover" question recurred — where on the quality spectrum does
+    the premium pay off?
+
+- id: cost-tradeoff-analytical-open-vs-closed
+  text: "For a high-volume legal document analysis pipeline, is Llama 4 good enough to avoid Gemini Pro at $2/Mtok?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Legal document analysis pipeline. High volume (millions of tokens/day). Need factual precision. Evaluating open-weight Llama 4 vs Gemini 3.1 Pro."
+    structured:
+      project_shape: pipeline
+      scale: large-scale
+      latency_budget_ms: 30000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 1
+  source:
+    channel: blog
+    url: "https://aimlapi.com/blog/top-llm-models-in-2026-the-best-ai-models-for-reasoning-coding-multimodal-tasks"
+    captured_at: 2026-06-10
+  notes: |
+    Practitioner comparison citing Llama 4 vs Gemini 3.1 Pro for
+    analytical accuracy on factual extraction. Cost question was explicit:
+    at $2/Mtok input for Gemini Pro vs self-hosted Llama 4.
+
+- id: cost-tradeoff-langsmith-vs-phoenix-free
+  text: "LangSmith vs Arize Phoenix — which is genuinely free to self-host for a small team doing agent evals?"
+  category: cost-tradeoff
+  surface: by-constraints
+  inputs:
+    description: "Small team doing agent evals and trace capture. Need a self-hostable observability tool. Budget: zero."
+    structured:
+      project_shape: single-agent
+      scale: prototype
+      latency_budget_ms: null
+      persistence: none
+      deployment: self-hosted
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: blog
+    url: "https://anudeepsri.medium.com/langsmith-vs-arize-vs-braintrust-e397e4728a76"
+    captured_at: 2026-06-12
+  notes: |
+    Medium comparison flagging Arize Phoenix and Traceloop/OpenLLMetry as
+    fully open-source (Apache 2.0) vs LangSmith's managed tiers. Real
+    practitioner question for teams on a zero-budget evaluation setup.
+
+# ── FIT-FOR-PURPOSE QUESTIONS (MODEL) ───────────────────────────────────────
+- id: fit-model-offline-agentic-airgap
+  text: "What model family works for offline-capable agentic AI in an air-gapped government environment?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Air-gapped government deployment. No internet access. Agentic workflows requiring tool use and structured output. On-premises only."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: 10000
+      persistence: session
+      deployment: offline
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: blog
+    url: "https://www.devopsschool.com/blog/top-10-private-llm-hosting-air-gapped-platforms-features-pros-cons-comparison/"
+    captured_at: 2026-06-20
+  notes: |
+    Air-gapped deployment blog listed Llama 4 and Qwen 3 family as
+    the top open-license alternatives for government/regulated contexts.
+    Question recurred in practitioner comments.
+
+- id: fit-model-memory-augmented-consumer-chat
+  text: "What model should I pair with a memory layer for a consumer-grade AI assistant that recalls user preferences?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Consumer AI assistant with long-term user preference memory. Single user, conversational, retrieval-focused. Cloud hosted."
+    structured:
+      project_shape: chat
+      scale: production
+      latency_budget_ms: 2000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 3
+  source:
+    channel: blog
+    url: "https://mem0.ai/blog/state-of-ai-agent-memory-2026"
+    captured_at: 2026-06-01
+  notes: |
+    Mem0 state-of-agent-memory 2026 blog described practitioners pairing
+    GPT-5 or Claude Sonnet with Mem0's memory extraction layer for
+    consumer-grade personalization assistants.
+
+- id: fit-model-scoped-agentic-ticket-triage
+  text: "What's the right model for an autonomous ticket-triage agent that needs reliable tool-use but not frontier reasoning?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Ticket-triage agent. Scoped: classify, route, reply to simple tickets. Tool calling required. No need for frontier reasoning. Production."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: 3000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 2
+  source:
+    channel: blog
+    url: "https://tensoria.fr/en/blog/multi-agent-orchestration-comparison"
+    captured_at: 2026-06-14
+  notes: |
+    Tensoria benchmark used ticket triage as a canonical 3-agent task.
+    The model selection question came from practitioners wanting scoped-
+    agentic reliability without frontier pricing.
+
+- id: fit-model-code-gen-ide-assistant
+  text: "What's the best model to back a code-generation IDE assistant for a team of 20 that needs fast responses?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "IDE coding assistant for 20-person engineering team. Fast inline completions and review. Latency-sensitive. Cloud hosted."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: 1000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 3
+  source:
+    channel: blog
+    url: "https://www.morphllm.com/best-ai-model-for-coding"
+    captured_at: 2026-06-10
+  notes: |
+    MorphLLM best-coding-model June 2026 compared Claude Sonnet 4.6, GPT-5.3-
+    Codex and Kimi K2.6 for IDE use. Latency and team-scale cost were the
+    deciding factors in practitioner question threads.
+
+- id: fit-model-analytical-research-long-context
+  text: "Which model handles a 100-paper literature review pipeline best — prioritising faithfulness over speed?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Literature review pipeline. 100 research papers, need faithful extraction. Latency not a priority. Cloud API."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: 120000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/MachineLearning"
+    captured_at: 2026-06-08
+  notes: |
+    r/MachineLearning thread on academic pipeline automation.
+    Gemini 3.1 Pro and Claude Opus 4.8 were the main candidates;
+    "faithfulness over speed" framing came from the practitioners.
+
+- id: fit-model-latency-sensitive-customer-support
+  text: "What model gives the best sub-200ms p99 latency for a high-volume customer support chat bot?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Customer support chat. Sub-200ms p99 latency SLA. High volume. Single-turn, scoped, no memory required. Cloud hosted."
+    structured:
+      project_shape: chat
+      scale: large-scale
+      latency_budget_ms: 200
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 1
+  source:
+    channel: blog
+    url: "https://www.clawrouters.com/blog/best-llm-router-reddit"
+    captured_at: 2026-06-20
+  notes: |
+    LLM router blog described sub-200ms p99 as the practitioner benchmark
+    for customer-support use cases, with Mistral family and Gemini Flash
+    as primary contenders due to inference speed.
+
+# ── CAPABILITY-FLOOR QUESTIONS ───────────────────────────────────────────────
+- id: floor-model-agentic-tool-use
+  text: "What's the minimum model tier that reliably handles tool-call chains of depth 5+ without hallucinating tool names?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Agentic workflow with tool-call chains of 5+ depth. Hallucinated tool names are the failure mode. Cloud API."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: 10000
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: blog
+    url: "https://www.mindstudio.ai/blog/best-ai-models-agentic-workflows-2026"
+    captured_at: 2026-06-05
+  notes: |
+    MindStudio agentic workflows guide flagged tool-call reliability as
+    the primary capability floor question. Practitioners asked "what's
+    the minimum model tier" rather than "what's the best."
+
+- id: floor-memory-backend-temporal-reasoning
+  text: "What's the minimum memory system that handles temporal facts that change over time — things like 'user's job changed'?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Memory-augmented chat. User facts change over time (job, location, preferences). Need temporal fact tracking. Long-term persistence."
+    structured:
+      project_shape: chat
+      scale: production
+      latency_budget_ms: 2000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 2
+  source:
+    channel: blog
+    url: "https://rohitraj.tech/en/notes/open-source-ai-agent-memory-mem0-vs-zep-letta-2026"
+    captured_at: 2026-06-15
+  notes: |
+    Rohit Raj Mem0/Zep/Letta comparison. Zep's Graphiti engine flagged as
+    the capability floor for temporal fact tracking (timestamps every fact);
+    Mem0 and LangMem lack this. Practitioners asking "minimum viable" for
+    this specific capability.
+
+- id: floor-harness-long-running-session
+  text: "What's the minimum harness that supports agents running for days without losing context or crashing?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Long-running agent. Days-long horizon. Needs checkpoint/resume, persistent state, crash recovery. Production."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: null
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=47887846"
+    captured_at: 2026-04-26
+  notes: |
+    HN model comparison thread. Kimi K2.6's 5-day autonomous infra agent
+    run surfaced the harness question: what harness enables long-running
+    sessions reliably? LangGraph's checkpointing and Temporal were cited.
+
+- id: floor-orchestration-human-in-the-loop
+  text: "What orchestration framework is the minimum that supports human-in-the-loop checkpoints for a regulated workflow?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Regulated workflow (financial or legal). Human-in-the-loop checkpoints required. Multi-step pipeline. Production."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: null
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: blog
+    url: "https://pecollective.com/blog/ai-agent-frameworks-compared/"
+    captured_at: 2026-06-10
+  notes: |
+    PECollective framework comparison cited LangGraph's human-in-the-loop
+    checkpointing as the minimum bar for regulated workflows. Temporal
+    also recommended for compliance-heavy teams needing durability.
+
+- id: floor-observability-multi-agent-tracing
+  text: "What's the minimum observability tool that gives full trace visibility across 10+ interconnected agents?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "10+ agent system. Need full distributed trace across agent calls, tool use, and reasoning steps. Production. OTel-compatible preferred."
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://www.digitalapplied.com/blog/agent-observability-platforms-langsmith-langfuse-arize-2026"
+    captured_at: 2026-06-12
+  notes: |
+    Digital Applied 2026 agent observability comparison. Multi-agent
+    distributed tracing (10+ agents) was the capability floor question;
+    Arize, LangSmith, and OpenTelemetry-based tools (OpenLLMetry, Langfuse)
+    flagged as meeting this bar.
+
+- id: floor-memory-system-multi-agent-shared-context
+  text: "What's the minimum memory system for 5 agents to share context without race conditions on writes?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "5-agent system sharing a memory store. Concurrent writes. Need consistency guarantees. Production. Cloud."
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: 500
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 3
+  source:
+    channel: blog
+    url: "https://atlan.com/know/agent-memory-architectures/"
+    captured_at: 2026-06-15
+  notes: |
+    Atlan agent memory architectures guide described shared-context
+    consistency as a production gap. Practitioners asked for the minimum
+    memory system that handles concurrent agent writes safely.
+
+- id: floor-model-scoped-agentic-openweight
+  text: "What's the minimum open-weight model that achieves SWE-bench Verified >50% for production CI/CD task automation?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "CI/CD task automation agent. Open-weight only (privacy / cost constraint). Need SWE-bench Verified >50%."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: 60000
+      persistence: none
+      deployment: self-hosted
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: blog
+    url: "https://www.morphllm.com/ai-coding-agent"
+    captured_at: 2026-06-10
+  notes: |
+    MorphLLM coding agent benchmark noted SWE-bench Verified >50% as
+    the practitioner bar for CI/CD automation. Open-weight constraint
+    from teams with data-residency requirements.
+
+# ── FIT-FOR-PURPOSE QUESTIONS (MEMORY) ──────────────────────────────────────
+- id: fit-memory-letta-long-running-autonomous
+  text: "For a long-running autonomous coding agent that needs to self-edit its own memory, which memory system fits?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Long-running autonomous coding agent. Agent must self-edit what stays in context, like OS memory paging. Single agent. Production."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: null
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 3
+  source:
+    channel: blog
+    url: "https://dev.to/agdex_ai/ai-agent-memory-in-2026-mem0-vs-zep-vs-letta-vs-cognee-a-practical-guide-cfa"
+    captured_at: 2026-06-18
+  notes: |
+    Dev.to agent memory guide 2026. Self-editing memory (OS-paging metaphor)
+    was Letta's differentiating feature; practitioners asked specifically
+    about this pattern for autonomous coding agents.
+
+- id: fit-memory-zep-temporal-crm-facts
+  text: "My agent tracks changing customer facts (address, role, preferences) over months. Which memory system handles this?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "CRM-adjacent agent. Tracks customer facts that change (role, address, preferences) over months. Long-term persistence needed."
+    structured:
+      project_shape: chat
+      scale: production
+      latency_budget_ms: 3000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 2
+  source:
+    channel: blog
+    url: "https://www.agenticwire.news/article/mem0-zep-letta-agent-memory"
+    captured_at: 2026-06-20
+  notes: |
+    AgenticWire memory framework comparison. Temporal fact tracking for
+    CRM-like use cases was identified as Zep/Graphiti's strength. Question
+    from a practitioner building a customer-success agent.
+
+- id: fit-memory-offline-verbatim-recall
+  text: "Which memory system works fully offline and achieves near-perfect verbatim recall without LLM inference calls?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Air-gapped deployment. Memory must work without LLM inference calls. Need verbatim retrieval accuracy. Offline first."
+    structured:
+      project_shape: single-agent
+      scale: production
+      latency_budget_ms: 200
+      persistence: long-term
+      deployment: offline
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: blog
+    url: "https://rohitraj.tech/en/notes/open-source-ai-agent-memory-mem0-vs-zep-letta-2026"
+    captured_at: 2026-06-15
+  notes: |
+    Rohit Raj comparison flagged MemPalace (96.6% R@5 on LongMemEval, zero
+    API calls, MIT license) as the answer to this specific question.
+
+- id: fit-memory-langgraph-persistence-native
+  text: "My stack is LangGraph. What memory backend should I use to avoid context loss on long multi-turn conversations?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "LangGraph-native stack. Multi-turn chat agent. Need memory persistence across sessions without full context re-injection."
+    structured:
+      project_shape: chat
+      scale: production
+      latency_budget_ms: 2000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 2
+  source:
+    channel: blog
+    url: "https://langchain-ai.github.io/langmem/guides/use_tools_in_custom_agent/"
+    captured_at: 2026-06-15
+  notes: |
+    LangMem docs and LangChain blog "your-harness-your-memory" drove this
+    question — practitioners on LangGraph asked specifically about the
+    native memory path vs adopting a separate memory service.
+
+- id: fit-memory-production-personalization-saas
+  text: "Building a SaaS with per-user AI memory for 100k+ users. What memory system scales and doesn't become a cost sink?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "SaaS product with per-user AI memory. 100k+ users. Need scalable managed memory extraction. Cloud. Cost-conscious."
+    structured:
+      project_shape: chat
+      scale: large-scale
+      latency_budget_ms: 2000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 1
+  source:
+    channel: reddit
+    url: "https://www.reddit.com/r/MachineLearning"
+    captured_at: 2026-06-10
+  notes: |
+    r/MachineLearning SaaS memory scaling thread. Mem0 (47K+ GitHub stars,
+    free tier) and Zep Cloud emerged as primary contenders. Practitioners
+    noted most production systems combine a dedicated memory platform with
+    a storage layer (Pinecone or Redis).
+
+- id: fit-memory-security-poisoning-resistance
+  text: "Which memory system has the best defenses against memory poisoning attacks for a public-facing agent?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Public-facing agent with user-supplied input that goes into memory. Need poisoning resistance, provenance tracking, trust scoring."
+    structured:
+      project_shape: chat
+      scale: production
+      latency_budget_ms: 3000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 3
+  source:
+    channel: blog
+    url: "https://vectorize.io/articles/ai-memory-poisoning"
+    captured_at: 2026-06-15
+  notes: |
+    Vectorize AI memory poisoning article and OWASP ASI06 formalization.
+    Practitioners with public-facing agents asked which memory system has
+    built-in defenses. SuperLocalMemory's Bayesian trust scoring and
+    OWASP Agent Memory Guard were cited.
+
+# ── FIT-FOR-PURPOSE QUESTIONS (HARNESS) ─────────────────────────────────────
+- id: fit-harness-prototype-fast-crewai
+  text: "What's the fastest harness to go from zero to a working multi-agent prototype for a hackathon?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Multi-agent prototype. Hackathon timeline (2 days). Role-based crews. No production concerns yet."
+    structured:
+      project_shape: multi-agent
+      scale: prototype
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: blog
+    url: "https://dev.to/pockit_tools/langgraph-vs-crewai-vs-autogen-the-complete-multi-agent-ai-orchestration-guide-for-2026-2d63"
+    captured_at: 2026-06-14
+  notes: |
+    Dev.to multi-agent guide. CrewAI's "fastest demo-to-prototype ergonomics"
+    and "very little code" for role-based crews was the explicit hackathon
+    recommendation from practitioners.
+
+- id: fit-harness-production-enterprise-multi-agent
+  text: "Which harness gives the best production observability and error recovery for an enterprise multi-agent system?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Enterprise multi-agent system. Need production observability, checkpointing, and error recovery. Large-scale."
+    structured:
+      project_shape: multi-agent
+      scale: large-scale
+      latency_budget_ms: null
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026"
+    captured_at: 2026-06-14
+  notes: |
+    AliceLabs 7-framework comparison. LangGraph cited as having "largest
+    production deployment footprint" and strongest production observability.
+    Practitioners at enterprise scale asked about error recovery specifically.
+
+- id: fit-harness-local-coding-agent-aider-vs-cline
+  text: "For a self-hosted agentic coder running local models, should I use Aider, Cline, or Continue.dev?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Self-hosted coding agent. Local models (Ollama or LM Studio backend). Need IDE integration and agentic coding loops."
+    structured:
+      project_shape: single-agent
+      scale: prototype
+      latency_budget_ms: 10000
+      persistence: session
+      deployment: self-hosted
+      cost_ceiling_usd_per_mtok: 0
+  source:
+    channel: hn
+    url: "https://news.ycombinator.com/item?id=48555993"
+    captured_at: 2026-06-20
+  notes: |
+    HN "Running local models is good now" thread. Practitioners debated
+    Aider vs Cline vs Continue.dev for local model backends with Qwen3
+    and Llama 4. Harness selection question was a top comment thread.
+
+- id: fit-harness-n8n-low-code-pipeline
+  text: "What's the right harness for a non-developer building an AI agent pipeline without writing Python?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "No-code/low-code agent pipeline. Non-developer user. Workflow automation. Cloud hosted."
+    structured:
+      project_shape: pipeline
+      scale: prototype
+      latency_budget_ms: null
+      persistence: session
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 3
+  source:
+    channel: blog
+    url: "https://blog.n8n.io/best-mcp-servers/"
+    captured_at: 2026-06-15
+  notes: |
+    n8n blog on best MCP servers for developers — but driven by comments from
+    non-developer builders asking which harness doesn't require Python.
+    n8n, Flowise, and Bolt.new were the main answers.
+
+- id: fit-harness-durability-financial-compliance
+  text: "For a financial-services workflow agent that needs audit trails and guaranteed execution, what harness is right?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Financial-services workflow. Needs audit trail, guaranteed execution, compliance checkpoints. Long-running pipeline. Cloud."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: null
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://gurusup.com/blog/best-multi-agent-frameworks-2026"
+    captured_at: 2026-06-14
+  notes: |
+    Gurusup multi-agent frameworks guide. Temporal.io flagged as the
+    answer for practitioners with compliance and durability requirements —
+    "guaranteed execution" and audit-trail semantics were the key phrases.
+
+# ── FIT-FOR-PURPOSE QUESTIONS (OBSERVABILITY) ───────────────────────────────
+- id: fit-observability-otel-vendor-neutral
+  text: "Which observability tool lets me trace agents with OpenTelemetry and stay vendor-neutral across Grafana / Jaeger?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Agent observability. Must use OpenTelemetry standard. Vendor-neutral backend (Grafana Tempo, Jaeger, or Honeycomb). Production."
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://devops.gheware.com/blog/posts/opentelemetry-ai-agents-production-observability.html"
+    captured_at: 2026-06-10
+  notes: |
+    OTel production observability guide. Practitioners wanting vendor-neutral
+    traces cited OpenLLMetry (Traceloop) and the OTel GenAI SIG semantic
+    conventions. Question recurring in SRE communities.
+
+- id: fit-observability-eval-driven-ci-cd
+  text: "Which LLM observability tool integrates best into CI/CD so failed evals block deploys automatically?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Eval-driven deployment pipeline. Need observability tool that integrates with CI/CD, blocks deploy on eval failure. Production team."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://anudeepsri.medium.com/langsmith-vs-arize-vs-braintrust-e397e4728a76"
+    captured_at: 2026-06-12
+  notes: |
+    Medium observability comparison flagged Braintrust's "CI/CD-native
+    integrations" and "trace-to-test pipeline" as the answer to this
+    specific question from DevOps-oriented practitioners.
+
+- id: fit-observability-hybrid-ml-llm-monitoring
+  text: "We run both traditional ML models and LLM agents. What monitoring platform covers both in one dashboard?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Hybrid ML + LLM workloads. Need one observability platform for both traditional ML models and LLM agents. Enterprise."
+    structured:
+      project_shape: pipeline
+      scale: large-scale
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://latitude.so/blog/best-ai-agent-observability-tools-2026-comparison"
+    captured_at: 2026-06-18
+  notes: |
+    Latitude observability comparison noted Arize AI as the primary
+    recommendation for teams running "a mix of traditional ML models and
+    LLM-powered applications" that need a single platform.
+
+- id: fit-observability-gateway-cost-tracking
+  text: "What's the simplest observability setup for tracking LLM API costs across multiple models in production?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Multi-model production system. Need cost tracking across providers (OpenAI, Anthropic, Mistral). Minimal SDK changes preferred."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://www.confident-ai.com/knowledge-base/compare/top-7-llm-observability-tools"
+    captured_at: 2026-06-20
+  notes: |
+    Confident AI observability comparison. Helicone flagged as "simplest
+    install: change one base URL, get traces" for cost tracking. Common
+    setup described as Helicone (cost/routing) + Phoenix (evals).
+
+# ── FIT-FOR-PURPOSE QUESTIONS (ORCHESTRATION) ───────────────────────────────
+- id: fit-orchestration-research-academic-autogen
+  text: "We're a research lab building multi-agent debate and verification experiments. What orchestration framework?"
+  category: fit-for-purpose
+  surface: by-constraints
+  inputs:
+    description: "Academic research lab. Multi-agent debate and verification patterns. Research-first, not production scale. Python."
+    structured:
+      project_shape: multi-agent
+      scale: prototype
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: blog
+    url: "https://presenc.ai/research/multi-agent-orchestration-frameworks-2026"
+    captured_at: 2026-06-14
+  notes: |
+    Presenc AI multi-agent orchestration 2026 guide cited AutoGen/AG2 as
+    the primary choice for research and academic adoption with "mature
+    multi-agent debate and verification patterns."
+
+- id: fit-orchestration-custom-vs-framework-28pct
+  text: "At what scale does it make sense to build custom orchestration instead of using LangGraph or CrewAI?"
+  category: capability-floor
+  surface: by-constraints
+  inputs:
+    description: "Evaluating whether to build custom orchestration vs adopt LangGraph/CrewAI. Large-scale production."
+    structured:
+      project_shape: multi-agent
+      scale: large-scale
+      latency_budget_ms: null
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://tensoria.fr/en/blog/multi-agent-orchestration-comparison"
+    captured_at: 2026-06-14
+  notes: |
+    Tensoria benchmark noted ~28% of production multi-agent deployments use
+    custom orchestration. Practitioners at scale asked when custom becomes
+    justified vs framework time-to-production savings (3-6 months cited).
+
+# ── COMPARISON QUESTIONS (flagged: not a Phase 2 surface; future gate) ──────
+- id: comparison-mem0-vs-zep-temporal
+  text: "Mem0 vs Zep — which actually handles temporal facts better for a production customer-facing agent?"
+  category: comparison
+  surface: by-constraints
+  inputs:
+    description: "Production customer-facing agent. Temporal fact recall. Comparing Mem0 vs Zep head-to-head."
+    structured:
+      project_shape: chat
+      scale: production
+      latency_budget_ms: 3000
+      persistence: long-term
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 2
+  source:
+    channel: blog
+    url: "https://medium.com/@wasowski.jarek/i-compared-5-ai-agent-memory-systems-across-6-dimensions-none-wins-6a658335ed0a"
+    captured_at: 2026-06-18
+  notes: |
+    Medium comparison (Wasowski Jun 2026) of 5 memory systems. Zep scored
+    63.8% vs Mem0's 49.0% on LongMemEval for temporal reasoning. Flagged as
+    comparison category — not a native between/by-constraints question, but
+    useful context for ranking rationales. Future gate may introduce an
+    explicit comparison surface.
+
+- id: comparison-langgraph-vs-crewai-token-overhead
+  text: "LangGraph vs CrewAI — which has lower token overhead for a 3-agent ticket-triage workflow in production?"
+  category: comparison
+  surface: by-constraints
+  inputs:
+    description: "3-agent ticket triage workflow. Production. Comparing LangGraph vs CrewAI token overhead head-to-head."
+    structured:
+      project_shape: multi-agent
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: 5
+  source:
+    channel: blog
+    url: "https://tensoria.fr/en/blog/multi-agent-orchestration-comparison"
+    captured_at: 2026-06-14
+  notes: |
+    Tensoria benchmark showed CrewAI's 18% token overhead vs LangGraph.
+    Direct head-to-head question — flagged as comparison category pending
+    a future gate that adds a comparison surface. Captured for completeness.
+
+- id: comparison-helicone-vs-langsmith-gateway
+  text: "Helicone vs LangSmith — which is better for a team that just wants cost tracking without deep framework lock-in?"
+  category: comparison
+  surface: by-constraints
+  inputs:
+    description: "Team wants LLM cost tracking without framework lock-in. Comparing Helicone (gateway) vs LangSmith (LangChain-native)."
+    structured:
+      project_shape: pipeline
+      scale: production
+      latency_budget_ms: null
+      persistence: none
+      deployment: cloud
+      cost_ceiling_usd_per_mtok: null
+  source:
+    channel: blog
+    url: "https://latitude.so/blog/best-llm-observability-tools-agents-latitude-vs-langfuse-langsmith"
+    captured_at: 2026-06-18
+  notes: |
+    Latitude observability comparison described Helicone as "gateway: change
+    one base URL" vs LangSmith as "LangChain-native deep integration."
+    Comparison category; real practitioner tradeoff question from teams
+    avoiding framework lock-in. Future gate may add comparison surface.

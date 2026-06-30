@@ -8,8 +8,8 @@
   let { children } = $props();
 
   const subroutes = [
-    { path: '/recommend/between', label: 'Between anchors' }
-    // Gate 4 will add /recommend/by-constraints here.
+    { path: '/recommend/between', label: 'Between anchors' },
+    { path: '/recommend/by-constraints', label: 'By constraints' }
   ];
 
   const relPath = $derived(
