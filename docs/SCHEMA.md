@@ -1196,7 +1196,7 @@ serializer's `sort_keys=True`); cell-slug keys in the `_provenance` dict
 follow `cells` iteration order. Both orderings are required for the
 round-trip cycle (gate 2) to remain byte-stable.
 
-### Backfill state (Gate 1, Phases 2-3)
+### Backfill state (Gate 1, Phases 2-4 — complete)
 
 - **Phase 2** (`scripts/phase_2_provenance_backfill.py`) populated entries
   for every claim-bearing pre-Phase-2 cell. Default source is `legacy`.
@@ -1217,9 +1217,29 @@ round-trip cycle (gate 2) to remain byte-stable.
     - 1 row pattern-matched as self-hosted-only.
     - Remaining 139 rows (mixed-pricing prose, numeric per-token text)
       are left at `no-data` for Phase 4 LLM fill.
-- **Phase 4** (TBD) — LLM-judgment fill for `capability-*`, `use-case-*`,
-  and the 139 cost cells Phase 3 left behind. All entries marked
-  `verified: false`, non-load-bearing for ranking per PHASE_2_SPEC §3.4.
+- **Phase 4** (`scripts/phase_2_llm_fill_apply.py` + parallel sub-agents)
+  filled the remaining 11 Phase 2 cells via LLM judgment per
+  PHASE_2_SPEC §3.5:
+    - **4a** (pilot, 13 foundation-model rows × 4 capability cells = 52 cells).
+    - **4b** (capability cells for the remaining 899 rows = 3,596 cells,
+      14 batched parallel sub-agents). Status split: 475 `estimate`
+      (runnable systems) + 437 `not-applicable` (infrastructure / research /
+      benchmarks). Band distribution: 38 frontier / 407 competent / 30 entry.
+    - **4c** (use-case-tags + use-case-anti-tags for all 912 rows =
+      1,824 cells, 15 batched parallel sub-agents). Status split:
+      500 / 485 `estimate` and 412 / 427 `not-applicable`. All positive
+      tags drawn from the §3.3 controlled vocabulary.
+    - **4d** (residual 139 cost rows × 5 cells = 695 cells, single
+      sub-agent reading the existing `pricing` prose). All marked
+      `source: "llm", verified: false, model_id: "claude-opus-4-7",
+      generated_at: "2026-06-29"`. status `"estimate"` → claim-tier T3
+      (citation not required by §3a); non-load-bearing for ranking per
+      §3.4 until a human verifies.
+
+End-state: zero `no-data` cells across all 11 Phase 2 slugs. Every
+cell in `landscape.json` has a populated `_provenance` entry covering
+all 85 pre-Phase-2 cells + 11 new Phase 2 cells = ~85,000 provenance
+entries across the catalog.
 
 ---
 
