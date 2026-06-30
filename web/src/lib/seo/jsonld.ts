@@ -127,6 +127,42 @@ export function faqLd(opts: {
   };
 }
 
+export function websiteLd(): object {
+  // WebSite + SearchAction: tells Google that the catalog has a site-wide
+  // search at /?q=<term>, which makes the SERP listing eligible for a
+  // sitelinks search box. The `query-input` template is part of the
+  // schema.org SearchAction spec.
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: absoluteUrl('/'),
+    description: SITE_DESCRIPTION,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${absoluteUrl('/')}?q={search_term_string}`
+      },
+      'query-input': 'required name=search_term_string'
+    }
+  };
+}
+
+export function organizationLd(): object {
+  // Organization: gives the catalog a stable identity for the Google
+  // Knowledge Graph. Emitted on every page so the entity is consistent
+  // across the site.
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: absoluteUrl('/'),
+    description: SITE_DESCRIPTION,
+    sameAs: [REPO_URL]
+  };
+}
+
 export function softwareLd(opts: {
   name: string;
   description: string;
