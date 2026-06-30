@@ -7,6 +7,14 @@
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
 
+  type RelatedPair = { slug: string; otherId: string; otherName: string };
+  type SimilarSystem = {
+    id: string;
+    name: string;
+    tier: 1 | 2 | 3 | 4 | 5;
+    desc: string | null;
+  };
+
   let {
     data
   }: {
@@ -15,6 +23,8 @@
       outgoing: Edge[];
       incoming: Edge[];
       relatedNames: Record<string, string>;
+      relatedPairs: RelatedPair[];
+      similar: SimilarSystem[];
     };
   } = $props();
 
@@ -229,6 +239,38 @@
     </section>
   {/if}
 
+  {#if data.relatedPairs.length}
+    <section class="compare-list">
+      <h2>Compare {record.name} with…</h2>
+      <ul>
+        {#each data.relatedPairs as p}
+          <li>
+            <a href="{base}/compare/{p.slug}">{record.name} vs {p.otherName}</a>
+          </li>
+        {/each}
+      </ul>
+    </section>
+  {/if}
+
+  {#if data.similar.length}
+    <section class="similar">
+      <h2>Similar systems</h2>
+      <p class="similar-lede">
+        Other {primarySection ? primarySection.toLowerCase() : 'systems'} in the catalog,
+        ranked by inbound references.
+      </p>
+      <ul>
+        {#each data.similar as s}
+          <li>
+            <a href="{base}/systems/{s.id}">{s.name}</a>
+            <span class="tier">T{s.tier}</span>
+            {#if s.desc}<p>{s.desc}</p>{/if}
+          </li>
+        {/each}
+      </ul>
+    </section>
+  {/if}
+
   {#if data.outgoing.length || data.incoming.length}
     <section class="edges">
       <h2>Related systems</h2>
@@ -364,10 +406,52 @@
       margin-top: 0.5rem;
     }
   }
+  .compare-list ul,
+  .similar ul,
   .edges ul {
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+  .compare-list li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #1f1f1f;
+  }
+  .compare-list a {
+    color: #d4845f;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .compare-list a:hover {
+    text-decoration: underline;
+  }
+  .similar-lede {
+    color: #a0a0a0;
+    margin: 0 0 0.8rem;
+    font-size: 0.92rem;
+  }
+  .similar li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #1f1f1f;
+  }
+  .similar a {
+    color: #d4845f;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .similar a:hover {
+    text-decoration: underline;
+  }
+  .similar .tier {
+    margin-left: 0.5rem;
+    color: #888;
+    font-size: 0.85rem;
+  }
+  .similar li p {
+    margin: 0.25rem 0 0;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.45;
   }
   .edges li {
     padding: 0.4rem 0;
