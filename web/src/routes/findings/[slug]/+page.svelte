@@ -5,10 +5,11 @@
   import { articleLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
   import type { Finding } from '$lib/findings';
+  import type { LinkifySegment } from '$lib/seo/linkify';
 
   let {
     data
-  }: { data: { finding: Finding; others: Finding[] } } = $props();
+  }: { data: { finding: Finding; body: LinkifySegment[][]; others: Finding[] } } = $props();
 
   const f = data.finding;
   const routePath = `/findings/${f.slug}`;
@@ -52,8 +53,12 @@
   </header>
 
   <section class="body">
-    {#each f.body as para}
-      <p>{para}</p>
+    {#each data.body as segments}
+      <p>
+        {#each segments as seg}
+          {#if seg.kind === 'link'}<a href="{base}{seg.href}">{seg.text}</a>{:else}{seg.text}{/if}
+        {/each}
+      </p>
     {/each}
   </section>
 
