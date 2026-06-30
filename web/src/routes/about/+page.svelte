@@ -213,17 +213,6 @@
         >
         — issue tracker, build plan, decision log, raw <code>landscape.json</code>.
       </li>
-      <li>
-        <a
-          href="https://github.com/MrPeppersDev/library-consortium"
-          target="_blank"
-          rel="noopener noreferrer">Library Consortium</a
-        >
-        — sister project: a governed knowledge substrate for AI systems (quality
-        gates, evidence-weight, provenance). LC answers "how do I run a memory
-        substrate"; this catalog answers "what does the broader landscape look
-        like".
-      </li>
     </ul>
   </section>
 </article>
