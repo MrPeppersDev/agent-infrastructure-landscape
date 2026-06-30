@@ -1,0 +1,81 @@
+# Weekly capability rebaseline cron (Phase 2 / Gate 8 — issue #102).
+#
+# Every Sunday at 06:00 UTC, capture every row's current capability cells
+# and emit docs/FINDINGS-YYYY-MM-DD.md listing the top movers and band
+# shifts since the previous baseline. Opens a phase-2-rebaseline tracking
+# issue linking to the FINDINGS doc.
+#
+# This is the ground-truth anchor for Gate 6's daily incremental cron:
+# where the daily pass flags rows whose *sources* cell changed, this
+# weekly pass snapshots every row's score and band — so drift introduced
+# by upstream methodology shifts is visible.
+#
+# Daily runs move signal, not state — this weekly run is the same.
+# Opens a tracking issue but never writes to data/landscape.json.
+#
+# Operational properties:
+#   - Schedule: Sunday 06:00 UTC. Lands before Monday's staleness cron at
+#     12:00 UTC, so the maintainer's Monday inbox has both signals.
+#   - Manual trigger: workflow_dispatch is enabled.
+#   - Permissions: contents:write (snapshot + FINDINGS commit),
+#     issues:write (tracking issue).
+#   - Auth: GITHUB_TOKEN.
+#   - Idempotency: re-runs on the same date overwrite the FINDINGS doc
+#     and re-use the existing baseline file (date-keyed).
+
+name: Capability rebaseline
+
+on:
+  schedule:
+    # Sundays 06:00 UTC. cron syntax: minute hour day-of-month month day-of-week
+    - cron: '0 6 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: capability-rebaseline
+  cancel-in-progress: false
+
+jobs:
+  rebaseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Ensure phase-2-rebaseline label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create phase-2-rebaseline \
+            --description "Weekly capability-rebaseline tracking issue (Phase 2 / Gate 8)." \
+            --color 0E8A16 \
+            --force || true
+
+      - name: Run capability-rebaseline cron
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/capability_rebaseline.py
+
+      - name: Commit baseline + FINDINGS
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/_baselines/ docs/FINDINGS-*.md 2>/dev/null \
+              && ! git status --porcelain data/_baselines docs | grep -qE '(rebaseline-|FINDINGS-)'; then
+            echo "no rebaseline output to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/_baselines/rebaseline-*.json docs/FINDINGS-*.md
+          git commit -m "chore(rebaseline): weekly capability snapshot" || true
+          git push || true
