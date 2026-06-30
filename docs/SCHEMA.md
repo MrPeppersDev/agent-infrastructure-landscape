@@ -1196,15 +1196,30 @@ serializer's `sort_keys=True`); cell-slug keys in the `_provenance` dict
 follow `cells` iteration order. Both orderings are required for the
 round-trip cycle (gate 2) to remain byte-stable.
 
-### Backfill state (Gate 1, Phase 2)
+### Backfill state (Gate 1, Phases 2-3)
 
-`scripts/phase_2_provenance_backfill.py` populated entries for every
-claim-bearing pre-Phase-2 cell. Default source is `legacy`. The three
-trajectory cells (`commit-trajectory`, `citation-trajectory`,
-`download-trajectory`) are upgraded to `source: "scrape"` when the cell
-carries a usable http(s) citation, with `script` pointing at the
-identified writer in `scripts/`. Cells with `status: "no-data"` carry
-no claim and have no entry.
+- **Phase 2** (`scripts/phase_2_provenance_backfill.py`) populated entries
+  for every claim-bearing pre-Phase-2 cell. Default source is `legacy`.
+  The three trajectory cells (`commit-trajectory`, `citation-trajectory`,
+  `download-trajectory`) are upgraded to `source: "scrape"` when the cell
+  carries a usable http(s) citation, with `script` pointing at the
+  identified writer in `scripts/`. Cells with `status: "no-data"` carry
+  no claim and have no entry.
+- **Phase 3** (`scripts/phase_2_cost_mechanical_fill.py`) filled the 5
+  new cost cells (§2.5.7) for 773/912 records mechanically by leveraging
+  the existing `pricing` cell:
+    - 543 rows propagated from `pricing.status` ∈ {not-applicable,
+      depth-floor-reached} → cost cells mirror the same status.
+    - 163 rows pattern-matched as free/OSS → `cost-tier: "free"`,
+      `cost-pricing-model: "free-tier"`.
+    - 66 rows pattern-matched as subscription/per-seat/enterprise →
+      `cost-pricing-model: "subscription"`, per-token cells `not-applicable`.
+    - 1 row pattern-matched as self-hosted-only.
+    - Remaining 139 rows (mixed-pricing prose, numeric per-token text)
+      are left at `no-data` for Phase 4 LLM fill.
+- **Phase 4** (TBD) — LLM-judgment fill for `capability-*`, `use-case-*`,
+  and the 139 cost cells Phase 3 left behind. All entries marked
+  `verified: false`, non-load-bearing for ranking per PHASE_2_SPEC §3.4.
 
 ---
 
