@@ -1,3 +1,17 @@
+# AI Agent Infrastructure Landscape — robots.txt
+#
+# NOTE: crawlers fetch robots.txt at the origin root, not at a project
+# path. So this file at /agent-infrastructure-landscape/robots.txt is
+# only read by tools that hit it directly (sitemap auditors, llms.txt
+# adjacents). For the rules below to be honored by Googlebot et al, a
+# robots.txt also needs to live at https://mrpeppersdev.github.io/
+# robots.txt — owned by a mrpeppersdev/mrpeppersdev.github.io user-
+# pages repo (does not currently exist).
+#
+# AI agents / LLM training crawlers: see /llms.txt for a curated entry-
+# point map. All catalog data is licensed CC-BY-4.0 — attribution to
+# the AI Agent Infrastructure Landscape is requested.
+
 User-agent: *
 Allow: /
 
