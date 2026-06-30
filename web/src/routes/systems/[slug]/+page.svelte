@@ -3,6 +3,7 @@
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
   import { softwareLd } from '$lib/seo/jsonld';
+  import { sectionToSlug } from '$lib/seo/sections';
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
 
@@ -19,6 +20,7 @@
 
   const record = data.record;
   const primarySection = record.sections.find((s) => s.primary)?.section ?? null;
+  const primarySectionSlug = primarySection ? sectionToSlug(primarySection) : null;
   const routePath = `/systems/${record.id}`;
 
   function cellText(c: Cell | undefined): string | null {
@@ -34,10 +36,14 @@
   const title = `${record.name} — ${primarySection ?? 'AI agent memory'} | Landscape Profile`;
 
   // Headline facts gathered in render-order. nulls dropped at template time.
-  const facts: { label: string; value: string | null; cite?: string | null }[] = [
+  const facts: { label: string; value: string | null; cite?: string | null; internal?: string }[] = [
     { label: 'Type', value: cellText(record.cells.type) },
     { label: 'Tier', value: `T${record.tier}` },
-    { label: 'Section', value: primarySection },
+    {
+      label: 'Section',
+      value: primarySection,
+      internal: primarySectionSlug ? `${base}/category/${primarySectionSlug}` : undefined
+    },
     { label: 'Created', value: cellText(record.cells.created) },
     { label: 'Latest release', value: cellText(record.cells['latest-release']) },
     { label: 'License', value: cellText(record.cells.license) },
@@ -104,6 +110,10 @@
       <a href="{base}/">Catalog</a>
       <span aria-hidden="true">›</span>
       <a href="{base}/systems">Systems</a>
+      {#if primarySection && primarySectionSlug}
+        <span aria-hidden="true">›</span>
+        <a href="{base}/category/{primarySectionSlug}">{primarySection}</a>
+      {/if}
       <span aria-hidden="true">›</span>
       <span>{record.name}</span>
     </p>
@@ -122,7 +132,9 @@
           <div>
             <dt>{f.label}</dt>
             <dd>
-              {#if f.cite}
+              {#if f.internal}
+                <a href={f.internal}>{f.value}</a>
+              {:else if f.cite}
                 <a href={f.cite} rel="nofollow noopener">{f.value}</a>
               {:else}
                 {f.value}

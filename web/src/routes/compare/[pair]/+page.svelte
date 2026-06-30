@@ -5,6 +5,7 @@
   import { articleLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
   import { pairToSlug } from '$lib/seo/compare';
+  import { sectionToSlug } from '$lib/seo/sections';
   import type { LandscapeRecord, Cell, Edge } from '$lib/types';
 
   type Slim = Pick<
@@ -151,8 +152,17 @@
         {#each rows as r}
           <tr>
             <th scope="row">{r.label}</th>
-            <td>{r.a ?? '—'}</td>
-            <td>{r.b ?? '—'}</td>
+            {#if r.label === 'Section'}
+              <td
+                >{#if r.a}<a href="{base}/category/{sectionToSlug(r.a)}">{r.a}</a>{:else}—{/if}</td
+              >
+              <td
+                >{#if r.b}<a href="{base}/category/{sectionToSlug(r.b)}">{r.b}</a>{:else}—{/if}</td
+              >
+            {:else}
+              <td>{r.a ?? '—'}</td>
+              <td>{r.b ?? '—'}</td>
+            {/if}
           </tr>
         {/each}
       </tbody>
