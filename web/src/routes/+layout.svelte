@@ -25,6 +25,15 @@
   );
 </script>
 
+<svelte:head>
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="AI Agent Infrastructure Landscape — recent activity"
+    href="{base}/feed.xml"
+  />
+</svelte:head>
+
 <nav class="topnav" aria-label="Primary">
   <a class="brand" href="{base}/">AI Agent Infrastructure</a>
   <ul>
