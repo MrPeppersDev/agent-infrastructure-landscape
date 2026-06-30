@@ -1,0 +1,91 @@
+# Recommendation drift cron (Phase 2 / Gate 6 — issue #100).
+#
+# Once a day, replay docs/canonical-questions.yml through the Phase 2
+# recommender (rankCandidates() in mcp/src/recommender.ts) and diff each
+# question's top-5 against yesterday's snapshot. Material movement opens a
+# drift-detected issue; either way, today's snapshot lands in
+# docs/drift-YYYY-MM-DD.md.
+#
+# Daily runs move signal, not state — this workflow never writes to
+# data/landscape.json. Maintainer review remains the gate for any
+# catalog change.
+#
+# Operational properties:
+#   - Schedule: 13:00 UTC daily (staggered after staleness at 12:00).
+#   - Manual trigger: workflow_dispatch is enabled for ad-hoc reruns.
+#   - Permissions: contents:write (snapshot commit), issues:write
+#     (drift-detected issue open). Nothing else.
+#   - Auth: GITHUB_TOKEN.
+#   - Idempotency: the Python script dedupes against existing open
+#     drift-detected issues with the same row id + date in the title,
+#     and overwrites today's snapshot file on re-run.
+
+name: Recommendation drift
+
+on:
+  schedule:
+    # Daily 13:00 UTC. cron syntax: minute hour day-of-month month day-of-week
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: recommendation-drift
+  cancel-in-progress: false
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python deps
+        run: pip install pyyaml
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build MCP package (recommender batch runner)
+        working-directory: mcp
+        run: |
+          npm install
+          npm run build
+
+      - name: Ensure drift-detected label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create drift-detected \
+            --description "Recommendation drift cron detected material top-5 movement." \
+            --color F9D0C4 \
+            --force || true
+
+      - name: Run recommendation-drift cron
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/cron_recommendation_drift.py
+
+      - name: Commit today's snapshot
+        run: |
+          set -euo pipefail
+          if git diff --quiet docs/drift-*.md 2>/dev/null && ! git status --porcelain docs | grep -q 'drift-'; then
+            echo "no snapshot change to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/drift-*.md
+          git commit -m "chore(drift): daily recommendation-drift snapshot" || true
+          git push || true

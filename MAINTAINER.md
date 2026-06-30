@@ -287,11 +287,42 @@ contributors know what to expect from the review queue.
 
 ### What runs automatically
 
-Three GitHub Actions workflows generate signal without human action:
+GitHub Actions workflows generate signal without human action. Daily
+crons are staggered across the 12:00–16:00 UTC window so jobs don't
+pile up. **Every workflow produces issues or PRs, never direct writes
+to `data/landscape.json`** — maintainer review remains the gate for
+catalog-state changes. Daily runs move signal, not state.
 
-- **`.github/workflows/staleness.yml`** — weekly cron. Walks every row
-  with a GitHub URL; opens `stale-row` issues for repos that crossed
-  the freshness threshold in §2.
+- **`.github/workflows/staleness.yml`** — daily 12:00 UTC. Walks every
+  row with a GitHub URL; opens `stale-row` issues for repos that
+  crossed the freshness threshold in §2. Driven by
+  `scripts/check_staleness.py`.
+- **`.github/workflows/recommendation-drift.yml`** — daily 13:00 UTC
+  (Phase 2 / Gate 6, issue #100). Replays `docs/canonical-questions.yml`
+  through the Phase 2 recommender (`rankCandidates()`); diffs each
+  question's top-5 against yesterday's snapshot. Material movement
+  opens a `drift-detected` issue; either way, today's snapshot lands
+  in `docs/drift-YYYY-MM-DD.md`. Driven by
+  `scripts/cron_recommendation_drift.py` via the Node bridge at
+  `mcp/dist/cron-rank-batch.js`.
+- **`.github/workflows/capability-incremental.yml`** — daily 14:00 UTC
+  (Gate 6). Walks all rows; re-derives `capability-composite-score`
+  for any row whose `capability-benchmark-sources` cell changed in the
+  past 24h. Opens one auto-PR per affected row. Capped at 20 emitted
+  PRs per run. Driven by `scripts/cron_capability_incremental.py`.
+- **`.github/workflows/catalog-pulse.yml`** — daily 15:00 UTC (Gate 6).
+  Aggregate snapshot: new rows, retirements, stale-cell count, drift
+  hot-spots from the prior day's drift run, plus a placeholder for
+  per-surface query telemetry once that lands. Writes
+  `docs/pulse-YYYY-MM-DD.md`. Driven by
+  `scripts/cron_catalog_pulse.py`.
+- **`.github/workflows/vendor-price-sweep.yml`** — daily 16:00 UTC
+  (Gate 6). Scrapes vendor pricing pages for every hosted-service row
+  (`cost-pricing-model` ∈ `per-token`, `per-request`, `subscription`);
+  diffs against stored cost cells. Opens one auto-PR per change. When
+  the change crosses a `cost-tier` boundary, also opens an issue
+  labelled `cost-tier-crossed`. Driven by
+  `scripts/cron_vendor_price_sweep.py`.
 - **`.github/workflows/audit-section.yml`** — weekly cron. Picks the
   oldest-audited section, opens a reverify or expand PR with proposed
   delta. Rotation policy in `docs/AUDIT.md`.
