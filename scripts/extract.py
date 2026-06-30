@@ -151,8 +151,22 @@ CELL_COLUMN_SLUGS: list[str] = [
     "citation-trajectory",
     # T3-prep-3 download-trajectory column (issue #52). See docs/SCHEMA.md §2.5.6.
     "download-trajectory",
+    # Phase 2 / Gate 1 (issue #95) — normalized cost. See docs/SCHEMA.md §2.5.7.
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — capability tier. See docs/SCHEMA.md §2.5.8.
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
+    "use-case-tags",
+    "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 85
+assert len(CELL_COLUMN_SLUGS) == 96
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -604,7 +618,7 @@ def section_label(group_row_td_text: str) -> tuple[str, bool]:
     """Return (label, is_subsection) for a group-row's first <td> text.
 
     Subsections in the HTML start with the literal "— " (em-dash + space)
-    inside a `<td colspan="93" style="padding-left: 28px; ...">`. We
+    inside a `<td colspan="104" style="padding-left: 28px; ...">`. We
     preserve the prefix exactly per §2.3.
     """
     txt = group_row_td_text.strip()
@@ -864,17 +878,17 @@ def build_record(
     #   tds[0]    = name
     #   tds[1]    = type (the "Memory model" cell — first cell column)
     #   tds[2..8] = tax-storage .. tax-conflict (7 taxonomy axes)
-    #   tds[9..92] = desc .. download-trajectory (84 remaining cell columns)
-    # Total: 1 + 1 + 7 + 84 = 93 tds per row.
-    if len(tds) != 93:
+    #   tds[9..103] = desc .. use-case-anti-tags (95 remaining cell columns)
+    # Total: 1 + 1 + 7 + 95 = 104 tds per row.
+    if len(tds) != 104:
         raise RuntimeError(
-            f"row {rec_id!r}: expected 93 tds, got {len(tds)}"
+            f"row {rec_id!r}: expected 104 tds, got {len(tds)}"
         )
     type_td = tds[1]
     tax_tds = tds[2:9]
     rest_cell_tds = tds[9:]
     assert len(tax_tds) == 7
-    assert len(rest_cell_tds) == 84
+    assert len(rest_cell_tds) == 95
 
     taxonomy = OrderedDict()
     for axis, td in zip(TAXONOMY_AXES, tax_tds):
@@ -930,6 +944,12 @@ def build_record(
     rec["sections"] = sections
     rec["taxonomy"] = taxonomy
     rec["cells"] = cells
+    # Phase 2 / Gate 1 (issue #95): every record carries a `_provenance`
+    # dict keyed by cell slug. Phase 1 leaves it empty; HTML does not yet
+    # carry per-cell provenance markup, so the field defaults to `{}` on
+    # round-trip — matching the committed `data/landscape.json` shape
+    # produced by `scripts/phase_2_migrate_schema.py`.
+    rec["_provenance"] = {}
     return rec
 
 

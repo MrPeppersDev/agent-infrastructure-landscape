@@ -6,7 +6,7 @@ Reads a GitHub Issue (intake-labelled, body in the format produced by
 .github/ISSUE_TEMPLATE/intake.yml and web/src/lib/submit-issue.ts) and
 emits a complete record dict matching `data/landscape.json`'s records[].
 
-Each of the 85 cells is filled with `{value, citation, status, tier}`
+Each of the 96 cells is filled with `{value, citation, status, tier}`
 per docs/SCHEMA.md §3a. Per-cell strategy:
 
   T1 cells (auto-verifiable):
@@ -120,8 +120,14 @@ CELL_COLUMN_SLUGS: list[str] = [
     "eval-custom-test-harness", "eval-human-loop",
     "eval-production-traffic-replay",
     "commit-trajectory", "citation-trajectory", "download-trajectory",
+    # Phase 2 / Gate 1 (issue #95) — see docs/SCHEMA.md §2.5.7–9.
+    "cost-input-usd-per-mtok", "cost-output-usd-per-mtok", "cost-tier",
+    "cost-pricing-model", "cost-last-verified",
+    "capability-composite-score", "capability-band",
+    "capability-benchmark-sources", "capability-last-verified",
+    "use-case-tags", "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 85
+assert len(CELL_COLUMN_SLUGS) == 96
 
 TAXONOMY_AXES = [
     "storage", "retrieval", "persistence", "update", "unit",

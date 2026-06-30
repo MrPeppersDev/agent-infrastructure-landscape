@@ -119,8 +119,22 @@ CELL_COLUMN_SLUGS: list[str] = [
     "citation-trajectory",
     # T3-prep-3 download-trajectory column (issue #52). See docs/SCHEMA.md §2.5.6.
     "download-trajectory",
+    # Phase 2 / Gate 1 (issue #95) — normalized cost. See docs/SCHEMA.md §2.5.7.
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — capability tier. See docs/SCHEMA.md §2.5.8.
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
+    "use-case-tags",
+    "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 85
+assert len(CELL_COLUMN_SLUGS) == 96
 
 TAXONOMY_AXES = [
     "storage", "retrieval", "persistence", "update", "unit",
