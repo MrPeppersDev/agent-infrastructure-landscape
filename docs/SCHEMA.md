@@ -79,7 +79,8 @@ Same rationale. `edges` is a flat array; multiple edges between the same
 | `url`      | string \| null                      | yes      | `href` of the `td.name <a>`, or `null` if no link.           |
 | `sections` | array of section-membership objects | yes      | At least one element. Exactly one with `primary: true`.      |
 | `taxonomy` | object with 7 axis arrays           | yes      | All 7 keys present. See [§2.4](#24-taxonomy).                |
-| `cells`    | object keyed by column-name         | yes      | All ~75 column keys present (with `not-applicable` if N/A).  |
+| `cells`    | object keyed by column-name         | yes      | All 96 column keys present (with `not-applicable` if N/A).   |
+| `_provenance` | object keyed by cell slug         | no       | Per-cell provenance. Added in Phase 2 / Gate 1 (issue #95). See §3d. Empty `{}` until backfill lands. |
 
 Records are JSON objects; field order is not significant but producers
 SHOULD emit fields in the order shown above for diff-friendliness.
@@ -258,8 +259,12 @@ vocabularies are governed by the controlled-vocab list in `taxonomy/`.
 ### 2.5 Cells
 
 `cells` is an object keyed by **column slug**, with one entry per
-non-name, non-taxonomy column in `landscape.html`. There are 82 such
-columns (91 total - 1 name - 1 memory-model-type - 7 taxonomy = 82).
+non-name, non-taxonomy column in `landscape.html`. There are 96 such
+columns as of Phase 2 / Gate 1 (issue #95) — the 85 pre-Phase-2 columns
+documented below plus the 11 Phase 2 column families introduced in
+§2.5.7–9 (cost, capability, use-case). The total `<td>` count per data
+row is 1 + 1 + 7 + 95 = 104 (name + type + 7 taxonomy + 95 remaining
+cells).
 
 Each cell value:
 
@@ -715,6 +720,56 @@ Out of scope:
 - Per-version popularity (latest-N popularity is volatile and not what
   the cumulative S-curve cares about).
 
+### 2.5.7 Normalized cost columns (added in Phase 2 / Gate 1, issue #95)
+
+Five cells covering the cost-economics axis used by the
+positioning recommender (`/recommend/between`, see
+[`PHASE_2_SPEC.html`](../PHASE_2_SPEC.html) §3.1, §4.2):
+
+| # | Column slug                  | Meaning                                                                                   |
+|---|------------------------------|-------------------------------------------------------------------------------------------|
+| 86 | `cost-input-usd-per-mtok`   | Public list price in USD per million input tokens. `value` is the stringified number.     |
+| 87 | `cost-output-usd-per-mtok`  | Same for output tokens.                                                                   |
+| 88 | `cost-tier`                 | Derived bucket: `free` \| `budget` \| `mid` \| `premium`. Recomputed nightly.            |
+| 89 | `cost-pricing-model`        | Enum: `per-token` \| `per-request` \| `subscription` \| `self-hosted` \| `free-tier`.    |
+| 90 | `cost-last-verified`        | ISO date of last vendor-pricing-page scrape.                                              |
+
+Each cell carries the standard `{value, citation, status, tier}`
+envelope (§2.5). `not-applicable` is the right status for research
+papers and self-hosted-only systems; cost cells are skip-eligible per
+PHASE_2_SPEC §3.1.
+
+### 2.5.8 Capability tier columns (added in Phase 2 / Gate 1, issue #95)
+
+Four cells covering the capability axis (PHASE_2_SPEC §3.2):
+
+| # | Column slug                       | Meaning                                                                          |
+|---|-----------------------------------|----------------------------------------------------------------------------------|
+| 91 | `capability-composite-score`     | Weighted composite (0–100) across code / agentic reasoning / long-context.      |
+| 92 | `capability-band`                | Derived bucket: `entry` \| `competent` \| `frontier`.                            |
+| 93 | `capability-benchmark-sources`   | Array of `{benchmark, score, run_date, source_url}`. `value` is JSON-stringified.|
+| 94 | `capability-last-verified`       | ISO date of last quarterly recalibration run.                                    |
+
+The composite draws on the `benchmark-trust` analytical view's vetted
+benchmark sources — not a new trust-evaluation pass.
+
+### 2.5.9 Use-case suitability columns (added in Phase 2 / Gate 1, issue #95)
+
+Two cells covering the constraint-matching axis (PHASE_2_SPEC §3.3):
+
+| # | Column slug              | Meaning                                                                                                |
+|---|--------------------------|--------------------------------------------------------------------------------------------------------|
+| 95 | `use-case-tags`         | Multi-select from the controlled vocabulary (8 tags as of 2026-06-29). `value` is JSON-stringified.   |
+| 96 | `use-case-anti-tags`    | Explicit "do not use for" tags from the same vocabulary. Equally load-bearing for ranking.            |
+
+**Initial controlled vocabulary:** `scoped-agentic`,
+`long-running-session`, `multi-agent-coordination`,
+`memory-augmented-chat`, `code-generation-focused`,
+`analytical-summarization`, `latency-sensitive`, `offline-capable`.
+
+Growth thresholds (PHASE_2_SPEC §3.3): monitor at 10% catalog
+membership, promote-to-hierarchy at 20%.
+
 ---
 
 ## 3. The `status` enum — exact semantics
@@ -1057,6 +1112,134 @@ records with the given decay cause (one of the eight enum values).
 Available as an MCP tool and as the `landscape decay-cause <cause>` CLI
 subcommand. Mirrors the existing nine-tool surface — same `RecordSummary`
 shape, same JSON / CSV options.
+
+---
+
+## 3d. Per-cell provenance (`_provenance` — Phase 2 / Gate 1, issue #95)
+
+Tier (§3a) captures *what kind of claim* a cell is (auto-verifiable, sourced,
+estimate). Provenance is the orthogonal axis: *who or what put this value
+here, and has a human confirmed it?* The recommender's defensibility
+depends on being able to answer the second question for any cell that
+ends up in a ranking rationale, so an LLM-generated guess cannot
+masquerade as a curated fact.
+
+See [`PHASE_2_SPEC.html`](../PHASE_2_SPEC.html) §3.4 for the full
+motivation and surface-rendering rules.
+
+### Shape
+
+Each record carries an optional `_provenance` object keyed by cell slug
+(the same kebab-case keys used in `cells`):
+
+```typescript
+type CellProvenance =
+  | { source: "human";  verified: boolean; author: string;       edited_at: string; }
+  | { source: "scrape"; verified: boolean; scraped_at: string;   scrape_url: string; script?: string; }
+  | { source: "llm";    verified: boolean; generated_at: string; model_id?: string; }
+  | { source: "legacy"; verified: true; };
+
+type Record = {
+  // ... id, name, tier, url, sections, taxonomy, cells ...
+  _provenance?: { [cellSlug: string]: CellProvenance };
+};
+```
+
+Phase 1 of Gate 1 (this PR) introduces the field as `{}` on every row.
+Phases 2-4 backfill entries.
+
+### Source enum
+
+| Source | When it applies | Required fields |
+|--------|-----------------|-----------------|
+| `human`  | Cell was authored or last-edited by a person (PR or web form). | `author` (handle), `edited_at` (ISO date). |
+| `scrape` | Cell was mechanically derived (GitHub API, arXiv API, vendor pricing-page extraction, etc.). | `scraped_at` (ISO date), `scrape_url` (the URL the value came from), optional `script` (relative path of the writing script). |
+| `llm`    | Cell was suggested by an LLM during intake enrichment. | `generated_at` (ISO date), optional `model_id`. |
+| `legacy` | Cell predates the provenance model — assigned during Gate 1's existing-cell backfill for the 85 pre-Phase-2 cells. | `verified: true` is fixed (legacy cells were trusted catalog state before Phase 2 began). |
+
+### Verification rules
+
+- **Every cell is fillable by LLM enrichment.** No cell is off-limits
+  to `source: "llm"` if mechanical extraction fails — including cost
+  cells. The `verified` bit, not the source, controls load-bearing-ness.
+- **`source: "llm"` is always surfaced.** Web UI shows an
+  "LLM, unverified" badge; MCP tool responses include it in the
+  `caveats` array; CLI prints it inline.
+- **Unverified LLM cells are non-load-bearing for ranking.**
+  `rank_candidates()` excludes cells with `source: "llm",
+  verified: false` from score calculation. They appear in the
+  candidate's profile but cannot influence position; the rationale
+  explicitly notes when a cell was skipped for this reason.
+- **Verification flips the bit, not the value.** A human reviewing an
+  LLM cell either edits it (changing source to `human`) or sets
+  `verified: true` with their handle. Verified-LLM cells become
+  load-bearing.
+- **Scraped cells are verified-by-default.** Mechanical extraction
+  with a stored `scrape_url` is treated as load-bearing without
+  separate human sign-off; the staleness pipeline (gates 6 + 8)
+  catches drift.
+- **Legacy cells are verified-by-default.** Same rationale — they
+  were already in the catalog and trusted before the provenance
+  model existed.
+
+### HTML carrier
+
+Each `<td>` may carry a `data-provenance="..."` attribute whose value is
+the cell's provenance entry encoded as compact JSON
+(`json.dumps(entry, sort_keys=True, separators=(",", ":"))`).
+Cells without an entry emit no attribute, so cost / capability / use-case
+cells stay carrier-free until Phases 3 & 4 of Gate 1 populate them.
+
+`render.py` emits the attribute; `extract.py` recovers the entry via
+`parse_provenance_attr()`. Fields inside the JSON are alphabetized (the
+serializer's `sort_keys=True`); cell-slug keys in the `_provenance` dict
+follow `cells` iteration order. Both orderings are required for the
+round-trip cycle (gate 2) to remain byte-stable.
+
+### Backfill state (Gate 1, Phases 2-4 — complete)
+
+- **Phase 2** (`scripts/phase_2_provenance_backfill.py`) populated entries
+  for every claim-bearing pre-Phase-2 cell. Default source is `legacy`.
+  The three trajectory cells (`commit-trajectory`, `citation-trajectory`,
+  `download-trajectory`) are upgraded to `source: "scrape"` when the cell
+  carries a usable http(s) citation, with `script` pointing at the
+  identified writer in `scripts/`. Cells with `status: "no-data"` carry
+  no claim and have no entry.
+- **Phase 3** (`scripts/phase_2_cost_mechanical_fill.py`) filled the 5
+  new cost cells (§2.5.7) for 773/912 records mechanically by leveraging
+  the existing `pricing` cell:
+    - 543 rows propagated from `pricing.status` ∈ {not-applicable,
+      depth-floor-reached} → cost cells mirror the same status.
+    - 163 rows pattern-matched as free/OSS → `cost-tier: "free"`,
+      `cost-pricing-model: "free-tier"`.
+    - 66 rows pattern-matched as subscription/per-seat/enterprise →
+      `cost-pricing-model: "subscription"`, per-token cells `not-applicable`.
+    - 1 row pattern-matched as self-hosted-only.
+    - Remaining 139 rows (mixed-pricing prose, numeric per-token text)
+      are left at `no-data` for Phase 4 LLM fill.
+- **Phase 4** (`scripts/phase_2_llm_fill_apply.py` + parallel sub-agents)
+  filled the remaining 11 Phase 2 cells via LLM judgment per
+  PHASE_2_SPEC §3.5:
+    - **4a** (pilot, 13 foundation-model rows × 4 capability cells = 52 cells).
+    - **4b** (capability cells for the remaining 899 rows = 3,596 cells,
+      14 batched parallel sub-agents). Status split: 475 `estimate`
+      (runnable systems) + 437 `not-applicable` (infrastructure / research /
+      benchmarks). Band distribution: 38 frontier / 407 competent / 30 entry.
+    - **4c** (use-case-tags + use-case-anti-tags for all 912 rows =
+      1,824 cells, 15 batched parallel sub-agents). Status split:
+      500 / 485 `estimate` and 412 / 427 `not-applicable`. All positive
+      tags drawn from the §3.3 controlled vocabulary.
+    - **4d** (residual 139 cost rows × 5 cells = 695 cells, single
+      sub-agent reading the existing `pricing` prose). All marked
+      `source: "llm", verified: false, model_id: "claude-opus-4-7",
+      generated_at: "2026-06-29"`. status `"estimate"` → claim-tier T3
+      (citation not required by §3a); non-load-bearing for ranking per
+      §3.4 until a human verifies.
+
+End-state: zero `no-data` cells across all 11 Phase 2 slugs. Every
+cell in `landscape.json` has a populated `_provenance` entry covering
+all 85 pre-Phase-2 cells + 11 new Phase 2 cells = ~85,000 provenance
+entries across the catalog.
 
 ---
 

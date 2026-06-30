@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "node dist/test-tools.js",
+    "test": "node dist/test-tools.js && node dist/test-recommender.js",
     "prepare": "tsc",
     "prepack": "tsc && mkdir -p data && cp ../data/landscape.json ../data/landscape.edges.json data/"
   },

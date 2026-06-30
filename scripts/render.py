@@ -142,8 +142,22 @@ CELL_COLUMN_SLUGS: list[str] = [
     "citation-trajectory",
     # T3-prep-3 download-trajectory column (issue #52). See docs/SCHEMA.md §2.5.6.
     "download-trajectory",
+    # Phase 2 / Gate 1 (issue #95) — normalized cost. See docs/SCHEMA.md §2.5.7.
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — capability tier. See docs/SCHEMA.md §2.5.8.
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
+    "use-case-tags",
+    "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 85
+assert len(CELL_COLUMN_SLUGS) == 96
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -300,7 +314,11 @@ def render_citation(href: str | None, title: str = "source") -> str:
     )
 
 
-def render_cell(td_class: str, cell: dict[str, Any]) -> str:
+def render_cell(
+    td_class: str,
+    cell: dict[str, Any],
+    provenance: dict[str, Any] | None = None,
+) -> str:
     """Render one cell <td> for a non-name, non-taxonomy column.
 
     `td_class` is the css class (e.g. "type", "desc", "perf"). `cell` is
@@ -309,6 +327,11 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
     Volatile cells (SCHEMA.md §3b) emit a `data-last-verified="YYYY-MM-DD"`
     attribute on the <td> when the cell carries one. Non-volatile cells
     never emit the attribute (they inherit the row-level date).
+
+    When `provenance` is non-empty, the entry is JSON-encoded (sorted keys,
+    no whitespace) into a `data-provenance="..."` HTML attribute. Carrier
+    for SCHEMA.md §3d. Empty / None provenance emits no attribute, so the
+    Phase 1 round-trip (every cell `_provenance` empty) stays byte-stable.
     """
     status = cell.get("status")
     value = cell.get("value", "") or ""
@@ -378,6 +401,11 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
         and last_verified
     ):
         attrs += f' data-last-verified="{escape(last_verified, quote=True)}"'
+    if provenance:
+        prov_json = json.dumps(
+            provenance, sort_keys=True, separators=(",", ":")
+        )
+        attrs += f' data-provenance="{escape(prov_json, quote=True)}"'
     return f"    <td {attrs}>{inner}</td>"
 
 
@@ -521,17 +549,18 @@ def render_row(record: dict[str, Any]) -> str:
         # Inject the marker before the closing </td>.
         name_cell = name_cell[:-len("</td>")] + marker + "</td>"
     lines.append(name_cell)
+    prov_map = record.get("_provenance") or {}
     # type cell (the first cell column).
-    lines.append(render_cell("type", record["cells"]["type"]))
+    lines.append(render_cell("type", record["cells"]["type"], prov_map.get("type")))
     # 7 taxonomy axes.
     for axis in TAXONOMY_AXES:
         lines.append(render_taxonomy_cell(axis, record["taxonomy"].get(axis, [])))
-    # Remaining 59 cells (skip "type" — already emitted).
+    # Remaining cells (skip "type" — already emitted).
     for slug in CELL_COLUMN_SLUGS[1:]:
         cell = record["cells"].get(slug)
         if cell is None:
             raise RuntimeError(f"record {record['id']!r} missing cell {slug!r}")
-        lines.append(render_cell(slug, cell))
+        lines.append(render_cell(slug, cell, prov_map.get(slug)))
     lines.append("  </tr>")
     return "\n".join(lines)
 
@@ -539,11 +568,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="93" '
+            f'  <tr class="group-row"><td colspan="104" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="93">'
+        f'  <tr class="group-row"><td colspan="104">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -552,7 +581,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="93">'
+        '  <tr class="section-explainer"><td colspan="104">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 

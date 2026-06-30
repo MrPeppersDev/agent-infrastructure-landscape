@@ -90,7 +90,7 @@ VOLATILE_CELL_SLUGS: set[str] = {
 }
 
 # Cells we attempt to re-research in reverify mode. Re-fetching a primary
-# URL is cheap; re-deriving 85 cells from one fetch is fragile and noisy.
+# URL is cheap; re-deriving 96 cells from one fetch is fragile and noisy.
 # The narrow set below is the high-volatility/easy-to-verify slice:
 #   - desc / claims: re-extract from meta + first <p> / arxiv abstract
 #   - created / latest-release / gh / mindshare: GitHub API

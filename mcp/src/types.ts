@@ -72,7 +72,7 @@ export type DecayCause =
   | 'research-complete'
   | 'unknown';
 
-/** The 82 column slugs from docs/SCHEMA.md §2.5. */
+/** The column slugs from docs/SCHEMA.md §2.5 (kept in sync with web/src/lib/types.ts). */
 export type ColumnSlug =
   | 'type'
   | 'desc'
@@ -158,7 +158,19 @@ export type ColumnSlug =
   | 'eval-production-traffic-replay'
   | 'commit-trajectory'
   | 'citation-trajectory'
-  | 'download-trajectory';
+  | 'download-trajectory'
+  // Phase 2 / Gate 1 (issue #95). See SCHEMA.md §2.5.7–9.
+  | 'cost-input-usd-per-mtok'
+  | 'cost-output-usd-per-mtok'
+  | 'cost-tier'
+  | 'cost-pricing-model'
+  | 'cost-last-verified'
+  | 'capability-composite-score'
+  | 'capability-band'
+  | 'capability-benchmark-sources'
+  | 'capability-last-verified'
+  | 'use-case-tags'
+  | 'use-case-anti-tags';
 
 export type Cells = Record<ColumnSlug, Cell>;
 
@@ -180,7 +192,19 @@ export interface LandscapeRecord {
   sections: SectionMembership[];
   taxonomy: Taxonomy;
   cells: Cells;
+  /**
+   * Per-cell provenance dict, keyed by cell slug. Added in Phase 2 /
+   * Gate 1 (issue #95). See PHASE_2_SPEC.html §3.4.
+   */
+  _provenance?: Record<string, CellProvenance>;
 }
+
+/** See PHASE_2_SPEC.html §3.4 for the model. */
+export type CellProvenance =
+  | { source: 'human'; verified: boolean; author: string; edited_at: string }
+  | { source: 'scrape'; verified: boolean; scraped_at: string; scrape_url: string; script?: string }
+  | { source: 'llm'; verified: boolean; generated_at: string; model_id?: string }
+  | { source: 'legacy'; verified: true };
 
 export interface LandscapeFile {
   schemaVersion: string;

@@ -151,8 +151,22 @@ CELL_COLUMN_SLUGS: list[str] = [
     "citation-trajectory",
     # T3-prep-3 download-trajectory column (issue #52). See docs/SCHEMA.md §2.5.6.
     "download-trajectory",
+    # Phase 2 / Gate 1 (issue #95) — normalized cost. See docs/SCHEMA.md §2.5.7.
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — capability tier. See docs/SCHEMA.md §2.5.8.
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
+    "use-case-tags",
+    "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 85
+assert len(CELL_COLUMN_SLUGS) == 96
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -536,6 +550,32 @@ def parse_cell(
     return cell
 
 
+def parse_provenance_attr(td: Tag, where: str) -> dict[str, Any] | None:
+    """Return the parsed `data-provenance` JSON dict, or None if absent.
+
+    Carrier for SCHEMA.md §3d. Missing/empty attribute is the common case
+    (cell has no provenance entry); only malformed JSON raises.
+    """
+    attr = td.get("data-provenance")
+    if attr is None:
+        return None
+    text = attr.strip() if isinstance(attr, str) else ""
+    if not text:
+        return None
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError as e:
+        raise RuntimeError(
+            f"{where}: malformed data-provenance attribute: {e}"
+        ) from e
+    if not isinstance(parsed, dict):
+        raise RuntimeError(
+            f"{where}: data-provenance must encode a JSON object, got "
+            f"{type(parsed).__name__}"
+        )
+    return parsed
+
+
 # ---------------------------------------------------------------------------
 # Taxonomy parsing (§2.4).
 # ---------------------------------------------------------------------------
@@ -604,7 +644,7 @@ def section_label(group_row_td_text: str) -> tuple[str, bool]:
     """Return (label, is_subsection) for a group-row's first <td> text.
 
     Subsections in the HTML start with the literal "— " (em-dash + space)
-    inside a `<td colspan="93" style="padding-left: 28px; ...">`. We
+    inside a `<td colspan="104" style="padding-left: 28px; ...">`. We
     preserve the prefix exactly per §2.3.
     """
     txt = group_row_td_text.strip()
@@ -864,33 +904,41 @@ def build_record(
     #   tds[0]    = name
     #   tds[1]    = type (the "Memory model" cell — first cell column)
     #   tds[2..8] = tax-storage .. tax-conflict (7 taxonomy axes)
-    #   tds[9..92] = desc .. download-trajectory (84 remaining cell columns)
-    # Total: 1 + 1 + 7 + 84 = 93 tds per row.
-    if len(tds) != 93:
+    #   tds[9..103] = desc .. use-case-anti-tags (95 remaining cell columns)
+    # Total: 1 + 1 + 7 + 95 = 104 tds per row.
+    if len(tds) != 104:
         raise RuntimeError(
-            f"row {rec_id!r}: expected 93 tds, got {len(tds)}"
+            f"row {rec_id!r}: expected 104 tds, got {len(tds)}"
         )
     type_td = tds[1]
     tax_tds = tds[2:9]
     rest_cell_tds = tds[9:]
     assert len(tax_tds) == 7
-    assert len(rest_cell_tds) == 84
+    assert len(rest_cell_tds) == 95
 
     taxonomy = OrderedDict()
     for axis, td in zip(TAXONOMY_AXES, tax_tds):
         taxonomy[axis] = parse_taxonomy_axis(td)
 
     cells = OrderedDict()
-    cells[CELL_COLUMN_SLUGS[0]] = parse_cell(
+    provenance: OrderedDict[str, Any] = OrderedDict()
+    type_slug = CELL_COLUMN_SLUGS[0]
+    cells[type_slug] = parse_cell(
         type_td,
         warnings=tier_warnings,
-        where=f"{rec_id}.{CELL_COLUMN_SLUGS[0]}",
-        slug=CELL_COLUMN_SLUGS[0],
+        where=f"{rec_id}.{type_slug}",
+        slug=type_slug,
     )  # "type"
+    type_prov = parse_provenance_attr(type_td, where=f"{rec_id}.{type_slug}")
+    if type_prov is not None:
+        provenance[type_slug] = type_prov
     for slug, td in zip(CELL_COLUMN_SLUGS[1:], rest_cell_tds):
         cells[slug] = parse_cell(
             td, warnings=tier_warnings, where=f"{rec_id}.{slug}", slug=slug
         )
+        cell_prov = parse_provenance_attr(td, where=f"{rec_id}.{slug}")
+        if cell_prov is not None:
+            provenance[slug] = cell_prov
 
     sections = [{
         "section": parsed["section"],
@@ -930,6 +978,12 @@ def build_record(
     rec["sections"] = sections
     rec["taxonomy"] = taxonomy
     rec["cells"] = cells
+    # Phase 2 / Gate 1 (issue #95): per-record `_provenance` dict keyed
+    # by cell slug. Entries recovered from per-cell `data-provenance="..."`
+    # HTML attributes (SCHEMA.md §3d). Cells with no attribute contribute
+    # no key — `{}` is the legitimate state for records that have no
+    # claim-bearing cells (none in practice, but the shape allows it).
+    rec["_provenance"] = provenance
     return rec
 
 
