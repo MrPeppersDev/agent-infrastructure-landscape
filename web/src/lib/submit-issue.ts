@@ -28,6 +28,36 @@ export type SystemType =
 
 export type TierGuess = '' | 'T1' | 'T2' | 'T3' | 'T4' | 'T5';
 
+// Phase 2 / Gate 1 (issue #95). Pricing-model dropdown values mirror
+// the controlled vocab in docs/SCHEMA.md §2.5.7. Submitter sets the
+// pricing model so the bot knows whether to scrape a vendor pricing
+// page (hosted-api / hosted-service) or skip cost enrichment entirely
+// (oss-self-host / academic). The empty value is "let curator decide".
+export type CostPricingModel =
+  | ''
+  | 'hosted-api'
+  | 'hosted-service'
+  | 'oss-self-host'
+  | 'academic'
+  | 'unknown';
+
+// Phase 2 / Gate 1 use-case controlled vocabulary (8 tags). Submitter
+// picks any subset via chips. Free-text "other" tags go in
+// `useCaseTagsOther` and are surfaced verbatim in the issue body for
+// the curator to normalise or extend the vocab.
+export const USE_CASE_TAG_VOCAB: readonly string[] = [
+  'scoped-agentic',
+  'long-running-session',
+  'multi-agent-coordination',
+  'memory-augmented-chat',
+  'code-generation-focused',
+  'analytical-summarization',
+  'latency-sensitive',
+  'offline-capable'
+] as const;
+
+export type UseCaseTag = typeof USE_CASE_TAG_VOCAB[number];
+
 export interface SubmissionFormState {
   name: string;
   url: string;
@@ -43,6 +73,20 @@ export interface SubmissionFormState {
   githubUrl: string;
   arxivUrl: string;
   notes: string;
+  // --- Phase 2 / Gate 1 cells (issue #95 / #101) -----------------------
+  // Cost — all optional; bot scrapes a vendor pricing page when
+  // costPricingModel is hosted-api/hosted-service and these are blank.
+  costInputUsdPerMtok: string;
+  costOutputUsdPerMtok: string;
+  costPricingModel: CostPricingModel;
+  // Capability — submitter pastes benchmark sources (URLs + scores).
+  // Bot HEAD-checks each URL and attempts to extract one score.
+  capabilityBenchmarkSources: string;
+  // Use-case — multi-select against USE_CASE_TAG_VOCAB plus free-text
+  // "other" tags (comma-separated). Bot adds llm-suggested tags
+  // without ever overwriting the submitter's.
+  useCaseTags: UseCaseTag[];
+  useCaseTagsOther: string;
 }
 
 export const EMPTY_FORM: SubmissionFormState = {
@@ -59,8 +103,23 @@ export const EMPTY_FORM: SubmissionFormState = {
   license: '',
   githubUrl: '',
   arxivUrl: '',
-  notes: ''
+  notes: '',
+  costInputUsdPerMtok: '',
+  costOutputUsdPerMtok: '',
+  costPricingModel: '',
+  capabilityBenchmarkSources: '',
+  useCaseTags: [],
+  useCaseTagsOther: ''
 };
+
+export const COST_PRICING_MODEL_OPTIONS: ReadonlyArray<{ value: CostPricingModel; label: string }> = [
+  { value: '', label: '— skip (curator decides) —' },
+  { value: 'hosted-api', label: 'hosted-api (priced per token, e.g. OpenAI / Anthropic)' },
+  { value: 'hosted-service', label: 'hosted-service (SaaS — per-seat / per-request / tiered)' },
+  { value: 'oss-self-host', label: 'oss-self-host (no vendor price; infra cost only)' },
+  { value: 'academic', label: 'academic (research artefact; no commercial price)' },
+  { value: 'unknown', label: 'unknown (cannot tell)' }
+] as const;
 
 // Mirrored from data/landscape.json @ Round-6 terminal state. The
 // "other / new section" sentinel is appended at the end so authors
@@ -152,6 +211,19 @@ export interface ValidationResult {
 // per field, and `new URL()` throws are noisy.
 const URL_RE = /^https?:\/\/[^\s/$.?#].[^\s]*$/i;
 
+// Phase 2 / Gate 1 numeric cost validator. Accepts blank or a positive
+// decimal up to 4 fractional digits. Hand-rolled to keep the no-deps
+// constraint — `parseFloat` accepts garbage like "12foo".
+const COST_NUM_RE = /^\d+(?:\.\d{1,4})?$/;
+
+function isValidCostNumber(s: string): boolean {
+  const v = s.trim();
+  if (!v) return true; // empty is allowed
+  if (!COST_NUM_RE.test(v)) return false;
+  const n = Number(v);
+  return Number.isFinite(n) && n >= 0 && n < 1_000_000;
+}
+
 export function validateSubmission(s: SubmissionFormState): ValidationResult {
   const errors: ValidationResult['errors'] = {};
 
@@ -171,6 +243,23 @@ export function validateSubmission(s: SubmissionFormState): ValidationResult {
   }
   if (s.arxivUrl.trim() && !URL_RE.test(s.arxivUrl.trim())) {
     errors.arxivUrl = 'Must be http(s)://… or leave blank.';
+  }
+
+  // --- Phase 2 / Gate 1 cells ----------------------------------------
+  if (!isValidCostNumber(s.costInputUsdPerMtok)) {
+    errors.costInputUsdPerMtok = 'Must be a positive decimal (USD per million tokens) or blank.';
+  }
+  if (!isValidCostNumber(s.costOutputUsdPerMtok)) {
+    errors.costOutputUsdPerMtok = 'Must be a positive decimal (USD per million tokens) or blank.';
+  }
+  // Reject any selected tag outside the controlled vocabulary — the UI
+  // shouldn't allow this, but hand-roll defence so a hand-built form
+  // post can't smuggle a fake tag past the bot.
+  for (const t of s.useCaseTags) {
+    if (!USE_CASE_TAG_VOCAB.includes(t)) {
+      errors.useCaseTags = `Unknown use-case tag: ${t}`;
+      break;
+    }
   }
 
   return { ok: Object.keys(errors).length === 0, errors };
@@ -242,6 +331,33 @@ export function buildIssueMarkdown(s: SubmissionFormState): string {
   lines.push(field('GitHub URL', s.githubUrl));
   lines.push('');
   lines.push(field('Arxiv URL', s.arxivUrl));
+  lines.push('');
+
+  // --- Phase 2 / Gate 1 cells (issue #95 / #101) ---------------------
+  // Each Phase 2 field gets its own `**Label:**` line so the research
+  // bot can regex-parse it via the same FIELD_LABELS table as the
+  // existing fields. Empty values stay rendered (`_(not provided)_`)
+  // so the bot can tell "skipped" from "missing".
+  lines.push('### Cost');
+  lines.push('');
+  lines.push(field('Cost input USD per Mtok', s.costInputUsdPerMtok));
+  lines.push('');
+  lines.push(field('Cost output USD per Mtok', s.costOutputUsdPerMtok));
+  lines.push('');
+  lines.push(field('Cost pricing model', s.costPricingModel));
+  lines.push('');
+
+  lines.push('### Capability');
+  lines.push('');
+  lines.push(block('Capability benchmark sources', s.capabilityBenchmarkSources));
+  lines.push('');
+
+  lines.push('### Use-case');
+  lines.push('');
+  const tagsJoined = s.useCaseTags.join(', ');
+  lines.push(field('Use-case tags', tagsJoined));
+  lines.push('');
+  lines.push(field('Use-case tags (other)', s.useCaseTagsOther));
   lines.push('');
 
   lines.push('### Submitter notes');

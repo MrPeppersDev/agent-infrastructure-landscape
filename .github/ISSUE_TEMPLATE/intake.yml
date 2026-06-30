@@ -203,6 +203,84 @@ body:
     validations:
       required: false
 
+  # ----- Phase 2 / Gate 1 (issues #95 / #101) -----------------------------
+  # Cost / capability / use-case cells. All optional — the research bot
+  # enriches what's missing. Field labels MUST match those emitted by
+  # web/src/lib/submit-issue.ts so scripts/research_intake.py parses
+  # both sources identically.
+
+  - type: input
+    id: cost_input_usd_per_mtok
+    attributes:
+      label: Cost input USD per Mtok
+      description: Optional. Input-token price in USD per million tokens (e.g. `3.00`). Leave blank for the bot to scrape if pricing model is hosted-api / hosted-service.
+      placeholder: e.g. 3.00
+    validations:
+      required: false
+
+  - type: input
+    id: cost_output_usd_per_mtok
+    attributes:
+      label: Cost output USD per Mtok
+      description: Optional. Output-token price in USD per million tokens.
+      placeholder: e.g. 15.00
+    validations:
+      required: false
+
+  - type: dropdown
+    id: cost_pricing_model
+    attributes:
+      label: Cost pricing model
+      description: Tells the bot whether to scrape a vendor pricing page. OSS / academic systems usually have no per-token price.
+      options:
+        - "— skip (curator decides) —"
+        - hosted-api
+        - hosted-service
+        - oss-self-host
+        - academic
+        - unknown
+      default: 0
+    validations:
+      required: false
+
+  - type: textarea
+    id: capability_benchmark_sources
+    attributes:
+      label: Capability benchmark sources
+      description: Optional. Paste benchmark sources — URLs to MMLU / HumanEval / memory-eval leaderboards, ideally one per line with the relevant score. The bot HEAD-checks URLs and pulls one score.
+      placeholder: |
+        https://artificialanalysis.ai/models/foo — MMLU 0.81
+        https://example.com/leaderboard — HumanEval 0.73
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: use_case_tags
+    attributes:
+      label: Use-case tags
+      description: |
+        Pick the use-cases this system is built for. The bot may add additional tags from the same controlled vocabulary, but will never remove your selections.
+      options:
+        - label: scoped-agentic
+        - label: long-running-session
+        - label: multi-agent-coordination
+        - label: memory-augmented-chat
+        - label: code-generation-focused
+        - label: analytical-summarization
+        - label: latency-sensitive
+        - label: offline-capable
+    validations:
+      required: false
+
+  - type: input
+    id: use_case_tags_other
+    attributes:
+      label: Use-case tags (other)
+      description: Optional. Comma-separated free-text tags if the eight controlled-vocab tags don't cover the use-case. Curator may extend the vocabulary.
+      placeholder: e.g. graph-traversal, federated-learning
+    validations:
+      required: false
+
   - type: textarea
     id: submitter_notes
     attributes:

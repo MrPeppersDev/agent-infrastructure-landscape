@@ -39,6 +39,28 @@ INTAKE_FAILURES = ROOT / "intake-failures"
 INTAKE_PR_BODIES = ROOT / "intake-pr-bodies"
 REPO = "MrPeppersDev/agent-infrastructure-landscape"
 
+# Phase 2 / Gate 1 cell slugs (issues #95 / #101). Mirrored from
+# scripts/research_intake.py PHASE_2_CELL_SLUGS; duplicated here so
+# apply_intake_pr.py has no cross-module dependency for a runtime path.
+PHASE_2_CELL_SLUGS: tuple[str, ...] = (
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    "use-case-tags",
+    "use-case-anti-tags",
+)
+
+# Label applied to PRs that have any Phase 2 cell at
+# `source: llm, verified: false`. Created (if missing) before the PR is
+# opened so `gh pr create --label` succeeds.
+PENDING_REVIEW_LABEL = "phase-2-cells-pending-review"
+
 
 def _write_failure_log(name: str, msg: str) -> None:
     """Write a failure log under INTAKE_FAILURES, creating the dir if needed.
@@ -118,15 +140,83 @@ def insert_record_json(landscape: dict, record: dict) -> dict:
     `make build` regenerates landscape.html from this list, so row
     placement within a section is governed by render.py's section/
     subsection grouping rather than by HTML insertion order.
+
+    Phase 2 / Gate 1 (issues #95 / #101): if the record carries a
+    `_provenance` dict from research_intake.py, it is splice-written
+    onto the row alongside `cells`. Pre-Phase-2 cells the bot did not
+    touch are filled in with the canonical `legacy` source — preserving
+    the on-disk shape established by the Gate 1 backfill.
     """
     records = landscape.setdefault("records", [])
     rid = record["id"]
+    # Ensure record["_provenance"] is set for every populated cell:
+    # cells the bot wrote already have an entry (from research_intake.py),
+    # and we backfill `legacy` for anything else with a value.
+    incoming_prov = dict(record.get("_provenance") or {})
+    for slug, cell in (record.get("cells") or {}).items():
+        if slug in incoming_prov:
+            continue
+        value = (cell or {}).get("value")
+        if value:
+            incoming_prov[slug] = {"source": "legacy", "verified": True}
+    record["_provenance"] = incoming_prov
+
     for i, existing in enumerate(records):
         if existing.get("id") == rid:
             records[i] = record
             return landscape
     records.append(record)
     return landscape
+
+
+def has_pending_phase_2_review(record: dict) -> bool:
+    """Return True iff any Phase 2 cell on `record` is
+    `source: llm, verified: false`. Used to decide whether to apply
+    the `phase-2-cells-pending-review` PR label.
+    """
+    prov = record.get("_provenance") or {}
+    for slug in PHASE_2_CELL_SLUGS:
+        entry = prov.get(slug) or {}
+        if entry.get("source") == "llm" and entry.get("verified") is False:
+            return True
+    return False
+
+
+def summarise_phase_2_provenance(record: dict) -> list[tuple[str, str, bool]]:
+    """Return a list of (slug, source, verified) tuples for every
+    populated Phase 2 cell on `record`. Drives the "Provenance summary"
+    table in the PR body.
+    """
+    out: list[tuple[str, str, bool]] = []
+    prov = record.get("_provenance") or {}
+    cells = record.get("cells") or {}
+    for slug in PHASE_2_CELL_SLUGS:
+        cell = cells.get(slug) or {}
+        if not cell.get("value"):
+            continue
+        entry = prov.get(slug) or {}
+        out.append((
+            slug,
+            entry.get("source", "?"),
+            bool(entry.get("verified", False)),
+        ))
+    return out
+
+
+def ensure_phase_2_pending_label() -> None:
+    """Create the `phase-2-cells-pending-review` label if missing.
+    `gh label create` is idempotent enough — it returns non-zero when
+    the label already exists, which we tolerate.
+    """
+    subprocess.run(
+        ["gh", "label", "create", PENDING_REVIEW_LABEL,
+         "--repo", REPO,
+         "--description",
+         "Intake PR with at least one Phase 2 cell at source=llm verified=false. Review those before merge.",
+         "--color", "C5DEF5",
+         "--force"],
+        capture_output=True, text=True, cwd=str(ROOT),
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -191,7 +281,37 @@ def render_run_trail(
             source_display = source
         lines.append(f"| `{slug}` | {status} | {tier} | {source_display} |")
 
-    lines.append("")
+    # Phase 2 / Gate 1 (issues #95 / #101) — provenance summary.
+    # Primes the maintainer to focus on the LLM-unverified cells.
+    phase_2 = summarise_phase_2_provenance(record)
+    if phase_2:
+        lines.append("")
+        lines.append("## Provenance summary (Phase 2)")
+        lines.append("")
+        lines.append(
+            "Every populated Phase 2 cell with its provenance source / "
+            "verification status. **Focus review on the rows where "
+            "`source = llm` and `verified = false`** — those are the "
+            "bot's guesses awaiting curator confirmation."
+        )
+        lines.append("")
+        lines.append("| Cell | Source | Verified |")
+        lines.append("|------|--------|----------|")
+        unverified_llm: list[str] = []
+        for slug, source, verified in phase_2:
+            mark = "yes" if verified else "**NO**"
+            lines.append(f"| `{slug}` | `{source}` | {mark} |")
+            if source == "llm" and not verified:
+                unverified_llm.append(slug)
+        lines.append("")
+        if unverified_llm:
+            lines.append(
+                f"_{len(unverified_llm)} cell(s) flagged "
+                f"`source: llm, verified: false` — PR carries label "
+                f"`{PENDING_REVIEW_LABEL}`._"
+            )
+            lines.append("")
+
     lines.append("## Maintainer checklist")
     lines.append("")
     lines.append("- [ ] Tier assignment is correct (T1 fields auto-verifiable; T2 fields cited; T3 fields flagged estimate)")
@@ -199,8 +319,10 @@ def render_run_trail(
     lines.append("- [ ] No factual errors in claim cells (desc, claims)")
     lines.append("- [ ] No duplicate of an existing row")
     lines.append("- [ ] All citation URLs resolve")
-    lines.append("- [ ] `make validate` passes (5/5 gates)")
+    lines.append("- [ ] `make validate` passes (6/6 gates)")
     lines.append("- [ ] Taxonomy axes filled (auto-research left them as `n/a`)")
+    if phase_2:
+        lines.append("- [ ] Phase 2 cells: scrape/human-sourced rows are accurate; LLM-unverified cells either confirmed (flip provenance to `verified: true`) or corrected")
     lines.append("")
     lines.append(f"Closes #{issue_number}")
     lines.append("")
@@ -364,7 +486,7 @@ def main() -> int:
         print(f"error: `make validate` failed — see {log_path}", file=sys.stderr)
         # Don't revert here — leave the diff for the developer to inspect.
         return 5
-    print("validate: 5/5 gates pass")
+    print("validate: 6/6 gates pass")
 
     # 4. Emit run-trail markdown.
     body = render_run_trail(record, source_map, args.issue_number)
@@ -432,14 +554,27 @@ def main() -> int:
               file=sys.stderr)
         return 6
 
+    # Phase 2: if any Phase 2 cell is `source: llm, verified: false`,
+    # apply the `phase-2-cells-pending-review` label. Ensure the label
+    # exists first — `gh pr create --label` fails hard if the label is
+    # missing.
+    pr_labels: list[str] = []
+    if has_pending_phase_2_review(record):
+        ensure_phase_2_pending_label()
+        pr_labels.append(PENDING_REVIEW_LABEL)
+
+    pr_cmd = [
+        "gh", "pr", "create",
+        "--draft",
+        "--base", "main",
+        "--head", branch,
+        "--title", f"Auto-research intake: {record['name']} (refs #{args.issue_number})",
+        "--body-file", str(body_path),
+    ]
+    for label in pr_labels:
+        pr_cmd.extend(["--label", label])
     pr_proc = subprocess.run(
-        ["gh", "pr", "create",
-         "--draft",
-         "--base", "main",
-         "--head", branch,
-         "--title", f"Auto-research intake: {record['name']} (refs #{args.issue_number})",
-         "--body-file", str(body_path)],
-        capture_output=True, text=True, cwd=str(ROOT),
+        pr_cmd, capture_output=True, text=True, cwd=str(ROOT),
     )
     if pr_proc.returncode != 0:
         print(f"warn: `gh pr create` failed:\n{pr_proc.stderr}",

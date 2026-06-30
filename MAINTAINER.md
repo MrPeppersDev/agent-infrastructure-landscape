@@ -373,6 +373,53 @@ review timing), the maintainer does a focused triage pass:
   pattern; typically warranted when row count or schema has shifted
   >5% or a major new analytical view has landed).
 
+### Phase 2 intake review (cost / capability / use-case cells)
+
+The `/submit` form, the `intake.yml` issue template, and the
+`intake-research.yml` workflow all carry the Phase 2 cells: cost
+(input / output USD per million tokens, pricing model, derived
+cost-tier), capability (composite score, band, benchmark sources),
+and use-case (controlled-vocab tags + anti-tags). See issue #101 for
+the full pipeline contract.
+
+Every new intake row writes a `_provenance` block alongside `cells`,
+with one entry per populated cell. Sources used:
+
+- `human` — submitter-provided value (carries an `author` field
+  pointing back to the originating intake issue).
+- `scrape` — bot pulled the value from a vendor pricing page (carries
+  `scrape_url` and `scraped_at`). Currently limited to the well-known
+  hosted-API vendors enumerated in `research_intake.py`.
+- `llm` — bot guessed the value or could not reach a price reliably.
+  Always starts at `verified: false`.
+- `legacy` — reserved for pre-Phase-2 backfill; the intake pipeline
+  never writes it on a new cell.
+
+When the auto-research bot leaves any Phase 2 cell at `source: llm,
+verified: false`, the draft PR is labelled
+`phase-2-cells-pending-review`. The PR body's "Provenance summary"
+section enumerates exactly which cells need attention so the curator
+doesn't have to skim the run-trail table.
+
+Review steps for a labelled PR:
+
+1. Confirm `scrape`-sourced cost values match the vendor's pricing
+   page today (vendors silently bump prices; the `scrape_url` in the
+   provenance entry is the page to re-load).
+2. Resolve LLM-unverified Phase 2 cells: either confirm the bot's
+   guess and flip the provenance entry to `verified: true` (adding
+   `verified_by`, `verified_at`, or a `verification_step` field — gate
+   7 soft-warns when llm-verified cells skip that), or correct the
+   value and switch `source` to `human` with an `author`.
+3. Drop the `phase-2-cells-pending-review` label once all
+   llm-unverified Phase 2 cells are resolved.
+
+Gate 7 (`scripts/validate.py`) enforces the structural contract:
+every populated Phase 2 cell must have a `_provenance` entry, the
+`source` must be in the {legacy, human, scrape, llm} enum, and
+`source: human` cells must carry an `author`. It runs in CI on every
+PR, so the contract is self-enforcing once a PR lands.
+
 ### Expectations for contributors
 
 - A submission or comment may sit for **weeks** before the maintainer

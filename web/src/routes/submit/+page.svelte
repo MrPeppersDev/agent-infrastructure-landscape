@@ -18,9 +18,12 @@
     TYPE_OPTIONS,
     TIER_OPTIONS,
     LICENSE_OPTIONS,
+    COST_PRICING_MODEL_OPTIONS,
+    USE_CASE_TAG_VOCAB,
     validateSubmission,
     buildIssueUrl,
-    type SubmissionFormState
+    type SubmissionFormState,
+    type UseCaseTag
   } from '$lib/submit-issue';
 
   let form: SubmissionFormState = $state({ ...EMPTY_FORM });
@@ -121,6 +124,17 @@
   function errFor(k: keyof SubmissionFormState): string {
     if (!showErrors) return '';
     return validation.errors[k] ?? '';
+  }
+
+  // Phase 2: toggle a use-case tag in form.useCaseTags. Chip UI calls
+  // this on click. Tag list stays in vocab order regardless of click
+  // order so the issue body is deterministic for the bot's parser.
+  function toggleUseCaseTag(tag: UseCaseTag): void {
+    const current = form.useCaseTags;
+    const next = current.includes(tag)
+      ? current.filter((t) => t !== tag)
+      : USE_CASE_TAG_VOCAB.filter((v) => current.includes(v) || v === tag);
+    form = { ...form, useCaseTags: next as UseCaseTag[] };
   }
 </script>
 
@@ -389,6 +403,123 @@
             aria-describedby={errFor('arxivUrl') ? 'err-arxiv' : undefined}
           />
           {#if errFor('arxivUrl')}<small id="err-arxiv" class="err">{errFor('arxivUrl')}</small>{/if}
+        </div>
+      </section>
+
+      <section class="group">
+        <h2>Cost (Phase 2)</h2>
+        <p class="hint" style="margin: -6px 0 12px 0;">
+          Optional. The research bot scrapes the vendor pricing page
+          when the pricing model is "hosted-api" or "hosted-service"
+          and these are blank. If you already know the numbers,
+          fill them in — submitter values are never overwritten.
+        </p>
+
+        <div class="field" id="field-costInputUsdPerMtok">
+          <label for="in-cost-in">Input cost (USD per million tokens)</label>
+          <input
+            id="in-cost-in"
+            type="text"
+            inputmode="decimal"
+            bind:value={form.costInputUsdPerMtok}
+            placeholder="e.g. 3.00"
+            aria-invalid={!!errFor('costInputUsdPerMtok')}
+            aria-describedby={errFor('costInputUsdPerMtok') ? 'err-cost-in' : undefined}
+          />
+          {#if errFor('costInputUsdPerMtok')}<small id="err-cost-in" class="err">{errFor('costInputUsdPerMtok')}</small>{/if}
+        </div>
+
+        <div class="field" id="field-costOutputUsdPerMtok">
+          <label for="in-cost-out">Output cost (USD per million tokens)</label>
+          <input
+            id="in-cost-out"
+            type="text"
+            inputmode="decimal"
+            bind:value={form.costOutputUsdPerMtok}
+            placeholder="e.g. 15.00"
+            aria-invalid={!!errFor('costOutputUsdPerMtok')}
+            aria-describedby={errFor('costOutputUsdPerMtok') ? 'err-cost-out' : undefined}
+          />
+          {#if errFor('costOutputUsdPerMtok')}<small id="err-cost-out" class="err">{errFor('costOutputUsdPerMtok')}</small>{/if}
+        </div>
+
+        <div class="field" id="field-costPricingModel">
+          <label for="in-cost-model">Pricing model</label>
+          <select id="in-cost-model" bind:value={form.costPricingModel}>
+            {#each COST_PRICING_MODEL_OPTIONS as opt}
+              <option value={opt.value}>{opt.label}</option>
+            {/each}
+          </select>
+          <small class="hint">
+            Tells the bot whether to scrape a vendor pricing page.
+            OSS / academic systems usually have no per-token price.
+          </small>
+        </div>
+      </section>
+
+      <section class="group">
+        <h2>Capability (Phase 2)</h2>
+        <p class="hint" style="margin: -6px 0 12px 0;">
+          Optional. Paste benchmark sources — URLs to MMLU / HumanEval /
+          memory-eval leaderboards, ideally with the relevant score.
+          The bot HEAD-checks each URL and pulls one score; absent
+          submission means the bot guesses a capability band marked
+          unverified.
+        </p>
+
+        <div class="field" id="field-capabilityBenchmarkSources">
+          <label for="in-cap-src">Benchmark sources</label>
+          <textarea
+            id="in-cap-src"
+            rows="4"
+            bind:value={form.capabilityBenchmarkSources}
+            placeholder={'e.g.\nhttps://artificialanalysis.ai/models/foo — MMLU 0.81\nhttps://example.com/leaderboard — HumanEval 0.73'}
+          ></textarea>
+          <small class="hint">
+            One source per line is easiest for the bot to parse. URLs
+            with scores beat URLs alone.
+          </small>
+        </div>
+      </section>
+
+      <section class="group">
+        <h2>Use-case (Phase 2)</h2>
+        <p class="hint" style="margin: -6px 0 12px 0;">
+          Pick the use-cases this system is built for. The bot may add
+          additional tags from the same controlled vocabulary, but
+          will never remove your selections.
+        </p>
+
+        <div class="field" id="field-useCaseTags">
+          <span class="pseudo-label">Use-case tags</span>
+          <div class="chip-row" role="group" aria-label="Use-case tags">
+            {#each USE_CASE_TAG_VOCAB as tag}
+              <button
+                type="button"
+                class="chip"
+                class:chip-on={form.useCaseTags.includes(tag)}
+                aria-pressed={form.useCaseTags.includes(tag)}
+                onclick={() => toggleUseCaseTag(tag)}
+              >
+                {tag}
+              </button>
+            {/each}
+          </div>
+          {#if errFor('useCaseTags')}<small class="err">{errFor('useCaseTags')}</small>{/if}
+        </div>
+
+        <div class="field" id="field-useCaseTagsOther">
+          <label for="in-use-other">Other tags (free-text)</label>
+          <input
+            id="in-use-other"
+            type="text"
+            bind:value={form.useCaseTagsOther}
+            placeholder="comma-separated; curator may add to vocabulary"
+          />
+          <small class="hint">
+            Use only if the eight tags above genuinely don't cover the
+            system's intended use-case.
+          </small>
         </div>
       </section>
 
@@ -691,6 +822,44 @@
     border: 1px solid #2a2a2a;
     border-radius: 3px;
     color: #c9a98f;
+  }
+
+  .pseudo-label {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .chip {
+    background: #0e0e0e;
+    border: 1px solid #2a2a2a;
+    color: #b8b8b8;
+    border-radius: 14px;
+    padding: 4px 11px;
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+    font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  }
+  .chip:hover {
+    border-color: #3a3a3a;
+    color: #e8e8e8;
+  }
+  .chip-on {
+    background: #2a1f18;
+    border-color: #d4845f;
+    color: #e8a37d;
+  }
+  .chip-on:hover {
+    background: #38291f;
+    color: #f2b894;
   }
 
   .markdown-preview {
