@@ -35,6 +35,7 @@ import {
   findFitById,
   type CitationFit
 } from '../../mcp/dist/citation-prediction.js';
+import { betweenModels } from '../../mcp/dist/recommender.js';
 import { loadRecords, loadEdges, getMeta } from '../../mcp/dist/data.js';
 import type { EdgeType } from '../../mcp/dist/tools.js';
 import {
@@ -50,8 +51,21 @@ import {
   formatDecayCause,
   formatPredict,
   formatBreakouts,
+  formatBetween,
   type FormatOptions
 } from './format.js';
+
+const USE_CASE_TAGS = [
+  'scoped-agentic',
+  'long-running-session',
+  'multi-agent-coordination',
+  'memory-augmented-chat',
+  'code-generation-focused',
+  'analytical-summarization',
+  'latency-sensitive',
+  'offline-capable'
+] as const;
+type UseCaseTag = (typeof USE_CASE_TAGS)[number];
 
 // ===========================================================================
 // Setup
@@ -77,7 +91,11 @@ program
  * subcommand in case the user wrote `landscape search foo --json`.
  */
 function globalOpts(cmd: Command): FormatOptions {
-  const root = cmd.parent ?? cmd;
+  // Walk to the program root — nested subcommands (e.g. `recommend
+  // between`) have an intermediate parent that doesn't carry the
+  // global --json / --csv flags.
+  let root: Command = cmd;
+  while (root.parent) root = root.parent;
   const rootOpts = root.opts<{ json?: boolean; csv?: boolean }>();
   const cmdOpts = cmd.opts<{ json?: boolean; csv?: boolean }>();
   return {
@@ -373,6 +391,50 @@ program
     const top = topBreakouts(fits, limit);
     emit(formatBreakouts(top, limit, globalOpts(cmd)));
   });
+
+// ===========================================================================
+// 13. recommend — Phase 2 / Gate 3 (issue #97)
+// ===========================================================================
+
+const recommend = program
+  .command('recommend')
+  .description('Ranked recommender surfaces (Phase 2 / Gate 3 — positioning + constraint).');
+
+recommend
+  .command('between')
+  .description(
+    'Rank candidates whose cost × capability falls between two anchor records. ' +
+      'Filter optionally by a single use-case tag from the controlled vocabulary.'
+  )
+  .argument('<low-id>', 'stable record id of the low-end positioning anchor')
+  .argument('<high-id>', 'stable record id of the high-end positioning anchor')
+  .option(
+    '-u, --use-case <tag>',
+    `single use-case tag (one of: ${USE_CASE_TAGS.join(', ')})`
+  )
+  .option('-k, --k <n>', 'max candidates to return (default 5, max 50)', (v) => parseInt(v, 10))
+  .option('--json', 'emit JSON (matches the `between_models` MCP tool response byte-for-byte)')
+  .option('--csv', 'emit CSV (one row per candidate)')
+  .action(
+    (
+      lowId: string,
+      highId: string,
+      opts: { useCase?: string; k?: number },
+      cmd: Command
+    ) => {
+      if (opts.useCase && !USE_CASE_TAGS.includes(opts.useCase as UseCaseTag)) {
+        die(`unknown use-case tag: ${opts.useCase}. Valid: ${USE_CASE_TAGS.join(', ')}`);
+      }
+      const records = loadRecords();
+      const candidates = betweenModels(records, {
+        anchor_low_id: lowId,
+        anchor_high_id: highId,
+        use_case: opts.useCase as UseCaseTag | undefined,
+        k: opts.k
+      });
+      emit(formatBetween(candidates, { low: lowId, high: highId }, globalOpts(cmd)));
+    }
+  );
 
 // ===========================================================================
 // Meta — version + dataset info

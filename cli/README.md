@@ -42,6 +42,7 @@ Nine read-only subcommands, mirroring the nine MCP tools.
 | `landscape recent [--since]` | Records updated since a date (or 20 most-recent) |
 | `landscape eval-orphans` | Products with obs but no evals (verified absence) |
 | `landscape substrate-risk <s>` | Records that runtime-depend on a substrate |
+| `landscape recommend between <low> <high>` | Rank candidates between two cost × capability anchors (Phase 2 / Gate 3, #97) |
 | `landscape info` | CLI version, schema version, record / edge counts |
 
 Plus `landscape --help` for the auto-generated reference and `landscape <cmd> --help` for subcommand details.
@@ -88,6 +89,15 @@ landscape eval-orphans --json | jq -r '.orphans[] | .id'
 ```
 
 The `--json` flag emits the raw `tools.ts` result; pair it with `jq`, `yq`, or any JSON-aware downstream to extract whatever shape you need. CSV output works the same way for `search`, `sections`, `recent`, `eval-orphans`, `coverage`, and `substrate-risk`.
+
+### Rank candidates between two anchors
+
+```bash
+landscape recommend between amazon-nova-family--aboutamazon-com openai-realtime-api--platform-openai-com \
+  --use-case scoped-agentic -k 5
+```
+
+Phase 2 / Gate 3 (issue #97). Picks records whose cost × capability composite sits between the two anchors. The `--use-case` flag accepts a single tag from the controlled vocabulary (`scoped-agentic`, `long-running-session`, `multi-agent-coordination`, `memory-augmented-chat`, `code-generation-focused`, `analytical-summarization`, `latency-sensitive`, `offline-capable`). Cells with LLM-unverified provenance are excluded from the score and surfaced as `[LLM-unverified]` caveats. `--json` is byte-identical (modulo a trailing newline) to the `between_models` MCP tool response.
 
 ### Build a Makefile target around the catalog
 

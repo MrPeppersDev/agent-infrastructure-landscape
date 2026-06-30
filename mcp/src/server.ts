@@ -32,7 +32,19 @@ import {
   topBreakouts,
   findFitById
 } from './citation-prediction.js';
+import { betweenModels } from './recommender.js';
 import type { EdgeType } from './types.js';
+
+const USE_CASE_TAGS = [
+  'scoped-agentic',
+  'long-running-session',
+  'multi-agent-coordination',
+  'memory-augmented-chat',
+  'code-generation-focused',
+  'analytical-summarization',
+  'latency-sensitive',
+  'offline-capable'
+] as const;
 
 const EDGE_TYPES: readonly EdgeType[] = [
   'built-on',
@@ -420,6 +432,48 @@ async function main() {
       const limit = args.limit ?? 15;
       const top = topBreakouts(fits, limit);
       return jsonResult({ limit, totalMatches: top.length, breakouts: top });
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 13. between_models
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'between_models',
+    {
+      title: 'Rank candidates between two positioning anchors',
+      description:
+        'Returns records whose cost × capability composite falls between two anchor record ids. ' +
+        'Optional single-tag use-case filter from the controlled vocabulary ' +
+        '(scoped-agentic, long-running-session, multi-agent-coordination, memory-augmented-chat, ' +
+        'code-generation-focused, analytical-summarization, latency-sensitive, offline-capable). ' +
+        'Each candidate carries a score in [0, 1], a rationale list, and a caveats list — ' +
+        'LLM-unverified cells are excluded from the score and surfaced as caveats per Phase 2 §3.4.',
+      inputSchema: {
+        anchor_low_id: z
+          .string()
+          .describe('Stable record id of the low-end positioning anchor.'),
+        anchor_high_id: z
+          .string()
+          .describe('Stable record id of the high-end positioning anchor.'),
+        use_case: z
+          .enum(USE_CASE_TAGS as unknown as [string, ...string[]])
+          .optional()
+          .describe(
+            'Optional single use-case tag from the controlled vocabulary (see description).'
+          ),
+        k: z
+          .number()
+          .int()
+          .min(1)
+          .max(50)
+          .optional()
+          .describe('Max candidates to return (default 5, max 50).')
+      }
+    },
+    async (args) => {
+      const records = loadRecords();
+      return jsonResult(betweenModels(records, args));
     }
   );
 

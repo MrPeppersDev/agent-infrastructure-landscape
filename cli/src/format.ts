@@ -22,6 +22,7 @@ import type {
   LandscapeRecord
 } from '../../mcp/dist/tools.js';
 import type { CitationFit } from '../../mcp/dist/citation-prediction.js';
+import type { Candidate } from '../../mcp/dist/recommender.js';
 
 export interface FormatOptions {
   json: boolean;
@@ -824,5 +825,73 @@ export function formatBreakouts(
         `Use \`landscape predict <id>\` for full per-paper detail.`
     )
   );
+  return lines.join('\n');
+}
+
+// ===========================================================================
+// recommend between — Phase 2 / Gate 3 (issue #97)
+// ===========================================================================
+
+export function formatBetween(
+  candidates: Candidate[],
+  anchors: { low: string; high: string },
+  opts: FormatOptions
+): string {
+  if (opts.json) return toJson(candidates);
+  if (opts.csv) {
+    return toCsv(
+      ['rank', 'id', 'name', 'tier', 'score', 'rationale', 'caveats'],
+      candidates.map((cand, i) => [
+        i + 1,
+        cand.record.id,
+        cand.record.name,
+        cand.record.tier,
+        cand.score.toFixed(4),
+        cand.rationale.join(' | '),
+        cand.caveats.join(' | ')
+      ])
+    );
+  }
+
+  const c = makeColors(resolveColor(opts));
+  const lines: string[] = [];
+  lines.push(
+    c.bold(`Candidates between ${anchors.low} and ${anchors.high}`) +
+      c.dim(` (${candidates.length} returned)`)
+  );
+  if (candidates.length === 0) {
+    lines.push('');
+    lines.push(
+      c.dim(
+        'No candidates in the positioning band. Verify the anchor ids and ' +
+          'that they carry cost/capability cells (cost-input-usd-per-mtok ' +
+          'and/or capability-composite-score).'
+      )
+    );
+    return lines.join('\n');
+  }
+  lines.push('');
+  for (let i = 0; i < candidates.length; i++) {
+    const cand = candidates[i]!;
+    lines.push(
+      c.bold(`${i + 1}. ${cand.record.name}`) +
+        c.dim(`  [T${cand.record.tier}] · score ${cand.score.toFixed(3)}`)
+    );
+    lines.push(c.dim('   id: ') + cand.record.id);
+    if (cand.rationale.length > 0) {
+      for (const r of cand.rationale) {
+        lines.push(c.green('   ✓ ') + r);
+      }
+    }
+    if (cand.caveats.length > 0) {
+      for (const cv of cand.caveats) {
+        // Mark LLM-unverified caveats inline so MCP-vs-CLI text output
+        // surfaces the same provenance gate (§3.4).
+        const tag = /LLM-unverified/i.test(cv) ? c.yellow('[LLM-unverified] ') : '';
+        lines.push(c.yellow('   ! ') + tag + cv);
+      }
+    }
+    if (i < candidates.length - 1) lines.push('');
+  }
   return lines.join('\n');
 }

@@ -162,6 +162,16 @@ Top-N predicted citation breakouts — growth-phase papers with the largest asym
 
 - `limit` — default 15, max 50
 
+### `between_models(anchor_low_id, anchor_high_id, use_case?, k?)`
+
+Phase 2 / Gate 3 (issue #97) — positioning recommender. Returns records whose cost × capability composite falls between two anchor record ids. Each candidate carries a score in `[0, 1]`, a rationale list, and a caveats list — LLM-unverified cells are excluded from scoring and surfaced as caveats per spec §3.4.
+
+- `anchor_low_id` / `anchor_high_id` — stable record ids
+- `use_case` — optional single tag from the controlled vocabulary: `scoped-agentic`, `long-running-session`, `multi-agent-coordination`, `memory-augmented-chat`, `code-generation-focused`, `analytical-summarization`, `latency-sensitive`, `offline-capable`
+- `k` — default 5, max 50
+
+Identical contract is exposed by the `landscape recommend between` CLI subcommand and the `/recommend/between` web route.
+
 ## Data freshness
 
 The server loads `data/landscape.json` and `data/landscape.edges.json` from the repo at process start and caches in memory. Restart the server (or your MCP client) to pick up dataset updates. The data files are semver-tagged via GitHub Releases (`data-v1.0.0` onwards) — see [`data/README.md`](../data/README.md).
