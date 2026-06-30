@@ -142,8 +142,22 @@ CELL_COLUMN_SLUGS: list[str] = [
     "citation-trajectory",
     # T3-prep-3 download-trajectory column (issue #52). See docs/SCHEMA.md §2.5.6.
     "download-trajectory",
+    # Phase 2 / Gate 1 (issue #95) — normalized cost. See docs/SCHEMA.md §2.5.7.
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — capability tier. See docs/SCHEMA.md §2.5.8.
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
+    "use-case-tags",
+    "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 85
+assert len(CELL_COLUMN_SLUGS) == 96
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -526,7 +540,7 @@ def render_row(record: dict[str, Any]) -> str:
     # 7 taxonomy axes.
     for axis in TAXONOMY_AXES:
         lines.append(render_taxonomy_cell(axis, record["taxonomy"].get(axis, [])))
-    # Remaining 59 cells (skip "type" — already emitted).
+    # Remaining cells (skip "type" — already emitted).
     for slug in CELL_COLUMN_SLUGS[1:]:
         cell = record["cells"].get(slug)
         if cell is None:
@@ -539,11 +553,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="93" '
+            f'  <tr class="group-row"><td colspan="104" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="93">'
+        f'  <tr class="group-row"><td colspan="104">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -552,7 +566,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="93">'
+        '  <tr class="section-explainer"><td colspan="104">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
