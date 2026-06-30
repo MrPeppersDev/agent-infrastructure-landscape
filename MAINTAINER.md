@@ -326,6 +326,24 @@ catalog-state changes. Daily runs move signal, not state.
 - **`.github/workflows/audit-section.yml`** — weekly cron. Picks the
   oldest-audited section, opens a reverify or expand PR with proposed
   delta. Rotation policy in `docs/AUDIT.md`.
+- **`.github/workflows/capability-rebaseline.yml`** — weekly cron,
+  Sundays 06:00 UTC (Phase 2 / Gate 8, issue #102). Snapshots every
+  row's current capability score + band into
+  `data/_baselines/rebaseline-YYYY-MM-DD.json`; diffs against the
+  prior baseline; emits `docs/FINDINGS-YYYY-MM-DD.md` listing top
+  movers / band shifts / new / retired rows; opens a
+  `phase-2-rebaseline` tracking issue. Ground-truth anchor that
+  catches drift from upstream benchmark-methodology shifts that the
+  daily incremental cron's per-cell diff would miss. Driven by
+  `scripts/capability_rebaseline.py`.
+- **`.github/workflows/model-release-watch.yml`** — every 30 minutes
+  (Gate 8). Polls vendor RSS/Atom feeds listed in `data/_feeds.yml`;
+  release-shaped entries open an issue labelled `intake` +
+  `intake-release-watch`, which `intake-research.yml` then picks up
+  for enrichment and a draft PR. Per-feed seen-set lives in
+  `data/_feeds-seen.json` (first sight of a feed primes the set
+  without opening issues). Driven by
+  `scripts/model_release_watch.py`.
 - **`.github/workflows/intake-research.yml`** — fires on `intake`-
   labeled issues. Runs auto-research; opens a draft PR with proposed
   catalog row. Process documented in `docs/INTAKE.md`.

@@ -1,0 +1,86 @@
+# Event-driven model release watch (Phase 2 / Gate 8 — issue #102).
+#
+# Every 30 minutes, poll the vendor RSS/Atom feeds listed in data/_feeds.yml.
+# Each previously-unseen entry whose title or summary matches the
+# release-keyword regex opens an intake issue labelled `intake` +
+# `intake-release-watch`. The existing intake-research.yml workflow takes
+# over from there (enrichment + draft PR).
+#
+# Architectural note: the gate's "event-driven" half is implemented as a
+# 30-minute poll. Most vendor releases sit on a blog feed for hours before
+# downstream tools see them, so this cadence is event-driven in practice
+# while staying well under GitHub Actions free-tier limits.
+#
+# Daily runs move signal, not state — this workflow opens issues but never
+# writes to data/landscape.json. The downstream draft PR from
+# intake-research.yml is still subject to maintainer review.
+#
+# Operational properties:
+#   - Schedule: every 30 minutes (`*/30 * * * *`).
+#   - Manual trigger: workflow_dispatch is enabled.
+#   - Permissions: contents:write (commit updated _feeds-seen.json),
+#     issues:write (open intake issues).
+#   - Auth: GITHUB_TOKEN.
+#   - First sight per feed primes the seen-set; no issues open until the
+#     second poll sees a genuinely new entry.
+
+name: Model release watch
+
+on:
+  schedule:
+    # Every 30 minutes. cron syntax: minute hour day-of-month month day-of-week
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: model-release-watch
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install feed-poller deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser pyyaml
+
+      - name: Ensure intake-release-watch label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create intake-release-watch \
+            --description "Auto-opened by Phase 2 / Gate 8 model-release-watch RSS poller." \
+            --color 1D76DB \
+            --force || true
+
+      - name: Run release-watch poller
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/model_release_watch.py
+
+      - name: Commit updated seen-set
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/_feeds-seen.json 2>/dev/null; then
+            echo "no seen-set changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/_feeds-seen.json
+          git commit -m "chore(release-watch): update feeds seen-set"
+          git push || true

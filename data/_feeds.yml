@@ -1,0 +1,39 @@
+# Vendor RSS / Atom feeds polled by .github/workflows/model-release-watch.yml
+# (Phase 2 / Gate 8, issue #102).
+#
+# Each entry is verified live (curl -fsI <url> returns 200) at the time it
+# lands. Feeds that go offline are tracked via the workflow's error output;
+# remove them here when they stop returning 200 for two consecutive runs.
+#
+# Adding a feed: verify HTTP 200 first, add the entry, and let the next
+# scheduled run prime data/_feeds-seen.json. The first poll never opens
+# intake issues for a brand-new feed — the seen-set fills first.
+#
+# Verified live 2026-06-30:
+feeds:
+  - vendor: OpenAI
+    url: https://openai.com/news/rss.xml
+    notes: Official news RSS; covers model launches + product announcements.
+  - vendor: Google
+    url: https://blog.google/technology/ai/rss/
+    notes: AI-tagged feed of the Google blog; covers Gemini and DeepMind.
+  - vendor: NVIDIA
+    url: https://blogs.nvidia.com/feed/
+    notes: All-blog feed; keyword filter narrows to model-release-shaped posts.
+  - vendor: Meta
+    url: https://about.fb.com/news/feed/
+    notes: Meta newsroom feed; Llama announcements land here.
+  - vendor: Meta Research
+    url: https://research.facebook.com/feed/
+    notes: Meta AI Research feed; complements about.fb.com for technical drops.
+  - vendor: Cohere
+    url: https://cohere.com/blog/rss
+    notes: Cohere blog feed; covers Command-R / Embed releases.
+
+# Out of scope at gate landing (no working RSS surface found):
+#   - Anthropic — no published feed
+#   - Mistral — no published feed
+#   - DeepSeek — no published feed
+#   - xAI — CDN blocks anonymous feed access
+#   - Moonshot / Together / Databricks — no public feed
+# When any of these publishes a feed, add it here and verify with curl.
