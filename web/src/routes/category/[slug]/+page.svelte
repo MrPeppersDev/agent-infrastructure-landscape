@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
-  import { itemListLd } from '$lib/seo/jsonld';
+  import { itemListLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
 
   type System = {
@@ -26,13 +26,22 @@
   const title = `${data.sectionName} — AI Agent Memory Systems (${data.systems.length})`;
   const description = `${data.systems.length} ${data.sectionName} entries in the AI Agent Infrastructure Landscape. Compare typed edges, tiers, licenses, and architecture across every system in this category.`;
 
-  const ldData = itemListLd({
-    name: data.sectionName,
-    items: data.systems.slice(0, 50).map((s) => ({
-      name: s.name,
-      url: absoluteUrl(`/systems/${s.id}`)
-    }))
-  });
+  const ldData = [
+    itemListLd({
+      name: data.sectionName,
+      items: data.systems.slice(0, 50).map((s) => ({
+        name: s.name,
+        url: absoluteUrl(`/systems/${s.id}`)
+      }))
+    }),
+    breadcrumbLd({
+      items: [
+        { name: 'Catalog', url: absoluteUrl('/') },
+        { name: 'Categories', url: absoluteUrl('/category') },
+        { name: data.sectionName, url: absoluteUrl(routePath) }
+      ]
+    })
+  ];
 
   // Group by tier so the page surfaces the production-grade entries first.
   type TierKey = 1 | 2 | 3 | 4 | 5;

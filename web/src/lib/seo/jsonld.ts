@@ -94,6 +94,39 @@ export function itemListLd(opts: {
   };
 }
 
+export function breadcrumbLd(opts: {
+  /** Crumbs in display order — first is the root, last is the current page. */
+  items: { name: string; url: string }[];
+}): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: opts.items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url
+    }))
+  };
+}
+
+export function faqLd(opts: {
+  qas: { question: string; answer: string }[];
+}): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: opts.qas.map((qa) => ({
+      '@type': 'Question',
+      name: qa.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: qa.answer
+      }
+    }))
+  };
+}
+
 export function softwareLd(opts: {
   name: string;
   description: string;

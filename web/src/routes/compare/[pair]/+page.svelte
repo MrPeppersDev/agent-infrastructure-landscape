@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
-  import { articleLd } from '$lib/seo/jsonld';
+  import { articleLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
   import { pairToSlug } from '$lib/seo/compare';
   import { sectionToSlug } from '$lib/seo/sections';
@@ -80,11 +80,20 @@
     ? `${a.name} vs ${b.name}: side-by-side comparison of two ${primarySection(a)?.toLowerCase()} systems — architecture, taxonomy, license, pricing, MCP/A2A support, and direct edges.`
     : `${a.name} (${primarySection(a)?.toLowerCase()}) vs ${b.name} (${primarySection(b)?.toLowerCase()}): cross-category comparison covering architecture, taxonomy, license, pricing, and direct edges.`;
 
-  const ldData = articleLd({
-    headline: title,
-    description,
-    url: absoluteUrl(routePath)
-  });
+  const ldData = [
+    articleLd({
+      headline: title,
+      description,
+      url: absoluteUrl(routePath)
+    }),
+    breadcrumbLd({
+      items: [
+        { name: 'Catalog', url: absoluteUrl('/') },
+        { name: 'Comparisons', url: absoluteUrl('/compare') },
+        { name: `${a.name} vs ${b.name}`, url: absoluteUrl(routePath) }
+      ]
+    })
+  ];
 
   const edgeLabel: Record<string, string> = {
     'built-on': 'builds on',

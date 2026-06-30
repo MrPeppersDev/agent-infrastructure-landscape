@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
-  import { softwareLd } from '$lib/seo/jsonld';
+  import { softwareLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { sectionToSlug } from '$lib/seo/sections';
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
@@ -93,12 +93,24 @@
     return `${base}/systems/${id}`;
   }
 
-  const ldData = softwareLd({
-    name: record.name,
-    description,
-    url: absoluteUrl(routePath),
-    category: primarySection ?? undefined
-  });
+  const ldData = [
+    softwareLd({
+      name: record.name,
+      description,
+      url: absoluteUrl(routePath),
+      category: primarySection ?? undefined
+    }),
+    breadcrumbLd({
+      items: [
+        { name: 'Catalog', url: absoluteUrl('/') },
+        { name: 'Systems', url: absoluteUrl('/systems') },
+        ...(primarySection && primarySectionSlug
+          ? [{ name: primarySection, url: absoluteUrl(`/category/${primarySectionSlug}`) }]
+          : []),
+        { name: record.name, url: absoluteUrl(routePath) }
+      ]
+    })
+  ];
 </script>
 
 <SeoHead {title} {description} path={routePath} ogType="article" />

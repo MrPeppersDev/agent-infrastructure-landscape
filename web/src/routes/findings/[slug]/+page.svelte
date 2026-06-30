@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
-  import { articleLd } from '$lib/seo/jsonld';
+  import { articleLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
   import type { Finding } from '$lib/findings';
 
@@ -13,11 +13,20 @@
   const f = data.finding;
   const routePath = `/findings/${f.slug}`;
 
-  const ldData = articleLd({
-    headline: f.headline,
-    description: f.metaDescription,
-    url: absoluteUrl(routePath)
-  });
+  const ldData = [
+    articleLd({
+      headline: f.headline,
+      description: f.metaDescription,
+      url: absoluteUrl(routePath)
+    }),
+    breadcrumbLd({
+      items: [
+        { name: 'Catalog', url: absoluteUrl('/') },
+        { name: 'Findings', url: absoluteUrl('/findings') },
+        { name: f.headline, url: absoluteUrl(routePath) }
+      ]
+    })
+  ];
 </script>
 
 <SeoHead
