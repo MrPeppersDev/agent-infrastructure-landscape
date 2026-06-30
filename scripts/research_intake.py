@@ -52,6 +52,7 @@ CLI:
 from __future__ import annotations
 
 import argparse
+import datetime as _dt
 import hashlib
 import json
 import os
@@ -91,6 +92,15 @@ FIELD_LABELS: list[tuple[str, str]] = [
     ("github_url", "GitHub URL"),
     ("arxiv_url", "Arxiv URL"),
     ("submitter_notes", "Submitter notes"),
+    # Phase 2 / Gate 1 (issue #95 / #101). Labels MUST match those
+    # emitted by web/src/lib/submit-issue.ts and .github/ISSUE_TEMPLATE/
+    # intake.yml exactly so the regex parser handles both sources.
+    ("cost_input_usd_per_mtok", "Cost input USD per Mtok"),
+    ("cost_output_usd_per_mtok", "Cost output USD per Mtok"),
+    ("cost_pricing_model", "Cost pricing model"),
+    ("capability_benchmark_sources", "Capability benchmark sources"),
+    ("use_case_tags", "Use-case tags"),
+    ("use_case_tags_other", "Use-case tags (other)"),
 ]
 
 REQUIRED_FIELDS = ("name", "url", "type", "section", "brief_description")
@@ -214,7 +224,56 @@ class IntakeFields:
     github_url: str = ""
     arxiv_url: str = ""
     submitter_notes: str = ""
+    # Phase 2 / Gate 1 (issues #95 / #101).
+    cost_input_usd_per_mtok: str = ""
+    cost_output_usd_per_mtok: str = ""
+    cost_pricing_model: str = ""
+    capability_benchmark_sources: str = ""
+    use_case_tags: str = ""
+    use_case_tags_other: str = ""
     parse_errors: list[str] = field(default_factory=list)
+
+
+# Phase 2 / Gate 1: 8-tag controlled vocabulary (issue #101). Must match
+# web/src/lib/submit-issue.ts USE_CASE_TAG_VOCAB.
+USE_CASE_TAG_VOCAB: tuple[str, ...] = (
+    "scoped-agentic",
+    "long-running-session",
+    "multi-agent-coordination",
+    "memory-augmented-chat",
+    "code-generation-focused",
+    "analytical-summarization",
+    "latency-sensitive",
+    "offline-capable",
+)
+
+# Pricing models that warrant a vendor-pricing-page scrape attempt.
+# OSS / academic systems usually don't have a per-token price.
+COST_HOSTED_PRICING_MODELS: frozenset[str] = frozenset({
+    "hosted-api",
+    "hosted-service",
+})
+
+# Phase 2 cell slugs the bot may write provenance for. Read-only —
+# build_record + write_provenance both reference this list.
+PHASE_2_CELL_SLUGS: tuple[str, ...] = (
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    "use-case-tags",
+    "use-case-anti-tags",
+)
+
+# Stable LLM model id used when the bot guesses a Phase 2 cell.
+# Mirrors the legacy backfill records under data/landscape.json's
+# capability-* / use-case-* cells (see Gate 1 backfill).
+LLM_MODEL_ID = "claude-opus-4-7"
 
 
 def parse_issue_body(body: str) -> IntakeFields:
@@ -334,6 +393,157 @@ def fetch_json(
         return False, None, f"HTTPError {exc.code}"
     except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError) as exc:
         return False, None, f"err: {exc}"
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 / Gate 1 helpers (issue #101).
+# ---------------------------------------------------------------------------
+
+
+def head_check(url: str, *, timeout: float = 10.0) -> tuple[bool, int | None]:
+    """Issue a HEAD request and return (ok, status). 200 OK → True.
+
+    Some servers reject HEAD (405 / 403); for those we fall back to a
+    bounded GET that reads only the first 4 KiB. Used by Phase 2
+    capability-benchmark-sources validation.
+    """
+    if not url:
+        return False, None
+    headers = {"User-Agent": USER_AGENT}
+    try:
+        req = urllib.request.Request(url, headers=headers, method="HEAD")
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return 200 <= resp.status < 400, resp.status
+    except urllib.error.HTTPError as exc:
+        if exc.code in (403, 405, 501):
+            # Some hosts (notably arxiv) disallow HEAD; retry small GET.
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    resp.read(4096)
+                    return 200 <= resp.status < 400, resp.status
+            except (urllib.error.URLError, urllib.error.HTTPError,
+                    TimeoutError, OSError):
+                return False, exc.code
+        return False, exc.code
+    except (urllib.error.URLError, TimeoutError, OSError):
+        return False, None
+
+
+# Vendor-pricing-page heuristic. For each known hosted-API vendor, the
+# canonical pricing page. The scrape extracts the first plausible
+# "$X / 1M [input|output] tokens" pair. The list is intentionally short
+# — when the URL maps to a known vendor, scrape; otherwise fall through
+# to the LLM unverified path. Conservative-by-design per issue #101.
+VENDOR_PRICING_PAGES: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"openai\.com\b", re.I), "https://openai.com/api/pricing/"),
+    (re.compile(r"anthropic\.com\b", re.I), "https://www.anthropic.com/pricing"),
+    (re.compile(r"\b(google|gemini)\.(com|ai)\b", re.I),
+     "https://ai.google.dev/gemini-api/docs/pricing"),
+    (re.compile(r"mistral\.ai\b", re.I), "https://mistral.ai/pricing"),
+    (re.compile(r"cohere\.com\b", re.I), "https://cohere.com/pricing"),
+    (re.compile(r"deepseek\.com\b", re.I),
+     "https://api-docs.deepseek.com/quick_start/pricing/"),
+    (re.compile(r"groq\.com\b", re.I), "https://groq.com/pricing/"),
+    (re.compile(r"together\.ai\b", re.I), "https://www.together.ai/pricing"),
+    (re.compile(r"fireworks\.ai\b", re.I), "https://fireworks.ai/pricing"),
+]
+
+# Regex for "$X.YZ / 1M tokens" or "$X per million tokens" patterns
+# typically seen on vendor pricing pages. Tolerant of HTML noise: the
+# raw-HTML strip_tags() pass collapses tags before this regex runs.
+_PRICE_INPUT_RE = re.compile(
+    r"input[^$\n]{0,80}\$\s*(?P<n>\d+(?:\.\d{1,4})?)\s*(?:/|per)\s*(?:1\s*m|1\s*million|million)\s*(?:tokens?|tok)",
+    re.I,
+)
+_PRICE_OUTPUT_RE = re.compile(
+    r"output[^$\n]{0,80}\$\s*(?P<n>\d+(?:\.\d{1,4})?)\s*(?:/|per)\s*(?:1\s*m|1\s*million|million)\s*(?:tokens?|tok)",
+    re.I,
+)
+
+
+def lookup_pricing_page(primary_url: str) -> str | None:
+    """Return a known vendor pricing-page URL if `primary_url` matches a
+    known vendor; else None. Conservative: only well-known hosted APIs.
+    """
+    if not primary_url:
+        return None
+    for pat, page in VENDOR_PRICING_PAGES:
+        if pat.search(primary_url):
+            return page
+    return None
+
+
+def scrape_vendor_pricing(
+    pricing_page: str,
+    *,
+    issue_number: int,
+) -> tuple[float | None, float | None, str]:
+    """Fetch a vendor pricing page and extract (input_usd_per_mtok,
+    output_usd_per_mtok, scrape_url). Either value may be None if the
+    regex doesn't match; the page URL is always returned for provenance.
+    """
+    ok, body, _ = fetch_url(pricing_page, issue_number=issue_number)
+    if not ok or not body:
+        return None, None, pricing_page
+    text = strip_tags(body)
+    in_m = _PRICE_INPUT_RE.search(text)
+    out_m = _PRICE_OUTPUT_RE.search(text)
+    in_val = float(in_m.group("n")) if in_m else None
+    out_val = float(out_m.group("n")) if out_m else None
+    return in_val, out_val, pricing_page
+
+
+def cost_tier_from_input_price(input_price: float | None) -> str | None:
+    """Bucket an input-token price into a cost-tier label. Mirrors
+    SCHEMA.md §2.5.7 cost-tier enum (low / mid / high / premium).
+    Returns None if input_price is None.
+    """
+    if input_price is None:
+        return None
+    if input_price < 1.0:
+        return "low"
+    if input_price < 5.0:
+        return "mid"
+    if input_price < 20.0:
+        return "high"
+    return "premium"
+
+
+def parse_benchmark_sources(text: str) -> list[tuple[str, str]]:
+    """Split a free-text benchmark-sources block into (url, raw_line)
+    pairs. One source per line; URLs anywhere on the line are matched.
+    """
+    out: list[tuple[str, str]] = []
+    if not text:
+        return out
+    url_re = re.compile(r"https?://[^\s)>]+", re.I)
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        m = url_re.search(line)
+        if m:
+            out.append((m.group(0).rstrip(".,;"), line))
+    return out
+
+
+_SCORE_RE = re.compile(
+    r"\b(?P<bench>MMLU|HumanEval|GSM8K|MATH|HellaSwag|ARC|TruthfulQA|"
+    r"BIG[- ]?bench|LongBench|LOCOMO|MemoryBench)\b[^0-9\n]{0,40}"
+    r"(?P<score>0?\.\d{2,4}|\d{1,3}(?:\.\d{1,2})?\s*%?)",
+    re.I,
+)
+
+
+def extract_score_from_line(line: str) -> str | None:
+    """Pull `BenchName: 0.81` style score from a raw submitter line.
+    Returns the formatted "BenchName=score" string or None.
+    """
+    m = _SCORE_RE.search(line or "")
+    if not m:
+        return None
+    return f"{m.group('bench')}={m.group('score').strip()}"
 
 
 # ---------------------------------------------------------------------------
@@ -1025,6 +1235,361 @@ def build_record(
         )
         source_map[slug] = "depth-floor: trajectory cells filled by `make refresh-*` scripts"
 
+    # -----------------------------------------------------------------
+    # Phase 2 / Gate 1 enrichment (issues #95 / #101).
+    #
+    # Three concerns:
+    #  1. Cost — submitter value wins; else scrape vendor pricing page
+    #     when cost_pricing_model is hosted-api/hosted-service; else
+    #     LLM unverified.
+    #  2. Capability — HEAD-check each submitter-provided URL; pick the
+    #     first score we can extract. Absent submission → LLM unverified
+    #     band guess.
+    #  3. Use-case — combine submitter tags (human, verified) with LLM
+    #     tags (llm, not verified). NEVER overwrite a submitter value.
+    #
+    # Every cell we fill also gets a `provenance[slug]` entry, returned
+    # as a third element on the record under the `_provenance` key (the
+    # apply_intake_pr.py step is the one that splices it into the
+    # written row alongside `cells`).
+    # -----------------------------------------------------------------
+    today_iso = _dt.date.today().isoformat()
+    provenance: dict[str, dict] = {}
+
+    pricing_model = (fields.cost_pricing_model or "").strip().lower()
+    submitter_in = (fields.cost_input_usd_per_mtok or "").strip()
+    submitter_out = (fields.cost_output_usd_per_mtok or "").strip()
+
+    # Cost input/output — submitter beats scrape beats llm-guess.
+    scrape_in_val: float | None = None
+    scrape_out_val: float | None = None
+    scrape_url_used: str | None = None
+    if (not submitter_in or not submitter_out) and pricing_model in COST_HOSTED_PRICING_MODELS:
+        pricing_page = lookup_pricing_page(primary_url or "")
+        if pricing_page:
+            scrape_in_val, scrape_out_val, scrape_url_used = scrape_vendor_pricing(
+                pricing_page, issue_number=issue_number,
+            )
+
+    def _cost_cell(value: str, citation: str, tier: str) -> dict:
+        return cell_real(value, citation, tier=tier) if citation else cell_estimate(value)
+
+    # cost-input-usd-per-mtok
+    if submitter_in:
+        cells["cost-input-usd-per-mtok"] = _cost_cell(submitter_in, primary_url or "", "T2")
+        source_map["cost-input-usd-per-mtok"] = "submitter (human)"
+        provenance["cost-input-usd-per-mtok"] = {
+            "source": "human",
+            "verified": True,
+            "author": f"intake-issue-{issue_number}",
+        }
+    elif scrape_in_val is not None and scrape_url_used:
+        cells["cost-input-usd-per-mtok"] = cell_real(
+            f"{scrape_in_val:g}", scrape_url_used, tier="T2",
+        )
+        source_map["cost-input-usd-per-mtok"] = scrape_url_used
+        provenance["cost-input-usd-per-mtok"] = {
+            "source": "scrape",
+            "verified": True,
+            "scrape_url": scrape_url_used,
+            "scraped_at": today_iso,
+        }
+    elif pricing_model in COST_HOSTED_PRICING_MODELS:
+        # Hosted but couldn't reach a price reliably: LLM unverified.
+        cells["cost-input-usd-per-mtok"] = cell_estimate("(LLM unverified)")
+        source_map["cost-input-usd-per-mtok"] = "llm (unverified)"
+        provenance["cost-input-usd-per-mtok"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+    else:
+        cells["cost-input-usd-per-mtok"] = cell_not_applicable(
+            "not applicable — non-hosted pricing model",
+        )
+        source_map["cost-input-usd-per-mtok"] = "n/a (non-hosted)"
+        provenance["cost-input-usd-per-mtok"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+            "note": "non-hosted pricing model",
+        }
+
+    # cost-output-usd-per-mtok (parallel structure)
+    if submitter_out:
+        cells["cost-output-usd-per-mtok"] = _cost_cell(submitter_out, primary_url or "", "T2")
+        source_map["cost-output-usd-per-mtok"] = "submitter (human)"
+        provenance["cost-output-usd-per-mtok"] = {
+            "source": "human",
+            "verified": True,
+            "author": f"intake-issue-{issue_number}",
+        }
+    elif scrape_out_val is not None and scrape_url_used:
+        cells["cost-output-usd-per-mtok"] = cell_real(
+            f"{scrape_out_val:g}", scrape_url_used, tier="T2",
+        )
+        source_map["cost-output-usd-per-mtok"] = scrape_url_used
+        provenance["cost-output-usd-per-mtok"] = {
+            "source": "scrape",
+            "verified": True,
+            "scrape_url": scrape_url_used,
+            "scraped_at": today_iso,
+        }
+    elif pricing_model in COST_HOSTED_PRICING_MODELS:
+        cells["cost-output-usd-per-mtok"] = cell_estimate("(LLM unverified)")
+        source_map["cost-output-usd-per-mtok"] = "llm (unverified)"
+        provenance["cost-output-usd-per-mtok"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+    else:
+        cells["cost-output-usd-per-mtok"] = cell_not_applicable(
+            "not applicable — non-hosted pricing model",
+        )
+        source_map["cost-output-usd-per-mtok"] = "n/a (non-hosted)"
+        provenance["cost-output-usd-per-mtok"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+            "note": "non-hosted pricing model",
+        }
+
+    # cost-tier — derived from input price; submitter input wins.
+    derived_in_price: float | None = None
+    if submitter_in:
+        try:
+            derived_in_price = float(submitter_in)
+        except ValueError:
+            derived_in_price = None
+    elif scrape_in_val is not None:
+        derived_in_price = scrape_in_val
+    cost_tier_value = cost_tier_from_input_price(derived_in_price)
+    if cost_tier_value:
+        # Mirror the provenance of the underlying price.
+        underlying = provenance.get("cost-input-usd-per-mtok") or {}
+        underlying_source = underlying.get("source", "llm")
+        if underlying_source == "human":
+            cells["cost-tier"] = cell_real(cost_tier_value, primary_url or "", tier="T2") \
+                if primary_url else cell_estimate(cost_tier_value)
+            provenance["cost-tier"] = {
+                "source": "human",
+                "verified": True,
+                "author": f"intake-issue-{issue_number}",
+            }
+        elif underlying_source == "scrape":
+            cells["cost-tier"] = cell_real(cost_tier_value, scrape_url_used or "", tier="T2")
+            provenance["cost-tier"] = {
+                "source": "scrape",
+                "verified": True,
+                "scrape_url": scrape_url_used,
+                "scraped_at": today_iso,
+            }
+        else:
+            cells["cost-tier"] = cell_estimate(cost_tier_value)
+            provenance["cost-tier"] = {
+                "source": "llm",
+                "verified": False,
+                "model_id": LLM_MODEL_ID,
+                "generated_at": today_iso,
+            }
+        source_map["cost-tier"] = source_map["cost-input-usd-per-mtok"]
+    else:
+        cells["cost-tier"] = cell_depth_floor("searched not found", primary_url or "")
+        source_map["cost-tier"] = "depth-floor: no input price to bucket"
+        provenance["cost-tier"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+
+    # cost-pricing-model — submitter value or "unknown".
+    if pricing_model and pricing_model != "unknown":
+        cells["cost-pricing-model"] = cell_real(
+            pricing_model, primary_url or "", tier="T2",
+        ) if primary_url else cell_estimate(pricing_model)
+        source_map["cost-pricing-model"] = "submitter (human)"
+        provenance["cost-pricing-model"] = {
+            "source": "human",
+            "verified": True,
+            "author": f"intake-issue-{issue_number}",
+        }
+    else:
+        cells["cost-pricing-model"] = cell_estimate(pricing_model or "unknown")
+        source_map["cost-pricing-model"] = "llm (unverified)"
+        provenance["cost-pricing-model"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+
+    # cost-last-verified — today's ISO date if any cost cell is verified.
+    cost_verified_today = any(
+        provenance.get(s, {}).get("verified") is True
+        for s in ("cost-input-usd-per-mtok", "cost-output-usd-per-mtok",
+                  "cost-pricing-model")
+    )
+    if cost_verified_today:
+        cells["cost-last-verified"] = cell_real(
+            today_iso, scrape_url_used or primary_url or "", tier="T2",
+        ) if (scrape_url_used or primary_url) else cell_estimate(today_iso)
+        source_map["cost-last-verified"] = scrape_url_used or primary_url or "submitter"
+        # Source matches whichever cost cell was strongest.
+        if any(provenance.get(s, {}).get("source") == "scrape"
+               for s in ("cost-input-usd-per-mtok", "cost-output-usd-per-mtok")):
+            provenance["cost-last-verified"] = {
+                "source": "scrape",
+                "verified": True,
+                "scrape_url": scrape_url_used,
+                "scraped_at": today_iso,
+            }
+        else:
+            provenance["cost-last-verified"] = {
+                "source": "human",
+                "verified": True,
+                "author": f"intake-issue-{issue_number}",
+            }
+    else:
+        cells["cost-last-verified"] = cell_depth_floor("searched not found", primary_url or "")
+        source_map["cost-last-verified"] = "depth-floor: no verified cost cells"
+        provenance["cost-last-verified"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+
+    # Capability — HEAD-check submitter URLs; pull one score.
+    bench_lines = parse_benchmark_sources(fields.capability_benchmark_sources or "")
+    valid_sources: list[tuple[str, str, str | None]] = []  # (url, line, score or None)
+    for url, line in bench_lines:
+        ok, _ = head_check(url)
+        if ok:
+            valid_sources.append((url, line, extract_score_from_line(line)))
+
+    if valid_sources:
+        # capability-benchmark-sources: collect URLs (joined).
+        srcs_str = "; ".join(u for (u, _l, _s) in valid_sources)
+        first_url = valid_sources[0][0]
+        cells["capability-benchmark-sources"] = cell_real(
+            srcs_str[:1000], first_url, tier="T2",
+        )
+        source_map["capability-benchmark-sources"] = first_url
+        provenance["capability-benchmark-sources"] = {
+            "source": "human",
+            "verified": True,
+            "author": f"intake-issue-{issue_number}",
+        }
+
+        # capability-composite-score: pick the first parsed score.
+        score_hits = [s for (_u, _l, s) in valid_sources if s]
+        if score_hits:
+            cells["capability-composite-score"] = cell_real(
+                score_hits[0], first_url, tier="T2",
+            )
+            source_map["capability-composite-score"] = first_url
+            provenance["capability-composite-score"] = {
+                "source": "human",
+                "verified": True,
+                "author": f"intake-issue-{issue_number}",
+            }
+        else:
+            cells["capability-composite-score"] = cell_estimate("(LLM unverified)")
+            source_map["capability-composite-score"] = "llm (unverified)"
+            provenance["capability-composite-score"] = {
+                "source": "llm",
+                "verified": False,
+                "model_id": LLM_MODEL_ID,
+                "generated_at": today_iso,
+            }
+
+        # capability-band: derived bucket. LLM unverified band when no
+        # score parsed; the curator slots this on review.
+        cells["capability-band"] = cell_estimate("(LLM unverified)")
+        source_map["capability-band"] = "llm (unverified)"
+        provenance["capability-band"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+
+        cells["capability-last-verified"] = cell_real(
+            today_iso, first_url, tier="T2",
+        )
+        source_map["capability-last-verified"] = first_url
+        provenance["capability-last-verified"] = {
+            "source": "human",
+            "verified": True,
+            "author": f"intake-issue-{issue_number}",
+        }
+    else:
+        # No submitter capability info — all four cells LLM unverified.
+        for slug in ("capability-composite-score", "capability-band",
+                     "capability-benchmark-sources", "capability-last-verified"):
+            cells[slug] = cell_estimate("(LLM unverified)")
+            source_map[slug] = "llm (unverified)"
+            provenance[slug] = {
+                "source": "llm",
+                "verified": False,
+                "model_id": LLM_MODEL_ID,
+                "generated_at": today_iso,
+            }
+
+    # Use-case — merge submitter tags with the vocabulary. LLM never
+    # overwrites a submitter selection; absence of submitter selection
+    # leaves the cell as LLM unverified empty.
+    submitter_raw = (fields.use_case_tags or "").strip()
+    submitter_tags: list[str] = []
+    if submitter_raw:
+        for raw in re.split(r"[,;\n]+", submitter_raw):
+            tag = raw.strip().strip("-").strip().lower().replace(" ", "-")
+            if tag in USE_CASE_TAG_VOCAB and tag not in submitter_tags:
+                submitter_tags.append(tag)
+    submitter_other = (fields.use_case_tags_other or "").strip()
+    if submitter_other:
+        for raw in re.split(r"[,;]+", submitter_other):
+            t = raw.strip().lower().replace(" ", "-")
+            if t and t not in submitter_tags:
+                submitter_tags.append(t)
+
+    if submitter_tags:
+        cells["use-case-tags"] = cell_real(
+            ", ".join(submitter_tags), primary_url or "", tier="T2",
+        ) if primary_url else cell_estimate(", ".join(submitter_tags))
+        source_map["use-case-tags"] = "submitter (human)"
+        provenance["use-case-tags"] = {
+            "source": "human",
+            "verified": True,
+            "author": f"intake-issue-{issue_number}",
+        }
+    else:
+        cells["use-case-tags"] = cell_estimate("(LLM unverified)")
+        source_map["use-case-tags"] = "llm (unverified)"
+        provenance["use-case-tags"] = {
+            "source": "llm",
+            "verified": False,
+            "model_id": LLM_MODEL_ID,
+            "generated_at": today_iso,
+        }
+
+    # use-case-anti-tags: bot never asserts anti-tags without curator
+    # review. LLM unverified always.
+    cells["use-case-anti-tags"] = cell_estimate("(LLM unverified)")
+    source_map["use-case-anti-tags"] = "llm (unverified)"
+    provenance["use-case-anti-tags"] = {
+        "source": "llm",
+        "verified": False,
+        "model_id": LLM_MODEL_ID,
+        "generated_at": today_iso,
+    }
+
     # Fill any missing slugs (sanity check). Should not happen, but guard
     # against future schema additions.
     for slug in CELL_COLUMN_SLUGS:
@@ -1061,6 +1626,48 @@ def build_record(
             "reason": "not yet researched — auto-intake",
         }]
 
+    # Build full _provenance map: every cell the bot wrote gets an entry.
+    # Phase 2 cells use the per-cell `provenance` dict populated above.
+    # All other (pre-Phase-2) cells the bot just researched get a default
+    # provenance entry: source="llm" when status is "estimate", "scrape"
+    # when the cell carries a citation produced by a fetch (we approximate
+    # this with the GitHub-or-primary-URL citation rule), else "legacy"
+    # for cells the bot did not touch. apply_intake_pr.py is the one that
+    # actually splices this onto landscape.json's record.
+    full_provenance: dict[str, dict] = {}
+    for slug, cell in ordered_cells.items():
+        if slug in provenance:
+            full_provenance[slug] = provenance[slug]
+            continue
+        status = (cell or {}).get("status", "")
+        if status == "real-data":
+            # Bot fetched a citation. Tagged llm-verified=False because the
+            # bot's parsing isn't human-confirmed; curator flips to True
+            # on PR review.
+            full_provenance[slug] = {
+                "source": "llm",
+                "verified": False,
+                "model_id": LLM_MODEL_ID,
+                "generated_at": today_iso,
+                "citation": cell.get("citation"),
+            }
+        elif status == "estimate":
+            full_provenance[slug] = {
+                "source": "llm",
+                "verified": False,
+                "model_id": LLM_MODEL_ID,
+                "generated_at": today_iso,
+            }
+        else:
+            # depth-floor-reached or not-applicable: bot looked, didn't find.
+            full_provenance[slug] = {
+                "source": "llm",
+                "verified": False,
+                "model_id": LLM_MODEL_ID,
+                "generated_at": today_iso,
+                "note": status or "no-evidence",
+            }
+
     record = {
         "id": record_id,
         "name": fields.name,
@@ -1069,6 +1676,7 @@ def build_record(
         "sections": sections,
         "taxonomy": taxonomy,
         "cells": ordered_cells,
+        "_provenance": full_provenance,
     }
 
     return record, source_map
@@ -1098,6 +1706,14 @@ def main() -> int:
     ap.add_argument("--known-funding", default=None)
     ap.add_argument("--known-customers", default=None)
     ap.add_argument("--license", default=None)
+    # Phase 2 / Gate 1 CLI overrides (issues #95 / #101).
+    ap.add_argument("--cost-input-usd-per-mtok", default=None)
+    ap.add_argument("--cost-output-usd-per-mtok", default=None)
+    ap.add_argument("--cost-pricing-model", default=None)
+    ap.add_argument("--capability-benchmark-sources", default=None)
+    ap.add_argument("--use-case-tags", default=None,
+                    help="comma-separated tags from the 8-tag controlled vocab")
+    ap.add_argument("--use-case-tags-other", default=None)
     ap.add_argument("--output", required=True,
                     help="Where to write the record JSON")
     ap.add_argument("--source-map-output", default=None,
@@ -1142,6 +1758,18 @@ def main() -> int:
         fields.known_customers = args.known_customers
     if args.license is not None:
         fields.license = args.license
+    if args.cost_input_usd_per_mtok is not None:
+        fields.cost_input_usd_per_mtok = args.cost_input_usd_per_mtok
+    if args.cost_output_usd_per_mtok is not None:
+        fields.cost_output_usd_per_mtok = args.cost_output_usd_per_mtok
+    if args.cost_pricing_model is not None:
+        fields.cost_pricing_model = args.cost_pricing_model
+    if args.capability_benchmark_sources is not None:
+        fields.capability_benchmark_sources = args.capability_benchmark_sources
+    if args.use_case_tags is not None:
+        fields.use_case_tags = args.use_case_tags
+    if args.use_case_tags_other is not None:
+        fields.use_case_tags_other = args.use_case_tags_other
 
     # Re-validate required.
     fields.parse_errors = []

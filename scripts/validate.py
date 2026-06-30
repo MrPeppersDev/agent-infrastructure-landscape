@@ -909,6 +909,149 @@ def gate_cell_rot() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Gate 7: Phase 2 cell provenance integrity (issues #95 / #101).
+# ---------------------------------------------------------------------------
+
+
+# Phase 2 / Gate 1 cells. Every populated cell in this list MUST have a
+# matching `_provenance[slug]` entry. Mirrored from
+# scripts/research_intake.py PHASE_2_CELL_SLUGS and the equivalent list
+# in scripts/apply_intake_pr.py — duplicated here to keep validate.py
+# free of cross-script imports.
+PHASE_2_CELL_SLUGS: tuple[str, ...] = (
+    "cost-input-usd-per-mtok",
+    "cost-output-usd-per-mtok",
+    "cost-tier",
+    "cost-pricing-model",
+    "cost-last-verified",
+    "capability-composite-score",
+    "capability-band",
+    "capability-benchmark-sources",
+    "capability-last-verified",
+    "use-case-tags",
+    "use-case-anti-tags",
+)
+
+# Valid provenance source enum. `legacy` is reserved for pre-Phase-2
+# backfill; the intake pipeline never writes it on a new cell. `human`
+# / `scrape` / `llm` are the live sources from the auto-intake bot.
+PROVENANCE_SOURCE_ENUM: frozenset[str] = frozenset({
+    "legacy", "human", "scrape", "llm",
+})
+
+
+def gate_phase_2_provenance() -> None:
+    """Enforce Phase 2 provenance contract on landscape.json.
+
+    Rules (issue #101 §5):
+      - Every populated Phase 2 cell has a matching `_provenance[slug]`
+        entry.
+      - The provenance `source` is in the enum {legacy, human, scrape, llm}.
+      - `source: human` cells carry an `author` field.
+
+    `source: llm, verified: true` cells WITHOUT a verification step are
+    surfaced as a soft warning (printed, not a hard fail) — those rows
+    are rare and the verification-step convention isn't yet enforced
+    catalog-wide, so flagging via warning gives the curator visibility
+    without flipping CI red.
+
+    Empty Phase 2 cells (value falsy) are tolerated: depth-floor / not-
+    applicable rows that the bot left empty don't require a provenance
+    entry, only populated ones do.
+    """
+    gate_header(
+        7,
+        "Phase 2 cell provenance integrity (issues #95 / #101)",
+    )
+    if not LANDSCAPE_JSON.exists():
+        gate_fail(f"{LANDSCAPE_JSON} not found")
+
+    landscape = json.loads(LANDSCAPE_JSON.read_text())
+    records = landscape.get("records") or []
+
+    errors: list[str] = []
+    warnings_soft: list[str] = []
+    populated_phase_2_cells = 0
+    populated_with_provenance = 0
+    source_dist: dict[str, int] = {s: 0 for s in PROVENANCE_SOURCE_ENUM}
+
+    for rec in records:
+        rid = rec.get("id", "<unknown>")
+        cells = rec.get("cells") or {}
+        prov = rec.get("_provenance") or {}
+        if not isinstance(prov, dict):
+            errors.append(
+                f"{rid}: _provenance must be a dict (got {type(prov).__name__})"
+            )
+            continue
+        for slug in PHASE_2_CELL_SLUGS:
+            cell = cells.get(slug) or {}
+            value = cell.get("value")
+            if not value:
+                continue  # empty Phase 2 cell — no provenance required
+            populated_phase_2_cells += 1
+            entry = prov.get(slug)
+            if not isinstance(entry, dict):
+                errors.append(
+                    f"{rid}.cells[{slug}]: populated Phase 2 cell missing "
+                    f"_provenance[{slug}] entry"
+                )
+                continue
+            populated_with_provenance += 1
+            source = entry.get("source")
+            if source not in PROVENANCE_SOURCE_ENUM:
+                errors.append(
+                    f"{rid}._provenance[{slug}]: source {source!r} not in "
+                    f"{sorted(PROVENANCE_SOURCE_ENUM)}"
+                )
+                continue
+            source_dist[source] += 1
+            verified = entry.get("verified")
+            if source == "human" and not entry.get("author"):
+                errors.append(
+                    f"{rid}._provenance[{slug}]: source: human requires an "
+                    f"`author` field"
+                )
+            if source == "llm" and verified is True:
+                # llm-verified is legal only with an explicit
+                # verification step recorded. Soft-warn if absent.
+                if not any(k in entry for k in (
+                    "verification_step", "verified_by", "verified_at",
+                )):
+                    warnings_soft.append(
+                        f"{rid}._provenance[{slug}]: source: llm, "
+                        f"verified: true lacks a verification step "
+                        f"(verified_by / verified_at / verification_step)"
+                    )
+
+    info(
+        f"populated Phase 2 cells: {populated_phase_2_cells}  "
+        f"with _provenance: {populated_with_provenance}"
+    )
+    info(
+        "provenance source distribution (Phase 2 cells only): "
+        + " ".join(f"{k}={v}" for k, v in sorted(source_dist.items()))
+    )
+
+    if warnings_soft:
+        for w in warnings_soft[:10]:
+            info(f"  warning: {w}")
+        if len(warnings_soft) > 10:
+            info(f"  ... and {len(warnings_soft) - 10} more soft warning(s)")
+
+    if errors:
+        for e in errors[:20]:
+            info(f"  - {e}")
+        if len(errors) > 20:
+            info(f"  ... and {len(errors) - 20} more")
+        gate_fail(f"{len(errors)} Phase 2 provenance validation error(s)")
+
+    gate_pass(
+        "every populated Phase 2 cell has a well-formed _provenance entry"
+    )
+
+
+# ---------------------------------------------------------------------------
 # Driver.
 # ---------------------------------------------------------------------------
 
@@ -920,6 +1063,7 @@ GATES = {
     4: ("cache", gate_cache),
     5: ("claim-tiers", gate_claim_tiers),
     6: ("cell-rot", gate_cell_rot),
+    7: ("phase-2-provenance", gate_phase_2_provenance),
 }
 
 
@@ -929,7 +1073,7 @@ def main() -> int:
         "--gate",
         type=int,
         choices=sorted(GATES),
-        help="run only one gate by number (1–6)",
+        help="run only one gate by number (1–7)",
     )
     args = ap.parse_args()
 
