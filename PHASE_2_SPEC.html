@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Spec — Catalog → Recommender</title>
+<style>
+  :root {
+    --fg: #1a1a1a;
+    --fg-muted: #555;
+    --bg: #fdfdfb;
+    --accent: #2b5797;
+    --rule: #d9d9d4;
+    --code-bg: #f3f1ec;
+    --callout-bg: #fff8e1;
+    --callout-border: #d4a017;
+    --tradeoff-bg: #fde8e8;
+    --tradeoff-border: #c0392b;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 16px; }
+  body {
+    font-family: var(--sans);
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+  header.doc {
+    border-bottom: 2px solid var(--fg);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  header.doc .eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--fg-muted);
+    font-weight: 600;
+  }
+  header.doc h1 {
+    font-size: 2rem;
+    margin: 0.3rem 0 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  header.doc .meta {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    font-family: var(--mono);
+  }
+  header.doc .meta dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.2rem 1rem;
+    margin: 0.6rem 0 0;
+  }
+  header.doc .meta dt { font-weight: 600; }
+  header.doc .meta dd { margin: 0; }
+  h2 {
+    font-size: 1.4rem;
+    margin: 2.8rem 0 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 1.05rem;
+    margin: 1.6rem 0 0.4rem;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 0.95rem;
+    margin: 1.1rem 0 0.3rem;
+    font-weight: 600;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  p { margin: 0.6rem 0; }
+  ul, ol { padding-left: 1.4rem; margin: 0.6rem 0; }
+  li { margin: 0.2rem 0; }
+  code {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--code-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+  pre {
+    background: var(--code-bg);
+    padding: 0.9rem 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.83rem;
+    line-height: 1.5;
+    margin: 0.8rem 0;
+  }
+  pre code {
+    background: transparent;
+    padding: 0;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration: underline; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--rule);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--code-bg);
+    font-weight: 600;
+  }
+  .callout {
+    background: var(--callout-bg);
+    border-left: 3px solid var(--callout-border);
+    padding: 0.7rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  .callout .label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--callout-border);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .tradeoff {
+    background: var(--tradeoff-bg);
+    border-left: 3px solid var(--tradeoff-border);
+    padding: 0.7rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  .tradeoff .label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--tradeoff-border);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  nav.toc {
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 1rem 1.4rem;
+    margin: 1.5rem 0 2.5rem;
+    font-size: 0.92rem;
+  }
+  nav.toc h2 {
+    font-size: 0.78rem;
+    margin: 0 0 0.5rem;
+    padding: 0;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+  }
+  nav.toc ol { margin: 0; padding-left: 1.2rem; }
+  nav.toc li { margin: 0.15rem 0; }
+  nav.toc a { color: var(--fg); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  .gate-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    gap: 0.4rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.8rem 0;
+  }
+  .gate-grid .gate-id {
+    font-family: var(--mono);
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .gate-grid .gate-status {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+  .footnote {
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <div class="eyebrow">Specification — Ready for implementation</div>
+  <h1>Phase 2: Catalog &rarr; Recommender</h1>
+  <div class="meta">
+    <dl>
+      <dt>Status:</dt><dd>Tracking issue (#94) + 8 gate issues (#95&ndash;#102) filed &mdash; Gate 1 is the next action</dd>
+      <dt>Authored:</dt><dd>2026-06-29</dd>
+      <dt>Last updated:</dt><dd>2026-06-29 (gates filed)</dd>
+      <dt>Owner:</dt><dd>Mr. Peppers (maintainer)</dd>
+      <dt>Supersedes:</dt><dd>None &mdash; extends current steady-state posture in PLAN.md</dd>
+      <dt>Sequencing:</dt><dd>Begins after Phase 1 (staleness/decay tooling) lands</dd>
+    </dl>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#problem">Problem &amp; motivation</a></li>
+    <li><a href="#goals">Goals &amp; non-goals</a></li>
+    <li><a href="#knowledge">Knowledge layer — schema additions</a></li>
+    <li><a href="#capability">Capability layer — recommender surfaces</a></li>
+    <li><a href="#cadence">Analysis cadence</a></li>
+    <li><a href="#submission">Submission pipeline</a></li>
+    <li><a href="#gates">Implementation gates</a></li>
+    <li><a href="#resolutions">Resolved design questions</a></li>
+    <li><a href="#next-steps">Progress &amp; next steps</a></li>
+  </ol>
+</nav>
+
+<h2 id="problem">1. Problem &amp; motivation</h2>
+
+<p>The catalog has shipped its build-phase work: 912 records across 34 sections, 85 cells per record, 15 analytical views, and three consumption surfaces (web app, MCP server, CLI). It is now an excellent <em>reference</em>.</p>
+
+<p>It is not yet a <em>recommender</em>. Two questions from real users surface this gap:</p>
+
+<table>
+  <thead>
+    <tr><th>Question type</th><th>Example</th><th>What's missing</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Positioning</strong></td>
+      <td>"What model sits between Kimi-k2.6 and Opus 4.8 — good enough for scoped agentic tasks but cheaper than frontier?"</td>
+      <td>No view places candidates between two named anchors on cost/capability axes.</td>
+    </tr>
+    <tr>
+      <td><strong>Constraint matching</strong></td>
+      <td>"Which memory system + harness best fits my project — long-running, multi-agent, latency-sensitive?"</td>
+      <td>No taxonomy of use-case suitability on memory rows; no surface that takes project constraints in and ranks candidates out.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The underlying data exists. The <code>cost-economics</code> and <code>product-benchmark-matrix</code> views already aggregate the relevant cells. What's missing is the <em>decision surface</em> on top — plus the normalized columns, sustainable cadence, and intake pipeline that keep recommendations defensible over time.</p>
+
+<div class="callout">
+  <span class="label">Framing</span>
+  Phase 2 turns the catalog from "browse and read" into "ask and rank." The catalog stays the source of truth; recommender surfaces are pure functions over it.
+</div>
+
+<h2 id="goals">2. Goals &amp; non-goals</h2>
+
+<h3>Goals</h3>
+<ul>
+  <li>Add three new column families to the schema: <strong>normalized cost</strong>, <strong>capability tier</strong>, <strong>use-case suitability tags</strong>.</li>
+  <li>Ship two recommender surfaces — positioning (between-anchors) and constraint-matching (project-shape) — backed by one shared ranking function.</li>
+  <li>Expose surfaces in all three consumption layers: web routes, MCP tools, CLI commands.</li>
+  <li>Establish a named analysis cadence (weekly recommendation-drift, quarterly capability-recalibration) backed by cron workflows that file structured findings.</li>
+  <li>Stand up a community submission pipeline with schema validation and mechanical auto-enrichment.</li>
+</ul>
+
+<h3>Non-goals</h3>
+<ul>
+  <li><strong>Not</strong> a "best model overall" leaderboard — rankings are always context-dependent, never globally ordered.</li>
+  <li><strong>Not</strong> a replacement for the existing 15 analytical views — Phase 2 surfaces sit alongside them under <code>web/src/routes/recommend/</code>.</li>
+  <li><strong>Not</strong> user accounts or personalization — every query is single-shot, stateless.</li>
+  <li><strong>Not</strong> an LLM-inference recommender — ranking is keyword + structured-field matching, deterministic and auditable. LLMs may assist intake-bot enrichment but never run at query time.</li>
+</ul>
+
+<h2 id="knowledge">3. Knowledge layer — schema additions</h2>
+
+<p>Three new column families. Each fits inside the existing record schema (currently 85 cells); the additions bring the count to ~95 cells. All new cells participate in Phase 1's staleness tracking (gate 6, cell-level visibility).</p>
+
+<h3>3.1 Column family A — Normalized cost</h3>
+
+<table>
+  <thead><tr><th>Cell</th><th>Type</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>cost_input_usd_per_mtok</code></td><td>number</td><td>Public list price, vendor-reported. Null for self-hosted.</td></tr>
+    <tr><td><code>cost_output_usd_per_mtok</code></td><td>number</td><td>Same.</td></tr>
+    <tr><td><code>cost_tier</code></td><td>enum</td><td><code>free</code> | <code>budget</code> | <code>mid</code> | <code>premium</code> — derived bucket, recomputed nightly.</td></tr>
+    <tr><td><code>cost_pricing_model</code></td><td>enum</td><td><code>per-token</code> | <code>per-request</code> | <code>subscription</code> | <code>self-hosted</code> | <code>free-tier</code></td></tr>
+    <tr><td><code>cost_last_verified</code></td><td>date</td><td>Staleness pipeline checks this against vendor pricing page.</td></tr>
+  </tbody>
+</table>
+
+<p>Applicable to: foundation models, hosted memory services, agent platforms with metered pricing. Skip-eligible for research papers (<code>decay_cause = research-complete</code>) and self-hosted-only systems.</p>
+
+<h3>3.2 Column family B — Capability tier</h3>
+
+<table>
+  <thead><tr><th>Cell</th><th>Type</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>capability_composite_score</code></td><td>number 0&ndash;100</td><td>Weighted composite across three task families: code, agentic reasoning, long-context. Recomputed quarterly.</td></tr>
+    <tr><td><code>capability_band</code></td><td>enum</td><td><code>entry</code> | <code>competent</code> | <code>frontier</code> — derived from composite.</td></tr>
+    <tr><td><code>capability_benchmark_sources</code></td><td>array</td><td>List of <code>{benchmark, score, run_date, source_url}</code> — transparency for the composite.</td></tr>
+    <tr><td><code>capability_last_verified</code></td><td>date</td><td>Tied to quarterly recalibration run.</td></tr>
+  </tbody>
+</table>
+
+<p>Benchmark source selection draws on the existing <code>benchmark-trust</code> view's vetted list, so we don't recreate the trust evaluation. The composite is not a blessed authority — it's a default starting point users can pivot from by inspecting the underlying scores.</p>
+
+<h3>3.3 Column family C — Use-case suitability</h3>
+
+<table>
+  <thead><tr><th>Cell</th><th>Type</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>use_case_tags</code></td><td>multi-select</td><td>From controlled vocabulary below.</td></tr>
+    <tr><td><code>use_case_anti_tags</code></td><td>multi-select</td><td>Explicit "do not use for" tags — equally valuable for ranking.</td></tr>
+  </tbody>
+</table>
+
+<h4>Initial controlled vocabulary</h4>
+<ul>
+  <li><code>scoped-agentic</code> — well-defined task, short horizon, single-tool sequences</li>
+  <li><code>long-running-session</code> — multi-turn, persistent state, hours-to-days lifespan</li>
+  <li><code>multi-agent-coordination</code> — shared context across agents, orchestration-heavy</li>
+  <li><code>memory-augmented-chat</code> — single-user conversational, retrieval-focused</li>
+  <li><code>code-generation-focused</code> — IDE / code-task primary use</li>
+  <li><code>analytical-summarization</code> — long-context, factual extraction</li>
+  <li><code>latency-sensitive</code> — sub-second response requirements</li>
+  <li><code>offline-capable</code> — air-gapped or local-first deployment</li>
+</ul>
+
+<p>Vocabulary is intentionally flat to start. Two thresholds govern when to revisit:</p>
+<ul>
+  <li><strong>Monitor at 10% catalog membership</strong> — when any tag reaches 10% coverage, open a tracking issue and start collecting evidence on whether the tag has become too coarse.</li>
+  <li><strong>Promote at 20% catalog membership</strong> — at this point a tag almost certainly bundles distinct sub-cases; split into a hierarchy.</li>
+</ul>
+<p>Thresholds are deliberately conservative — earlier-than-needed taxonomy work costs less than carrying coarse tags that miscategorize submissions.</p>
+
+<h3 id="provenance">3.4 Cell-level provenance &amp; verification</h3>
+
+<p>Every cell in the catalog has a known origin. The recommender's defensibility depends on being able to answer "where did this value come from, and has a human confirmed it?" for any cell that ends up in a ranking rationale.</p>
+
+<p>Each record carries a parallel <code>_provenance</code> object keyed by cell name:</p>
+
+<pre><code>{
+  "id": "kimi-k2-6",
+  "capability_band": "frontier",
+  "cost_input_usd_per_mtok": 0.15,
+  "use_case_tags": ["scoped-agentic", "code-generation-focused"],
+
+  "_provenance": {
+    "capability_band":           { "source": "llm",        "verified": false, "generated_at": "2026-06-29" },
+    "cost_input_usd_per_mtok":   { "source": "scrape",     "verified": true,  "scraped_at":    "2026-06-29", "scrape_url": "..." },
+    "use_case_tags":             { "source": "human",      "verified": true,  "author":        "@maintainer", "edited_at": "2026-06-15" }
+  }
+}</code></pre>
+
+<h4>Source values</h4>
+<ul>
+  <li><code>human</code> — authored or last-edited by a person via PR or web form.</li>
+  <li><code>scrape</code> — mechanically derived (GitHub API, arXiv API, vendor pricing page extraction).</li>
+  <li><code>llm</code> — suggested by an LLM during intake enrichment.</li>
+  <li><code>legacy</code> — predates the provenance model; assigned during Gate 1's existing-cell backfill. Treated as verified-by-default since the cells were trusted catalog state before Phase 2 began.</li>
+</ul>
+
+<h4>Verification rules</h4>
+<ul>
+  <li><strong>Every cell is fillable by LLM enrichment if a value cannot be obtained mechanically.</strong> No cell is off-limits — including cost cells where vendor pricing pages are unparseable.</li>
+  <li><strong>LLM-generated cells are always labeled.</strong> The <code>source: "llm"</code> marker is visible in every surface that displays the cell — web UI shows a "LLM, unverified" badge; MCP tool responses include it in the <code>caveats</code> array; CLI prints it inline.</li>
+  <li><strong>Unverified LLM cells are non-load-bearing for ranking.</strong> <code>rank_candidates()</code> excludes unverified LLM values from score calculation — they appear in the candidate's profile but cannot influence position. The rationale string explicitly notes when a cell was skipped for this reason.</li>
+  <li><strong>Verification flips the bit, not the value.</strong> A human reviewing an LLM-generated cell either edits it (changing source to <code>human</code>) or sets <code>verified: true</code> with their handle. Verified-LLM cells become load-bearing.</li>
+  <li><strong>Scraped cells are verified-by-default.</strong> Mechanical extraction with a stored <code>scrape_url</code> is treated as load-bearing without separate human sign-off; staleness pipeline catches drift.</li>
+</ul>
+
+<div class="callout">
+  <span class="label">Why this matters</span>
+  Without provenance, an LLM-generated cell looks identical to a human-curated one in the data file. The recommender would unknowingly cite hallucinations as facts. The provenance model makes "this is a guess" a first-class data property, surfaces it everywhere, and excludes it from rankings until a human says otherwise.
+</div>
+
+<h3>3.5 Backfill plan</h3>
+
+<p>Gate 1 owns the backfill end-to-end. The gate does not close on empty cells.</p>
+
+<ol>
+  <li><strong>Schema migration:</strong> additive cells with null defaults across all 912 rows.</li>
+  <li><strong>Legacy-cell provenance backfill:</strong> every existing cell (the 85 pre-Phase-2 cells) gets a <code>_provenance</code> entry with <code>source: "legacy", verified: true</code>. This is a one-shot, mechanical operation — no judgment required. Where git history clearly identifies the writing script (e.g. <code>scripts/fetch_commit_trajectories.py</code> for download-trajectory cells), source is upgraded to <code>scrape</code> with the script name recorded.</li>
+  <li><strong>Mechanical fill of Phase 2 cells:</strong>
+    <ul>
+      <li>Cost cells: vendor pricing-page scrape for every hosted model / service in the catalog (not just top 50). Failures fall through to LLM enrichment with <code>verified: false</code>.</li>
+      <li><code>capability_benchmark_sources</code>: pulled from existing <code>benchmark-trust</code> view sources where rows are already linked.</li>
+    </ul>
+  </li>
+  <li><strong>LLM judgment fill of Phase 2 cells:</strong> <code>capability_band</code>, <code>capability_composite_score</code>, and <code>use_case_tags</code> filled via <code>/loop</code> deep-fill pattern (sub-agent per column class, CSV apply via <code>/tmp</code> script, comma-delimited). All marked <code>source: "llm", verified: false</code> — non-load-bearing until human review.</li>
+  <li><strong>Intake template extension:</strong> new submissions required to populate the new columns or explicitly mark <code>not-applicable</code>; Gate 7 owns the intake-side enforcement.</li>
+</ol>
+
+<p>End-state on Gate 1 close: every row in <code>data/landscape.json</code> has a populated <code>_provenance</code> object covering all cells (legacy + Phase 2), with Phase 2 cells filled by the best available source (scrape > LLM-unverified > null where genuinely not applicable).</p>
+
+<h2 id="capability">4. Capability layer — recommender surfaces</h2>
+
+<h3>4.1 Shared core: <code>rank_candidates()</code></h3>
+
+<p>Single pure function over the catalog. Surface code calls this; the surface differences are in input transformation and output presentation only.</p>
+
+<pre><code>rank_candidates(
+  constraints: ConstraintSet,
+  anchors?: { low: RecordId, high: RecordId },
+  k: number = 5
+) -&gt; Array&lt;{
+  record: Record,
+  score: number,            // 0..1
+  rationale: string[],      // bulleted reasons it ranked here
+  caveats: string[],        // explicit warnings (stale data, missing benchmarks, etc.)
+}&gt;</code></pre>
+
+<p>Implementation follows the existing shared-analysis pattern in this repo (see <code>web/src/lib/analyses/citation-prediction.ts</code> and its <code>mcp/src/</code> mirror):</p>
+<ul>
+  <li><strong>Single source of truth:</strong> <code>web/src/lib/analyses/recommender.ts</code></li>
+  <li><strong>Verbatim mirror for npm package:</strong> <code>mcp/src/recommender.ts</code> (required because <code>mcp/</code> ships as a standalone npm package with its own <code>rootDir</code>)</li>
+  <li><strong>CLI consumption:</strong> imports from <code>../../mcp/dist/recommender.js</code> (matches existing CLI pattern in <code>cli/src/landscape.ts</code>)</li>
+</ul>
+<p>No model inference, no network calls — fully deterministic. Web, MCP, and CLI must return identical rankings for identical inputs.</p>
+
+<h3>4.2 Surface 1: Positioning recommender</h3>
+
+<table>
+  <tbody>
+    <tr><th>Route</th><td><code>/recommend/between</code></td></tr>
+    <tr><th>MCP tool</th><td><code>between_models(anchor_low_id, anchor_high_id, use_case?)</code></td></tr>
+    <tr><th>CLI</th><td><code>landscape recommend between &lt;id&gt; &lt;id&gt; [--use-case TAG]</code></td></tr>
+    <tr><th>Input</th><td>Two anchor record IDs, optional use-case tag filter.</td></tr>
+    <tr><th>Output</th><td>Ranked candidates whose <code>cost</code> &times; <code>capability_composite_score</code> place them between the two anchors, with a one-line "why this fits" rationale.</td></tr>
+    <tr><th>Web UX</th><td>Two slot pickers + a scatter plot of cost vs. capability with anchors highlighted and candidates labeled.</td></tr>
+  </tbody>
+</table>
+
+<h3>4.3 Surface 2: Constraint matcher</h3>
+
+<table>
+  <tbody>
+    <tr><th>Route</th><td><code>/recommend/by-constraints</code></td></tr>
+    <tr><th>MCP tool</th><td><code>recommend_for_project(description, max_results=5)</code></td></tr>
+    <tr><th>CLI</th><td><code>landscape recommend for "&lt;project description&gt;"</code></td></tr>
+    <tr><th>Input</th><td>Free-text project description <em>or</em> structured form: project_shape, scale, latency_budget, persistence requirements, deployment mode.</td></tr>
+    <tr><th>Output</th><td>Ranked memory + harness candidates with matched use-case tags highlighted and anti-tags flagged as caveats.</td></tr>
+    <tr><th>Web UX</th><td>Textarea + toggleable structured form; results split by category (memory / harness / model) with cross-links.</td></tr>
+  </tbody>
+</table>
+
+<p>Free-text input is parsed into a <code>ConstraintSet</code> via keyword matching against the controlled vocabulary — not via LLM. This keeps the recommender auditable and reproducible.</p>
+
+<h2 id="cadence">5. Analysis cadence</h2>
+
+<p>All recurring analysis runs on a <strong>daily floor</strong>. The model release cycle is now measured in days, not quarters — a quarterly recalibration would mean three months of stale recommendations between updates. Cron is cheap; correctness decay is expensive. Every workflow below fires daily unless its input data fundamentally cannot move that fast.</p>
+
+<div class="callout">
+  <span class="label">Cadence principle</span>
+  Default to daily. Move slower only when input data physically cannot change faster (e.g. peer-reviewed benchmark publications). Move <em>faster</em> than daily when triggered by external events (new model release, vendor pricing change).
+</div>
+
+<table>
+  <thead>
+    <tr><th>Cadence</th><th>Workflow</th><th>What it does</th><th>Output</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Daily</td>
+      <td><code>staleness.yml</code> <span class="footnote">(existing — Phase 1)</span></td>
+      <td>Flags rows with stale cost/capability cells. Cell-level after gate 6.</td>
+      <td>GitHub issues with <code>stale-row</code> / <code>stale-cell</code> labels.</td>
+    </tr>
+    <tr>
+      <td>Daily</td>
+      <td><code>recommendation-drift.yml</code> <span class="footnote">(new)</span></td>
+      <td>Re-runs the canonical-questions set (~20 entries, incl. "between Kimi-k2.6 and Opus 4.8 for scoped agentic"). Diffs the top-5 against the prior 24h snapshot. Opens issue on any top-5 movement.</td>
+      <td><code>docs/drift-YYYY-MM-DD.md</code> + GitHub issue if movement detected.</td>
+    </tr>
+    <tr>
+      <td>Daily</td>
+      <td><code>capability-incremental.yml</code> <span class="footnote">(new)</span></td>
+      <td>Re-scores <code>capability_composite_score</code> for any row whose <code>capability_benchmark_sources</code> changed in the past 24h, or whose underlying benchmark publication updated. Cheap — only touches changed rows.</td>
+      <td>Auto-PR per affected row with score diff + rationale.</td>
+    </tr>
+    <tr>
+      <td>Daily</td>
+      <td><code>catalog-pulse.yml</code> <span class="footnote">(new)</span></td>
+      <td>Aggregate health snapshot: new entries, retirements, top-N most-queried recommendation surfaces, drift hot-spots. Posts to <code>/findings</code>.</td>
+      <td>Public daily card on <code>/findings</code> + last-7-days rollup link.</td>
+    </tr>
+    <tr>
+      <td>Daily</td>
+      <td><code>vendor-price-sweep.yml</code> <span class="footnote">(new)</span></td>
+      <td>Scrapes vendor pricing pages for hosted services in the catalog. Diffs against stored <code>cost_input_usd_per_mtok</code> / <code>cost_output_usd_per_mtok</code>. Auto-PR on any change.</td>
+      <td>Auto-PR per price change + issue if the change crosses a <code>cost_tier</code> boundary.</td>
+    </tr>
+    <tr>
+      <td>Weekly</td>
+      <td><code>capability-rebaseline.yml</code> <span class="footnote">(new)</span></td>
+      <td>Full re-score across all 912 records — anchors the daily incremental updates, catches drift the incremental pass missed (e.g. a benchmark source quietly revising methodology).</td>
+      <td><code>docs/FINDINGS-YYYY-MM-DD.md</code> with movement summary + tracking issue.</td>
+    </tr>
+    <tr>
+      <td>On release</td>
+      <td><code>model-release-watch.yml</code> <span class="footnote">(new — event-driven, not cron)</span></td>
+      <td>Webhook + RSS poller for known vendor announcement channels (OpenAI, Anthropic, Google, Mistral, DeepSeek, Moonshot, etc.). Fires within minutes of a detected release. Opens an <code>intake-pending</code> issue with auto-enriched stub.</td>
+      <td>Same-day catalog entry for major releases — no waiting for the next daily sweep.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <span class="label">Curated questions</span>
+  The daily drift workflow needs a small list (~20) of <em>real questions worth tracking</em>. Initial list seeded from real user questions (the Kimi/Opus question is question #1) — list lives at <code>docs/canonical-questions.yml</code> and grows by PR. Cap at ~50 entries to keep daily runs cheap.
+</div>
+
+<div class="tradeoff">
+  <span class="label">Tradeoff</span>
+  Daily cron amplifies any bug in the ranking function — a wrong rationale gets republished daily until caught. Mitigation: every daily-run output is auto-PR or auto-issue, never a direct write to <code>data/landscape.json</code>. Maintainer review remains the gate for catalog-state changes; daily runs change <em>signal</em>, not <em>state</em>.
+</div>
+
+<h2 id="submission">6. Submission pipeline</h2>
+
+<p>The catalog's long-term value depends on submissions being easy and quality being defensible. Three entry points, all converging to the same auto-PR flow.</p>
+
+<h3>6.1 Entry points</h3>
+
+<ol>
+  <li>
+    <strong>GitHub issue template — <code>submit-record.md</code></strong><br>
+    Required: record name, category, primary URL, brief description.<br>
+    Optional: pricing, benchmark scores, use-case tags.<br>
+    Auto-labeled <code>intake-pending</code>; triggers intake-research workflow.
+  </li>
+  <li>
+    <strong>Submission form on <code>/submit</code> web route</strong><br>
+    Same schema. Submits via GitHub API (requires GitHub auth to prevent spam — see <a href="#open-questions">open questions</a>).<br>
+    Lower friction for non-developer contributors.
+  </li>
+  <li>
+    <strong>Pull request — direct schema edit</strong><br>
+    For maintainers and trusted contributors. Same schema validation in CI.
+  </li>
+</ol>
+
+<h3>6.2 Pipeline</h3>
+
+<ol>
+  <li>Submission lands → <code>intake-research.yml</code> triggered (existing cron, extended).</li>
+  <li>Bot runs schema validation: required cells present, primary URL resolves, no duplicate ID.</li>
+  <li>Bot runs auto-enrichment:
+    <ul>
+      <li>GitHub URL → fetch stars, last-commit, language, license.</li>
+      <li>arXiv URL → fetch title, authors, published date, abstract.</li>
+      <li>Vendor pricing page URL → attempt structured-extract of cost cells.</li>
+      <li>(Optional, flagged) LLM-suggested use-case tags + capability-band guess, all marked <code>bot-suggested</code> and requiring sign-off.</li>
+    </ul>
+  </li>
+  <li>Bot opens auto-PR with stub row pre-filled with mechanically-derivable cells.</li>
+  <li>Maintainer reviews subjective cells (<code>capability_band</code>, <code>use_case_tags</code>, <code>cost_tier</code>).</li>
+  <li>On merge → next staleness/audit run picks up the new row.</li>
+</ol>
+
+<h3>6.3 Quality gates on submissions</h3>
+
+<ul>
+  <li><strong>Hard reject</strong>: duplicate ID, broken primary URL, missing required cells.</li>
+  <li><strong>Soft warning</strong> (PR opens with a flag, not blocked): row contains many LLM-source cells with <code>verified: false</code>. These cells will display as unverified everywhere and are excluded from ranking until human-reviewed (per §3.4) — the row still merges so the catalog isn't starved of entries.</li>
+  <li><strong>Auto-merge eligible</strong>: row's only LLM-source cells are <code>verified: false</code> AND every required mechanical cell is populated. The row becomes immediately visible but with reduced ranking weight until cleanup.</li>
+</ul>
+
+<p>This design lets contributors land partial rows without maintainer bottleneck — the provenance model handles the trust signal automatically. Maintainer review focuses on flipping <code>verified: true</code> on LLM cells, not on whether the row gets merged at all.</p>
+
+<h2 id="gates">7. Implementation gates</h2>
+
+<p>Each gate is a single mergeable issue. Critical path is Gates 1 &rarr; 2 &rarr; 3; Gates 5&ndash;7 can parallelize once 1&ndash;2 land.</p>
+
+<p class="footnote">Each gate links to its filed GitHub issue. The tracking issue (#94) anchors the set.</p>
+
+<div class="gate-grid">
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/95">Gate 1 (#95)</a></div>
+  <div>Schema additions + full backfill: cost / capability / use-case column families <strong>plus the <code>_provenance</code> object</strong> in <code>data/landscape.json</code>. Gate 1 owns the backfill end-to-end (legacy-cell provenance assignment + mechanical fill of Phase 2 cells + LLM-unverified fill where mechanical fails). See §3.5.</div>
+  <div class="gate-status">Critical &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/96">Gate 2 (#96)</a></div>
+  <div><code>rank_candidates()</code> core function + test fixtures. Pure function, no surface code yet. Excludes unverified LLM cells from scoring per §3.4.</div>
+  <div class="gate-status">Critical &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/97">Gate 3 (#97)</a></div>
+  <div><code>/recommend/between</code> route + <code>between_models</code> MCP tool + CLI subcommand ship together. All surfaces render the LLM-unverified badge from §3.4.</div>
+  <div class="gate-status">Critical &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/98">Gate 4 (#98)</a></div>
+  <div><code>/recommend/by-constraints</code> route + <code>recommend_for_project</code> MCP tool + CLI subcommand.</div>
+  <div class="gate-status">Parallel &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/99">Gate 5 (#99)</a></div>
+  <div><strong>Canonical-questions research sprint.</strong> Sweep GitHub Discussions, Discord, public AI forums, model release threads, and known user-channel sources for real recommendation questions. Produce <code>docs/canonical-questions.yml</code> with ~50 entries categorized by question type. Blocks Gate 6.</div>
+  <div class="gate-status">Parallel &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/100">Gate 6 (#100)</a></div>
+  <div>Daily cron suite live: <code>recommendation-drift.yml</code>, <code>capability-incremental.yml</code>, <code>catalog-pulse.yml</code>, <code>vendor-price-sweep.yml</code>, plus conversion of existing <code>staleness.yml</code> from weekly to daily. Depends on Gate 5 for seeded questions.</div>
+  <div class="gate-status">Parallel &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/101">Gate 7 (#101)</a></div>
+  <div>Extend the existing <code>/submit</code> web route + <code>intake.yml</code> template + <code>intake-research.yml</code> workflow for the new column families <strong>and provenance writes</strong>. LLM enrichment fills any unfilled cell, marked <code>source: "llm", verified: false</code>. (GitHub auth is implicitly satisfied by the existing GitHub-Issue submission surface.)</div>
+  <div class="gate-status">Parallel &middot; Filed</div>
+
+  <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/102">Gate 8 (#102)</a></div>
+  <div><code>capability-rebaseline.yml</code> (weekly full re-score) + <code>model-release-watch.yml</code> (event-driven via RSS poller, since no persistent backend exists for true webhooks) live, with first real end-to-end run completed for each.</div>
+  <div class="gate-status">Final &middot; Filed</div>
+</div>
+
+<h2 id="resolutions">8. Resolved design questions</h2>
+
+<p>All five design questions are settled. Resolutions captured below; each links to the section of the spec where the rule lives.</p>
+
+<h3>Q1: Composite capability score — single number or per-task only?</h3>
+<p><strong>Resolved:</strong> ship the composite as default-on, with per-task scores always exposed in the UI and MCP-tool response. Don't dilute granularity; don't over-process when a composite suffices. See §3.2.</p>
+
+<h3>Q2: Use-case tag vocabulary — flat or hierarchical?</h3>
+<p><strong>Resolved:</strong> start flat. Trigger thresholds lowered for earlier signals:</p>
+<ul>
+  <li><strong>Monitor at 10%</strong> catalog membership — open tracking issue, gather evidence.</li>
+  <li><strong>Promote at 20%</strong> — split the tag into a hierarchy.</li>
+</ul>
+<p>See §3.3.</p>
+
+<h3>Q3: Submission spam mitigation — GitHub auth or rate-limit?</h3>
+<p><strong>Resolved:</strong> GitHub auth required on the <code>/submit</code> route. Reasonable barrier, piggybacks on existing identity. Anonymous submissions stay possible via the issue template (covered by GitHub's own anti-spam). See §6.1.</p>
+
+<h3>Q4: LLM-assisted intake enrichment — on or off?</h3>
+<p><strong>Resolved: on, universally, with provenance tracked per cell.</strong></p>
+<ul>
+  <li>LLM enrichment fills any cell it can usefully fill — including cost cells, when mechanical scrape fails.</li>
+  <li>Every LLM-generated cell is labeled <code>source: "llm"</code> with <code>verified: true | false</code>.</li>
+  <li>Unverified LLM cells are <strong>non-load-bearing</strong>: visible everywhere, but excluded from ranking score calculation and flagged as "incomplete" in surface output.</li>
+  <li>Verification is a human flipping the bit (or editing the value, which changes source to <code>human</code>) — there is no automatic verification.</li>
+</ul>
+<p>This is more aggressive than the original recommendation (which excluded cost cells). The provenance model in §3.4 makes that safe: a wrong LLM value can't pollute rankings, only the user-visible profile.</p>
+
+<h3>Q5: Canonical-questions seed list — who curates?</h3>
+<p><strong>Resolved:</strong> two-track approach.</p>
+<ul>
+  <li><strong>Track 1 — research sprint (Gate 5):</strong> structured sweep of external sources before the daily drift cron goes live. Targets: GitHub Discussions, Discord, public AI forums (r/LocalLLaMA, r/MachineLearning, Hacker News threads on model releases), model launch comment threads, known practitioner Twitter accounts. Goal: ~50 categorized questions, not 20.</li>
+  <li><strong>Track 2 — ongoing curation:</strong> PRs to add canonical questions accepted from anyone post-launch; removal requires maintainer approval so the drift signal stays stable.</li>
+</ul>
+<p>See Gate 5 in §7.</p>
+
+<h2 id="next-steps">9. Progress &amp; next steps</h2>
+
+<h3>9.1 Done</h3>
+
+<p>All planning work for Phase 2 is complete. As of <code>2026-06-29</code>:</p>
+
+<ul>
+  <li><strong>Spec authored and locked.</strong> This document — §§1&ndash;8 — covers problem framing, schema additions (cost / capability / use-case + <code>_provenance</code>), recommender surface design, daily cadence, submission pipeline, gate definitions, and resolutions to all five originally-open design questions.</li>
+  <li><strong>Design questions resolved.</strong> Q1 (composite score: ship as default-on with per-task exposed), Q2 (use-case vocabulary: flat, monitor at 10%, promote at 20%), Q3 (submission auth: GitHub-auth via existing issue surface), Q4 (LLM enrichment: on universally, with per-cell provenance tracking), Q5 (canonical questions: research sprint + ongoing PR curation). See §8.</li>
+  <li><strong>Tracking issue filed.</strong> <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/94">#94 &mdash; Phase 2: Catalog &rarr; Recommender</a> anchors the gate set.</li>
+  <li><strong>All 8 gate issues filed</strong> (#95&ndash;#102). Each gate body was drafted with verified file paths, conventions, and prior-art references &mdash; no unverified claims. Backfill (originally a separate concern) was folded into Gate 1 so the schema-addition issue covers legacy provenance assignment + Phase 2 mechanical fill + LLM-judgment fill in one merge.</li>
+  <li><strong>Architectural risks surfaced and resolved in-spec.</strong> Two in particular: (a) Gate 8's "webhook" half is implemented as a 30-min RSS poller because the project has no persistent backend; (b) Gate 7 is framed as <em>extend, not replace</em> after verifying the existing <code>/submit</code> route, <code>intake.yml</code> template, and <code>intake-research.yml</code> workflow are already production.</li>
+</ul>
+
+<h3>9.2 Next</h3>
+
+<p>Implementation begins with Gate 1 and proceeds along the critical path:</p>
+
+<ol>
+  <li>
+    <strong>Commit this spec to <code>main</code></strong> so the relative <code>PHASE_2_SPEC.html</code> link in every filed issue body resolves on GitHub.
+  </li>
+  <li>
+    <strong>Begin <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/95">Gate 1 (#95)</a>:</strong> add the new cells + <code>_provenance</code> object to <code>data/landscape.json</code>, run the full backfill (legacy + mechanical + LLM-unverified). Every downstream gate depends on this.
+  </li>
+  <li>
+    <strong>In parallel with Gate 1, kick off <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/99">Gate 5 (#99)</a></strong> &mdash; the canonical-questions research sprint &mdash; so <code>docs/canonical-questions.yml</code> is ready by the time Gate 6 needs it.
+  </li>
+  <li>
+    <strong>After Gate 1 lands</strong>, work the critical path: <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/96">Gate 2 (#96)</a> &rarr; <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/97">Gate 3 (#97)</a>. Gates 4, 6, 7, and 8 parallelize.
+  </li>
+  <li>
+    <strong>Gate 8 closes the phase</strong> when the first real weekly rebaseline AND the first real release-watch firing both complete end-to-end.
+  </li>
+</ol>
+
+<p class="footnote">Critical path: Gate 1 &rarr; 2 &rarr; 3. Everything else parallelizes once Gates 1&ndash;2 land. Gate 6 depends on Gate 5's output. Gate 8 depends on Gates 1 and 6.</p>
+
+<hr>
+
+<p class="footnote">This spec follows the project's issue-first workflow: spec lands first, issues open from it, agents launch from the issues. The HTML rendering is intentional &mdash; this artifact is meant to be read, not scanned by tooling.</p>
+
+</div>
+</body>
+</html>
