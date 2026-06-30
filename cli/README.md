@@ -29,7 +29,7 @@ landscape sections
 
 ## Subcommands
 
-Nine read-only subcommands, mirroring the nine MCP tools.
+Read-only subcommands, mirroring the corresponding MCP tools.
 
 | Subcommand | What it does |
 |---|---|
@@ -43,6 +43,7 @@ Nine read-only subcommands, mirroring the nine MCP tools.
 | `landscape eval-orphans` | Products with obs but no evals (verified absence) |
 | `landscape substrate-risk <s>` | Records that runtime-depend on a substrate |
 | `landscape recommend between <low> <high>` | Rank candidates between two cost × capability anchors (Phase 2 / Gate 3, #97) |
+| `landscape recommend for [description]` | Rank candidates by free-text description or structured form (Phase 2 / Gate 4, #98) |
 | `landscape info` | CLI version, schema version, record / edge counts |
 
 Plus `landscape --help` for the auto-generated reference and `landscape <cmd> --help` for subcommand details.
@@ -99,6 +100,20 @@ landscape recommend between amazon-nova-family--aboutamazon-com openai-realtime-
 
 Phase 2 / Gate 3 (issue #97). Picks records whose cost × capability composite sits between the two anchors. The `--use-case` flag accepts a single tag from the controlled vocabulary (`scoped-agentic`, `long-running-session`, `multi-agent-coordination`, `memory-augmented-chat`, `code-generation-focused`, `analytical-summarization`, `latency-sensitive`, `offline-capable`). Cells with LLM-unverified provenance are excluded from the score and surfaced as `[LLM-unverified]` caveats. `--json` is byte-identical (modulo a trailing newline) to the `between_models` MCP tool response.
 
+### Recommend by free-text or structured constraints
+
+```bash
+landscape recommend for "long-running multi-agent system that needs offline capability" -k 3
+```
+
+Or via the structured form (wins over a free-text description when both are supplied):
+
+```bash
+landscape recommend for --shape multi-agent --persistence long-term --deployment offline -k 3
+```
+
+Phase 2 / Gate 4 (issue #98). Parses the description deterministically against the 8-tag controlled vocabulary (keyword + synonym matching — **not** an LLM, per spec §4) and ranks candidates split by category: `memory`, `harness`, `model`. Structured-form flags: `--shape` (`single-agent`/`multi-agent`/`chat`/`pipeline`), `--scale` (`prototype`/`production`/`large-scale`), `--latency-ms`, `--persistence` (`none`/`session`/`long-term`), `--deployment` (`cloud`/`self-hosted`/`offline`), `--cost-ceiling`. Use `--category memory,harness` to restrict output to a subset. Matched / unmatched terms are surfaced in the text-mode "Parsed as:" header so it's visible what the parser ignored.
+
 ### Build a Makefile target around the catalog
 
 ```make
@@ -119,7 +134,7 @@ The CLI is designed to be composable into scripts and CI: deterministic output, 
 | Mutations | none (read-only) | none (read-only) |
 | Query layer | [`mcp/src/tools.ts`](../mcp/src/tools.ts) | imports from `mcp/dist/tools.js` |
 
-Both layers share the same nine pure query functions. If one finds a bug or wants a new query, fix `tools.ts` in `mcp/src/` and both consumers pick it up after a rebuild.
+Both layers share the same pure query functions. If one finds a bug or wants a new query, fix `tools.ts` in `mcp/src/` and both consumers pick it up after a rebuild.
 
 ## Data freshness
 

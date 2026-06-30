@@ -35,7 +35,8 @@ import {
   findFitById,
   type CitationFit
 } from '../../mcp/dist/citation-prediction.js';
-import { betweenModels } from '../../mcp/dist/recommender.js';
+import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
+import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
 import { loadRecords, loadEdges, getMeta } from '../../mcp/dist/data.js';
 import type { EdgeType } from '../../mcp/dist/tools.js';
 import {
@@ -52,6 +53,7 @@ import {
   formatPredict,
   formatBreakouts,
   formatBetween,
+  formatRecommendation,
   type FormatOptions
 } from './format.js';
 
@@ -433,6 +435,113 @@ recommend
         k: opts.k
       });
       emit(formatBetween(candidates, { low: lowId, high: highId }, globalOpts(cmd)));
+    }
+  );
+
+const PROJECT_SHAPES = ['single-agent', 'multi-agent', 'chat', 'pipeline'] as const;
+const SCALES = ['prototype', 'production', 'large-scale'] as const;
+const PERSISTENCES = ['none', 'session', 'long-term'] as const;
+const DEPLOYMENTS = ['cloud', 'self-hosted', 'offline'] as const;
+const CATEGORIES = ['memory', 'harness', 'model'] as const;
+
+type ProjectShape = (typeof PROJECT_SHAPES)[number];
+type Scale = (typeof SCALES)[number];
+type Persistence = (typeof PERSISTENCES)[number];
+type Deployment = (typeof DEPLOYMENTS)[number];
+
+recommend
+  .command('for')
+  .description(
+    'Recommend candidates by free-text description OR structured-form flags. ' +
+      'Returns ranked candidates split by category (memory / harness / model). ' +
+      'Parsing is deterministic keyword matching — no LLM (Phase 2 §4).'
+  )
+  .argument('[description]', 'free-text project description (omit when using structured-form flags)')
+  .option('--shape <shape>', `project shape (one of: ${PROJECT_SHAPES.join(', ')})`)
+  .option('--scale <scale>', `scale (one of: ${SCALES.join(', ')})`)
+  .option('--latency-ms <n>', 'latency budget in ms (≤1000 triggers latency-sensitive)', (v) => parseInt(v, 10))
+  .option('--persistence <p>', `persistence (one of: ${PERSISTENCES.join(', ')})`)
+  .option('--deployment <d>', `deployment (one of: ${DEPLOYMENTS.join(', ')})`)
+  .option('--cost-ceiling <usd>', 'max $/Mtok input cost', (v) => parseFloat(v))
+  .option('-k, --k <n>', 'max candidates per category (default 5, max 50)', (v) => parseInt(v, 10))
+  .option(
+    '--category <list>',
+    `comma-separated subset of: ${CATEGORIES.join(', ')} (default all three)`
+  )
+  .option('--json', 'emit JSON (matches the `recommend_for_project` MCP tool response byte-for-byte)')
+  .option('--csv', 'emit CSV (one row per candidate, with category column)')
+  .action(
+    (
+      description: string | undefined,
+      opts: {
+        shape?: string;
+        scale?: string;
+        latencyMs?: number;
+        persistence?: string;
+        deployment?: string;
+        costCeiling?: number;
+        k?: number;
+        category?: string;
+      },
+      cmd: Command
+    ) => {
+      // Validate enums up front so we fail fast with a helpful message
+      // rather than letting bad input flow into the parser silently.
+      if (opts.shape && !PROJECT_SHAPES.includes(opts.shape as ProjectShape)) {
+        die(`unknown shape: ${opts.shape}. Valid: ${PROJECT_SHAPES.join(', ')}`);
+      }
+      if (opts.scale && !SCALES.includes(opts.scale as Scale)) {
+        die(`unknown scale: ${opts.scale}. Valid: ${SCALES.join(', ')}`);
+      }
+      if (opts.persistence && !PERSISTENCES.includes(opts.persistence as Persistence)) {
+        die(`unknown persistence: ${opts.persistence}. Valid: ${PERSISTENCES.join(', ')}`);
+      }
+      if (opts.deployment && !DEPLOYMENTS.includes(opts.deployment as Deployment)) {
+        die(`unknown deployment: ${opts.deployment}. Valid: ${DEPLOYMENTS.join(', ')}`);
+      }
+
+      let categories: RecommendCategory[] | undefined;
+      if (opts.category) {
+        const parsed = opts.category.split(',').map((s) => s.trim()).filter(Boolean);
+        for (const c of parsed) {
+          if (!CATEGORIES.includes(c as RecommendCategory)) {
+            die(`unknown category: ${c}. Valid: ${CATEGORIES.join(', ')}`);
+          }
+        }
+        categories = parsed as RecommendCategory[];
+      }
+
+      const hasStructured =
+        opts.shape ||
+        opts.scale ||
+        opts.latencyMs != null ||
+        opts.persistence ||
+        opts.deployment ||
+        opts.costCeiling != null;
+
+      if (!hasStructured && !description) {
+        die('provide a free-text description or at least one structured-form flag');
+      }
+
+      const structured: StructuredForm | undefined = hasStructured
+        ? {
+            project_shape: opts.shape as ProjectShape | undefined,
+            scale: opts.scale as Scale | undefined,
+            latency_budget_ms: opts.latencyMs,
+            persistence: opts.persistence as Persistence | undefined,
+            deployment: opts.deployment as Deployment | undefined,
+            cost_ceiling_usd_per_mtok: opts.costCeiling
+          }
+        : undefined;
+
+      const records = loadRecords();
+      const result = recommendForProject(records, {
+        description: structured ? undefined : description,
+        structured,
+        max_results: opts.k,
+        categories
+      });
+      emit(formatRecommendation(result, globalOpts(cmd)));
     }
   );
 
