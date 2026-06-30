@@ -21,6 +21,7 @@
     { path: '/timeline', label: 'Timeline' },
     { path: '/leaderboards', label: 'Leaderboards' },
     { path: '/sections', label: 'Sections' },
+    { path: '/best', label: 'Best of' },
     { path: '/graph', label: 'Graph' },
     { path: '/lineages', label: 'Lineages' },
     { path: '/analyses', label: 'Analyses' },
