@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // /analyses/archetypes — taxonomy archetypes, round-2 upgrade.
   //
   // Clusters all records by their 7-axis primary-only taxonomy fingerprint
@@ -167,7 +169,12 @@
 </script>
 
 <svelte:head>
-  <title>Taxonomy archetypes · Memory Landscape</title>
+  <SeoHead
+    title="Taxonomy Archetypes in AI Memory Systems"
+    description="Recurring archetypes in AI agent memory — the dominant combinations of storage, retrieval, persistence, and update axes across the 912-system catalog."
+    path="/analyses/archetypes"
+    ogType="article"
+  />
 </svelte:head>
 
 <div class="wrap">

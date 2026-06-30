@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Cost-economics coverage matrix (issue #41, T1-3).
   //
   // Cost / token-economics is the #2 demand-signal question in agent
@@ -133,7 +135,12 @@
 </script>
 
 <svelte:head>
-  <title>Cost-economics coverage — Memory Landscape</title>
+  <SeoHead
+    title="AI Memory Cost Economics: Pricing Coverage"
+    description="Pricing model coverage across the AI agent memory catalog — per-token, per-request, subscription, self-hosted, free-tier. Where the market gaps are."
+    path="/analyses/cost-economics"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="ce-page">

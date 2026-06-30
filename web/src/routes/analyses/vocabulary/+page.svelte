@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Vocabulary-drift view, v2 (issue #26 upgrade pass).
   //
   // v1 was a line chart of per-quarter term mentions with cards showing
@@ -291,7 +293,12 @@
 </script>
 
 <svelte:head>
-  <title>Vocabulary drift · Memory Landscape analyses</title>
+  <SeoHead
+    title="Vocabulary Drift: How AI Memory Terminology Evolves"
+    description="Track which terms enter, spread, or fade across the AI memory field. From RAG to agentic — the language of adoption."
+    path="/analyses/vocabulary"
+    ogType="article"
+  />
 </svelte:head>
 
 <div class="wrap">

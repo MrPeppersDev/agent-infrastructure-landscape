@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Influence-vs-adoption matrix (issue #22).
   //
   // Two-axis scatter on the in-catalog citation graph:
@@ -322,7 +324,12 @@
 </script>
 
 <svelte:head>
-  <title>Influence vs adoption · Memory Landscape</title>
+  <SeoHead
+    title="Influence vs Adoption: Citation and Integration Quadrants in AI Memory"
+    description="Plot every system on inbound academic citations vs commercial adoption edges. Identify which systems bridge research and product."
+    path="/analyses/influence"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="page">

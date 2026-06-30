@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Leaderboards view (issue #14). Five curated boards + a "build your own"
   // panel. Everything renders from data already bundled with the app; no
   // fetch, no SSR-side compute.
@@ -117,7 +119,12 @@
 </script>
 
 <svelte:head>
-  <title>Leaderboards — Memory Landscape</title>
+  <SeoHead
+    title="AI Agent Memory Leaderboards — Citation, Adoption, Benchmark Rankings"
+    description="Ranked leaderboards across the AI agent memory catalog: citations, GitHub stars, downloads, benchmark scores, and benchmark integrity. 912 systems compared."
+    path="/leaderboards"
+    ogType="website"
+  />
 </svelte:head>
 
 <main class="lb-page">

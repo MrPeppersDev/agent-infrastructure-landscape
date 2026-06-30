@@ -2,15 +2,26 @@
   import '../app.css';
   import { page } from '$app/state';
   import { base } from '$app/paths';
+  import JsonLd from '$lib/components/JsonLd.svelte';
+  import { websiteLd, organizationLd } from '$lib/seo/jsonld';
 
   let { children } = $props();
+
+  // Site-wide entity markup. WebSite/SearchAction makes the SERP listing
+  // eligible for a sitelinks search box; Organization plants the catalog
+  // as a stable entity in the knowledge graph. Both emit on every page —
+  // page-specific JSON-LD (Article, Dataset, BreadcrumbList, etc.) is
+  // additive and lives on the individual routes.
+  const siteLd = [websiteLd(), organizationLd()];
 
   const routes = [
     { path: '/', label: 'Table' },
     { path: '/findings', label: 'Findings' },
+    { path: '/systems', label: 'Systems' },
     { path: '/timeline', label: 'Timeline' },
     { path: '/leaderboards', label: 'Leaderboards' },
     { path: '/sections', label: 'Sections' },
+    { path: '/best', label: 'Best of' },
     { path: '/graph', label: 'Graph' },
     { path: '/lineages', label: 'Lineages' },
     { path: '/analyses', label: 'Analyses' },
@@ -23,6 +34,17 @@
     (page.url.pathname.startsWith(base) ? page.url.pathname.slice(base.length) : page.url.pathname) || '/'
   );
 </script>
+
+<svelte:head>
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="AI Agent Infrastructure Landscape — recent activity"
+    href="{base}/feed.xml"
+  />
+</svelte:head>
+
+<JsonLd data={siteLd} />
 
 <nav class="topnav" aria-label="Primary">
   <a class="brand" href="{base}/">AI Agent Infrastructure</a>

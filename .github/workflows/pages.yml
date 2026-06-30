@@ -23,6 +23,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Weekly SEO refresh (Wednesdays 12:00 UTC — offset from staleness.yml's
+  # Monday slot). Rebuilding even without commits regenerates sitemap.xml
+  # with a fresh <lastmod>, signals liveness to crawlers, and re-fires the
+  # IndexNow notifier so Bing / Yandex re-prioritise the URL list.
+  schedule:
+    - cron: '0 12 * * 3'
 
 permissions:
   contents: read

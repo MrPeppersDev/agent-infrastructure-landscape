@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Benchmark trust leaderboard (issue #42).
   //
   // Companion to /analyses/benchmark-integrity. That view classifies
@@ -125,7 +127,12 @@
 </script>
 
 <svelte:head>
-  <title>Benchmark trust leaderboard — Memory Landscape</title>
+  <SeoHead
+    title="AI Memory Benchmark Trust Leaderboard"
+    description="Which AI agent memory systems have the most trustworthy benchmark claims? Ranked by independently-verified peer-reviewed coverage."
+    path="/analyses/benchmark-trust"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="bt-page">

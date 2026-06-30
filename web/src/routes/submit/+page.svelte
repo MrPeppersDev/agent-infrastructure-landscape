@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // /submit — system-intake form (issue #28).
   //
   // Two-step UX: (1) edit form, (2) review the exact markdown that will
@@ -123,10 +125,11 @@
 </script>
 
 <svelte:head>
-  <title>Submit a system · AI Agent Infrastructure Landscape</title>
-  <meta
-    name="description"
-    content="Submit a new AI memory / agent infrastructure system to the catalog via a pre-filled GitHub Issue."
+  <SeoHead
+    title="Submit a System to the AI Agent Memory Landscape"
+    description="Submit a new AI memory / agent infrastructure system to the catalog via a pre-filled GitHub Issue."
+    path="/submit"
+    ogType="website"
   />
 </svelte:head>
 

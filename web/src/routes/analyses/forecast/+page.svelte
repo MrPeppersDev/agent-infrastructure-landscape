@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Lineage forward-projection (issue #27, upgrade-#27).
   //
   // For each detected lineage we project where the next paper/product is
@@ -161,7 +163,12 @@
 </script>
 
 <svelte:head>
-  <title>Lineage forecast · Memory Landscape</title>
+  <SeoHead
+    title="Lineage forecast: Watch lists for Rising AI Memory Systems"
+    description="Predict the next entry in detected lineages based on past cadence. Watch lists, not predictions."
+    path="/analyses/forecast"
+    ogType="article"
+  />
 </svelte:head>
 
 <header class="hdr">

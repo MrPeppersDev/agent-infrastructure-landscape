@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Citation breakout prediction — Wang-Song-Barabási log-normal fit (issue #58).
   //
   // Three leaderboards on a single page:
@@ -208,7 +210,12 @@
 </script>
 
 <svelte:head>
-  <title>Citation breakout prediction · Analyses · Memory Landscape</title>
+  <SeoHead
+    title="Citation Breakout Prediction: Rising AI Memory Systems"
+    description="Which AI agent memory systems are on a citation breakout trajectory? Predictive view derived from Semantic Scholar cited-by trends."
+    path="/analyses/breakout-prediction"
+    ogType="article"
+  />
 </svelte:head>
 
 <header class="page-header">

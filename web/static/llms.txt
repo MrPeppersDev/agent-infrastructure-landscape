@@ -1,0 +1,36 @@
+# AI Agent Infrastructure Landscape
+
+> Comparative catalog of 912 AI agent memory systems, frameworks, runtimes, vector stores, knowledge graphs, MCP servers, and benchmarks. Each record is scored on 68 columns and connected by 528 typed edges (built-on, cites, succeeds, competes-with, runtime-dependency). Maintained by Mr. Peppers (independent researcher).
+
+The catalog is licensed CC-BY-4.0 — free to use, with attribution.
+
+## Canonical data
+
+- [landscape.json](https://github.com/MrPeppersDev/agent-infrastructure-landscape/raw/main/data/landscape.json): the full 912-record × 68-column dataset as JSON. Single source of truth — everything else on this site is derived from this file.
+- [landscape.edges.json](https://github.com/MrPeppersDev/agent-infrastructure-landscape/raw/main/data/landscape.edges.json): the 528 typed edges between records.
+- [analysis.md](https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/analysis.md): long-form analytical write-up — sections referenced by the five findings.
+
+## Findings (the five publishable headlines)
+
+- [Semantic caching is an empty market](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings/semantic-caching-empty-market): 1 of 100 priority-cohort products ships a true semantic cache.
+- [91.3% of products publish no peer-reviewed benchmark](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings/no-peer-reviewed-benchmark): 833 of 912 records have zero benchmark cells; only 2 scores live on neutral leaderboards.
+- [The MCP spec is the catalog's #3 inbound substrate](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings/mcp-spec-third-substrate): inbound runtime-deps — Claude 62 · GPT 52 · MCP spec 34 · Gemini 22 · Qwen 16.
+- [Graphiti MCP Server is the most under-acknowledged connector](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings/graphiti-mcp-bridge-node): 0 inbound edges but 0.71 normalised betweenness — bridge node between MCP substrate and graph-memory clusters.
+- [77% of FM-dependent products lock onto three vendors](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings/fm-three-vendor-concentration): 108 of 140 FM-dependent rows depend on OpenAI / Anthropic / Google.
+
+## How to consume the catalog
+
+- [Findings hub](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings): the five headlines, each with a deep-link to the analytical view that produced it.
+- [Systems index](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems): all 912 systems grouped by primary section.
+- [Category landings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/category): 34 section landings — each lists every system in that section grouped by tier.
+- [Head-to-head comparisons](https://mrpeppersdev.github.io/agent-infrastructure-landscape/compare): 265 side-by-side comparison pages with 19-dimension tables.
+- [Atom feed](https://mrpeppersdev.github.io/agent-infrastructure-landscape/feed.xml): 50 most-recently verified systems.
+
+## How to read individual records
+
+- [About: how to read this](https://mrpeppersdev.github.io/agent-infrastructure-landscape/about): tier badges, 7 taxonomy axes, cell status indicators, edge types, methodology and provenance.
+
+## Optional
+
+- [Sitemap](https://mrpeppersdev.github.io/agent-infrastructure-landscape/sitemap.xml): all 1244 crawlable URLs.
+- [Submit a system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit): how to propose a new record or correct an existing one.

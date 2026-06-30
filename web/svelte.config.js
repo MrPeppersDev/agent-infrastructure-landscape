@@ -22,6 +22,16 @@ const config = {
       // GitHub Pages will serve under /<repo-name>/. Override at build time
       // with BASE_PATH if/when the deploy target changes.
       base: process.env.BASE_PATH ?? ''
+    },
+    prerender: {
+      // /feed.xml is emitted by scripts/generate-feed.mjs after the Vite
+      // build, so SvelteKit's prerender crawler can't see it. Every page's
+      // <link rel="alternate"> points to it, so we tell the crawler to
+      // ignore that single missing href instead of failing the build.
+      handleHttpError: ({ path, referrer, message }) => {
+        if (path.endsWith('/feed.xml')) return;
+        throw new Error(`${message} (linked from ${referrer})`);
+      }
     }
   }
 };

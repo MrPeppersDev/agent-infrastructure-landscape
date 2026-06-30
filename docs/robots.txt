@@ -1,0 +1,18 @@
+# AI Agent Infrastructure Landscape — robots.txt
+#
+# Crawlers fetch robots.txt at the origin root, not at a project path,
+# so the canonical robots.txt for this site lives at
+# https://mrpeppersdev.github.io/robots.txt — owned by the
+# mrpeppersdev/mrpeppersdev.github.io user-pages repo, which declares
+# the sitemap below as a Sitemap: line. This file at the project path
+# is a parallel copy for tools that hit it directly (sitemap auditors,
+# llms.txt-adjacent agents).
+#
+# AI agents / LLM training crawlers: see /llms.txt for a curated entry-
+# point map. All catalog data is licensed CC-BY-4.0 — attribution to
+# the AI Agent Infrastructure Landscape is requested.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://mrpeppersdev.github.io/agent-infrastructure-landscape/sitemap.xml

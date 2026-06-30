@@ -1,4 +1,9 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+  import JsonLd from '$lib/components/JsonLd.svelte';
+  import { faqLd, breadcrumbLd } from '$lib/seo/jsonld';
+  import { absoluteUrl } from '$lib/site';
+
   // /about — embedded "how to read this" explainer (issue #21).
   //
   // Single-column, ~600px max width, semantic HTML. We deliberately don't
@@ -12,15 +17,55 @@
   // they're locally scoped here (no shared component) because Phase-3/4
   // owners shouldn't be forced to refactor a presentational sample for
   // an explainer page.
+
+  const ldData = [
+    faqLd({
+      qas: [
+        {
+          question: 'What is the AI Agent Infrastructure Landscape?',
+          answer:
+            'A comparative catalog of 912 AI agent memory systems, frameworks, runtimes, vector stores, knowledge graphs, MCP servers, and benchmarks. Each record is scored on 68 columns and connected by 528 typed edges. The data lives in landscape.json under CC-BY-4.0.'
+        },
+        {
+          question: 'What do the tier badges (T1 to T5) mean?',
+          answer:
+            'Tier is an ordinal classification of how mature a record is — not a quality score. T1 = battle-tested commercial products and mature OSS; T2 = established OSS with significant traction; T3 = peer-reviewed papers with code; T4 = preprints with code but no peer review; T5 = theoretical or informal (manifestos, taxonomy entries, no code). A T1 product and a T5 manifesto are different artefacts; both are tracked.'
+        },
+        {
+          question: 'How is the catalog data sourced and verified?',
+          answer:
+            'Records come from curated lists (Agent-Memory-Paper-List, Awesome-GraphMemory), survey papers, benchmark leaderboards (LongMemEval, LoCoMo, ConvoMem), vendor websites, academic venue pages, and targeted research-agent sweeps. Every URL is verified at time of entry; staleness is rechecked weekly and surfaced via the last_verified_at field on each row.'
+        },
+        {
+          question: 'What are typed edges and how are they assigned?',
+          answer:
+            'Typed edges are directed relationships between records. The nine edge types are built-on (X depends on Y at runtime), extends, forks, integrates-with, competes-with, inspired-by, cites, same-team-as, and succeeds. Multiple edges between the same pair are allowed when the type differs.'
+        },
+        {
+          question: 'What license is the catalog under?',
+          answer:
+            'CC-BY-4.0. Free to use commercially and otherwise, with attribution to MrPeppersDev/agent-infrastructure-landscape.'
+        }
+      ]
+    }),
+    breadcrumbLd({
+      items: [
+        { name: 'Catalog', url: absoluteUrl('/') },
+        { name: 'About', url: absoluteUrl('/about') }
+      ]
+    })
+  ];
 </script>
 
 <svelte:head>
-  <title>About · AI Agent Infrastructure Landscape</title>
-  <meta
-    name="description"
-    content="How to read the AI Agent Infrastructure Landscape: tiers, taxonomy axes, cell status, and edge types."
+  <SeoHead
+    title="About: How to Read the AI Agent Memory Landscape"
+    description="How to read the AI Agent Infrastructure Landscape: tiers, taxonomy axes, cell status, and edge types."
+    path="/about"
+    ogType="website"
   />
 </svelte:head>
+<JsonLd data={ldData} />
 
 <article class="about">
   <header>
@@ -203,7 +248,11 @@
         — source curated list for graph-memory systems.
       </li>
       <li>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub repo</a>
+        <a
+          href="https://github.com/MrPeppersDev/agent-infrastructure-landscape"
+          target="_blank"
+          rel="noopener noreferrer">GitHub repo</a
+        >
         — issue tracker, build plan, decision log, raw <code>landscape.json</code>.
       </li>
     </ul>

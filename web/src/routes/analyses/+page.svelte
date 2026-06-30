@@ -1,4 +1,5 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
   import { base } from '$app/paths';
 
   // Hub page for the six analytical views. Each card links to a
@@ -99,7 +100,12 @@
 </script>
 
 <svelte:head>
-  <title>Analyses · Memory Landscape</title>
+  <SeoHead
+    title="AI Agent Memory Analyses — Comparative and Trend Reports"
+    description="Hub of analytical views of the AI agent memory catalog: cost economics, benchmark integrity, survivorship, lineage forecasts, co-citation, and more."
+    path="/analyses"
+    ogType="website"
+  />
 </svelte:head>
 
 <header class="hub-header">

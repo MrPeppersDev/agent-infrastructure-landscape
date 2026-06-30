@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Benchmark coverage matrix (issue #24, Round 8 upgrade).
   //
   // For every memory / agent benchmark that any system has reported a score
@@ -143,7 +145,12 @@
 </script>
 
 <svelte:head>
-  <title>Benchmark coverage matrix — Memory Landscape</title>
+  <SeoHead
+    title="AI Memory Benchmark Coverage Matrix"
+    description="Product × benchmark coverage across the AI agent memory catalog — which benchmarks are reported by which products, and the empty cells that tell the real story."
+    path="/analyses/benchmarks"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="bench-page">
