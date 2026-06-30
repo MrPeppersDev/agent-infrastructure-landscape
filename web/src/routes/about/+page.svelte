@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // /about — embedded "how to read this" explainer (issue #21).
   //
   // Single-column, ~600px max width, semantic HTML. We deliberately don't
@@ -15,10 +17,11 @@
 </script>
 
 <svelte:head>
-  <title>About · AI Agent Infrastructure Landscape</title>
-  <meta
-    name="description"
-    content="How to read the AI Agent Infrastructure Landscape: tiers, taxonomy axes, cell status, and edge types."
+  <SeoHead
+    title="About: How to Read the AI Agent Memory Landscape"
+    description="How to read the AI Agent Infrastructure Landscape: tiers, taxonomy axes, cell status, and edge types."
+    path="/about"
+    ogType="website"
   />
 </svelte:head>
 

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Timeline view (issue #13): a stacked-bar histogram showing when systems
   // in the landscape were created, bucketed by year-quarter and stacked by
   // tier. Pure SVG — no charting library — because the data is small
@@ -162,7 +164,12 @@
 </script>
 
 <svelte:head>
-  <title>AI Agent Infrastructure Landscape — Timeline</title>
+  <SeoHead
+    title="AI Agent Memory Timeline — Releases, Lineages, Evolution"
+    description="Chronological view of when each AI agent memory system shipped — from foundational papers to current production frameworks. Filter by tier, section, or memory archetype."
+    path="/timeline"
+    ogType="website"
+  />
 </svelte:head>
 
 <div class="wrap">

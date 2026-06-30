@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Observability coverage matrix (issue #39, T1-1).
   //
   // Observability/debugging is the highest-demand question in agent
@@ -132,7 +134,12 @@
 </script>
 
 <svelte:head>
-  <title>Observability coverage — Memory Landscape</title>
+  <SeoHead
+    title="Observability Stack Coverage Matrix: AI Memory Integration"
+    description="Which AI memory products integrate with observability tools? Coverage matrix across LangSmith, OpenTelemetry, Datadog, Helicone, and more."
+    path="/analyses/observability"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="ob-page">

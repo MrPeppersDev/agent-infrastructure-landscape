@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Co-citation + bibliographic-coupling map (issue #45, T2-2).
   //
   // Bibliometric staple since Small 1973. Two operations over the same
@@ -332,7 +334,12 @@
 </script>
 
 <svelte:head>
-  <title>Co-citation map · Memory Landscape</title>
+  <SeoHead
+    title="AI Memory Co-Citation Map"
+    description="Which AI agent memory papers and systems are co-cited together — revealing the conceptual clusters and intellectual neighbourhoods of the field."
+    path="/analyses/co-citation"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="cc-page">

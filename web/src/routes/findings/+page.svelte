@@ -1,4 +1,5 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
   import { base } from '$app/paths';
 
   // /findings — the externalizing entry point for the v6 catalog.
@@ -83,10 +84,11 @@
 </script>
 
 <svelte:head>
-  <title>Findings · AI Agent Infrastructure Landscape</title>
-  <meta
-    name="description"
-    content="Five publishable headlines from the v6 AI agent infrastructure catalog: the semantic-cache gap, the 91.3% no-benchmark finding, MCP-spec-as-substrate, the under-acknowledged bridge node, and the single-vendor FM concentration."
+  <SeoHead
+    title="AI Agent Memory: 5 Key Findings from a 912-System Catalog"
+    description="Five publishable headlines from the catalog: the semantic-cache gap, the 91.3% no-benchmark finding, MCP-as-substrate, the bridge node, single-vendor FM concentration."
+    path="/findings"
+    ogType="website"
   />
 </svelte:head>
 

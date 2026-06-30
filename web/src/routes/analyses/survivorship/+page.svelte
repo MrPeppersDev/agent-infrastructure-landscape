@@ -16,6 +16,7 @@
   //
   // All compute is pure helpers in $lib/analyses/survivorship.
 
+  import SeoHead from '$lib/components/SeoHead.svelte';
   import { base } from '$app/paths';
   import type { LandscapeRecord, Edge, Tier } from '$lib/types';
   import type { Lineage } from '$lib/lineages';
@@ -187,7 +188,12 @@
 </script>
 
 <svelte:head>
-  <title>Survivorship map · Analyses · Memory Landscape</title>
+  <SeoHead
+    title="Survivorship & Staleness Map: Is Your AI Memory System Still Maintained?"
+    description="Classify every system into active, stale, abandoned, or unknown by freshness signals. Spot dead-but-cited systems."
+    path="/analyses/survivorship"
+    ogType="article"
+  />
 </svelte:head>
 
 <header class="page-header">

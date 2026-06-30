@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Eval-gap analysis view (issue #40, T1-2).
   //
   // The eval gap is the next frontier after observability. LangChain's
@@ -127,7 +129,12 @@
 </script>
 
 <svelte:head>
-  <title>Evaluation gap — Memory Landscape</title>
+  <SeoHead
+    title="The Evaluation Gap: Why 91% of AI Memory Products Publish No Benchmark"
+    description="Of 912 AI agent memory products in the catalog, 833 publish no peer-reviewed benchmark. The product × benchmark matrix is 119 × 25 with 169 filled cells."
+    path="/analyses/eval-gap"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="eg-page">

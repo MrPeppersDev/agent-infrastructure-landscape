@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Force-directed graph view (issue #16). 912 nodes, 528 edges (241 cites
   // from S2 + 212 runtime-dependency + 75 misc). Cytoscape 3.x + fcose
   // layout. See $lib/graph.ts for the pure data-shaping helpers (palette,
@@ -452,7 +454,12 @@
 </script>
 
 <svelte:head>
-  <title>AI Agent Infrastructure Landscape — Graph</title>
+  <SeoHead
+    title="AI Agent Memory Knowledge Graph — Citations and Influence"
+    description="Interactive graph of 912 AI agent memory systems and their 316 typed edges — citations, lineages, alternatives, inspirations. Visualises the influence network."
+    path="/graph"
+    ogType="website"
+  />
 </svelte:head>
 
 <div class="wrap">

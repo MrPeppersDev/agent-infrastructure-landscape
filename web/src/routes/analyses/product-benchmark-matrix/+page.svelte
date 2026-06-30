@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // Product × benchmark coverage matrix (issue #43).
   //
   // Companion-and-pivot to /analyses/benchmarks. That view is
@@ -142,7 +144,12 @@
 </script>
 
 <svelte:head>
-  <title>Product × benchmark coverage — Memory Landscape</title>
+  <SeoHead
+    title="Product-Benchmark Coverage: Integrity Tiers and Peer-Review Claims"
+    description="Which products publish peer-reviewed benchmark claims? Matrix view showing integrity tiers from vendor-claimed to independently verified."
+    path="/analyses/product-benchmark-matrix"
+    ogType="article"
+  />
 </svelte:head>
 
 <main class="pbm-page">

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+
   // /sections — per-section aggregates + 2-section compare view (issue #15).
   //
   // The whole view is one Svelte file by design: it's a single page with
@@ -78,7 +80,12 @@
 </script>
 
 <svelte:head>
-  <title>Sections — AI Agent Infrastructure Landscape</title>
+  <SeoHead
+    title="AI Agent Memory Categories — Section Index"
+    description="Browse AI agent memory systems by category: dedicated memory layers, framework-embedded memory, browser-agent memory, voice-first memory, vertical/domain memory, and more."
+    path="/sections"
+    ogType="website"
+  />
 </svelte:head>
 
 <div class="wrap">

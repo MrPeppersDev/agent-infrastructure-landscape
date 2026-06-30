@@ -1,4 +1,7 @@
 <script lang="ts">
+  import SeoHead from '$lib/components/SeoHead.svelte';
+  import JsonLd from '$lib/components/JsonLd.svelte';
+  import { datasetLd } from '$lib/seo/jsonld';
   import { onMount, untrack } from 'svelte';
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
@@ -244,9 +247,15 @@
   });
 </script>
 
-<svelte:head>
-  <title>AI Agent Infrastructure Landscape — Table</title>
-</svelte:head>
+<SeoHead
+  title="AI Agent Memory & Infrastructure Landscape — Catalog of 912 Systems"
+  description="Browse and compare 912 AI agent memory systems, frameworks, and research papers across 68 columns. Searchable catalog with typed edges, citations, and benchmark coverage."
+  path="/"
+  ogType="website"
+/>
+<JsonLd
+  data={datasetLd({ recordCount: data.recordCount, edgeCount: data.edgeCount })}
+/>
 
 <div class="app">
   <header class="toolbar">

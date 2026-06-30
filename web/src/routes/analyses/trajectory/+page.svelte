@@ -16,6 +16,7 @@
   // prediction; the math is in web/src/lib/analyses/s-curve.ts and the
   // methodology footer at the bottom of this page.
 
+  import SeoHead from '$lib/components/SeoHead.svelte';
   import { base } from '$app/paths';
   import type { LandscapeRecord, Edge, Tier } from '$lib/types';
   import type { Lineage } from '$lib/lineages';
@@ -367,7 +368,12 @@
 </script>
 
 <svelte:head>
-  <title>Trajectory · Analyses · Memory Landscape</title>
+  <SeoHead
+    title="Trajectory: What's Growing, Dying, and Consolidating in AI Memory"
+    description="Combine funding, release recency, GitHub stars, citations, and integrations into trajectory vectors. Heuristic + S-curve fits."
+    path="/analyses/trajectory"
+    ogType="article"
+  />
 </svelte:head>
 
 <header class="page-header">
