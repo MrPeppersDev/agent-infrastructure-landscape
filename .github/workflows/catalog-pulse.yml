@@ -1,0 +1,68 @@
+# Catalog pulse cron (Phase 2 / Gate 6 — issue #100).
+#
+# Once a day, write an aggregate snapshot card to docs/pulse-YYYY-MM-DD.md:
+#   - new rows (added in past 24h)
+#   - retirements (decay_cause newly set)
+#   - stale-cell count
+#   - drift hot-spots (from yesterday's docs/drift-*.md output)
+#   - top-N most-queried surfaces (placeholder until query telemetry lands)
+#
+# The web /findings route can enumerate docs/pulse-*.md to render a
+# timeline of these daily cards.
+#
+# Daily runs move signal, not state — this workflow only commits a new
+# markdown file under docs/. It never edits data/landscape.json.
+#
+# Operational properties:
+#   - Schedule: 15:00 UTC daily (after capability-incremental at 14:00).
+#   - Manual trigger: workflow_dispatch is enabled.
+#   - Permissions: contents:write (commit the markdown file).
+#   - Auth: GITHUB_TOKEN.
+
+name: Catalog pulse
+
+on:
+  schedule:
+    # Daily 15:00 UTC.
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-pulse
+  cancel-in-progress: false
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so the new-rows-in-24h heuristic can diff against
+          # yesterday's snapshot of data/landscape.json.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run catalog-pulse cron
+        run: |
+          python scripts/cron_catalog_pulse.py
+
+      - name: Commit today's pulse card
+        run: |
+          set -euo pipefail
+          if ! git status --porcelain docs | grep -q 'pulse-'; then
+            echo "no pulse change to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/pulse-*.md
+          git commit -m "chore(pulse): daily catalog pulse snapshot" || true
+          git push || true

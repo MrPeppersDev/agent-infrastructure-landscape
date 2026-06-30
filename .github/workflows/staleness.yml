@@ -1,6 +1,7 @@
-# Weekly catalog-staleness check (issue #38 / T0-4).
+# Daily catalog-staleness check (issue #38 / T0-4; cadence updated by Phase 2
+# / Gate 6, issue #100, to match the spec §5 daily-floor mandate).
 #
-# Once a week, walk every catalog row with a GitHub repo URL and ask the
+# Once a day, walk every catalog row with a GitHub repo URL and ask the
 # GitHub API for the latest commit date. Rows whose last commit is older
 # than the freshness SLA defined in MAINTAINER.md §2 (active <12mo,
 # stale 12-24mo, abandoned >24mo) get a GitHub Issue opened automatically,
@@ -12,12 +13,13 @@
 # staleness is broadcast or hidden. Broadcast it.
 #
 # Operational properties:
-#   - Schedule: every Monday at 12:00 UTC.
+#   - Schedule: daily at 12:00 UTC (Phase 2 daily floor).
 #   - Manual trigger: workflow_dispatch is enabled for ad-hoc reruns.
 #   - Sanity cap: the script's --max-emit ceiling stops us from opening
 #     hundreds of issues on the first run; we also de-duplicate against
 #     any existing open `stale-row` issue with the same row id in the
-#     title.
+#     title — so successive daily runs are idempotent against the issue
+#     queue, not noisy.
 #   - Permissions: read contents, write issues. Nothing else.
 #   - Auth: GITHUB_TOKEN (the default actions token) has read access to
 #     public repos and write access to issues on this repo, which is all
@@ -27,8 +29,8 @@ name: Staleness check
 
 on:
   schedule:
-    # Mondays 12:00 UTC. cron syntax: minute hour day-of-month month day-of-week
-    - cron: '0 12 * * 1'
+    # Daily 12:00 UTC. cron syntax: minute hour day-of-month month day-of-week
+    - cron: '0 12 * * *'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +38,7 @@ permissions:
   issues: write
 
 # A single run is enough; cancel any in-flight predecessor if a new one
-# starts (rare for a weekly cron, but cheap insurance for the manual
+# starts (rare for a daily cron, but cheap insurance for the manual
 # workflow_dispatch case).
 concurrency:
   group: staleness
