@@ -38,3 +38,16 @@ export function absoluteUrl(routePath: string): string {
   if (routePath === '/') return `${SITE_URL}/`;
   return `${SITE_URL}${routePath}`;
 }
+
+/**
+ * Return the absolute URL of the per-route Open Graph SVG previewing
+ * this page. The build emits one SVG per prerendered HTML at
+ * `build/og/<routePath>.svg` (scripts/generate-og.mjs); the URL
+ * convention matches so every page automatically gets a unique preview
+ * without per-route wiring. The root path maps to /og/index.svg.
+ */
+export function ogImageUrl(routePath: string): string {
+  if (!routePath.startsWith('/')) routePath = `/${routePath}`;
+  const slug = routePath === '/' ? '/index' : routePath;
+  return `${SITE_URL}/og${slug}.svg`;
+}

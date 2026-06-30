@@ -5,7 +5,7 @@
   // JSON-LD is emitted by a sibling <JsonLd> component so routes can mix
   // in zero or more structured-data blocks independently.
 
-  import { absoluteUrl, SITE_NAME } from '$lib/site';
+  import { absoluteUrl, ogImageUrl, SITE_NAME } from '$lib/site';
 
   type Props = {
     /** Full <title> for the page. Include a short site suffix yourself,
@@ -15,7 +15,8 @@
     description: string;
     /** Route path without base prefix, e.g. "/findings" or "/systems/mem0". */
     path: string;
-    /** Optional Open Graph image absolute URL. Falls back to social preview. */
+    /** Optional Open Graph image absolute URL. Defaults to the per-route
+     * SVG emitted by scripts/generate-og.mjs. */
     image?: string;
     /** OG type. "article" for finding/system pages, "website" for hubs. */
     ogType?: 'website' | 'article';
@@ -30,6 +31,10 @@
   }: Props = $props();
 
   const canonical = $derived(absoluteUrl(path));
+  // Every prerendered route gets a matching /og/<path>.svg via the build
+  // pipeline, so default the OG image to that convention. Callers can
+  // still override (e.g. to point at a hand-authored image).
+  const ogImage = $derived(image ?? ogImageUrl(path));
 </script>
 
 <svelte:head>
@@ -41,13 +46,12 @@
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content={ogType} />
   <meta property="og:site_name" content={SITE_NAME} />
-  {#if image}
-    <meta property="og:image" content={image} />
-  {/if}
-  <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  {#if image}
-    <meta name="twitter:image" content={image} />
-  {/if}
+  <meta name="twitter:image" content={ogImage} />
 </svelte:head>
