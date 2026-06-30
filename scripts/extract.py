@@ -550,6 +550,32 @@ def parse_cell(
     return cell
 
 
+def parse_provenance_attr(td: Tag, where: str) -> dict[str, Any] | None:
+    """Return the parsed `data-provenance` JSON dict, or None if absent.
+
+    Carrier for SCHEMA.md §3d. Missing/empty attribute is the common case
+    (cell has no provenance entry); only malformed JSON raises.
+    """
+    attr = td.get("data-provenance")
+    if attr is None:
+        return None
+    text = attr.strip() if isinstance(attr, str) else ""
+    if not text:
+        return None
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError as e:
+        raise RuntimeError(
+            f"{where}: malformed data-provenance attribute: {e}"
+        ) from e
+    if not isinstance(parsed, dict):
+        raise RuntimeError(
+            f"{where}: data-provenance must encode a JSON object, got "
+            f"{type(parsed).__name__}"
+        )
+    return parsed
+
+
 # ---------------------------------------------------------------------------
 # Taxonomy parsing (§2.4).
 # ---------------------------------------------------------------------------
@@ -895,16 +921,24 @@ def build_record(
         taxonomy[axis] = parse_taxonomy_axis(td)
 
     cells = OrderedDict()
-    cells[CELL_COLUMN_SLUGS[0]] = parse_cell(
+    provenance: OrderedDict[str, Any] = OrderedDict()
+    type_slug = CELL_COLUMN_SLUGS[0]
+    cells[type_slug] = parse_cell(
         type_td,
         warnings=tier_warnings,
-        where=f"{rec_id}.{CELL_COLUMN_SLUGS[0]}",
-        slug=CELL_COLUMN_SLUGS[0],
+        where=f"{rec_id}.{type_slug}",
+        slug=type_slug,
     )  # "type"
+    type_prov = parse_provenance_attr(type_td, where=f"{rec_id}.{type_slug}")
+    if type_prov is not None:
+        provenance[type_slug] = type_prov
     for slug, td in zip(CELL_COLUMN_SLUGS[1:], rest_cell_tds):
         cells[slug] = parse_cell(
             td, warnings=tier_warnings, where=f"{rec_id}.{slug}", slug=slug
         )
+        cell_prov = parse_provenance_attr(td, where=f"{rec_id}.{slug}")
+        if cell_prov is not None:
+            provenance[slug] = cell_prov
 
     sections = [{
         "section": parsed["section"],
@@ -944,12 +978,12 @@ def build_record(
     rec["sections"] = sections
     rec["taxonomy"] = taxonomy
     rec["cells"] = cells
-    # Phase 2 / Gate 1 (issue #95): every record carries a `_provenance`
-    # dict keyed by cell slug. Phase 1 leaves it empty; HTML does not yet
-    # carry per-cell provenance markup, so the field defaults to `{}` on
-    # round-trip — matching the committed `data/landscape.json` shape
-    # produced by `scripts/phase_2_migrate_schema.py`.
-    rec["_provenance"] = {}
+    # Phase 2 / Gate 1 (issue #95): per-record `_provenance` dict keyed
+    # by cell slug. Entries recovered from per-cell `data-provenance="..."`
+    # HTML attributes (SCHEMA.md §3d). Cells with no attribute contribute
+    # no key — `{}` is the legitimate state for records that have no
+    # claim-bearing cells (none in practice, but the shape allows it).
+    rec["_provenance"] = provenance
     return rec
 
 

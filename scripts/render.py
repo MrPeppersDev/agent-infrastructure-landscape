@@ -314,7 +314,11 @@ def render_citation(href: str | None, title: str = "source") -> str:
     )
 
 
-def render_cell(td_class: str, cell: dict[str, Any]) -> str:
+def render_cell(
+    td_class: str,
+    cell: dict[str, Any],
+    provenance: dict[str, Any] | None = None,
+) -> str:
     """Render one cell <td> for a non-name, non-taxonomy column.
 
     `td_class` is the css class (e.g. "type", "desc", "perf"). `cell` is
@@ -323,6 +327,11 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
     Volatile cells (SCHEMA.md §3b) emit a `data-last-verified="YYYY-MM-DD"`
     attribute on the <td> when the cell carries one. Non-volatile cells
     never emit the attribute (they inherit the row-level date).
+
+    When `provenance` is non-empty, the entry is JSON-encoded (sorted keys,
+    no whitespace) into a `data-provenance="..."` HTML attribute. Carrier
+    for SCHEMA.md §3d. Empty / None provenance emits no attribute, so the
+    Phase 1 round-trip (every cell `_provenance` empty) stays byte-stable.
     """
     status = cell.get("status")
     value = cell.get("value", "") or ""
@@ -392,6 +401,11 @@ def render_cell(td_class: str, cell: dict[str, Any]) -> str:
         and last_verified
     ):
         attrs += f' data-last-verified="{escape(last_verified, quote=True)}"'
+    if provenance:
+        prov_json = json.dumps(
+            provenance, sort_keys=True, separators=(",", ":")
+        )
+        attrs += f' data-provenance="{escape(prov_json, quote=True)}"'
     return f"    <td {attrs}>{inner}</td>"
 
 
@@ -535,8 +549,9 @@ def render_row(record: dict[str, Any]) -> str:
         # Inject the marker before the closing </td>.
         name_cell = name_cell[:-len("</td>")] + marker + "</td>"
     lines.append(name_cell)
+    prov_map = record.get("_provenance") or {}
     # type cell (the first cell column).
-    lines.append(render_cell("type", record["cells"]["type"]))
+    lines.append(render_cell("type", record["cells"]["type"], prov_map.get("type")))
     # 7 taxonomy axes.
     for axis in TAXONOMY_AXES:
         lines.append(render_taxonomy_cell(axis, record["taxonomy"].get(axis, [])))
@@ -545,7 +560,7 @@ def render_row(record: dict[str, Any]) -> str:
         cell = record["cells"].get(slug)
         if cell is None:
             raise RuntimeError(f"record {record['id']!r} missing cell {slug!r}")
-        lines.append(render_cell(slug, cell))
+        lines.append(render_cell(slug, cell, prov_map.get(slug)))
     lines.append("  </tr>")
     return "\n".join(lines)
 

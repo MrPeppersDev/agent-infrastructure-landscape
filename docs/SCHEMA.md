@@ -1182,15 +1182,29 @@ Phases 2-4 backfill entries.
   were already in the catalog and trusted before the provenance
   model existed.
 
-### Phase 1 round-trip note
+### HTML carrier
 
-Phase 1 (this PR) only adds the `_provenance: {}` field; no per-cell
-entries are written yet. The HTML rendering / extract round-trip
-therefore does not carry provenance markup — `extract.py` defaults
-`_provenance` to `{}` to keep the byte-identity gate (gate 3)
-satisfied. Phase 2 of Gate 1 (the legacy-cell backfill PR) will need
-a per-cell carrier in HTML (likely `data-provenance` attributes on
-the `<td>`) so non-empty provenance can round-trip.
+Each `<td>` may carry a `data-provenance="..."` attribute whose value is
+the cell's provenance entry encoded as compact JSON
+(`json.dumps(entry, sort_keys=True, separators=(",", ":"))`).
+Cells without an entry emit no attribute, so cost / capability / use-case
+cells stay carrier-free until Phases 3 & 4 of Gate 1 populate them.
+
+`render.py` emits the attribute; `extract.py` recovers the entry via
+`parse_provenance_attr()`. Fields inside the JSON are alphabetized (the
+serializer's `sort_keys=True`); cell-slug keys in the `_provenance` dict
+follow `cells` iteration order. Both orderings are required for the
+round-trip cycle (gate 2) to remain byte-stable.
+
+### Backfill state (Gate 1, Phase 2)
+
+`scripts/phase_2_provenance_backfill.py` populated entries for every
+claim-bearing pre-Phase-2 cell. Default source is `legacy`. The three
+trajectory cells (`commit-trajectory`, `citation-trajectory`,
+`download-trajectory`) are upgraded to `source: "scrape"` when the cell
+carries a usable http(s) citation, with `script` pointing at the
+identified writer in `scripts/`. Cells with `status: "no-data"` carry
+no claim and have no entry.
 
 ---
 
