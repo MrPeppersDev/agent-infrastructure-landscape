@@ -153,11 +153,17 @@ CELL_COLUMN_SLUGS: list[str] = [
     "capability-band",
     "capability-benchmark-sources",
     "capability-last-verified",
+    # Phase 2 follow-up (docs/composite-methodology.md §11) — per-family
+    # capability sub-scores. Populated by scripts/capability_sweep.py on
+    # the weekly rebaseline cron.
+    "capability-code-score",
+    "capability-agentic-score",
+    "capability-longcontext-score",
     # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
     "use-case-tags",
     "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 96
+assert len(CELL_COLUMN_SLUGS) == 99
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -568,11 +574,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="104" '
+            f'  <tr class="group-row"><td colspan="107" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="104">'
+        f'  <tr class="group-row"><td colspan="107">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -581,7 +587,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="104">'
+        '  <tr class="section-explainer"><td colspan="107">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
