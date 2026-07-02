@@ -18,6 +18,10 @@
 
   // ---------------------------------------------------------------------------
   // Controlled vocabulary (matches PHASE_2_SPEC.html §4.2)
+  //
+  // We keep the slugs as the source of truth (they match the MCP tool +
+  // CLI vocab), but the UI shows the human label. Any drift between this
+  // map and USE_CASE_TAGS shows up as a slug-shaped label — visible bug.
   // ---------------------------------------------------------------------------
   const USE_CASE_TAGS = [
     'scoped-agentic',
@@ -30,6 +34,17 @@
     'offline-capable'
   ] as const;
   type UseCaseTag = (typeof USE_CASE_TAGS)[number];
+
+  const USE_CASE_LABEL: Record<UseCaseTag, string> = {
+    'scoped-agentic': 'Scoped agentic',
+    'long-running-session': 'Long-running session',
+    'multi-agent-coordination': 'Multi-agent coordination',
+    'memory-augmented-chat': 'Memory-augmented chat',
+    'code-generation-focused': 'Code generation',
+    'analytical-summarization': 'Analytical summarization',
+    'latency-sensitive': 'Latency-sensitive',
+    'offline-capable': 'Offline-capable'
+  };
 
   // ---------------------------------------------------------------------------
   // Pickable anchor pool — only records with both cost + capability cells
@@ -75,17 +90,49 @@
   );
 
   // ---------------------------------------------------------------------------
-  // User-driven state
+  // User-driven state. Persisted to URL query params (?low=&high=&use=&k=)
+  // so recommendations are shareable. Hydration happens once in the browser
+  // after mount — this route is prerendered, so page.url.searchParams isn't
+  // available during SSR.
   // ---------------------------------------------------------------------------
   let lowId = $state('');
   let highId = $state('');
   let useCase = $state<UseCaseTag | ''>('');
   let k = $state(5);
 
-  // Hydrate defaults once anchorPool is computed.
+  let hydrated = $state(false);
+
   $effect(() => {
-    if (!lowId && defaultLow) lowId = defaultLow;
-    if (!highId && defaultHigh) highId = defaultHigh;
+    if (hydrated) return;
+    // Wait until anchorPool has produced its defaults before we decide
+    // whether to fall back on them or accept URL overrides.
+    if (!defaultLow || !defaultHigh) return;
+    hydrated = true;
+    const p = new URLSearchParams(window.location.search);
+    lowId = p.get('low') || defaultLow;
+    highId = p.get('high') || defaultHigh;
+    const u = p.get('use') ?? '';
+    if ((USE_CASE_TAGS as readonly string[]).includes(u)) {
+      useCase = u as UseCaseTag;
+    }
+    const kv = Number(p.get('k'));
+    if (Number.isFinite(kv) && kv > 0) k = kv;
+  });
+
+  // Push current state back to the URL (replaceState — don't spam history).
+  $effect(() => {
+    if (!hydrated) return;
+    const sp = new URLSearchParams();
+    if (lowId) sp.set('low', lowId);
+    if (highId) sp.set('high', highId);
+    if (useCase) sp.set('use', useCase);
+    if (k !== 5) sp.set('k', String(k));
+    const qs = sp.toString();
+    const target = qs ? `?${qs}` : window.location.pathname;
+    const current = window.location.search.replace(/^\?/, '');
+    if (current !== qs) {
+      window.history.replaceState({}, '', target);
+    }
   });
 
   // ---------------------------------------------------------------------------
@@ -114,10 +161,10 @@
 
   const PHASE_2_LABEL: Record<string, string> = {
     'cost-input-usd-per-mtok': '$/Mtok in',
-    'cost-tier': 'cost tier',
-    'capability-composite-score': 'cap score',
-    'capability-band': 'cap band',
-    'use-case-tags': 'use-case tags'
+    'cost-tier': 'Cost tier',
+    'capability-composite-score': 'Capability score',
+    'capability-band': 'Capability band',
+    'use-case-tags': 'Use cases'
   };
 
   function readCell(r: LandscapeRecord, slug: string): string | null {
@@ -125,6 +172,14 @@
     const v = cells[slug]?.value;
     if (!v) return null;
     if (/^\s*(not\s+applicable|n\/a)\b/i.test(v)) return null;
+    if (slug === 'use-case-tags') {
+      return v
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean)
+        .map((t) => (USE_CASE_LABEL as Record<string, string>)[t] ?? t)
+        .join(', ');
+    }
     return v;
   }
 
@@ -180,6 +235,18 @@
   }
 
   const candidateIds = $derived(new Set(candidates.map((c) => c.record.id)));
+
+  // Inline anchor stats so the picker isn't blind — "GPT-4o ($2.50 · cap 78)"
+  // beats a bare "GPT-4o" when the whole point of the pickers is to bracket
+  // a cost/capability range.
+  function anchorLabel(r: LandscapeRecord): string {
+    const cost = readNumber(r, 'cost-input-usd-per-mtok');
+    const cap = readNumber(r, 'capability-composite-score');
+    const parts: string[] = [];
+    if (cost != null) parts.push(`$${cost.toFixed(2)}`);
+    if (cap != null) parts.push(`cap ${Math.round(cap)}`);
+    return parts.length ? `${r.name}  (${parts.join(' · ')})` : r.name;
+  }
 </script>
 
 <svelte:head>
@@ -188,21 +255,21 @@
 
 <section class="picker">
   <div class="field">
-    <label for="low">Low anchor</label>
+    <label for="low">Low anchor <span class="field-hint">(cheaper / lower capability)</span></label>
     <select id="low" bind:value={lowId}>
       <option value="" disabled>— pick a record —</option>
       {#each anchorPool as r}
-        <option value={r.id}>{r.name}</option>
+        <option value={r.id}>{anchorLabel(r)}</option>
       {/each}
     </select>
   </div>
 
   <div class="field">
-    <label for="high">High anchor</label>
+    <label for="high">High anchor <span class="field-hint">(pricier / higher capability)</span></label>
     <select id="high" bind:value={highId}>
       <option value="" disabled>— pick a record —</option>
       {#each anchorPool as r}
-        <option value={r.id}>{r.name}</option>
+        <option value={r.id}>{anchorLabel(r)}</option>
       {/each}
     </select>
   </div>
@@ -210,9 +277,9 @@
   <div class="field">
     <label for="use">Use case (optional)</label>
     <select id="use" bind:value={useCase}>
-      <option value="">— none —</option>
+      <option value="">— any —</option>
       {#each USE_CASE_TAGS as t}
-        <option value={t}>{t}</option>
+        <option value={t}>{USE_CASE_LABEL[t]}</option>
       {/each}
     </select>
   </div>
@@ -276,7 +343,7 @@
       stroke-width="1" />
 
     <text x={W / 2} y={H - 12} text-anchor="middle" fill="#aaa" font-size="11">
-      cost-input ($/Mtok, log)
+      Cost ($ per Mtok input, log scale)
     </text>
     <text
       x={-H / 2}
@@ -285,7 +352,7 @@
       text-anchor="middle"
       fill="#aaa"
       font-size="11">
-      capability-composite-score
+      Capability composite (0–100)
     </text>
   </svg>
 </section>
@@ -372,6 +439,11 @@
     font-size: 0.8rem;
     color: #aaa;
     letter-spacing: 0.01em;
+  }
+  .field-hint {
+    color: #666;
+    font-weight: 400;
+    margin-left: 0.3rem;
   }
   .field select,
   .field input {
