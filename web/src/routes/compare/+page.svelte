@@ -15,17 +15,30 @@
 
   let { data }: { data: { pairs: PairRow[] } } = $props();
 
+  let query = $state('');
+
+  const filteredPairs = $derived.by(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return data.pairs;
+    return data.pairs.filter(
+      (p) =>
+        p.aName.toLowerCase().includes(q) ||
+        p.bName.toLowerCase().includes(q) ||
+        (p.section?.toLowerCase().includes(q) ?? false)
+    );
+  });
+
   // Group by section so the index reads as a section-by-section
   // "head-to-head" view; competes-with edges land in their own bucket.
-  const grouped = (() => {
+  const grouped = $derived.by(() => {
     const m = new Map<string, PairRow[]>();
-    for (const p of data.pairs) {
+    for (const p of filteredPairs) {
       const k = p.section ?? 'Explicit competes-with edges';
       if (!m.has(k)) m.set(k, []);
       m.get(k)!.push(p);
     }
     return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-  })();
+  });
 
   const ldData = itemListLd({
     name: 'AI Agent Memory Comparisons',
@@ -52,7 +65,25 @@
       compares two systems across 19+ dimensions and surfaces any direct edges
       the catalog has between them.
     </p>
+    <label class="search">
+      <span class="sr">Filter comparisons</span>
+      <input
+        type="search"
+        placeholder="Filter by system or category name…"
+        bind:value={query}
+        autocomplete="off" />
+    </label>
+    {#if query.trim()}
+      <p class="match-count">
+        {filteredPairs.length} match{filteredPairs.length === 1 ? '' : 'es'}
+        for &ldquo;{query.trim()}&rdquo;
+      </p>
+    {/if}
   </header>
+
+  {#if grouped.length === 0}
+    <p class="empty">No comparisons match &ldquo;{query.trim()}&rdquo;. Try a shorter query or a different name.</p>
+  {/if}
 
   {#each grouped as [section, pairs]}
     <section>
@@ -86,7 +117,48 @@
   }
   .lede {
     color: #c0c0c0;
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
+  }
+  .search {
+    display: block;
+    margin: 0 0 0.5rem;
+  }
+  .search input {
+    width: 100%;
+    box-sizing: border-box;
+    background: #181818;
+    color: #e8e8e8;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+  .search input:focus {
+    outline: none;
+    border-color: #4a4a4a;
+    background: #1c1c1c;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .match-count {
+    margin: 0 0 1.5rem;
+    font-size: 0.85rem;
+    color: #888;
+  }
+  .empty {
+    color: #888;
+    font-style: italic;
+    padding: 1.5rem 0;
   }
   h2 {
     color: #e8e8e8;
