@@ -266,6 +266,9 @@ PHASE_2_CELL_SLUGS: tuple[str, ...] = (
     "capability-band",
     "capability-benchmark-sources",
     "capability-last-verified",
+    "capability-code-score",
+    "capability-agentic-score",
+    "capability-longcontext-score",
     "use-case-tags",
     "use-case-anti-tags",
 )
