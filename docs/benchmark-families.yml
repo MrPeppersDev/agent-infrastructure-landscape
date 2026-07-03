@@ -1,0 +1,402 @@
+# benchmark-families.yml
+# Phase 2 follow-up — Benchmark → task-family classification for the
+# capability composite (docs/composite-methodology.md §3.2).
+#
+# Generated: 2026-07-01
+# Ratification status: RATIFIED 2026-07-01 — maintainer approved the
+# full draft. `alphacode` and `swe-lancer` remain `family: null`
+# (treated as excluded until a later maintainer decision).
+#
+# ==============================================================================
+# WHY THIS FILE EXISTS
+# ==============================================================================
+# The composite methodology (§3.2) says every benchmark used in a row's
+# `capability-benchmark-sources` cell MUST be classified into exactly one
+# of three task families: code, agentic, longcontext. Unclassified
+# benchmarks are IGNORED (not defaulted to a family) — a benchmark with
+# no clear family belongs in no family.
+#
+# This is the single flat lookup table that governs that classification.
+# `mcp/src/composite.ts` reads it (via the caller's family-assignment
+# step) before computing family sub-scores.
+#
+# ==============================================================================
+# SCOPE: CLASSIFIED VS EXCLUDED
+# ==============================================================================
+# CLASSIFIED — the benchmark clearly measures one of the three families
+#   and its score belongs in that family's sub-score.
+#
+# EXCLUDED — the benchmark exists and is respected, but does not cleanly
+#   fit any of the three families (e.g. MMLU, GPQA measure general
+#   knowledge/reasoning, not one of code/agentic/longcontext). Rows may
+#   still record these scores in `capability-benchmark-sources` for
+#   documentation, but they contribute zero to the composite.
+#
+# The EXCLUDED list is authored explicitly rather than left implicit
+# so a future maintainer knows we thought about MMLU and chose to
+# exclude it — not that we forgot.
+#
+# ==============================================================================
+# TRUST FILTERING IS SEPARATE
+# ==============================================================================
+# Even a CLASSIFIED benchmark is only included in the composite if its
+# `trustScore` from `web/src/lib/analyses/benchmark-trust.ts` is ≥ 40
+# (the existing `medium` tier cutoff). That filter runs in the compose
+# pipeline, not here. This file only asks: "which family, if any?"
+#
+# ==============================================================================
+# ENUM
+# ==============================================================================
+#   code         — coding assistance, refactoring, multi-file edits,
+#                  IDE workflows.
+#   agentic      — tool use, planning, multi-step task completion in
+#                  agent harnesses.
+#   longcontext  — recall and reasoning over 100k+ token inputs.
+#   excluded     — respected benchmark that does not fit the three
+#                  families; contributes zero to the composite.
+#
+# ==============================================================================
+# CONFIDENCE MARKERS
+# ==============================================================================
+#   ✓  high   — canonical for its family; named in methodology §2 or
+#               universally accepted as such.
+#   ~  medium — the family assignment is defensible but the benchmark
+#               has some scope ambiguity (umbrella suites, variants).
+#   ?  low    — boundary case, flagged for maintainer scrutiny.
+#
+# Maintainer review: please spot-check the ~ and ? entries in
+# particular. High-confidence entries can be scanned.
+
+# ==============================================================================
+# CODE
+# ==============================================================================
+
+swe-bench-verified:
+  family: code
+  confidence: high
+  rationale: |
+    Verified subset of SWE-Bench — real-world software engineering
+    tasks resolved against actual GitHub issues. Named in methodology §2
+    as an anchor benchmark for the code family.
+
+aider-polyglot:
+  family: code
+  confidence: high
+  rationale: |
+    Multi-language code editing benchmark used by Aider; measures
+    diff-application accuracy across Python, Rust, C++, Go, Java, JS.
+    Named in methodology §2.
+
+livecodebench:
+  family: code
+  confidence: high
+  rationale: |
+    Contamination-resistant coding benchmark that continuously adds
+    fresh problems (Codeforces, AtCoder, LeetCode).
+    Named in methodology §2. Reports separately on "code generation"
+    vs "code execution" vs "test output prediction" — we classify at
+    the umbrella level (§3.2: single family per benchmark ID) and do
+    not split sub-tasks.
+
+humaneval:
+  family: code
+  confidence: high
+  rationale: |
+    Classic Python function-completion benchmark (Chen et al. 2021).
+    Widely reported to be saturated / contaminated on frontier models;
+    likely to be dropped by the trust filter (`trustScore < 40`) for
+    most rows. Classification stands; the trust filter is where the
+    "should we still trust this?" call is made.
+
+mbpp:
+  family: code
+  confidence: high
+  rationale: |
+    Mostly Basic Python Problems (Austin et al. 2021). Same story as
+    HumanEval — likely trust-filtered out on frontier models but the
+    family is unambiguously code.
+
+codecontests:
+  family: code
+  confidence: high
+  rationale: |
+    Competitive-programming benchmark from DeepMind (AlphaCode paper).
+
+apps:
+  family: code
+  confidence: high
+  rationale: |
+    Automated Programming Progress Standard — Hendrycks et al. 2021.
+    Introductory to competition-level Python problems.
+
+bigcodebench:
+  family: code
+  confidence: high
+  rationale: |
+    Practical, library-heavy Python tasks; harder than HumanEval.
+
+# ==============================================================================
+# AGENTIC
+# ==============================================================================
+
+gaia:
+  family: agentic
+  confidence: high
+  rationale: |
+    General AI Assistants benchmark (Mialon et al. 2023). Multi-step
+    real-world tasks requiring tool use, web browsing, file handling.
+    Named in methodology §2.
+
+agentbench:
+  family: agentic
+  confidence: medium
+  rationale: |
+    Umbrella suite covering OS, DB, KG, code-agent, web-shopping, web-
+    browsing, digital-card-game, house-holding sub-tasks. The OS
+    sub-task is CLI/shell (arguably code-adjacent) but the umbrella
+    intent is agent-behavior evaluation. We classify at the umbrella
+    level and do NOT split sub-benchmarks.
+
+tau-bench:
+  family: agentic
+  confidence: high
+  rationale: |
+    τ-bench (Sierra Research) — structured tool-use benchmark with
+    user-simulator + database. Named in methodology §2.
+
+osworld:
+  family: agentic
+  confidence: high
+  rationale: |
+    Real-computer-desktop task benchmark (screen interaction, application
+    workflows). Named in methodology §2.
+
+webarena:
+  family: agentic
+  confidence: high
+  rationale: |
+    Web navigation / task completion in a reproducible sandboxed web
+    environment (Zhou et al. 2023).
+
+visualwebarena:
+  family: agentic
+  confidence: high
+  rationale: |
+    Visual extension of WebArena; same task shape, adds screenshot
+    reasoning.
+
+swe-agent-bench:
+  family: agentic
+  confidence: low
+  rationale: |
+    BOUNDARY CASE. SWE-Agent is a scaffold, not a benchmark per se —
+    scores reported "on SWE-Agent" usually mean SWE-Bench Verified
+    solved through the SWE-Agent harness. If a row reports a distinct
+    `swe-agent-bench` number that isn't equivalent to a SWE-Bench
+    score, treat it as agentic (measures the harness's planning/tool
+    behavior). Maintainer: please confirm or remove.
+
+mle-bench:
+  family: agentic
+  confidence: medium
+  rationale: |
+    OpenAI's ML Engineering benchmark — Kaggle-style tasks completed
+    by an agent. Sits between code and agentic; we classify agentic
+    because the score depends heavily on planning + tool orchestration,
+    not just code generation.
+
+# ==============================================================================
+# LONGCONTEXT
+# ==============================================================================
+
+ruler:
+  family: longcontext
+  confidence: high
+  rationale: |
+    Realistic Understanding of Long-context Evaluation (Hsieh et al.
+    2024). Named in methodology §2. Multiple context-length variants
+    (RULER-4k, 8k, 32k, 128k) — treat as ONE benchmark ID; the specific
+    length is recorded in the run metadata, not the ID.
+
+ruler-128k:
+  family: longcontext
+  confidence: high
+  rationale: |
+    Alias used in test-composite.ts fixtures. Same benchmark as `ruler`
+    at 128k context. Kept as a separate ID here because it appears
+    explicitly in test data; production pipeline should canonicalise
+    to `ruler` and record `context_length: 128000` in run metadata.
+
+longbench:
+  family: longcontext
+  confidence: high
+  rationale: |
+    Bilingual long-context benchmark suite (Bai et al. 2023). Named in
+    methodology §2.
+
+longbench-v2:
+  family: longcontext
+  confidence: high
+  rationale: |
+    Second-generation LongBench with harder tasks and longer contexts.
+
+infinitebench:
+  family: longcontext
+  confidence: high
+  rationale: |
+    100k+ token context evaluation (Zhang et al. 2024).
+
+needle-in-a-haystack:
+  family: longcontext
+  confidence: medium
+  rationale: |
+    Umbrella term covering many variants (Kamradt's original;
+    multi-needle; needles-in-a-needlestack; passkey retrieval). The
+    variants differ but all measure the same underlying construct
+    (long-context recall). We classify at the umbrella level and treat
+    variants as the same benchmark ID.
+
+zeroscrolls:
+  family: longcontext
+  confidence: high
+  rationale: |
+    Zero-shot long-document benchmark (SCROLLS successor). Long-form
+    summarization, question answering over full-length inputs.
+
+booksum:
+  family: longcontext
+  confidence: medium
+  rationale: |
+    Book-length summarization. Long-context by construction, though
+    scored partly on summary quality (which crosses into general
+    language capability). Classifying longcontext because the
+    "distinguishing" axis it measures is context length, not summary
+    fluency.
+
+loong:
+  family: longcontext
+  confidence: medium
+  rationale: |
+    Longer-context reasoning benchmark (Wang et al. 2024). Recent and
+    less well-established than RULER; classification is unambiguous
+    but the trust filter may exclude it early.
+
+# ==============================================================================
+# EXCLUDED — respected, but not one of the three families
+# ==============================================================================
+# These benchmarks may appear in `capability-benchmark-sources` cells
+# for documentation. They contribute ZERO to the composite. Recording
+# a score for them does not reduce a row's composite; it is simply not
+# used in aggregation.
+
+mmlu:
+  family: excluded
+  confidence: high
+  rationale: |
+    Massive Multitask Language Understanding (Hendrycks et al. 2020).
+    Measures general knowledge across 57 subjects. Does not fit any of
+    the three families. Excluding rather than forcing into a fourth
+    family (see methodology §2 "why three, not more").
+
+mmlu-pro:
+  family: excluded
+  confidence: high
+  rationale: |
+    Harder MMLU variant. Same reasoning as MMLU.
+
+gpqa:
+  family: excluded
+  confidence: high
+  rationale: |
+    Graduate-level Physics/Chemistry/Biology Q&A (Rein et al. 2023).
+    General reasoning, not one of our three families.
+
+gpqa-diamond:
+  family: excluded
+  confidence: high
+  rationale: |
+    Hardest GPQA subset. Same reasoning as GPQA.
+
+hellaswag:
+  family: excluded
+  confidence: high
+  rationale: |
+    Commonsense reasoning. General capability, not a family axis.
+
+arc-agi:
+  family: excluded
+  confidence: medium
+  rationale: |
+    ARC-AGI (Chollet) — abstract visual pattern reasoning. Not code,
+    not agentic, not long-context. Notable and respected, but excluded.
+
+arc:
+  family: excluded
+  confidence: high
+  rationale: |
+    AI2 Reasoning Challenge (grade-school science). Not one of the
+    three families.
+
+bigbench:
+  family: excluded
+  confidence: high
+  rationale: |
+    Umbrella of 200+ heterogeneous tasks. Impossible to assign a single
+    family; excluded on scope grounds.
+
+mt-bench:
+  family: excluded
+  confidence: high
+  rationale: |
+    Multi-turn chat evaluation (Zheng et al. 2023). General chat
+    quality; not one of our three families.
+
+chatbot-arena:
+  family: excluded
+  confidence: high
+  rationale: |
+    Human-preference Elo. Used in methodology §8.2 as a CROSS-CHECK
+    against the composite; explicitly not an input to it (would
+    circularly validate).
+
+helm:
+  family: excluded
+  confidence: high
+  rationale: |
+    Meta-benchmark aggregating many tasks. Individual HELM sub-tasks
+    may be classifiable separately if a row reports one; the HELM
+    aggregate itself is excluded.
+
+truthfulqa:
+  family: excluded
+  confidence: high
+  rationale: |
+    Truthfulness / factuality benchmark. Distinct axis from our three;
+    excluded.
+
+# ==============================================================================
+# BENCHMARKS FLAGGED FOR MAINTAINER JUDGMENT
+# ==============================================================================
+# These are boundary cases where I want an explicit maintainer call.
+# They are marked `family: null` and are treated as excluded until
+# classified. Do not remove; leaving them here documents the deferral.
+
+alphacode:
+  family: null
+  confidence: null
+  rationale: |
+    DeepMind's competitive-programming system. When rows report an
+    "AlphaCode score" they usually mean CodeContests solving rate
+    under the AlphaCode setup. If treated as its own benchmark, it is
+    code. If treated as a scaffold, it should be excluded and the
+    underlying CodeContests score used. MAINTAINER: pick one, or
+    remove this ID entirely.
+
+swe-lancer:
+  family: null
+  confidence: null
+  rationale: |
+    New benchmark; agentic freelance-engineer tasks with real payouts
+    as ground truth. Almost certainly agentic, but I'd like a
+    maintainer confirmation before locking. MAINTAINER: confirm
+    agentic or leave excluded.
