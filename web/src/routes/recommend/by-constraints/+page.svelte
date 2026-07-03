@@ -17,13 +17,36 @@
   let { data }: { data: { records: LandscapeRecord[] } } = $props();
 
   // ---------------------------------------------------------------------------
-  // User-driven state
+  // Human labels for the controlled vocabulary. Slugs stay authoritative
+  // (MCP tool + CLI use them), but UI copy shows the label.
   // ---------------------------------------------------------------------------
-  let mode = $state<'free-text' | 'structured'>('free-text');
-  let description = $state(
-    'long-running multi-agent system that needs offline capability'
-  );
+  const USE_CASE_LABEL: Record<string, string> = {
+    'scoped-agentic': 'Scoped agentic',
+    'long-running-session': 'Long-running session',
+    'multi-agent-coordination': 'Multi-agent coordination',
+    'memory-augmented-chat': 'Memory-augmented chat',
+    'code-generation-focused': 'Code generation',
+    'analytical-summarization': 'Analytical summarization',
+    'latency-sensitive': 'Latency-sensitive',
+    'offline-capable': 'Offline-capable'
+  };
 
+  function humanizeUseCase(t: string): string {
+    return USE_CASE_LABEL[t] ?? t;
+  }
+
+  // ---------------------------------------------------------------------------
+  // User-driven state. Persisted to URL query params so recommendations are
+  // shareable. Params: ?mode=&desc=&shape=&scale=&latency=&persistence=
+  //   &deployment=&cost=&k=. Hydration happens once in the browser after
+  //   mount — this route is prerendered, so page.url.searchParams isn't
+  //   available during SSR.
+  // ---------------------------------------------------------------------------
+  const DEFAULT_DESCRIPTION =
+    'long-running multi-agent system that needs offline capability';
+
+  let mode = $state<'free-text' | 'structured'>('free-text');
+  let description = $state(DEFAULT_DESCRIPTION);
   let projectShape = $state<StructuredForm['project_shape'] | ''>('');
   let scale = $state<StructuredForm['scale'] | ''>('');
   let latencyMs = $state<number | ''>('');
@@ -31,6 +54,55 @@
   let deployment = $state<StructuredForm['deployment'] | ''>('');
   let costCeiling = $state<number | ''>('');
   let k = $state(5);
+
+  let hydrated = $state(false);
+
+  $effect(() => {
+    if (hydrated) return;
+    hydrated = true;
+    const p = new URLSearchParams(window.location.search);
+    if (p.get('mode') === 'structured') mode = 'structured';
+    const d = p.get('desc');
+    if (d) description = d;
+    const shape = p.get('shape');
+    if (shape) projectShape = shape as StructuredForm['project_shape'];
+    const s = p.get('scale');
+    if (s) scale = s as StructuredForm['scale'];
+    const lat = Number(p.get('latency'));
+    if (Number.isFinite(lat) && lat > 0) latencyMs = lat;
+    const per = p.get('persistence');
+    if (per) persistence = per as StructuredForm['persistence'];
+    const dep = p.get('deployment');
+    if (dep) deployment = dep as StructuredForm['deployment'];
+    const cst = Number(p.get('cost'));
+    if (Number.isFinite(cst) && cst > 0) costCeiling = cst;
+    const kv = Number(p.get('k'));
+    if (Number.isFinite(kv) && kv > 0) k = kv;
+  });
+
+  // Push current state back to the URL (replaceState — don't spam history).
+  $effect(() => {
+    if (!hydrated) return;
+    const sp = new URLSearchParams();
+    if (mode !== 'free-text') sp.set('mode', mode);
+    if (mode === 'free-text') {
+      if (description && description !== DEFAULT_DESCRIPTION) sp.set('desc', description);
+    } else {
+      if (projectShape) sp.set('shape', projectShape);
+      if (scale) sp.set('scale', scale);
+      if (latencyMs !== '') sp.set('latency', String(latencyMs));
+      if (persistence) sp.set('persistence', persistence);
+      if (deployment) sp.set('deployment', deployment);
+      if (costCeiling !== '') sp.set('cost', String(costCeiling));
+    }
+    if (k !== 5) sp.set('k', String(k));
+    const qs = sp.toString();
+    const current = window.location.search.replace(/^\?/, '');
+    if (current !== qs) {
+      const target = qs ? `?${qs}` : window.location.pathname;
+      window.history.replaceState({}, '', target);
+    }
+  });
 
   // ---------------------------------------------------------------------------
   // Adapter call
@@ -76,10 +148,10 @@
 
   const PHASE_2_LABEL: Record<string, string> = {
     'cost-input-usd-per-mtok': '$/Mtok in',
-    'cost-tier': 'cost tier',
-    'capability-composite-score': 'cap score',
-    'capability-band': 'cap band',
-    'use-case-tags': 'use-case tags'
+    'cost-tier': 'Cost tier',
+    'capability-composite-score': 'Capability score',
+    'capability-band': 'Capability band',
+    'use-case-tags': 'Use cases'
   };
 
   function readCell(r: LandscapeRecord, slug: string): string | null {
@@ -87,6 +159,14 @@
     const v = cells[slug]?.value;
     if (!v) return null;
     if (/^\s*(not\s+applicable|n\/a)\b/i.test(v)) return null;
+    if (slug === 'use-case-tags') {
+      return v
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean)
+        .map(humanizeUseCase)
+        .join(', ');
+    }
     return v;
   }
 
@@ -198,15 +278,15 @@
   <h2>Parsed as</h2>
   <dl>
     {#if result.parsed_constraints.use_case_tags && result.parsed_constraints.use_case_tags.length > 0}
-      <dt>use-case-tags</dt>
-      <dd>{result.parsed_constraints.use_case_tags.join(', ')}</dd>
+      <dt>Use cases</dt>
+      <dd>{result.parsed_constraints.use_case_tags.map(humanizeUseCase).join(', ')}</dd>
     {/if}
     {#if result.parsed_constraints.cost_max_input_usd_per_mtok != null}
-      <dt>cost ceiling</dt>
+      <dt>Cost ceiling</dt>
       <dd>$ {result.parsed_constraints.cost_max_input_usd_per_mtok} / Mtok input</dd>
     {/if}
     {#if result.parsed_constraints.capability_band_min}
-      <dt>capability ≥</dt>
+      <dt>Capability ≥</dt>
       <dd>{result.parsed_constraints.capability_band_min}</dd>
     {/if}
     {#if !result.parsed_constraints.use_case_tags && result.parsed_constraints.cost_max_input_usd_per_mtok == null && !result.parsed_constraints.capability_band_min}
@@ -218,7 +298,7 @@
   {#if mode === 'free-text'}
     <div class="terms">
       <div>
-        <span class="terms-label">matched:</span>
+        <span class="terms-label">Matched:</span>
         {#if result.matched_terms.length > 0}
           {#each result.matched_terms as t, i}<span class="chip">{t}</span>{#if i < result.matched_terms.length - 1}<span class="sep"></span>{/if}{/each}
         {:else}
@@ -226,7 +306,7 @@
         {/if}
       </div>
       <div>
-        <span class="terms-label">unmatched:</span>
+        <span class="terms-label">Unmatched:</span>
         {#if result.unmatched_terms.length > 0}
           {#each result.unmatched_terms as t, i}<span class="chip dropped">{t}</span>{#if i < result.unmatched_terms.length - 1}<span class="sep"></span>{/if}{/each}
         {:else}
