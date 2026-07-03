@@ -214,16 +214,16 @@
 <div class="wrap">
 
 <header class="doc">
-  <div class="eyebrow">Specification — Ready for implementation</div>
+  <div class="eyebrow">Specification — Implementation complete, verification &amp; close-out pending</div>
   <h1>Phase 2: Catalog &rarr; Recommender</h1>
   <div class="meta">
     <dl>
-      <dt>Status:</dt><dd>Tracking issue (#94) + 8 gate issues (#95&ndash;#102) filed &mdash; Gate 1 is the next action</dd>
+      <dt>Status:</dt><dd>All 8 gates merged. All Phase 2 issues (#94, #95&ndash;#102) closed 2026-06-30. Remaining work: land PR #117 (in flight), refresh stale <code>PLAN.md</code>, observe first scheduled firings of 5 new cron workflows, choose next phase. See §9.</dd>
       <dt>Authored:</dt><dd>2026-06-29</dd>
-      <dt>Last updated:</dt><dd>2026-06-29 (gates filed)</dd>
+      <dt>Last updated:</dt><dd>2026-06-30 (close-out complete; §9 reformatted as sequenced plan)</dd>
       <dt>Owner:</dt><dd>Mr. Peppers (maintainer)</dd>
-      <dt>Supersedes:</dt><dd>None &mdash; extends current steady-state posture in PLAN.md</dd>
-      <dt>Sequencing:</dt><dd>Begins after Phase 1 (staleness/decay tooling) lands</dd>
+      <dt>Supersedes:</dt><dd>None &mdash; extends prior steady-state posture in PLAN.md (which is itself now stale and listed for refresh in §9.2)</dd>
+      <dt>Sequencing:</dt><dd>Began after Phase 1 (staleness/decay tooling) landed; merged 2026-06-29 / 2026-06-30</dd>
     </dl>
   </div>
 </header>
@@ -325,6 +325,11 @@
 </table>
 
 <p>Benchmark source selection draws on the existing <code>benchmark-trust</code> view's vetted list, so we don't recreate the trust evaluation. The composite is not a blessed authority — it's a default starting point users can pivot from by inspecting the underlying scores.</p>
+
+<div class="callout">
+  <span class="label">Methodology</span>
+  The composite formula, normalisation, aggregation choice (trust-weighted arithmetic mean within family; geometric mean across families per the OECD/JRC handbook + UNDP HDI precedent), band cutoffs, and sensitivity checks are specified in <a href="docs/composite-methodology.md"><code>docs/composite-methodology.md</code></a>. Implementation: <code>mcp/src/composite.ts</code>, tests in <code>mcp/src/test-composite.ts</code> (40 assertions, all passing). Per-family sub-score cells (<code>capability-code-score</code>, <code>capability-agentic-score</code>, <code>capability-longcontext-score</code>) are spec'd in the methodology doc §11; the schema migration that adds them is its own PR.
+</div>
 
 <h3>3.3 Column family C — Use-case suitability</h3>
 
@@ -598,35 +603,35 @@
 <div class="gate-grid">
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/95">Gate 1 (#95)</a></div>
   <div>Schema additions + full backfill: cost / capability / use-case column families <strong>plus the <code>_provenance</code> object</strong> in <code>data/landscape.json</code>. Gate 1 owns the backfill end-to-end (legacy-cell provenance assignment + mechanical fill of Phase 2 cells + LLM-unverified fill where mechanical fails). See §3.5.</div>
-  <div class="gate-status">Critical &middot; Filed</div>
+  <div class="gate-status">Critical &middot; Done &middot; Closed 2026-06-30</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/96">Gate 2 (#96)</a></div>
   <div><code>rank_candidates()</code> core function + test fixtures. Pure function, no surface code yet. Excludes unverified LLM cells from scoring per §3.4.</div>
-  <div class="gate-status">Critical &middot; Filed</div>
+  <div class="gate-status">Critical &middot; Done &middot; PR #109 merged</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/97">Gate 3 (#97)</a></div>
   <div><code>/recommend/between</code> route + <code>between_models</code> MCP tool + CLI subcommand ship together. All surfaces render the LLM-unverified badge from §3.4.</div>
-  <div class="gate-status">Critical &middot; Filed</div>
+  <div class="gate-status">Critical &middot; Done &middot; PR #110 merged</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/98">Gate 4 (#98)</a></div>
   <div><code>/recommend/by-constraints</code> route + <code>recommend_for_project</code> MCP tool + CLI subcommand.</div>
-  <div class="gate-status">Parallel &middot; Filed</div>
+  <div class="gate-status">Parallel &middot; Done &middot; PR #111 merged</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/99">Gate 5 (#99)</a></div>
   <div><strong>Canonical-questions research sprint.</strong> Sweep GitHub Discussions, Discord, public AI forums, model release threads, and known user-channel sources for real recommendation questions. Produce <code>docs/canonical-questions.yml</code> with ~50 entries categorized by question type. Blocks Gate 6.</div>
-  <div class="gate-status">Parallel &middot; Filed</div>
+  <div class="gate-status">Parallel &middot; Done &middot; PR #113 merged</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/100">Gate 6 (#100)</a></div>
   <div>Daily cron suite live: <code>recommendation-drift.yml</code>, <code>capability-incremental.yml</code>, <code>catalog-pulse.yml</code>, <code>vendor-price-sweep.yml</code>, plus conversion of existing <code>staleness.yml</code> from weekly to daily. Depends on Gate 5 for seeded questions.</div>
-  <div class="gate-status">Parallel &middot; Filed</div>
+  <div class="gate-status">Parallel &middot; Code merged (PR #114) &middot; First scheduled runs not yet observed</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/101">Gate 7 (#101)</a></div>
   <div>Extend the existing <code>/submit</code> web route + <code>intake.yml</code> template + <code>intake-research.yml</code> workflow for the new column families <strong>and provenance writes</strong>. LLM enrichment fills any unfilled cell, marked <code>source: "llm", verified: false</code>. (GitHub auth is implicitly satisfied by the existing GitHub-Issue submission surface.)</div>
-  <div class="gate-status">Parallel &middot; Filed</div>
+  <div class="gate-status">Parallel &middot; Done &middot; PR #112 merged</div>
 
   <div class="gate-id"><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/102">Gate 8 (#102)</a></div>
   <div><code>capability-rebaseline.yml</code> (weekly full re-score) + <code>model-release-watch.yml</code> (event-driven via RSS poller, since no persistent backend exists for true webhooks) live, with first real end-to-end run completed for each.</div>
-  <div class="gate-status">Final &middot; Filed</div>
+  <div class="gate-status">Final &middot; Code merged (PR #116) &middot; <code>model-release-watch.yml</code> first real run succeeded 2026-06-30 18:38 UTC &middot; first <code>capability-rebaseline.yml</code> run pending</div>
 </div>
 
 <h2 id="resolutions">8. Resolved design questions</h2>
@@ -669,7 +674,7 @@
 
 <h3>9.1 Done</h3>
 
-<p>All planning work for Phase 2 is complete. As of <code>2026-06-29</code>:</p>
+<p>All eight implementation gates are merged. As of <code>2026-06-30</code>:</p>
 
 <ul>
   <li><strong>Spec authored and locked.</strong> This document — §§1&ndash;8 — covers problem framing, schema additions (cost / capability / use-case + <code>_provenance</code>), recommender surface design, daily cadence, submission pipeline, gate definitions, and resolutions to all five originally-open design questions.</li>
@@ -677,31 +682,99 @@
   <li><strong>Tracking issue filed.</strong> <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/94">#94 &mdash; Phase 2: Catalog &rarr; Recommender</a> anchors the gate set.</li>
   <li><strong>All 8 gate issues filed</strong> (#95&ndash;#102). Each gate body was drafted with verified file paths, conventions, and prior-art references &mdash; no unverified claims. Backfill (originally a separate concern) was folded into Gate 1 so the schema-addition issue covers legacy provenance assignment + Phase 2 mechanical fill + LLM-judgment fill in one merge.</li>
   <li><strong>Architectural risks surfaced and resolved in-spec.</strong> Two in particular: (a) Gate 8's "webhook" half is implemented as a 30-min RSS poller because the project has no persistent backend; (b) Gate 7 is framed as <em>extend, not replace</em> after verifying the existing <code>/submit</code> route, <code>intake.yml</code> template, and <code>intake-research.yml</code> workflow are already production.</li>
+  <li><strong>All 8 gates merged.</strong> Gate 1 (#95) closed 2026-06-30. Gates 2&ndash;8 merged via PRs #109, #110, #111, #113, #114, #112, #116 respectively. Gate-grid in §7 carries the per-gate PR / closure references.</li>
+  <li><strong>First event-driven release watch fired successfully.</strong> <code>model-release-watch.yml</code> completed its first real run at 2026-06-30 18:38 UTC &mdash; one half of Gate 8's acceptance criteria satisfied.</li>
 </ul>
 
-<h3>9.2 Next</h3>
+<h3>9.2 Plan &mdash; what's next</h3>
 
-<p>Implementation begins with Gate 1 and proceeds along the critical path:</p>
+<p>Sequenced by readiness: do (1) immediately because the branch and PR already exist; do (2) once main is clean; (3) is calendar-driven and passive; (4) needs a maintainer decision that nothing else blocks on.</p>
+
+<p>Block B from prior revisions of this doc (administrative close-out of #94, #96&ndash;#102) is complete as of 2026-06-30. Removed from the plan.</p>
+
+<h4>Step 1 &mdash; Land PR #117 (immediate)</h4>
+
+<p><a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/117">PR #117 &mdash; <code>data(decay): backfill research-complete for 10 arXiv stale rows</code></a> is the only open PR. It's on branch <code>stale-row-sweep</code> against <code>main</code>. Merging it lands the arXiv decay-cause backfill (one commit, <code>be174ce1</code>) and is a clean prerequisite to Step 2 &mdash; if PLAN.md gets rewritten on a branch that doesn't include this backfill, the catalog-state numbers I cite there will already be stale by the time the rewrite merges.</p>
+
+<p><strong>Action:</strong> review and merge #117. Delete the branch after merge.</p>
+
+<h4>Step 2 &mdash; Refresh <code>PLAN.md</code></h4>
+
+<p><code>PLAN.md</code> is dated 2026-05-18 and describes the pre-Phase-2 steady-state posture. It predates the entire recommender build and is now actively misleading: it lists "MCP npm publish (#66) / Path A pipeline flip (#68) / T3-1 revisit (#57)" as the open workstreams and makes no mention of recommender surfaces, the daily cron suite, or the provenance model. Anyone reading <code>PLAN.md</code> today gets a wrong picture of the project.</p>
+
+<p>Concrete edits required:</p>
+
+<ul>
+  <li><strong>Posture section:</strong> replace "Steady-state operate + distribute" framing with "Phase 2 implementation complete; verification window in progress" &mdash; reflect that the project is no longer steady-state.</li>
+  <li><strong>Catalog state section:</strong> re-verify "912 records / 85 cells / 528 typed edges" against the current <code>data/landscape.json</code>. Phase 2 added cell families (~95 cells per row per §3); some PRs may have added rows. Numbers should be queried, not estimated.</li>
+  <li><strong>Active workstreams section:</strong> remove #66 / #68 / co-maintainer items if obsolete (or carry them forward if still relevant after Step 4's decision). Add the verification window from Step 3 as a named active workstream.</li>
+  <li><strong>Operational cadence section:</strong> "Best-effort, ad-hoc" no longer holds &mdash; daily cron suite is now part of cadence. List the new workflows and what each produces.</li>
+  <li><strong>Open issues snapshot table:</strong> rebuild against current open issues (currently 23 &mdash; 22 stale-row bot flags + #57). Reflect that stale-row triage is being handled out-of-band.</li>
+  <li><strong>Where the documentation lives section:</strong> add <code>PHASE_2_SPEC.html</code> alongside the existing doc list.</li>
+</ul>
+
+<h4>Step 3 &mdash; Observe first scheduled cron firings (passive, calendar-driven)</h4>
+
+<p>Per Gate 8's acceptance criteria ("first real end-to-end run completed for each"), five workflows must each produce one successful scheduled run with sane output before Phase 2 can be declared formally closed. As of last check (2026-06-30), only <code>model-release-watch.yml</code> has fired. Do not manually trigger; the criterion is specifically a real scheduled run.</p>
+
+<table>
+  <thead><tr><th>Workflow</th><th>Cadence</th><th>Expected first firing</th><th>What to verify on first run</th></tr></thead>
+  <tbody>
+    <tr><td><code>recommendation-drift.yml</code></td><td>Daily</td><td>Within 24h</td><td><code>docs/drift-YYYY-MM-DD.md</code> exists, top-5 diff section parses, no issue opened on a no-op day.</td></tr>
+    <tr><td><code>capability-incremental.yml</code></td><td>Daily</td><td>Within 24h</td><td>Either no-op (no benchmark sources moved) or auto-PR opened with score diff + rationale.</td></tr>
+    <tr><td><code>catalog-pulse.yml</code></td><td>Daily</td><td>Within 24h</td><td>Daily card posted to <code>/findings</code>; 7-day rollup link resolves.</td></tr>
+    <tr><td><code>vendor-price-sweep.yml</code></td><td>Daily</td><td>Within 24h</td><td>Either no-op or auto-PR per price change; issue opened only on <code>cost_tier</code> boundary crossing.</td></tr>
+    <tr><td><code>capability-rebaseline.yml</code></td><td>Weekly</td><td>Within 7d</td><td><code>docs/FINDINGS-YYYY-MM-DD.md</code> with movement summary; tracking issue opened.</td></tr>
+  </tbody>
+</table>
+
+<p>If a workflow fails on first run, fix in a small follow-up PR. Once all five have produced one good real run, Phase 2 is formally closed and this spec is fully retired (move to <code>docs/archive/</code>).</p>
+
+<h4>Step 4 &mdash; Decide what follows Phase 2 (maintainer)</h4>
+
+<p>This document does not assume an answer; the decision is yours. For context only, the three pre-Phase-2 distribution-era candidates parked in old <code>PLAN.md</code> were:</p>
+
+<ul>
+  <li><strong>MCP-server npm publish</strong> (issue #66 at the time of old PLAN.md &mdash; verify current state before referencing). Unblocks <code>npx -y landscape-mcp</code> for external users.</li>
+  <li><strong>v6-findings external writeup.</strong> Several publishable headlines in <code>analysis.md</code> v6 not yet reached by anyone outside the catalog audience.</li>
+  <li><strong>Co-maintainer recruitment.</strong> MAINTAINER.md §4 has the slot open but passive; distribution-era work includes actively offering ownership over a section family.</li>
+</ul>
+
+<p>None of these is preconditioned on Phase 2 closure; any could begin in parallel with Step 3. A genuinely new direction (Phase 3 with new scope) is also fair game &mdash; nothing in Phase 2 forecloses it.</p>
+
+<p class="footnote">Steps 1&ndash;3 require no design decisions. Step 4 is the only fork in the road and it has no deadline. Implementation critical path (Gate 1 &rarr; 2 &rarr; 3) is fully merged.</p>
+
+<h3>9.3 Capability composite methodology (post-Phase-2 follow-up)</h3>
+
+<p>Phase 2 shipped a <code>capability-composite-score</code> cell on every row, populated by LLM-judgment at backfill. The original spec (§3.2) named "code, agentic reasoning, long-context" task families but never defined a formula. The audit + ground-it-in-practice pass that was identified after Phase 2 closure landed as:</p>
+
+<ul>
+  <li><strong>Methodology doc — ratified 2026-07-01.</strong> <a href="docs/composite-methodology.md"><code>docs/composite-methodology.md</code></a>. OECD/JRC handbook structure, all eight steps. Six methodology decisions confirmed: three task families (code / agentic / longcontext); per-benchmark min-max normalisation anchored at catalog SOTA with weekly rebaseline recompute (drift &gt; ±3 points surfaced in FINDINGS); trust-weighted arithmetic mean within family (with an explicit median fallback rule if |median − mean| exceeds 15 points); geometric mean across families (UNDP HDI precedent); band <em>shape</em> ratified (three bands + null), band <em>cutoff values</em> (50 / 75) held provisional under a lock-on-data plan against the first-sweep distribution; benchmark trust threshold reuses the existing <code>medium</code> tier cutoff (≥ 40) in <code>benchmark-trust.ts</code> — single source of truth. Composite is framed as a <em>sidekick</em>: sub-scores lead all UI surfaces, composite drops into tooltips and the recommender's sort key.</li>
+  <li><strong>Pure formula implementation</strong> — <code>mcp/src/composite.ts</code>. <code>computeRow(observations, anchors) &rarr; {composite, byFamily, band, benchmarkCount}</code>. Deterministic, no I/O. Mirrors to <code>web/src/lib/analyses/composite.ts</code> per existing shared-analysis convention.</li>
+  <li><strong>Test fixture</strong> — <code>mcp/src/test-composite.ts</code>. 40 assertions covering normalisation edge cases, within-family weighting, geometric-vs-arithmetic divergence, null/zero handling, band cutoffs, and the full one-row pipeline.</li>
+</ul>
+
+<p>What has shipped since ratification (all 2026-07-01):</p>
+
+<ul>
+  <li><strong>Schema migration &mdash; done.</strong> <code>scripts/phase_2_add_subscores.py</code> ran clean; 912 rows × 3 sub-score cells added (<code>capability-code-score</code>, <code>capability-agentic-score</code>, <code>capability-longcontext-score</code>) with the standard empty-cell shape. Sister lists updated in <code>extract.py</code>, <code>render.py</code>, <code>validate.py</code>, <code>research_intake.py</code>, <code>apply_intake_pr.py</code>. Colspans updated (104 → 107). All 7 validate.py gates PASS.</li>
+  <li><strong>Benchmark-family classification &mdash; ratified.</strong> <a href="docs/benchmark-families.yml"><code>docs/benchmark-families.yml</code></a>. 34 benchmarks classified: 8 code, 7 agentic, 8 longcontext, 11 explicitly excluded (MMLU, GPQA, Arena, etc.). Two IDs (<code>alphacode</code>, <code>swe-lancer</code>) held at <code>family: null</code>, treated as excluded pending later maintainer decision.</li>
+  <li><strong>Python composite mirror &mdash; done.</strong> <code>scripts/_composite.py</code>, mirrored from <code>mcp/src/composite.ts</code>. <code>scripts/test_composite.py</code> enforces parity — same 40 assertions, both implementations green. Doc §Implementation now names both as the single-source-of-truth pair.</li>
+  <li><strong>Sweep scaffold &mdash; done, LLM wiring deferred.</strong> <code>scripts/capability_sweep.py</code>. Full staging-file architecture (writes to <code>data/_baselines/capability-sweep-YYYY-MM-DD.json</code>, never directly to <code>landscape.json</code>); idempotency via content-hash manifest; separate <code>--merge-into-landscape</code> step. <code>--no-llm</code> mode runs the pipeline end-to-end using the existing benchmark-source cell text as already-extracted observations (useful for CI without an API key). <code>--dry-run</code> reports the plan.</li>
+</ul>
+
+<p>What still needs to ship:</p>
 
 <ol>
-  <li>
-    <strong>Commit this spec to <code>main</code></strong> so the relative <code>PHASE_2_SPEC.html</code> link in every filed issue body resolves on GitHub.
-  </li>
-  <li>
-    <strong>Begin <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/95">Gate 1 (#95)</a>:</strong> add the new cells + <code>_provenance</code> object to <code>data/landscape.json</code>, run the full backfill (legacy + mechanical + LLM-unverified). Every downstream gate depends on this.
-  </li>
-  <li>
-    <strong>In parallel with Gate 1, kick off <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/99">Gate 5 (#99)</a></strong> &mdash; the canonical-questions research sprint &mdash; so <code>docs/canonical-questions.yml</code> is ready by the time Gate 6 needs it.
-  </li>
-  <li>
-    <strong>After Gate 1 lands</strong>, work the critical path: <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/96">Gate 2 (#96)</a> &rarr; <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/97">Gate 3 (#97)</a>. Gates 4, 6, 7, and 8 parallelize.
-  </li>
-  <li>
-    <strong>Gate 8 closes the phase</strong> when the first real weekly rebaseline AND the first real release-watch firing both complete end-to-end.
-  </li>
+  <li><strong>LLM plumbing for the sweep.</strong> The sweep's LLM-extraction path raises <code>NotImplementedError</code> pending a follow-up PR that: adds the Anthropic Python SDK dependency, wires <code>ANTHROPIC_API_KEY</code> from GitHub Actions secrets, implements Haiku-per-URL extraction + Sonnet QA per methodology recommendations. This is where the batch-API + prompt-cache decisions land in code.</li>
+  <li><strong>First real sweep + baseline capture.</strong> Once (1) ships, run the sweep to produce <code>data/_baselines/benchmark-maxima.json</code> (per-benchmark SOTA ceilings) from real extractions. Until this file exists, the sweep refuses to merge into <code>landscape.json</code>.</li>
+  <li><strong>Cron wire-up.</strong> Extend <code>capability-rebaseline.yml</code> to invoke <code>capability_sweep.py</code> + the merge step weekly.</li>
+  <li><strong>Sensitivity script.</strong> <code>scripts/composite_sensitivity.py</code> — Dirichlet weight perturbation, top-5 stability across the 55 canonical questions. Methodology §8.1.</li>
+  <li><strong>Arena cross-check.</strong> <code>data/arena-mapping.json</code> + Spearman ρ check against Chatbot Arena Elo. Methodology §8.2.</li>
+  <li><strong>Band-cutoff lock.</strong> After the first sweep produces a real distribution, ratify the 50/75 cutoff values (per methodology §10 lock-on-data plan) or relocate to observed 33rd/67th percentiles.</li>
 </ol>
 
-<p class="footnote">Critical path: Gate 1 &rarr; 2 &rarr; 3. Everything else parallelizes once Gates 1&ndash;2 land. Gate 6 depends on Gate 5's output. Gate 8 depends on Gates 1 and 6.</p>
+<p>Order: (1) unblocks (2) unblocks (3); (4)–(5) can run in parallel with (3); (6) is the last step and requires real distribution data.</p>
 
 <hr>
 
