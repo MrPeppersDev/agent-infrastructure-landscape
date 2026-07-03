@@ -5,8 +5,78 @@
   <link href="https://mrpeppersdev.github.io/feed.xml" rel="self" />
   <link href="https://mrpeppersdev.github.io/" />
   <id>https://mrpeppersdev.github.io/feed.xml</id>
-  <updated>2026-05-15T00:00:00Z</updated>
+  <updated>2026-06-30T00:00:00Z</updated>
   <author><name>Mr. Peppers</name></author>
+  <entry>
+    <title>Atlas</title>
+    <link href="https://mrpeppersdev.github.io/systems/atlas--arxiv-2208-03299" />
+    <id>https://mrpeppersdev.github.io/systems/atlas--arxiv-2208-03299</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Few-shot retrieval-augmented LM · Retrieval-as-memory hybrids · Meta AI. Jointly fine-tunes retriever + LM for few-shot tasks.</summary>
+  </entry>
+  <entry>
+    <title>Compressive Transformer</title>
+    <link href="https://mrpeppersdev.github.io/systems/compressive-transformer--arxiv-1911-05507" />
+    <id>https://mrpeppersdev.github.io/systems/compressive-transformer--arxiv-1911-05507</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Recent full-res + compressed older · Recent method papers — theorized, no distinct product · Maintains recent states in full resolution while compressing older memories with learned compression functions. DeepMind.</summary>
+  </entry>
+  <entry>
+    <title>EMAT</title>
+    <link href="https://mrpeppersdev.github.io/systems/emat--arxiv-2210-16773" />
+    <id>https://mrpeppersdev.github.io/systems/emat--arxiv-2210-16773</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Sub-ms KV memory for QA pairs · Recent method papers — theorized, no distinct product · Efficient Memory-Augmented Transformer. Encodes millions of QA pairs into key-value memory; MIPS search returns hits in sub-millisecond latency. EMNLP 2022.</summary>
+  </entry>
+  <entry>
+    <title>FLARE</title>
+    <link href="https://mrpeppersdev.github.io/systems/flare--arxiv-2305-06983" />
+    <id>https://mrpeppersdev.github.io/systems/flare--arxiv-2305-06983</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Confidence-triggered forward retrieval · Retrieval-as-memory hybrids · Forward-Looking Active Retrieval. Uses model&apos;s low-confidence token predictions as signal to anticipate future information needs and retrieve proactively. Retrieves only when token probability falls below threshold; generator stays frozen.</summary>
+  </entry>
+  <entry>
+    <title>Generative Agents</title>
+    <link href="https://mrpeppersdev.github.io/systems/generative-agents--arxiv-2304-03442" />
+    <id>https://mrpeppersdev.github.io/systems/generative-agents--arxiv-2304-03442</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Interactive simulacra of human behavior · Recent method papers — theorized, no distinct product · Park et al. — landmark agent-simulation paper. Reflection + memory stream + retrieval enable believable agent behavior.</summary>
+  </entry>
+  <entry>
+    <title>ITER-RETGEN</title>
+    <link href="https://mrpeppersdev.github.io/systems/iter-retgen--arxiv-2305-15294" />
+    <id>https://mrpeppersdev.github.io/systems/iter-retgen--arxiv-2305-15294</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Output-conditioned iterative retrieval · Retrieval-as-memory hybrids · Uses model&apos;s generated output as a rich context signal for the next retrieval round rather than just the original query. Processes all retrieved knowledge as a whole, preserving generation flexibility.</summary>
+  </entry>
+  <entry>
+    <title>MemoryBank</title>
+    <link href="https://mrpeppersdev.github.io/systems/memorybank--arxiv-2305-10250" />
+    <id>https://mrpeppersdev.github.io/systems/memorybank--arxiv-2305-10250</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Long-term memory enhancement · Recent method papers — theorized, no distinct product · Enhances LLMs with long-term memory. Early influential paper.</summary>
+  </entry>
+  <entry>
+    <title>Neural Episodic Control</title>
+    <link href="https://mrpeppersdev.github.io/systems/neural-episodic-control--arxiv-1703-01988" />
+    <id>https://mrpeppersdev.github.io/systems/neural-episodic-control--arxiv-1703-01988</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Differentiable episodic dictionary · Recent method papers — theorized, no distinct product · Pritzel et al. Agent stores past state-action-value tuples in a differentiable dictionary; recall via approximate nearest neighbour. ICML 2017.</summary>
+  </entry>
+  <entry>
+    <title>RETRO</title>
+    <link href="https://mrpeppersdev.github.io/systems/retro--arxiv-2112-04426" />
+    <id>https://mrpeppersdev.github.io/systems/retro--arxiv-2112-04426</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Trillion-token retrieval transformer · Retrieval-as-memory hybrids · DeepMind. Retrieval-Enhanced Transformer with chunked cross-attention over a 2T-token retrieval database. Frozen BERT retriever + differentiable encoder.</summary>
+  </entry>
+  <entry>
+    <title>Transformer-XL</title>
+    <link href="https://mrpeppersdev.github.io/systems/transformer-xl--arxiv-1901-02860" />
+    <id>https://mrpeppersdev.github.io/systems/transformer-xl--arxiv-1901-02860</id>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Segment-level recurrence + cached states · Recent method papers — theorized, no distinct product · Extends context through segment-level recurrence + caching of hidden states from prior segments. Foundational long-context architecture.</summary>
+  </entry>
   <entry>
     <title>Bytebot</title>
     <link href="https://mrpeppersdev.github.io/systems/bytebot--bytebot-ai" />
@@ -286,75 +356,5 @@
     <id>https://mrpeppersdev.github.io/systems/aider-harness--aider-chat</id>
     <updated>2026-05-14T00:00:00Z</updated>
     <summary>Terminal-native AI pair programmer (OSS, Python) · Agent IDEs &amp; coding harnesses · OSS terminal coding agent by Paul Gauthier — one of the original AI-pair-programmer CLIs (2023). Architect/Editor modes; repo-map for context; uses any LiteLLM-compatible model. Memory via CONVENTIONS.md and .aider.conf.yml — author-edited markdown. Distinct from the separate Aider memory-row in &quot;Coding-agent memory&quot;; this row characterises the harness itself.</summary>
-  </entry>
-  <entry>
-    <title>AiT (Associative Transformer)</title>
-    <link href="https://mrpeppersdev.github.io/systems/ait-associative-transformer--arxiv-2309-12862" />
-    <id>https://mrpeppersdev.github.io/systems/ait-associative-transformer--arxiv-2309-12862</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Hopfield + low-rank explicit memory · Recent method papers — theorized, no distinct product · Global Workspace Layer combining low-rank explicit memory + bottleneck attention + Hopfield-style associative memory. Decouples memory from the Hopfield network via learnable explicit memory. Outperforms sparse-Transformer baselines on Sort-of-CLEVR. Latest revision Mar 2025.</summary>
-  </entry>
-  <entry>
-    <title>Aleph Alpha PhariaAI / PhariaCatch</title>
-    <link href="https://mrpeppersdev.github.io/systems/aleph-alpha-phariaai-phariacatch--aleph-alpha-com" />
-    <id>https://mrpeppersdev.github.io/systems/aleph-alpha-phariaai-phariacatch--aleph-alpha-com</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Sovereign governed-document memory · Dedicated memory layers · German enterprise stack. PhariaCatch captures + preserves organisational knowledge through structured human-machine collaboration; PhariaAssistant queries via semantic search. Combines sovereign deployment constraints with explainability tooling.</summary>
-  </entry>
-  <entry>
-    <title>Algolia</title>
-    <link href="https://mrpeppersdev.github.io/systems/algolia--algolia-com" />
-    <id>https://mrpeppersdev.github.io/systems/algolia--algolia-com</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Hosted search API · Search platforms (non-memory) · Search-as-a-service API for instant search experiences — NeuralSearch (vector) + lexical. Adopted by 12000+ companies including LVMH, Stripe.</summary>
-  </entry>
-  <entry>
-    <title>Algolia (NeuralSearch)</title>
-    <link href="https://mrpeppersdev.github.io/systems/algolia-neuralsearch--algolia-com" />
-    <id>https://mrpeppersdev.github.io/systems/algolia-neuralsearch--algolia-com</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Neural-hash hybrid (vector + keyword) · Enterprise-search adjacencies · NeuralSearch combines vector + keyword via neural hashing — compresses to 1/10th size while retaining 99% info. AI-powered personalisation + recommendations.</summary>
-  </entry>
-  <entry>
-    <title>Alibaba Qwen 3 family</title>
-    <link href="https://mrpeppersdev.github.io/systems/alibaba-qwen-3-family--qwenlm-github-io" />
-    <id>https://mrpeppersdev.github.io/systems/alibaba-qwen-3-family--qwenlm-github-io</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Open-weights frontier model family (Qwen 3 dense + MoE; 0.5B–235B) · Foundation models (substrate reference) · Alibaba Cloud&apos;s Qwen 3 family (2025-04) — open-weights frontier models from 0.5B to 235B-A22B MoE. Apache 2.0 (most sizes) — broadest open-weights family. Includes Qwen 3 32B dense, Qwen 3 30B-A3B MoE, Qwen 3 235B-A22B MoE. Qwen-Coder, Qwen-VL (vision), Qwen-Audio companion variants. Dominant base model for many Chinese AI startups and a top OSS substrate globally.</summary>
-  </entry>
-  <entry>
-    <title>Alita</title>
-    <link href="https://mrpeppersdev.github.io/systems/alita--arxiv-2505-20286" />
-    <id>https://mrpeppersdev.github.io/systems/alita--arxiv-2505-20286</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Generalist agentic reasoning · Recent method papers — theorized, no distinct product · Generalist agent enabling scalable agentic reasoning.</summary>
-  </entry>
-  <entry>
-    <title>Alita-G</title>
-    <link href="https://mrpeppersdev.github.io/systems/alita-g--arxiv-2510-23601" />
-    <id>https://mrpeppersdev.github.io/systems/alita-g--arxiv-2510-23601</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Self-evolving generative agent · Recent method papers — theorized, no distinct product · Self-evolving generative agent for agent generation.</summary>
-  </entry>
-  <entry>
-    <title>AllegroGraph (Franz)</title>
-    <link href="https://mrpeppersdev.github.io/systems/allegrograph-franz--allegrograph-com" />
-    <id>https://mrpeppersdev.github.io/systems/allegrograph-franz--allegrograph-com</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>RDF triple/quad store + reasoning · Knowledge-graph platforms · RDF triple/quad store with RDFS++ / OWL reasoning. v8.4 (May 2025) added an NLQ interface.</summary>
-  </entry>
-  <entry>
-    <title>AlphaEdit</title>
-    <link href="https://mrpeppersdev.github.io/systems/alphaedit--arxiv-2410-02355" />
-    <id>https://mrpeppersdev.github.io/systems/alphaedit--arxiv-2410-02355</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Null-space knowledge editing · Recent method papers — theorized, no distinct product · Null-space-constrained knowledge editing for language models.</summary>
-  </entry>
-  <entry>
-    <title>AlphaSense</title>
-    <link href="https://mrpeppersdev.github.io/systems/alphasense--alpha-sense-com" />
-    <id>https://mrpeppersdev.github.io/systems/alphasense--alpha-sense-com</id>
-    <updated>2026-05-14T00:00:00Z</updated>
-    <summary>Financial-research search platform + Genesis AI agent · Use-case-specific agent harnesses · Founded 2010; AI-driven market intelligence — semantic search over earnings calls, broker research, regulatory filings. $4B val Jun-2024 ($650M growth round; BDT + MSP). **Acquired Tegus Jun-2024 for $930M** (expert-call transcripts). Genesis = autonomous research agent launched 2024.</summary>
   </entry>
 </feed>
