@@ -12,9 +12,14 @@ const config = {
       // "docs/ holds both project markdown and Pages build output").
       pages: 'build',
       assets: 'build',
-      // No SPA fallback — every route is prerendered (see +layout.ts), so
-      // the static export is fully resolved HTML, not a SPA shell.
-      fallback: undefined,
+      // SPA fallback for the one client-only route (/compare/custom,
+      // refs #134 — 528 records → ~139k pairs, not prerenderable). GitHub
+      // Pages serves 404.html for any unknown path, so the fallback shell
+      // boots the client router there: /compare/custom resolves to its
+      // route; genuinely unknown paths render src/routes/+error.svelte
+      // (which replaced the old hand-authored static/404.html). Every
+      // other route is still prerendered (see +layout.ts).
+      fallback: '404.html',
       precompress: false,
       strict: true
     }),
