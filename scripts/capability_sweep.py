@@ -40,9 +40,13 @@ Idempotency:
   version match are skipped.
 
 Cost & rate limiting:
-  Sweep uses the Anthropic batch API (methodology recommendation #3;
-  24h SLA; 50% cheaper). API key from `ANTHROPIC_API_KEY` env var; the
-  cron passes it in from GitHub Actions secrets. Local runs read `.env`.
+  LLM calls are sequential `messages.create` calls with prompt caching
+  (the extraction system prompt — instructions + benchmark-id list —
+  carries a cache breakpoint, so per-URL calls after the first hit the
+  cache). Batch API support (methodology recommendation #3; 24h SLA;
+  50% cheaper) is a documented follow-up once sweep volume justifies
+  it. API key from `ANTHROPIC_API_KEY` env var; the cron passes it in
+  from GitHub Actions secrets. Local runs read `.env`.
 
 Usage
 -----
@@ -109,6 +113,8 @@ class RowResult:
     sources_seen: list[str]
     sources_verified: list[str]  # subset with URL-backed extractions
     qa_verdict: Optional[str] = None  # 'approved' / 'flagged' / None
+    qa_reason: Optional[str] = None
+    status: str = "skipped"  # 'scored' only with ≥1 real observation (#101)
     skipped_reason: Optional[str] = None
 
 
@@ -218,7 +224,81 @@ def parse_naive_observations(
 
 
 # ---------------------------------------------------------------------------
-# Per-row sweep (delegated to LLM in production; regex under --no-llm).
+# LLM extraction path (issue #127): Haiku per linked URL, Sonnet QA.
+# ---------------------------------------------------------------------------
+
+
+URL_RE = re.compile(r"https?://[^\s\)\]\}>\"',;]+")
+
+
+def extract_urls(text: str) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for m in URL_RE.finditer(text):
+        u = m.group(0).rstrip(".")
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
+
+
+def canonical_benchmark_id(raw: str, families: dict[str, str]) -> Optional[str]:
+    """Map a model-reported benchmark id onto the families map, trying
+    the exact slug then the head token (umbrella match)."""
+    candidate = re.sub(r"\s+", "-", raw.strip().lower())
+    for key in (candidate, candidate.split("-")[0]):
+        if key in families:
+            return key
+    return None
+
+
+def llm_extract_observations(
+    llm: "Any",
+    urls: list[str],
+    families: dict[str, str],
+    default_trust: float = 50.0,
+) -> tuple[list[BenchmarkObservation], list[str], dict[str, Optional[str]]]:
+    """Haiku over each linked URL. Returns (observations,
+    verified_urls, run_dates_by_benchmark). A URL is 'verified' when
+    it yielded ≥1 extraction that matched the families map."""
+    from _llm_client import fetch_url_text  # lazy: --no-llm stays stdlib
+
+    benchmark_ids = sorted(families)
+    obs_by_id: dict[str, BenchmarkObservation] = {}
+    run_dates: dict[str, Optional[str]] = {}
+    verified_urls: list[str] = []
+    for url in urls:
+        ok, page_text = fetch_url_text(url)
+        if not ok:
+            print(f"  warn: {url}: {page_text}", file=sys.stderr)
+            continue
+        try:
+            triples = llm.extract_benchmarks(url, page_text, benchmark_ids)
+        except Exception as exc:  # noqa: BLE001 — per-URL isolation
+            print(f"  warn: extraction failed for {url}: {exc}", file=sys.stderr)
+            continue
+        matched_any = False
+        for t in triples:
+            bid = canonical_benchmark_id(t["benchmark_id"], families)
+            if bid is None:
+                continue
+            matched_any = True
+            if bid not in obs_by_id:
+                obs_by_id[bid] = BenchmarkObservation(
+                    id=bid,
+                    score=t["score"],
+                    trust=default_trust,
+                    family=families[bid],  # type: ignore[arg-type]
+                )
+                run_dates[bid] = t.get("run_date")
+        if matched_any:
+            verified_urls.append(url)
+    return list(obs_by_id.values()), verified_urls, run_dates
+
+
+# ---------------------------------------------------------------------------
+# Per-row sweep (Haiku extract + Sonnet QA when an LLM client is
+# provided; regex-only under --no-llm / --dry-run).
 # ---------------------------------------------------------------------------
 
 
@@ -226,7 +306,7 @@ def sweep_row(
     row: dict,
     families: dict[str, str],
     anchors: dict[str, BenchmarkAnchor],
-    use_llm: bool,
+    llm: Optional["Any"] = None,
 ) -> RowResult:
     row_id = row["id"]
     cells = row.get("cells") or {}
@@ -251,18 +331,31 @@ def sweep_row(
         result.skipped_reason = "placeholder-only cell text"
         return result
 
-    if use_llm:
-        # Production path — call Haiku over each linked URL, extract
-        # {benchmark_id, score, run_date} triples, then Sonnet QA.
-        # LLM plumbing is intentionally not implemented here: the cron
-        # will inject an ANTHROPIC_API_KEY-bearing client via
-        # scripts/_llm_client.py (a follow-up PR).
-        raise NotImplementedError(
-            "LLM extraction path not yet wired. Use --no-llm for now."
+    run_dates: dict[str, Optional[str]] = {}
+    if llm is not None:
+        # Production path — Haiku over each linked URL for structured
+        # {benchmark_id, score, run_date} triples, then Sonnet QA on
+        # the computed composite.
+        urls = extract_urls(src_text)
+        result.sources_seen = urls if urls else [src_text]
+        obs, verified_urls, run_dates = ([], [], {}) if not urls else (
+            llm_extract_observations(llm, urls, families)
         )
+        result.sources_verified = verified_urls
+        # Fallback for benchmarks stated inline in the cell text but not
+        # recovered from a URL: naive regex parse. These observations
+        # feed the composite but do NOT count toward verification.
+        have = {o.id for o in obs}
+        obs += [
+            o for o in parse_naive_observations(src_text, families)
+            if o.id not in have
+        ]
+    else:
+        obs = parse_naive_observations(src_text, families)
+        result.sources_seen = [src_text]
 
-    obs = parse_naive_observations(src_text, families)
     if not obs:
+        result.sources_seen = result.sources_seen or [src_text]
         result.skipped_reason = "no benchmark mentions matched families map"
         return result
 
@@ -272,10 +365,32 @@ def sweep_row(
     result.by_family = {k: v for k, v in row_result.by_family.items()}  # type: ignore[misc]
     result.benchmark_count = {k: v for k, v in row_result.benchmark_count.items()}  # type: ignore[misc]
     result.observations = [
-        {"id": o.id, "score": o.score, "trust": o.trust, "family": o.family}
+        {
+            "id": o.id,
+            "score": o.score,
+            "trust": o.trust,
+            "family": o.family,
+            "run_date": run_dates.get(o.id),
+        }
         for o in obs
     ]
-    result.sources_seen = [src_text]
+    # Provenance semantics (#101): 'scored' requires ≥1 real observation.
+    result.status = "scored"
+
+    if llm is not None:
+        try:
+            verdict, reason = llm.qa_review(
+                row_id,
+                result.observations,
+                result.composite,
+                result.band,
+                result.by_family,
+            )
+        except Exception as exc:  # noqa: BLE001 — QA failure ≠ sweep failure
+            print(f"  warn: QA review failed for {row_id}: {exc}", file=sys.stderr)
+            verdict, reason = None, None
+        result.qa_verdict = verdict
+        result.qa_reason = reason
     return result
 
 
@@ -302,6 +417,16 @@ def load_manifest() -> dict[str, str]:
     return json.loads(SWEEP_MANIFEST.read_text(encoding="utf-8"))
 
 
+def save_manifest(manifest: dict[str, str]) -> None:
+    SWEEP_MANIFEST.parent.mkdir(parents=True, exist_ok=True)
+    tmp = SWEEP_MANIFEST.with_suffix(SWEEP_MANIFEST.suffix + ".tmp")
+    tmp.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    tmp.replace(SWEEP_MANIFEST)
+
+
 # ---------------------------------------------------------------------------
 # Staging output.
 # ---------------------------------------------------------------------------
@@ -311,11 +436,16 @@ def staging_path() -> Path:
     return BASELINES_DIR / f"capability-sweep-{date.today().isoformat()}.json"
 
 
-def write_staging(results: list[RowResult], path: Path) -> None:
+def write_staging(
+    results: list[RowResult],
+    path: Path,
+    models: Optional[dict[str, str]] = None,
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "generatedAt": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "methodologyVersion": METHODOLOGY_VERSION,
+        "models": models,  # {"extraction": ..., "qa": ...} or None (--no-llm)
         "totalRows": len(results),
         "rowsWithComposite": sum(1 for r in results if r.composite is not None),
         "results": [asdict(r) for r in results],
@@ -351,6 +481,9 @@ def merge_into_landscape(sweep_path: Path) -> tuple[int, int]:
 
         cells = rec.setdefault("cells", {})
         prov = rec.setdefault("_provenance", {})
+        # Verification bit (#101 / methodology §Verification bit):
+        # set ONLY when ≥1 source URL backed an extraction AND the
+        # Sonnet QA pass approved the composite.
         verified = bool(res.get("sources_verified")) and res.get("qa_verdict") == "approved"
 
         def _write(slug: str, value: str) -> None:
@@ -361,12 +494,18 @@ def merge_into_landscape(sweep_path: Path) -> tuple[int, int]:
                 "status": "estimate",
                 "tier": "T3",
             }
-            prov[slug] = {
+            entry = {
                 "source": "llm",
                 "model_id": "claude-sonnet-4-6",
                 "generated_at": today,
                 "verified": verified,
             }
+            if verified:
+                # Gate 7 requires llm+verified cells to record their
+                # verification step.
+                entry["verified_at"] = today
+                entry["verification_step"] = "sonnet-qa-approved+source-url-extraction"
+            prov[slug] = entry
             cells_written += 1
 
         _write("capability-composite-score", f"{res['composite']:.1f}")
@@ -421,6 +560,19 @@ def main() -> int:
         print(f"  cells written: {cells_written}")
         return 0
 
+    # LLM client: only for the real sweep. --dry-run makes no LLM calls
+    # (per its help text) and --no-llm never needs one; neither path
+    # imports the anthropic SDK.
+    llm = None
+    if not args.no_llm and not args.dry_run:
+        from _llm_client import EXTRACTION_MODEL, QA_MODEL, LLMClient
+        try:
+            llm = LLMClient()
+        except RuntimeError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 2
+        print(f"LLM sweep: extraction={EXTRACTION_MODEL} qa={QA_MODEL}")
+
     families = load_benchmark_families()
     anchors = load_benchmark_maxima()
     if not anchors:
@@ -453,8 +605,9 @@ def main() -> int:
         if not row_anchors:
             row_anchors = {b: BenchmarkAnchor(max=100.0) for b in families}
 
-        res = sweep_row(rec, families, row_anchors, use_llm=not args.no_llm)
+        res = sweep_row(rec, families, row_anchors, llm=llm)
         results.append(res)
+        manifest[rec["id"]] = h
         swept += 1
 
     total = len(results)
@@ -468,8 +621,15 @@ def main() -> int:
         return 0
 
     out = staging_path()
-    write_staging(results, out)
+    models = (
+        {"extraction": llm.extraction_model, "qa": llm.qa_model}
+        if llm is not None
+        else None
+    )
+    write_staging(results, out, models=models)
+    save_manifest(manifest)
     print(f"wrote: {out.relative_to(ROOT)}")
+    print(f"wrote: {SWEEP_MANIFEST.relative_to(ROOT)} ({len(manifest)} rows)")
     print("Next: python3 scripts/capability_sweep.py --merge-into-landscape --sweep " +
           str(out.relative_to(ROOT)))
     return 0
