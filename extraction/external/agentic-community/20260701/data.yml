@@ -1,0 +1,622 @@
+categories:
+  - name: Agentic
+    subcategories:
+      - name: Runtime
+        items:
+          - name: Kubernetes
+            homepage_url: https://agentic-community.com
+            repo_url: https://github.com/kubernetes/kubernetes
+            extra:
+              dev_stats_url: https://k8s.devstats.cncf.io/
+              summary_tags: Open Source
+            branch: master
+            logo: kubernetes.svg
+      - name: Agent Protocols
+        items:
+          - name: Agent2Agent Protocol
+            homepage_url: https://a2a-protocol.org/
+            repo_url: https://github.com/a2aproject/A2A
+            extra:
+              summary_tags: Open Source
+            logo: a2a.svg
+          - name: Model Context Protocol
+            homepage_url: https://modelcontextprotocol.io/
+            repo_url: https://github.com/modelcontextprotocol/modelcontextprotocol
+            extra:
+              summary_tags: Open Source
+            logo: mcp.svg
+      - name: Frameworks
+        items:
+          - name: Agno
+            homepage_url: https://www.agno.com/
+            repo_url: https://github.com/agno-agi/agno
+            extra:
+              summary_tags: Open Core
+            logo: agno.png
+          - name: Autogen
+            homepage_url: https://microsoft.github.io/autogen/
+            repo_url: https://github.com/microsoft/autogen
+            extra:
+              summary_tags: Open Source
+            logo: autogen.svg
+          - name: CAMEL
+            homepage_url: https://www.camel-ai.org/
+            repo_url: https://github.com/camel-ai/camel
+            extra:
+              summary_tags: Open Source
+            logo: camelai.png
+          - name: Crew AI
+            homepage_url: https://www.crewai.com/
+            repo_url: https://github.com/crewAIInc/crewAI
+            extra:
+              summary_tags: Open Core
+            logo: crewai.svg
+          - name: LangChain
+            homepage_url: https://docs.langchain.com/oss/python/langchain/
+            repo_url: https://github.com/langchain-ai/langchain
+            extra:
+              summary_tags: Open Source
+            logo: langchain.svg
+          - name: Langflow
+            homepage_url: http://www.langflow.org/
+            repo_url: https://github.com/langflow-ai/langflow
+            extra:
+              summary_tags: Open Core
+            logo: langflow.png
+          - name: LangGraph
+            homepage_url: https://docs.langchain.com/oss/python/langgraph/
+            repo_url: https://github.com/langchain-ai/langgraph
+            extra:
+              summary_tags: Open Source
+            logo: langgraph.svg
+          - name: Pydantic AI
+            homepage_url: https://ai.pydantic.dev/
+            repo_url: https://github.com/pydantic/pydantic-ai
+            extra:
+              summary_tags: Open Source
+            logo: pydanticai.png
+          - name: Semantic Kernel
+            homepage_url: https://learn.microsoft.com/en-us/semantic-kernel/overview/
+            repo_url: https://github.com/microsoft/semantic-kernel
+            extra:
+              summary_tags: Open Source
+            logo: semantickernel.svg
+          - name: Smolagents
+            homepage_url: https://huggingface.co/docs/smolagents
+            repo_url: https://github.com/huggingface/smolagents
+            extra:
+              summary_tags: Open Source
+            logo: smolagents.svg
+          - name: Strands
+            homepage_url: https://strandsagents.com/
+            repo_url: https://github.com/strands-agents/sdk-python
+            extra:
+              summary_tags: Open Source
+            logo: strands.svg
+      - name: Workflow Orchestration
+        items:
+          - name: Dify
+            homepage_url: https://dify.ai/
+            repo_url: https://github.com/langgenius/dify
+            extra:
+              summary_tags: Open Core
+            logo: dify.png
+          - name: Hatchet
+            homepage_url: https://hatchet.run/
+            repo_url: https://github.com/hatchet-dev/hatchet
+            extra:
+              summary_tags: Open Core
+            logo: hatchet.png
+          - name: Inngest
+            homepage_url: https://www.inngest.com/
+            repo_url: https://github.com/inngest/inngest
+            extra:
+              summary_tags: Open Core
+            logo: inngest.png
+          - name: Temporal
+            homepage_url: https://temporal.io/
+            repo_url: https://github.com/temporalio/temporal
+            extra:
+              summary_tags: Open Core
+            logo: temporal.png
+      - name: Coding Agents
+        items:
+          - name: Aider
+            homepage_url: https://aider.chat/
+            repo_url: https://github.com/Aider-AI/aider
+            extra:
+              summary_tags: Open Source
+            logo: aider.png
+          - name: Continue
+            homepage_url: https://www.continue.dev/
+            repo_url: https://github.com/continuedev/continue
+            extra:
+              summary_tags: Open Core
+            logo: continuedev.png
+          - name: OpenHands
+            homepage_url: https://www.openhands.dev/
+            repo_url: https://github.com/OpenHands/OpenHands
+            extra:
+              summary_tags: Open Core
+            logo: openhands.png
+          - name: SWE-agent
+            homepage_url: https://swe-agent.com/
+            repo_url: https://github.com/SWE-agent/SWE-agent
+            extra:
+              summary_tags: Open Source
+            logo: sweagent.png
+      - name: Voice Agents
+        items:
+          - name: LiveKit Agents
+            homepage_url: https://docs.livekit.io/agents/
+            repo_url: https://github.com/livekit/agents
+            extra:
+              summary_tags: Open Core
+            logo: livekit.png
+          - name: Pipecat
+            homepage_url: https://www.pipecat.ai/
+            repo_url: https://github.com/pipecat-ai/pipecat
+            extra:
+              summary_tags: Open Source
+            logo: pipecat.png
+          - name: Vocode
+            homepage_url: https://github.com/vocodedev/
+            repo_url: https://github.com/vocodedev/vocode-core
+            extra:
+              summary_tags: Open Source
+            logo: vocode.png
+      - name: Tool Integration
+        items:
+          - name: Browser Use
+            homepage_url: https://browser-use.com/
+            repo_url: https://github.com/browser-use/browser-use
+            extra:
+              summary_tags: Open Core
+            logo: browseruse.png
+          - name: Composio
+            homepage_url: https://composio.dev/
+            repo_url: https://github.com/ComposioHQ/composio
+            extra:
+              summary_tags: Open Core
+            logo: composio.png
+      - name: Search & Web Access
+        items:
+          - name: Crawl4AI
+            homepage_url: https://docs.crawl4ai.com/
+            repo_url: https://github.com/unclecode/crawl4ai
+            extra:
+              summary_tags: Open Source
+            logo: crawl4ai.png
+          - name: Firecrawl
+            homepage_url: https://www.firecrawl.dev/
+            repo_url: https://github.com/firecrawl/firecrawl
+            extra:
+              summary_tags: Open Core
+            logo: firecrawl.png
+          - name: Jina Reader
+            homepage_url: https://jina.ai/reader/
+            repo_url: https://github.com/jina-ai/reader
+            extra:
+              summary_tags: Open Core
+            logo: jinareader.png
+          - name: Selenium Grid 4
+            homepage_url: https://www.selenium.dev/documentation/grid/
+            repo_url: https://github.com/SeleniumHQ/selenium
+            extra:
+              summary_tags: Open Source
+            logo: seleniumgrid.png
+      - name: Structured Output
+        items:
+          - name: Guidance
+            homepage_url: https://github.com/guidance-ai/guidance
+            repo_url: https://github.com/guidance-ai/guidance
+            extra:
+              summary_tags: Open Source
+            logo: guidance.png
+          - name: Instructor
+            homepage_url: https://python.useinstructor.com/
+            repo_url: https://github.com/567-labs/instructor
+            extra:
+              summary_tags: Open Source
+            logo: instructor.svg
+          - name: LMQL
+            homepage_url: https://lmql.ai/
+            repo_url: https://github.com/eth-sri/lmql
+            extra:
+              summary_tags: Open Source
+            logo: lmql.png
+          - name: Outlines
+            homepage_url: https://dottxt-ai.github.io/outlines/
+            repo_url: https://github.com/dottxt-ai/outlines
+            extra:
+              summary_tags: Open Source
+            logo: outlines.png
+      - name: RAG
+        items:
+          - name: Docling
+            homepage_url: https://www.docling.ai/
+            repo_url: https://github.com/docling-project/docling
+            extra:
+              summary_tags: Open Source
+            logo: docling.png
+          - name: Haystack
+            homepage_url: https://haystack.deepset.ai/
+            repo_url: https://github.com/deepset-ai/haystack
+            extra:
+              summary_tags: Open Source
+            logo: haystack.png
+          - name: LlamaIndex
+            homepage_url: https://developers.llamaindex.ai/
+            repo_url: https://github.com/run-llama/llama_index
+            extra:
+              summary_tags: Open Core
+            logo: llamaindex.svg
+          - name: txtai
+            homepage_url: https://neuml.github.io/txtai/
+            repo_url: https://github.com/neuml/txtai
+            extra:
+              summary_tags: Open Source
+            logo: txtai.png
+          - name: Unstructured
+            homepage_url: https://unstructured.io/
+            repo_url: https://github.com/Unstructured-IO/unstructured
+            extra:
+              summary_tags: Open Core
+            logo: unstructured.png
+      - name: Memory
+        items:
+          - name: LangMem
+            homepage_url: https://langchain-ai.github.io/langmem/
+            repo_url: https://github.com/langchain-ai/langmem
+            extra:
+              summary_tags: Open Source
+            logo: langgraph.svg
+          - name: Letta
+            homepage_url: https://www.letta.com/
+            repo_url: https://github.com/letta-ai/letta
+            extra:
+              summary_tags: Open Core
+            logo: letta.svg
+          - name: mem0
+            homepage_url: https://mem0.ai/
+            repo_url: https://github.com/mem0ai/mem0
+            extra:
+              summary_tags: Open Core
+            logo: mem0.svg
+          - name: Zep
+            homepage_url: https://www.getzep.com/
+            repo_url: https://github.com/getzep/zep
+            extra:
+              summary_tags: Open Core
+            logo: zep.png
+      - name: Evaluations
+        items:
+          - name: Agent Evaluation
+            homepage_url: https://awslabs.github.io/agent-evaluation/
+            repo_url: https://github.com/awslabs/agent-evaluation
+            extra:
+              summary_tags: Open Source
+            logo: agentevaluation.png
+          - name: DeepEval
+            homepage_url: https://deepeval.com/
+            repo_url: https://github.com/confident-ai/deepeval
+            extra:
+              summary_tags: Open Core
+            logo: deepeval.svg
+          - name: "HAL: The Holistic Agent Leaderboard"
+            homepage_url: https://github.com/princeton-pli/hal-harness
+            repo_url: https://github.com/princeton-pli/hal-harness
+            extra:
+              summary_tags: Open Source
+            logo: hal.png
+          - name: Promptfoo
+            homepage_url: https://www.promptfoo.dev/
+            repo_url: https://github.com/promptfoo/promptfoo
+            extra:
+              summary_tags: Open Core
+            logo: promptfoo.svg
+          - name: Ragas
+            homepage_url: https://docs.ragas.io/en/stable/
+            repo_url: https://github.com/vibrantlabsai/ragas
+            extra:
+              summary_tags: Open Source
+            logo: ragas.svg
+          - name: TruLens
+            homepage_url: https://www.trulens.org/
+            repo_url: https://github.com/truera/trulens
+            extra:
+              summary_tags: Open Source
+            logo: trulens.svg
+      - name: Guardrails
+        items:
+          - name: Guardrails AI
+            homepage_url: https://guardrailsai.com/
+            repo_url: https://github.com/guardrails-ai/guardrails
+            extra:
+              summary_tags: Open Core
+            logo: guardrailsai.png
+          - name: LLM Guard
+            homepage_url: https://protectai.github.io/llm-guard/
+            repo_url: https://github.com/protectai/llm-guard
+            extra:
+              summary_tags: Open Source
+            logo: llmguard.png
+          - name: NeMo Guardrails
+            homepage_url: https://docs.nvidia.com/nemo/guardrails/
+            repo_url: https://github.com/NVIDIA-NeMo/Guardrails
+            extra:
+              summary_tags: Open Source
+            logo: nemoguardrails.png
+      - name: Observability
+        items:
+          - name: Arize Phoenix
+            homepage_url: https://arize.com/docs/phoenix
+            repo_url: https://github.com/Arize-ai/phoenix
+            extra:
+              summary_tags: Open Core
+            logo: arize.svg
+          - name: Comet Optik
+            homepage_url: https://www.comet.com/docs/opik/
+            repo_url: https://github.com/comet-ml/opik
+            extra:
+              summary_tags: Open Core
+            logo: comet.svg
+          - name: Helicone
+            homepage_url: https://www.helicone.ai/
+            repo_url: https://github.com/Helicone/helicone
+            extra:
+              summary_tags: Open Core
+            logo: helicone.svg
+          - name: LangFuse
+            homepage_url: https://langfuse.com/
+            repo_url: https://github.com/langfuse/langfuse
+            extra:
+              summary_tags: Open Core
+            logo: langfuse.svg
+          - name: LangSmith
+            homepage_url: https://smith.langchain.com/
+            extra:
+              summary_tags: Commercial
+            logo: langsmith.svg
+          - name: OpenLLMetry
+            homepage_url: https://www.traceloop.com/openllmetry
+            repo_url: https://github.com/traceloop/openllmetry
+            extra:
+              summary_tags: Open Core
+            logo: openllmetry.svg
+          - name: W&B Weave
+            homepage_url: https://wandb.ai/site/weave
+            repo_url: https://github.com/wandb/weave
+            extra:
+              summary_tags: Open Core
+            logo: wandbweave.png
+      - name: Code Sandbox
+        items:
+          - name: Daytona
+            homepage_url: https://www.daytona.io/
+            repo_url: https://github.com/daytonaio/daytona
+            extra:
+              summary_tags: Open Core
+            logo: daytona.png
+          - name: e2b
+            homepage_url: https://e2b.dev
+            repo_url: https://github.com/e2b-dev/infra
+            extra:
+              summary_tags: Open Core
+            logo: e2b.svg
+          - name: Jupyter Enterprise Gateway
+            homepage_url: https://jupyter-enterprise-gateway.readthedocs.io/
+            repo_url: https://github.com/jupyter-server/enterprise_gateway
+            extra:
+              summary_tags: Open Source
+            logo: jupyterenterprise.png
+      - name: IAM
+        items:
+          - name: Cedar
+            homepage_url: https://www.cedarpolicy.com/en
+            repo_url: https://github.com/cedar-policy/cedar
+            extra:
+              summary_tags: Open Source
+            logo: cedar.png
+          - name: Keycloak
+            homepage_url: https://www.keycloak.org/
+            repo_url: https://github.com/keycloak/keycloak
+            extra:
+              summary_tags: Open Source
+            logo: keycloak.svg
+          - name: Open Policy Agent
+            homepage_url: https://www.openpolicyagent.org/
+            repo_url: https://github.com/open-policy-agent/opa
+            extra:
+              summary_tags: Open Source
+            logo: opa.png
+      - name: LLM Gateway
+        items:
+          - name: Envoy
+            homepage_url: https://aigateway.envoyproxy.io/
+            repo_url: https://github.com/envoyproxy/ai-gateway
+            extra:
+              summary_tags: Open Source
+            logo: envoy.svg
+          - name: higress
+            homepage_url: https://higress.ai/
+            repo_url: https://github.com/alibaba/higress
+            extra:
+              summary_tags: Open Source
+            logo: higress.png
+          - name: kgateway
+            homepage_url: https://kgateway.dev/
+            repo_url: https://github.com/kgateway-dev/kgateway
+            extra:
+              summary_tags: Open Source
+            logo: kgateway.svg
+          - name: Kong
+            homepage_url: https://developer.konghq.com/gateway/install/
+            repo_url: https://github.com/Kong/kong
+            extra:
+              summary_tags: Open Core
+            logo: kong.svg
+          - name: LiteLLM
+            homepage_url: https://www.litellm.ai/
+            repo_url: https://github.com/BerriAI/litellm
+            extra:
+              summary_tags: Open Core
+            logo: litellm.svg
+          - name: PortKey
+            homepage_url: https://portkey.ai/features/ai-gateway
+            repo_url: https://github.com/Portkey-AI/gateway
+            extra:
+              summary_tags: Open Core
+            logo: portkey.svg
+      - name: Agentic Gateways
+        items:
+          - name: Agent Gateway
+            homepage_url: https://agentgateway.dev/
+            repo_url: https://github.com/agentgateway/agentgateway
+            extra:
+              summary_tags: Open Source
+            logo: agentgateway.svg
+          - name: MCP Gateway Registry
+            homepage_url: https://agentic-community.github.io/mcp-gateway-registry/
+            repo_url: https://github.com/agentic-community/mcp-gateway-registry
+            extra:
+              summary_tags: Open Source
+            logo: logo.svg
+          - name: MCP Registry
+            homepage_url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+            repo_url: https://github.com/modelcontextprotocol/registry
+            extra:
+              summary_tags: Open Source
+            logo: mcp.svg
+  - name: Infrastructure
+    subcategories:
+      - name: Vector DBs
+        items:
+          - name: Chroma
+            homepage_url: https://www.trychroma.com/
+            repo_url: https://github.com/chroma-core/chroma
+            extra:
+              summary_tags: Open Core
+            logo: chroma.png
+          - name: FAISS
+            homepage_url: https://github.com/facebookresearch/faiss
+            repo_url: https://github.com/facebookresearch/faiss
+            extra:
+              summary_tags: Open Source
+            logo: faiss.png
+          - name: LanceDB
+            homepage_url: https://lancedb.com/
+            repo_url: https://github.com/lancedb/lancedb
+            extra:
+              summary_tags: Open Core
+            logo: lancedb.png
+          - name: marqo
+            homepage_url: https://www.marqo.ai/
+            repo_url: https://github.com/marqo-ai/marqo
+            extra:
+              summary_tags: Open Core
+            logo: marqo.svg
+          - name: Milvus
+            homepage_url: https://milvus.io/
+            repo_url: https://github.com/milvus-io/milvus
+            extra:
+              summary_tags: Open Core
+            logo: milvus.svg
+          - name: OpenSearch
+            homepage_url: https://opensearch.org/platform/vector-engine/
+            repo_url: https://github.com/opensearch-project/OpenSearch
+            extra:
+              summary_tags: Open Source
+            logo: Opensearch_Logo.svg
+          - name: pgvector
+            homepage_url: https://github.com/pgvector/pgvector
+            repo_url: https://github.com/pgvector/pgvector
+            extra:
+              summary_tags: Open Source
+            logo: pgvector.svg
+          - name: Qdrant
+            homepage_url: https://cloud.qdrant.io/
+            repo_url: https://github.com/qdrant/qdrant
+            extra:
+              summary_tags: Open Core
+            logo: qdrant.svg
+          - name: Weaviate
+            homepage_url: https://docs.weaviate.io/weaviate
+            repo_url: https://github.com/weaviate/weaviate
+            extra:
+              summary_tags: Open Core
+            logo: weaviate.svg
+      - name: Knowledge Graphs
+        items:
+          - name: Apache AGE
+            homepage_url: https://age.apache.org/
+            repo_url: https://github.com/apache/age
+            extra:
+              summary_tags: Open Source
+            logo: apacheage.png
+          - name: FalkorDB
+            homepage_url: https://www.falkordb.com/
+            repo_url: https://github.com/FalkorDB/FalkorDB
+            extra:
+              summary_tags: Open Source
+            logo: falkordb.png
+          - name: Neo4j
+            homepage_url: https://neo4j.com/
+            repo_url: https://github.com/neo4j/neo4j
+            extra:
+              summary_tags: Open Core
+            logo: neo4j.png
+  - name: LLMs
+    subcategories:
+      - name: Serving
+        items:
+          - name: llama.cpp
+            homepage_url: https://github.com/ggml-org/llama.cpp
+            repo_url: https://github.com/ggml-org/llama.cpp
+            extra:
+              summary_tags: Open Source
+            logo: llamacpp.svg
+          - name: Ollama
+            homepage_url: https://ollama.com/
+            repo_url: https://github.com/ollama/ollama
+            extra:
+              summary_tags: Open Source
+            logo: ollama.png
+          - name: SGLang
+            homepage_url: https://www.sglang.io/
+            repo_url: https://github.com/sgl-project/sglang
+            extra:
+              summary_tags: Open Source
+            logo: sglang.png
+          - name: TensorRT-LLM
+            homepage_url: https://nvidia.github.io/TensorRT-LLM/
+            repo_url: https://github.com/NVIDIA/TensorRT-LLM
+            extra:
+              summary_tags: Open Source
+            logo: tensorrtllm.png
+          - name: Text Generation Inference
+            homepage_url: https://huggingface.co/docs/text-generation-inference
+            repo_url: https://github.com/huggingface/text-generation-inference
+            extra:
+              summary_tags: Open Source
+            logo: tgi.png
+          - name: vLLM
+            homepage_url: https://vllm.ai/
+            repo_url: https://github.com/vllm-project/vllm
+            extra:
+              summary_tags: Open Source
+            logo: vllm.svg
+      - name: Fine-tuning
+        items:
+          - name: Axolotl
+            homepage_url: https://github.com/axolotl-ai-cloud/axolotl
+            repo_url: https://github.com/axolotl-ai-cloud/axolotl
+            extra:
+              summary_tags: Open Source
+            logo: axolotl.png
+          - name: Unsloth
+            homepage_url: https://unsloth.ai/
+            repo_url: https://github.com/unslothai/unsloth
+            extra:
+              summary_tags: Open Core
+            logo: unsloth.png

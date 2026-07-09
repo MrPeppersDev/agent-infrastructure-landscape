@@ -145,3 +145,28 @@ surviving ones all publish one.
 
 The catalog data is released under **CC-BY-4.0**. The MCP server and
 CLI packages are **MIT** (see their `package.json`).
+
+## Credits
+
+This catalog cross-references, corroborates, and (where licensing
+allows) imports data from the following external landscape projects.
+Vendored snapshots and the full per-source licence audit live in
+[`extraction/external/`](./extraction/external/LICENCES.md).
+
+- **[Agentic Community Landscape](https://github.com/agentic-community/agentic-landscape)**
+  (Apache-2.0) — CNCF landscape2 project cataloguing frameworks,
+  protocols, memory, RAG, observability, and infra for agentic AI.
+  Accessed 2026-07-01.
+- **[SylphAI YC Agent Landscape](https://github.com/SylphAI-Inc/yc-agent-landscape)**
+  (MIT) — AI-classified Y Combinator company dataset covering
+  Winter 2024 – Fall 2026 batches with agent-vs-non-agent and
+  platform-vs-single-purpose taxonomies. Accessed 2026-07-01.
+- **[AI System Design Guide — Tool-Use and Computer Agents chapter](https://github.com/ombharatiya/ai-system-design-guide)**
+  (MIT) — narrative chapter on 2026 tool-use and computer-agent
+  systems, cited for benchmark trajectories and adoption metrics.
+  Accessed 2026-07-01.
+- **[InclusionAI Agentic AI Landscape](https://github.com/antgroup/agentic-ai-landscape)**
+  (no licence declared) — noted as prior art for landscape structure
+  and category framing. Not imported; see
+  [`extraction/external/LICENCES.md`](./extraction/external/LICENCES.md#antgroup)
+  for the licence audit.
