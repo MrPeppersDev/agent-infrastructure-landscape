@@ -65,6 +65,10 @@
       compares two systems across 19+ dimensions and surfaces any direct edges
       the catalog has between them.
     </p>
+    <p class="custom-cta">
+      Don't see your pair? <a href="{base}/compare/custom">Compare any two
+      systems →</a>
+    </p>
     <label class="search">
       <span class="sr">Filter comparisons</span>
       <input
@@ -117,7 +121,19 @@
   }
   .lede {
     color: #c0c0c0;
+    margin: 0 0 0.6rem;
+  }
+  .custom-cta {
+    color: #999;
+    font-size: 0.92rem;
     margin: 0 0 1rem;
+  }
+  .custom-cta a {
+    color: #d4845f;
+    text-decoration: none;
+  }
+  .custom-cta a:hover {
+    text-decoration: underline;
   }
   .search {
     display: block;

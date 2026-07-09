@@ -22,6 +22,11 @@ const ROOT = resolve(__dirname, '..');
 const BUILD_DIR = resolve(ROOT, 'build');
 const BASE_PATH = process.env.BASE_PATH ?? '/agent-infrastructure-landscape';
 
+// Routes with `export const prerender = false` — no HTML file in build/,
+// served at runtime by the SPA fallback (404.html). Keep in sync with the
+// routes tree. Refs #134.
+const CLIENT_ONLY_ROUTES = new Set(['compare/custom']);
+
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     const full = join(dir, name);
@@ -47,6 +52,10 @@ function checkBuildPath(relPath) {
     return existsSync(join(BUILD_DIR, 'index.html'));
   }
   if (relPath.endsWith('/')) relPath = relPath.slice(0, -1);
+
+  // Client-only routes (prerender = false) emit no HTML file — they are
+  // served by the SPA fallback (build/404.html). Refs #134.
+  if (CLIENT_ONLY_ROUTES.has(relPath)) return true;
 
   if (/\.[a-z0-9]+$/i.test(relPath)) {
     return existsSync(join(BUILD_DIR, relPath));
