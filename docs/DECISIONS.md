@@ -14,6 +14,43 @@ that were on the table.
 
 ---
 
+## 2026-07-09: Antgroup upstream is fact-only extraction (#148)
+
+**What.** The `antgroup/agentic-ai-landscape` CSV is treated as a
+fact-only source: the import script (`scripts/import_external_landscapes.py`)
+carries a row's `name`, `repo_url`, and `homepage_url` and drops
+`source_categories` / `source_tags` at parse time. The upstream CSV
+also embeds pre-computed OpenRank data (`openrank_2604`,
+`openrank_trend`) — Phase 2b's OpenDigger fetcher must not source these
+from the antgroup snapshot; fetch OpenDigger directly.
+
+**Why.** The upstream repo has no LICENSE file and no licence statement
+in its README. Under default copyright rules the compilation
+(selection + arrangement of ~227 curated projects, plus category
+assignments) is all-rights-reserved. Bare facts (project names, GitHub
+URLs) are not copyrightable and can be extracted; the curated slice
+cannot be re-published under our CC-BY-4.0 downstream licence. See
+`extraction/external/LICENCES.md#antgroup` for the full audit.
+
+Options considered:
+- **Import full compilation with attribution** — rejected: attribution
+  doesn't substitute for a licence grant.
+- **Skip antgroup entirely** — rejected: the project-list is public
+  fact and useful as a lead-list for independent verification at
+  intake.
+- **Fact-only extraction (chosen)** — extracts names/URLs, drops the
+  copyrightable curation. Phase 3 intake must re-verify each candidate
+  against primary sources; the antgroup CSV cannot be cited as the
+  primary source URL.
+
+**Reversal cost.** Low. If the upstream adds an explicit licence grant
+(Apache-2.0 or CC-BY-4.0 would both unblock), re-enabling category /
+tag propagation is a one-line change to `parse_antgroup()` in the
+import script plus a licence-audit refresh. A courtesy issue on the
+upstream repo requesting a licence grant is a recommended follow-up.
+
+---
+
 ## 2026-05-18: Path A pipeline inversion landed — JSON is now the source of authority (#68)
 
 **What.** The pipeline flip declared in the earlier 2026-05-18 Path A entry
