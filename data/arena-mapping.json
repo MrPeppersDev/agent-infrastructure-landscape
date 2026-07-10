@@ -1,0 +1,87 @@
+{
+  "_meta": {
+    "description": "Curated mapping from catalog row IDs (data/landscape.json, section 'Foundation models (substrate reference)') to Chatbot Arena (LMArena / arena.ai) model identifiers, per docs/composite-methodology.md §8.2. Consumed by scripts/arena_crosscheck.py. JSON has no comments, so this _meta block documents the schema.",
+    "issue": 131,
+    "generated": "2026-07-01",
+    "schema": {
+      "mappings": "object keyed by landscape.json row id -> {arena_model, arena_elo, matched_on, note}. arena_model is the LMArena leaderboard identifier of the best-ranked model that falls WITHIN the family named by the catalog row (variant-fidelity rule: never map a row to a newer generation than the row is scoped to). arena_elo is a point-in-time snapshot integer (see elo_snapshot).",
+      "unmapped": "object keyed by row id -> {rationale} for every foundation-model row that does NOT map. Non-foundation-model rows are out of scope and are not listed.",
+      "elo_snapshot": "provenance for the arena_elo values. The cross-check script never fetches the network at runtime (repo convention: network-free CI); Elo values are frozen here and refreshed by editing this file."
+    },
+    "elo_snapshot": {
+      "retrieved": "2026-07-01",
+      "precision": "band-approximate (±15 Elo). Values compiled from secondary snapshot mirrors of the Arena text leaderboard (June 2026 state), not from a live API pull. Top-tier ordering (Claude Opus 4.8 > GPT-5.5 Pro ≈ Gemini 3.1 Pro ≈ Claude Opus 4.7) and tier bands (1510+ / ~1500 / ~1450 / ~1300 / ~1200) are consistent across sources; exact third-digit Elo and bootstrap CIs were not reliably reported by the mirrors.",
+      "sources": [
+        "https://www.swfte.com/lmarena (June 2026 tier bands)",
+        "https://localaimaster.com/blog/lmarena-chatbot-arena-leaderboard (top-5 as of June 2026)",
+        "https://presenc.ai/research/chatbot-arena-elo-leaderboard-june-2026 (May/June 2026 Elo deltas, incl. Grok 4.20 +31)",
+        "https://llm-stats.com/benchmarks/lmarena-text"
+      ]
+    },
+    "coverage_note": "13 foundation-model rows in landscape.json; 7 mapped, 6 unmapped. Partial coverage is expected per issue #131."
+  },
+  "mappings": {
+    "anthropic-claude-foundation-models--anthropic-com": {
+      "arena_model": "claude-opus-4.8",
+      "arena_elo": 1510,
+      "matched_on": "family flagship",
+      "note": "Arena #1 overall, June 2026. Claude Opus 4.7 also listed in the ~1500 tier."
+    },
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com": {
+      "arena_model": "gpt-5.5-pro",
+      "arena_elo": 1505,
+      "matched_on": "family flagship",
+      "note": "Arena #2 overall, June 2026; GPT-5.5 (non-Pro) also top-5. Row is scoped to the GPT family broadly, so 5.5 falls within scope."
+    },
+    "google-gemini-3-family--blog-google": {
+      "arena_model": "gemini-3.1-pro-preview",
+      "arena_elo": 1500,
+      "matched_on": "family flagship",
+      "note": "Gemini 3.1 is within the Gemini 3 family named by the row."
+    },
+    "xai-grok-4--x-ai": {
+      "arena_model": "grok-4.20",
+      "arena_elo": 1490,
+      "matched_on": "family flagship",
+      "note": "Grok 4.20 climbed into the Arena top 5 in May 2026 (+31 Elo); grok-4 also remains listed in the top 10. 4.20 is a point release within the Grok 4 family."
+    },
+    "alibaba-qwen-3-family--qwenlm-github-io": {
+      "arena_model": "qwen-3.7-max",
+      "arena_elo": 1450,
+      "matched_on": "family flagship",
+      "note": "Qwen 3.7 Max sits in the ~1450 tier; 3.7 is a point release within the Qwen 3 family named by the row."
+    },
+    "meta-llama-4-family--ai-meta-com": {
+      "arena_model": "llama-4-maverick",
+      "arena_elo": 1300,
+      "matched_on": "family flagship",
+      "note": "Best-ranked Llama 4 variant on the June 2026 board (~1300 tier)."
+    },
+    "microsoft-phi-4-family--azure-microsoft-com": {
+      "arena_model": "phi-4",
+      "arena_elo": 1200,
+      "matched_on": "exact",
+      "note": "Listed in the ~1200 tier ('solid daily' band), June 2026."
+    }
+  },
+  "unmapped": {
+    "deepseek-r1-v3-family--deepseek-com": {
+      "rationale": "Generation mismatch (variant-fidelity rule): the catalog row is scoped to the R1 / V3 generation, but Arena's June 2026 board headlines DeepSeek V4 / V4.1 Pro — a newer generation. R1/V3 entries have dropped out of the reliably-reported portion of secondary snapshots, so no trustworthy 2026 Elo exists for the row's own generation. Mapping V4.x Elo to an R1/V3 composite would compare different models."
+    },
+    "mistral-large-2-mixtral-family--mistral-ai": {
+      "rationale": "Generation mismatch: Arena's June 2026 board lists Mistral Large 3 (~1300 tier) and Mistral Small 3 (~1200 tier); the catalog row is scoped to Large 2 / Mixtral, which no longer appear in reported snapshots."
+    },
+    "cohere-command-r-command-a--cohere-com": {
+      "rationale": "No reliable 2026 Elo found: Command A / Command R+ do not appear in any of the June 2026 secondary snapshot sources consulted. Historically listed on Arena (Command A ~1360, March 2025), but a stale Elo would not be comparable to the 2026 snapshot used for the other rows."
+    },
+    "amazon-nova-family--aboutamazon-com": {
+      "rationale": "Not reported in 2026 snapshot sources: no Nova entry (Premier/Pro/Lite) appears in the June 2026 leaderboard mirrors consulted."
+    },
+    "reka-core-flash-edge--reka-ai": {
+      "rationale": "Not listed on Arena: Reka Core / Flash / Edge do not appear on the current (June 2026) leaderboard."
+    },
+    "01-ai-yi-family--01-ai": {
+      "rationale": "Not listed on Arena: Yi family entries (Yi-Large, Yi-Lightning) no longer appear in current (June 2026) leaderboard snapshots."
+    }
+  }
+}
