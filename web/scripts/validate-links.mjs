@@ -20,7 +20,11 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const BUILD_DIR = resolve(ROOT, 'build');
-const BASE_PATH = process.env.BASE_PATH ?? '/agent-infrastructure-landscape';
+// Must mirror svelte.config.js (`base: process.env.BASE_PATH ?? ''`) —
+// the validator runs in the same env as the build, and a mismatched
+// default flags the SPA fallback's absolute asset links as broken on
+// bare local builds (surfaced after #134 introduced build/404.html).
+const BASE_PATH = process.env.BASE_PATH ?? '';
 
 // Routes with `export const prerender = false` — no HTML file in build/,
 // served at runtime by the SPA fallback (404.html). Keep in sync with the
