@@ -4,8 +4,8 @@
 #
 # Generated: 2026-07-01
 # Ratification status: RATIFIED 2026-07-01 — maintainer approved the
-# full draft. `alphacode` and `swe-lancer` remain `family: null`
-# (treated as excluded until a later maintainer decision).
+# full draft. The two deferred entries were resolved 2026-07-10 via
+# #133: `alphacode` → excluded, `swe-lancer` → agentic.
 #
 # ==============================================================================
 # WHY THIS FILE EXISTS
@@ -377,26 +377,34 @@ truthfulqa:
 # ==============================================================================
 # BENCHMARKS FLAGGED FOR MAINTAINER JUDGMENT
 # ==============================================================================
-# These are boundary cases where I want an explicit maintainer call.
-# They are marked `family: null` and are treated as excluded until
-# classified. Do not remove; leaving them here documents the deferral.
+# These were boundary cases held at `family: null` (treated as excluded)
+# pending an explicit maintainer call. Both were resolved via #133 on
+# 2026-07-10; the entries stay here to document the deferral + decision.
 
 alphacode:
-  family: null
-  confidence: null
+  family: excluded
+  confidence: high
   rationale: |
-    DeepMind's competitive-programming system. When rows report an
-    "AlphaCode score" they usually mean CodeContests solving rate
-    under the AlphaCode setup. If treated as its own benchmark, it is
-    code. If treated as a scaffold, it should be excluded and the
-    underlying CodeContests score used. MAINTAINER: pick one, or
-    remove this ID entirely.
+    RESOLVED 2026-07-10 (#133): excluded. AlphaCode is a model+scaffold,
+    not a test dataset — scores attributed to "AlphaCode" measure
+    performance on CodeContests problems run through the AlphaCode
+    harness. The underlying benchmark is `codecontests` (already
+    classified code/high); recording results under `alphacode` would
+    double-count. Same philosophy as the `chatbot-arena` exclusion
+    (harness/leaderboard, not upstream data source). Zero rows cited
+    this ID at resolution time; direct any future rows to
+    `codecontests` instead.
 
 swe-lancer:
-  family: null
-  confidence: null
+  family: agentic
+  confidence: medium
   rationale: |
-    New benchmark; agentic freelance-engineer tasks with real payouts
-    as ground truth. Almost certainly agentic, but I'd like a
-    maintainer confirmation before locking. MAINTAINER: confirm
-    agentic or leave excluded.
+    RESOLVED 2026-07-10 (#133): agentic. OpenAI (2025,
+    arXiv:2502.12115) — 1,400+ real Upwork freelance tasks graded by
+    end-to-end test suites and economic payout, including SWE-Manager
+    decision sub-tasks. IC sub-tasks resemble SWE-Bench Verified, but
+    the defining axis is multi-step task completion under real-world
+    constraints — same logic as `mle-bench` (agentic). Medium
+    confidence: the IC component has code-generation character; if
+    rows ever report IC and Manager scores separately, reconsider a
+    split at that time.
