@@ -1,0 +1,46 @@
+# Standing external-landscape sources polled monthly by
+# .github/workflows/external-landscape-diff.yml (Phase 5, issue #151).
+#
+# Each entry mirrors the licence-audited snapshot at
+# extraction/external/<id>/<YYYYMMDD>/. The poller refreshes each source
+# to a new dated directory on the 1st of each month, re-runs
+# scripts/import_external_landscapes.py, and diffs the resulting
+# candidates.csv / cross-listing.csv against the previous month's version.
+#
+# Adding a source:
+#   1. Add the licence-audit block to extraction/external/LICENCES.md.
+#   2. Add a parser to scripts/import_external_landscapes.py.
+#   3. Add the entry below with `enabled: true`.
+# Removing a source: prefer `enabled: false` over deletion so historical
+# dated snapshots remain interpretable.
+#
+# Licence-audited 2026-07-01; see extraction/external/LICENCES.md.
+
+sources:
+  - id: agentic-community
+    repo: agentic-community/agentic-landscape
+    data_path: agentic-landscape/data.yml
+    kind: yaml
+    enabled: true
+
+  - id: antgroup
+    repo: antgroup/agentic-ai-landscape
+    data_path: data/agentic-ai-projects.csv
+    kind: csv
+    # ON HOLD — no upstream licence declared. See
+    # extraction/external/LICENCES.md#antgroup. Poller must skip this
+    # entry until the licence rule is lifted (change enabled: true when
+    # the upstream adds a licence AND the audit is re-verified).
+    enabled: false
+
+  - id: yc-sylph
+    repo: SylphAI-Inc/yc-agent-landscape
+    data_path: data/yc_agent_companies_ai.csv
+    kind: csv
+    enabled: true
+
+  - id: ombharatiya
+    repo: ombharatiya/ai-system-design-guide
+    data_path: 17-tool-use-and-computer-agents/01-tool-use-landscape.md
+    kind: prose
+    enabled: true

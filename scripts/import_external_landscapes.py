@@ -51,6 +51,7 @@ import argparse
 import csv
 import difflib
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -62,14 +63,38 @@ import yaml
 # --- constants ------------------------------------------------------------
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT_DATE = "20260701"
 EXT = REPO_ROOT / "extraction" / "external"
+_DEFAULT_SNAPSHOT_DATE = "20260701"
+
+
+def _latest_snapshot_date(source_id: str) -> str:
+    """Latest dated subdirectory under extraction/external/<source_id>/.
+
+    Env override `LANDSCAPE_SNAPSHOT_DATE` pins all sources to the same
+    date — used by the Phase 5 poller after refreshing snapshots.
+    """
+    override = os.environ.get("LANDSCAPE_SNAPSHOT_DATE")
+    if override:
+        return override
+    src_dir = EXT / source_id
+    if src_dir.is_dir():
+        dates = [d.name for d in src_dir.iterdir()
+                 if d.is_dir() and re.fullmatch(r"\d{8}", d.name)]
+        if dates:
+            return max(dates)
+    return _DEFAULT_SNAPSHOT_DATE
+
+
+SNAPSHOT_DATES = {sid: _latest_snapshot_date(sid) for sid in
+                  ("agentic-community", "antgroup", "yc-sylph", "ombharatiya")}
+# Backwards-compat single-value label for the gap report header.
+SNAPSHOT_DATE = max(SNAPSHOT_DATES.values())
 
 SOURCE_PATHS = {
-    "agentic-community": EXT / "agentic-community" / SNAPSHOT_DATE / "data.yml",
-    "antgroup": EXT / "antgroup" / SNAPSHOT_DATE / "agentic-ai-projects.csv",
-    "yc-sylph": EXT / "yc-sylph" / SNAPSHOT_DATE / "yc_agent_companies_ai.csv",
-    "ombharatiya": EXT / "ombharatiya" / SNAPSHOT_DATE / "01-tool-use-landscape.md",
+    "agentic-community": EXT / "agentic-community" / SNAPSHOT_DATES["agentic-community"] / "data.yml",
+    "antgroup": EXT / "antgroup" / SNAPSHOT_DATES["antgroup"] / "agentic-ai-projects.csv",
+    "yc-sylph": EXT / "yc-sylph" / SNAPSHOT_DATES["yc-sylph"] / "yc_agent_companies_ai.csv",
+    "ombharatiya": EXT / "ombharatiya" / SNAPSHOT_DATES["ombharatiya"] / "01-tool-use-landscape.md",
 }
 
 SOURCE_URLS = {
