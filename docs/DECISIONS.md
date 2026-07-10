@@ -14,6 +14,49 @@ that were on the table.
 
 ---
 
+## 2026-07-10: External-landscape poller runs monthly, silent on no-op (#151)
+
+**What.** `scripts/poll_external_landscapes.py`, driven by
+`.github/workflows/external-landscape-diff.yml`, polls the four
+external-landscape sources (`data/_external-landscapes.yml`) on the
+1st of each month. It refreshes snapshots to a new dated directory,
+re-runs the Phase 1 diff, and opens at most one `intake-batch` issue
+(if new upstream rows appeared) plus one `divergence` issue per source
+whose `source_categories` string changed. If nothing changed, the run
+is silent: no issue, no commit, no state churn.
+
+**Why.** Two axes, cadence and noise.
+
+Cadence — upstream churn is low. Last commits observed at Phase 0
+audit: agentic-community 2026-02-23, antgroup 2026-05-29, yc-sylph
+recent-batch adds, ombharatiya rare. A weekly poll would waste CI on
+runs that produce nothing. A monthly cadence keeps signal-to-noise
+high; if a specific source starts moving faster, the cron can tighten
+without changing the poller.
+
+Noise — the poller diffs the *artefacts* (candidates.csv /
+cross-listing.csv), not the raw snapshots. This means a benign upstream
+whitespace or ordering change doesn't produce a divergence signal. And
+because no-op runs skip both issue-open and git-commit, the repo's git
+log stays free of monthly no-op churn.
+
+Options considered:
+- **Weekly cadence** — rejected: too much CI cost for the observed churn.
+- **Prime seen-set on first run (per model_release_watch pattern)** —
+  unnecessary here. The Phase 1 CSVs already committed to the repo
+  serve as the baseline; the first Phase 5 run genuinely diffs against
+  a real prior state.
+- **Auto-open per-candidate intake issues** — rejected here, deferred
+  to Phase 3 which owns the daily-cap policy for autoresearch.
+
+**Reversal cost.** Low. Cadence is one edit to the workflow's cron.
+No-op-quiet vs. always-commit is a `--force-commit` flag away. Adding
+a fifth source is: add to LICENCES.md, add a parser to
+`import_external_landscapes.py`, add an entry to
+`_external-landscapes.yml`.
+
+---
+
 ## 2026-07-09: Antgroup upstream is fact-only extraction (#148)
 
 **What.** The `antgroup/agentic-ai-landscape` CSV is treated as a
