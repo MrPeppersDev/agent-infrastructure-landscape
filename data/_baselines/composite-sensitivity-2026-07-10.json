@@ -1,0 +1,462 @@
+{
+  "generatedAt": "2026-07-10T21:35:35Z",
+  "methodologySection": "8.1",
+  "parameters": {
+    "samples": 100,
+    "alpha": 10.0,
+    "alphaInterpretation": "symmetric per-component Dirichlet(α, α, α)",
+    "seed": 130,
+    "topK": 5,
+    "overlapBar": 0.8,
+    "samplePassRate": 0.9,
+    "questionPassRate": 0.9
+  },
+  "rowsWithSubScores": 0,
+  "questionsTotal": 55,
+  "questionsScored": 0,
+  "questionsFlagged": 0,
+  "questionPassRateObserved": null,
+  "passes81Target": null,
+  "perQuestion": [
+    {
+      "id": "kimi-vs-opus-scoped-agentic",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "project-shape-memory-multi-agent-latency",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "deepseek-vs-gpt5-code-review-mid-range",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "qwen-vs-claude-agentic-coding-between",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "llama4-vs-opus-between-analytical",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "mistral-vs-gpt5-between-latency-sensitive",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "gemini3-vs-claude-between-multi-agent",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "deepseek-vs-gpt5-long-session-between",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "qwen-vs-gemini3-offline-between",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "grok4-vs-gemini3-memory-chat-between",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cheapest-model-code-review-5-per-mtok",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cheapest-agentic-indie-hacker-budget",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cheapest-multi-agent-parallelism-budget",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cheapest-long-document-summary-pipeline",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-memory-backend-at-scale",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-observability-free-tier-agents",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-harness-token-overhead-crewai-langgraph",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-mcp-memory-server-vs-mem0",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-offline-model-quality-floor",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-routing-kimi-claude-escalation",
+      "surface": "between",
+      "status": "no-anchor-data",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-analytical-open-vs-closed",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "cost-tradeoff-langsmith-vs-phoenix-free",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-model-offline-agentic-airgap",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-model-memory-augmented-consumer-chat",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-model-scoped-agentic-ticket-triage",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-model-code-gen-ide-assistant",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-model-analytical-research-long-context",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-model-latency-sensitive-customer-support",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-model-agentic-tool-use",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-memory-backend-temporal-reasoning",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-harness-long-running-session",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-orchestration-human-in-the-loop",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-observability-multi-agent-tracing",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-memory-system-multi-agent-shared-context",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "floor-model-scoped-agentic-openweight",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-memory-letta-long-running-autonomous",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-memory-zep-temporal-crm-facts",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-memory-offline-verbatim-recall",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-memory-langgraph-persistence-native",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-memory-production-personalization-saas",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-memory-security-poisoning-resistance",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-harness-prototype-fast-crewai",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-harness-production-enterprise-multi-agent",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-harness-local-coding-agent-aider-vs-cline",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-harness-n8n-low-code-pipeline",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-harness-durability-financial-compliance",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-observability-otel-vendor-neutral",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-observability-eval-driven-ci-cd",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-observability-hybrid-ml-llm-monitoring",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-observability-gateway-cost-tracking",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-orchestration-research-academic-autogen",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "fit-orchestration-custom-vs-framework-28pct",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "comparison-mem0-vs-zep-temporal",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "comparison-langgraph-vs-crewai-token-overhead",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    },
+    {
+      "id": "comparison-helicone-vs-langsmith-gateway",
+      "surface": "by-constraints",
+      "status": "empty-pool",
+      "stability": null,
+      "pct_samples_ge_4_of_5": null,
+      "flagged": null
+    }
+  ]
+}
