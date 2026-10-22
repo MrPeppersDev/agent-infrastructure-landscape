@@ -12,16 +12,20 @@ the [dataset README](../data/README.md) explains the schema; the
 
 ---
 
-## 1. Semantic caching is an empty market
+## 1. Agent stacks leave semantic caching to the data layer
 
-Of the 100-row priority cohort, **exactly one product ships a semantic
-cache** — LangChain's SemanticCache. Helicone has cached completion
-features but not semantic ones; GPTCache exists as a library but isn't
-shipped as a vendor default. The cost-economics view headlines this
-finding explicitly: the cleanest product gap in the v6 catalog is a
-missing semantic-cache layer. A product that adds Anthropic / OpenAI
-semantic caching with cross-model similarity would have no direct
-competitor in the priority cohort.
+Of the 100-row priority cohort, **exactly one agent product ships a
+semantic cache** — LangChain's SemanticCache. Everything else that
+claims caching is exact-prefix prompt caching, CDN-style response
+caching or vector-store dedup. The capability is being productised one
+layer down instead: Redis ships
+[LangCache](https://redis.io/docs/latest/develop/ai/langcache) as a
+managed semantic cache, and gateways and open-source libraries offer it
+as an add-on.
+
+*Correction (2026-10-22):* an earlier version of this finding called
+semantic caching "an empty market". That over-read the cohort, which
+doesn't cover database or gateway vendors, and has been corrected.
 
 Source: [`analysis.md` §25.2](../analysis.md), commit `f2b95c1`.
 

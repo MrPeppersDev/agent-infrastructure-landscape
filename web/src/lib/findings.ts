@@ -32,16 +32,16 @@ export const findings: Finding[] = [
   {
     slug: 'semantic-caching-empty-market',
     n: 1,
-    headline: 'Semantic caching is an empty market',
+    headline: 'Agent stacks leave semantic caching to the data layer',
     metaDescription:
-      'Only 1 of 100 priority-cohort products in the AI agent landscape ships a true semantic cache. The cleanest unbuilt product in the field.',
-    figure: '1 of 100 priority-cohort products',
+      'Only 1 of 100 priority-cohort agent products ships a semantic cache. The capability is arriving from databases and gateways instead, such as Redis LangCache.',
+    figure: '1 of 100 priority-cohort agent products',
     cardSoWhat:
-      "Only LangChain's SemanticCache ships a true semantic-cache layer in the v6 priority cohort. The cleanest product gap in the catalog: a vendor-shipped Anthropic / OpenAI semantic cache with cross-model similarity would have no direct competitor.",
+      "Inside the agent stack, only LangChain's SemanticCache ships a true semantic-cache layer in the priority cohort. The capability exists, but it is being sold by the data and gateway layer (for example Redis LangCache), not by agent frameworks or model providers.",
     body: [
-      "Across the v6 catalog's 100-product priority cohort, semantic caching shows up as a real shipping feature in exactly one place: LangChain's SemanticCache. Every other entry that claims caching is either token-level prompt caching (Anthropic, OpenAI), CDN-style response caching, or vector-store dedup — none of which is what \"semantic cache\" actually means in the agent-cost-economics literature.",
-      "The opportunity is structural. The architecture is well-understood (embed prompt → kNN against a cache of prior prompt+response pairs → return cached completion when similarity > threshold). The wins are large (10-100× cost reduction on repetitive workloads, ~10× latency reduction). And nobody else has shipped it as a vendor-managed layer with cross-model similarity. A semantic cache as a service — sold by Anthropic, OpenAI, or as a third-party gateway like Helicone but cache-first — has no direct competitor in the priority cohort.",
-      'The empty-market signal is reinforced by the cost-economics analysis showing prompt caching is the only cache technique with broad adoption — and prompt caching only deduplicates exact-prefix repeats. Semantic caching catches paraphrased and reformulated repeats, which is where the long tail of LLM cost lives.'
+      "Across the catalog's 100-product priority cohort of agent frameworks, memory layers and model platforms, semantic caching shows up as a shipping feature in exactly one place: LangChain's SemanticCache. Every other entry that claims caching is token-level prompt caching (Anthropic, OpenAI), CDN-style response caching, or vector-store dedup.",
+      "That is a gap in the agent stack, not in the market. Semantic caching is being productised one layer down: Redis ships LangCache as a managed semantic-caching service, and open-source libraries and AI gateways offer it as an add-on. An earlier version of this finding called semantic caching an empty market; that over-read the cohort and has been corrected.",
+      "The practical takeaway for builders: if repeated or paraphrased prompts drive your costs, look at your database or gateway vendor rather than your agent framework. Prompt caching (now broadly adopted) only deduplicates exact-prefix repeats, while semantic caching catches reformulated repeats, which is where much of the long-tail LLM cost lives."
     ],
     link: { href: '/analyses/cost-economics', label: 'See the cost-economics matrix' },
     source: 'analysis.md §25.2 · commit f2b95c1'
