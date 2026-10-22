@@ -34,6 +34,13 @@
       "isInfluential": true
     },
     {
+      "source": "acontext-memodb--gh-memodb-io-acontext",
+      "target": "memobase--gh-memodb-io-memobase",
+      "type": "same-team-as",
+      "evidence": "Same GitHub organisation `memodb` publishes both repos.",
+      "citation": "https://github.com/memodb-io/Acontext"
+    },
+    {
       "source": "adaptive-rag--gh-starsuzi-adaptive-rag",
       "target": "self-rag--arxiv-2310-11511",
       "type": "cites",
@@ -842,6 +849,13 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:1911.05507",
       "isInfluential": true
+    },
+    {
+      "source": "context-mode--gh-mksglu-context-mode",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "runtime-dependency",
+      "evidence": "across 17 platforms via MCP + hooks.",
+      "citation": "https://github.com/mksglu/context-mode"
     },
     {
       "source": "continue-dev-harness--continue-dev",
@@ -2771,6 +2785,13 @@
       "isInfluential": true
     },
     {
+      "source": "memsearch-zilliz--gh-zilliztech-memsearch",
+      "target": "milvus--milvus-io",
+      "type": "runtime-dependency",
+      "evidence": "Code, Codex, DSH), backed by Markdown and Milvus.",
+      "citation": "https://github.com/zilliztech/memsearch"
+    },
+    {
       "source": "memtool--arxiv-2507-21428",
       "target": "from-human-memory-to-ai-memory-survey--arxiv-2504-15965",
       "type": "cites",
@@ -3024,6 +3045,13 @@
       "isInfluential": true
     },
     {
+      "source": "neo4j-agent-memory-neo4j-labs--gh-neo4j-labs-agent-memory",
+      "target": "neo4j--neo4j-com",
+      "type": "runtime-dependency",
+      "evidence": "own reasoning — all backed by Neo4j.",
+      "citation": "https://github.com/neo4j-labs/agent-memory"
+    },
+    {
       "source": "nvidia-remembr--arxiv-2409-13682",
       "target": "milvus--milvus-io",
       "type": "built-on",
@@ -3162,6 +3190,13 @@
       "type": "built-on",
       "evidence": "Local Postgres + Qdrant cross-tool memory",
       "citation": "https://mem0.ai/openmemory"
+    },
+    {
+      "source": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+      "target": "verl--gh-volcengine-verl",
+      "type": "same-team-as",
+      "evidence": "Same GitHub organisation `volcengine` publishes both repos.",
+      "citation": "https://github.com/volcengine/OpenViking"
     },
     {
       "source": "pathrag--arxiv-2502-14902",

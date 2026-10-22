@@ -64,7 +64,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           f="${{ steps.pick.outputs.file }}"
-          python3 scripts/batch_intake.py "$f" --report "${f%.json}.report.md" --push-branch "${{ github.ref_name }}"
+          set -o pipefail
+          python3 scripts/batch_intake.py "$f" --report "${f%.json}.report.md" --push-branch "${{ github.ref_name }}" 2>&1 | tee /tmp/batch.log || {
+            msg=$(tail -40 /tmp/batch.log | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=batch_intake failed::$msg"
+            exit 1
+          }
           git add "${f%.json}.report.md"
           git commit -q -m "intake(batch): report for $(basename "$f")" || true
           git push origin HEAD:${{ github.ref_name }}

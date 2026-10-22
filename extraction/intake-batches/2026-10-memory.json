@@ -1,0 +1,637 @@
+[
+ {
+  "name": "GitHub Copilot Memory (agentic memory)",
+  "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-memory",
+  "type": "platform-feature",
+  "section": "Coding-agent memory",
+  "description": "Repository-scoped memories that Copilot coding agent, code review and CLI write automatically, share across features, validate against the current code before use, and expire after 28 days; owners can review/delete them.",
+  "license": "proprietary",
+  "github_repo": "",
+  "traction": "Shipped to all paid GitHub Copilot plans; default-on for Pro/Pro+",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.blog/changelog/2026-01-15-agentic-memory-for-github-copilot-is-in-public-preview/",
+   "https://github.blog/changelog/2026-03-04-copilot-memory-now-on-by-default-for-pro-and-pro-users-in-public-preview/"
+  ]
+ },
+ {
+  "name": "OpenAI Codex Memories + Chronicle",
+  "url": "https://developers.openai.com/codex",
+  "type": "platform-feature",
+  "section": "Coding-agent memory",
+  "description": "Codex Memories carries preferences, conventions and pitfalls across Codex threads as local Markdown files; Chronicle (research preview) adds screen-aware memory by having background agents summarize periodic Mac screen captures into those memory files.",
+  "license": "proprietary",
+  "github_repo": "",
+  "traction": "OpenAI first-party feature for Codex app (ChatGPT Pro, macOS at launch); wide press coverage",
+  "arxiv_url": "",
+  "sources": [
+   "https://kingy.ai/news/codex-gets-a-memory-inside-openais-chronicle-the-screen-watching-agent-trying-to-end-context-resetting/",
+   "https://technews.tw/2026/04/21/ppenai-releases-codex-chronicle-feature-for-enhancing-context/"
+  ]
+ },
+ {
+  "name": "Microsoft Foundry Agent Service Memory",
+  "url": "https://devblogs.microsoft.com/foundry/introducing-memory-in-foundry-agent-service/",
+  "type": "platform-feature",
+  "section": "Platform-provider memory",
+  "description": "Fully managed long-term memory store built into Azure/Microsoft Foundry Agent Service that extracts user-profile facts and chat summaries and retrieves them across sessions — Microsoft's peer to AgentCore Memory and Vertex Memory Bank.",
+  "license": "proprietary",
+  "github_repo": "",
+  "traction": "Major-vendor launch (Microsoft Ignite 2025); InfoQ coverage Feb 2026",
+  "arxiv_url": "",
+  "sources": [
+   "https://devblogs.microsoft.com/foundry/introducing-memory-in-foundry-agent-service/",
+   "https://learn.microsoft.com/en-my/Azure/foundry/agents/concepts/what-is-memory"
+  ]
+ },
+ {
+  "name": "OpenViking (ByteDance Volcengine)",
+  "url": "https://github.com/volcengine/OpenViking",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Open-source 'context database' from ByteDance's Volcengine that unifies agent memory, RAG knowledge and skills behind a virtual filesystem (viking:// URIs) with tiered loading and self-evolving context.",
+  "license": "AGPL-3.0 (CLI/examples Apache-2.0)",
+  "github_repo": "volcengine/OpenViking",
+  "traction": "~39k GitHub stars; #6 on GitHub agent-memory topic; listed #3 in TeleAI Awesome-Agent-Memory products",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/volcengine/OpenViking",
+   "https://github.com/topics/agent-memory?o=desc&s=stars",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "Hermes Agent memory (Nous Research)",
+  "url": "https://github.com/NousResearch/hermes-agent",
+  "type": "framework",
+  "section": "Framework-embedded memory",
+  "description": "Nous Research's open-source self-improving agent keeps an agent-curated MEMORY.md/USER.md notebook injected at session start, FTS5 search over past sessions with LLM summarisation, and optional Honcho user modelling.",
+  "license": "MIT",
+  "github_repo": "NousResearch/hermes-agent",
+  "traction": "~254k GitHub stars; one of the most-starred agent projects of 2026",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/NousResearch/hermes-agent",
+   "https://www.truefoundry.com/blog/what-is-hermes-agent"
+  ]
+ },
+ {
+  "name": "OpenClaw memory",
+  "url": "https://docs.openclaw.ai/concepts/memory",
+  "type": "framework",
+  "section": "File-backed / editor paradigms",
+  "description": "Memory system of the viral OpenClaw personal agent: plain Markdown files (USER.md, MEMORY.md, daily memory/YYYY-MM-DD.md notes, DREAMS.md) with memory_search/memory_get tools, automatic pre-compaction flush and a 'dreaming' sweep that distils daily notes into long-term memory; pluggable engines (LanceDB, Honcho, wiki).",
+  "license": "MIT",
+  "github_repo": "openclaw/openclaw",
+  "traction": "~392k GitHub stars; spawned an ecosystem of memory plugins (memory-lancedb-pro, gbrain, MemClaw)",
+  "arxiv_url": "",
+  "sources": [
+   "https://docs.openclaw.ai/concepts/memory",
+   "https://github.com/openclaw/openclaw"
+  ]
+ },
+ {
+  "name": "Perplexity Brain",
+  "url": "https://www.perplexity.ai/",
+  "type": "platform-feature",
+  "section": "Platform-provider memory",
+  "description": "Topic-organised shared memory layer under Perplexity Search, the Computer agent and possibly Comet; stores projects, decisions and sources, retrieves selectively per task, and exposes topics plus a 3D connection map to the user.",
+  "license": "proprietary",
+  "github_repo": "",
+  "traction": "Major-vendor announcement; Perplexity claims +25% correctness, +16% recall, -13% cost on context-dependent tasks",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.testingcatalog.com/perplexity-releases-brain-memory-system-for-perplexity-computer.md",
+   "https://aiweekly.co/alerts/perplexity-brain-adds-self-improving-work-memory-to-its-agent"
+  ]
+ },
+ {
+  "name": "Cursor Memories",
+  "url": "https://docs.cursor.com/context/memories",
+  "type": "platform-feature",
+  "section": "Coding-agent memory",
+  "description": "Project-scoped memories in Cursor, created either by a background 'sidecar' model watching chats or by the agent via tool calls, and managed as auto-generated rules in settings.",
+  "license": "proprietary",
+  "github_repo": "",
+  "traction": "First-party feature of one of the most widely used AI IDEs",
+  "arxiv_url": "",
+  "sources": [
+   "https://docs.cursor.com/context/memories",
+   "https://forum.cursor.com/t/0-51-memories-feature/98509?page=2"
+  ]
+ },
+ {
+  "name": "Gemini CLI memory (save_memory / GEMINI.md)",
+  "url": "https://geminicli.com/docs/tools/memory",
+  "type": "platform-feature",
+  "section": "Coding-agent memory",
+  "description": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session.",
+  "license": "Apache-2.0",
+  "github_repo": "google-gemini/gemini-cli",
+  "traction": "Google first-party; Gemini CLI is one of the most-used terminal coding agents",
+  "arxiv_url": "",
+  "sources": [
+   "https://geminicli.com/docs/tools/memory"
+  ]
+ },
+ {
+  "name": "TencentDB Agent Memory",
+  "url": "https://github.com/Tencent/TencentDB-Agent-Memory",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Tencent's team-level memory hub that turns conversations, docs and code into four reusable memory assets: chat memory, skills, an LLM-wiki and a code graph.",
+  "license": "MIT",
+  "github_repo": "Tencent/TencentDB-Agent-Memory",
+  "traction": "~30k GitHub stars; big-tech vendor",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/Tencent/TencentDB-Agent-Memory",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "gbrain (Garry Tan)",
+  "url": "https://github.com/garrytan/gbrain",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Open-source agent 'brain' storing explicit sourced facts with corrections and withdrawals, shared across agents; built as the memory for OpenClaw/Hermes agents.",
+  "license": "MIT",
+  "github_repo": "garrytan/gbrain",
+  "traction": "~31k GitHub stars; author is YC CEO; listed #6 in TeleAI Awesome-Agent-Memory",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/garrytan/gbrain",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "agentmemory (rohitg00)",
+  "url": "https://www.agent-memory.dev/",
+  "type": "framework",
+  "section": "Coding-agent memory",
+  "description": "Self-hosted persistent memory layer that captures coding-agent activity and recalls it in later sessions, positioned on public benchmark results.",
+  "license": "Apache-2.0",
+  "github_repo": "rohitg00/agentmemory",
+  "traction": "~29k GitHub stars; #7 in TeleAI Awesome-Agent-Memory",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/rohitg00/agentmemory",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "Beads (Steve Yegge)",
+  "url": "https://github.com/steveyegge/beads",
+  "type": "framework",
+  "section": "Coding-agent memory",
+  "description": "Dolt-backed, dependency-aware graph issue tracker that acts as persistent structured memory for coding agents, replacing markdown plans; `bd remember` stores durable facts and `bd prime` re-injects them.",
+  "license": "MIT",
+  "github_repo": "steveyegge/beads",
+  "traction": "~28k GitHub stars",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/steveyegge/beads"
+  ]
+ },
+ {
+  "name": "memU (NevaMind)",
+  "url": "https://github.com/NevaMind-AI/memU",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Lightweight agent memory system that builds a shared, file-like 'memory wiki' across sessions, agents and devices and can extract reusable skills from agent history; also offered as a hosted service (memu.pro).",
+  "license": "Apache-2.0",
+  "github_repo": "NevaMind-AI/memU",
+  "traction": "~14k stars; #9 on GitHub agent-memory topic",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/NevaMind-AI/memU",
+   "https://github.com/topics/agent-memory?o=desc&s=stars"
+  ]
+ },
+ {
+  "name": "Honcho (Plastic Labs)",
+  "url": "https://honcho.dev/",
+  "type": "product",
+  "section": "Dedicated memory layers",
+  "description": "Memory library/service for stateful agents that reasons over stored messages to build 'peer' representations (theory-of-mind style user models) queryable via a dialectic API; used as Hermes Agent's and OpenClaw's user-modelling backend.",
+  "license": "AGPL-3.0",
+  "github_repo": "plastic-labs/honcho",
+  "traction": "~7.7k stars; integrated into Hermes Agent and OpenClaw; public evals at evals.honcho.dev",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/plastic-labs/honcho",
+   "https://github.com/NousResearch/hermes-agent",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "context-mode",
+  "url": "https://github.com/mksglu/context-mode",
+  "type": "framework",
+  "section": "Coding-agent memory",
+  "description": "MCP server + hooks that sandbox tool output out of the coding agent's context window (claims ~98% reduction) and persist session memory across 17 agent platforms.",
+  "license": "Elastic License 2.0",
+  "github_repo": "mksglu/context-mode",
+  "traction": "~32k GitHub stars",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/mksglu/context-mode",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "Serena (Oraios)",
+  "url": "https://github.com/oraios/serena",
+  "type": "framework",
+  "section": "Coding-agent memory",
+  "description": "LSP-backed MCP coding toolkit ('IDE for your agent') with a built-in project memory system for sharing knowledge across sessions, users and projects alongside AGENTS.md.",
+  "license": "GPL-3.0-or-later (SolidLSP MIT)",
+  "github_repo": "oraios/serena",
+  "traction": "~30k GitHub stars",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/oraios/serena"
+  ]
+ },
+ {
+  "name": "Screenpipe",
+  "url": "https://github.com/mediar-ai/screenpipe",
+  "type": "product",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "description": "Local-first 24/7 screen and audio recorder that indexes what you see/hear and exposes it as context/memory to AI agents (MCP, API); open-source Rewind/Recall alternative.",
+  "license": "source-available (Screenpipe Commercial License)",
+  "github_repo": "mediar-ai/screenpipe",
+  "traction": "~22k GitHub stars; Y Combinator S26",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/mediar-ai/screenpipe"
+  ]
+ },
+ {
+  "name": "Second Me (Mindverse)",
+  "url": "https://github.com/mindverse/Second-Me",
+  "type": "product",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "description": "Open-source system for training a local 'AI self' from your own notes and memories using hierarchical memory modelling, deployable as a personal agent on a network of Second Mes.",
+  "license": "Apache-2.0",
+  "github_repo": "mindverse/Second-Me",
+  "traction": "~15.7k GitHub stars; #12 in TeleAI Awesome-Agent-Memory",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/mindverse/Second-Me",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "ACE — Agentic Context Engineering",
+  "url": "https://arxiv.org/abs/2510.04618",
+  "type": "paper",
+  "section": "Recent method papers — theorized, no distinct product",
+  "description": "Treats context and agent memory as an evolving 'playbook' that a generate→reflect→curate loop updates incrementally, avoiding brevity bias and context collapse. Reports +10.6% on agent benchmarks and matches the top AppWorld production agent.",
+  "license": "Apache-2.0 (official code)",
+  "github_repo": "ace-agent/ace",
+  "traction": "ICLR 2026; Stanford/SambaNova; popular community implementation (kayba-ai ACE ~2.5k stars)",
+  "arxiv_url": "https://arxiv.org/abs/2510.04618v2",
+  "sources": [
+   "https://arxiv.org/abs/2510.04618v2",
+   "https://github.com/ace-agent/ace",
+   "https://github.com/kayba-ai/agentic-context-engine"
+  ]
+ },
+ {
+  "name": "HaluMem",
+  "url": "https://arxiv.org/abs/2511.03506",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Benchmark that measures hallucination at each stage of an agent memory system (extraction, updating, QA) rather than only final answers; HaluMem-Medium/Long datasets have ~15k memory points and contexts over 1M tokens.",
+  "license": "CC-BY-NC-ND-4.0",
+  "github_repo": "MemTensor/HaluMem",
+  "traction": "From MemTensor and China Telecom; HF dataset IAAR-Shanghai/HaluMem; widely cited by memory vendors",
+  "arxiv_url": "https://arxiv.org/abs/2511.03506",
+  "sources": [
+   "https://arxiv.org/abs/2511.03506",
+   "https://github.com/MemTensor/HaluMem"
+  ]
+ },
+ {
+  "name": "BEAM (Beyond a Million Tokens) + LIGHT",
+  "url": "https://arxiv.org/abs/2510.27246",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "ICLR 2026 benchmark of 100 coherent conversations up to 10M tokens with 2,000 validated probes across ten memory abilities, including contradiction resolution and event ordering. It also proposes the LIGHT episodic/working/scratchpad memory method.",
+  "license": "MIT code; CC BY-SA 4.0 data",
+  "github_repo": "mohammadtavakoli78/BEAM",
+  "traction": "ICLR 2026 paper; Mem0 publishes BEAM explainer and results",
+  "arxiv_url": "https://arxiv.org/abs/2510.27246",
+  "sources": [
+   "https://arxiv.org/abs/2510.27246",
+   "https://github.com/mohammadtavakoli78/BEAM",
+   "https://mem0.ai/library/agent-memory/what-is-beam-memory-benchmark"
+  ]
+ },
+ {
+  "name": "SimpleMem",
+  "url": "https://arxiv.org/abs/2601.02553",
+  "type": "paper",
+  "section": "Recent method papers — theorized, no distinct product",
+  "description": "Efficient lifelong memory built from semantic structured compression into self-contained facts, online synthesis of related facts and intent-aware multi-index retrieval. Reports +26% F1 over Mem0 on LoCoMo with ~30x fewer tokens.",
+  "license": "MIT",
+  "github_repo": "aiming-lab/SimpleMem",
+  "traction": "~3.8k stars; ICML 2026; UNC/Berkeley/UCSC",
+  "arxiv_url": "https://arxiv.org/abs/2601.02553v3",
+  "sources": [
+   "https://arxiv.org/abs/2601.02553v3",
+   "https://github.com/aiming-lab/SimpleMem",
+   "https://icml.cc/virtual/2026/poster/61640"
+  ]
+ },
+ {
+  "name": "Letta Code",
+  "url": "https://github.com/letta-ai/letta-code",
+  "type": "framework",
+  "section": "Coding-agent memory",
+  "description": "Letta's stateful coding-agent harness: agents rewrite their own memory blocks and skills, version context in git via MemFS (syncable to GitHub) and reflect via a periodic /sleeptime 'dreaming' process.",
+  "license": "Apache-2.0",
+  "github_repo": "letta-ai/letta-code",
+  "traction": "~3.5k stars; from Letta (MemGPT) team",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/letta-ai/letta-code",
+   "https://letta.com/blog/sleep-time-compute"
+  ]
+ },
+ {
+  "name": "Basic Memory",
+  "url": "https://github.com/basicmachines-co/basic-memory",
+  "type": "framework",
+  "section": "File-backed / editor paradigms",
+  "description": "Local-first MCP memory where each memory is a Markdown note with observations and wikilink relations that form a traversable knowledge graph, indexed with SQLite (optional Postgres vectors), plus an optional hosted cloud.",
+  "license": "AGPL-3.0",
+  "github_repo": "basicmachines-co/basic-memory",
+  "traction": "~3.6k stars; widely used MCP memory server with a paid cloud tier",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/basicmachines-co/basic-memory"
+  ]
+ },
+ {
+  "name": "Evo-Memory",
+  "url": "https://arxiv.org/abs/2511.20857",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Google streaming benchmark for test-time learning: agents must search, adapt and update memory across task sequences. It implements 10+ memory modules on 10 datasets and introduces the ExpRAG and ReMem baselines.",
+  "license": "unknown",
+  "github_repo": "",
+  "traction": "Google (Ed Chi, Fernando Pereira et al.) authorship",
+  "arxiv_url": "https://arxiv.org/abs/2511.20857v1",
+  "sources": [
+   "https://arxiv.org/abs/2511.20857v1"
+  ]
+ },
+ {
+  "name": "STALE (+ CUPMEM)",
+  "url": "https://arxiv.org/abs/2605.06527",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Conflict/update benchmark of 400 scenarios with 1,200 queries (up to ~150K tokens) testing whether agents notice that later facts implicitly invalidate earlier memories; the best model scores 55.2%. The CUPMEM prototype adds write-time state adjudication.",
+  "license": "unknown",
+  "github_repo": "",
+  "traction": "Directly targets implicit memory conflict; HKUST/Wuhan/CUHK",
+  "arxiv_url": "https://arxiv.org/abs/2605.06527",
+  "sources": [
+   "https://arxiv.org/abs/2605.06527"
+  ]
+ },
+ {
+  "name": "MemConflict",
+  "url": "https://arxiv.org/abs/2605.20926",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Diagnostic benchmark covering dynamic, static and conditional memory conflicts, with black-box answer and white-box retrieval/ranking metrics; it evaluates A-Mem, LangMem, Letta, MemOS, Mem0 and Memobase.",
+  "license": "unspecified",
+  "github_repo": "TaoZhen1110/MemConflict",
+  "traction": "Head-to-head evaluation of six named memory systems; Renmin Univ + MemTensor",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.alphaxiv.org/abs/2605.20926.md",
+   "https://github.com/TaoZhen1110/MemConflict"
+  ]
+ },
+ {
+  "name": "Redis Agent Memory Server",
+  "url": "https://github.com/redis/agent-memory-server",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Redis's official working + long-term memory server for agents (REST and MCP), with automatic extraction, semantic search and topic/entity tagging; also used to give Snowflake Cortex Agents persistent memory.",
+  "license": "Apache-2.0",
+  "github_repo": "redis/agent-memory-server",
+  "traction": "Major infrastructure vendor's official memory server; Redis-Snowflake integration blog",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/redis/agent-memory-server",
+   "https://redis.io/blog/how-redis-brings-persistent-memory-to-snowflake-cortex-agents/"
+  ]
+ },
+ {
+  "name": "MemoryBear",
+  "url": "https://www.memorybear.ai/",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Open-source memory system modelled on human cognition, with perception, extraction, association and forgetting stages; also offered as a hosted product.",
+  "license": "Apache-2.0",
+  "github_repo": "SuanmoSuanyangTechnology/MemoryBear",
+  "traction": "~6.5k stars; #18 in TeleAI Awesome-Agent-Memory",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/SuanmoSuanyangTechnology/MemoryBear",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "Neo4j Agent Memory (Neo4j Labs)",
+  "url": "https://github.com/neo4j-labs/agent-memory",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "Neo4j Labs' graph-native agent memory library (Python and TypeScript) that stores conversations, builds knowledge/context graphs and records agent reasoning traces to learn from.",
+  "license": "Apache-2.0",
+  "github_repo": "neo4j-labs/agent-memory",
+  "traction": "Official vendor-lab project; packages published on PyPI and npm",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/neo4j-labs/agent-memory"
+  ]
+ },
+ {
+  "name": "EvoMemBench",
+  "url": "https://www.alphaxiv.org/abs/2605.18421",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Benchmark that crosses memory scope (in-episode vs cross-episode) with content (knowledge vs execution) and compares 15 memory methods with long-context baselines under one protocol.",
+  "license": "unspecified",
+  "github_repo": "DSAIL-Memory/EvoMemBench",
+  "traction": "Standardized comparison of 15 memory methods; HKUST(GZ) and others",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.alphaxiv.org/abs/2605.18421",
+   "https://github.com/DSAIL-Memory/EvoMemBench"
+  ]
+ },
+ {
+  "name": "memory-lancedb-pro (OpenClaw plugin)",
+  "url": "https://github.com/CortexReach/memory-lancedb-pro",
+  "type": "framework",
+  "section": "Framework-embedded memory",
+  "description": "Enhanced LanceDB memory plugin for OpenClaw that adds hybrid vector + BM25 retrieval, cross-encoder reranking, multi-scope isolation and a management CLI.",
+  "license": "MIT",
+  "github_repo": "CortexReach/memory-lancedb-pro",
+  "traction": "~4.5k stars; #21 in TeleAI Awesome-Agent-Memory",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/CortexReach/memory-lancedb-pro",
+   "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory"
+  ]
+ },
+ {
+  "name": "m_flow (M-Flow)",
+  "url": "https://github.com/FlowElement-xinliuyuansu/m_flow",
+  "type": "framework",
+  "section": "Retrieval-as-memory hybrids",
+  "description": "Cognitive memory engine modelled on biology that presents itself as a new paradigm for graph RAG for agents.",
+  "license": "Apache-2.0",
+  "github_repo": "FlowElement-xinliuyuansu/m_flow",
+  "traction": "~4.5k stars; #13 on GitHub agent-memory topic",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/FlowElement-xinliuyuansu/m_flow",
+   "https://github.com/topics/agent-memory?o=desc&s=stars"
+  ]
+ },
+ {
+  "name": "Acontext (memodb)",
+  "url": "https://github.com/memodb-io/Acontext",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "'Agent Skills as a Memory Layer': an open-source skill-memory layer that stores what agents learn as agent skill files. Built by the Memobase team.",
+  "license": "Apache-2.0",
+  "github_repo": "memodb-io/Acontext",
+  "traction": "~3.7k stars",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/memodb-io/Acontext"
+  ]
+ },
+ {
+  "name": "memsearch (Zilliz)",
+  "url": "https://github.com/zilliztech/memsearch",
+  "type": "framework",
+  "section": "Coding-agent memory",
+  "description": "Zilliz's persistent memory layer shared across agents like Claude Code and Codex: Markdown files are the source of truth, and Milvus indexes them for search.",
+  "license": "MIT",
+  "github_repo": "zilliztech/memsearch",
+  "traction": "~2.7k stars; from the Milvus vendor",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/zilliztech/memsearch"
+  ]
+ },
+ {
+  "name": "Memory-R1",
+  "url": "https://aclanthology.org/2026.acl-long.583/",
+  "type": "paper",
+  "section": "Recent method papers — theorized, no distinct product",
+  "description": "Uses RL (PPO/GRPO) to train a Memory Manager that learns ADD/UPDATE/DELETE/NOOP operations and an Answer Agent that filters retrieved memories. Beats heuristic memory baselines on LoCoMo, MSC and LongMemEval from just 152 training QA pairs.",
+  "license": "unknown",
+  "github_repo": "",
+  "traction": "ACL 2026 long paper; LMU/Oxford/TUM; widely cited RL-for-memory work",
+  "arxiv_url": "",
+  "sources": [
+   "https://aclanthology.org/2026.acl-long.583/"
+  ]
+ },
+ {
+  "name": "Sleep-time Compute (Letta)",
+  "url": "https://letta.com/blog/sleep-time-compute",
+  "type": "paper",
+  "section": "Recent method papers — theorized, no distinct product",
+  "description": "Agents use idle time to reorganize and pre-reason over stored context ('learned context'). Letta ships this as sleep-time agents (v0.7.0+), where a background agent manages the primary agent's core memory.",
+  "license": "Apache-2.0 (Letta)",
+  "github_repo": "letta-ai/letta",
+  "traction": "Shipped in Letta 0.7.0 and Letta Code (/sleeptime); arXiv 2504.13171",
+  "arxiv_url": "",
+  "sources": [
+   "https://letta.com/blog/sleep-time-compute",
+   "https://github.com/letta-ai/letta-code"
+  ]
+ },
+ {
+  "name": "CORE (RedPlanet)",
+  "url": "https://github.com/RedPlanetHQ/core",
+  "type": "product",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "description": "Always-on 'personal AI OS' that indexes email, meetings, GitHub, Linear, Slack and assistant chats into a temporal knowledge graph with fact classification and intent-driven retrieval, plus MCP integrations.",
+  "license": "AGPL-3.0",
+  "github_repo": "RedPlanetHQ/core",
+  "traction": "~2k stars; reports 88.24% on LoCoMo (vendor claim)",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/RedPlanetHQ/core"
+  ]
+ },
+ {
+  "name": "Memanto (Moorcheh)",
+  "url": "https://memanto.ai/",
+  "type": "framework",
+  "section": "Dedicated memory layers",
+  "description": "A 'memory agent' that manages other agents' memories, deciding what to keep, what conflicts, what expires and who needs to know; runs locally (Docker/Ollama) or as a free cloud.",
+  "license": "MIT",
+  "github_repo": "moorcheh-ai/memanto",
+  "traction": "~2.2k stars; self-reported 89.8% LongMemEval / 87.1% LoCoMo",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/moorcheh-ai/memanto",
+   "https://github.com/topics/agent-memory?o=desc&s=stars"
+  ]
+ },
+ {
+  "name": "Agent QA",
+  "url": "https://vostride.com/docs/agent-qa",
+  "type": "harness",
+  "section": "Use-case-specific agent harnesses",
+  "description": "Agent-driven runtime for testing web, Android, and iOS user flows from YAML, with a local dashboard, CLI/MCP control, and recorded evidence.",
+  "license": "Other (specify in notes)",
+  "github_repo": "https://github.com/vostride/agent-qa",
+  "traction": "Submitted via intake issue #182",
+  "arxiv_url": "",
+  "sources": [
+   "https://vostride.com/docs/agent-qa"
+  ]
+ },
+ {
+  "name": "Hyperconsciousness (hc)",
+  "url": "https://github.com/louis030195/hyperconsciousness",
+  "type": "framework",
+  "section": "Memory governance, privacy & safety",
+  "description": "Developer-alpha encrypted, append-only knowledge store for humans and agents, with CLI/MCP access and scoped, expiring grants.",
+  "license": "MIT",
+  "github_repo": "https://github.com/louis030195/hyperconsciousness",
+  "traction": "Submitted via intake issue #181",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/louis030195/hyperconsciousness"
+  ]
+ },
+ {
+  "name": "SandBase Harness",
+  "url": "https://github.com/sandbaseai/sandbase-harness",
+  "type": "harness",
+  "section": "AI sandbox & runtime environments",
+  "description": "A local-first, self-hosted runtime for persistent AI-agent sessions, sandboxed execution, MCP tools, approvals, audit, and replay.\n\n**Claims / pitch:**\n\nThe public repository documents local, Docker, and Kubernetes sandbox backends; persistent sessions and event streams; MCP tools; skills and credential management; approval gates; audit and replay workflows. These are suggestions for curator verification, not endorsement claims.",
+  "license": "Apache-2.0",
+  "github_repo": "https://github.com/sandbaseai/sandbase-harness",
+  "traction": "Submitted via intake issue #173",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/sandbaseai/sandbase-harness"
+  ]
+ }
+] 
