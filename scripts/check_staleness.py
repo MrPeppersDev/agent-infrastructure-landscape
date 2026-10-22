@@ -101,6 +101,34 @@ GITHUB_URL_RE = re.compile(
     re.IGNORECASE,
 )
 
+# github.com reserved routes — these look like `owner/repo` to the regex but
+# are product / docs / marketing pages, not user or org repositories. Treating
+# them as repos makes the online GitHub API 404, which the caller used to turn
+# into a bogus `abandoned` flag with a `threshold_abandoned * 2` sentinel day
+# count (see #168 — this false-flagged live products like GitHub Copilot whose
+# `gh` cell points at github.com/features/copilot or github.com/copilot/...).
+# A row whose only GitHub-looking URL is one of these has no checkable repo and
+# is skipped entirely, exactly like a row with no GitHub URL at all.
+GITHUB_RESERVED_NAMESPACES = {
+    "about",
+    "apps",
+    "collections",
+    "copilot",
+    "customer-stories",
+    "enterprise",
+    "explore",
+    "features",
+    "marketplace",
+    "pricing",
+    "readme",
+    "resources",
+    "security",
+    "settings",
+    "sponsors",
+    "team",
+    "topics",
+}
+
 # Common cell substrings indicating "no data" — see docs/SCHEMA.md §3.
 SKIP_VALUES = {
     "",
@@ -196,6 +224,12 @@ def extract_repo(record: dict[str, Any]) -> tuple[str, str, str] | None:
             continue
         owner = m.group(1)
         repo = m.group(2).rstrip(".").removesuffix(".git")
+        # Reserved github.com route (features/, copilot/, pricing/, …) — not a
+        # real repo. Skip this candidate and keep looking; if none of the
+        # candidates yield a real repo we return None (row has no checkable
+        # repo). See #168.
+        if owner.lower() in GITHUB_RESERVED_NAMESPACES:
+            continue
         # github.com/owner/repo/blob/... — strip anything after the second segment.
         return owner, repo, f"https://github.com/{owner}/{repo}"
     return None

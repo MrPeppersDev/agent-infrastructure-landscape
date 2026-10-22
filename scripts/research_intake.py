@@ -288,14 +288,33 @@ def parse_issue_body(body: str) -> IntakeFields:
         re.DOTALL,
     )
     label_to_key = {label: key for key, label in FIELD_LABELS}
+    # GitHub issue forms (.github/ISSUE_TEMPLATE/intake.yml) render each
+    # field as a `### <label>` heading followed by the value, and some
+    # template labels differ slightly from the web form's ("Claims /
+    # pitch" vs "Claims"). Before this, every template submission failed
+    # to parse and the intake bot errored out.
+    heading_aliases = {"Claims / pitch": "Claims"}
+    empty_values = {"_(none)_", "(none)", "—", "-", "", "_No response_", "None"}
     fields = IntakeFields()
     seen: dict[str, str] = {}
     for match in pattern.finditer(body or ""):
         key = label_to_key[match.group("label")]
         value = match.group("value").strip()
-        if value in {"_(none)_", "(none)", "—", "-", ""}:
+        if value in empty_values:
             continue
         seen[key] = value
+    if not seen:
+        heading = re.compile(r"^###\s+(?P<label>.+?)\s*$", re.MULTILINE)
+        marks = list(heading.finditer(body or ""))
+        for i, m in enumerate(marks):
+            label = heading_aliases.get(m.group("label"), m.group("label"))
+            if label not in label_to_key:
+                continue
+            end = marks[i + 1].start() if i + 1 < len(marks) else len(body)
+            value = body[m.end():end].strip()
+            if value in empty_values or value.startswith("— skip"):
+                continue
+            seen[label_to_key[label]] = value
     for k, v in seen.items():
         setattr(fields, k, v)
     for req in REQUIRED_FIELDS:

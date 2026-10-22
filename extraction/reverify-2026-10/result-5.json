@@ -1,0 +1,740 @@
+[
+ {
+  "id": "agents-md--agents-md",
+  "lifecycle": "active",
+  "lifecycle_note": "AGENTS.md contributed by OpenAI to the Agentic AI Foundation (Linux Foundation), Dec 2025; adopted by 60k+ projects.",
+  "lifecycle_citation": "https://openai.com/index/agentic-ai-foundation/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AGENTS.md at repo root (and ~/.codex/AGENTS.md for global)...",
+    "new": "Open, tool-agnostic Markdown format for project instructions to coding agents (AGENTS.md at repo root / nested dirs; nearest file wins). Stewarded by the Agentic AI Foundation under the Linux Foundation since Dec 2025; read by Codex, Cursor, Copilot, Devin, Amp and others.",
+    "citation": "https://openai.com/index/agentic-ai-foundation/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "aleph-alpha-phariaai-phariacatch--aleph-alpha-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Pending acquisition: Cohere signed a business combination agreement with Aleph Alpha (announced 2026-09-16), subject to regulatory approval; not closed as of 2026-09-20.",
+  "lifecycle_citation": "https://dealroom.co/news/154731-dig-aleph-alpha-cohere-combination-premature-bca-closed/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "apple-notes-apple-intelligence--apple-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "autorag--arxiv-2410-20878",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo now hosts AutoRAG 2.0 (AutoRAG Agent); original Python AutoRAG moved to legacy/ and receives maintenance only.",
+  "lifecycle_citation": "https://github.com/Marker-Inc-Korea/AutoRAG",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v0.3.22 2026-04-03",
+    "new": "v0.3.27 (2026-10-04)",
+    "citation": "https://pypi.org/project/AutoRAG/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache-2.0",
+    "new": "MIT (AutoRAG 2.0); Apache-2.0 (legacy/ package)",
+    "citation": "https://github.com/Marker-Inc-Korea/AutoRAG",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "4.7k\u2605 +200/mo Python",
+    "new": "Marker-Inc-Korea/AutoRAG \u2014 ~5.1k stars, last commit n/a (PyPI release 2026-10)",
+    "citation": "https://github.com/Marker-Inc-Korea/AutoRAG",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "bge-m3--arxiv-2402-03216",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/FlagOpen/FlagEmbedding",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v1.4.0 2026-04-22",
+    "new": "v1.4.2 (2026-08-24) \u2014 FlagEmbedding package",
+    "citation": "https://pypi.org/project/FlagEmbedding/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "11.6k\u2605 +142/mo Python",
+    "new": "FlagOpen/FlagEmbedding \u2014 ~12.2k stars, last commit n/a (PyPI release 2026-08)",
+    "citation": "https://github.com/FlagOpen/FlagEmbedding",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cag-cache-augmented-generation--arxiv-2412-15605",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Research code repo; no releases, no archive notice.",
+  "lifecycle_citation": "https://github.com/hhhuang/CAG",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "1.5k\u2605 +5/mo Python",
+    "new": "hhhuang/CAG \u2014 ~1.6k stars, last commit n/a",
+    "citation": "https://github.com/hhhuang/CAG",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "chatgpt-study-mode--openai-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "claude-md--docs-claude-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Docs moved to code.claude.com; now paired with auto memory (MEMORY.md) and .claude/rules/.",
+  "lifecycle_citation": "https://code.claude.com/docs/en/memory",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Markdown file injected at session start; reloaded post-compaction...",
+    "new": "CLAUDE.md files (managed, user, project, local scopes) concatenated into context at session start, with @imports and path-scoped .claude/rules/; complemented by Claude-written auto memory (MEMORY.md index). Project-root file re-injected after /compact.",
+    "citation": "https://code.claude.com/docs/en/memory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Still in private beta.",
+  "lifecycle_citation": "https://developers.cloudflare.com/agent-memory/platform/pricing/index.md",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Pay-per-use",
+    "new": "Free during private beta (not billed; Cloudflare promises 30 days' notice before charging)",
+    "citation": "https://developers.cloudflare.com/agent-memory/platform/pricing/index.md",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Continue acquired by Cursor (notice ~2026-06-16); product discontinued, data export deadline 2026-07-15; final 2.0.0 release and continuedev/continue repo no longer maintained / read-only (Apache-2.0, forkable). Rules docs page still served.",
+  "lifecycle_citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": ".continue/rules/*.md at workspace root. YAML frontmatter: name, globs, alwaysApply, description...",
+    "new": ".continue/rules/*.md at workspace root, loaded lexicographically; YAML frontmatter name, globs, regex, description, alwaysApply. Continue was acquired by Cursor in June 2026 and the extension is no longer maintained.",
+    "citation": "https://docs.continue.dev/customize/deep-dives/rules",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable \u2014 not OSS",
+    "new": "v2.0.0-vscode (2026-06-19) \u2014 final release",
+    "citation": "https://github.com/continuedev/continue/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/continuedev/continue",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "continuedev/continue \u2014 ~35.7k stars, last commit 2026-06 (read-only, unmaintained)",
+    "citation": "https://github.com/continuedev/continue",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "crewai-memory--crewai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://pypi.org/project/crewai/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "1.14.4 2026-04-30",
+    "new": "v1.15.28 (2026-10-14)",
+    "citation": "https://pypi.org/project/crewai/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/stanfordnlp/dspy",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/stanfordnlp/dspy",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "stanfordnlp/dspy \u2014 ~36.7k stars, last commit n/a",
+    "citation": "https://github.com/stanfordnlp/dspy",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "era-computer--techcrunch-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Platform launch / developer availability not confirmed in coverage.",
+  "lifecycle_citation": "https://www.idlen.io/news/era-computer-11-million-os-ai-gadgets-glasses-rings-pendants-april-2026",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$11M total Seed \u00b7 2026-04",
+    "new": "total $11M ($9M seed co-led by Abstract Ventures and BoxGroup + $2M pre-seed, announced 2026-04-23)",
+    "citation": "https://www.idlen.io/news/era-computer-11-million-os-ai-gadgets-glasses-rings-pendants-april-2026",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "flowise-memory--docs-flowiseai-com",
+  "lifecycle": "archived",
+  "lifecycle_note": "Flowise sunset announced 2026-07-29 (code freeze); GitHub repo archived (read-only) 2026-08-13; end of life 2026-08-31; npm/Docker marked deprecated. Previously acquired by Workday (Aug 2025).",
+  "lifecycle_citation": "https://flowiseai.com/sunset",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable \u2014 not OSS",
+    "new": "flowise@3.1.4 (2026-07-29) \u2014 final",
+    "citation": "https://github.com/FlowiseAI/Flowise/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/FlowiseAI/Flowise",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "FlowiseAI/Flowise \u2014 ~55.4k stars, archived 2026-08-13",
+    "citation": "https://github.com/FlowiseAI/Flowise",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Pre-acquisition: Free OSS; Starter $35/mo; ...",
+    "new": "discontinued \u2014 product sunset (EOL 2026-08-31); OSS code remains forkable under Apache-2.0",
+    "citation": "https://flowiseai.com/sunset",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "github-copilot-custom-instructions--gh-copilot-customizing-copilot",
+  "lifecycle": "active",
+  "lifecycle_note": "Copilot now also reads AGENTS.md (nearest wins) and a root CLAUDE.md or GEMINI.md as agent instructions.",
+  "lifecycle_citation": "https://docs.github.com/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": ".github/copilot-instructions.md repo-wide; .github/instructions/<name>.instructions.md ...",
+    "new": ".github/copilot-instructions.md (repo-wide) plus .github/instructions/*.instructions.md path-scoped via applyTo glob (optional excludeAgent); Copilot agents also honor AGENTS.md (nearest in tree) or a root CLAUDE.md/GEMINI.md.",
+    "citation": "https://docs.github.com/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "0\u2605 no data \u2014 repo unreachable",
+    "new": "not applicable \u2014 docs feature, no GitHub repo",
+    "citation": "https://docs.github.com/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "graphrag-microsoft--microsoft-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://pypi.org/project/graphrag/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "3.0.9 2026-04-13",
+    "new": "v3.3.0 (2026-10-08)",
+    "citation": "https://pypi.org/project/graphrag/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "32.8k\u2605 +189/mo Python",
+    "new": "microsoft/graphrag \u2014 ~35.1k stars, last commit n/a (PyPI release 2026-10)",
+    "citation": "https://github.com/microsoft/graphrag",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "heidi-health--heidihealth-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://hlth.com/insights/news/heidi-raises-340m-to-expand-clinical-ai-into-supervised-agentic-workflows",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$65M $465M val Series B \u00b7 2025-10",
+    "new": "total ~$436.6M (Series C $100M equity led by Blackbird at $900M val + $240M non-dilutive growth financing from General Catalyst CVF, 2026-09)",
+    "citation": "https://www.mobihealthnews.com/news/heidi-health-garnered-340m-reaches-900m-valuation",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "hippocratic-ai-polaris--hippocraticai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Official Polaris page not reachable this session (permission timeout).",
+  "lifecycle_citation": "https://hlth.com/insights/news/hippocratic-ai-raises-126m-to-fund-mergers-acquisitions-and-product-innovation-2025-11-07",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$320M total $3.5B val Series C \u00b7 2025-11",
+    "new": "total $404M ($126M Series C at $3.5B val, 2025-11)",
+    "citation": "https://hlth.com/insights/news/hippocratic-ai-raises-126m-to-fund-mergers-acquisitions-and-product-innovation-2025-11-07",
+    "confidence": "high"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "inngest-agentkit-network-state--agentkit-inngest-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/inngest/agent-kit",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/inngest/agent-kit",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "inngest/agent-kit \u2014 ~926 stars, last commit n/a",
+    "citation": "https://github.com/inngest/agent-kit",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 MCP servers usable as agent tools (documented)",
+    "citation": "https://agentkit.inngest.com/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "jamba-ai21-labs--ai21-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Check Point Software (agreement 2025-09-16, completed by 2025-11-11); products folded into Check Point AI security (Infinity platform).",
+  "lifecycle_citation": "https://cxotoday.com/press-release/check-point-software-technologies-completes-acquisition-of-lakera-to-secure-the-worlds-ai-transformation/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$30M total (...)",
+    "new": "acquired by Check Point Software (completed 2025-11; terms undisclosed officially, ~$300M reported)",
+    "citation": "https://www.checkpoint.com/press-releases/check-point-acquires-lakera-to-deliver-end-to-end-ai-security-for-enterprises/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "latitude-voyage--latitude-io",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "lindy-ai-memory--docs-lindy-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Only third-party funding aggregator reached; existing $49.9M total unchanged. Official pricing page blocked.",
+  "lifecycle_citation": "https://www.clay.com/dossier/lindy-funding",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "longrag--arxiv-2406-15319",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Research code repo; no releases, no archive notice.",
+  "lifecycle_citation": "https://github.com/TIGER-AI-Lab/LongRAG",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/shaneholloman/mcp-knowledge-graph",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "849\u2605 JavaScript",
+    "new": "shaneholloman/mcp-knowledge-graph \u2014 ~889 stars, last commit n/a",
+    "citation": "https://github.com/shaneholloman/mcp-knowledge-graph",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://pricingsaas.com/companies/mem0",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "memori--gh-memorilabs-memori",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/MemoriLabs/Memori",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v3.3.3 2026-05-05",
+    "new": "v3.3.6 (2026-05-28)",
+    "citation": "https://pypi.org/project/memori/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "14.1k\u2605 +175/mo Python",
+    "new": "MemoriLabs/Memori \u2014 ~17.1k stars, last commit n/a",
+    "citation": "https://github.com/MemoriLabs/Memori",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "community port \u2014 third-party MCP wrappers",
+    "new": "yes \u2014 first-party hosted remote MCP endpoint (api.memorilabs.ai/mcp) for Claude Code, Cursor, Codex etc.",
+    "citation": "https://github.com/MemoriLabs/Memori",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memoryvla--arxiv-2508-19236",
+  "lifecycle": "active",
+  "lifecycle_note": "Code for MemoryVLA and MemoryVLA+ released 2025-11; MemoryVLA++ journal version announced 2026-06 with code pending.",
+  "lifecycle_citation": "https://github.com/shihao1895/MemoryVLA",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Code public (MemoryVLA + MemoryVLA+); MemoryVLA++ code/weights pending",
+    "citation": "https://github.com/shihao1895/MemoryVLA",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "234\u2605 Python",
+    "new": "shihao1895/MemoryVLA \u2014 ~361 stars, last commit n/a (README news 2026-06)",
+    "citation": "https://github.com/shihao1895/MemoryVLA",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "microsoft-copilot-memory--learn-microsoft-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "multi-head-rag-mhrag--arxiv-2406-05085",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Research code repo (10 commits); no releases.",
+  "lifecycle_citation": "https://github.com/spcl/MRAG",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "nomi-ai--nomi-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "o-mem--gh-oppo-personalai-o-mem",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only \u2014 no public code repo found",
+    "new": "Code public (memory_chain/ + example_usage.py in repo); paper arXiv 2511.13593",
+    "citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "65\u2605 Python",
+    "new": "OPPO-PersonalAI/O-Mem \u2014 ~79 stars, last commit n/a",
+    "citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "openai-chatgpt-memory--openai-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "otter-ai--otter-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "personal-ai--personal-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "pydantic-ai-memorytool--pydantic-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Pydantic AI now has a first-party Memory capability in Pydantic AI Harness (0.x) with MEMORY.md notebook, read/write/search tools and in-memory/file/SQLite/Postgres stores.",
+  "lifecycle_citation": "https://pydantic.dev/docs/ai/harness/memory/index.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Memory exposed via Anthropic SDK's BetaAbstractMemoryTool ... No built-in persistent storage...",
+    "new": "Pydantic AI Harness ships a Memory capability: a MEMORY.md notebook plus extra Markdown notes, exposed via write/read/delete/search memory tools and auto-injected into context; backends InMemory, File, SQLite, Postgres with per-user namespaces. Provider memory tools (e.g. Anthropic) remain available as builtin tools.",
+    "citation": "https://pydantic.dev/docs/ai/harness/memory/index.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/pydantic/pydantic-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "pydantic/pydantic-ai \u2014 ~19.6k stars, last commit n/a",
+    "citation": "https://github.com/pydantic/pydantic-ai",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "read-ai--read-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Could not reach official site this session; no newer funding found.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "replika--replika-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "rivet-memory-node-ironclad--rivet-ironcladapp-com",
+  "lifecycle": "active",
+  "lifecycle_note": "No archive notice; activity date not visible.",
+  "lifecycle_citation": "https://github.com/ironclad/rivet",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/ironclad/rivet",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "ironclad/rivet \u2014 ~4.7k stars, last commit n/a",
+    "citation": "https://github.com/ironclad/rivet",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "saner-ai--saner-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "sg-nav--arxiv-2410-08189",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Research code; last README news item 2024-12-30.",
+  "lifecycle_citation": "https://github.com/bagh2178/SG-Nav",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Code public (SG_Nav.py, scenegraph.py in repo; MIT)",
+    "citation": "https://github.com/bagh2178/SG-Nav",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "325\u2605 Jupyter Notebook",
+    "new": "bagh2178/SG-Nav \u2014 ~355 stars, last commit n/a",
+    "citation": "https://github.com/bagh2178/SG-Nav",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "sourcegraph-cody-cody-json--docs-sourcegraph-com",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "Cody Free/Pro/Enterprise Starter discontinued 2025-07-23; Cody remains only for existing Enterprise customers (legacy). Amp spun out as a separate company (announced 2025-12). Old custom-commands doc redirects to Cody 'prompts' page.",
+  "lifecycle_citation": "https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Asana (May 2026; terms not officially disclosed, $75M reported by The SaaS News).",
+  "lifecycle_citation": "https://www.cbinsights.com/company/stack-ai",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$16.6M total; Series A 2025 from Lobby Capital; YC W23",
+    "new": "total ~$19.5M ($3M seed 2023 + $16M Series A led by Lobby Capital, 2025-05); acquired by Asana 2026-05",
+    "citation": "https://www.cbinsights.com/company/stack-ai",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "supernotes-ai--supernotes-app",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "tc-rag--arxiv-2408-09199",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Research code repo; no releases, no LICENSE file.",
+  "lifecycle_citation": "https://github.com/Artessay/TC-RAG",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "vertex-ai-memory-bank--docs-cloud-google-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary source fetch blocked (permission timeout) and web-search budget exhausted this session.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "zep-governance-posture--getzep-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Graphiti MCP server still in repo.",
+  "lifecycle_citation": "https://github.com/getzep/graphiti",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "free: 2500 messages/mo; paid: $1.25/1000 messages; Enterprise: custom HIPAA BAA VPC",
+    "new": "Free 10k credits/mo; Flex ~$125/mo (50k credits); Flex Plus ~$375/mo (200k credits); Enterprise custom (third-party tracker, prices inconsistent \u2014 confirm on getzep.com/pricing)",
+    "citation": "https://pricingsaas.com/companies/getzep/diffs/2026Q2",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ }
+]

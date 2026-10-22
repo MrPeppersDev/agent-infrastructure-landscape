@@ -1,172 +1,89 @@
-# AI Agent Infrastructure Landscape
+# AI Agent Memory & Infrastructure Landscape
 
-An open, comparative catalog of the tools developers use to build, deploy,
-and operate **autonomous AI agents** — the software systems (Claude Code,
-Cursor, AutoGen, LangGraph, Mem0, Zep, etc.) that take instructions, plan,
-call tools, remember things across sessions, and act in the world.
+**Pick the right memory layer, framework or substrate for your AI agent, with a citation behind every claim.**
 
-Each entry is tracked across **85 attributes** (license, maturity tier,
-deployment model, MCP / A2A protocol support, observability stack,
-compliance posture, latency, pricing, and dozens more), with **typed
-relationships** between systems (built-on, extends, competes-with,
-cites…). Today the catalog covers **912 systems and 528 relationships**.
+An open, comparative catalog of **912 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
 
-The goal is straightforward: give builders, researchers, and analysts a
-single place to compare what exists, see what's actually shipping vs.
-just published, and spot the gaps.
+**[Browse the catalog →](https://mrpeppersdev.github.io/agent-infrastructure-landscape/)** · [Findings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings) · [Recommend a stack](https://mrpeppersdev.github.io/agent-infrastructure-landscape/recommend/by-constraints) · [Submit a system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) · [Raw data (CC-BY-4.0)](./data/landscape.json)
 
-## Start here
+## Five catalogs in one dataset
 
-- **Browse the catalog →** <https://mrpeppersdev.github.io/agent-infrastructure-landscape/>
-  — sortable, filterable table with full per-system detail pages, side-by-
-  side comparisons, lineages, leaderboards, and "best of" lists (e.g.
-  [open-source agent memory](https://mrpeppersdev.github.io/agent-infrastructure-landscape/best/open-source-agent-memory),
-  [MCP-enabled systems](https://mrpeppersdev.github.io/agent-infrastructure-landscape/best/agent-memory-with-mcp)).
-- **Headline findings →** five short, citable stories distilled from the
-  catalog. Read them as [cards on the site](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings)
-  or in source: [`docs/FINDINGS.md`](docs/FINDINGS.md).
-- **Raw data →** [`data/landscape.json`](./data/landscape.json) + 
-  [`data/landscape.edges.json`](./data/landscape.edges.json). Licensed
-  **CC-BY-4.0** — use it however you like, just credit the source.
+The catalog is split into five product families. Each one stands on its own; the typed edges connect them.
 
-## What's in the data
+| Catalog | Systems | What's in it | Open it |
+|---|---:|---|---|
+| **Agent Memory** | 283 | Shipping memory layers (Mem0, Zep/Graphiti, Letta, Cognee…), platform memory (ChatGPT, Claude, Gemini, AgentCore, Vertex), coding-agent memory, personal/lifelogging memory, memory governance | [`?product=memory`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/?product=memory) |
+| **Memory Research & Benchmarks** | 247 | Method papers, benchmarks (LongMemEval, LoCoMo…), research systems and informal ideas, before they ship as products | [`?product=memory-research`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/?product=memory-research) |
+| **Agent Frameworks & Harnesses** | 206 | Agent frameworks, multi-agent orchestration, coding IDEs and harnesses, computer-use and voice agents, sandboxes | [`?product=agents`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/?product=agents) |
+| **Retrieval & Data Infrastructure** | 67 | Vector databases, knowledge-graph platforms, embedding/reranker services, search | [`?product=data`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/?product=data) |
+| **Models, Serving & Ops** | 109 | Foundation models, inference gateways, training infra, eval/observability, robotics stacks | [`?product=models-ops`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/?product=models-ops) |
 
-Each record is a JSON object with a stable ID, display name, tier
-(1 battle-tested → 5 theoretical), one or more section memberships
-(e.g. "Dedicated memory layers", "Framework-embedded memory",
-"Vector-database infrastructure" — 34 sections in total), and the 85
-attribute cells. Every cell carries:
+The section → family map lives in [`taxonomy/families.json`](./taxonomy/families.json).
 
-- The claim itself (free-text value).
-- A source URL (where the claim came from).
-- A status (`real-data`, `estimate`, `not-applicable`, `no-data`, etc.).
-- A **provenance tier** (T1 auto-verifiable from a GitHub URL, T2
-  resolvable source URL required, T3 estimate).
-- A last-verified date for high-volatility cells.
+## Questions it answers
 
-Sources include curated lists (Agent-Memory-Paper-List,
-Awesome-GraphMemory), survey papers, benchmark leaderboards (LongMemEval,
-LoCoMo, ConvoMem), vendor sites, academic venue pages, and targeted
-research-agent sweeps. Claims are vendor-stated unless otherwise marked.
-Honest coverage confidence is roughly **88–92%** — known gaps are tracked
-in [`PLAN.md`](./PLAN.md). Full schema: [`docs/SCHEMA.md`](docs/SCHEMA.md).
+- *Which self-hostable memory layers support MCP and SOC 2?* → [best-of lists](https://mrpeppersdev.github.io/agent-infrastructure-landscape/best/self-hostable-agent-memory)
+- *How does each memory system handle contradictions and forgetting?* → the `contradiction`, `forgetting` and `conflict` columns, filterable in the table
+- *What does my stack depend on, and what breaks if a vendor goes away?* → `find_substrate_risk` in the MCP server
+- *Given my constraints, what should I use?* → [recommender](https://mrpeppersdev.github.io/agent-infrastructure-landscape/recommend/by-constraints) or `recommend_for_project` over MCP
 
-## Use it in your own tools
+## Use it from your agent (MCP)
 
-**MCP server** — query the catalog from any Model Context Protocol
-client (Claude Code, Claude Desktop, Continue, etc.). Nine read-only
-tools: search, get-by-id, edge traversal, coverage stats, side-by-side
-comparison, recent changes, eval-orphan detection, substrate
-blast-radius analysis. See [`mcp/`](./mcp) and
-[`mcp/README.md`](./mcp/README.md).
+The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 14 read-only tools, including `search_records`, `compare`, `find_related`, `recommend_for_project`, `find_substrate_risk` and `recent_changes`.
 
 ```sh
-cd mcp && npm install && npm run build
+git clone https://github.com/MrPeppersDev/agent-infrastructure-landscape
+cd agent-infrastructure-landscape/mcp && npm install && npm run build
 claude mcp add landscape -- node $PWD/dist/server.js
 ```
 
-**CLI** — the same nine queries as a `landscape <subcommand>` tool.
-Text output by default, `--json` / `--csv` for machine-readable use.
-See [`cli/`](./cli) and [`cli/README.md`](./cli/README.md).
+A [CLI](./cli/README.md) offers the same queries for scripts (`--json` / `--csv`).
 
-```sh
-cd cli && npm install && npm run build
-./dist/landscape.js search "memory" --tier 1 --section "Dedicated memory layers"
-```
+## What a record looks like
 
-**Web app** — SvelteKit static export in [`web/`](./web), deployed to
-GitHub Pages on every push to `main`.
+Each record has a stable id, a tier (1 battle-tested → 5 theoretical), its section(s), a memory taxonomy (storage, retrieval, persistence, update, unit, governance, conflict), and **99 attribute cells**. These cover license, deployment, pricing, MCP/A2A support, observability and eval integrations, cost and capability scores, and more. Every cell carries:
 
-```sh
-cd web && npm install
-npm run dev      # local server at http://localhost:5173/
-npm run build    # static export
-```
+- **value**: the claim itself
+- **citation**: the URL it came from
+- **status**: `real-data`, `estimate`, `not-applicable`, `no-data` or `depth-floor-reached`
+- **tier**: T1 (auto-verifiable from GitHub), T2 (resolvable source required) or T3 (estimate)
 
-## How the catalog stays honest
+Full schema: [`docs/SCHEMA.md`](docs/SCHEMA.md). Claims are vendor-stated unless marked otherwise. Many cells are honestly empty, because a voice-agent platform has no `vector-index` and a paper has no `pricing`. The site hides those so they don't clutter the view.
 
-Three things keep the data trustworthy:
+## How it stays fresh
 
-1. **Per-cell provenance.** Every claim points at the source URL it was
-   sourced from, with a tier marking how verifiable the claim is. You can
-   audit any entry by walking the citation.
-2. **Automated freshness checks.** A weekly job
-   (`.github/workflows/staleness.yml`) flags rows whose upstream repo
-   has gone quiet beyond the freshness SLA defined in
-   [`MAINTAINER.md`](./MAINTAINER.md) §2. Stale rows surface in the live
-   table with a visible badge.
-3. **Self-maintaining workflows.** New systems submitted via the
-   [`/submit`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit)
-   form (or an `intake`-labelled GitHub Issue) are auto-researched into a
-   draft PR ([`docs/INTAKE.md`](docs/INTAKE.md)). Existing sections are
-   periodically re-audited section-by-section
-   ([`docs/AUDIT.md`](docs/AUDIT.md)).
+| Bot | Cadence | What it does |
+|---|---|---|
+| Section audit | weekly | Re-verifies one section and searches for missing systems; opens a draft PR |
+| Intake research | on submission | Researches a [submitted system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) across all columns and opens a draft PR |
+| External-landscape diff | monthly | Diffs against [Agentic Community](https://github.com/agentic-community/agentic-landscape) and other landscapes and files candidate batches |
+| Staleness / release / price watch | daily | Flags abandoned repos, new model releases and vendor price changes |
 
-## Editing the catalog (contributors)
+Every change lands as a reviewable PR. Nothing auto-merges. The maintenance contract (scope, freshness SLA, succession) is in [`MAINTAINER.md`](./MAINTAINER.md).
 
-`data/landscape.json` is the source of truth — the rendered
-`landscape.html` is a build artefact, never edited by hand.
+## Contributing
 
-1. Edit `data/landscape.json` directly, or let the intake-research /
-   section-audit bots open a PR for you. PRs get a rendered-cell preview
-   comment from `.github/workflows/diff-preview.yml` so reviewers see
-   exactly what each touched row will look like.
-2. Run `make build` locally — reconciles JSON, rebuilds edges and
-   citation trajectories, re-renders `landscape.html`.
-3. Run `make validate` — five offline gates, ~25 seconds:
+- **Missing a system?** Use the [submit form](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) or open an issue titled `Intake: <name>`.
+- **Wrong cell?** Open an issue with the record id and a source URL, or edit `data/landscape.json` directly.
+- **Pipeline:** `make build` reconciles the JSON, rebuilds edges and re-renders `landscape.html`. `make validate` runs the offline gates (~25 s). Commit the JSON, the edges file and the HTML together.
 
-   | # | Gate                        | Catches                                                                                  |
-   |---|-----------------------------|------------------------------------------------------------------------------------------|
-   | 1 | JSON schema                 | Records or edges violating `docs/SCHEMA.md` §7.                                          |
-   | 2 | Fast-step determinism       | Non-determinism in extract / reconcile / edge-build scripts.                             |
-   | 3 | Render-cycle stability      | Markup drift in render ↔ extract round-trips beyond the documented ceiling.              |
-   | 4 | S2 cache integrity          | Corrupted Semantic Scholar cache files.                                                  |
-   | 5 | Tier-provenance + freshness | Cells whose tier disagrees with their citation, or rows missing required date metadata.  |
+Co-maintainers are welcome, especially for a single product family. See [`MAINTAINER.md`](./MAINTAINER.md) §4.
 
-4. Commit the JSON, the regenerated edges file, and the regenerated
-   `landscape.html` together. CI re-runs validation plus a byte-identity
-   check (the JSON must round-trip cleanly to the committed HTML) on
-   every push.
+## Repository layout
 
-A pre-commit hook is available via `make install-hooks` (idempotent;
-short-circuits on changes that don't touch the pipeline).
-`make refresh-citations` re-pulls Semantic Scholar data (~15 min); only
-needed when adding research-paper rows.
+| Path | What |
+|---|---|
+| `data/` | The dataset (`landscape.json`, `landscape.edges.json`). Source of truth. |
+| `taxonomy/` | Product families, tags, use-case taxonomy |
+| `web/` | SvelteKit site; built into `docs/` for GitHub Pages |
+| `mcp/`, `cli/` | MCP server and CLI over the dataset |
+| `scripts/`, `.github/workflows/` | Pipeline and bots |
+| `docs/` | Schema, decisions and findings, plus the built site |
+| `analysis.md` | Long-form analysis behind the findings |
+| `extraction/`, `audit/`, `.agent-results/` | Pipeline working data, caches and research logs |
 
-## Governance and license
+## License and credits
 
-This catalog has an explicit maintenance contract:
-[`MAINTAINER.md`](./MAINTAINER.md). It defines what's in scope (and what
-isn't), the freshness SLA per cell type, the 3-tier claim-validation
-schema, the succession plan, and how to contribute or request
-co-maintainer rights. The contract exists because comparative catalogs
-historically die quietly — DB-Engines, State of JS, dbdb.io — and the
-surviving ones all publish one.
+Data: **CC-BY-4.0**. MCP server and CLI: **MIT**. The catalog cross-references and, where licensing allows, imports data from the [Agentic Community Landscape](https://github.com/agentic-community/agentic-landscape) (Apache-2.0), the [SylphAI YC Agent Landscape](https://github.com/SylphAI-Inc/yc-agent-landscape) (MIT) and the [AI System Design Guide](https://github.com/ombharatiya/ai-system-design-guide) (MIT). The [InclusionAI Agentic AI Landscape](https://github.com/antgroup/agentic-ai-landscape) is noted as prior art and not imported (no licence). See [`extraction/external/LICENCES.md`](./extraction/external/LICENCES.md).
 
-The catalog data is released under **CC-BY-4.0**. The MCP server and
-CLI packages are **MIT** (see their `package.json`).
-
-## Credits
-
-This catalog cross-references, corroborates, and (where licensing
-allows) imports data from the following external landscape projects.
-Vendored snapshots and the full per-source licence audit live in
-[`extraction/external/`](./extraction/external/LICENCES.md).
-
-- **[Agentic Community Landscape](https://github.com/agentic-community/agentic-landscape)**
-  (Apache-2.0) — CNCF landscape2 project cataloguing frameworks,
-  protocols, memory, RAG, observability, and infra for agentic AI.
-  Accessed 2026-07-01.
-- **[SylphAI YC Agent Landscape](https://github.com/SylphAI-Inc/yc-agent-landscape)**
-  (MIT) — AI-classified Y Combinator company dataset covering
-  Winter 2024 – Fall 2026 batches with agent-vs-non-agent and
-  platform-vs-single-purpose taxonomies. Accessed 2026-07-01.
-- **[AI System Design Guide — Tool-Use and Computer Agents chapter](https://github.com/ombharatiya/ai-system-design-guide)**
-  (MIT) — narrative chapter on 2026 tool-use and computer-agent
-  systems, cited for benchmark trajectories and adoption metrics.
-  Accessed 2026-07-01.
-- **[InclusionAI Agentic AI Landscape](https://github.com/antgroup/agentic-ai-landscape)**
-  (no licence declared) — noted as prior art for landscape structure
-  and category framing. Not imported; see
-  [`extraction/external/LICENCES.md`](./extraction/external/LICENCES.md#antgroup)
-  for the licence audit.
+Maintained by [Brian Sayer](https://www.linkedin.com/in/brian-s-5b8b7914a).

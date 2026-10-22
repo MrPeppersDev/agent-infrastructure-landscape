@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { familyNameOf } from '$lib/families';
   // Sticky left rail with one <details> per facet. Counts live-update
   // because they're recomputed via $derived from $filters + records.
   //
@@ -59,7 +60,7 @@
 
   // Sections expanded by default for the most-useful facets; the rest
   // start collapsed so the rail isn't a wall of text on first load.
-  const DEFAULT_OPEN: ReadonlySet<FacetName> = new Set(['tier', 'section']);
+  const DEFAULT_OPEN: ReadonlySet<FacetName> = new Set(['product', 'tier', 'section']);
 
   function isChecked(facet: FacetName, value: string | number): boolean {
     return ($filters[facet] as Set<string | number>).has(value);
@@ -148,7 +149,7 @@
                     checked={isChecked(facet, value)}
                     onchange={() => toggleFacetValue(facet, value)}
                   />
-                  <span class="value-label" title={String(value)}>{value}</span>
+                  <span class="value-label" title={String(value)}>{facet === 'product' ? familyNameOf(String(value)) : value}</span>
                   <span class="value-count">{count}</span>
                 </label>
               </li>

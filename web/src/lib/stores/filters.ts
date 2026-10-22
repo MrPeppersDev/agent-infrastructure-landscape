@@ -32,6 +32,7 @@
 
 import { writable } from 'svelte/store';
 import type { LandscapeRecord, Tier } from '$lib/types';
+import { familyIdOf } from '$lib/families';
 
 export type TaxonomyFacet =
   | 'storage'
@@ -45,12 +46,15 @@ export type TaxonomyFacet =
 export type CellFacet = 'license' | 'deployment' | 'modality';
 
 export type FacetName =
+  | 'product'
   | 'tier'
   | 'section'
   | TaxonomyFacet
   | CellFacet;
 
 export interface FilterState {
+  /** Product family id (taxonomy/families.json), e.g. "memory". */
+  product: Set<string>;
   tier: Set<number>;
   section: Set<string>;
   storage: Set<string>;
@@ -76,6 +80,7 @@ export const TAXONOMY_FACETS: TaxonomyFacet[] = [
 ];
 
 export const FACET_ORDER: FacetName[] = [
+  'product',
   'tier',
   'section',
   ...TAXONOMY_FACETS,
@@ -85,6 +90,7 @@ export const FACET_ORDER: FacetName[] = [
 ];
 
 export const FACET_LABEL: Record<FacetName, string> = {
+  product: 'Product',
   tier: 'Tier',
   section: 'Section',
   storage: 'Storage',
@@ -101,6 +107,7 @@ export const FACET_LABEL: Record<FacetName, string> = {
 
 export function emptyState(): FilterState {
   return {
+    product: new Set<string>(),
     tier: new Set<number>(),
     section: new Set<string>(),
     storage: new Set<string>(),
@@ -203,6 +210,7 @@ export function recordFacetValue(
   r: LandscapeRecord,
   facet: FacetName
 ): string | number {
+  if (facet === 'product') return familyIdOf(r);
   if (facet === 'tier') return r.tier;
   if (facet === 'section') return primarySection(r);
   if (facet === 'license') {

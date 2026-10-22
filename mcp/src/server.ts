@@ -14,7 +14,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection } from './data.js';
 import {
   searchRecords,
   getRecord,
@@ -112,9 +112,14 @@ async function main() {
       description:
         'Free-text substring search over record id, name, description, and claims. ' +
         'Returns compact summaries — use get_record for full details. Filters: ' +
+        'product (family id from list_products, e.g. "memory"), ' +
         'section (exact match on primary section), tier (1=battle-tested → 5=theoretical).',
       inputSchema: {
         query: z.string().describe('Search query (case-insensitive substring match).'),
+        product: z
+          .string()
+          .optional()
+          .describe('Filter to a product family id: memory, memory-research, agents, data, models-ops.'),
         section: z
           .string()
           .optional()
@@ -138,6 +143,34 @@ async function main() {
     async (args) => {
       const records = loadRecords();
       return jsonResult(searchRecords(records, args));
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 1b. list_products
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'list_products',
+    {
+      title: 'List the product catalogs',
+      description:
+        'The catalog is split into five product families (Agent Memory, Memory Research & ' +
+        'Benchmarks, Agent Frameworks & Harnesses, Retrieval & Data Infrastructure, Models, ' +
+        'Serving & Ops). Returns each family id, name, tagline, its sections and record count. ' +
+        'Use the id as the `product` filter on search_records.',
+      inputSchema: {}
+    },
+    async () => {
+      const records = loadRecords();
+      const counts = new Map<string, number>();
+      for (const r of records) {
+        const primary = r.sections.find((s) => s.primary)?.section ?? r.sections[0]?.section ?? '';
+        const id = familyIdForSection(primary);
+        counts.set(id, (counts.get(id) ?? 0) + 1);
+      }
+      return jsonResult({
+        products: loadFamilies().map((f) => ({ ...f, recordCount: counts.get(f.id) ?? 0 }))
+      });
     }
   );
 

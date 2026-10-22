@@ -1,0 +1,801 @@
+[
+ {
+  "id": "0-5-physical-intelligence--pi-website",
+  "lifecycle": "active",
+  "lifecycle_note": "Company site live (pi.website); openpi repo public and not archived, ships pi05 checkpoints.",
+  "lifecycle_citation": "https://github.com/Physical-Intelligence/openpi",
+  "updates": [
+   {
+    "cell": "funding",
+    "new": "total ~$1.07B (Series B $600M at $5.6B led by CapitalG, 2025-11); ~$1B at ~$11B reported in talks Mar 2026, not confirmed closed",
+    "citation": "https://www.implicator.ai/physical-intelligence-nears-1-billion-round-doubling-valuation-in-four-months.md",
+    "confidence": "medium",
+    "old": "$400M total $2.0B val Series A · 2024-11"
+   },
+   {
+    "cell": "gh",
+    "new": "Physical-Intelligence/openpi — ~13.3k stars, last commit n/a (pi05 base/libero/droid checkpoints included)",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 (openpi code; model weights also under Gemma terms, LICENSE_GEMMA.txt)",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "agixt-adaptive-memory--gh-josh-xt-agixt",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo public, not archived; latest release still v1.9.4 (Apr 2026), last push seen May 2026 — slowing.",
+  "lifecycle_citation": "https://github.com/Josh-XT/AGiXT",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "Josh-XT/AGiXT — ~3.2k stars, last commit 2026-05",
+    "citation": "https://summary.ecosyste.ms/projects/124620",
+    "confidence": "medium",
+    "old": "3.2k★ +15/mo Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "amplenote--amplenote-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.amplenote.com/help/plans_and_prices_billing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "new": "Free; Basic $6.99/mo ($71.88/yr); Pro $11.99/mo ($119.88/yr); Founder $29.99/mo ($299.88/yr)",
+    "citation": "https://www.amplenote.com/help/plans_and_prices_billing",
+    "confidence": "high",
+    "old": "Free; Pro $7/mo; Unlimited $12/mo; Founder $20/mo (annual) — from product claims row"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "yes — local MCP server hosted by Amplenote Desktop (127.0.0.1, bearer token) for Claude Desktop/Code and Codex; Unlimited/Founder plans",
+    "citation": "https://www.amplenote.com/help/ai_mcp_server_connect_amplenote_claude_codex",
+    "confidence": "high",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "asapp-generativeagent--asapp-com",
+  "lifecycle": "active",
+  "lifecycle_note": "GenerativeAgent still marketed on asapp.com; no new funding confirmed.",
+  "lifecycle_citation": "https://www.asapp.com/landing-page/generative-agent-optimize-customer-support-with-asapps-ai-solution",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "new": "Pay-per-use: short-term $1.00/GB ingested (was $0.25/1k events until 2026-10-05) + $0.10/GB-mo storage; long-term $0.75/1k records-mo (built-in) and $0.50/1k retrievals",
+    "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+    "confidence": "high",
+    "old": "Pay-per-use"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "bolt-new-stackblitz--bolt-new",
+  "lifecycle": "active",
+  "lifecycle_note": "Product active; the OSS stackblitz/bolt.new repo is public (not archived) but low commit count/stale.",
+  "lifecycle_citation": "https://github.com/stackblitz/bolt.new",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "stackblitz/bolt.new — ~16.5k stars, last commit n/a (stale)",
+    "citation": "https://github.com/stackblitz/bolt.new",
+    "confidence": "high",
+    "old": "16.4k★ TypeScript"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free 1M tokens/mo (300k/day); Pro $25/mo 10M tokens; Teams $30/member/mo; Enterprise custom",
+    "citation": "https://www.jetadmin.io/blog/bolt-new-pricing-plans-tokens-and-real-costs-in-2026/",
+    "confidence": "medium",
+    "old": "Free + paid"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "capacities--capacities-io",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "chunkrag--arxiv-2410-19572",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "claude-mem--gh-thedotmack-claude-mem",
+  "lifecycle": "active",
+  "lifecycle_note": "Very active; license switched from AGPL-3.0 to Apache-2.0.",
+  "lifecycle_citation": "https://github.com/thedotmack/claude-mem",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v15.0.1 (2026-10-20)",
+    "citation": "https://github.com/thedotmack/claude-mem/releases/tag/v15.0.1",
+    "confidence": "high",
+    "old": "v12.7.0 2026-05-06"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/thedotmack/claude-mem/blob/main/LICENSE",
+    "confidence": "high",
+    "old": "AGPL-3.0"
+   },
+   {
+    "cell": "gh",
+    "new": "thedotmack/claude-mem — ~102k stars, last commit 2026-10",
+    "citation": "https://github.com/thedotmack/claude-mem",
+    "confidence": "high",
+    "old": "72.7k★ +9.1k/mo TypeScript"
+   },
+   {
+    "cell": "pricing",
+    "new": "free / open source (Apache-2.0); no paid tier",
+    "citation": "https://github.com/thedotmack/claude-mem",
+    "confidence": "medium",
+    "old": "free / open source (AGPL-3.0); no paid tier"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cocounsel-legal-thomson-reuters--legaltechnology-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "continue-dev-memory-mcp--hub-continue-dev",
+  "lifecycle": "archived",
+  "lifecycle_note": "continuedev/continue README now says the repo is no longer actively maintained and read-only; recommends Continue CLI over JetBrains plugin. Hub memory-mcp page not reachable for re-check.",
+  "lifecycle_citation": "https://github.com/continuedev/continue",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "cursor-rules--docs-cursor-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "duolingo-max--blog-duolingo-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "eve-shared-firm-knowledge-auditor--eve-legal",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "friend--friend-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "google-adk-memory--google-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "ADK is open source (google/adk-python); docs page itself not fetched.",
+  "lifecycle_citation": "https://github.com/google/adk-python",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "google/adk-python — ~21.1k stars, last commit 2026-08",
+    "citation": "https://github.com/google/adk-python",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/google/adk-python",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v2.6.3 (2026-08-07)",
+    "citation": "https://github.com/google/adk-python/releases",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "heptabase--heptabase-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "hipporag-2--arxiv-2502-14802",
+  "lifecycle": "active",
+  "lifecycle_note": "HippoRAG 2 code lives on main branch of OSU-NLP-Group/HippoRAG (HippoRAG 1 on legacy branch). arXiv page not fetched.",
+  "lifecycle_citation": "https://github.com/OSU-NLP-Group/HippoRAG",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "OSU-NLP-Group/HippoRAG — ~4.0k stars, last commit n/a",
+    "citation": "https://github.com/OSU-NLP-Group/HippoRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/OSU-NLP-Group/HippoRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public (HippoRAG 2 on main branch)",
+    "citation": "https://github.com/OSU-NLP-Group/HippoRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n/a",
+    "citation": "https://github.com/OSU-NLP-Group/HippoRAG/releases",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "intercom-fin--fin-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "k-health--khealth-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "langflow-memory--docs-langflow-org",
+  "lifecycle": "active",
+  "lifecycle_note": "langflow-ai/langflow active, not archived; docs page not fetched; ownership (DataStax/IBM) not re-confirmed.",
+  "lifecycle_citation": "https://github.com/langflow-ai/langflow",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "langflow-ai/langflow — ~156k stars, last commit 2026-08",
+    "citation": "https://github.com/langflow-ai/langflow",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/langflow-ai/langflow",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v1.11.4 (2026-08-19)",
+    "citation": "https://github.com/langflow-ai/langflow/releases",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "lifecycle": "active",
+  "lifecycle_note": "microsoft/graphrag repo active (v3.1.x releases in 2026); README does not mention LazyGraphRAG by name.",
+  "lifecycle_citation": "https://github.com/microsoft/graphrag",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v3.1.2 (2026-08-21)",
+    "citation": "https://github.com/microsoft/graphrag/releases",
+    "confidence": "medium",
+    "old": "3.0.9 2026-04-13"
+   },
+   {
+    "cell": "gh",
+    "new": "microsoft/graphrag — ~35.1k stars, last commit 2026-08",
+    "citation": "https://github.com/microsoft/graphrag",
+    "confidence": "medium",
+    "old": "32.8k★ +189/mo Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "linkedin-cognitive-memory-agent--linkedin-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo public (template), not archived, no releases; low activity.",
+  "lifecycle_citation": "https://github.com/Puliczek/mcp-memory",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "Puliczek/mcp-memory — ~158 stars, last commit n/a",
+    "citation": "https://github.com/Puliczek/mcp-memory",
+    "confidence": "high",
+    "old": "142★ HTML"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memary--gh-kingjulio8238-memary",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo public, not archived; latest release still v0.1.5, no newer releases.",
+  "lifecycle_citation": "https://github.com/kingjulio8238/Memary/releases",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "kingjulio8238/Memary — ~2.6k stars, last commit n/a",
+    "citation": "https://github.com/kingjulio8238/Memary",
+    "confidence": "high",
+    "old": "2.6k★ Jupyter Notebook"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memori-gibsonai--gh-gibsonai-memori",
+  "lifecycle": "renamed",
+  "lifecycle_note": "GibsonAI/memori now served as MemoriLabs/Memori (org moved to Memori Labs); offers Memori Cloud and a remote MCP endpoint.",
+  "lifecycle_citation": "https://github.com/GibsonAI/memori",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "MemoriLabs/Memori — ~17.1k stars, last commit 2026-05",
+    "citation": "https://github.com/GibsonAI/memori",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v3.3.6 (2026-05-28)",
+    "citation": "https://github.com/MemoriLabs/Memori/releases",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "yes — hosted remote MCP endpoint for Claude Code, Cursor, Codex, Warp, Antigravity (no SDK needed)",
+    "citation": "https://github.com/GibsonAI/memori",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both — OSS SDK self-hosted; Memori Cloud managed; enterprise single-tenant/VPC/on-prem",
+    "citation": "https://github.com/GibsonAI/memori",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "OSS free (Apache-2.0); Memori Cloud API key with free developer tier (rate-limited); enterprise by contact",
+    "citation": "https://github.com/GibsonAI/memori",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memvid--gh-memvid-memvid",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/memvid/memvid",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v2.0.140 (2026-05-27)",
+    "citation": "https://github.com/memvid/memvid/releases",
+    "confidence": "medium",
+    "old": "v2.0.139 2026-03-13"
+   },
+   {
+    "cell": "gh",
+    "new": "memvid/memvid — ~16.6k stars, last commit 2026-05",
+    "citation": "https://github.com/memvid/memvid",
+    "confidence": "medium",
+    "old": "15.3k★ +149/mo Rust"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "microsoft-edge-copilot-mode-journeys--blogs-windows-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "mymind--access-mymind-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "notion-ai--notion-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Official local notion-mcp-server marked unmaintained in favor of hosted Remote Notion MCP.",
+  "lifecycle_citation": "https://github.com/makenotion/notion-mcp-server",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "new": "yes — official hosted Remote Notion MCP (OAuth); local makenotion/notion-mcp-server no longer maintained",
+    "citation": "https://github.com/makenotion/notion-mcp-server",
+    "confidence": "high",
+    "old": "via official adapter — Notion MCP server"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "obsidian-smart-connections--gh-brianpetro-obsidian-smart-connections",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/brianpetro/obsidian-smart-connections",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v4.7.2 (2026-08-06)",
+    "citation": "https://github.com/brianpetro/obsidian-smart-connections/releases",
+    "confidence": "medium",
+    "old": "4.5.0 2026-05-05"
+   },
+   {
+    "cell": "gh",
+    "new": "brianpetro/obsidian-smart-connections — ~5.5k stars, last commit 2026-08",
+    "citation": "https://github.com/brianpetro/obsidian-smart-connections",
+    "confidence": "medium",
+    "old": "4.9k★ +144/mo JavaScript"
+   },
+   {
+    "cell": "license",
+    "new": "proprietary (Smart Plugins License, source-available)",
+    "citation": "https://github.com/brianpetro/obsidian-smart-connections",
+    "confidence": "high",
+    "old": "Custom"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "openai-codex-cloud-agent--developers-openai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Codex CLI is OSS (openai/codex); memories docs page not fetched.",
+  "lifecycle_citation": "https://github.com/openai/codex",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "openai/codex — ~128k stars, last commit 2026-10",
+    "citation": "https://github.com/openai/codex",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 (Codex CLI; cloud agent proprietary)",
+    "citation": "https://github.com/openai/codex",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "latest-release",
+    "new": "0.161.0 (2026-10-07) (Codex CLI)",
+    "citation": "https://github.com/openai/codex/releases",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "funding",
+    "new": "total n/a; latest round $122B committed at $852B post-money (2026-04)",
+    "citation": "https://en.wikipedia.org/wiki/OpenAI",
+    "confidence": "high",
+    "old": "OpenAI $57B+ raised; $300B+ valuation"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "owasp-agent-memory-guard--owasp-org",
+  "lifecycle": "active",
+  "lifecycle_note": "GitHub repo live, published on PyPI as agent-memory-guard; owasp.org page not fetched.",
+  "lifecycle_citation": "https://github.com/OWASP/www-project-agent-memory-guard",
+  "updates": [
+   {
+    "cell": "license",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/OWASP/www-project-agent-memory-guard",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "gh",
+    "new": "OWASP/www-project-agent-memory-guard — ~185 stars, last commit 2026-08",
+    "citation": "https://github.com/OWASP/www-project-agent-memory-guard",
+    "confidence": "medium",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v0.3.1 (2026-08-25)",
+    "citation": "https://github.com/OWASP/www-project-agent-memory-guard/releases",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "pieces-for-developers-ltm--pieces-app",
+  "lifecycle": "active",
+  "lifecycle_note": "pieces-app GitHub org active (75 repos); PiecesOS itself not open source on GitHub; pieces.app not fetched.",
+  "lifecycle_citation": "https://github.com/pieces-app",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "pieces-app/cli-agent — ~113 stars (CLI only; PiecesOS core not on GitHub), last commit n/a",
+    "citation": "https://github.com/pieces-app/cli-agent",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "quizlet-ai-study-tools-magic-notes--quizlet-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "realm--arxiv-2002-08909",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "google-research/language repo live, not archived (~1.8k stars, Apache-2.0) — matches current values.",
+  "lifecycle_citation": "https://github.com/google-research/language",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "replit-agent--replit-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "roo-code-roorules--docs-roocode-com",
+  "lifecycle": "archived",
+  "lifecycle_note": "Roo Code extension shut down 2026-05-15; RooCodeInc/Roo-Code archived read-only same day; points users to ZooCode (community fork) and Cline.",
+  "lifecycle_citation": "https://github.com/RooCodeInc/Roo-Code",
+  "updates": [
+   {
+    "cell": "desc",
+    "new": "Discontinued: Roo Code (VS Code agent) used .roorules / .roo/rules files as persistent project instructions; the extension shut down on 2026-05-15 and its repo is archived.",
+    "citation": "https://github.com/RooCodeInc/Roo-Code",
+    "confidence": "high",
+    "old": ".roo/rules/ (recursive .md / .txt alphabetic load); .roorules single-file fallback. Mode-specific via .roo/rules-{modeSlug}/ . Global at ~/.roo/rules/ . Multi-tenant mode customisation."
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "schoolai--schoolai-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "sierra--sierra-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "speak--speak-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "strands-agents-memory-aws--docs-aws-amazon-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Strands SDK repo active; AgentCore Memory pricing changed 2026-10-06 (see AgentCore row).",
+  "lifecycle_citation": "https://github.com/strands-agents/sdk-python",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "strands-agents/sdk-python — ~8.9k stars, last commit n/a",
+    "citation": "https://github.com/strands-agents/sdk-python",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/strands-agents/sdk-python",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "pricing",
+    "new": "Strands SDK OSS free; AgentCore Memory: short-term $1.00/GB ingested from 2026-10-06 (was $0.25/1k events); long-term $0.75/1k records-mo, $0.50/1k retrievals",
+    "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+    "confidence": "high",
+    "old": "Strands SDK OSS free; memory via Bedrock AgentCore Memory: $0.25 per 1,000 short-term memory events; Runtime priced…"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/obra/episodic-memory",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v1.4.2 (2026-05-21)",
+    "citation": "https://github.com/obra/episodic-memory/releases",
+    "confidence": "medium",
+    "old": "v1.2.0 2026-05-04"
+   },
+   {
+    "cell": "gh",
+    "new": "obra/episodic-memory — ~473 stars, last commit 2026-05",
+    "citation": "https://github.com/obra/episodic-memory",
+    "confidence": "medium",
+    "old": "372★ +10/mo TypeScript"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "tencent-ima-copilot--ima-qq-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "voiceflow-memory--docs-voiceflow-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: primary site fetch blocked (permission gate) and shared web-search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "zep-graphiti--getzep-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Graphiti repo active; separate Graphiti MCP server now versioned (mcp-v1.1.0, Sep 2026). Kuzu backend deprecated.",
+  "lifecycle_citation": "https://github.com/getzep/graphiti",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v0.30.0 (2026-09-01) (graphiti-core; MCP server mcp-v1.1.0 same day)",
+    "citation": "https://github.com/getzep/graphiti/releases",
+    "confidence": "medium",
+    "old": "v0.29.0 2026-04-27"
+   },
+   {
+    "cell": "gh",
+    "new": "getzep/graphiti — ~32k stars, last commit 2026-09",
+    "citation": "https://github.com/getzep/graphiti",
+    "confidence": "high",
+    "old": "25.7k★ +137/mo Python"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free 10k credits/mo; Flex $125/mo ($104 annual) 50k credits; Flex Plus $375/mo ($312 annual) 200k credits; Enterprise custom",
+    "citation": "https://pricingsaas.com/companies/getzep",
+    "confidence": "medium",
+    "old": "Free + paid"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both — Zep Cloud managed; Graphiti OSS self-hosted (Neo4j/FalkorDB)",
+    "citation": "https://github.com/getzep/graphiti",
+    "confidence": "medium",
+    "old": "Managed-only"
+   }
+  ],
+  "verified": true
+ }
+]

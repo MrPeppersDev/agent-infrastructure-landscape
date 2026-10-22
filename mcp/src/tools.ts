@@ -15,6 +15,7 @@
 // Where logic overlaps (eval-orphan detection, observability counting)
 // we mirror the same cell-state semantics so results stay consistent.
 
+import { familyIdForSection } from './data.js';
 import type {
   LandscapeRecord,
   Edge,
@@ -195,6 +196,8 @@ export interface SearchArgs {
   section?: string;
   /** Filter to records of this tier (1-5). */
   tier?: number;
+  /** Filter to a product family id (see list_products), e.g. "memory". */
+  product?: string;
   /** Cap result count. Default 25, max 200. */
   limit?: number;
 }
@@ -223,6 +226,8 @@ export function searchRecords(
   for (const record of records) {
     if (args.tier !== undefined && record.tier !== args.tier) continue;
     if (args.section !== undefined && primarySection(record) !== args.section)
+      continue;
+    if (args.product !== undefined && familyIdForSection(primarySection(record)) !== args.product)
       continue;
 
     const haystack = [

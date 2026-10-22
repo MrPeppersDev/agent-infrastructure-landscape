@@ -1,0 +1,76 @@
+# Type-check and build the site on every PR that touches it, so UI and
+# data changes are proven before they reach the Pages deploy on main.
+# Build only: nothing is deployed from here.
+
+name: PR checks (web + MCP)
+
+on:
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'data/**'
+      - 'taxonomy/**'
+      - 'mcp/**'
+      - '.github/workflows/web-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Type-check
+        # Reported (as annotations) but not yet a gate: the tree predates
+        # this check. Flip off continue-on-error once it is clean.
+        continue-on-error: true
+        working-directory: web
+        run: |
+          set -o pipefail
+          npm run check -- --threshold error --output machine 2>&1 | tee /tmp/check.log || {
+            grep -E ' ERROR ' /tmp/check.log | head -40 | while IFS= read -r l; do echo "::error title=svelte-check::$l"; done
+            exit 1
+          }
+
+      - name: Build
+        working-directory: web
+        env:
+          BASE_PATH: /agent-infrastructure-landscape
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee /tmp/build.log || {
+            msg=$(sed 's/\x1b\[[0-9;]*m//g' /tmp/build.log | grep -v ' kB' | grep -vE 'a11y|svelte-ignore|^\s*[0-9]+:|^\s*\^|svelte.dev/e/' | tail -45 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=build failed::$msg"
+            exit 1
+          }
+
+  mcp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build and test MCP server
+        working-directory: mcp
+        run: |
+          npm install
+          npm run build
+          npm test

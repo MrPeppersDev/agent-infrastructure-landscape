@@ -65,6 +65,36 @@ PHASE_2_CELL_SLUGS: tuple[str, ...] = (
 PENDING_REVIEW_LABEL = "phase-2-cells-pending-review"
 
 
+
+def pr_create_fallback(branch: str, title: str, body_path, stderr: str, issue_number=None) -> int:
+    """`gh pr create` is refused when the repo setting "Allow GitHub
+    Actions to create and approve pull requests" is off. The branch is
+    already pushed, so leave a reviewable trail instead of failing: post
+    a compare link (on the originating issue if there is one, else a new
+    issue). Returns 0 if the fallback succeeded, 7 otherwise."""
+    import os as _os
+    repo = _os.environ.get("GITHUB_REPOSITORY", "MrPeppersDev/agent-infrastructure-landscape")
+    compare = f"https://github.com/{repo}/compare/main...{branch}?expand=1"
+    note = (
+        f"The bot pushed branch `{branch}` but could not open the PR itself "
+        f"(repo setting: Settings → Actions → General → Workflow permissions → "
+        f"\"Allow GitHub Actions to create and approve pull requests\").\n\n"
+        f"**Open the PR:** {compare}\n\n<details><summary>gh error</summary>\n\n```\n"
+        f"{stderr.strip()[:1500]}\n```\n</details>\n"
+    )
+    if issue_number:
+        cmd = ["gh", "issue", "comment", str(issue_number), "--body", note]
+    else:
+        body = Path(body_path).read_text() if body_path else ""
+        cmd = ["gh", "issue", "create", "--title", f"[ready for PR] {title}",
+               "--body", note + "\n---\n\n" + body[:60000]]
+    proc = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT))
+    if proc.returncode == 0:
+        print(f"fallback: posted compare link ({compare})")
+        return 0
+    print(f"warn: fallback also failed:\n{proc.stderr}", file=sys.stderr)
+    return 7
+
 def _write_failure_log(name: str, msg: str) -> None:
     """Write a failure log under INTAKE_FAILURES, creating the dir if needed.
 
@@ -582,7 +612,9 @@ def main() -> int:
     if pr_proc.returncode != 0:
         print(f"warn: `gh pr create` failed:\n{pr_proc.stderr}",
               file=sys.stderr)
-        return 7
+        return pr_create_fallback(
+            branch, f"Auto-research intake: {record['name']}",
+            body_path, pr_proc.stderr, issue_number=args.issue_number)
     pr_url = pr_proc.stdout.strip()
     print(f"opened draft PR: {pr_url}")
 

@@ -342,8 +342,13 @@ def run(args: argparse.Namespace) -> int:
         after_candidates = before_candidates
         after_cross = before_cross
     else:
+        # Do NOT pin LANDSCAPE_SNAPSHOT_DATE to target_date: only sources
+        # whose upstream changed get a <target_date>/ directory, so pinning
+        # every source to it crashed the import on unchanged sources (the
+        # monthly run failed Aug–Oct 2026). The importer already resolves
+        # each source to its own latest dated snapshot.
         env = os.environ.copy()
-        env["LANDSCAPE_SNAPSHOT_DATE"] = target_date
+        env.pop("LANDSCAPE_SNAPSHOT_DATE", None)
         try:
             subprocess.run(
                 [sys.executable, str(IMPORT_SCRIPT), "--out-dir", str(EXT_DIR)],

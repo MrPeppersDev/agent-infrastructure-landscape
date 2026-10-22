@@ -10,7 +10,8 @@
 #                       for missing systems. Proactive — the catalog's
 #                       antibody system against silent decay.
 #
-# Cadence: every Tuesday at 14:00 UTC; one section per run. Section is
+# Cadence: Tuesdays and Fridays at 14:00 UTC; one section per run (a full
+# rotation of all 34 sections takes ~4 months). Section is
 # picked by `scripts/audit_pick_section.py` (oldest last-audited date
 # wins; ties broken alphabetically). Manual `workflow_dispatch` runs
 # override the picker and the mode.
@@ -25,7 +26,7 @@ name: Section audit
 on:
   schedule:
     # Tuesdays 14:00 UTC. cron syntax: minute hour day-of-month month day-of-week
-    - cron: '0 14 * * 2'
+    - cron: '0 14 * * 2,5'
   workflow_dispatch:
     inputs:
       section:

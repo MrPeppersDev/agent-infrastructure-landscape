@@ -1,0 +1,80 @@
+{
+  "_doc": "Product families: the top-level split of the catalog into separate, self-contained sub-catalogs. Every section belongs to exactly one family. Families are presentation + query scaffolding only; records keep their section memberships unchanged. Edit this file to move a section; the web app, MCP server, CLI and validate gate all read it.",
+  "version": "1.0.0",
+  "families": [
+    {
+      "id": "memory",
+      "name": "Agent Memory",
+      "tagline": "Shipping memory layers, memory features and memory products for AI agents.",
+      "audience": "Builders choosing how their agent remembers.",
+      "sections": [
+        "Dedicated memory layers",
+        "Framework-embedded memory",
+        "Platform-provider memory",
+        "Retrieval-as-memory hybrids",
+        "Claude Code memory mechanisms",
+        "Coding-agent memory",
+        "Browser-agent memory",
+        "File-backed / editor paradigms",
+        "Personal AI / PKM / lifelogging memory",
+        "Voice-first / wearable AI memory",
+        "Vertical / domain-specific AI memory",
+        "Memory governance, privacy & safety",
+        "Memory observability & monitoring"
+      ]
+    },
+    {
+      "id": "memory-research",
+      "name": "Memory Research & Benchmarks",
+      "tagline": "Papers, benchmarks and ideas behind agent memory, before they ship as products.",
+      "audience": "Researchers and teams evaluating memory claims.",
+      "sections": [
+        "Memory benchmarks & evaluation",
+        "Recent method papers — theorized, no distinct product",
+        "Research / specialised systems",
+        "Theoretical / informal — ideas without a paper"
+      ]
+    },
+    {
+      "id": "agents",
+      "name": "Agent Frameworks & Harnesses",
+      "tagline": "Frameworks, harnesses, IDEs and runtimes that agents are built and run in.",
+      "audience": "Builders choosing an agent stack.",
+      "sections": [
+        "Agent frameworks (no first-party memory layer)",
+        "Multi-agent orchestration platforms",
+        "Agent IDEs & coding harnesses",
+        "Use-case-specific agent harnesses",
+        "Computer-use & desktop agents",
+        "Voice agent platforms",
+        "AI sandbox & runtime environments"
+      ]
+    },
+    {
+      "id": "data",
+      "name": "Retrieval & Data Infrastructure",
+      "tagline": "Vector stores, knowledge graphs, embeddings and search that memory is built on.",
+      "audience": "Builders picking storage and retrieval substrate.",
+      "sections": [
+        "Vector-database infrastructure",
+        "Knowledge-graph platforms",
+        "Embedding & reranker services",
+        "Search platforms (non-memory)",
+        "Enterprise-search adjacencies"
+      ]
+    },
+    {
+      "id": "models-ops",
+      "name": "Models, Serving & Ops",
+      "tagline": "Foundation models, inference, training, evaluation and observability around agents.",
+      "audience": "Teams operating agents in production.",
+      "sections": [
+        "Foundation models (substrate reference)",
+        "Inference platforms & gateways",
+        "Training infrastructure",
+        "Evaluation & observability platforms",
+        "Robotics foundation models & agent stacks"
+      ]
+    }
+  ]
+}

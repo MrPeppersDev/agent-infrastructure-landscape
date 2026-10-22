@@ -3178,7 +3178,7 @@ tokens go to system-prompt overhead**.
    cost.** The interpretation is that enterprise buyers force it
    — without per-tenant cost attribution an agent can't be sold to
    a regulated enterprise.
-3. ⚠ **Semantic caching is an empty market.** Only LangChain ships
+3. ⚠ **Semantic caching is absent from the agent stack** (corrected 2026-10-22: not an empty market overall — Redis LangCache and gateway/library offerings ship it one layer down). Only LangChain ships
    it (LangChain SemanticCache, 1 of 100 rows in the priority
    cohort). The cost-economics view headers this finding explicitly
    — **the cleanest product gap in the v6 catalog is a missing
@@ -3621,7 +3621,7 @@ Headlines: **MCP spec is the #3 most-depended-on substrate** in the
 catalog (T2-1); **91.3% of products publish no peer-reviewed
 benchmark** (T1-5); **the eval gap matches LangChain's industry
 survey to within 1 point on observability and 8 points on evals**
-(T1-2); **semantic caching is essentially an empty market** (T1-3,
+(T1-2); **semantic caching is essentially absent from agent-stack products** (it ships from the data/gateway layer instead; corrected 2026-10-22) (T1-3,
 1 of 100 priority rows); **Graphiti MCP Server is the v6 catalog's
 most surprising bridge node** at Δrank=+132 (T2-3); **Anthropic
 Claude and OpenAI GPT are both in S-curve growth phase, not
