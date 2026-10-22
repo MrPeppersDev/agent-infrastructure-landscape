@@ -77,3 +77,42 @@ export function getMeta(): { generatedAt: string; schemaVersion: string } {
 export function getDataPaths(): { landscape: string; edges: string } {
   return { landscape: LANDSCAPE_PATH, edges: EDGES_PATH };
 }
+
+// ---------------------------------------------------------------------------
+// Product families (taxonomy/families.json): the top-level split of the
+// catalog into five sub-catalogs. In the repo the file lives in
+// taxonomy/; the npm tarball ships a copy at data/families.json.
+// ---------------------------------------------------------------------------
+
+export interface Family {
+  id: string;
+  name: string;
+  tagline: string;
+  audience: string;
+  sections: string[];
+}
+
+let cachedFamilies: Family[] | null = null;
+
+export function loadFamilies(): Family[] {
+  if (cachedFamilies) return cachedFamilies;
+  const candidates = [
+    join(DATA_DIR, 'families.json'),
+    join(DATA_DIR, '..', 'taxonomy', 'families.json')
+  ];
+  for (const path of candidates) {
+    if (existsSync(path)) {
+      const parsed = JSON.parse(readFileSync(path, 'utf-8')) as { families: Family[] };
+      cachedFamilies = parsed.families;
+      return cachedFamilies;
+    }
+  }
+  cachedFamilies = [];
+  return cachedFamilies;
+}
+
+/** Family id for a primary section name, or 'other'. */
+export function familyIdForSection(section: string): string {
+  for (const f of loadFamilies()) if (f.sections.includes(section)) return f.id;
+  return 'other';
+}

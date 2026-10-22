@@ -28,7 +28,7 @@
   // while still surfacing rows whose last verification is stale (>= 6
   // months ago). The full date + badge live on the detail modal. Today
   // is pinned in lockstep with the survivorship classifier.
-  const FRESHNESS_TODAY = new Date('2026-05-14T00:00:00Z');
+  const FRESHNESS_TODAY = new Date();
   const lvaDot = $derived.by(() => {
     const iso = record.last_verified_at;
     if (!iso) return null;

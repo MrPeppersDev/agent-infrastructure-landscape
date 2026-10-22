@@ -12,13 +12,30 @@
 // prerendered payload focused.
 
 import { getRecords, getRecordCount, getEdgeCount } from '$lib/data';
+import { getFamilies, familyIdOf } from '$lib/families';
 
 export const prerender = true;
 
 export const load = () => {
   return {
-    records: getRecords(),
+    records: defaultOrder(getRecords()),
     recordCount: getRecordCount(),
     edgeCount: getEdgeCount()
   };
 };
+
+// Default (unsorted) table order: product family (Agent Memory first),
+// then tier (battle-tested first), then name. Before this the table was
+// in raw id order, so a first-time visitor's first rows were robotics
+// models and sales tools rather than the memory systems the catalog is
+// known for. Any explicit column sort still overrides this.
+function defaultOrder<T extends { name: string; tier: number }>(records: T[]): T[] {
+  const famIndex = new Map(getFamilies().map((f, i) => [f.id, i]));
+  return [...records].sort((a, b) => {
+    const fa = famIndex.get(familyIdOf(a as never)) ?? 99;
+    const fb = famIndex.get(familyIdOf(b as never)) ?? 99;
+    if (fa !== fb) return fa - fb;
+    if (a.tier !== b.tier) return a.tier - b.tier;
+    return a.name.localeCompare(b.name);
+  });
+}

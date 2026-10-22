@@ -74,13 +74,29 @@
     return { kind: 'cell', cell: record.cells[slug] };
   }
 
+  // Empty fields (not applicable to this kind of system, or never found)
+  // are hidden by default so the record reads as what we know about it.
+  let showEmpty = $state(false);
+
+  function isEmptyField(col: ColumnDef): boolean {
+    const fv = fieldValue(col);
+    if (fv.kind === 'name' || fv.kind === 'tier') return false;
+    if (fv.kind === 'taxonomy') return !fv.taxValues || fv.taxValues.length === 0;
+    const st = fv.cell?.status;
+    return !fv.cell || st === 'not-applicable' || st === 'no-data' || st === 'depth-floor-reached';
+  }
+
+  const emptyCount = $derived(
+    grouped.reduce((n, g) => n + g.cols.filter(isEmptyField).length, 0)
+  );
+
   // ---------------------------------------------------------------------
   // last_verified_at freshness — SCHEMA.md §3b / issue #54.
   // ---------------------------------------------------------------------
   // Today is hard-pinned to match the survivorship analyses + the
   // validate.py FRESHNESS_TODAY constant. Move all three in lockstep
   // when bumping the catalog snapshot date.
-  const FRESHNESS_TODAY = new Date('2026-05-14T00:00:00Z');
+  const FRESHNESS_TODAY = new Date();
 
   function ageMonths(iso: string | undefined): number | null {
     if (!iso) return null;
@@ -181,12 +197,19 @@
     </header>
 
     <div class="modal-body">
+      <p class="empty-toggle">
+        <button type="button" onclick={() => (showEmpty = !showEmpty)}>
+          {showEmpty ? 'Hide' : 'Show'} {emptyCount} empty or not-applicable fields
+        </button>
+      </p>
       {#each grouped as g}
         {@const meta = GROUP_META[g.group]}
+        {@const visibleCols = showEmpty ? g.cols : g.cols.filter((c) => !isEmptyField(c))}
+        {#if visibleCols.length > 0}
         <section class="group" style="--accent: {meta.accent}; --bg: {meta.bg};">
           <h3 class="group-label">{meta.label}</h3>
           <dl class="fields">
-            {#each g.cols as col (col.key)}
+            {#each visibleCols as col (col.key)}
               {@const fv = fieldValue(col)}
               <div class="field">
                 <dt class="field-label">{col.label}</dt>
@@ -239,6 +262,7 @@
             {/each}
           </dl>
         </section>
+        {/if}
       {/each}
     </div>
 
@@ -469,6 +493,23 @@
   .tier-badge.t3 { background: #321f3a; color: #b58fc9; border-color: #492c53; }
   .tier-badge.t4 { background: #3a2e1f; color: #c9a98f; border-color: #53432c; }
   .tier-badge.t5 { background: #2a2a2a; color: #999; border-color: #3a3a3a; }
+  .empty-toggle {
+    margin: 0 0 8px;
+  }
+  .empty-toggle button {
+    background: none;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #8b949e;
+    font: inherit;
+    font-size: 12px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  .empty-toggle button:hover {
+    color: #c9d1d9;
+    border-color: #58a6ff;
+  }
   .no-data {
     font-style: italic;
     color: #6e7681;

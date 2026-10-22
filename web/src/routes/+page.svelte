@@ -11,6 +11,7 @@
   import DetailModal from '$lib/components/DetailModal.svelte';
   import ComparePanel from '$lib/components/ComparePanel.svelte';
   import ExportButton from '$lib/components/ExportButton.svelte';
+  import ProductTabs from '$lib/components/ProductTabs.svelte';
   import { sortColumns } from '$lib/stores/sort';
   import { searchQuery, applySearch } from '$lib/stores/search';
   import { filters, applyFilters, FACET_ORDER } from '$lib/stores/filters';
@@ -129,6 +130,7 @@
 
   function cloneFilterState(f: typeof $filters): typeof $filters {
     return {
+      product: new Set(f.product),
       tier: new Set(f.tier),
       section: new Set(f.section),
       storage: new Set(f.storage),
@@ -306,6 +308,8 @@
       <ExportButton records={visibleRecords} {filterSummary} />
     </div>
   </header>
+
+  <ProductTabs records={data.records} />
 
   <div class="body">
     <FilterRail

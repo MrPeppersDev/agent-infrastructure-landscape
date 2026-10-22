@@ -42,10 +42,8 @@
 {#if !cell}
   <span class="muted">—</span>
 {:else if cell.status === 'not-applicable'}
-  <span class="no-data na">{cell.value || 'not applicable'}</span>
-  <span class="tier-badge tier-{cell.tier}" title={tierTitle(cell.tier)}
-    >{tierGlyph(cell.tier)}</span
-  >
+  <!-- Column doesn't apply to this kind of system: keep the grid quiet. -->
+  <span class="no-data na" title={cell.value || 'not applicable'}>·</span>
 {:else if cell.status === 'depth-floor-reached'}
   <span class="no-data">{cell.value || 'searched not found'}</span>
   {#if cell.citation}
