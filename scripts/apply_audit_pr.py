@@ -86,7 +86,7 @@ def run_cmd(cmd: list[str]) -> tuple[bool, str]:
         # Surface the tail of the failure as a workflow annotation so it is
         # visible in the run summary without downloading log artefacts.
         lines = (proc.stdout + "\n" + proc.stderr).strip().splitlines()
-        keep = [l for l in lines if any(k in l for k in ("FAIL", "✗", "Error", "error", "Traceback", "assert"))]
+        keep = [l[:300] for l in lines if any(k in l for k in ("FAIL", "✗", "Error", "error", "Traceback", "assert", "differ", "    <", "    >", "---"))]
         tail = (keep[-25:] or lines[-25:])
         msg = "%0A".join(line.replace("%", "%25") for line in tail)
         print(f"::error title={' '.join(cmd)} failed::{msg}")
