@@ -314,6 +314,39 @@ def _diff_files(a: Path, b: Path, label: str) -> None:
         gate_fail(f"{label} are not byte-identical")
 
 
+# Keys that live only in data/landscape.json and are intentionally not
+# rendered into landscape.html, so they cannot survive the
+# HTML -> extract -> reconcile round-trip. `needs_review` is the
+# section-audit bot's per-cell maintainer-review proposal (Path A,
+# apply_audit_pr.json_annotate_cell_needs_review). Before this list
+# existed, any audit run with network access produced proposals and
+# then failed this gate, so the weekly audit failed every run from
+# May to Oct 2026.
+JSON_ONLY_CELL_KEYS = ("needs_review",)
+
+
+def _strip_json_only(obj):
+    if isinstance(obj, dict):
+        return {k: _strip_json_only(v) for k, v in obj.items() if k not in JSON_ONLY_CELL_KEYS}
+    if isinstance(obj, list):
+        return [_strip_json_only(v) for v in obj]
+    return obj
+
+
+def _compare_reconciled(reconciled: Path, committed: Path) -> None:
+    res = subprocess.run(["diff", "-q", str(reconciled), str(committed)], capture_output=True, text=True)
+    if res.returncode == 0:
+        info("reconcile.py: output matches committed landscape.json")
+        return
+    a = json.loads(reconciled.read_text())
+    b = json.loads(committed.read_text())
+    if _strip_json_only(a) == _strip_json_only(b):
+        info("reconcile.py: output matches committed landscape.json "
+             f"(ignoring JSON-only review keys: {', '.join(JSON_ONLY_CELL_KEYS)})")
+        return
+    _diff_files(reconciled, committed, "reconcile output vs committed landscape.json")
+
+
 def gate_determinism() -> None:
     gate_header(2, "Determinism of fast pipeline steps")
     with tempfile.TemporaryDirectory() as td:
@@ -341,8 +374,7 @@ def gate_determinism() -> None:
                 str(reconciled),
             ]
         )
-        _diff_files(reconciled, LANDSCAPE_JSON, "reconcile output vs committed landscape.json")
-        info("reconcile.py: output matches committed landscape.json")
+        _compare_reconciled(reconciled, LANDSCAPE_JSON)
 
         # build_edges.py — verify byte-stability, but DO NOT clobber the
         # committed data/landscape.edges.json (which contains S2 cites edges
