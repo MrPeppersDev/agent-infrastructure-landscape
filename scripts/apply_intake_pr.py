@@ -271,6 +271,30 @@ def run_cmd(cmd: list[str], *, label: str) -> tuple[bool, str]:
     return proc.returncode == 0, output
 
 
+def canonicalize_landscape_json() -> tuple[bool, str]:
+    """Rewrite data/landscape.json into the form the HTML round-trip
+    produces (render → extract → reconcile). validate gate 2 requires the
+    JSON to equal that form byte for byte, and a freshly researched record
+    is not in it: cell tiers are derived from citations (T1 for GitHub),
+    long values are normalised, and key order differs. Without this every
+    networked intake failed `make validate` (Oct 2026)."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        ex = Path(td) / "extract.json"
+        rc = Path(td) / "reconciled.json"
+        for cmd in (
+            [sys.executable, "scripts/render.py", "--input", str(LANDSCAPE_JSON),
+             "--output", str(LANDSCAPE_HTML)],
+            [sys.executable, "scripts/extract.py", "--output", str(ex)],
+            [sys.executable, "scripts/reconcile.py", "--input", str(ex), "--output", str(rc)],
+        ):
+            ok, out = run_cmd(cmd, label=" ".join(cmd[1:2]))
+            if not ok:
+                return False, out
+        LANDSCAPE_JSON.write_text(rc.read_text())
+    return True, ""
+
+
 def run_build() -> tuple[bool, str]:
     return run_cmd(["make", "build"], label="make build")
 
@@ -493,6 +517,12 @@ def main() -> int:
         save_landscape(landscape, LANDSCAPE_JSON)
         print(f"inserted record id=`{record['id']}` into section `{section}` "
               f"(target: {LANDSCAPE_JSON.name})")
+        ok, out = canonicalize_landscape_json()
+        if not ok:
+            _write_failure_log(f"{args.issue_number}-canonicalize.log", out)
+            print("error: canonicalize (render → extract → reconcile) failed",
+                  file=sys.stderr)
+            return 3
     else:
         row_html = render_row(record)
         html_text = LANDSCAPE_HTML.read_text()
