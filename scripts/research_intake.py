@@ -315,12 +315,15 @@ def parse_issue_body(body: str) -> IntakeFields:
     # pitch" vs "Claims"). Before this, every template submission failed
     # to parse and the intake bot errored out.
     heading_aliases = {"Claims / pitch": "Claims"}
-    empty_values = {"_(none)_", "(none)", "—", "-", "", "_No response_", "None"}
+    empty_values = {"_(none)_", "(none)", "—", "-", "", "_No response_", "None",
+                    "_(not provided)_", "(not provided)"}
     fields = IntakeFields()
     seen: dict[str, str] = {}
     for match in pattern.finditer(body or ""):
         key = label_to_key[match.group("label")]
-        value = match.group("value").strip()
+        # The web form groups fields under `### Heading` blocks; a value
+        # must not run on into the next heading.
+        value = re.split(r"\n#{1,6}\s", match.group("value"), maxsplit=1)[0].strip()
         if value in empty_values:
             continue
         seen[key] = value
