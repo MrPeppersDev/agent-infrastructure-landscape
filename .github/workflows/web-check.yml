@@ -42,13 +42,23 @@ jobs:
         # this check. Flip off continue-on-error once it is clean.
         continue-on-error: true
         working-directory: web
-        run: npm run check -- --threshold error
+        run: |
+          set -o pipefail
+          npm run check -- --threshold error --output machine 2>&1 | tee /tmp/check.log || {
+            grep -E ' ERROR ' /tmp/check.log | head -40 | while IFS= read -r l; do echo "::error title=svelte-check::$l"; done
+            exit 1
+          }
 
       - name: Build
         working-directory: web
         env:
           BASE_PATH: /agent-infrastructure-landscape
-        run: npm run build
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee /tmp/build.log || {
+            tail -40 /tmp/build.log | while IFS= read -r l; do echo "::error title=build::$l"; done
+            exit 1
+          }
 
   mcp:
     runs-on: ubuntu-latest
