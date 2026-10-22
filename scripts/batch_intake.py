@@ -59,11 +59,17 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("candidates")
     ap.add_argument("--report", required=True)
+    ap.add_argument("--push-branch", default=None,
+                    help="push after every added system, so a timeout keeps progress")
     ap.add_argument("--start-number", type=int, default=90000,
                     help="synthetic run-trail ids (no Issue exists)")
     args = ap.parse_args()
 
     cands = json.loads(Path(args.candidates).read_text())
+    # Re-runs skip systems an earlier (possibly timed-out) run already added.
+    existing = {r["name"].strip().lower() for r in
+                json.loads((ROOT / "data" / "landscape.json").read_text())["records"]}
+    cands = [c for c in cands if c["name"].strip().lower() not in existing]
     added, failed = [], []
     for i, c in enumerate(cands):
         n = args.start_number + i
@@ -107,6 +113,10 @@ def main() -> int:
         run(["git", "add", "data/landscape.json", "data/landscape.edges.json",
              "landscape.html"])
         run(["git", "commit", "-q", "-m", f"intake(batch): add {name}"])
+        if args.push_branch:
+            pushed = run(["git", "push", "-q", "origin", f"HEAD:{args.push_branch}"])
+            if pushed.returncode != 0:
+                print(f"warn: push failed: {pushed.stderr.strip()[-300:]}")
         added.append((name, c["section"], c["url"]))
         print(f"[{i+1}/{len(cands)}] {name}: added")
 

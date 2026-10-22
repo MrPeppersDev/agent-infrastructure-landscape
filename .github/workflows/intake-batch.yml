@@ -32,7 +32,9 @@ jobs:
     # Skip the bot's own push (it only touches data files + the report).
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # ~3-4 min per candidate (research + build + validate); progress is
+    # pushed after each one, so a timeout only stops the run early.
+    timeout-minutes: 330
     steps:
       - uses: actions/checkout@v4
         with:
@@ -62,7 +64,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           f="${{ steps.pick.outputs.file }}"
-          python3 scripts/batch_intake.py "$f" --report "${f%.json}.report.md"
+          python3 scripts/batch_intake.py "$f" --report "${f%.json}.report.md" --push-branch "${{ github.ref_name }}"
           git add "${f%.json}.report.md"
           git commit -q -m "intake(batch): report for $(basename "$f")" || true
           git push origin HEAD:${{ github.ref_name }}
