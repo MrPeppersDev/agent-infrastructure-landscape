@@ -1,0 +1,714 @@
+[
+ {
+  "id": "limitless--limitless-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Meta (announced Dec 2025); Pendant sales ended 2025-12-05; desktop/web recording disabled, Rewind sunset 2025-12-19; existing Pendant users supported through 2026 on free Unlimited plan; service withdrawn from EU/UK/China and others.",
+  "lifecycle_citation": "https://www.limitless.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Continuously captures screen + audio + wearable input; AI search across the timeline. Privacy-first (local-first storage). Originated as Rewind macOS app; pivoted to wearable + lifelog product.",
+    "new": "Former Rewind/Limitless lifelog (Pendant wearable + screen/audio capture with timeline search). Acquired by Meta; Pendant no longer sold, desktop recording and Rewind shut down Dec 2025, legacy users supported through 2026.",
+    "citation": "https://www.limitless.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Hardware-bundled",
+    "new": "Discontinued \u2014 no new sales since 2025-12-05; existing Pendant owners get Unlimited plan free",
+    "citation": "https://www.limitless.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$34.3M total over 4 rounds (a16z, First Round Capital, NEA, Sam Altman)",
+    "new": "Acquired by Meta (Dec 2025; terms undisclosed); prior VC total $34.3M",
+    "citation": "https://www.limitless.ai/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "galileo-galileo-ai--galileo-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cisco announced intent to acquire 2026-04-09; completed by 2026-05-22. Product now folded into Splunk as 'Splunk Agent Observability'; galileo.ai/pricing redirects to Splunk pricing.",
+  "lifecycle_citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$68M total ($10M seed + $13M Series A + $45M Series B Oct 2024); Scale Venture Partners + Premji Invest led Series B",
+    "new": "Acquired by Cisco (announced 2026-04-09, closed by 2026-05; terms undisclosed); prior VC total $68M",
+    "citation": "https://blogs.cisco.com/news/cisco-announces-the-intent-to-acquire-galileo",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "free: 5K traces/mo; Pro: $100+/mo (50K traces); Enterprise: custom (VPC on-prem); runtime guardrails on Enterprise only",
+    "new": "Standalone pricing retired \u2014 galileo.ai/pricing now redirects to Splunk pricing; sold as Splunk Agent Observability",
+    "citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "openmemory-mcp--mem0-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Still documented and promoted; now offered both as a hosted service (app.openmemory.dev, npx installer, no Docker) and the original local Docker-based MCP server.",
+  "lifecycle_citation": "https://docs.mem0.ai/openmemory",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Local-first self-hosted Mem0 variant. Shared memory layer bridges Claude Desktop, Cursor, and Windsurf in one session. All data stays on-machine. Docker Compose self-host.",
+    "new": "Mem0's MCP memory layer for coding agents (Claude, Cursor, VS Code etc.). Ships both as a hosted service (API key + npx installer) and a local Docker-based self-hosted server where data stays on-machine.",
+    "citation": "https://docs.mem0.ai/openmemory",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "mem0ai/mem0 (openmemory/ subdirectory) \u2014 ~67.3k stars",
+    "citation": "https://github.com/mem0ai/mem0",
+    "confidence": "medium"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "Apache-2.0 (mem0 monorepo)",
+    "citation": "https://github.com/mem0ai/mem0",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Mem0 platform active; mem0ai PyPI v2.2.1 released 2026-09-25.",
+  "lifecycle_citation": "https://pypi.org/project/mem0ai/",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "mem0ai/mem0 \u2014 ~67.3k stars, last release 2026-09",
+    "citation": "https://github.com/mem0ai/mem0",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable \u2014 not OSS",
+    "new": "v2.2.1 (2026-09-25)",
+    "citation": "https://pypi.org/project/mem0ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://pypi.org/project/mem0ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Hobby free; Starter $19/mo; Pro $249/mo; Enterprise custom with SOC2/HIPAA",
+    "new": "Hobby free (10K adds/1K retrievals/mo); Starter $19/mo; Pro $249/mo; Enterprise custom",
+    "citation": "https://mem0.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "SaaS cloud; Enterprise VPC; OpenMemory self-hosted (Docker Compose)",
+    "new": "SaaS cloud; Enterprise VPC; OpenMemory hosted or self-hosted (Docker)",
+    "citation": "https://docs.mem0.ai/openmemory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "agents-md--agents-md",
+  "lifecycle": "active",
+  "lifecycle_note": "Format now stewarded by the Agentic AI Foundation (Linux Foundation); 60k+ OSS projects reported using it.",
+  "lifecycle_citation": "https://agents.md/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AGENTS.md at repo root (and ~/.codex/AGENTS.md for global); hierarchical concatenation from root to cwd. Persists build/test commands, conventions, architecture overview, security constraints, git workflow.",
+    "new": "Open Markdown 'README for agents' at repo root; nested files in subprojects take precedence (closest wins). Holds build/test commands, conventions and PR rules. Stewarded by the Agentic AI Foundation (Linux Foundation); supported by Codex, Jules, Cursor, Copilot, Gemini CLI, Devin/Windsurf and others.",
+    "citation": "https://agents.md/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "agentsmd/agents.md \u2014 ~25k stars",
+    "citation": "https://github.com/agentsmd/agents.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/agentsmd/agents.md",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "windsurf-rules-memories--docs-windsurf-com",
+  "lifecycle": "renamed",
+  "lifecycle_note": "docs.windsurf.com now 302-redirects to docs.devin.ai; product documented as 'Devin Desktop' (Cognition). Auto-generated memories apply only to the legacy Cascade agent; a Migration Wizard moves memories to skills; rules now preferred in .devin/rules/ with .windsurf/rules/ as fallback.",
+  "lifecycle_citation": "https://docs.devin.ai/desktop/cascade/memories",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Rules files plus Cascade auto-generated memories. \"Fast Context\" RAG using SWE-grep models; ~100K-token effective context.",
+    "new": "Now Devin Desktop (ex-Windsurf). Rules: global_rules.md (6K chars) plus workspace rules in .devin/rules/ (fallback .windsurf/rules/, 12K chars each) and AGENTS.md via the same engine. Cascade auto-memories stored in ~/.codeium/windsurf/memories/ are legacy-agent only, with a migration path to skills.",
+    "citation": "https://docs.devin.ai/desktop/cascade/memories",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "omega--omegamax-co",
+  "lifecycle": "active",
+  "lifecycle_note": "PyPI omega-memory 1.5.20 released 2026-10-08.",
+  "lifecycle_citation": "https://pypi.org/project/omega-memory/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Memory engine product. Pitch is high-accuracy retrieval at very low latency.",
+    "new": "Local context/memory engine for coding agents: stores decisions, docs and agent history on-machine (SQLite + local ONNX embeddings) and serves a ranked slice per task over MCP. Open-core Apache-2.0 core with paid Pro tier.",
+    "citation": "https://omegamax.co/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Open-core: Core tier free (Apache-2.0); Graph tier $249/mo; Pro tier (multi-agent) additional",
+    "new": "Core free (Apache-2.0); Pro $19/mo (multi-agent coordination, LLM routing, knowledge base, encrypted sync)",
+    "citation": "https://omegamax.co/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not documented publicly",
+    "new": "yes \u2014 runs as MCP server subprocess; works with Claude Code, Cursor, Windsurf, Cline etc.",
+    "citation": "https://omegamax.co/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "omega-memory/omega-memory \u2014 ~224 stars",
+    "citation": "https://github.com/omega-memory/omega-memory",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable \u2014 not OSS",
+    "new": "v1.5.20 (2026-10-08)",
+    "citation": "https://pypi.org/project/omega-memory/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://pypi.org/project/omega-memory/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "scite-ai--scite-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Operating as part of Research Solutions.",
+  "lifecycle_citation": "https://scite.ai/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free / Basic $7.99/mo / Premium $19.99/mo / Premium+ $59.99/mo / Enterprise custom",
+    "new": "Basic $12/mo (billed yearly, 7-day trial); Pro $40/mo (billed yearly); Enterprise custom",
+    "citation": "https://scite.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no MCP support advertised \u2014 vertical product, no MCP server / client integration documented",
+    "new": "yes \u2014 first-party Scite MCP for AI agents; MCP credits 250/mo (Basic), 2,500/mo (Pro)",
+    "citation": "https://scite.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "otter-ai--otter-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://otter.ai/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Basic free; Pro $16.99/user/mo monthly or $8.33 annual; Business $30 list ($19.99 annual); Enterprise custom",
+    "citation": "https://otter.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 first-party Otter MCP server (listed in Basic/Pro features); API & webhooks on Enterprise",
+    "citation": "https://otter.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "plaud-notepin--plaud-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Line now includes Note Pro, NotePin S, Note, NotePin and Plaud One (preorder).",
+  "lifecycle_citation": "https://www.plaud.ai",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Hardware-bundled",
+    "new": "NotePin $159 / NotePin S $179 / Note Pro $189; Starter plan free (300 min/mo); Pro $17.99/mo or $99.99/yr (1,200 min); Unlimited $29.99/mo or $239.99/yr",
+    "citation": "https://www.plaud.ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 first-party MCP & CLI (docs.plaud.ai) plus device SDK/API",
+    "citation": "https://www.plaud.ai",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mymind--access-mymind-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://access.mymind.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Student of Life $6.99/mo; Mastermind $12.99/mo; Free guest (100 cards permanent)",
+    "new": "Bookmarker $4.99/mo; Student of Life $7.99/mo or $79/yr; Mastermind $12.99/mo or $129/yr; Newton $299/yr (not yet available)",
+    "citation": "https://access.mymind.com/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "craft-ai--craft-do",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.craft.do/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free; Plus $8/mo; Team $50/mo flat (up to 25 members) \u2014 from product claims row",
+    "new": "Free; Plus $8/mo ($6.40/mo annual); Family $15/mo (2\u20136 accounts); Team $50/mo (up to 10 Plus accounts)",
+    "citation": "https://www.craft.do/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 'API & MCP access' included on Free and Plus tiers",
+    "citation": "https://www.craft.do/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "saner-ai--saner-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.saner.ai/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free (30 AI req/mo; 100 notes); Starter $8/mo; Standard $16/mo \u2014 from product claims row",
+    "new": "Free (30 AI requests/mo, 100 notes); Starter $8/mo (30 AI req/day, 1K notes); Standard $16/mo (unlimited notes, 100 AI req/day); ~20% off yearly",
+    "citation": "https://www.saner.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "elicit--elicit-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://elicit.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free / Plus $12/user/month / Pro $49/user/month / Team $79/user/month",
+    "new": "Basic free; Pro $49/user/mo; Scale $169/user/mo; Enterprise custom (annual billing; page showed conflicting variants incl. Plus $11 / Pro $39 / Scale $89)",
+    "citation": "https://elicit.com/pricing",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "inworld-ai--inworld-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Repositioned from NPC/character engine to voice AI (TTS/STT/speech-to-speech) and open-model inference; acquired Ultravox 2026-09-30.",
+  "lifecycle_citation": "https://inworld.ai",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Leading purpose-built NPC engine. Long-Term Memory (named feature) stores interaction facts across sessions; surfaces them contextually. Character Brain coordinates multiple ML models. Personality defined by trait axes, backstory, goals, emotional state.",
+    "new": "Formerly an NPC character engine with named Long-Term Memory; now sells realtime voice models (TTS-2, STT-1, speech-to-speech) and OpenAI-compatible open-model inference. Character/NPC memory is no longer the headline product.",
+    "citation": "https://inworld.ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Usage-based: TTS-2 $25/1M chars on demand ($10 Enterprise); TTS-2 Flash $15/1M; STT-1 $0.10/audio-hour; open LLMs from $0.07/1M input tokens",
+    "citation": "https://inworld.ai",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "hippocratic-ai-polaris--hippocraticai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Product line now headlined as 'Polaris Pro'.",
+  "lifecycle_citation": "https://hippocraticai.com/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$320M total $3.5B val Series C \u00b7 2025-11",
+    "new": "total $444M (per company site); last disclosed priced round $126M Series C at $3.5B val (2025-11)",
+    "citation": "https://hippocraticai.com/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cocounsel-legal-thomson-reuters--legaltechnology-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Next-generation CoCounsel Legal GA in US 2026-08-20, built on Anthropic's Claude Agent SDK.",
+  "lifecycle_citation": "https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Aug 2025 relaunch added agentic deep-research workflows (plan-execute-cite). Holds context within a session; no persistent cross-session matter memory layer publicly documented yet. Thomson is building proprietary \"Thomson\" legal LLM for summer 2026.",
+    "new": "Next-gen release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep firm documents and precedents as context across matters and teams, plus Brief Builder, a Word drafting agent and Deep Research Verify.",
+    "citation": "https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no MCP support advertised \u2014 vertical product, no MCP server / client integration documented",
+    "new": "yes \u2014 first-party CoCounsel Legal MCP connector for Claude (May 2026, expanded Aug 2026); AWS MCP connection announced",
+    "citation": "https://www.thomsonreuters.com/en/press-releases/2026/may/thomson-reuters-and-anthropic-expand-partnership-to-connect-claude-with-cocounsel-legal",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed SaaS; GA in US, Canada/UK/Australia slated for later 2026",
+    "citation": "https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "gwm-gaussian-world-models--gaussian-world-model-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "ICCV 2025 research project; code repo marked WIP.",
+  "lifecycle_citation": "https://gaussian-world-model.github.io/",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "Gaussian-World-Model/gaussianwm \u2014 ~140 stars",
+    "citation": "https://github.com/Gaussian-World-Model/gaussianwm",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/Gaussian-World-Model/gaussianwm",
+    "confidence": "high"
+   },
+   {
+    "cell": "code-release",
+    "old": "not applicable \u2014 not a research paper",
+    "new": "Paper (ICCV 2025, arXiv 2508.17600) + partial code release (training code, WIP; no GWM weights linked)",
+    "citation": "https://gaussian-world-model.github.io/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "salesforce-agentforce-einstein--salesforce-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.salesforce.com/agentforce/pricing/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Flex Credits $500 per 100K credits; $2/conversation; user license $5/user/mo + credits; Agentforce add-ons $125\u2013150/user/mo; Agentforce 1 Editions from $550/user/mo",
+    "citation": "https://www.salesforce.com/agentforce/pricing/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "character-ai--character-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "WARNING: announced voluntary Chapter 11 on 2026-10-12 for a court-supervised sale of substantially all assets (expected close late Nov/early Dec 2026); platform and paid subscriptions still running, but will be wound down if no going-concern bid emerges. Re-check after Dec 2026.",
+  "lifecycle_citation": "https://blog.character.ai/an-update-on-character-ai/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$2.9B total $2.5B val License (Google) \u00b7 2024-08",
+    "new": "In Chapter 11 (filed Oct 2026) pursuing court-supervised asset sale; previously $2.7B Google licensing deal (2024-08)",
+    "citation": "https://blog.character.ai/an-update-on-character-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention. PipSqueak 2 model (April 2026) reduces in-conversation drift. Memory Visualization meter forthcoming.",
+    "new": "Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention. Latest chat models PipSqueak 3 and ShortSqueak (Sep 2026). Company entered Chapter 11 sale process Oct 2026.",
+    "citation": "https://blog.character.ai/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "suki-ai--suki-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.suki.ai/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$70M total Series D \u00b7 2024-10",
+    "new": "total >$250M ($90M Series E, 2026-10-13; Healthier Capital, Crosslink, Hercules, Venrock)",
+    "citation": "https://www.fiercehealthcare.com/finance/suki-secures-90m-series-e-funding-accelerate-growth-expand-ai-capabilities",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "magicschool--magicschool-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.magicschool.ai/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$15M total Series A \u00b7 2024-06",
+    "new": "$45M Series B (Valor Equity Partners, 2025-02) on top of $15M Series A",
+    "citation": "https://www.magicschool.ai/blog-posts/series-b-fundraise-for-teacher-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free (teachers); Plus $12.99/mo or $99.96/yr; Enterprise (districts) custom",
+    "citation": "https://www.magicschool.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memories-ai-lvmm-2-0-project-luci--memories-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Now positioned as multimodal visual-memory infrastructure (Video Intelligence + Visual Search APIs, LUCI Desktop/Pin).",
+  "lifecycle_citation": "https://memories.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free 100 credits/mo; Plus $15/mo (5,000 credits, annual); Enterprise custom (incl. on-prem); usage API e.g. storage $0.03/GB-mo, search $0.10/1K queries",
+    "citation": "https://memories.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$16M total ($8M seed Jul 2025 + $8M extension); Susa Ventures led; Samsung Next + Fusion Fund + Crane + Seedcamp + Creator Ventures",
+    "new": "total $16M seed ($8M seed 2025-07 + $8M extension 2026-06; Susa Ventures led)",
+    "citation": "https://dealroom.co/news/135651-memories-ai-raises-8m-seed-extension-for-visual-memory-ai/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "sandbar-stream--sandbar-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Homepage still shows 'Pre-order today' (Oct 2026); ship timing not stated on site.",
+  "lifecycle_citation": "https://www.sandbar.com",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 first-party Stream MCP server (api.sandbar.com/mcp, OAuth; Claude, Claude Code, ChatGPT, Codex); invite-only beta",
+    "citation": "https://www.sandbar.com/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed-only (preorder; shipping summer 2026)",
+    "new": "Managed-only; still listed as preorder on site as of Oct 2026",
+    "citation": "https://www.sandbar.com",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "friend--friend-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Friend 2.0 pendant launched July 2026 (adds speaker for spoken replies). friend.com live (Friend Global, Inc.) but homepage exposes little text.",
+  "lifecycle_citation": "https://the-gadgeteer.com/2026/07/31/friend-ai-pendant-voice-wearable-249-price/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Hardware-bundled",
+    "new": "Friend 2.0 pendant $249 one-time; optional $10/mo plan extends memory beyond default 30 days",
+    "citation": "https://the-gadgeteer.com/2026/07/31/friend-ai-pendant-voice-wearable-249-price/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "desc",
+    "old": "Pendant necklace (~2 inches). Always-on listening feeds a persistent AI companion persona. Companionship-framed rather than productivity / recall. Cloud LLM backend; no detailed encryption claims.",
+    "new": "Always-listening ~2-inch pendant that feeds a persistent AI companion persona (Gemini-based) via an iPhone app; v2.0 (Jul 2026) adds a speaker for spoken replies. Conversation memory defaults to 30 days, extendable by subscription.",
+    "citation": "https://the-gadgeteer.com/2026/07/31/friend-ai-pendant-voice-wearable-249-price/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "nyne--nyne-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Repositioned as a 'data factory for AI': licensed data + expert network for AI labs, plus people-data APIs built on an identity graph (2.2B people / 380M businesses).",
+  "lifecycle_citation": "https://www.nyne.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Deploys agents across the web to build structured profiles of individuals from public digital footprint, then feeds the people graph into AI agents as contextual memory so they understand users before any conversation starts.",
+    "new": "Identity graph of ~2.2B people and 380M businesses exposed through people-data APIs (identity resolution, enrichment, search) for AI agents; now also brokers licensed data and domain experts for AI labs.",
+    "citation": "https://www.nyne.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$5M total Seed \u00b7 2026-03",
+    "new": "total $5.3M (Seed, 2026-03)",
+    "citation": "https://www.nyne.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Not public \u2014 API access by request",
+    "citation": "https://www.nyne.ai/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "luminance-institutional-memory--luminance-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Institutional Memory announced 2026-01-27 (beta, broader availability from 2026-02-25); homepage now frames products as Negotiate / Discover / Automate.",
+  "lifecycle_citation": "https://www.luminance.com/press/luminance-launches-new-legal-ai-with-institutional-memory-addressing-enterprise-amnesia-and-giving-legal-teams-30-of-their-time-back/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$115M total Series C \u00b7 2025-02",
+    "new": "total ~$165M ($75M Series C led by Point72, 2025-02)",
+    "citation": "https://techcrunch.com/?p=2967352",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "k-health--khealth-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Now markets PatientGPT/dynamic intake and 24/7 longitudinal primary care with health-system partners (Mayo, Mass General Brigham, Northwell).",
+  "lifecycle_citation": "https://khealth.com/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$50M $900M val Series F (approx) \u00b7 2024-07",
+    "new": "$58.9M raised per SEC filing (2026-08; round/valuation undisclosed); prior ~$50M Series F at ~$900M (2024-07)",
+    "citation": "https://alleywatch.com/2026/08/the-alleywatch-startup-daily-funding-report-8-19-2026/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "sierra--sierra-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Very active (Oct 2026 posts: Personal Agent Protocol with Meta, Stripe partnership, Horizon agents). $950M round at >$15B (May 2026) consistent with current funding cell.",
+  "lifecycle_citation": "https://sierra.ai/blog",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "abridge--abridge-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Active (Oct 2026 press: UT System, VA enterprise contract). Funding cell's 2026-04 extension not re-confirmed from a primary source; left unchanged.",
+  "lifecycle_citation": "https://www.abridge.com/press",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "wayve-gaia-2-gaia-3--wayve-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "GAIA-3 (15B params) published 2025-12-02; no public code/weights. Wayve launched London robotaxis with Uber Sep 2026.",
+  "lifecycle_citation": "https://wayve.ai/thinking/gaia-3/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "sanctuary-ai-carbon-phoenix-gen-7-8--sanctuary-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Pivoted messaging: site now sells hardware-agnostic 'Physical AI' for industrial robots and its hydraulic hands; Phoenix humanoid no longer mentioned on homepage/news; Daniel Friedmann appointed CEO; Zeon strategic investment (undisclosed). Pricing cell (~$65K) could not be re-confirmed.",
+  "lifecycle_citation": "https://www.sanctuary.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Mirrors human cognitive functions: explicit memory, vision, hearing, tactile. Translates natural-language instructions into actions with explainable intermediate reasoning. Memory stores task procedures so learned skills are reusable across sessions without retraining.",
+    "new": "Carbon control system originally built for the Phoenix humanoid; company now sells it as hardware-agnostic Physical AI for existing industrial robots plus in-development hydraulic hands, with the Phoenix humanoid no longer featured.",
+    "citation": "https://www.sanctuary.ai/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ }
+]

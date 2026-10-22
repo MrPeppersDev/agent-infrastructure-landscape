@@ -1,0 +1,743 @@
+[
+ {
+  "id": "capacities--capacities-io",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://capacities.io/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free tier + Pro ~\u20ac7.99\u20139.99/mo; Believer \u20ac12.49/mo (annual) \u2014 from product claims row",
+    "new": "Basic free; Pro $9.99/mo (16% off yearly); Believer from $12.49/mo; AI Plus add-on $8.33/mo (annual)",
+    "citation": "https://capacities.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "unclear \u2014 Pro/Believer list 'AI Chat Connectors' for ChatGPT, Claude and Cursor; MCP not named on pricing page",
+    "citation": "https://capacities.io/pricing",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "duolingo-max--blog-duolingo-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://blog.duolingo.com/duolingo-max/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "heptabase--heptabase-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://heptabase.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Pro $8.99/mo (annual); Premium $17.99/mo (annual) \u2014 from product claims row",
+    "new": "Pro $8.99/mo; Premium $17.99/mo; Premium+ $53.99/mo (yearly billing saves 25%)",
+    "citation": "https://heptabase.com/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://lovable.dev/blog",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$537M total $6.6B val Series B \u00b7 2025-12",
+    "new": "latest: $400M Series C at $13.3B valuation (Menlo Ventures, Scaleup Europe Fund/EQT; 2026-08); prior $330M Series B (2025-12)",
+    "citation": "https://lovable.dev/blog/series-c",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed-only",
+    "new": "Managed (editor/agent are Lovable-hosted); Enterprise private preview runs generated apps + data plane in customer AWS/Azure account",
+    "citation": "https://lovable.dev/blog/deploy-your-lovable-apps-in-your-own-aws-account",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "MCP integrations via lovable.dev/projects \u2192 Settings \u2192 Integrations (Supabase, GitHub via MCP)",
+    "new": "yes \u2014 chat connectors incl. custom MCP servers on all plans; first-party Lovable MCP server at mcp.lovable.dev (OAuth) for external AI clients",
+    "citation": "https://docs.lovable.dev/integrations/mcp-servers",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "replit-agent--replit-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://docs.replit.com/replitai/agent",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Starter free; Core $20/mo ($18 annual); Pro $100/mo ($90 annual); Enterprise custom",
+    "citation": "https://replit.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "MCP server configuration via .replit / agent settings as of Replit Agent 3",
+    "new": "yes \u2014 Agent connects to listed or custom MCP servers via Integrations (OAuth or custom headers), with one-click install links",
+    "citation": "https://docs.replit.com/replitai/mcp/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$852M total $9.0B val Series D \u00b7 2026-03",
+    "new": "latest: $400M Series D at $9B valuation (led by Georgian; 2026-03); total not stated by Replit",
+    "citation": "https://replit.com/news",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "tencent-ima-copilot--ima-qq-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Site live; copilot agent mode with 4-module memory (settings, user profile, long-term memory, experience skills) launched 2026-04-29 per https://www.odaily.news/en/newsflash/478727 (secondary)",
+  "lifecycle_citation": "https://ima.qq.com",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "convai-mimir--convai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Site live; pricing page content not renderable so tiers not re-confirmed",
+  "lifecycle_citation": "https://convai.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Starter $22/mo; Growth $82/mo; Enterprise custom",
+    "new": "Credit-based subscriptions (~1,000 credits per $); e.g. Professional $99/mo = 99k credits; full tier list not retrievable",
+    "citation": "https://docs.convai.com/api-docs/credits-and-billing/convai-credits/existing-subscriptions-and-credits.md",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "lifecycle": "active",
+  "lifecycle_note": "Non-profit still publishing (Robin, May 2026); commercial work (Kosmos) lives at spinout Edison Scientific",
+  "lifecycle_citation": "https://www.futurehouse.org/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "interloom--interloom-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://interloom.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "German startup. Captures how real work is performed ...",
+    "new": "Back-office operations platform where agents and domain experts triage and resolve cases; each resolved case feeds a context graph, and a 'MemoryRank' component reuses prior successful cases to route new work.",
+    "citation": "https://interloom.com/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Enterprise pricing; no setup fees; fixed-price per interaction (contact sales)",
+    "new": "No seat fees (unlimited users); usage-based per agent interaction \u2014 prepaid volume packages or pay-as-you-go",
+    "citation": "https://interloom.com/en/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Three modes: managed multi-tenant cloud; dedicated single-tenant; BYOM (bring your own model/endpoints)",
+    "new": "Managed multi-tenant SaaS (AWS); private single-tenant VPC (Azure); private VPC with bring-your-own-model",
+    "citation": "https://interloom.com/en/pricing/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "nvidia-inference-context-memory-storage-platform--nvidianews-nvidia-com",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Renamed to 'NVIDIA CMX Context Memory Storage Platform' (BlueField-4 STX); original Jan 2026 press release still live",
+  "lifecycle_citation": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI-native storage tier for gigascale agentic inference...",
+    "new": "Now branded NVIDIA CMX Context Memory Storage Platform: a BlueField-4 (STX) powered context tier that holds and shares KV cache for long-context, multi-turn agentic inference, with Dynamo routing and DOCA Memos SDK managing cache across compute and storage nodes. Announced CES Jan 2026; availability targeted H2 2026 via storage partners (Dell, HPE, VAST, WEKA, NetApp, etc.).",
+    "citation": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "proprietary (BlueField-4 firmware) + NIXL/Dynamo software stack (mixed)",
+    "new": "proprietary (hardware/DOCA) + Dynamo Apache-2.0",
+    "citation": "https://github.com/ai-dynamo/dynamo",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "replit-replit-md--docs-replit-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://docs.replit.com/replitai/replit-dot-md",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "speculative-rag--arxiv-2407-08223",
+  "lifecycle": "active",
+  "lifecycle_note": "Research paper (Google); published at ICLR 2025 per https://mlanthology.org/authors/m/mattapalli-anush/",
+  "lifecycle_citation": "https://arxiv.org/abs/2407.08223",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Paper only \u2014 ICLR 2025 (arXiv v2 2025-02-27); Google Research blog links no official code",
+    "citation": "https://research.google/blog/speculative-rag-enhancing-retrieval-augmented-generation-through-drafting/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "bee--bee-computer",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Amazon (Jul 2025); product relaunched under Amazon with Bee Frontier (Oct 2026). Pricing detail via https://www.tikr.com/blog/amazons-new-bee-wearables-come-with-a-12-subscription-heres-why-the-fee-barely-matters",
+  "lifecycle_citation": "https://bee.computer",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Hardware-bundled",
+    "new": "Bee Frontier bracelet $74.99 (sold via Amazon, launched 2026-10-15); Bee Pro subscription $11.99/mo (free tier keeps 14 days of memory); Bee Eclipse ($100) coming soon",
+    "citation": "https://bee.computer",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$7M (Exor, Greycroft, New Wave VC; Jul 2024); acquired by Amazon Jul 2025 for undisclosed sum",
+    "new": "total $7M (seed, 2024-07); acquired by Amazon (2025-07); site now \u00a9 Amazon",
+    "citation": "https://bee.computer",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "elsa-speak--elsaspeak-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://elsaspeak.com/en/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free + paid individual plans; Business (50+ learners) and Schools (21+) custom pricing",
+    "citation": "https://elsaspeak.com/en/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "harvey-memory--harvey-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.harvey.ai/blog/memory-in-harvey",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Personal lawyer memory + matter memory + institutional firm memory + client-institution memory. Opt-in at user level ...",
+    "new": "Memory carries forward user-chosen context (matter details, precedent, preferences, approved practices) and reuses past threads scoped to a user, client, matter or firm process. Firm admins enable/disable it; ethical walls and audit controls promised. Announced Jan 2026 as co-development with customers.",
+    "citation": "https://www.harvey.ai/blog/memory-in-harvey",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no MCP support advertised \u2014 vertical product, no MCP server / client integration documented",
+    "new": "yes \u2014 Harvey acts as MCP client via MCP Connector Library (vendors/firms plug tools in), with an MCP policy engine; own MCP server only planned (Dec 2025)",
+    "citation": "https://help.harvey.ai/articles/mcp-connectors",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$1.1B total $11.0B val Growth \u00b7 2026-03",
+    "new": "latest: $550M at $15.5B valuation (co-led by Lightspeed and Diffusion, 2026-09); prior $200M at $11B (2026-03)",
+    "citation": "https://www.harvey.ai/blog/harvey-raises-dollar550m-at-a-dollar155b-valuation-to-help-legal-teams-own-their-intelligence",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "langgraph-persistence--docs-langchain-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://docs.langchain.com/oss/python/langgraph/persistence",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable \u2014 not OSS",
+    "new": "langgraph v1.2.16 (2026-10-16)",
+    "citation": "https://pypi.org/project/langgraph/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable \u2014 not OSS",
+    "new": "MIT",
+    "citation": "https://pypi.org/project/langgraph/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable \u2014 no GitHub repo",
+    "new": "langchain-ai/langgraph \u2014 ~43k stars, last commit 2026-10",
+    "citation": "https://github.com/langchain-ai/langgraph",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS free (MIT); LangGraph Platform (now LangSmith Deployment as of Oct 2025): Free Developer plan 100k nodes/mo; Pl\u2026",
+    "new": "OSS free (MIT); LangSmith Developer $0 (5k traces/mo, 1 seat); Plus $39/seat/mo (1 free small serverless deployment); deployments metered at $1/LSU by compute+memory; Enterprise custom",
+    "citation": "https://www.langchain.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter \u2014 LangChain MCP adapters",
+    "new": "yes \u2014 Agent Server exposes deployed graphs as MCP tools at /mcp (streamable HTTP); MCP client via langchain[mcp] adapter",
+    "citation": "https://docs.langchain.com/langsmith/server-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$160M total (LangChain parent); $1.2B valuation; Series B Oct 2025",
+    "new": "LangChain parent: $125M Series B at $1.25B valuation (2025-10); total not stated",
+    "citation": "https://www.langchain.com/blog/series-b",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mistral-agents-api--docs-mistral-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://docs.mistral.ai/studio-api/agents/introduction",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free tier (la Plateforme developer API); API pay-per-token (e.g. Mistral Large $2/$6 per 1M tokens); enterprise custom",
+    "new": "API pay-per-token (e.g. Mistral Large $0.5 in / $1.5 out per 1M tokens; batch -50%); enterprise custom",
+    "citation": "https://mistral.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native (first-party) \u2014 Mistral Agents support MCP",
+    "new": "yes \u2014 MCP servers registered as managed Connectors usable as tools in agents/conversations",
+    "citation": "https://docs.mistral.ai/studio-api/agents/introduction",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$2.71B total raised; Series C \u20ac1.7B (ASML lead) Sep 2025; $830M debt financing Mar 2026",
+    "new": "latest: \u20ac3B Series D at >\u20ac21B post-money (Samsung lead; co-leads EQT Scaleup Europe Fund, PSG; 2026-09); prior \u20ac1.7B Series C (2025-09)",
+    "citation": "https://www.orrick.com/en/news/2026/09/orrick-advises-mistral-in-its-3b-series-d-at-21b-post-money-valuation",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "relevance-ai-memory--relevanceai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://relevanceai.com/docs/agent/build-your-agent/memory",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free 200 actions/mo; Pro $19/mo; Team $234/mo; Business/Enterprise: 2 credits per run (vs 4 for free). Actions + Ve\u2026",
+    "new": "Public pricing page now lists only Enterprise (custom actions/vendor credits; contact sales)",
+    "citation": "https://relevanceai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 hosted MCP server at mcp.relevanceai.com exposing agents/tools/knowledge to Claude, ChatGPT, Cursor etc. (OAuth, role-scoped); MCP client for external servers also documented",
+    "citation": "https://relevanceai.com/docs/integrations/mcp/mcp-server",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "skild-brain--skild-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.skild.ai/blogs",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$1.7B total $14.0B val Series C \u00b7 2026-01",
+    "new": "latest: $1.4B Series C at >$14B valuation (SoftBank lead, 2026-01); prior $300M Series A (2024-07)",
+    "citation": "https://www.skild.ai/blogs",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.ycombinator.com/companies/trace-so",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "not public \u2014 beta with waitlist / contact",
+    "citation": "https://www.trace.so/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "iris-ai--iris-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://iris.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Enterprise R&D document processing. Researcher Workspace ...",
+    "new": "Enterprise R&D document-intelligence platform, now sold as three products (Axion data prep, Neuralith enterprise knowledge engine, RSpace R&D intelligence) under an 'AI harness' that controls what models read and traces each answer step.",
+    "citation": "https://iris.ai/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "not public \u2014 request a demo",
+    "citation": "https://iris.ai/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mistral-le-chat-memories--help-mistral-ai",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Le Chat renamed 'Vibe' (May 2026); mistral.ai/pricing now presents the consumer app as Vibe; Memories help article still live",
+  "lifecycle_citation": "https://the-decoder.com/mistral-rebrands-lechat-as-vibe-betting-its-chatbots-future-is-as-a-full-blown-work-agent/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Le Chat Memories \u2014 graph-based, context-aware...",
+    "new": "Memories in Mistral's consumer assistant (Le Chat, rebranded Vibe in May 2026): saves details on user request or automatically, user can view/edit/delete or clear all; beta, retained for subscription duration, may be used for training unless opted out.",
+    "citation": "https://help.mistral.ai/en/articles/396497-how-do-you-handle-my-data-when-using-the-memories-feature",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free tier (limited); Pro \u20ac14.99/mo; Team ~\u20ac24.99/user/mo; Enterprise custom",
+    "new": "Free; Pro $14.99/mo; Education $5.99/mo; Team $24.99/user/mo; Enterprise custom",
+    "citation": "https://mistral.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Mistral AI $3.05B total raised; \u20ac11.7B valuation (Series C Sept 2025)",
+    "new": "latest: \u20ac3B Series D at >\u20ac21B post-money (Samsung lead, 2026-09); prior \u20ac1.7B Series C at \u20ac11.7B (2025-09)",
+    "citation": "https://www.orrick.com/en/news/2026/09/orrick-advises-mistral-in-its-3b-series-d-at-21b-post-money-valuation",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "remnote-ai--remnote-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.remnote.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free; Pro $8/mo ($96/yr); Pro with AI $18/mo ($216/yr); lifetime option",
+    "citation": "https://www.remnote.com/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Official pricing page did not render; pricing from PricingSaaS snapshot (2026-06-21)",
+  "lifecycle_citation": "https://docs.tabnine.com/main/getting-started/context-engine",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found \u2014 no public MCP support documented as of 2026-05",
+    "new": "yes \u2014 Tabnine Agent in IDE (VS Code/JetBrains) and Tabnine CLI connect to stdio/HTTP/SSE MCP servers via mcpServers in settings.json or `tabnine mcp add`",
+    "citation": "https://docs.tabnine.com/main/getting-started/tabnine-cli/features/mcp-server-config",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "No free tier; Code Assistant $39/user/mo, Agentic Platform $59/user/mo (annual); Headless Agents add-on $1.2k\u20135k/mo",
+    "citation": "https://pricingsaas.com/companies/tabnine",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.ycombinator.com/companies/hyperspell",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Connects Slack, Gmail, Notion, Drive so agents can recall and reason across company knowledge.",
+    "new": "YC F25 'company brain': connects 50+ sources (Slack, Gmail, Notion, Drive...) into a permission-aware context graph served to agents via API/SDK, returning structured results or LLM-ready summaries; learns from queries over time.",
+    "citation": "https://www.hyperspell.com/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "not public \u2014 book a demo",
+    "citation": "https://www.hyperspell.com/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not documented publicly",
+    "new": "unclear \u2014 official hyperspell-mcp repo is archived; current integration via SDKs/CLI into Claude Code, Codex, Cursor",
+    "citation": "https://github.com/hyperspell",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Rebranded MemStore; domain memory.store 302-redirects to mem.store",
+  "lifecycle_citation": "https://mem.store/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "YC P26 (Spring 2026). Unified memory layer ...",
+    "new": "YC Spring 2026; now 'MemStore' (memory.store redirects to mem.store). Hosted shared memory for a team's AI agents: agents check in, record decisions/progress and recall from teammates' stores with sources; daily email rollup.",
+    "citation": "https://mem.store/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "$150 per team member/mo after 7-day trial (single plan)",
+    "citation": "https://mem.store/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not documented publicly",
+    "new": "yes \u2014 is an MCP server (checkin/record/recall tools) at mem.store/mcp for Claude, Claude Code, ChatGPT, Codex, any MCP client",
+    "citation": "https://mem.store/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only (hosted; no self-host option documented)",
+    "citation": "https://mem.store/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "perplexity-memory--perplexity-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.perplexity.ai/help-center/en/articles/10968016-memory",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Auto-infers facts from conversations ...",
+    "new": "Stores preferences and details (and optionally search history) to personalize answers, citing which memory was used; user controls in Settings \u2192 Memory. 'Brain' adds structured self-improving memory for Max subscribers and shared project Brains in Computer; Enterprise memories are org-owned and admin-managed.",
+    "citation": "https://www.perplexity.ai/help-center/en/articles/10968016-memory",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 first-party Perplexity MCP server (remote at api.perplexity.ai/mcp; local perplexityai/modelcontextprotocol, npm @perplexity-ai/mcp-server) exposing search/ask/research/reason",
+    "citation": "https://docs.perplexity.ai/guides/mcp-server",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "tana--tana-inc",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Outliner product moved to outliner.tana.inc; tana.inc now a different (meetings) product",
+  "lifecycle_citation": "https://outliner.tana.inc/blog/tana-current-may-2026",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Outliner + structured-data hybrid ...",
+    "new": "Tana split in Mar 2026: the supertag-based outliner/PKM is now 'Tana Outliner' at outliner.tana.inc, while tana.inc is a separate agentic meeting platform sharing a knowledge graph. Outliner keeps Tana AI on nodes.",
+    "citation": "https://outliner.tana.inc/blog/tana-current-may-2026",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Tana Outliner: Free (500 AI credits); Plus $8/mo; Pro $14/mo (yearly saves 22%). Meetings product: Free; Pro ~$20\u201330; Business from $35/user/mo",
+    "citation": "https://outliner.tana.inc/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 Outliner desktop runs local MCP server (localhost:8262/mcp, free); hosted remote MCP beta at app.tana.inc/mcp on paid plans",
+    "citation": "https://outliner.tana.inc/learn/features/local-api-mcp",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "chatgpt-study-mode--openai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://openai.com/index/chatgpt-study-mode/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Included in ChatGPT Plus ($20/mo) and Pro ($200/mo); available on Free tier with limits",
+    "new": "Available on Free, Go ($8/mo), Plus ($20/mo), Pro ($200/mo), Team/Business",
+    "citation": "https://openai.com/blog/introducing-chatgpt-go",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Public company (OpenAI)",
+    "new": "OpenAI is private: latest $122B round at $852B valuation (2026-04)",
+    "citation": "https://news.bloomberglaw.com/tech-and-telecom-law/openai-valued-at-852-billion-after-closing-122-billion-round",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable \u2014 research paper, no deployed product",
+    "new": "yes (platform-level) \u2014 ChatGPT custom MCP connectors via Developer Mode on web for Business/Enterprise/Edu; Pro read-only",
+    "citation": "https://help.openai.com/es-419/articles/12584461-developer-mode-and-full-mcp-connectors-in-chatgpt-beta",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "latitude-voyage--latitude-io",
+  "lifecycle": "active",
+  "lifecycle_note": "latitude.io returned no usable content; Voyage launch (2026-04-21) confirmed via first-party press release https://businesswire.com/news/home/20260421658665/en/",
+  "lifecycle_citation": "https://techcrunch.com/2026/04/21/voyage-is-an-ai-rpg-platform-for-creating-custom-gaming-worlds-with-ai-generated-npc-interactions",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Voyage free to play (expanded beta); $15/$30/$50 subscriptions announced as coming; AI Dungeon free + paid",
+    "citation": "https://techcrunch.com/2026/04/21/voyage-is-an-ai-rpg-platform-for-creating-custom-gaming-worlds-with-ai-generated-npc-interactions",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "nomi-ai--nomi-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://nomi.ai",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free; Pro ~$15.99/mo, $99.99/yr or $299.99 lifetime",
+    "citation": "https://aitoolsatlas.ai/tools/nomi/pricing",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "read-ai--read-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.read.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free (5 meetings/mo); Pro $19.75/mo ($15 annual); Enterprise $29.75 ($22.50); Enterprise+ $39.75 ($29.75), per user",
+    "citation": "https://www.read.ai/plans-pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes \u2014 official Read AI MCP server, plus Claude Connector and ChatGPT app",
+    "citation": "https://www.read.ai/plans-pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "supernotes-ai--supernotes-app",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://supernotes.app/pricing/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Starter free (100 cards); Unlimited $8.08/mo (annual) or $5.39/mo (4-year)",
+    "new": "Starter free (100 cards); Unlimited \u00a36/mo or \u00a372/yr (25% off); 4-year plan 50% off",
+    "citation": "https://supernotes.app/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "no official server \u2014 team building OAuth 2.1 for a hosted MCP (Jun 2026); API usable by LLMs today",
+    "citation": "https://community.supernotes.app/t/mcp-server-for-supernotes/3189",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ }
+]

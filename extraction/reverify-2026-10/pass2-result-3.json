@@ -1,0 +1,642 @@
+[
+ {
+  "id": "cursor-rules--docs-cursor-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Legacy .cursorrules still supported but deprecated in favour of Project Rules (.cursor/rules/*.mdc); AGENTS.md also supported.",
+  "lifecycle_citation": "https://docs.cursor.com/context/rules",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": ".cursorrules + project rules. Semantic chunking + Merkle-tree incremental re-indexing over the codebase. Turbopuffer-backed retrieval at IDE scale.",
+    "new": "Persistent instructions injected at start of model context: Project Rules (.mdc files in .cursor/rules, scoped Always/Auto Attached/Agent Requested/Manual), global User Rules, and AGENTS.md; legacy .cursorrules deprecated. Codebase indexing is separate from rules.",
+    "citation": "https://docs.cursor.com/context/rules",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Grok memory of preferences/past chats still advertised. Parent xAI merged into SpaceX (announced 2026-02-02).",
+  "lifecycle_citation": "https://x.ai/grok",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "xAI $22.1B+ total raised; valuation ~$50B (2025 round)",
+    "new": "xAI raised $20B Series E (Jan 2026; Valor, StepStone, Fidelity, QIA, Nvidia, Cisco), ~$230B valuation; merged into SpaceX (announced 2026-02-02, combined ~$1T)",
+    "citation": "https://www.bgr.com/2096335/xai-merged-with-spacex-elon-musk/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free; SuperGrok ~$30/mo (higher limits, multi-agent)",
+    "citation": "https://suprmind.ai/hub/grok/pricing/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "linkedin-cognitive-memory-agent--linkedin-com",
+  "lifecycle": "active",
+  "lifecycle_note": "LinkedIn blog blocked to fetcher (robots); confirmed via InfoQ 2026-04-20 coverage only.",
+  "lifecycle_citation": "https://www.infoq.com/news/2026/04/linkedin-cognitive-memory-agent/",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "quizlet-ai-study-tools-magic-notes--quizlet-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://quizlet.com/upgrade",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free / Plus $4/mo annual",
+    "new": "Free; Quizlet Plus $19.99/yr",
+    "citation": "https://quizlet.com/upgrade",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "speak--speak-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.speak.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free trial; Premium plans (multiple tiers); Enterprise (SSO/white-label)",
+    "new": "7-day free trial; Premium and Premium Plus subscriptions (price varies by region, shown in-app); Speak for Business",
+    "citation": "https://www.speak.com/",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Onboarding assessment builds an initial learner profile and generates a personalized curriculum; AI supports open-ended conversational practice with real-time speech recognition. No SRS or long-term vocabulary tracking — saved phrases go to a passive Phrasebook, not systematically reintegrated. Per-session context is strong; cross-session memory is structurally weak.",
+    "new": "Speaking-first AI language app (Spanish, French, Korean, Japanese, Italian, Chinese). Uses the learner's mistakes and history to generate personalised review; Premium Plus adds 'Made for You' lessons from gaps and an AI Speak Tutor. Business edition with admin progress tracking.",
+    "citation": "https://www.speak.com/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "causaly--causaly-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.causaly.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Drug discovery / target identification / causal mechanism tracing. The graph is the memory: 7 years of curated biomedical cause-effect relationships compounding with each new ingestion. Scientific RAG retrieves from a versioned causal substrate.",
+    "new": "Agentic AI platform for life sciences: orchestrated scientific agents over a curated biomedical knowledge graph (plus Bio Graph and Pipeline Graph), an evidence-retrieval system and an enterprise data fabric over literature, trials and patents.",
+    "citation": "https://www.causaly.com/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no MCP support advertised — vertical product, no MCP server / client integration documented",
+    "new": "yes — Causaly capabilities exposed via MCP, A2A and APIs",
+    "citation": "https://www.causaly.com/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "fellou--fellou-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://fellou.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid: $19/mo (basic); $39.90/mo (standard); $199/mo (pro); freemium model",
+    "new": "Free (1,000-Spark bonus); Plus $19/mo; Pro $39.90/mo; Ultra $199.90/mo (annual ~20% off)",
+    "citation": "https://fellou.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "heyday--heyday-xyz",
+  "lifecycle": "active",
+  "lifecycle_note": "Site live; product now pitched mainly to coaches/knowledge workers with a Zoom meeting-notes app.",
+  "lifecycle_citation": "https://heyday.xyz/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI memory and research assistant. Resurfaces pages, highlights, and notes while browsing; saves context, recalls sources, generates summaries.",
+    "new": "AI assistant that builds a searchable memory from meetings (Zoom app), emails, documents, notes and web reading; answers questions, prepares client context and drafts content. Now marketed mainly to coaches and knowledge workers.",
+    "citation": "https://heyday.xyz/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$6M total Seed · 2022-06",
+    "new": "total $6.5M (Seed led by Spark Capital, Jun 2022)",
+    "citation": "https://businesswire.com/news/home/20220628005293/en/Heyday-Raises-6.5M-for-AI-Powered-Research-Assistant-that-Makes-Knowledge-Workers-Smarter",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "microsoft-recall--microsoft-com",
+  "lifecycle": "active",
+  "lifecycle_note": "GA on Copilot+ PCs since 2025-04-25.",
+  "lifecycle_citation": "https://learn.microsoft.com/en-us/windows/ai/apis/recall",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "On-prem",
+    "new": "On-device (snapshots stored locally on Copilot+ PCs)",
+    "citation": "https://learn.microsoft.com/en-us/windows/ai/apis/recall",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "reflect--reflect-app",
+  "lifecycle": "active",
+  "lifecycle_note": "Relaunched as Reflect Open, an open-source (MIT) local-Markdown rewrite; Reflect Classic still maintained.",
+  "lifecycle_citation": "https://reflect.app/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Networked-thought note app with AI features. Apple-ecosystem-native; backlinks + daily notes + AI synthesis.",
+    "new": "Daily-notes + backlinks note app now relaunched as Reflect Open: open-source, offline-first, notes stored as local Markdown files synced via iCloud or Git; optional AI with your own API key. Reflect Classic still maintained.",
+    "citation": "https://reflect.app/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "$10/mo or $120/yr (no free plan; 14-day trial)",
+    "new": "Reflect Open: Mac app free; iPhone/iPad paid subscription (App Store); AI via own API key",
+    "citation": "https://reflect.app/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/team-reflect/reflect-open",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "team-reflect/reflect-open — ~1.5k stars, last commit unknown (1,107 commits)",
+    "citation": "https://github.com/team-reflect/reflect-open",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed-only",
+    "new": "Local-first (Markdown files on device; Mac/iPhone/iPad); Classic remains managed",
+    "citation": "https://reflect.app/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.sigmabrowser.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free $0; Plus $10/mo ($8 annual); Pro $75/mo ($60 annual)",
+    "citation": "https://www.sigmabrowser.com/plans",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$4.1M total raised: $4M seed (Nov 2022 led by LocalGlobe + YC); additional ~$0.1M angels",
+    "new": "searched not found — prior $4M SigmaOS seed (2022) belongs to a different company (SigmaOS, YC/San Francisco); Sigma Browser is Sigma Browser OÜ, Tallinn",
+    "citation": "https://siliconangle.com/2025/12/22/sigma-launches-privacy-focused-ai-native-browser-local-llm/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "desc",
+    "old": "Standalone browser with fully on-device LLM. Agent acts inside websites (logging in, clicking, completing tasks); memory-based actions recall past searches to auto-fill similar tasks with no cloud dependency. Functions fully offline.",
+    "new": "Chromium-based browser with AI agent (navigates pages, fills forms), chat-with-page, deep research and an in-browser local LLM (Eclipse) for private on-device processing; macOS, Windows, iOS, Android beta.",
+    "citation": "https://www.sigmabrowser.com/",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "augment-code--augmentcode-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.augmentcode.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Standard $20/mo (incl. $20 usage, up to 50 seats); Business $100/mo (incl. $100 usage); Enterprise custom",
+    "citation": "https://www.augmentcode.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Augment MCP",
+    "new": "yes — Augment Agent is an MCP client (Easy MCP, settings panel, JSON import)",
+    "citation": "https://docs.augmentcode.com/setup-augment/mcp",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "deepscribe--deepscribe-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.deepscribe.ai/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "granola--granola-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.granola.ai/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Basic $0; Business $14/user/mo; Enterprise $35/user/mo",
+    "citation": "https://www.granola.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Granola MCP server on all tiers (Basic: last 30 days of personal notes; Business/Enterprise: workspace notes, admin controls)",
+    "citation": "https://www.granola.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$192M total $1.5B val Series C · 2026-03",
+    "new": "total $192M ($125M Series C at $1.5B led by Index Ventures/Kleiner Perkins, Mar 2026)",
+    "citation": "https://thenextweb.com/news/granola-series-c-meeting-ai-enterprise-context",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "khanmigo--khanmigo-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.khanmigo.ai/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Teachers free; learners/families $4/mo or $44/yr; district pricing on request",
+    "citation": "https://www.khanmigo.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "meta-ai-memory--meta-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Original help-center URL now resolves to a generic 'Meta AI and Vibes' landing page; consider re-citing.",
+  "lifecycle_citation": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free (core); Meta AI+ $10/mo (extended 90-day memory vs 30-day free)",
+    "new": "Meta AI free; Meta One Core $7.99/mo and Premium $19.99/mo add more AI generation capacity (memory not tier-gated per announcement)",
+    "citation": "https://about.fb.com/news/2026/09/introducing-meta-one-subscription-service-more-features-ai/amp/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "polyai--poly-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://poly.ai/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$126M total $475M val Series D · 2025-01",
+    "new": "total >$200M ($86M Series D led by Georgian, Hedosophia, Khosla, Dec 2025; ~$750M valuation reported)",
+    "citation": "https://poly.ai/blog/polyai-raises-86m-to-transform-how-enterprises-talk-to-their-customers",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no MCP support advertised — vertical product, no MCP server / client integration documented",
+    "new": "yes — hosted Builder MCP and Data MCP servers; Agent Studio agents can call external MCP servers",
+    "citation": "https://docs.poly.ai/mcp/overview",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "scrintal--scrintal-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://scrintal.com/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "synthesis-tutor--synthesis-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.synthesis.com/tutor",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "$20–$45/month; annual from $99/year (up to 7 kids)",
+    "new": "7-day free trial; family ~$29/mo or $119/yr; individual $45/mo or ~$300/yr; lifetime $999–$1,499 (page figures inconsistent)",
+    "citation": "https://www.synthesis.com/tutor",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "iOS (iPad) + Web",
+    "new": "iPad + Android tablet + Web/desktop (incl. Chromebook)",
+    "citation": "https://www.synthesis.com/tutor",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "devin-cognition--devin-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://cognition.com/blog",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo; Enterprise custom",
+    "citation": "https://devin.ai/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$1.1B total $10.2B val Series E · 2025-09",
+    "new": "Series E >$2B at $48B post-money (a16z/Accel, Sep 2026); prior Series D >$1B at $26B (May 2026)",
+    "citation": "https://cognition.com/blog",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "meta-memory--arxiv-2509-20754",
+  "lifecycle": "active",
+  "lifecycle_note": "Research code now public.",
+  "lifecycle_citation": "https://github.com/ItsBaymax/Meta-Memory",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Code released — github.com/ItsBaymax/Meta-Memory (linked from project page)",
+    "citation": "https://itsbaymax.github.io/meta-memory.github.io/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "ItsBaymax/Meta-Memory — ~16 stars, last commit unknown (10 commits)",
+    "citation": "https://github.com/ItsBaymax/Meta-Memory",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT",
+    "citation": "https://github.com/ItsBaymax/Meta-Memory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "perplexity-comet--perplexity-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Now available on Mac, Windows, iOS and Android; free to all since Oct 2025.",
+  "lifecycle_citation": "https://www.perplexity.ai/comet",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free (since Oct 2025); optional Comet Plus $5/mo; Perplexity Pro $20/mo / Max $200/mo",
+    "citation": "https://www.tomsguide.com/ai/perplexity/perplexitys-ai-browser-comet-is-now-free-for-everyone-heres-how-to-download-it",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed-only",
+    "new": "Managed (desktop Mac/Windows + iOS/Android apps)",
+    "citation": "https://www.perplexity.ai/comet",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "spirit-ai-character-engine--spiritai-com",
+  "lifecycle": "dead",
+  "lifecycle_note": "Spirit AI Limited (UK co. 09745797) entered members' voluntary liquidation; liquidator appointed 2023-09-18. spiritai.com blocked to fetcher.",
+  "lifecycle_citation": "https://www.thegazette.co.uk/notice/4451408",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "dia-atlassian--diabrowser-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Atlassian completed acquisition of The Browser Company 2025-10-21; Dia still shipping (macOS + Windows).",
+  "lifecycle_citation": "https://www.businesswire.com/news/home/20251021473486/en/Atlassian-Completes-Acquisition-of-The-Browser-Company-of-New-York",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free (no AI); paid AI tiers 'Better Answers' $20/mo (page also shows $10) and 'Better Days' $100/mo",
+    "citation": "https://www.diabrowser.com/pricing",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memorax-ai--eu-36kr-com",
+  "lifecycle": "active",
+  "lifecycle_note": "No official website found; news-only sources. Released two open benchmarks (ScriptMem, SWE-context-bench).",
+  "lifecycle_citation": "https://eu.36kr.com/en/p/3816270549377289",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$10M total Seed · 2026-03",
+    "new": "combined >RMB100M across Seed (Apr 2026, co-led L2F/Zhongding) and Seed+ (May 2026, led by CICC Capital, Datai Capital, Huaye Tiancheng)",
+    "citation": "https://eu.36kr.com/en/p/3816270549377289",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "opera-ai-formerly-aria--blogs-opera-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://press.opera.com/?p=3885",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes (Opera Neon only) — MCP Connector lets external AI clients drive the browser (Mar 2026); simplified connector promised for Opera One/GX",
+    "citation": "https://press.opera.com/?p=3885",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "soul-machines--soulmachines-com",
+  "lifecycle": "dead",
+  "lifecycle_note": "Placed in receivership 5 Feb 2026 (KPMG receivers Leon Bowker and Luke Norman); owes creditors >$19.5M; buyers being sought (NBR, Apr 2026). Website still up.",
+  "lifecycle_citation": "https://www.nbr.co.nz/tech/soul-machines-in-receivership",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "apple-notes-apple-intelligence--apple-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.apple.com/apple-intelligence/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "On-prem",
+    "new": "On-device models + Private Cloud Compute",
+    "citation": "https://www.apple.com/apple-intelligence/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "jamba-ai21-labs--ai21-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Jamba2 released 2026-01-08 under Apache-2.0. May 2026: layoffs and Nebius tech-licensing/partnership deal (AI21 denies a sale).",
+  "lifecycle_citation": "https://www.ai21.com/blog/introducing-jamba2/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "Jamba2 3B / Jamba2 Mini (52B, 12B active) (2026-01-08)",
+    "citation": "https://www.ai21.com/blog/introducing-jamba2/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0 (Jamba2); earlier Jamba 1.5–1.7 under Jamba Open Model License",
+    "citation": "https://huggingface.co/ai21labs/AI21-Jamba2-Mini",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "not applicable — open weights on Hugging Face (huggingface.co/ai21labs)",
+    "citation": "https://huggingface.co/ai21labs",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "microsoft-copilot-memory--learn-microsoft-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-personalization-memory",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Microsoft 365 Copilot memory stored in user's Exchange mailbox with compliance alignment. GA Jul 2025.",
+    "new": "Microsoft 365 Copilot memory (saved memories, chat-history details, custom instructions) stored in a hidden folder of the user's Exchange mailbox under mailbox compliance; on by default, admin-controllable; available to Copilot Chat users with or without an M365 Copilot licence. Docs still label it preview.",
+    "citation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-personalization-memory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "personal-ai--personal-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Pivoted from consumer personal-AI to carrier-native memory infrastructure for telecom operators.",
+  "lifecycle_citation": "https://www.personal.ai/about",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Personal AI product. Builds a personal language model from your captured memories, messages, and content; queryable as \"your AI.\"",
+    "new": "AI memory platform sold to telecom carriers: memory, identity and on-network inference that turn each subscriber identity on the network into an agent (products: My AI, Persona Studio, Memory Core; MODEL-4).",
+    "citation": "https://www.personal.ai/about",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Premium $33.33/mo; no free plan; custom enterprise plans",
+    "new": "No public pricing — sales-led single agreement per operator (deployment, licensing, support)",
+    "citation": "https://www.personal.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed-only",
+    "new": "Deployed on the operator's own network (carrier on-prem)",
+    "citation": "https://www.personal.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://www.stackai.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free $0 (500 runs/mo, 2 projects, 1 seat); Enterprise custom",
+    "citation": "https://www.stackai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Multi-tenant cloud, VPC, or on-premise (Enterprise)",
+    "citation": "https://www.stackai.com/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ }
+]
