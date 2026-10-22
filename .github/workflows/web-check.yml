@@ -56,7 +56,8 @@ jobs:
         run: |
           set -o pipefail
           npm run build 2>&1 | tee /tmp/build.log || {
-            sed 's/\x1b\[[0-9;]*m//g' /tmp/build.log | grep -v ' kB' | grep -v 'Non-interactive element' | tail -30 | while IFS= read -r l; do echo "::error title=build::$l"; done
+            msg=$(sed 's/\x1b\[[0-9;]*m//g' /tmp/build.log | grep -v ' kB' | grep -vE 'a11y|svelte-ignore|^\s*[0-9]+:|^\s*\^|svelte.dev/e/' | tail -45 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=build failed::$msg"
             exit 1
           }
 
