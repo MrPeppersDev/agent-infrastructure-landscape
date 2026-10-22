@@ -23,6 +23,8 @@
 name: Section audit
 
 on:
+  push:
+    branches: [ci/audit-debug]
   schedule:
     # Tuesdays 14:00 UTC. cron syntax: minute hour day-of-month month day-of-week
     - cron: '0 14 * * 2'
@@ -97,7 +99,7 @@ jobs:
             MODE="${{ inputs.mode }}"
           else
             SECTION=$(python3 scripts/audit_pick_section.py)
-            MODE="full"
+            MODE="${{ github.event_name == 'push' && 'reverify' || 'full' }}"
           fi
           echo "section=$SECTION" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
