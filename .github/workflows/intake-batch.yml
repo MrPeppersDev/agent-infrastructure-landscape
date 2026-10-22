@@ -1,0 +1,69 @@
+# Batch intake: research and add a list of candidate systems in one pass.
+#
+# Push a branch named intake-batch/<anything> that adds a candidates file
+# under extraction/intake-batches/ (format: scripts/batch_intake.py). The
+# job researches every candidate with the same bot as single intakes,
+# commits each one that passes build + validate onto the branch, pushes,
+# and writes a summary to extraction/intake-batches/<file>.report.md.
+# Open a PR from the branch to review the batch as one change.
+
+name: Batch intake
+
+on:
+  push:
+    branches: ['intake-batch/**']
+    paths: ['extraction/intake-batches/*.json']
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "Candidates file under extraction/intake-batches/"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: intake-batch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  batch:
+    # Skip the bot's own push (it only touches data files + the report).
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          git config user.name "memory-analysis-intake-bot"
+          git config user.email "intake-bot@users.noreply.github.com"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: pip install beautifulsoup4 requests
+      - name: Build MCP query layer (duplicate detection)
+        working-directory: mcp
+        run: npm install && npm run build
+      - name: Pick candidates file
+        id: pick
+        run: |
+          if [ -n "${{ inputs.file }}" ]; then f="extraction/intake-batches/${{ inputs.file }}"
+          else f=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'extraction/intake-batches/*.json' | head -1); fi
+          echo "file=$f" >> "$GITHUB_OUTPUT"; echo "candidates: $f"
+      - name: Research and add
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          f="${{ steps.pick.outputs.file }}"
+          python3 scripts/batch_intake.py "$f" --report "${f%.json}.report.md"
+          git add "${f%.json}.report.md"
+          git commit -q -m "intake(batch): report for $(basename "$f")" || true
+          git push origin HEAD:${{ github.ref_name }}
+          cat "${f%.json}.report.md" >> "$GITHUB_STEP_SUMMARY"
