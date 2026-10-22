@@ -49213,7 +49213,7 @@
       "name": "Anchor (Anchor Browser)",
       "tier": 3,
       "url": "https://anchorbrowser.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -49284,13 +49284,21 @@
           "value": "Anchor Browser provides cloud-hosted Chromium instances optimised for AI agent use — anti-detect, persistent sessions, residential proxies, CAPTCHA handling. Founded 2023, YC W24. $2.6M seed disclosed. Distinct from Browserless by adding persistent-state + anti-detect optimised for AI-agent web workflows.",
           "citation": "https://anchorbrowser.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Secure Infrastructure for Computer Using AI agents - Deploy millions of browser agents to automate any web task. Faster, cheaper, and more reliable than human operations.",
+            "source_url": "https://anchorbrowser.io/"
+          }
         },
         "claims": {
           "value": "YC W24; $2.6M seed; cloud Chromium with anti-detect + persistent sessions; positioned specifically for AI-agent web workflows",
           "citation": "https://anchorbrowser.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Deploy millions of browser agents to automate any web task. Faster, cheaper, and more reliable than human operations.",
+            "source_url": "https://anchorbrowser.io/"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -49303,14 +49311,14 @@
           "citation": "https://anchorbrowser.io/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -49323,14 +49331,14 @@
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -49646,154 +49654,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -112231,7 +112327,7 @@
       "name": "Browserless.io",
       "tier": 2,
       "url": "https://www.browserless.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -112302,13 +112398,21 @@
           "value": "Browserless is a headless-browser-as-a-service — managed Chromium / Playwright / Puppeteer endpoints for web scraping, screenshots, PDF generation, web automation. Increasingly used as substrate for browser-agent products. Founded 2017 by Joel Griffith. Bootstrapped + small seed. Distinct from Playwright OSS — Browserless ships managed Chromium farms with anti-bot circumvention.",
           "citation": "https://www.browserless.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Give AI agents a cloud browser that won&#x27;t crash or get blocked. Connect over MCP, Puppeteer, or Playwright with stealth and Authenticated Profiles built in.",
+            "source_url": "https://www.browserless.io/"
+          }
         },
         "claims": {
           "value": "Managed Chromium/Playwright/Puppeteer endpoints; founded 2017 by Joel Griffith; bootstrapped + small seed; thousands of customers for web scraping + browser-agent infra",
           "citation": "https://www.browserless.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Bring your own agent and library, or run ours. Stealth, CAPTCHA, residential proxies, and authenticated profiles that persist and scale to thousands. Your agent gets in, and gets it done.",
+            "source_url": "https://www.browserless.io/"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -112321,14 +112425,14 @@
           "citation": "https://www.browserless.io/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "MIT (Browserless Core OSS — self-host); proprietary (managed cloud)",
@@ -112341,14 +112445,14 @@
           "citation": "https://www.browserless.io/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -112664,154 +112768,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -161749,7 +161941,7 @@
       "name": "Coder.com",
       "tier": 2,
       "url": "https://coder.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -161820,13 +162012,21 @@
           "value": "Coder.com (formerly Coder Technologies) provides enterprise self-hosted cloud development environments — VS Code Server + dev workspaces on K8s / VMs. $30M Series B 2021 (Redpoint + Founders Fund + Coatue). Founded 2017 by Kyle Carberry + Ammar Bandukwala. 2024 launched 'Coder AI' for agent-execution inside workspaces. Self-hostable AGPL OSS + commercial enterprise.",
           "citation": "https://coder.com/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Give developers a secure, governed environment to run AI coding agents at scale. Self-hosted infrastructure with full control over agent permissions, audit logging, and compliance.",
+            "source_url": "https://coder.com/"
+          }
         },
         "claims": {
           "value": "$30M Series B 2021 (Redpoint + Founders Fund + Coatue); founded 2017 by Kyle Carberry + Ammar Bandukwala; AGPL OSS; Coder AI 2024 for in-workspace agent execution; used by major enterprise platform teams",
           "citation": "https://coder.com/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Coder powers secure, scalable development across key industries — automotive, finance, government, and technology — enabling faster builds, tighter compliance, and seamless AI adoption in enterprise-grade cloud environments.",
+            "source_url": "https://coder.com/"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -161839,14 +162039,14 @@
           "citation": "https://coder.com/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "AGPL-3.0",
@@ -161859,14 +162059,14 @@
           "citation": "https://coder.com/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -162182,154 +162382,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -162768,7 +163056,7 @@
       "name": "CodeSandbox AI",
       "tier": 2,
       "url": "https://codesandbox.io/ai",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -162858,14 +163146,14 @@
           "citation": "https://codesandbox.io/ai",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -162878,14 +163166,14 @@
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -163201,154 +163489,154 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -207943,7 +208231,7 @@
       "name": "Daytona",
       "tier": 2,
       "url": "https://www.daytona.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -208014,13 +208302,21 @@
           "value": "Daytona is an open-source cloud development environment (CDE) platform — self-hostable alternative to Gitpod / GitHub Codespaces. 2024 added AI-agent sandbox tier for ephemeral agent code execution. Apache 2.0. Founded by ex-Atlas Antillia / Codeanywhere team (Ivan Burazin). $5M seed 2024 (RTP Global + others). Distinct from e2b / Modal by being self-hostable-first.",
           "citation": "https://www.daytona.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Deploy Al code with confidence using Daytona",
+            "source_url": "https://www.daytona.io/"
+          }
         },
         "claims": {
           "value": "Apache 2.0 OSS CDE; self-hostable; AI-sandbox tier for agent code execution 2024; $5M seed 2024 (RTP Global); founded 2024 by Ivan Burazin (ex-Codeanywhere)",
           "citation": "https://www.daytona.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Lightning-Fast Infrastructure for AI Development",
+            "source_url": "https://www.daytona.io/"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -208033,14 +208329,14 @@
           "citation": "https://www.daytona.io/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "Apache 2.0",
@@ -208053,14 +208349,14 @@
           "citation": "https://www.daytona.io/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -208376,154 +208672,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "yes",
+            "source_url": "https://www.daytona.io/"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -236659,7 +237043,7 @@
       "name": "e2b",
       "tier": 1,
       "url": "https://e2b.dev/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -236730,13 +237114,21 @@
           "value": "e2b provides secure, ephemeral sandboxes (Firecracker microVMs) for AI agent code execution. Each sandbox spins up in <200ms with full Linux environment, Python/Node/etc preinstalled. Substrate for code-agent products including Anthropic Claude Code (artifacts run on e2b), Perplexity, You.com Search, Cognition Devin (partially), and Hugging Face Spaces. Apache 2.0 OSS + managed cloud. $13M Seed + Series A 2024 (Sunflower Capital + a16z).",
           "citation": "https://e2b.dev/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "The AI Agent Cloud. An isolated machine for every AI agent: run code, browse, use tools, pause, fork. In our cloud or your AWS, GCP, or Azure account. 100K+ teams, 2B+ sandboxes started.",
+            "source_url": "https://e2b.dev/"
+          }
         },
         "claims": {
           "value": "$13M+ raised (seed 2023 + Series A Sept-2024; Sunflower Capital + a16z); Firecracker microVM-based; <200ms cold start; used by Anthropic, Perplexity, Hugging Face; Apache 2.0 OSS SDK",
           "citation": "https://e2b.dev/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "E2B runs the isolated machine your agent works on. You ship the agent. We run the infrastructure. Our cloud or yours.",
+            "source_url": "https://e2b.dev/"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -236749,14 +237141,14 @@
           "citation": "https://e2b.dev/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "Apache 2.0 (SDK + CLI)",
@@ -236769,14 +237161,14 @@
           "citation": "https://e2b.dev/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -237092,154 +237484,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -294861,7 +295341,7 @@
       "name": "Gitpod AI features",
       "tier": 2,
       "url": "https://www.gitpod.io/blog/gitpod-flex",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -294951,14 +295431,14 @@
           "citation": "https://www.gitpod.io/blog/gitpod-flex",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "AGPL-3.0 (Gitpod Self-Hosted)",
@@ -294971,14 +295451,14 @@
           "citation": "https://www.gitpod.io/blog/gitpod-flex",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -295294,154 +295774,154 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -575468,7 +575948,7 @@
       "name": "Modal Sandboxes",
       "tier": 1,
       "url": "https://modal.com/docs/guide/sandbox",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -575539,13 +576019,21 @@
           "value": "Modal Labs ships a serverless container platform with first-class GPU support; Sandboxes feature (2024) adds ephemeral, AI-agent-friendly compute sandboxes. Founded 2021 by Erik Bernhardsson (ex-Spotify ML, author of Luigi + Annoy). $87M total raised through Series B (Lux Capital + Redpoint + Definition + Amplify). Used by major LLM apps for batch inference + agent code execution.",
           "citation": "https://modal.com/docs/guide/sandbox",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "This page is a high-level guide to Sandboxes, secure containers for executing untrusted code on Modal. Sandboxes are useful for tasks like executing code generated by an LLM or isolating user-generated code.",
+            "source_url": "https://modal.com/docs/guide/sandbox"
+          }
         },
         "claims": {
           "value": "$87M total raised (Series B Sept-2024 led by Lux Capital + Redpoint; $1.1B reported valuation); founded 2021 by Erik Bernhardsson (ex-Spotify ML); Sandboxes feature 2024; serverless GPU + container runtime",
           "citation": "https://modal.com/docs/guide/sandbox",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "This page is a high-level guide to Sandboxes, secure containers for executing untrusted code on Modal. Sandboxes are useful for tasks like executing code generated by an LLM or isolating user-generated code.",
+            "source_url": "https://modal.com/docs/guide/sandbox"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -575558,14 +576046,14 @@
           "citation": "https://modal.com/docs/guide/sandbox",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -575578,14 +576066,14 @@
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -575901,154 +576389,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "yes",
+            "source_url": "https://modal.com/docs/guide/sandbox"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "yes",
+            "source_url": "https://modal.com/docs/guide/sandbox"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -826917,7 +827493,7 @@
       "name": "StackBlitz WebContainers",
       "tier": 3,
       "url": "https://webcontainers.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -826988,13 +827564,21 @@
           "value": "StackBlitz's WebContainers technology — browser-native Node.js runtime running fully client-side via WASM. Powers Bolt.new (already in catalog) plus many browser-based AI dev experiences. Founded 2017 by Eric Simons + Albert Pai. $7M Series A 2022. Distinct from server-side sandboxes (e2b / Modal) by running entirely in-browser — zero cloud-execution latency.",
           "citation": "https://webcontainers.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Build the future of web based coding experiences, from interactive tutorials to instant production-ready dev environments.",
+            "source_url": "https://webcontainers.io/"
+          }
         },
         "claims": {
           "value": "$7M Series A 2022; founded 2017 by Eric Simons + Albert Pai; WebContainers tech powers Bolt.new + Stackblitz IDE; browser-native Node.js via WASM",
           "citation": "https://webcontainers.io/",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "From interactive tutorials to full-blown IDEs, build instant, interactive coding experiences backed by WebContainers: the trusted, browser-based runtime from StackBlitz .",
+            "source_url": "https://webcontainers.io/"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -827007,14 +827591,14 @@
           "citation": "https://webcontainers.io/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -827027,14 +827611,14 @@
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -827350,154 +827934,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
@@ -921740,7 +922412,7 @@
       "name": "Workato AI (Workflow Bot Builder)",
       "tier": 2,
       "url": "https://www.workato.com/ai",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-22",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -921811,13 +922483,21 @@
           "value": "Workato is the enterprise iPaaS (integration platform) leader — $200M+ ARR, $5.7B valuation 2021. 2023-24 launched Workato AI / Workbot AI with AI-agent workflow sandbox capability inside its automation runtime. Used by Slack-bot / automation customers for AI-augmented workflows. Distinct from pure agent frameworks (CrewAI / LangGraph) by being deeply enterprise-iPaaS-anchored.",
           "citation": "https://www.workato.com/ai",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Neutral control & execution platform for Enterprise AI",
+            "source_url": "https://www.workato.com/ai"
+          }
         },
         "claims": {
           "value": "$200M+ ARR; $5.7B valuation Nov-2021 Series E (Battery Ventures + Insight + Altimeter); founded 2013 by Vijay Tella (ex-Oracle / TIBCO); Workato AI / Workbot AI 2023-24; 17,000+ enterprise customers",
           "citation": "https://www.workato.com/ai",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T2",
+          "needs_review": {
+            "proposed_value": "Neutral control & execution platform for Enterprise AI",
+            "source_url": "https://www.workato.com/ai"
+          }
         },
         "modalities": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -921830,14 +922510,14 @@
           "citation": "https://www.workato.com/ai",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-22"
         },
         "latest-release": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -921850,14 +922530,14 @@
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
           "citation": null,
           "status": "not-applicable",
           "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-22"
         },
         "citations": {
           "value": "not applicable — not academic",
@@ -922173,154 +922853,242 @@
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-opentelemetry": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-datadog": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-helicone": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-weave": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-langfuse": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-arize": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "obs-custom": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-token-budget": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-prompt-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-semantic-caching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-batching": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-model-routing": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-streaming-only": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "cost-observability-cost-attribution": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-langsmith-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-braintrust": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-weights-and-biases-agent": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-helicone-evals": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-custom-test-harness": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-human-loop": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "eval-production-traffic-replay": {
           "value": "",
           "citation": null,
           "status": "no-data",
           "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-05-14",
+          "needs_review": {
+            "proposed_value": "no",
+            "source_url": "depth-floor: not detected"
+          }
         },
         "commit-trajectory": {
           "value": "not applicable — no GitHub repo",
