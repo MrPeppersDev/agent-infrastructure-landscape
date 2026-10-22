@@ -994,6 +994,33 @@ def normalise_subsection(sub: str) -> str:
     return sub
 
 
+_KNOWN_SUBSECTIONS: dict[str, set[str]] | None = None
+
+
+def known_subsection(section: str, sub: str) -> str | None:
+    """Return the normalised subsection only if the catalog already uses it
+    for this section. Submitters type free text here; an unknown
+    subsection either fails the schema (sections without subsections) or
+    silently drops the row from landscape.html (unknown subsection), which
+    is how every networked intake run failed in Oct 2026. Curators can
+    add a new subsection by hand during PR review."""
+    global _KNOWN_SUBSECTIONS
+    norm = normalise_subsection(sub)
+    if not norm:
+        return None
+    if _KNOWN_SUBSECTIONS is None:
+        _KNOWN_SUBSECTIONS = {}
+        try:
+            data = json.loads((ROOT / "data" / "landscape.json").read_text())
+            for rec in data.get("records", []):
+                for m in rec.get("sections", []):
+                    if m.get("subsection"):
+                        _KNOWN_SUBSECTIONS.setdefault(m["section"], set()).add(m["subsection"])
+        except (OSError, ValueError):
+            pass
+    return norm if norm in _KNOWN_SUBSECTIONS.get(section, set()) else None
+
+
 def map_type_to_canonical(submitted_type: str) -> str:
     """Map the Issue Form dropdown values to the catalog's `type` cell
     short labels. The form emits e.g. "framework (library / SDK / OSS
@@ -1655,7 +1682,7 @@ def build_record(
 
     section_entry = {
         "section": fields.section,
-        "subsection": normalise_subsection(fields.subsection) or None,
+        "subsection": known_subsection(fields.section, fields.subsection),
         "primary": True,
         "reason": None,
     }
