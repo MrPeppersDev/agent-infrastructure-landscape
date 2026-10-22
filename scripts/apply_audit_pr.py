@@ -34,6 +34,7 @@ import argparse
 import datetime as _dt
 import json
 import re
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -81,6 +82,12 @@ def html_escape_for_group_label(section: str) -> str:
 def run_cmd(cmd: list[str]) -> tuple[bool, str]:
     proc = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT))
     output = f"$ {' '.join(cmd)}\nSTDOUT:\n{proc.stdout}\nSTDERR:\n{proc.stderr}\n"
+    if proc.returncode != 0 and os.environ.get("GITHUB_ACTIONS"):
+        # Surface the tail of the failure as a workflow annotation so it is
+        # visible in the run summary without downloading log artefacts.
+        tail = (proc.stderr.strip() or proc.stdout.strip()).splitlines()[-15:]
+        msg = "%0A".join(line.replace("%", "%25") for line in tail)
+        print(f"::error title={' '.join(cmd)} failed::{msg}")
     return proc.returncode == 0, output
 
 
