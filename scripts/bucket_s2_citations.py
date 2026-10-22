@@ -552,6 +552,10 @@ def run(args: argparse.Namespace) -> int:
                 status=status,
                 citation=citation,
             )
+            if citation is None:
+                # update_cell preserves the old tier; an uncited cell must
+                # be T3 (gate 5), e.g. a new intake row seeded at T2.
+                rec["cells"]["citation-trajectory"]["tier"] = "T3"
             counts[kind] += 1
         else:
             if paper_id is not None:

@@ -137,7 +137,28 @@ CELL_COLUMN_SLUGS: list[str] = [
     "capability-benchmark-sources", "capability-last-verified",
     "use-case-tags", "use-case-anti-tags",
 ]
-assert len(CELL_COLUMN_SLUGS) == 96
+# Phase 2 sub-scores (SCHEMA.md §2.5.8) were added to the canonical
+# schema after this list was written, so every intake record failed the
+# build's key-set check. Append them, and fail loudly here if the list
+# ever drifts from extract.py's canonical one again.
+CELL_COLUMN_SLUGS += [
+    "capability-code-score", "capability-agentic-score",
+    "capability-longcontext-score",
+]
+# Cells that every record carries empty until a sweep fills them.
+NO_DATA_SLUGS = {
+    "capability-code-score", "capability-agentic-score",
+    "capability-longcontext-score",
+}
+try:
+    from extract import CELL_COLUMN_SLUGS as _CANONICAL_SLUGS  # noqa: E402
+    assert set(CELL_COLUMN_SLUGS) == set(_CANONICAL_SLUGS), (
+        "research_intake CELL_COLUMN_SLUGS out of sync with extract.py: "
+        f"missing={sorted(set(_CANONICAL_SLUGS) - set(CELL_COLUMN_SLUGS))} "
+        f"extra={sorted(set(CELL_COLUMN_SLUGS) - set(_CANONICAL_SLUGS))}"
+    )
+except ImportError:  # bs4 missing: extract.py can't import; skip the check
+    pass
 
 TAXONOMY_AXES = [
     "storage", "retrieval", "persistence", "update", "unit",
@@ -1615,7 +1636,10 @@ def build_record(
     # Fill any missing slugs (sanity check). Should not happen, but guard
     # against future schema additions.
     for slug in CELL_COLUMN_SLUGS:
-        if slug not in cells:
+        if slug not in cells and slug in NO_DATA_SLUGS:
+            cells[slug] = {"value": "", "citation": None, "status": "no-data", "tier": "T3"}
+            source_map[slug] = "no-data: filled by a later capability sweep"
+        elif slug not in cells:
             cells[slug] = cell_depth_floor("searched not found", primary_url or "")
             source_map[slug] = "depth-floor: no evidence found"
 
@@ -1645,7 +1669,7 @@ def build_record(
         taxonomy[axis] = [{
             "value": "n/a",
             "primary": True,
-            "reason": "not yet researched — auto-intake",
+            "reason": "searched not found",
         }]
 
     # Build full _provenance map: every cell the bot wrote gets an entry.
@@ -1695,6 +1719,7 @@ def build_record(
         "name": fields.name,
         "tier": tier,
         "url": primary_url or github_url or arxiv_url or None,
+        "last_verified_at": today_iso,
         "sections": sections,
         "taxonomy": taxonomy,
         "cells": ordered_cells,
