@@ -1,0 +1,57 @@
+# Re-verification 2026-10-22
+
+- rows seen: 283
+- rows verified: 153
+- cells applied: 331
+- cells skipped: 12
+- decayed: 6
+
+## Lifecycle changes found
+
+- **Acuvity (now Proofpoint)** — acquired: Acquired by Proofpoint (announced and closed 2026-02-12, terms undisclosed); capabilities folded into Proofpoint AI security portfolio. ([source](https://www.proofpoint.com/us/node/145455))
+- **Adaptive-RAG** — maintenance: Research code repo; no releases; 24 commits; not archived. Dormant research artifact. ([source](https://github.com/starsuzi/Adaptive-RAG))
+- **Aider** — maintenance: Last tagged version v0.86.2 on 2026-02-12 (GitHub Releases still shows v0.86.0 as Latest); last push seen 2026-02-25 per ecosyste.ms; no release in ~8 months. Not archived. ([source](https://pypi.org/project/aider-chat/))
+- **Anda Hippocampus** — renamed: github.com/ldclabs/anda-hippocampus now resolves to ldclabs/anda-brain (Anda Brain); same graph memory with sleep-style consolidation. ([source](https://github.com/ldclabs/anda-hippocampus))
+- **Atlas** — maintenance: Not formally archived, but README states the repo is no longer maintained (research code as-is). ([source](https://github.com/facebookresearch/atlas))
+- **AutoGen Memory** — maintenance: README says AutoGen is in maintenance mode, community managed (bug fixes/security only); Microsoft recommends Microsoft Agent Framework (microsoft/agent-framework) for new projects. Latest release still python-v0.7.5. ([source](https://github.com/microsoft/autogen))
+- **BenevolentAI** — acquired: Merged into Osaka Holdings S.a r.l. (which converted to S.A. and took the BenevolentAI name); delisted from Euronext Amsterdam 2025-03-13. Now private. ([source](https://www.businesswire.com/news/home/20250312584164/en))
+- **CAG (Cache-Augmented Generation)** — maintenance: Research code repo; no releases, no archive notice. ([source](https://github.com/hhhuang/CAG))
+- **CRAG** — maintenance: Research code; no releases; 35 commits; last README update entry 2024-10. ([source](https://github.com/HuskyInSalt/CRAG))
+- **Cipher (byterover)** — archived: Renamed: campfirein/cipher now resolves to campfirein/byterover-cli (ByteRover CLI 'brv', formerly Cipher). That repo was archived (read-only) by the owner on 2026-09-27; license changed to Elastic License 2.0. No successor repo found. ([source](https://github.com/campfirein/cipher))
+- **Claude-CursorMemoryMCP** — maintenance: Repo still public, ~4 stars, 12 commits, no releases, no archive notice; appears dormant. README claims MIT but no LICENSE file present (catalog's 'Unlicensed' remains accurate for SPDX purposes). ([source](https://github.com/Angleito/Claude-CursorMemoryMCP))
+- **Cognigy** — acquired: Acquired by NiCE; closing announced 2025-09-08. Continues as 'NiCE Cognigy', available standalone and inside CXone Mpower. ([source](https://www.cognigy.com/news/nice-closes-acquisition-of-cognigy))
+- **Continue.dev .continue/rules** — acquired: Continue acquired by Cursor (notice ~2026-06-16); product discontinued, data export deadline 2026-07-15; final 2.0.0 release and continuedev/continue repo no longer maintained / read-only (Apache-2.0, forkable). Rules docs page still served. ([source](https://thenewstack.io/cursor-acquires-continue-coding/))
+- **Continue.dev Memory MCP** — archived: continuedev/continue README now says the repo is no longer actively maintained and read-only; recommends Continue CLI over JetBrains plugin. Hub memory-mcp page not reachable for re-check. ([source](https://github.com/continuedev/continue))
+- **FLARE** — maintenance: EMNLP 2023 paper (v2 2023-10-22); reference repo jzbjyb/FLARE (MIT, ~668 stars, 19 commits, no releases) static. ([source](https://arxiv.org/abs/2305.06983))
+- **Flowise Memory** — archived: Flowise sunset announced 2026-07-29 (code freeze); GitHub repo archived (read-only) 2026-08-13; end of life 2026-08-31; npm/Docker marked deprecated. Previously acquired by Workday (Aug 2025). ([source](https://flowiseai.com/sunset))
+- **HippoRAG / HippoRAG2** — maintenance: Not archived; no GitHub release since v1.0.0 (2025-02) and latest PyPI build is pre-release 2.0.0a4 (2025-06). ([source](https://github.com/OSU-NLP-Group/HippoRAG))
+- **HyDE** — maintenance: Research code; 7 commits; no releases. ([source](https://github.com/texttron/hyde))
+- **ITER-RETGEN** — maintenance: Paper (Shao et al., EMNLP Findings 2023; v2 2023-10-23). arXiv page gives no code link. IMPORTANT: catalog cites github.com/dreasysnail/RetGen, but that repo implements a different 2021 paper ('Joint Retrieval and Generation Training for Grounded Text Generation', arXiv 2105.06597) and does not mention ITER-RETGEN — gh/license/code-release cells are mis-attributed. ([source](https://arxiv.org/abs/2305.15294))
+- **KAG** — maintenance: Not archived; no release since v0.8.0 (2025-06). ([source](https://github.com/OpenSPG/KAG/releases))
+- **Lakera Guard / Lakera Red** — acquired: Acquired by Check Point Software (agreement 2025-09-16, completed by 2025-11-11); products folded into Check Point AI security (Infinity platform). ([source](https://cxotoday.com/press-release/check-point-software-technologies-completes-acquisition-of-lakera-to-secure-the-worlds-ai-transformation/))
+- **LangMem (LangChain)** — maintenance: No GitHub releases; last PyPI release 0.0.30 on 2025-10-27 (~12 months without a release). ([source](https://pypi.org/project/langmem/))
+- **Langfuse** — acquired: Part of ClickHouse since January 2026 (README); LICENSE copyright is now ClickHouse, Inc. Product and repo continue under the Langfuse name. ([source](https://github.com/langfuse/langfuse))
+- **LongRAG** — maintenance: Research code repo; no releases, no archive notice. ([source](https://github.com/TIGER-AI-Lab/LongRAG))
+- **Mem0 MCP (official)** — archived: Repo archived by owner on 2026-03-24 and read-only. README points users to Mem0's official cloud-hosted MCP server (mcp.mem0.ai/mcp); a separate mem0-mcp-server package exists on PyPI (v0.2.1, 2025-12-06, Apache-2.0). ([source](https://github.com/mem0ai/mem0-mcp))
+- **Memary** — maintenance: Repo public, not archived; latest release still v0.1.5, no newer releases. ([source](https://github.com/kingjulio8238/Memary/releases))
+- **MemoRAG** — maintenance: Official code at qhjqhj00/MemoRAG (68 commits, no releases); paper accepted at TheWebConf 2025. ([source](https://github.com/qhjqhj00/MemoRAG))
+- **Memobase** — maintenance: Not archived, but aggregator shows last push ~9 months ago (around 2026-01); no tagged GitHub releases. ([source](https://gittrend.io/repo/memodb-io/memobase))
+- **Memori (GibsonAI)** — renamed: GibsonAI/memori now served as MemoriLabs/Memori (org moved to Memori Labs); offers Memori Cloud and a remote MCP endpoint. ([source](https://github.com/GibsonAI/memori))
+- **Multi-Head RAG (MHRAG)** — maintenance: Research code repo (10 commits); no releases. ([source](https://github.com/spcl/MRAG))
+- **NVIDIA ReMEmbR** — maintenance: Research code; 13 commits; no releases; not archived. ([source](https://github.com/NVIDIA-AI-IOT/remembr))
+- **OpenMemory** — renamed: Renamed OpenMemory -› LongMemory; repo now CaviraOSS/LongMemory; openmemory-js@2 / openmemory-py@2 are forwarding bridges to longmemory / longmemory-sdk packages. ([source](https://github.com/CaviraOSS/OpenMemory))
+- **PathRAG** — maintenance: Not archived; aggregator reports last commit roughly 10 months before capture. ([source](https://github.com/BUPT-GAMMA/PathRAG))
+- **RAPTOR** — maintenance: Official implementation repo exists with only 20 commits and no releases; low activity. ([source](https://github.com/parthsarthi03/raptor))
+- **RAPTOR** — maintenance: Research code; 20 commits; no releases. ([source](https://github.com/parthsarthi03/raptor))
+- **REALM** — maintenance: google-research/language repo live, not archived (~1.8k stars, Apache-2.0) — matches current values. ([source](https://github.com/google-research/language))
+- **RETRO** — maintenance: DeepMind paper (ICML 2022, PMLR 162). No official code; lucidrains/RETRO-pytorch is a third-party implementation (~878 stars, last PyPI release 0.3.9 on 2023-10-30). GitHub sidebar says Apache-2.0 while PyPI metadata says MIT — license left unchanged. ([source](https://proceedings.mlr.press/v162/borgeaud22a.html))
+- **Ratine** — maintenance: Repo public, 1 star, 20 commits, only release v0.1.0 (Apr 2026); no visible activity since. Description unchanged (agent memory poisoning detector). ([source](https://github.com/goweft/ratine))
+- **Roo Code .roorules** — archived: Roo Code extension shut down 2026-05-15; RooCodeInc/Roo-Code archived read-only same day; points users to ZooCode (community fork) and Cline. ([source](https://github.com/RooCodeInc/Roo-Code))
+- **SG-Nav** — maintenance: Research code; last README news item 2024-12-30. ([source](https://github.com/bagh2178/SG-Nav))
+- **Self-RAG** — maintenance: Research code; 44 commits; weights on HF (selfrag_llama2_7b/13b). ([source](https://github.com/AkariAsai/self-rag))
+- **Semantic Kernel Memory** — maintenance: Repo README now has a banner saying Semantic Kernel is now Microsoft Agent Framework, its enterprise successor (microsoft/agent-framework, MIT, ~12.6k stars), with migration guide. SK still gets releases (python 1.45.0 on 2026-10-06; dotnet-1.80.1 in Sep 2026). Learn docs page blocked (permission timeout). ([source](https://github.com/microsoft/semantic-kernel))
+- **Sourcegraph Cody — cody.json** — deprecated: Cody Free/Pro/Enterprise Starter discontinued 2025-07-23; Cody remains only for existing Enterprise customers (legacy). Amp spun out as a separate company (announced 2025-12). Old custom-commands doc redirects to Cody 'prompts' page. ([source](https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans))
+- **StructRAG** — maintenance: Small research repo (10 commits), no releases; no sign of ongoing work. ([source](https://github.com/Li-Z-Q/StructRAG))
+- **Sweep AI** — deprecated: The GitHub-app product this row describes appears superseded: the sweepai/sweep README says the team now builds a JetBrains AI coding assistant. The repo is not archived. ([source](https://github.com/sweepai/sweep))
+- **TC-RAG** — maintenance: Research code repo; no releases, no LICENSE file. ([source](https://github.com/Artessay/TC-RAG))
+- **mcp-memory (Puliczek)** — maintenance: Repo public (template), not archived, no releases; low activity. ([source](https://github.com/Puliczek/mcp-memory))

@@ -1,0 +1,633 @@
+[
+ {
+  "id": "acuvity-now-proofpoint--acuvity-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Proofpoint (announced and closed 2026-02-12, terms undisclosed); capabilities folded into Proofpoint AI security portfolio.",
+  "lifecycle_citation": "https://www.proofpoint.com/us/node/145455",
+  "updates": [
+   {
+    "cell": "funding",
+    "new": "total $9M (Seed led by Foundation Capital, 2024-09); acquired by Proofpoint 2026-02-12, terms undisclosed",
+    "citation": "https://fintech.global/2024/09/06/acuvity-launches-with-9m-to-bolster-ai-security-for-enterprises/",
+    "confidence": "high",
+    "old": "no public funding data found — pre-acquisition private company; acquired by Proofpoint for undisclosed amount"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "ai-singapore-sea-lion--sea-lion-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "HF aisingapore org maintains a SEA-LION v4 collection (Gemma/Qwen/Apertus-based, 17 models) and a separate 'SEA-LION ModernBERT and Embedding' collection; sea-lion.ai itself not reachable this pass.",
+  "lifecycle_citation": "https://huggingface.co/collections/aisingapore/sea-lion-v4",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "anthropic-auto-dream--claudefa-st",
+  "lifecycle": "active",
+  "lifecycle_note": "Still undocumented by Anthropic: official Claude Code memory docs cover CLAUDE.md + auto memory but do not mention Auto Dream//dream; existence known only from third-party reports (Mar 2026) of a server-side flag. Treat as unconfirmed/experimental.",
+  "lifecycle_citation": "https://code.claude.com/docs/en/memory.md",
+  "updates": [
+   {
+    "cell": "funding",
+    "new": "Anthropic total ~$133B raised (Series H $65B at $965B valuation, 2026-05-28)",
+    "citation": "https://news.bloomberglaw.com/private-equity/anthropic-raises-at-965-billion-valuation-eclipsing-openai-1",
+    "confidence": "medium",
+    "old": "Anthropic total $12.4B+ raised; $40B valuation"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "augment-code--augmentcode-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Pricing restructured (credits retired Jul 2026; Standard plan added 2026-09-10). Primary pricing page not reachable this pass.",
+  "lifecycle_citation": "https://usagepricing.com/blueprint/augment-code",
+  "updates": [
+   {
+    "cell": "pricing",
+    "new": "Standard $20/mo flat (incl. $20 usage); Business $100/mo flat (incl. $100 usage, up to 50 seats); Enterprise custom; overage at model list price + 40%",
+    "citation": "https://www.usagepricing.com/blueprint/activity/augment-code-2026-09-10-standard-plan-launch",
+    "confidence": "medium",
+    "old": "Free + paid"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "bee--bee-computer",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Amazon (Jul 2025). Relaunched by Amazon 2026-10-15 as Bee Frontier wearable and Bee Eclipse phone attachment.",
+  "lifecycle_citation": "https://geekwire.com/2025/amazon-is-acquiring-bee-maker-of-a-wearable-ai-assistant-that-listens-to-conversations",
+  "updates": [
+   {
+    "cell": "pricing",
+    "new": "Hardware: Bee Frontier $74.99, Bee Eclipse from $99.99 (coming soon); free tier with 14-day memory; Bee Pro $11.99/mo",
+    "citation": "https://letsdatascience.com/news/amazon-launches-bee-frontier-and-eclipse-devices-a8b031b3",
+    "confidence": "medium",
+    "old": "Hardware-bundled"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "brave-leo--brave-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Leo user memory shipped 2025-10-27 (desktop setting; memories stored on-device). No official MCP support found; only user feature requests (Apr 2026).",
+  "lifecycle_citation": "https://brave.com/whats-new/leo-memories/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "cellon-memory-inc--en-wowtale-net",
+  "lifecycle": "active",
+  "lifecycle_note": "Company spelled 'Celon' in sources; product Memory.inc launched May 2026; site listed as celon.ai (not opened).",
+  "lifecycle_citation": "https://www.ai-market-watch.com/company/cellon",
+  "updates": [
+   {
+    "cell": "funding",
+    "new": "Seed (Primer, The Ventures; 2026-04), amount undisclosed",
+    "citation": "https://www.ai-market-watch.com/company/cellon",
+    "confidence": "medium",
+    "old": "Seed · 2026-04"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo public, not archived; latest release still v1.0.7.",
+  "lifecycle_citation": "https://github.com/memvid/claude-brain",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v1.0.7 (2026-01-05)",
+    "citation": "https://github.com/memvid/claude-brain/releases",
+    "confidence": "high",
+    "old": "v1.0.7 2026-01-05"
+   },
+   {
+    "cell": "gh",
+    "new": "memvid/claude-brain — ~575 stars, last commit not confirmed",
+    "citation": "https://github.com/memvid/claude-brain",
+    "confidence": "high",
+    "old": "489★ TypeScript"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://docs.cline.bot/features/cline-rules",
+  "updates": [
+   {
+    "cell": "desc",
+    "new": "Markdown rule files in a workspace .clinerules/ (or .cline/rules/) directory plus global rules in ~/Documents/Cline/Rules; workspace wins on conflict. Per-rule toggles, conditional rules via YAML 'paths' globs, and AGENTS.md / .cursorrules / .windsurfrules are also read.",
+    "citation": "https://docs.cline.bot/features/cline-rules",
+    "confidence": "high",
+    "old": ".clinerules single file or .clinerules/ directory of numbered .md files (e.g. 01-style.md ). Global at ~/.cline/rules/ . Files version-controlled and AI-editable — Cline can write back. Toggleable per-session via UI."
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cognee--cognee-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/topoteretes/cognee",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v1.6.5 (2026-10-16)",
+    "citation": "https://newreleases.io/project/github/topoteretes/cognee/release/v1.6.5",
+    "confidence": "high",
+    "old": "v1.0.8 2026-05-06"
+   },
+   {
+    "cell": "gh",
+    "new": "topoteretes/cognee — ~31.2k stars, last commit 2026-10",
+    "citation": "https://github.com/topoteretes/cognee",
+    "confidence": "high",
+    "old": "17.1k★ +152/mo Python"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free $0 (1 workspace, 1M tokens); Standard $1 per 1M tokens + $5/workspace/mo; Enterprise BYOC custom",
+    "citation": "https://cognee.ai/pricing",
+    "confidence": "high",
+    "old": "Free + paid"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (OSS self-hosted; Cognee Cloud managed; Enterprise BYOC)",
+    "citation": "https://cognee.ai/pricing",
+    "confidence": "high",
+    "old": "Both"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "craft-ai--craft-do",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "deepscribe--deepscribe-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "elsa-speak--elsaspeak-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "figure-helix--figure-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "galileo-galileo-ai--galileo-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "granola--granola-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "harvey-memory--harvey-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "hirag--arxiv-2503-10150",
+  "lifecycle": "active",
+  "lifecycle_note": "Accepted to EMNLP 2025 Findings per repo README.",
+  "lifecycle_citation": "https://github.com/hhy-huang/HiRAG",
+  "updates": [
+   {
+    "cell": "code-release",
+    "new": "Code public (hhy-huang/HiRAG, linked from the arXiv abstract)",
+    "citation": "https://arxiv.org/html/2503.10150v3",
+    "confidence": "high",
+    "old": "Paper only"
+   },
+   {
+    "cell": "gh",
+    "new": "hhy-huang/HiRAG — ~557 stars, last commit not confirmed",
+    "citation": "https://github.com/hhy-huang/HiRAG",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/hhy-huang/HiRAG",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "inworld-ai--inworld-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "khanmigo--khanmigo-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "langgraph-persistence--docs-langchain-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "lightrag--arxiv-2410-05779",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/HKUDS/LightRAG",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v1.5.7 (2026-09-02)",
+    "citation": "https://releasealert.dev/github/HKUDS/LightRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "gh",
+    "new": "HKUDS/LightRAG — ~39.3k stars, last commit 2026-10",
+    "citation": "https://github.com/HKUDS/LightRAG",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public (HKUDS/LightRAG, MIT)",
+    "citation": "https://github.com/HKUDS/LightRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "llamaindex-memory--llamaindex-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/run-llama/llama_index/releases",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v0.14.25 (2026-09-21)",
+    "citation": "https://github.com/run-llama/llama_index/releases",
+    "confidence": "high",
+    "old": "v0.14.21 2026-04-21"
+   },
+   {
+    "cell": "gh",
+    "new": "run-llama/llama_index — ~52.6k stars, last commit 2026-09 or later",
+    "citation": "https://github.com/run-llama/llama_index",
+    "confidence": "high",
+    "old": "49.2k★ +1.2k/mo Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "m3-agent-bytedance--gh-bytedance-seed-m3-agent",
+  "lifecycle": "active",
+  "lifecycle_note": "Research code; low commit volume (16 commits), not archived.",
+  "lifecycle_citation": "https://github.com/ByteDance-Seed/m3-agent",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "ByteDance-Seed/m3-agent — ~1.4k stars, last commit not confirmed",
+    "citation": "https://github.com/ByteDance-Seed/m3-agent",
+    "confidence": "high",
+    "old": "1.3k★ Python"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public + weights public (Hugging Face: ByteDance-Seed/M3-Agent-Memorization and M3-Agent-Control)",
+    "citation": "https://github.com/ByteDance-Seed/m3-agent",
+    "confidence": "high",
+    "old": "Code public + weights closed (ByteDance-Seed/m3-agent GitHub)"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mem-ai--mem-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "memobase--gh-memodb-io-memobase",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Not archived, but aggregator shows last push ~9 months ago (around 2026-01); no tagged GitHub releases.",
+  "lifecycle_citation": "https://gittrend.io/repo/memodb-io/memobase",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "memodb-io/memobase — ~2.8k stars, last commit ~2026-01",
+    "citation": "https://github.com/memodb-io/memobase",
+    "confidence": "medium",
+    "old": "2.7k★ +10/mo Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memories-ai-lvmm-2-0-project-luci--memories-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "meta-ai-memory--meta-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "mistral-agents-api--docs-mistral-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "nabla-navina--nabla-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "nvidia-isaac-gr00t-n1-7--arxiv-2503-14734",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/NVIDIA/Isaac-GR00T",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "NVIDIA/Isaac-GR00T — ~8.2k stars, last release 2026-04",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T",
+    "confidence": "high",
+    "old": "6.9k★ +133/mo Python"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 (code); model weights under NVIDIA Open Model License",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T",
+    "confidence": "high",
+    "old": "Apache-2.0"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "omega--omegamax-co",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "openmemory--gh-caviraoss-openmemory",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Renamed OpenMemory -> LongMemory; repo now CaviraOSS/LongMemory; openmemory-js@2 / openmemory-py@2 are forwarding bridges to longmemory / longmemory-sdk packages.",
+  "lifecycle_citation": "https://github.com/CaviraOSS/OpenMemory",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "CaviraOSS/LongMemory (formerly OpenMemory) — ~4.5k stars, last commit 2026-10",
+    "citation": "https://github.com/CaviraOSS/OpenMemory",
+    "confidence": "medium",
+    "old": "4.1k★ +165/mo TypeScript"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v1.2.3 (2025-12-12); v1.3.0 beta pre-release (2025-12-20)",
+    "citation": "https://github.com/CaviraOSS/LongMemory/releases",
+    "confidence": "high",
+    "old": "v1.2.3 2025-12-12"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "yes — built-in stdio MCP (longmemory mcp) and authenticated Streamable HTTP MCP",
+    "citation": "https://raw.githubusercontent.com/CaviraOSS/OpenMemory/main/README.md",
+    "confidence": "high",
+    "old": "native (first-party) — OpenMemory MCP"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "pathrag--gh-bupt-gamma-pathrag",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Not archived; aggregator reports last commit roughly 10 months before capture.",
+  "lifecycle_citation": "https://github.com/BUPT-GAMMA/PathRAG",
+  "updates": [
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/BUPT-GAMMA/PathRAG",
+    "confidence": "high",
+    "old": "Unlicensed"
+   },
+   {
+    "cell": "gh",
+    "new": "BUPT-GAMMA/PathRAG — ~376 stars, last commit not confirmed",
+    "citation": "https://github.com/BUPT-GAMMA/PathRAG",
+    "confidence": "high",
+    "old": "356★ Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "polyai--poly-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "raptor--arxiv-2401-18059",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Official implementation repo exists with only 20 commits and no releases; low activity.",
+  "lifecycle_citation": "https://github.com/parthsarthi03/raptor",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "parthsarthi03/raptor — ~1.8k stars, last commit not confirmed",
+    "citation": "https://github.com/parthsarthi03/raptor",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/parthsarthi03/raptor",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n/a (no GitHub releases)",
+    "citation": "https://github.com/parthsarthi03/raptor",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public (official implementation parthsarthi03/raptor)",
+    "citation": "https://github.com/parthsarthi03/raptor",
+    "confidence": "high",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "relevance-ai-memory--relevanceai-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "researchrabbit--researchrabbit-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "salesforce-agentforce-einstein--salesforce-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "scrintal--scrintal-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "skild-brain--skild-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "spellbook-library--lawnext-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "suki-ai--suki-ai",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "synthesis-tutor--synthesis-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "weknow-rag--arxiv-2408-07611",
+  "lifecycle": "",
+  "lifecycle_note": "not re-checked this pass: web search budget exhausted and direct fetch of official URLs blocked (provenance); current values carried over unverified",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ }
+]

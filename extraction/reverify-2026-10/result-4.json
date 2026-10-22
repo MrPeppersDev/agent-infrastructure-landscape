@@ -1,0 +1,882 @@
+[
+ {
+  "id": "agentops--agentops-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "OSS Python SDK (AgentOps-AI/agentops, MIT) still public, not archived; PyPI latest 0.4.21 dated 2025-08-29, so SDK release cadence has slowed. Official site agentops.ai could not be fetched (permission timeout).",
+  "lifecycle_citation": "https://github.com/AgentOps-AI/agentops",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "AgentOps-AI/agentops — ~5.8k stars",
+    "citation": "https://github.com/AgentOps-AI/agentops",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT (SDK)",
+    "citation": "https://pypi.org/project/agentops/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v0.4.21 (2025-08-29)",
+    "citation": "https://pypi.org/project/agentops/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "aider-conventions-md-aider-conf-yml--aider-chat",
+  "lifecycle": "active",
+  "lifecycle_note": "Aider repo (Aider-AI/aider, Apache-2.0, ~49.7k stars) not archived; last PyPI release aider-chat 0.86.2 on 2026-02-12 (no release in ~8 months, possibly slowing). Third-party July 2026 guide confirms CONVENTIONS.md still works; config file is documented as .aider.conf.yml/.yaml. The aider.chat conventions page itself could not be fetched (permission timeout).",
+  "lifecycle_citation": "https://pypi.org/project/aider-chat/",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "anthropic-managed-agents-memory--platform-claude-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Memory stores for Claude Managed Agents are in public beta (beta header agent-memory-2026-07-22); mounted as files under /mnt/memory/ with versioned audit trail. Overview page not fetched (permission timeout); memory doc page reached.",
+  "lifecycle_citation": "https://platform.claude.com/docs/de/managed-agents/memory",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Mounts memory as files on a managed filesystem; Claude reads and writes via the same bash/code-execution tools used for agentic tasks. Unit of storage is a file — inspectable, editable, exportable by developers. Full audit log per session. Memory beta launched April 23, 2026, two weeks after Managed Agents itself launched April 8.",
+    "new": "Public-beta memory stores for Claude Managed Agents: workspace-scoped collections of text documents mounted into the session sandbox as a directory the agent reads and writes with its file tools; every change is versioned for audit and point-in-time restore, and memories can also be managed via API/Console.",
+    "citation": "https://platform.claude.com/docs/de/managed-agents/memory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "autoglm-zhipu-ai--xiao9905-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Open-AutoGLM repo still public (~26.2k stars, Apache-2.0, no releases). Zhipu AI (Z.ai) listed on HKEX (02513) on 2026-01-08. Project page xiao9905.github.io could not be fetched (permission timeout).",
+  "lifecycle_citation": "https://github.com/zai-org/Open-AutoGLM",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "25.2k★ +196/mo Python",
+    "new": "zai-org/Open-AutoGLM — ~26.2k stars",
+    "citation": "https://github.com/zai-org/Open-AutoGLM",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$400M $20.0B val Series D (approx) · 2024-05",
+    "new": "public company — Zhipu AI IPO on HKEX (02513) 2026-01-08, ~HK$4.35B (~US$560M) gross proceeds at HK$116.20/share",
+    "citation": "https://www.itiger.com/news/1132667188",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "beyond-rag-for-agent-memory--arxiv-2602-02007",
+  "lifecycle": "active",
+  "lifecycle_note": "Paper by Hu et al.; v2 posted 2026-02-25. No code link in abstract/comments.",
+  "lifecycle_citation": "https://arxiv.org/abs/2602.02007v2",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "byterover--byterover-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "ByteRover continues as a local-first CLI (brv, npm byterover-cli, v2.x daemon architecture) with optional cloud sync. NOTE: the public GitHub repo campfirein/byterover-cli (formerly Cipher; Elastic-2.0; ~5k stars) was archived by the owner on 2026-09-27 — source availability going forward unclear. byterover.dev homepage/pricing not fetched directly.",
+  "lifecycle_citation": "https://github.com/campfirein/byterover-cli",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "campfirein/byterover-cli — ~5k stars, archived 2026-09-27",
+    "citation": "https://github.com/campfirein/byterover-cli",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Elastic-2.0 (CLI repo, now archived)",
+    "citation": "https://github.com/campfirein/byterover-cli",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free plan + Team plan $149/mo + Enterprise",
+    "new": "Free $0; Pro $14.90/mo; Team $149/mo (third-party listing checked 2026-08-26)",
+    "citation": "https://aicoolies.com/pricing/byterover-cli",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "Local-first by default + ByteRover Cloud for sync/collaboration",
+    "new": "Local-first CLI (curl installer or npm byterover-cli; background daemon since v2.0.0); optional cloud for team sync, multi-machine access and backup",
+    "citation": "https://docs.byterover.dev",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "charisma-ai--charisma-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Site live; footer © 2017-2026 Charisma Entertainment Ltd (Oxford, UK). Positioning now conversational AI simulations for training and brand campaigns. No prices published on page.",
+  "lifecycle_citation": "https://charisma.ai",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo still public, ~4 stars, 12 commits, no releases, no archive notice; appears dormant. README claims MIT but no LICENSE file present (catalog's 'Unlicensed' remains accurate for SPDX purposes).",
+  "lifecycle_citation": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "clio-duo-manage-ai--clio-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Clio's AI features are now marketed within Clio Manage / Clio Work; 'Clio Duo' name appears only in legacy imagery on the Clio Duo blog page. Official features page could not be fetched (permission timeout).",
+  "lifecycle_citation": "https://clio.com/blog/clio-duo",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "searched not found",
+    "new": "total ~$1.7B equity (Series G $500M led by NEA at $5B post-money, 2025-11; plus $350M debt facility)",
+    "citation": "https://betakit.com/?p=396339",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Cloud SaaS only (runs entirely in Clio's cloud infrastructure)",
+    "citation": "https://clio.com/blog/clio-duo",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "from $49/user/mo (third-party listing; AI add-on pricing not public)",
+    "citation": "https://www.capterra.com/p/105428/Clio/pricing",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cognigy--cognigy-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by NiCE; closing announced 2025-09-08. Continues as 'NiCE Cognigy', available standalone and inside CXone Mpower.",
+  "lifecycle_citation": "https://www.cognigy.com/news/nice-closes-acquisition-of-cognigy",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$100M total Series C · 2024-06",
+    "new": "acquired by NiCE (closed 2025-09-08; terms not disclosed on announcement); prior $100M Series C 2024-06",
+    "citation": "https://www.cognigy.com/news/nice-closes-acquisition-of-cognigy",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Cognigy MCP",
+    "new": "yes — MCP client via MCP Node in Cognigy.AI (since 2025-04); standalone @cognigy/mcp-server npm package now deprecated in favour of the NiCE Cognigy plugin",
+    "citation": "https://docs.cognigy.com/ai/for-developers/developers/cognigy-mcp-server",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "cresta--cresta-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Company site live (© 2026); ~$100M ARR reported 2026. cresta.com homepage could not be fetched directly (permission timeout); about page reached.",
+  "lifecycle_citation": "https://cresta.com/about/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$205M total $1.6B val Series D · 2024-11",
+    "new": "total $270M+ (Series D $125M co-led by WiL and QIA, 2024-11-19)",
+    "citation": "https://www.cresta.com/blog/cresta-raises-125m-to-create-the-unified-platform-for-human-and-virtual-agents",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "dia-atlassian--diabrowser-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "The Browser Company (maker of Dia) acquired by Atlassian for $610M cash; announced 2025-09-04, completed 2025-10-21. Dia remains macOS-only (v1.14.0, Jan 2026). diabrowser.com not fetched directly; source is Wikipedia.",
+  "lifecycle_citation": "https://en.wikipedia.org/wiki/Dia_(web_browser)",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free tier (usage limits); Dia Pro $20/mo",
+    "citation": "https://en.wikipedia.org/wiki/Dia_(web_browser)",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "$128M total $610M val Acquisition · 2025-09",
+    "new": "acquired by Atlassian for $610M cash (announced 2025-09-04, closed 2025-10-21)",
+    "citation": "https://en.wikipedia.org/wiki/Dia_(web_browser)",
+    "confidence": "medium"
+   }
+  ],
+  "verified": false
+ },
+ {
+  "id": "enkrypt-ai--enkryptai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Pricing page live with self-serve tiers and MCP scanning/gateway features.",
+  "lifecycle_citation": "https://enkryptai.com/platform/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "free starter + pay-as-you-go; Enterprise: contact sales",
+    "new": "Explore free; Launch $149/mo ($134/mo annual); Scale $1,499/mo ($1,349/mo annual); Enterprise custom",
+    "citation": "https://enkryptai.com/platform/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "Yes — MCP Hub: vulnerability scanning for MCP (Model Context Protocol) servers; source-based + hosted scans; MCP Registry",
+    "new": "yes — MCP server scanning (Launch tier) and MCP Gateway + Registry (Scale/Enterprise)",
+    "citation": "https://enkryptai.com/platform/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "REST API SaaS (cloud-hosted); no self-host option confirmed",
+    "new": "SaaS for self-serve tiers; Enterprise offers VPC / on-prem deployment",
+    "citation": "https://enkryptai.com/platform/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$2M Seed · 2024-02",
+    "new": "total $2.35M (Seed led by Boldcap, 2024-02-27)",
+    "citation": "https://www.newsfilecorp.com/release/199583",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "flare--arxiv-2305-06983",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "EMNLP 2023 paper (v2 2023-10-22); reference repo jzbjyb/FLARE (MIT, ~668 stars, 19 commits, no releases) static.",
+  "lifecycle_citation": "https://arxiv.org/abs/2305.06983",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "no-release no-release",
+    "new": "n/a",
+    "citation": "https://github.com/jzbjyb/FLARE",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "668★ Python",
+    "new": "jzbjyb/FLARE — ~668 stars",
+    "citation": "https://github.com/jzbjyb/FLARE",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "generative-semantic-workspace-gsw--arxiv-2511-07587",
+  "lifecycle": "active",
+  "lifecycle_note": "arXiv title is 'Beyond Fact Retrieval: Episodic Memory for RAG with Generative Semantic Workspaces' (Rajesh et al., v1 2025-11-10). Abstract links public code; repo says AAAI-26 (Oral) and ICML-26.",
+  "lifecycle_citation": "https://arxiv.org/abs/2511.07587v1",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Code public — github.com/roychowdhuryresearch/gsw-memory",
+    "citation": "https://arxiv.org/abs/2511.07587v1",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "roychowdhuryresearch/gsw-memory — ~25 stars",
+    "citation": "https://github.com/roychowdhuryresearch/gsw-memory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "graphraft--arxiv-2504-05478",
+  "lifecycle": "active",
+  "lifecycle_note": "Paper by Clemedtson & Shi (Neo4j); v2 exists. Paper links code repository.",
+  "lifecycle_citation": "https://arxiv.org/html/2504.05478v2",
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Code public — github.com/AlfredClemedtson/graphraft",
+    "citation": "https://arxiv.org/html/2504.05478v2",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "AlfredClemedtson/graphraft — ~7 stars",
+    "citation": "https://github.com/AlfredClemedtson/graphraft",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "hebbia-matrix--hebbia-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Site live; Hebbia now sells Matrix alongside a new deal-team analyst product, Max (launched ~2026-08). Pricing still sales-only.",
+  "lifecycle_citation": "https://www.hebbia.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "not published — sales/demo only",
+    "citation": "https://usagepricing.com/blueprint/activity/hebbia-2026-08-06-launch",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "hindsight-vectorize--hindsight-vectorize-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Very active; reached 1.0 (2026-10-13) and 1.1.0 (2026-10-21). Repo ~44.6k stars.",
+  "lifecycle_citation": "https://pypi.org/project/hindsight-api/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v0.6.0 2026-05-05",
+    "new": "v1.1.0 (2026-10-21)",
+    "citation": "https://pypi.org/project/hindsight-api/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "12.3k★ +121/mo Python",
+    "new": "vectorize-io/hindsight — ~44.6k stars, last commit 2026-10",
+    "citation": "https://github.com/vectorize-io/hindsight",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "OSS self-host free (MIT); Hindsight Cloud pay-as-you-go credits ($5 free credit on GitHub sign-up); Enterprise single-tenant custom",
+    "citation": "https://docs.hindsight.vectorize.io",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both — managed Hindsight Cloud; Enterprise single-tenant (Vectorize cloud, customer AWS/GCP/Azure, or on-prem); self-host via Docker, Helm or pip (Postgres + pgvector)",
+    "citation": "https://docs.hindsight.vectorize.io",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$4M total Seed · 2024-10",
+    "new": "total $3.6M (Seed led by True Ventures, 2024-04)",
+    "citation": "https://vectorize.io/about",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Could not verify: YC page and hyperspell.com fetches blocked (permission timeout) and web search budget exhausted. Lifecycle left as previously recorded (unconfirmed).",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "iter-retgen--arxiv-2305-15294",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Paper (Shao et al., EMNLP Findings 2023; v2 2023-10-23). arXiv page gives no code link. IMPORTANT: catalog cites github.com/dreasysnail/RetGen, but that repo implements a different 2021 paper ('Joint Retrieval and Generation Training for Grounded Text Generation', arXiv 2105.06597) and does not mention ITER-RETGEN — gh/license/code-release cells are mis-attributed.",
+  "lifecycle_citation": "https://arxiv.org/abs/2305.15294",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "116★ Python",
+    "new": "not applicable — no official code found (dreasysnail/RetGen is a different paper)",
+    "citation": "https://github.com/dreasysnail/RetGen",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "no-license",
+    "new": "not applicable — no official code",
+    "citation": "https://github.com/dreasysnail/RetGen",
+    "confidence": "high"
+   },
+   {
+    "cell": "code-release",
+    "old": "Code public + weights closed",
+    "new": "Paper only (no code link on arXiv; cited RetGen repo is unrelated)",
+    "citation": "https://arxiv.org/abs/2305.15294",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "no-release no-release",
+    "new": "n/a",
+    "citation": "https://arxiv.org/abs/2305.15294",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "labgenius--labgenius-app",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: labgenius.app fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "langsmith--langchain-com",
+  "lifecycle": "active",
+  "lifecycle_note": "LangSmith SDK actively released (PyPI langsmith 0.14.11, 2026-10-16, MIT). The combined SDK repo langchain-ai/langsmith-sdk was archived 2026-10-16 and split into langchain-ai/langsmith-python and langchain-ai/langsmith-javascript (repo reorg, not a product change). langchain.com pages blocked (permission timeout), so pricing/funding not re-checked.",
+  "lifecycle_citation": "https://pypi.org/project/langsmith/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "SDK v0.14.11 (2026-10-16) — platform itself proprietary",
+    "citation": "https://pypi.org/project/langsmith/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Catalog already cites Meta's acquisition of Limitless (TechCrunch 2025-12-05). Could not re-open limitless.ai or the TechCrunch article this run (permission timeout) to check current service/sales status.",
+  "lifecycle_citation": "https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "logseq--logseq-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Official repo logseq/logseq is active (~45k stars, AGPL-3.0); desktop 2.0.1 (DB-version line) released 2026-07-13, plus nightlies (2026-08-26). IMPORTANT: catalog's latest-release/license/gh cells point at shovon/logseq-ai, a third-party pre-alpha chat plugin (13 stars) — not Logseq itself.",
+  "lifecycle_citation": "https://github.com/logseq/logseq",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "12★ TypeScript",
+    "new": "logseq/logseq — ~45k stars",
+    "citation": "https://github.com/logseq/logseq",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "AGPL-3.0",
+    "citation": "https://github.com/logseq/logseq",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "no releases",
+    "new": "v2.0.1 (2026-07-13)",
+    "citation": "https://github.com/logseq/logseq/releases",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mastra-memory--mastra-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Very active; @mastra/core 1.79.0 released 2026-10-21. Repo ~27.1k stars; Apache-2.0 core with source-available Mastra Enterprise License for ee/ directories. mastra.ai pages blocked (permission timeout), so pricing/funding not re-checked.",
+  "lifecycle_citation": "https://github.com/mastra-ai/mastra",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "mastra-ai/mastra — ~27.1k stars, last commit 2026-10",
+    "citation": "https://github.com/mastra-ai/mastra",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0 (core; ee/ dirs under source-available Mastra Enterprise License)",
+    "citation": "https://github.com/mastra-ai/mastra",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "@mastra/core v1.79.0 (2026-10-21)",
+    "citation": "https://github.com/mastra-ai/mastra/releases/latest",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+  "lifecycle": "archived",
+  "lifecycle_note": "Repo archived by owner on 2026-03-24 and read-only. README points users to Mem0's official cloud-hosted MCP server (mcp.mem0.ai/mcp); a separate mem0-mcp-server package exists on PyPI (v0.2.1, 2025-12-06, Apache-2.0).",
+  "lifecycle_citation": "https://github.com/mem0ai/mem0-mcp",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "650★ +10/mo Python",
+    "new": "mem0ai/mem0-mcp — ~658 stars, archived 2026-03-24",
+    "citation": "https://github.com/mem0ai/mem0-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "cloud API (managed by Mem0); MCP local install pointing to Mem0 cloud",
+    "new": "superseded — use Mem0's hosted MCP endpoint (mcp.mem0.ai/mcp) or the mem0-mcp-server PyPI package",
+    "citation": "https://github.com/mem0ai/mem0-mcp",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memorax-ai--eu-36kr-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: 36kr source fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: YC page and memory.store fetches blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "microsoft-agent-governance-toolkit--gh-microsoft-agent-governance-toolkit",
+  "lifecycle": "active",
+  "lifecycle_note": "Active; v4.0.0 (2026-05-29) and v4.1.0 (2026-06-11) shipped after last verification. Repo ~6.1k stars, MIT.",
+  "lifecycle_citation": "https://github.com/microsoft/agent-governance-toolkit",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v3.4.0 2026-05-05",
+    "new": "v4.1.0 (2026-06-11)",
+    "citation": "https://pypi.org/project/agent-governance-toolkit/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "1.4k★ +50/mo Python",
+    "new": "microsoft/agent-governance-toolkit — ~6.1k stars",
+    "citation": "https://github.com/microsoft/agent-governance-toolkit",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Mistral Vibe CLI is open source at mistralai/mistral-vibe (Apache-2.0, ~4.9k stars), latest mistral-vibe 3.0.1 on PyPI (2026-10-20). The catalog's 'Vibe service closed' / 'Code closed (Vibe)' claims are contradicted for the CLI client (the hosted remote-agent backend may still be closed). Mistral news page blocked (permission timeout).",
+  "lifecycle_citation": "https://github.com/mistralai/mistral-vibe",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo for Vibe (model on HF; service closed)",
+    "new": "mistralai/mistral-vibe — ~4.9k stars",
+    "citation": "https://github.com/mistralai/mistral-vibe",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Modified MIT (Medium 3.5 weights); Vibe service closed",
+    "new": "Apache-2.0 (Vibe CLI); Modified MIT (Medium 3.5 weights)",
+    "citation": "https://pypi.org/project/mistral-vibe/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Medium 3.5 weights on Hugging Face (modified MIT); Vibe service closed",
+    "new": "mistral-vibe v3.0.1 (2026-10-20)",
+    "citation": "https://pypi.org/project/mistral-vibe/",
+    "confidence": "high"
+   },
+   {
+    "cell": "code-release",
+    "old": "Code closed (Vibe) + weights public (Medium 3.5)",
+    "new": "Code public (Vibe CLI, Apache-2.0) + weights public (Medium 3.5)",
+    "citation": "https://github.com/mistralai/mistral-vibe",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "neocognition--prnewswire-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: PRNewswire, TechCrunch and neocognition.io fetches blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "nyne--nyne-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: nyne.ai and TechCrunch fetches blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "openai-agents-sdk-memory--openai-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Agents SDK is OSS (openai/openai-agents-python, MIT, ~28.6k stars); latest openai-agents 0.24.0 (2026-10-15). Catalog's 'not OSS / no GitHub repo' cells are wrong. Docs page itself blocked (permission timeout).",
+  "lifecycle_citation": "https://github.com/openai/openai-agents-python",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "openai/openai-agents-python — ~28.6k stars",
+    "citation": "https://github.com/openai/openai-agents-python",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT",
+    "citation": "https://pypi.org/project/openai-agents/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v0.24.0 (2026-10-15)",
+    "citation": "https://pypi.org/project/openai-agents/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "opera-ai-formerly-aria--blogs-opera-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: Opera blog fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "perplexity-memory--perplexity-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: Perplexity help-center fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "pydantic-ai-hindsight--hindsight-vectorize-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Integration package hindsight-pydantic-ai (Vectorize, MIT) latest 0.4.20 (2026-04-15). Pydantic AI itself moved to 2.x (2.0.0 on 2026-06-23); latest 2.59.0 (2026-10-21); repo ~19.6k stars.",
+  "lifecycle_citation": "https://hindsight.vectorize.io/blog/2026/03/09/pydantic-ai-persistent-memory",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v1.90.0 2026-05-05",
+    "new": "hindsight-pydantic-ai v0.4.20 (2026-04-15); pydantic-ai v2.59.0 (2026-10-21)",
+    "citation": "https://pypi.org/project/hindsight-pydantic-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "16.9k★ +714/mo Python",
+    "new": "pydantic/pydantic-ai — ~19.6k stars, last commit 2026-10",
+    "citation": "https://github.com/pydantic/pydantic-ai",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo public, 1 star, 20 commits, only release v0.1.0 (Apr 2026); no visible activity since. Description unchanged (agent memory poisoning detector).",
+  "lifecycle_citation": "https://github.com/goweft/ratine",
+  "updates": [],
+  "verified": true
+ },
+ {
+  "id": "replicant--replicant-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: replicant.com fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "retro--arxiv-2112-04426",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "DeepMind paper (ICML 2022, PMLR 162). No official code; lucidrains/RETRO-pytorch is a third-party implementation (~878 stars, last PyPI release 0.3.9 on 2023-10-30). GitHub sidebar says Apache-2.0 while PyPI metadata says MIT — license left unchanged.",
+  "lifecycle_citation": "https://proceedings.mlr.press/v162/borgeaud22a.html",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "880★ Python",
+    "new": "lucidrains/RETRO-pytorch (third-party impl.) — ~878 stars",
+    "citation": "https://github.com/lucidrains/RETRO-pytorch",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "0.3.9 2023-10-30",
+    "new": "v0.3.9 (2023-10-30)",
+    "citation": "https://pypi.org/project/retro-pytorch/",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "sandbar-stream--sandbar-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: sandbar.com and TechCrunch fetches blocked (permission timeout); search budget exhausted. Shipping status (planned summer 2026) unconfirmed.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "semantic-kernel-memory--learn-microsoft-com",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo README now has a banner saying Semantic Kernel is now Microsoft Agent Framework, its enterprise successor (microsoft/agent-framework, MIT, ~12.6k stars), with migration guide. SK still gets releases (python 1.45.0 on 2026-10-06; dotnet-1.80.1 in Sep 2026). Learn docs page blocked (permission timeout).",
+  "lifecycle_citation": "https://github.com/microsoft/semantic-kernel",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "dotnet-1.75.0 2026-04-29",
+    "new": "python-1.45.0 (2026-10-06)",
+    "citation": "https://pypi.org/project/semantic-kernel/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "27.8k★ +143/mo C#",
+    "new": "microsoft/semantic-kernel — ~28.4k stars, last commit 2026-10",
+    "citation": "https://github.com/microsoft/semantic-kernel",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "soul-machines--soulmachines-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: soulmachines.com and Wikipedia fetches blocked (permission timeout); search budget exhausted. Worth re-checking for receivership/insolvency news.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "spring-ai-chatmemory--docs-spring-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Spring AI is OSS (spring-projects/spring-ai, Apache-2.0, ~9.4k stars); v2.0.0 released 12 Jun and v2.0.1 on 21 Aug (GitHub omits year; 2026 inferred because 1.1.8 shipped the same day as 2.0.0). Docs page blocked (permission timeout).",
+  "lifecycle_citation": "https://github.com/spring-projects/spring-ai",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "spring-projects/spring-ai — ~9.4k stars",
+    "citation": "https://github.com/spring-projects/spring-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/spring-projects/spring-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v2.0.1 (2026-08-21)",
+    "citation": "https://github.com/spring-projects/spring-ai/releases/tag/v2.0.1",
+    "confidence": "medium"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "supermemory--supermemory-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Active; repo ~31.3k stars (MIT). Self-hostable 'Supermemory Local' server releases (server-v0.0.8 on 2026-08-17; server-v0.0.9 on 12 Oct, year inferred). Python SDK supermemory 5.0.0 (2026-10-06, Apache-2.0). claude-supermemory plugin ~2.8k stars. supermemory.ai pages not fetched.",
+  "lifecycle_citation": "https://github.com/supermemoryai/supermemory",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "no releases",
+    "new": "server-v0.0.9 (2026-10-12); Python SDK v5.0.0 (2026-10-06)",
+    "citation": "https://github.com/supermemoryai/supermemory/releases/latest",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "22.4k★ +113/mo TypeScript",
+    "new": "supermemoryai/supermemory — ~31.3k stars, last commit 2026-10",
+    "citation": "https://github.com/supermemoryai/supermemory",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "tana--tana-inc",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: tana.inc fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "vektor-memory--dev-to",
+  "lifecycle": "active",
+  "lifecycle_note": "Not verified: dev.to article fetch blocked (permission timeout); search budget exhausted.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "zed-rules--zed-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Project instruction files still supported (first match of .rules, .cursorrules, .windsurfrules, .clinerules, .github/copilot-instructions.md, AGENT.md, AGENTS.md, CLAUDE.md, GEMINI.md). The Rules Library was retired in Zed v1.4.0 and replaced by Skills (~/.agents/skills/); existing rules auto-migrate. Read from the docs source in the zed repo; zed.dev page blocked (permission timeout).",
+  "lifecycle_citation": "https://github.com/zed-industries/zed/blob/main/docs/src/ai/rules.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": ".rules at project root. Falls back to reading .cursorrules , CLAUDE.md , AGENTS.md (first match wins). Plain Markdown, no frontmatter schema. Injected as system prompt for all Agent Panel interactions.",
+    "new": "Zed reads one project instruction file (first match of .rules, .cursorrules, AGENTS.md, CLAUDE.md, GEMINI.md and similar) into agent context. Since v1.4.0 the on-demand Rules Library has been replaced by Skills, and old rules migrate to global skills or AGENTS.md.",
+    "citation": "https://github.com/zed-industries/zed/blob/main/docs/src/ai/rules.md",
+    "confidence": "high"
+   }
+  ],
+  "verified": true
+ }
+]

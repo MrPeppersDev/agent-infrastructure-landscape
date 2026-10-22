@@ -1,0 +1,883 @@
+[
+ {
+  "id": "abridge--abridge-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "agno-phidata-memory--docs-phidata-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Very active; v3.x line since Sep 2026.",
+  "lifecycle_citation": "https://pypi.org/project/agno/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v3.1.8 (2026-10-21)",
+    "citation": "https://pypi.org/project/agno/",
+    "confidence": "high",
+    "old": "v2.6.4 2026-04-28"
+   },
+   {
+    "cell": "gh",
+    "new": "agno-agi/agno — ~42.8k stars, last release 2026-10",
+    "citation": "https://github.com/agno-agi/agno",
+    "confidence": "high",
+    "old": "39.9k★ +131/mo Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "anda-hippocampus--gh-ldclabs-anda-hippocampus",
+  "lifecycle": "renamed",
+  "lifecycle_note": "github.com/ldclabs/anda-hippocampus now resolves to ldclabs/anda-brain (Anda Brain); same graph memory with sleep-style consolidation.",
+  "lifecycle_citation": "https://github.com/ldclabs/anda-hippocampus",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v0.13.5 (2026-10-17)",
+    "citation": "https://github.com/ldclabs/anda-brain/releases",
+    "confidence": "high",
+    "old": "v0.4.17 2026-05-05"
+   },
+   {
+    "cell": "gh",
+    "new": "ldclabs/anda-brain (renamed from anda-hippocampus) — ~80 stars, last release 2026-10",
+    "citation": "https://github.com/ldclabs/anda-hippocampus",
+    "confidence": "high",
+    "old": "44★ Rust"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "yes — built-in MCP server (Streamable HTTP at /mcp/{space_id} and stdio), memory/recall tools",
+    "citation": "https://github.com/ldclabs/anda-hippocampus",
+    "confidence": "high",
+    "old": "not documented publicly"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "atlas--arxiv-2208-03299",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Not formally archived, but README states the repo is no longer maintained (research code as-is).",
+  "lifecycle_citation": "https://github.com/facebookresearch/atlas",
+  "updates": [
+   {
+    "cell": "code-release",
+    "new": "Code public + weights public (pretrained base/large/xl/xxl checkpoints); official repo facebookresearch/atlas, unmaintained",
+    "citation": "https://github.com/facebookresearch/atlas",
+    "confidence": "high",
+    "old": "Code partial / pseudocode — no official repo found; unofficial port engineerA314/atlas-pytorch"
+   },
+   {
+    "cell": "gh",
+    "new": "facebookresearch/atlas — ~560 stars, unmaintained",
+    "citation": "https://github.com/facebookresearch/atlas",
+    "confidence": "high",
+    "old": "558★ Python"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n/a",
+    "citation": "https://github.com/facebookresearch/atlas",
+    "confidence": "high",
+    "old": "no-release no-release"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "backboard--github-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://backboard.io/products/api",
+  "updates": [
+   {
+    "cell": "desc",
+    "new": "Stateful AI API combining persistent memory, RAG, web search and routing across many LLMs behind one interface, with SDKs for Python and npm; benchmarks its memory on LoCoMo and LongMemEval.",
+    "citation": "https://backboard.io/products/api",
+    "confidence": "high",
+    "old": "Agent memory product evaluated against LoCoMo."
+   },
+   {
+    "cell": "pricing",
+    "new": "Free $0; Education $5; Developer $20; Scale $400 (billing period not stated on page)",
+    "citation": "https://backboard.io/products/api",
+    "confidence": "high",
+    "old": "Usage-based tiered pricing; free production-ready tier with promo; paid tiers for scale"
+   },
+   {
+    "cell": "funding",
+    "new": "undisclosed pre-seed (2026-01), led by Mistral Venture Partners + N49P; Garage Capital, DevCap participated. The $3M figure could not be confirmed: BetaKit and the company press release give no amount",
+    "citation": "https://betakit.com/backboard-io-looks-to-solve-ai-amnesia-with-substantial-pre-seed-round/",
+    "confidence": "medium",
+    "old": "$3M pre-seed Jan 2026; co-led Mistral Venture Partners + N49P; Garage Capital + DevCap participated"
+   },
+   {
+    "cell": "gh",
+    "new": "Backboard-io/Backboard-Locomo-Benchmark — ~18 stars (org's largest repo is Backboard-R-CLI, ~54 stars)",
+    "citation": "https://github.com/Backboard-io",
+    "confidence": "high",
+    "old": "15★ Python"
+   },
+   {
+    "cell": "deployment",
+    "new": "Managed cloud API; vendor also advertises private-cloud, on-prem and on-device deployment",
+    "citation": "https://backboard.io/products/api",
+    "confidence": "medium",
+    "old": "Cloud-hosted (managed SaaS; multi-model API)"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "botpress-llmz--botpress-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Main repo active. README centres on Botpress Cloud plus a CLI for integrations; on-prem refers to the legacy v12 repo, so the 'OSS self-hosted' deployment claim should be re-checked.",
+  "lifecycle_citation": "https://github.com/botpress/botpress",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "botpress/botpress — ~14.9k stars",
+    "citation": "https://github.com/botpress/botpress",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "MIT (SDK/integration packages in botpress/botpress)",
+    "citation": "https://github.com/botpress/botpress",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "causaly--causaly-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "cipher-byterover--gh-campfirein-cipher",
+  "lifecycle": "archived",
+  "lifecycle_note": "Renamed: campfirein/cipher now resolves to campfirein/byterover-cli (ByteRover CLI 'brv', formerly Cipher). That repo was archived (read-only) by the owner on 2026-09-27; license changed to Elastic License 2.0. No successor repo found.",
+  "lifecycle_citation": "https://github.com/campfirein/cipher",
+  "updates": [
+   {
+    "cell": "license",
+    "new": "Elastic-2.0",
+    "citation": "https://github.com/campfirein/cipher",
+    "confidence": "high",
+    "old": "MIT"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v3.16.1 (2026-05-27)",
+    "citation": "https://socket.dev/npm/package/byterover-cli",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "gh",
+    "new": "campfirein/byterover-cli (formerly cipher) — ~5.0k stars, archived 2026-09",
+    "citation": "https://github.com/campfirein/cipher",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Local CLI (works offline with own/local LLM provider); optional ByteRover cloud for team sync and backup",
+    "citation": "https://docs.byterover.dev/local-vs-cloud",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public (source-available, Elastic-2.0); repo archived 2026-09-27 · ~5.0k stars",
+    "citation": "https://github.com/campfirein/cipher",
+    "confidence": "high",
+    "old": "Active — last commit 2026-05 · 4,733★"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "claude-supermemory--gh-supermemoryai-claude-supermemory",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/supermemoryai/claude-supermemory",
+  "updates": [
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/supermemoryai/claude-supermemory",
+    "confidence": "high",
+    "old": "Unlicensed"
+   },
+   {
+    "cell": "gh",
+    "new": "supermemoryai/claude-supermemory — ~2.8k stars",
+    "citation": "https://github.com/supermemoryai/claude-supermemory",
+    "confidence": "high",
+    "old": "2.6k★ +20/mo JavaScript"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "no — implemented as Claude Code plugin hooks (Node.js scripts), not an MCP server",
+    "citation": "https://supermemory.ai/docs/integrations/claude-code",
+    "confidence": "medium",
+    "old": "native (first-party)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Supermemory cloud API by default (API key); local self-host option via npx supermemory local",
+    "citation": "https://supermemory.ai/docs/integrations/claude-code",
+    "confidence": "high",
+    "old": "cloud — Supermemory managed API; no self-host option"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/DeusData/codebase-memory-mcp/releases",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v0.11.0 (2026-09-15)",
+    "citation": "https://github.com/DeusData/codebase-memory-mcp/releases",
+    "confidence": "high",
+    "old": "v0.6.1 / 2026-05-04"
+   },
+   {
+    "cell": "gh",
+    "new": "DeusData/codebase-memory-mcp — ~43.3k stars, last release 2026-09",
+    "citation": "https://github.com/DeusData/codebase-memory-mcp",
+    "confidence": "high",
+    "old": "2.1k★ (DeusData/codebase-memory-mcp)"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "convai-mimir--convai-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "decagon--decagon-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "elicit--elicit-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "fellou--fellou-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged. Partial check only: Future-House/paper-qa is active (~9.1k stars, Apache-2.0); product site not reached.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "google-gemini-memory--blog-google",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "gwm-gaussian-world-models--gaussian-world-model-github-io",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "heyday--heyday-xyz",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "hipporag-hipporag2--gh-osu-nlp-group-hipporag",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Not archived; no GitHub release since v1.0.0 (2025-02) and latest PyPI build is pre-release 2.0.0a4 (2025-06).",
+  "lifecycle_citation": "https://github.com/OSU-NLP-Group/HippoRAG",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v2.0.0a4 (2025-06-24) — PyPI pre-release; last GitHub release v1.0.0 (2025-02-27)",
+    "citation": "https://pypi.org/project/hipporag/",
+    "confidence": "high",
+    "old": "v1.0.0 2025-02-27"
+   },
+   {
+    "cell": "gh",
+    "new": "OSU-NLP-Group/HippoRAG — ~4.0k stars",
+    "citation": "https://github.com/OSU-NLP-Group/HippoRAG",
+    "confidence": "high",
+    "old": "3.5k★ Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "interloom--interloom-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "kag--arxiv-2409-13731",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Not archived; no release since v0.8.0 (2025-06).",
+  "lifecycle_citation": "https://github.com/OpenSPG/KAG/releases",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "OpenSPG/KAG — ~9.0k stars",
+    "citation": "https://github.com/OpenSPG/KAG",
+    "confidence": "high",
+    "old": "8.7k★ +122/mo Python"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Part of ClickHouse since January 2026 (README); LICENSE copyright is now ClickHouse, Inc. Product and repo continue under the Langfuse name.",
+  "lifecycle_citation": "https://github.com/langfuse/langfuse",
+  "updates": [
+   {
+    "cell": "license",
+    "new": "MIT (core; ee/ directories under separate enterprise license)",
+    "citation": "https://github.com/langfuse/langfuse/blob/main/LICENSE",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "gh",
+    "new": "langfuse/langfuse — ~36.1k stars, last release 2026-09",
+    "citation": "https://github.com/langfuse/langfuse",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v4.27.0 (Sep 1; page shows no year, presumably 2026)",
+    "citation": "https://github.com/langfuse/langfuse/releases",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "letta-memgpt--letta-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Company active, but focus shifted: letta-ai/letta README says current source lives in letta-ai/letta-code and the archive branch holds the retired Letta V1 API server. PyPI 'letta' is now the Letta Code CLI.",
+  "lifecycle_citation": "https://github.com/letta-ai/letta",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Letta Code (PyPI letta) v0.34.12 (2026-10-12); last letta-ai/letta server tag v0.16.8 (May 2026)",
+    "citation": "https://pypi.org/project/letta/",
+    "confidence": "high",
+    "old": "0.16.7 2026-03-31"
+   },
+   {
+    "cell": "gh",
+    "new": "letta-ai/letta — ~25.2k stars (active dev moved to letta-ai/letta-code, ~3.5k stars)",
+    "citation": "https://github.com/letta-ai/letta",
+    "confidence": "high",
+    "old": "22.5k★ +151/mo Python"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free $0 (3 agents); Pro $20/mo; Developer pay-as-you-go ($0.10/active agent/mo); Teams; Enterprise custom",
+    "citation": "https://docs.letta.com/pricing",
+    "confidence": "high",
+    "old": "Free + paid"
+   },
+   {
+    "cell": "desc",
+    "new": "Originated as MemGPT (UC Berkeley), where the model pages its own memory between context, recall and archival tiers. The product now centres on Letta Code, a stateful agent harness whose agents rewrite their own memory, skills and prompts over time.",
+    "citation": "https://github.com/letta-ai/letta-code",
+    "confidence": "medium",
+    "old": "LLM-as-Operating-System paradigm — model manages its own memory, paging between core context, recall buffer, and archival store. UC Berkeley origin; transitioning to letta_v1_agent ."
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "liveperson-conversation-context-service--developers-liveperson-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "luminance-institutional-memory--luminance-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+  "lifecycle": "active",
+  "lifecycle_note": "Frequent releases (v11.x). README carries a notice that development is at github.com/doobidoo/mcp-memory-service as of 2026-09-05 (wording is confusing but the canonical URL is unchanged).",
+  "lifecycle_citation": "https://github.com/doobidoo/mcp-memory-service/releases",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v11.15.0 (2026-10-03)",
+    "citation": "https://github.com/doobidoo/mcp-memory-service/releases",
+    "confidence": "high",
+    "old": "v10.49.4 2026-05-05"
+   },
+   {
+    "cell": "gh",
+    "new": "doobidoo/mcp-memory-service — ~2.0k stars, last release 2026-10",
+    "citation": "https://github.com/doobidoo/mcp-memory-service",
+    "confidence": "high",
+    "old": "1.8k★ +25/mo Python"
+   },
+   {
+    "cell": "deployment",
+    "new": "Local/self-hosted — SQLite-vec local; Cloudflare, Hybrid or Milvus backends; no managed cloud",
+    "citation": "https://github.com/doobidoo/mcp-memory-service",
+    "confidence": "high",
+    "old": "local — SQLite-Vec default; Cloudflare hybrid for production; no managed cloud"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memmachine--gh-memmachine-memmachine",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/MemMachine/MemMachine",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v0.3.9 (2026-05-18)",
+    "citation": "https://pypi.org/project/memmachine-server/",
+    "confidence": "high",
+    "old": "v0.3.7 2026-05-01"
+   },
+   {
+    "cell": "gh",
+    "new": "MemMachine/MemMachine — ~3.2k stars",
+    "citation": "https://github.com/MemMachine/MemMachine",
+    "confidence": "high",
+    "old": "3.1k★ +30/mo Python"
+   },
+   {
+    "cell": "pricing",
+    "new": "OSS free (Apache-2.0); managed MemMachine Platform with free account (paid tiers not listed in README)",
+    "citation": "https://github.com/MemMachine/MemMachine",
+    "confidence": "medium",
+    "old": "OSS free; Enterprise version coming soon (no public price)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both — self-hosted, or managed MemMachine Platform",
+    "citation": "https://github.com/MemMachine/MemMachine",
+    "confidence": "high",
+    "old": "Self-hosted (private cloud or on-premises); Enterprise managed forthcoming"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public (Apache-2.0)",
+    "citation": "https://github.com/MemMachine/MemMachine",
+    "confidence": "high",
+    "old": "Paper only"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memoria-matrixorigin--medium-com",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/matrixorigin/Memoria",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "matrixorigin/memoria — ~607 stars",
+    "citation": "https://github.com/matrixorigin/Memoria",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/matrixorigin/Memoria",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "yes — native MCP server (memoria mcp) for any MCP-compatible agent",
+    "citation": "https://github.com/matrixorigin/Memoria",
+    "confidence": "high",
+    "old": "not documented publicly"
+   },
+   {
+    "cell": "latest-release",
+    "new": "v0.5.2 (Sep 11; page shows no year, presumably 2026)",
+    "citation": "https://github.com/matrixorigin/Memoria/releases",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both — Memoria Cloud (thememoria.ai, remote mode) or self-hosted Docker Compose with MatrixOne (embedded mode); Kubernetes documented",
+    "citation": "https://github.com/matrixorigin/Memoria",
+    "confidence": "high",
+    "old": "Both (Memoria Cloud API + self-hosted MatrixOne DB)"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "memwal-walrus--decrypt-co",
+  "lifecycle": "active",
+  "lifecycle_note": "Still in beta. SDK is now branded Walrus Memory (npm @mysten-incubation/memwal) and lives at MystenLabs/MemWal.",
+  "lifecycle_citation": "https://github.com/MystenLabs/MemWal",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "MystenLabs/MemWal — ~117 stars, beta",
+    "citation": "https://github.com/MystenLabs/MemWal",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/MystenLabs/MemWal",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "latest-release",
+    "new": "@mysten-incubation/memwal 0.1.5 (Aug 26; page shows no year, presumably 2026)",
+    "citation": "https://github.com/MystenLabs/MemWal/releases",
+    "confidence": "medium",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "microsoft-recall--microsoft-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "n8n-ai-agent-memory--docs-n8n-io",
+  "lifecycle": "active",
+  "lifecycle_note": "",
+  "lifecycle_citation": "https://github.com/n8n-io/n8n/releases",
+  "updates": [
+   {
+    "cell": "license",
+    "new": "Sustainable Use License + n8n Enterprise License (fair-code, source-available; not OSI)",
+    "citation": "https://github.com/n8n-io/n8n",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "gh",
+    "new": "n8n-io/n8n — ~208k stars, last release 2026-10",
+    "citation": "https://github.com/n8n-io/n8n",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n8n@2.44.4 (2026-10-19)",
+    "citation": "https://github.com/n8n-io/n8n/releases",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "nvidia-inference-context-memory-storage-platform--nvidianews-nvidia-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged. Partial check only: ai-dynamo/dynamo is active (~8.3k stars, Apache-2.0), but the repo does not mention BlueField-4/ICMS, so the platform itself was not confirmed.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+  "lifecycle": "active",
+  "lifecycle_note": "Still one of the small set of reference servers maintained by the MCP steering group.",
+  "lifecycle_citation": "https://github.com/modelcontextprotocol/servers",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "2026.8.31 (2026-08-31) — @modelcontextprotocol/server-memory@2026.8.31",
+    "citation": "https://github.com/modelcontextprotocol/servers/releases",
+    "confidence": "high",
+    "old": "2026.1.26 2026-01-27"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 AND MIT (new contributions Apache-2.0; legacy code MIT; docs CC-BY-4.0)",
+    "citation": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "confidence": "high",
+    "old": "Custom"
+   },
+   {
+    "cell": "gh",
+    "new": "modelcontextprotocol/servers — ~90.0k stars, last release 2026-08",
+    "citation": "https://github.com/modelcontextprotocol/servers",
+    "confidence": "high",
+    "old": "85.1k★ +4.8k/mo TypeScript"
+   },
+   {
+    "cell": "pricing",
+    "new": "free / open source (Apache-2.0 / MIT)",
+    "citation": "https://github.com/modelcontextprotocol/servers/blob/main/LICENSE",
+    "confidence": "high",
+    "old": "free / open source (MIT)"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "openevidence-deepconsult-visits--openevidence-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "pathrag--arxiv-2502-14902",
+  "lifecycle": "active",
+  "lifecycle_note": "Official code repo exists (linked from paper v2); not archived.",
+  "lifecycle_citation": "https://arxiv.org/html/2502.14902v2",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "BUPT-GAMMA/PathRAG — ~376 stars",
+    "citation": "https://github.com/BUPT-GAMMA/PathRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "license",
+    "new": "MIT",
+    "citation": "https://github.com/BUPT-GAMMA/PathRAG",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "code-release",
+    "new": "Code public (official repo, with optional web UI); no trained weights",
+    "citation": "https://github.com/BUPT-GAMMA/PathRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n/a",
+    "citation": "https://github.com/BUPT-GAMMA/PathRAG",
+    "confidence": "high",
+    "old": "searched not found"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "plaud-notepin--plaud-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "raft--arxiv-2403-10131",
+  "lifecycle": "active",
+  "lifecycle_note": "The raft/ subproject stays in the active gorilla repo.",
+  "lifecycle_citation": "https://github.com/ShishirPatil/gorilla",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "ShishirPatil/gorilla (raft/ subdir) — ~13.0k stars",
+    "citation": "https://github.com/ShishirPatil/gorilla",
+    "confidence": "high",
+    "old": "12.9k★ +100/mo Python"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n/a",
+    "citation": "https://github.com/ShishirPatil/gorilla",
+    "confidence": "medium",
+    "old": "v1.3 2025-07-17"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "reflect--reflect-app",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "replit-replit-md--docs-replit-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "routerag--arxiv-2512-09487",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "scite-ai--scite-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "speculative-rag--arxiv-2407-08223",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "structrag--arxiv-2410-08815",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Small research repo (10 commits), no releases; no sign of ongoing work.",
+  "lifecycle_citation": "https://github.com/Li-Z-Q/StructRAG",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "Li-Z-Q/StructRAG — ~171 stars",
+    "citation": "https://github.com/Li-Z-Q/StructRAG",
+    "confidence": "high",
+    "old": "163★ Python"
+   },
+   {
+    "cell": "latest-release",
+    "new": "n/a",
+    "citation": "https://github.com/Li-Z-Q/StructRAG",
+    "confidence": "high",
+    "old": "no-release no-release"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "The GitHub-app product this row describes appears superseded: the sweepai/sweep README says the team now builds a JetBrains AI coding assistant. The repo is not archived.",
+  "lifecycle_citation": "https://github.com/sweepai/sweep",
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "sweepai/sweep — ~7.7k stars (legacy GitHub-app code)",
+    "citation": "https://github.com/sweepai/sweep",
+    "confidence": "high",
+    "old": "not applicable — no GitHub repo"
+   },
+   {
+    "cell": "license",
+    "new": "proprietary (Sweep Enterprise Edition License; some parts MIT)",
+    "citation": "https://github.com/sweepai/sweep/blob/main/LICENSE",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   }
+  ],
+  "verified": true
+ },
+ {
+  "id": "tesla-fsd-v13-occupancy-4d-world--thinkautonomous-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ },
+ {
+  "id": "wayve-gaia-2-gaia-3--wayve-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not re-verified: the shared web-search budget (200/turn) ran out, and direct fetches of this row's official site needed permission approvals that never arrived. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "updates": [],
+  "verified": false
+ }
+]
