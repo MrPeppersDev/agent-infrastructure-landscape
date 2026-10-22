@@ -10,7 +10,7 @@ If the web app stops deploying, this dataset is still useful.
 
 | File                     | Size   | Description                                                                                  |
 |--------------------------|--------|----------------------------------------------------------------------------------------------|
-| `landscape.json`         | ~11 MB | All catalog records (currently 912 systems × 68 columns). Source of truth for table / graph. |
+| `landscape.json`         | ~27 MB | All catalog records (currently 912 systems × 99 cells). Source of truth for table / graph. |
 | `landscape.edges.json`   | ~94 KB | Typed relationships between records (built-on, extends, integrates-with, cites, …).          |
 
 ## Schema
