@@ -1,0 +1,30 @@
+name: Intake debug (temporary)
+on:
+  push:
+    branches: [ci/intake-debug]
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        issue: [178, 182]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: pip install beautifulsoup4 requests
+      - working-directory: mcp
+        run: npm install && npm run build
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/research_intake.py --issue-number ${{ matrix.issue }} --output /tmp/record.json
+          python3 scripts/apply_intake_pr.py --record /tmp/record.json --issue-number ${{ matrix.issue }} --no-push --no-comment --no-commit

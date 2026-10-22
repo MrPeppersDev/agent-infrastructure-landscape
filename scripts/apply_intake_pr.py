@@ -260,6 +260,14 @@ def ensure_phase_2_pending_label() -> None:
 def run_cmd(cmd: list[str], *, label: str) -> tuple[bool, str]:
     proc = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT))
     output = f"$ {' '.join(cmd)}\nSTDOUT:\n{proc.stdout}\nSTDERR:\n{proc.stderr}\n"
+    if proc.returncode != 0 and os.environ.get("GITHUB_ACTIONS"):
+        # One multi-line workflow annotation with the failure lines, so the
+        # cause is visible in the run summary without downloading logs.
+        lines = (proc.stdout + "\n" + proc.stderr).strip().splitlines()
+        keep = [l[:300] for l in lines if any(k in l for k in (
+            "FAIL", "error", "Error", "Traceback", "differ", "    <", "    >", "  - "))]
+        msg = "%0A".join(l.replace("%", "%25") for l in (keep[-30:] or lines[-30:]))
+        print(f"::error title={label} failed::{msg}")
     return proc.returncode == 0, output
 
 
