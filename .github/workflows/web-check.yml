@@ -56,7 +56,7 @@ jobs:
         run: |
           set -o pipefail
           npm run build 2>&1 | tee /tmp/build.log || {
-            tail -40 /tmp/build.log | while IFS= read -r l; do echo "::error title=build::$l"; done
+            sed 's/\x1b\[[0-9;]*m//g' /tmp/build.log | grep -inE 'error|fail|cannot|not found|exception|✗' | grep -v 'kB' | head -40 | while IFS= read -r l; do echo "::error title=build::$l"; done
             exit 1
           }
 
