@@ -28,8 +28,11 @@ name: Model release watch
 
 on:
   schedule:
-    # Every 30 minutes. cron syntax: minute hour day-of-month month day-of-week
-    - cron: '*/30 * * * *'
+    # Every 2 hours. The seen-set lives in the Actions cache (below), so
+    # polls no longer create commits; a once-a-day snapshot is committed
+    # by the 06:17 run only. Previously this committed every 30 minutes
+    # and made up ~90% of the repo's commit history.
+    - cron: '17 */2 * * *'
   workflow_dispatch:
 
 permissions:
@@ -52,6 +55,13 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Restore seen-set from cache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/_feeds-seen.json
+          key: feeds-seen-${{ github.run_id }}
+          restore-keys: feeds-seen-
+
       - name: Install feed-poller deps
         run: |
           python -m pip install --upgrade pip
@@ -72,9 +82,23 @@ jobs:
         run: |
           python scripts/model_release_watch.py
 
-      - name: Commit updated seen-set
+      - name: Save seen-set to cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/_feeds-seen.json
+          key: feeds-seen-${{ github.run_id }}
+
+      - name: Daily seen-set snapshot commit
+        # One commit per day at most (the 06:17 UTC run), so a cache
+        # eviction can never lose more than a day of dedupe state.
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 */2 * * *'
         run: |
           set -euo pipefail
+          if [ "$(date -u +%H)" != "06" ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            echo "not the daily snapshot hour; skipping commit"
+            exit 0
+          fi
           if git diff --quiet data/_feeds-seen.json 2>/dev/null; then
             echo "no seen-set changes to commit"
             exit 0
@@ -82,5 +106,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/_feeds-seen.json
-          git commit -m "chore(release-watch): update feeds seen-set"
+          git commit -m "chore(release-watch): daily feeds seen-set snapshot"
           git push || true

@@ -38,7 +38,16 @@ permissions:
 # branch-name check inside apply_intake_pr.py.
 jobs:
   research:
-    if: contains(github.event.issue.labels.*.name, 'intake')
+    # Runs when an issue is opened with the `intake` label or an
+    # "Intake:" title, or when the `intake` label is added later. The
+    # title path matters: the `intake` label did not exist in the repo
+    # until 2026-10-22, so GitHub silently dropped it from every form
+    # submission and this job skipped every real intake for months.
+    if: >-
+      (github.event.action == 'opened' &&
+        (contains(github.event.issue.labels.*.name, 'intake') ||
+         startsWith(github.event.issue.title, 'Intake:'))) ||
+      (github.event.action == 'labeled' && github.event.label.name == 'intake')
     runs-on: ubuntu-latest
 
     steps:
