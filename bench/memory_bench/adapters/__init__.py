@@ -12,6 +12,14 @@ REGISTRY: dict[str, str] = {
     "full-context": "baselines:FullContext",
     "bm25": "baselines:BM25",
     "embedding-rag": "baselines:EmbeddingRAG",
+    # memory layers (see ADAPTERS.md for versions, infra and env vars)
+    "mem0": "mem0_adapter:Mem0",
+    "graphiti": "graphiti_adapter:Graphiti",
+    "cognee": "cognee_adapter:Cognee",
+    "zep": "zep_adapter:Zep",
+    "supermemory": "supermemory_adapter:Supermemory",
+    "letta": "letta_adapter:Letta",
+    "honcho": "honcho_adapter:Honcho",
 }
 
 BASELINES = ("full-context", "bm25", "embedding-rag")

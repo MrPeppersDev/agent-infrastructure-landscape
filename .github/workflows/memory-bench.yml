@@ -12,7 +12,7 @@
 #   ZEP_API_KEY           only for system "zep"
 #   SUPERMEMORY_API_KEY   only for system "supermemory"
 #   HONCHO_API_KEY        only for system "honcho"
-# Neo4j (for graphiti) runs as a service container. Systems whose
+# Neo4j (graphiti) and a Letta server (letta) run as service containers. Systems whose
 # packages or keys are missing are skipped and reported, not fatal.
 
 name: Memory benchmark
@@ -96,6 +96,11 @@ jobs:
         options: >-
           --health-cmd "cypher-shell -u neo4j -p benchpassword 'RETURN 1'"
           --health-interval 10s --health-timeout 10s --health-retries 20
+      letta:
+        image: letta/letta:latest
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        ports: ['8283:8283']
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ZEP_API_KEY: ${{ secrets.ZEP_API_KEY }}
@@ -104,6 +109,7 @@ jobs:
       NEO4J_URI: bolt://localhost:7687
       NEO4J_USER: neo4j
       NEO4J_PASSWORD: benchpassword
+      LETTA_BASE_URL: http://localhost:8283
     defaults:
       run:
         working-directory: bench
