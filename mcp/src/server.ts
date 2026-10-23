@@ -14,7 +14,8 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex } from './data.js';
+import { checkManifest } from './stack-check.js';
 import {
   searchRecords,
   getRecord,
@@ -171,6 +172,38 @@ async function main() {
       return jsonResult({
         products: loadFamilies().map((f) => ({ ...f, recordCount: counts.get(f.id) ?? 0 }))
       });
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 1c. check_stack
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'check_stack',
+    {
+      title: 'Check a project stack against the catalog',
+      description:
+        'Paste a dependency manifest — package.json, requirements.txt, pyproject.toml, or an MCP ' +
+        'client config (Claude Desktop / Claude Code .mcp.json / Cursor) — and get back which ' +
+        'dependencies are catalogued systems that are archived, deprecated, in maintenance mode, ' +
+        'acquired, renamed, stale (no commits in 12+ months) or locked to one model vendor. ' +
+        '`attention` lists the ones that need action, most severe first, each with the catalog ' +
+        'record id (use get_record for detail) and an evidence URL.',
+      inputSchema: {
+        manifest: z.string().describe('The manifest file contents, or one package per line (npm:/pypi: prefixes optional).'),
+        filename: z.string().optional().describe('Original filename, e.g. "requirements.txt" (helps format detection).'),
+        format: z
+          .enum(['package.json', 'requirements.txt', 'pyproject.toml', 'mcp-config', 'list'])
+          .optional()
+          .describe('Force a format instead of auto-detecting.')
+      }
+    },
+    async (args) => {
+      const report = checkManifest(args.manifest, loadStackIndex(), {
+        filename: args.filename,
+        format: args.format
+      });
+      return jsonResult(report);
     }
   );
 

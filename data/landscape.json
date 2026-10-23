@@ -87013,7 +87013,7 @@
       "name": "AutoGen Memory",
       "tier": 2,
       "url": "https://microsoft.github.io/autogen/",
-      "last_verified_at": "2026-10-22",
+      "last_verified_at": "2026-10-23",
       "sections": [
         {
           "section": "Framework-embedded memory",
@@ -87101,10 +87101,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "ListMemory chronological context + teachable agents that vectorise corrections. Integrates with Mem0/Zep rather than building deep memory natively.",
-          "citation": "https://microsoft.github.io/autogen/",
+          "value": "AutoGen's memory layer: ListMemory chronological context plus teachable agents that vectorise corrections; integrates with Mem0/Zep rather than building deep memory natively. Microsoft AutoGen is in maintenance mode (community managed, bug and security fixes only), and Microsoft points new projects to Microsoft Agent Framework.",
+          "citation": "https://github.com/microsoft/autogen",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "Framework adoption nearly doubled YoY: ~9% of organizations early-2025 to ~18% early-2026 per Datadog State of AI Engineering. AutoGen now in maintenance mode — superseded by Microsoft Agent Framework. AutoGen Bench provides agent benchmark suite; matches LangGraph in token use and latency",
@@ -87727,7 +87727,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-23",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -599199,7 +599202,7 @@
       "name": "Microsoft Semantic Kernel",
       "tier": 1,
       "url": "https://github.com/microsoft/semantic-kernel",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-23",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -599267,7 +599270,7 @@
           "tier": "T1"
         },
         "desc": {
-          "value": "Microsoft's enterprise-focused agent framework — multi-language (C#, Python, Java); Plugins / Planners / Memory; integrates with Azure AI / Foundry.",
+          "value": "Microsoft's enterprise-focused agent framework — multi-language (C#, Python, Java); Plugins / Planners / Memory; integrates with Azure AI / Foundry. Its README now names Microsoft Agent Framework as the successor; Semantic Kernel still ships releases (maintenance mode).",
           "citation": "https://github.com/microsoft/semantic-kernel",
           "status": "real-data",
           "tier": "T1"
@@ -599893,7 +599896,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/semantic-kernel",
+          "scraped_at": "2026-10-23",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -844109,7 +844115,7 @@
       "name": "Semantic Kernel Memory",
       "tier": 2,
       "url": "https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-memory",
-      "last_verified_at": "2026-10-22",
+      "last_verified_at": "2026-10-23",
       "sections": [
         {
           "section": "Framework-embedded memory",
@@ -844187,10 +844193,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Microsoft Semantic Kernel's memory plugin ( Microsoft.SemanticKernel.Plugins.Memory ). Plug-in approach to long-term memory in the SK agent framework.",
-          "citation": "https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-memory",
+          "value": "Microsoft Semantic Kernel's memory plugin (Microsoft.SemanticKernel.Plugins.Memory): a plug-in approach to long-term memory in the SK agent framework. Semantic Kernel's README now names Microsoft Agent Framework as the successor (maintenance mode).",
+          "citation": "https://github.com/microsoft/semantic-kernel",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "Memory packages (.NET, Java, Python) reached General Availability late-2024/early-2025; H1 2025 roadmap added more sophisticated context-aware abstraction; ~27k★ GitHub stars (2026) — one of the most popular AI orchestration frameworks",
@@ -844813,7 +844819,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/semantic-kernel",
+          "scraped_at": "2026-10-23",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
