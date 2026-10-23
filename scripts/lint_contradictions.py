@@ -69,8 +69,17 @@ def lint(rec: dict, fam: str) -> list[dict]:
         return "" if c.get("status") in SKIP_STATUS else str(c.get("value") or "")
 
     lic = val("license")
+    # A licence cell that leads with "proprietary" / "not applicable" and
+    # only mentions an OSI licence for an older or unofficial artefact
+    # ("Grok 4 proprietary; Grok-1 weights Apache-2.0") is not an OSS claim.
+    if re.match(r"\s*(proprietary|not applicable|n/a|closed)", lic, re.I):
+        lic = ""
     gh = val("gh")
-    gh_has_repo = bool(re.search(r"[\w.-]+/[\w.-]+", gh)) and bool(re.search(r"\d[\d.,]*\s*k?\s*(★|stars)", gh, re.I))
+    gh_has_repo = (bool(re.search(r"[\w.-]+/[\w.-]+", gh))
+                   and bool(re.search(r"\d[\d.,]*\s*k?\s*(★|stars)", gh, re.I))
+                   # a repo marked unofficial / older-version-only doesn't
+                   # make the record itself open source
+                   and not re.search(r"unofficial|third-party|older|only\)", gh, re.I))
     if OSI.search(lic) or gh_has_repo:
         for k, c in cells.items():
             if k in ("license",) or c.get("status") in SKIP_STATUS:

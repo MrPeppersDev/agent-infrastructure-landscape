@@ -57,6 +57,21 @@ AXES = ("storage", "retrieval", "persistence", "update", "unit", "governance", "
 def taxonomy_vocab(landscape: dict) -> dict[str, set[str]]:
     """Values each taxonomy axis already uses — the controlled vocabulary."""
     voc: dict[str, set[str]] = {a: {"n/a"} for a in AXES}
+    # Canonical values from taxonomy/schema.md count even before any
+    # record uses them (e.g. storage `cache`, governance `editable`).
+    schema = ROOT / "taxonomy" / "schema.md"
+    if schema.exists():
+        axis_of = {"1": "storage", "2": "retrieval", "3": "persistence",
+                   "4": "update", "5": "unit", "6": "governance"}
+        cur = None
+        for line in schema.read_text().splitlines():
+            m = re.match(r"## Axis (\d)", line)
+            if m:
+                cur = axis_of.get(m.group(1))
+                continue
+            m = re.match(r"- `([a-z0-9-]+)`", line)
+            if cur and m:
+                voc[cur].add(m.group(1))
     for r in landscape["records"]:
         for a in AXES:
             for v in (r.get("taxonomy") or {}).get(a, []):
