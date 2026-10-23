@@ -1,0 +1,147 @@
+# Memory benchmark (bench/).
+#
+# On PRs touching bench/: offline smoke test (fake LLM) plus a dry run
+# that downloads LoCoMo and LongMemEval-oracle to prove the loaders still
+# parse the published files. No API keys, no cost.
+#
+# Manual run (Actions → Memory benchmark → Run workflow): benchmarks the
+# chosen systems with real models and commits the results to a branch
+# bench/results-<run_id> (open a PR from it to publish them on the
+# leaderboard). Needs repo secrets:
+#   OPENAI_API_KEY        answer/judge models and most systems' extraction
+#   ZEP_API_KEY           only for system "zep"
+#   SUPERMEMORY_API_KEY   only for system "supermemory"
+#   HONCHO_API_KEY        only for system "honcho"
+# Neo4j (for graphiti) runs as a service container. Systems whose
+# packages or keys are missing are skipped and reported, not fatal.
+
+name: Memory benchmark
+
+on:
+  pull_request:
+    paths: ['bench/**', '.github/workflows/memory-bench.yml']
+  workflow_dispatch:
+    inputs:
+      dataset:
+        description: "longmemeval_s | longmemeval_oracle | locomo"
+        default: longmemeval_s
+        required: true
+      systems:
+        description: "comma-separated (see bench/ADAPTERS.md)"
+        default: full-context,bm25,embedding-rag,mem0,graphiti,cognee
+        required: true
+      per_type:
+        description: "questions per question type (stratified); blank = use limit"
+        default: "10"
+        required: false
+      limit:
+        description: "random subset size when per_type is blank"
+        default: ""
+        required: false
+      answer_model:
+        default: gpt-4o-mini
+        required: true
+      judge_model:
+        default: gpt-4o
+        required: true
+      k:
+        default: "10"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: memory-bench-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  smoke:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bench
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline smoke test (fake LLM)
+        run: python -m tests.test_smoke
+      - name: Dataset loaders parse the published files (dry run)
+        run: |
+          python -m memory_bench.run --dataset locomo --dry-run
+          python -m memory_bench.run --dataset longmemeval_oracle --per-type 5 --dry-run
+      - name: Every registered adapter imports
+        run: |
+          python - <<'EOF'
+          from memory_bench.adapters import REGISTRY, get
+          for n in REGISTRY:
+              cls = get(n)
+              print(f"{n:16} requires={list(cls.requires)} env={list(cls.env)}")
+          EOF
+
+  run:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    services:
+      neo4j:
+        image: neo4j:5.26
+        env:
+          NEO4J_AUTH: neo4j/benchpassword
+          NEO4J_PLUGINS: '["apoc"]'
+        ports: ['7687:7687']
+        options: >-
+          --health-cmd "cypher-shell -u neo4j -p benchpassword 'RETURN 1'"
+          --health-interval 10s --health-timeout 10s --health-retries 20
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ZEP_API_KEY: ${{ secrets.ZEP_API_KEY }}
+      SUPERMEMORY_API_KEY: ${{ secrets.SUPERMEMORY_API_KEY }}
+      HONCHO_API_KEY: ${{ secrets.HONCHO_API_KEY }}
+      NEO4J_URI: bolt://localhost:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: benchpassword
+    defaults:
+      run:
+        working-directory: bench
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the selected systems
+        run: |
+          python -m memory_bench.requirements "${{ inputs.systems }}" > /tmp/req.txt
+          cat /tmp/req.txt
+          # one at a time so a broken package skips that system, not the run
+          while read -r pkg; do [ -n "$pkg" ] && { pip install "$pkg" || echo "::warning::could not install $pkg"; }; done < /tmp/req.txt
+      - name: Run benchmark
+        id: run
+        run: |
+          RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)-${{ inputs.dataset }}"
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          ARGS="--dataset ${{ inputs.dataset }} --systems ${{ inputs.systems }} --k ${{ inputs.k }} --answer-model ${{ inputs.answer_model }} --judge-model ${{ inputs.judge_model }} --run-id $RUN_ID"
+          if [ -n "${{ inputs.per_type }}" ]; then ARGS="$ARGS --per-type ${{ inputs.per_type }}"; elif [ -n "${{ inputs.limit }}" ]; then ARGS="$ARGS --limit ${{ inputs.limit }}"; fi
+          python -m memory_bench.run $ARGS
+          python -m memory_bench.report
+          cat results/leaderboard.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: memory-bench-${{ steps.run.outputs.run_id }}
+          path: bench/results/
+      - name: Commit results to a branch
+        if: success()
+        run: |
+          git config user.name "memory-bench-bot"
+          git config user.email "memory-bench-bot@users.noreply.github.com"
+          BR="bench/results-${{ steps.run.outputs.run_id }}"
+          git checkout -b "$BR"
+          git add results/
+          git commit -m "bench: results ${{ steps.run.outputs.run_id }}"
+          git push origin "$BR"
+          echo "Open a PR to publish: https://github.com/${{ github.repository }}/compare/main...$BR?expand=1" >> "$GITHUB_STEP_SUMMARY"
