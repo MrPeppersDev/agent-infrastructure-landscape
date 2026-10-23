@@ -65,8 +65,6 @@ function check(name: string, cond: boolean, detail = '') {
   const py = `[project]\nname = "x"\ndependencies = [\n  "cognee>=1.6",\n  "graphiti-core",\n]\n[project.optional-dependencies]\ndev = ["pytest"]\n[tool.poetry.dependencies]\npython = "^3.11"\nletta = "^0.30"\n`;
   const r = checkManifest(py, index);
   check('pyproject detected', r.format === 'pyproject.toml', r.format);
-  const names = r.dependencies;
-  void names;
   check('pyproject deps parsed', ['cognee', 'graphiti-core', 'pytest', 'letta'].every((n) => parseManifest(py).dependencies.some((d) => d.name === n)));
   check('python is not a dependency', !parseManifest(py).dependencies.some((d) => d.name === 'python'));
   check('graphiti-core matched', r.matched.some((f) => f.dependency.name === 'graphiti-core'));
