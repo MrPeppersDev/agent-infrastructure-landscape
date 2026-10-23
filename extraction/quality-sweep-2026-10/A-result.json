@@ -1,0 +1,1154 @@
+[
+ {
+  "id": "flowise-memory--docs-flowiseai-com",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "Acquired by Workday (announced 2025-08-14). Sunset announced 2026-07-29 (code freeze); GitHub repo actually archived 2026-08-13 (sunset page had planned 2026-08-10); end of life 2026-08-31; npm/Docker marked deprecated.",
+  "lifecycle_citation": "https://flowiseai.com/sunset",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "FlowiseAI/Flowise — ~55.4k stars, archived 2026-08-13",
+    "new": "FlowiseAI/Flowise — ~55.4k stars, archived 2026-08-13 (sunset plan had targeted 2026-08-10)",
+    "citation": "https://github.com/FlowiseAI/Flowise",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$500K total Seed (YC) · 2023-01",
+    "new": "total $500K (Seed, YC, 2023-01); acquired by Workday (announced 2025-08-14, terms undisclosed)",
+    "citation": "https://www.constellationr.com/insights/news/workday-acquires-flowise-speed-building-ai-agents-automated-workflows",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Visual LangChain canvas. LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary Buffer) backed by internal chat_message DB table. Buffer Window limits to last K interactions; Summary Buffer compresses older turns while keeping recent verbatim.",
+    "new": "Discontinued: Flowise (acquired by Workday, Aug 2025) was sunset in 2026 — code freeze 2026-07-29, GitHub repo archived 2026-08-13, end of life 2026-08-31. Was a visual LangChain canvas with LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary Buffer) backed by an internal chat_message DB table; Buffer Window kept the last K interactions, Summary Buffer compressed older turns while keeping recent ones verbatim.",
+    "citation": "https://flowiseai.com/sunset",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "0-5-physical-intelligence--pi-website",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "code-release",
+    "old": "not applicable — not a research paper",
+    "new": "Code public (openpi, Apache-2.0) + weights public (π0.5 base, DROID and LIBERO checkpoints)",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache-2.0 (openpi code; model weights also under Gemma terms, LICENSE_GEMMA.txt)",
+    "new": "Apache-2.0 (openpi repo; repo also ships a LICENSE_GEMMA.txt for Gemma-derived terms)",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "Physical-Intelligence/openpi — ~13.3k stars, last commit n/a (pi05 base/libero/droid checkpoints included)",
+    "new": "Physical-Intelligence/openpi — ~13.3k stars, last commit not confirmed (π0.5 base, DROID and LIBERO checkpoints released)",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "acuvity-now-proofpoint--acuvity-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Proofpoint; press release dated 2026-02-12 announces the deal as completed, terms undisclosed.",
+  "lifecycle_citation": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+  "updates": [
+   {
+    "cell": "founders",
+    "old": "Acuvity (acquired by Proofpoint 2025; enterprise AI security)",
+    "new": "Satyam Sinha (co-founder & CEO) with other cybersecurity and engineering veterans; acquired by Proofpoint 2026-02-12",
+    "citation": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+    "confidence": "high"
+   },
+   {
+    "cell": "claims",
+    "old": "Acquired by Proofpoint Feb 2026 for integration into enterprise DLP / governance.",
+    "new": "Acquired by Proofpoint (announced as completed 2026-02-12, terms undisclosed) to extend Proofpoint's AI security and governance portfolio.",
+    "citation": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Runtime enforcement targeting memory poisoning, unauthorised execution, identity spoofing per the OWASP LLM threat list. Visibility/control over MCP servers and locally-installed AI tools — the infrastructure layer where memory is most exposed.",
+    "new": "Acquired by Proofpoint (closed 2026-02-12). Runtime enforcement targeting memory poisoning, unauthorised execution, identity spoofing per the OWASP LLM threat list. Visibility/control over MCP servers and locally-installed AI tools — the infrastructure layer where memory is most exposed.",
+    "citation": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "agent2agent-protocol-a2a--google-github-io",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "claims",
+    "old": "50+ partner companies at launch.",
+    "new": "Announced 2025-04-09 with support from 50+ technology partners (e.g. Atlassian, Box, Cohere, LangChain, MongoDB, PayPal, Salesforce, SAP, ServiceNow, Workday) plus service providers such as Accenture, Deloitte, KPMG.",
+    "citation": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Google-led open protocol for agent-to-agent collaboration (April 2025) — agent cards, RPCs, server-sent events. Partner companies: Atlassian, MongoDB, Salesforce, ServiceNow, etc.",
+    "new": "Google-led open protocol for agent-to-agent collaboration (announced 2025-04-09) — agent cards, RPCs, server-sent events. Launched with 50+ technology partners including Atlassian, MongoDB, Salesforce, ServiceNow.",
+    "citation": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+    "confidence": "high"
+   },
+   {
+    "cell": "created",
+    "old": "2025",
+    "new": "2025-04-09",
+    "citation": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "adept-act--adept-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Not acquired outright: Amazon hired the CEO and co-founders and licensed the technology (2024-06-28); Adept continues under CEO Zach Brock.",
+  "lifecycle_citation": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept",
+  "updates": [
+   {
+    "cell": "founders",
+    "old": "David Luan (ex-Google Brain), Maxwell Nye (ex-OpenAI), Kelsey Schroeder (CEO post-acqui-hire); ex-Google Brain Niki Parmar early team",
+    "new": "David Luan (CEO) with co-founders Augustus Odena, Maxwell Nye, Erich Elsen and Kelsey Szot — all joined Amazon AGI in June 2024; former head of engineering Zach Brock then became Adept CEO",
+    "citation": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept",
+    "confidence": "high"
+   },
+   {
+    "cell": "claims",
+    "old": "ACT-1 (2022) and ACT-2 (2023) multimodal action transformers; founded by ex-Google Brain + ex-OpenAI execs; **Amazon AGI acqui-hire June 2024** (David Luan + Maxwell Nye + Kelsey Schroeder joined Amazon AGI)",
+    "new": "Amazon hired CEO David Luan and co-founders Odena, Nye, Elsen and Szot into Amazon AGI and licensed Adept's technology (2024-06-28); Adept had raised $415M+ at ~$1B valuation",
+    "citation": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Founded 2022 by ex-OpenAI / Google researchers (David Luan, Kelsey Schroeder). Built ACT-1 / ACT-2 multimodal action transformers for computer-use. **Acquired by Amazon June-2024 (acqui-hire)** — co-founders + key team joined Amazon AGI; Adept the company continues with Zach Brock as remaining executive. Important historical entry — ACT models inspired Anthropic Computer Use + OpenAI Operator.",
+    "new": "Founded 2022 by David Luan and fellow ex-OpenAI / Google researchers. Built ACT-1 / ACT-2 multimodal action transformers for computer-use. In June 2024 Amazon hired Luan and co-founders (Odena, Nye, Elsen, Szot) into Amazon AGI and licensed Adept's technology (acqui-hire, not a full acquisition); Adept continues with former head of engineering Zach Brock as CEO, refocused on agentic AI solutions. Important historical entry — ACT models inspired Anthropic Computer Use + OpenAI Operator.",
+    "citation": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$415M total raised pre-acq (Series B 2023 — General Catalyst, Spark, Greylock); Amazon acqui-hire June 2024 (terms ~$300-500M reported but undisclosed)",
+    "new": "total $415M+ raised (~$1B valuation) before June 2024 Amazon licensing deal + founder hires (terms undisclosed)",
+    "citation": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "agent-workflow-memory--openreview-net",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "volume",
+    "old": "no scale claim — research (1000+ web tasks)",
+    "new": "no scale claim — research (evaluated on 1000+ tasks from 200+ domains across Mind2Web and WebArena combined; WebArena alone has 812)",
+    "citation": "https://arxiv.org/abs/2409.07429",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "meta-ai-memory--meta-com",
+  "verified": true,
+  "record": {
+   "url": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Stores facts from one-on-one chats and shares them across Instagram, WhatsApp, Messenger, Facebook when accounts are linked via Accounts Center. The widest cross-surface memory scope of any consumer product — propagates context across entirely separate social apps, not just devices/browsers.",
+    "new": "Meta AI remembers details users share in 1:1 chats (or asks it to remember) and uses them to personalise later replies; memory launched in Facebook, Messenger and WhatsApp in the US and Canada, with separate personalised responses drawing on Facebook and Instagram account info. Group chats are excluded.",
+    "citation": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/",
+    "confidence": "high"
+   },
+   {
+    "cell": "claims",
+    "old": "User-deletable memories. Not available in EU.",
+    "new": "Users can delete memories at any time; launched in the US and Canada only (Jan 2025).",
+    "citation": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/",
+    "confidence": "high"
+   },
+   {
+    "cell": "created",
+    "old": "2024-10 (memory feature rolled out with Meta AI October 2024 refresh)",
+    "new": "2025-01-27 (memory announced for Meta AI on Facebook, Messenger and WhatsApp)",
+    "citation": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid (per-task / seat); enterprise quote",
+    "new": "Free: $50 in credits for 7 days, no card; Team $29.99/user/mo (3,000 credits, extra $10 per 1,000); Enterprise custom",
+    "citation": "https://www.lindy.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lindy-ai-memory--docs-lindy-ai",
+  "verified": true,
+  "record": {
+   "url": "https://docs.lindy.ai/teammate/memory"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Saves high-signal facts (scheduling preferences, communication patterns, recurring rules) selectively rather than raw transcripts. Memory entries editable, injected into every prompt call, persist across all future executions.",
+    "new": "Memory is a file explorer for what Lindy knows: files it creates or uses, files users upload, skills (.skills/ folders with SKILL.md) and durable knowledge in a .memory/ area. Scoped Personal (owner only), Team (admins edit, members read-only) and System (read-only); every save is versioned and restorable.",
+    "citation": "https://docs.lindy.ai/teammate/memory",
+    "confidence": "high"
+   },
+   {
+    "cell": "claims",
+    "old": "Free plan; Plus from $49/mo; Enterprise custom.",
+    "new": "A background memory agent rebuilds each user's and team's memory files every 12 hours from Slack, Gmail, meetings and Lindy tasks, keeping episodic, procedural and semantic memories; an index file and master memory file are always in context (Lindy engineering blog, 2026-08-16).",
+    "citation": "https://www.lindy.ai/engineering/memory-agent",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Plus $49.99/mo; Pro $99.99/mo; Max $199.99/mo; Enterprise custom; 7-day trial, no permanent free tier (third-party, Apr 2026)",
+    "new": "Free: $50 in credits for 7 days, no card; Team $29.99/user/mo (3,000 credits, extra $10 per 1,000); Enterprise custom",
+    "citation": "https://www.lindy.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "voiceflow-memory--docs-voiceflow-com",
+  "verified": true,
+  "record": {
+   "url": "https://www.voiceflow.com/docs/documentation/build/behaviour"
+  },
+  "updates": [
+   {
+    "cell": "claims",
+    "old": "Free 100 credits/mo; Pro $60/mo (10k credits); Business $150/mo/editor.",
+    "new": "Pricing not published: free trial (no card) with usage-based billing for agencies/partners; businesses request a quote.",
+    "citation": "https://www.voiceflow.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Agent platform. Keeps a configurable window of recent turns (default 50, range 10–100) in the {vf_memory} variable; older turns are summarized rather than dropped. Chat projects can persist history indefinitely or clear it on tab close/refresh.",
+    "new": "Agent platform. Keeps a configurable window of recent turns (default 50, range 10–100) in the {vf_memory} variable; older turns are summarized rather than dropped. Chat projects can persist history indefinitely or clear it on tab close/refresh.",
+    "citation": "https://www.voiceflow.com/docs/documentation/build/behaviour",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "spellbook-library--lawnext-com",
+  "verified": true,
+  "record": {
+   "url": "https://www.spellbook.com/library"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Transactional / contract drafting. Ingests entire precedent corpus (OneDrive, Dropbox); ML surfaces and reuses the firm's own prior clauses during live drafting in Word, tuned to specific deal context. Goal: eliminate \"reads like ChatGPT\" output.",
+    "new": "Transactional / contract drafting. Ingests the firm's precedent corpus (OneDrive, Dropbox or direct upload); indexes it so lawyers search past clauses in plain language inside Word, insert one, and have Spellbook adapt it to the style and context of the current deal. Goal: eliminate \"reads like ChatGPT\" output.",
+    "citation": "https://www.spellbook.com/library",
+    "confidence": "high"
+   },
+   {
+    "cell": "claims",
+    "old": "$50M Series B (Khosla, Oct 2025). $350M post-money. ~$80M total funding.",
+    "new": "$50M Series B (Khosla Ventures, Oct 2025) at $350M post-money; $80M+ total funding.",
+    "citation": "https://siliconangle.com/2025/10/09/legal-ai-firm-spellbook-raises-50m-expand-contract-review-platform/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "7-day free trial; paid pricing via sales",
+    "new": "7-day free trial; paid pricing via sales (book a demo)",
+    "citation": "https://www.spellbook.com/library",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "tesla-fsd-v13-occupancy-4d-world--thinkautonomous-ai",
+  "verified": true,
+  "record": {
+   "name": "Tesla FSD V13 — Occupancy + 4D World (now FSD v14)"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "FSD V13 superseded by FSD (Supervised) v14; v14.3 released 2026-04-07, v14.3.6 / v14 Lite 2026-07-21.",
+  "lifecycle_citation": "https://www.notateslaapp.com/hr/software-updates/version/2026.2.9.6/release-notes",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Single end-to-end neural network ingesting multi-camera video + navigation + ego-motion. Maintains evolving 3D occupancy volume (voxel-level) + 3D Gaussian rendering as internal world state — spatial memory persisting across frames; tracks objects that temporarily leave the camera FOV.",
+    "new": "Single end-to-end neural network ingesting multi-camera video + navigation + ego-motion, maintaining an evolving 3D occupancy volume as internal world state — spatial memory persisting across frames, tracking objects that temporarily leave the camera FOV. Row originally described V13; current line is FSD (Supervised) v14 — v14.3 (2026-04-07) rewrote the AI compiler and runtime with MLIR (~20% faster reaction time) and upgraded the RL stage and vision encoder; a v14 Lite build brings V14 to HW3 cars (2026-07).",
+    "citation": "https://www.notateslaapp.com/hr/software-updates/version/2026.2.9.6/release-notes",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "FSD (Supervised) v14.3.6 for HW4 + v14 Lite for HW3 (software 2026.20.6.11, 2026-07-21) — latest found; proprietary",
+    "citation": "https://www.notateslaapp.com/zh-cn/软件更新/版本/2026.20.6.11/更新说明",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "tana--tana-inc",
+  "verified": true,
+  "record": {
+   "name": "Tana (now Tana Outliner)",
+   "url": "https://outliner.tana.inc/"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Outliner/PKM product renamed Tana Outliner and moved to outliner.tana.inc (Mar 2026); tana.inc is now a separate agentic meeting platform.",
+  "lifecycle_citation": "https://outliner.tana.inc/blog/tana-current-may-2026",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Tana split in Mar 2026: the supertag-based outliner/PKM is now 'Tana Outliner' at outliner.tana.inc, while tana.inc is a separate agentic meeting platform sharing a knowledge graph. Outliner keeps Tana AI on nodes.",
+    "new": "Tana split in Mar 2026: the supertag-based outliner/PKM is now 'Tana Outliner' at outliner.tana.inc, while tana.inc is a separate agentic meeting platform sharing a knowledge graph. Outliner keeps Tana AI on nodes (chat with notes, summaries, automations).",
+    "citation": "https://outliner.tana.inc/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-auto-dream--claudefa-st",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Background sub-agent in Claude Code that periodically scans ~/.claude/projects/<project>/memory/ + recent JSONL transcripts via grep, prunes stale notes, deduplicates, resolves contradictions, converts relative dates to absolute timestamps, and rewrites MEMORY.md (kept under 200 lines). Triggers automatically when 24+ hours elapsed AND 5+ sessions completed; manually via /dream.",
+    "new": "Unconfirmed / experimental — described only by third-party reports, not Anthropic docs: a background Claude Code sub-agent that periodically scans ~/.claude/projects/<project>/memory/ plus recent transcripts, prunes stale notes, deduplicates, resolves contradictions, converts relative dates to absolute ones and rewrites MEMORY.md; reportedly triggers after 24+ hours and 5+ sessions, or manually via /dream. The source itself says the feature is unannounced and only partly rolled out.",
+    "citation": "https://claudefa.st/blog/guide/mechanics/auto-dream",
+    "confidence": "medium"
+   },
+   {
+    "cell": "claims",
+    "old": "Consolidation of 913 sessions in ~8-9 minutes; surgical updates only modify changed files; read-only mode prevents source-code edits; lock file prevents concurrent runs (vendor-reported)",
+    "new": "Not in Anthropic's official Claude Code memory docs (checked 2026-10-23), which describe only CLAUDE.md and auto memory (MEMORY.md index; first 200 lines or 25KB loaded per session). Third-party figures such as a 913-session consolidation in ~8-9 minutes are unsourced single observations.",
+    "citation": "https://code.claude.com/docs/en/memory",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "memvid/claude-brain — ~575 stars, last commit not confirmed",
+    "new": "memvid/claude-brain — ~575 stars, last commit not confirmed",
+    "citation": "https://github.com/memvid/claude-brain",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v1.0.7 (2026-01-05)",
+    "new": "v1.0.7 (2026-01-05)",
+    "citation": "https://github.com/memvid/claude-brain/releases",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "iter-retgen--arxiv-2305-15294",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no official code found (dreasysnail/RetGen is a different paper)",
+    "new": "not applicable — no official code found (arXiv listing gives no code link)",
+    "citation": "https://arxiv.org/abs/2305.15294",
+    "confidence": "medium"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — no official code",
+    "new": "not applicable — no official code",
+    "citation": "https://arxiv.org/abs/2305.15294",
+    "confidence": "medium"
+   },
+   {
+    "cell": "code-release",
+    "old": "Paper only (no code link on arXiv; cited RetGen repo is unrelated)",
+    "new": "Paper only (no code link on arXiv)",
+    "citation": "https://arxiv.org/abs/2305.15294",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "logseq--logseq-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "logseq/logseq — ~45k stars",
+    "new": "logseq/logseq — ~45k stars, last commit not confirmed",
+    "citation": "https://github.com/logseq/logseq",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "AGPL-3.0",
+    "new": "AGPL-3.0",
+    "citation": "https://github.com/logseq/logseq",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v2.0.1 (2026-07-13)",
+    "new": "2.0.2 (2026-10-07) — desktop app, labelled beta testing",
+    "citation": "https://github.com/logseq/logseq/releases",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache-2.0 (Vibe CLI); Modified MIT (Medium 3.5 weights)",
+    "new": "Apache-2.0 (Vibe CLI); Modified MIT (Medium 3.5 weights)",
+    "citation": "https://pypi.org/project/mistral-vibe/",
+    "confidence": "high"
+   },
+   {
+    "cell": "code-release",
+    "old": "Code public (Vibe CLI, Apache-2.0) + weights public (Medium 3.5)",
+    "new": "Code public (Vibe CLI, Apache-2.0) + weights public (Medium 3.5)",
+    "citation": "https://github.com/mistralai/mistral-vibe",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "mistralai/mistral-vibe — ~4.9k stars",
+    "new": "mistralai/mistral-vibe — ~4.9k stars, last commit not confirmed",
+    "citation": "https://github.com/mistralai/mistral-vibe",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "mistral-vibe v3.0.1 (2026-10-20)",
+    "new": "mistral-vibe v3.0.1 (2026-10-20)",
+    "citation": "https://pypi.org/project/mistral-vibe/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "retro--arxiv-2112-04426",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache-2.0",
+    "new": "not applicable — no official DeepMind code (unofficial lucidrains/RETRO-pytorch is Apache-2.0)",
+    "citation": "https://github.com/lucidrains/RETRO-pytorch",
+    "confidence": "medium"
+   },
+   {
+    "cell": "code-release",
+    "old": "Paper only",
+    "new": "Paper only — no official DeepMind code; unofficial PyTorch reimplementation lucidrains/RETRO-pytorch (Apache-2.0)",
+    "citation": "https://github.com/lucidrains/RETRO-pytorch",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "lucidrains/RETRO-pytorch (third-party impl.) — ~878 stars",
+    "new": "lucidrains/RETRO-pytorch (unofficial third-party impl.) — ~878 stars",
+    "citation": "https://github.com/lucidrains/RETRO-pytorch",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "character-ai--character-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Announced voluntary Chapter 11 on 2026-10-12 (notice of commencement 2026-10-15) for a court-supervised sale of substantially all assets; service still operating, wind-down if no viable bid.",
+  "lifecycle_citation": "https://blog.character.ai/an-update-on-character-ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention. Latest chat models PipSqueak 3 and ShortSqueak (Sep 2026). Company entered Chapter 11 sale process Oct 2026.",
+    "new": "Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention. Latest chat models PipSqueak 3 and ShortSqueak (Sep 2026). On 2026-10-12 the company announced a voluntary Chapter 11 process for a court-supervised sale of all or substantially all assets (sale expected late Nov/early Dec 2026); the platform keeps running meanwhile and would be wound down if no viable bid emerges.",
+    "citation": "https://blog.character.ai/an-update-on-character-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "In Chapter 11 (filed Oct 2026) pursuing court-supervised asset sale; previously $2.7B Google licensing deal (2024-08)",
+    "new": "In voluntary Chapter 11 (announced 2026-10-12; notice of commencement 2026-10-15) to sell all or substantially all assets; previously $2.7B Google licensing deal (2024-08)",
+    "citation": "https://blog.character.ai/an-update-on-character-ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0 (Grok 1 only — 314B MoE older release); proprietary (Grok 2/3/4)",
+    "new": "proprietary (Grok 4); older open weights: Grok-1 (Apache-2.0) and Grok 2 (Grok 2 Community License)",
+    "citation": "https://huggingface.co/xai-org",
+    "confidence": "high"
+   },
+   {
+    "cell": "code-release",
+    "old": "Grok 1 weights public (Apache 2.0); Grok 2/3/4 proprietary",
+    "new": "Grok 4 weights closed; earlier Grok-1 (Apache-2.0) and Grok 2 (Grok 2 Community License) weights public on Hugging Face",
+    "citation": "https://huggingface.co/xai-org",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "engram--gh-gentleman-programming-engram",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "Gentleman-Programming/engram — ~6.7k stars, last commit 2026-10",
+    "new": "Gentleman-Programming/engram — ~6.7k stars, last commit 2026-10",
+    "citation": "https://github.com/Gentleman-Programming/engram",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "MIT",
+    "citation": "https://github.com/Gentleman-Programming/engram",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "local — single Go binary with SQLite/FTS5; MCP stdio, works with any MCP agent",
+    "new": "local — single Go binary with SQLite/FTS5; MCP stdio, works with any MCP agent",
+    "citation": "https://github.com/Gentleman-Programming/engram",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v3.5.2 (2026-10-21)",
+    "new": "v3.5.2 (2026-10-21)",
+    "citation": "https://github.com/Gentleman-Programming/engram/releases/tag/v3.5.2",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "engram-deepseek--arxiv-2601-07372",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "4.4k★ +153/mo Python",
+    "new": "deepseek-ai/Engram — ~4.6k stars, 4 commits, last commit not confirmed",
+    "citation": "https://github.com/deepseek-ai/Engram",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache-2.0",
+    "new": "Apache-2.0 (code); Engram model use under a separate Model License",
+    "citation": "https://github.com/deepseek-ai/Engram",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "no releases",
+    "new": "no releases",
+    "citation": "https://github.com/deepseek-ai/Engram",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "nvidia-inference-context-memory-storage-platform--nvidianews-nvidia-com",
+  "verified": true,
+  "record": {
+   "name": "NVIDIA Inference Context Memory Storage Platform (now NVIDIA CMX Context Memory Storage Platform)",
+   "url": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Rebranded NVIDIA CMX Context Memory Storage Platform (BlueField-4 STX); original Jan 2026 press release still live.",
+  "lifecycle_citation": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Now branded NVIDIA CMX Context Memory Storage Platform: a BlueField-4 (STX) powered context tier that holds and shares KV cache for long-context, multi-turn agentic inference, with Dynamo routing and DOCA Memos SDK managing cache across compute and storage nodes. Announced CES Jan 2026; availability targeted H2 2026 via storage partners (Dell, HPE, VAST, WEKA, NetApp, etc.).",
+    "new": "Renamed NVIDIA CMX Context Memory Storage Platform (2026). A BlueField-4 (STX) powered \"AI-native context tier\" that extends GPU memory with a shared pod-level KV-cache tier for long-context, multi-turn agentic inference, with Dynamo routing and DOCA Memos SDK managing cache across compute and storage nodes. Announced CES Jan 2026; offered via storage partners (Dell, HPE, IBM, NetApp, VAST, WEKA, etc.).",
+    "citation": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bee--bee-computer",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Amazon (announced Jul 2025); site now © Amazon, selling Bee Frontier ($74.99) with Bee Eclipse coming soon.",
+  "lifecycle_citation": "https://geekwire.com/2025/amazon-is-acquiring-bee-maker-of-a-wearable-ai-assistant-that-listens-to-conversations",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Small wearable (pendant / clip / bracelet). Continuous capture; converts speech to text immediately; never stores raw audio . Daily summaries, personal fact sheet, to-do suggestions. Cloud processing on derived text only.",
+    "new": "Acquired by Amazon (Jul 2025); bee.computer is now © Amazon and sells the Bee Frontier wearable ($74.99), with a Bee Eclipse device marked coming soon. Small wearable (pendant / clip / bracelet). Continuous capture; converts speech to text immediately; never stores raw audio . Daily summaries, personal fact sheet, to-do suggestions. Cloud processing on derived text only.",
+    "citation": "https://bee.computer",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "total $7M (seed, 2024-07); acquired by Amazon (2025-07); site now © Amazon",
+    "new": "total $7M (seed, 2024-07); acquired by Amazon (announced 2025-07, terms undisclosed)",
+    "citation": "https://geekwire.com/2025/amazon-is-acquiring-bee-maker-of-a-wearable-ai-assistant-that-listens-to-conversations",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "mistral-le-chat-memories--help-mistral-ai",
+  "verified": true,
+  "record": {
+   "name": "Mistral Le Chat — Memories (now Vibe)"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Mistral rebranded Le Chat as Vibe (The Decoder, 2026-05-28); Memories help article still live.",
+  "lifecycle_citation": "https://the-decoder.com/mistral-rebrands-lechat-as-vibe-betting-its-chatbots-future-is-as-a-full-blown-work-agent/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Memories in Mistral's consumer assistant (Le Chat, rebranded Vibe in May 2026): saves details on user request or automatically, user can view/edit/delete or clear all; beta, retained for subscription duration, may be used for training unless opted out.",
+    "new": "Le Chat was renamed Vibe (reported 2026-05-28). Memories in Mistral's consumer assistant: saves details on user request or automatically; user can view/edit/delete or clear all; beta, retained for subscription duration, may be used for training unless opted out.",
+    "citation": "https://the-decoder.com/mistral-rebrands-lechat-as-vibe-betting-its-chatbots-future-is-as-a-full-blown-work-agent/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "verified": true,
+  "record": {
+   "name": "Memory Store (now MemStore)",
+   "url": "https://mem.store/"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Rebranded MemStore; memory.store 302-redirects to mem.store.",
+  "lifecycle_citation": "https://mem.store/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "YC Spring 2026; now 'MemStore' (memory.store redirects to mem.store). Hosted shared memory for a team's AI agents: agents check in, record decisions/progress and recall from teammates' stores with sources; daily email rollup.",
+    "new": "Renamed MemStore (memory.store now redirects to mem.store); YC Spring 2026. Shared memory layer delivered as an MCP server: a team's AI agents record decisions/progress across sessions and recall from teammates' stores with sources attached; daily email rollup.",
+    "citation": "https://mem.store/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-edge-copilot-mode-journeys--blogs-windows-com",
+  "verified": true,
+  "record": {
+   "name": "Microsoft Edge Copilot Mode + Journeys (now Copilot in Edge)",
+   "url": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Microsoft retired the separate Copilot Mode on 2026-05-13; Journeys and memory continue inside Edge, Copilot Actions renamed Browse with Copilot.",
+  "lifecycle_citation": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Copilot built directly into Edge (separate Copilot Mode retired May 2026). Journeys clusters browsing history into topic cards on the new tab page; long-term memory lets Copilot reference past chats; history context with permission; agentic 'Browse with Copilot' (formerly Copilot Actions).",
+    "new": "Copilot Mode retired 2026-05-13; its features now ship as Copilot in Edge. Journeys clusters browsing history into topic cards on the new tab page (desktop, and US mobile); Copilot long-term memory can reference past chats and browsing history with user controls; agentic 'Browse with Copilot' (formerly Copilot Actions) for US Microsoft 365 Premium.",
+    "citation": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "researchrabbit--researchrabbit-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Litmaps (announced 2025-05-08); site footer now Copyright Litmap Limited; product active.",
+  "lifecycle_citation": "https://itbrief.co.nz/story/litmaps-acquires-researchrabbit-raises-1-million-for-ai",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Literature discovery + citation mapping. Oct 2025 revamp formalises checkpointed search paths as named \"rabbit holes\" — each checkpoint is a saved state of the citation graph the user can branch from. Navigational memory rather than stateless re-querying.",
+    "new": "Acquired by Litmaps (announced 2025-05-08, terms undisclosed); product still running. Literature discovery + citation mapping. Oct 2025 revamp formalises checkpointed search paths as named \"rabbit holes\" — each checkpoint is a saved state of the citation graph the user can branch from. Navigational memory rather than stateless re-querying.",
+    "citation": "https://itbrief.co.nz/story/litmaps-acquires-researchrabbit-raises-1-million-for-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "TA Ventures investor; acquired by Litmaps May 2025",
+    "new": "TA Ventures investor; acquired by Litmaps (announced 2025-05-08, terms undisclosed)",
+    "citation": "https://itbrief.co.nz/story/litmaps-acquires-researchrabbit-raises-1-million-for-ai",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "krutrim-kruti-ola--ai-labs-olakrutrim-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "Kruti taken offline Apr 2026 (removed from app stores and Ola platform; kruti.ai not serving); no official statement. Krutrim AI Labs still lists its open models.",
+  "lifecycle_citation": "https://www.medianama.com/2026/04/223-olas-krutrim-shuts-down-agentic-ai-assistant-kruti/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Ola Krutrim's agentic multimodal assistant (launched in beta Jun 2025; booking, food ordering, bill pay; MCP/A2A for enterprises). Taken offline in Apr 2026 with no official explanation.",
+    "new": "Shut down: Kruti was taken offline in Apr 2026 (pulled from app stores and the Ola platform, no official explanation). Was Ola Krutrim's agentic multimodal assistant (beta Jun 2025; booking, food ordering, bill pay; MCP/A2A for enterprises).",
+    "citation": "https://www.medianama.com/2026/04/223-olas-krutrim-shuts-down-agentic-ai-assistant-kruti/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$50M Series A at $1B valuation (unicorn); Matrix Partners India; Bhavish Aggarwal committed ₹2000Cr + ₹10000Cr more",
+    "new": "Product shut down Apr 2026 (parent Krutrim still operating). $50M Series A at $1B valuation (unicorn); Matrix Partners India; Bhavish Aggarwal committed ₹2000Cr + ₹10000Cr more",
+    "citation": "https://www.medianama.com/2026/04/223-olas-krutrim-shuts-down-agentic-ai-assistant-kruti/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "vertex-ai-memory-bank--docs-cloud-google-com",
+  "verified": true,
+  "record": {
+   "name": "Vertex AI Memory Bank (now Agent Platform Memory Bank)",
+   "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Now documented as Agent Platform Memory Bank under Gemini Enterprise Agent Platform; ADK class still VertexAiMemoryBankService.",
+  "lifecycle_citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+  "updates": []
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Meta (announced 2025-12-05); Pendant sales ended, desktop recording and Rewind sunset Dec 2025; existing Pendant users supported through 2026.",
+  "lifecycle_citation": "https://www.limitless.ai/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "Acquired by Meta (Dec 2025; terms undisclosed); prior VC total $34.3M",
+    "new": "Acquired by Meta (announced 2025-12-05; terms undisclosed); prior VC total $34.3M",
+    "citation": "https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "galileo-galileo-ai--galileo-ai",
+  "verified": true,
+  "record": {
+   "name": "Galileo (galileo.ai) (now Splunk Agent Observability)",
+   "url": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html"
+  },
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cisco announced intent to acquire 2026-04-09 and completed the deal by 2026-05; Galileo is now Splunk Agent Observability and galileo.ai/pricing redirects to Splunk.",
+  "lifecycle_citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Treats memory as first-class in multi-agent tracing. Luna-2 SLMs (3B / 8B) scan every interaction for intent drift and belief drift; 20+ checks at sub-200ms latency. Catches when agent A's view of the world splits from teammate B's. OpenTelemetry-compatible.",
+    "new": "Acquired by Cisco (announced 2026-04-09, closed by 2026-05); now Splunk Agent Observability. Treats memory as first-class in multi-agent tracing. Luna-2 SLMs (3B / 8B) scan every interaction for intent drift and belief drift; 20+ checks at sub-200ms latency. Catches when agent A's view of the world splits from teammate B's. OpenTelemetry-compatible.",
+    "citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "windsurf-rules-memories--docs-windsurf-com",
+  "verified": true,
+  "record": {
+   "name": "Windsurf Rules & Memories (now Devin Desktop)",
+   "url": "https://docs.devin.ai/desktop/cascade/memories"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "Windsurf acquired by Cognition (Jul 2025); docs.windsurf.com now redirects to docs.devin.ai and the editor is documented as Devin Desktop. Auto-memories apply only to the legacy Cascade agent, with a migration wizard to skills.",
+  "lifecycle_citation": "https://docs.devin.ai/desktop/cascade/memories",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "not applicable — not commercial",
+    "new": "not applicable — feature of Devin Desktop; Windsurf acquired by Cognition (definitive agreement 2025-07, terms undisclosed)",
+    "citation": "https://www.lw.com/en/news/latham-watkins-advises-cognition-in-acquisition-of-windsurf",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "spirit-ai-character-engine--spiritai-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "Spirit AI Limited (UK co. 09745797) entered members' voluntary liquidation; liquidators appointed 2023-09-18.",
+  "lifecycle_citation": "https://www.thegazette.co.uk/notice/4451408",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Authoring toolkit + SDK for narrative designers. Tracks what each character knows, doesn't know, has witnessed; explicit handling of NPC knowledge inconsistency across sessions. Used in AR/VR and Alexa-style voice game contexts.",
+    "new": "Defunct: Spirit AI Limited entered members' voluntary liquidation (liquidators appointed 2023-09-18). Authoring toolkit + SDK for narrative designers. Tracks what each character knows, doesn't know, has witnessed; explicit handling of NPC knowledge inconsistency across sessions. Used in AR/VR and Alexa-style voice game contexts.",
+    "citation": "https://www.thegazette.co.uk/notice/4451408",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "searched not found",
+    "new": "searched not found; company in members' voluntary liquidation (liquidators appointed 2023-09-18)",
+    "citation": "https://www.thegazette.co.uk/notice/4451408",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "dia-atlassian--diabrowser-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Atlassian completed its acquisition of The Browser Company (maker of Dia and Arc) on 2025-10-21; Dia still shipping.",
+  "lifecycle_citation": "https://www.businesswire.com/news/home/20251021473486/en/Atlassian-Completes-Acquisition-of-The-Browser-Company-of-New-York",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "The Browser Company's AI-native browser; acquired by Atlassian for $610M (Sept 2025). Stores summaries and preferences locally; opt-in @history feature references up to 7 days of browsing as context. History/chats/bookmarks encrypted local-first.",
+    "new": "The Browser Company's AI-native browser; Atlassian acquired The Browser Company for $610M cash (announced 2025-09, closed 2025-10-21). Stores summaries and preferences locally; opt-in @history feature references up to 7 days of browsing as context. History/chats/bookmarks encrypted local-first.",
+    "citation": "https://www.businesswire.com/news/home/20251021473486/en/Atlassian-Completes-Acquisition-of-The-Browser-Company-of-New-York",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "$128M total $610M val Acquisition · 2025-09",
+    "new": "total $128M raised pre-acquisition; acquired by Atlassian for $610M cash (announced 2025-09, closed 2025-10-21)",
+    "citation": "https://en.wikipedia.org/wiki/Dia_(web_browser)",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "soul-machines--soulmachines-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "Placed in receivership 2026-02-05 (KPMG receivers Leon Bowker and Luke Norman); buyers reportedly being sought; website still up.",
+  "lifecycle_citation": "https://www.nbr.co.nz/tech/soul-machines-in-receivership",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "NZ/US digital-humans company. Patented Digital Brain simulates emotional state and learns from interactions. Cross-session Memories layer for user- and persona-specific context persistence. Deployed by ANZ Bank (Jamie) and Mercedes-Benz.",
+    "new": "In receivership since 2026-02-05 (KPMG receivers); website still up. NZ/US digital-humans company. Patented Digital Brain simulates emotional state and learns from interactions. Cross-session Memories layer for user- and persona-specific context persistence. Deployed by ANZ Bank (Jamie) and Mercedes-Benz.",
+    "citation": "https://www.nbr.co.nz/tech/soul-machines-in-receivership",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$110M total Series B1 · 2023-02",
+    "new": "$110M total (Series B1, 2023-02); placed in receivership 2026-02-05 (KPMG receivers Leon Bowker and Luke Norman)",
+    "citation": "https://www.nbr.co.nz/tech/soul-machines-in-receivership",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "continue-dev-memory-mcp--hub-continue-dev",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "Continue acquired by Cursor (~2026-06-16) and discontinued (data export deadline 2026-07-15); continuedev/continue README says it is no longer maintained and read-only.",
+  "lifecycle_citation": "https://github.com/continuedev/continue",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Official Memory MCP (Mar 2025) backed by a knowledge graph. Memory is injected via MCP rather than native to the Continue core. Scope depends on MCP server deployment (local or shared).",
+    "new": "Discontinued: Continue was bought by Cursor (announced ~2026-06-16); the product is discontinued and the continuedev/continue repo is read-only. Official Memory MCP (Mar 2025) backed by a knowledge graph. Memory is injected via MCP rather than native to the Continue core. Scope depends on MCP server deployment (local or shared).",
+    "citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$5.6M total raised: $2.1M (YCS23) + $3M SAFE led by Heavybit",
+    "new": "$5.6M total raised: $2.1M (YCS23) + $3M SAFE led by Heavybit; acquired by Cursor (2026-06, terms undisclosed)",
+    "citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "memori-gibsonai--gh-gibsonai-memori",
+  "verified": true,
+  "record": {
+   "name": "Memori (GibsonAI) (now Memori Labs)",
+   "url": "https://github.com/MemoriLabs/Memori"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "GibsonAI/memori now resolves to MemoriLabs/Memori (Memori Labs); Apache-2.0, offers Memori Cloud.",
+  "lifecycle_citation": "https://github.com/MemoriLabs/Memori",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "SQL-native memory engine for AI agents — single library, opt-in conscious/auto modes, structured Pydantic outputs. Aims to be 'one line of code' to add memory to any LLM workflow.",
+    "new": "Now Memori by Memori Labs (repo moved to MemoriLabs/Memori; adds managed Memori Cloud and BYODB). SQL-native memory engine for AI agents — single library, opt-in conscious/auto modes, structured Pydantic outputs. Aims to be 'one line of code' to add memory to any LLM workflow.",
+    "citation": "https://github.com/MemoriLabs/Memori",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "roo-code-roorules--docs-roocode-com",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "Roo Code extension discontinued 2026-05-15; RooCodeInc/Roo-Code archived read-only the same day; README points to ZooCode (community fork) and Cline.",
+  "lifecycle_citation": "https://github.com/RooCodeInc/Roo-Code",
+  "updates": []
+ },
+ {
+  "id": "anda-hippocampus--gh-ldclabs-anda-hippocampus",
+  "verified": true,
+  "record": {
+   "name": "Anda Hippocampus (now Anda Brain)",
+   "url": "https://github.com/ldclabs/anda-brain"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "ldclabs/anda-hippocampus now resolves to ldclabs/anda-brain (Anda Brain, Apache-2.0).",
+  "lifecycle_citation": "https://github.com/ldclabs/anda-brain",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Native graph-based memory for autonomous AI agents. Bio-inspired sleep-based memory consolidation.",
+    "new": "Renamed Anda Brain (repo now ldclabs/anda-brain). Native graph-based memory for autonomous AI agents. Bio-inspired sleep-based memory consolidation.",
+    "citation": "https://github.com/ldclabs/anda-brain",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cipher-byterover--gh-campfirein-cipher",
+  "verified": true,
+  "record": {
+   "name": "Cipher (byterover) (now ByteRover CLI)",
+   "url": "https://github.com/campfirein/byterover-cli"
+  },
+  "lifecycle": "archived",
+  "lifecycle_note": "campfirein/cipher now resolves to campfirein/byterover-cli (ByteRover CLI, formerly Cipher), archived by owner 2026-09-27; Elastic License 2.0; no successor repo named.",
+  "lifecycle_citation": "https://github.com/campfirein/byterover-cli",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Opensource memory layer focused on programming agents — works with Cursor, Windsurf, Claude Code, Roo Code via MCP. Maintains a coding-context memory across sessions and across IDEs.",
+    "new": "Renamed ByteRover CLI (brv); repo campfirein/byterover-cli archived read-only 2026-09-27, license changed to Elastic License 2.0. Opensource memory layer focused on programming agents — works with Cursor, Windsurf, Claude Code, Roo Code via MCP. Maintains a coding-context memory across sessions and across IDEs.",
+    "citation": "https://github.com/campfirein/byterover-cli",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "README says Langfuse has been part of ClickHouse since January 2026; product continues under the Langfuse name.",
+  "lifecycle_citation": "https://github.com/langfuse/langfuse",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Memory module reads/writes captured as named spans. Trace Log View concatenates every agent step including memory ops. Agent Graphs (GA 2025) infer graph structure from observation nesting; session-level replay tracks how memory state evolves.",
+    "new": "Part of ClickHouse since Jan 2026; product and MIT-licensed repo continue under the Langfuse name. Memory module reads/writes captured as named spans. Trace Log View concatenates every agent step including memory ops. Agent Graphs (GA 2025) infer graph structure from observation nesting; session-level replay tracks how memory state evolves.",
+    "citation": "https://github.com/langfuse/langfuse",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "acquired · 2026-01",
+    "new": "acquired by ClickHouse (2026-01; terms undisclosed)",
+    "citation": "https://github.com/langfuse/langfuse",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "sweepai/sweep README says the team now builds a JetBrains AI coding assistant; repo not archived.",
+  "lifecycle_citation": "https://github.com/sweepai/sweep",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "No dedicated persistent memory layer. Operates as a GitHub App — reads issue + codebase fresh on each trigger. Some context implicit in the PR/issue threads it created previously.",
+    "new": "Superseded: the sweepai/sweep README says the team now builds an AI coding assistant for JetBrains; the GitHub-app product described here is no longer the focus (repo not archived). No dedicated persistent memory layer. Operates as a GitHub App — reads issue + codebase fresh on each trigger. Some context implicit in the PR/issue threads it created previously.",
+    "citation": "https://github.com/sweepai/sweep",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openmemory--gh-caviraoss-openmemory",
+  "verified": true,
+  "record": {
+   "name": "OpenMemory (now LongMemory)",
+   "url": "https://github.com/CaviraOSS/LongMemory"
+  },
+  "lifecycle": "renamed",
+  "lifecycle_note": "CaviraOSS/OpenMemory now resolves to CaviraOSS/LongMemory; old npm/PyPI packages forward to longmemory / longmemory-sdk.",
+  "lifecycle_citation": "https://github.com/CaviraOSS/LongMemory",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Open-source cognitive memory engine for LLMs and agents.",
+    "new": "Renamed LongMemory (repo CaviraOSS/LongMemory; packages longmemory / longmemory-sdk, with openmemory-js@2 / openmemory-py@2 as forwarding bridges). Open-source cognitive memory engine for LLMs and agents.",
+    "citation": "https://github.com/CaviraOSS/LongMemory",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Merged into Osaka Holdings S.a r.l. (converted to S.A. and renamed BenevolentAI); delisted from Euronext Amsterdam 2025-03-13; now private.",
+  "lifecycle_citation": "https://www.businesswire.com/news/home/20250312584164/en",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop.",
+    "new": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop.",
+    "citation": "https://www.businesswire.com/news/home/20250312584164/en",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "cognigy--cognigy-com",
+  "verified": true,
+  "record": {
+   "name": "Cognigy (now NiCE Cognigy)"
+  },
+  "lifecycle": "acquired",
+  "lifecycle_note": "NiCE closed its acquisition of Cognigy on 2025-09-08; available standalone and within CXone Mpower; GM title uses 'NiCE Cognigy'.",
+  "lifecycle_citation": "https://www.cognigy.com/news/nice-closes-acquisition-of-cognigy",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Enterprise contact centre (voice + chat). Short-term covers current session; long-term persists across sessions and is shared by every agent a customer might encounter. Most explicitly engineered memory model in the segment.",
+    "new": "Acquired by NiCE (closed 2025-09-08); continues as NiCE Cognigy, standalone and inside CXone Mpower. Enterprise contact centre (voice + chat). Short-term covers current session; long-term persists across sessions and is shared by every agent a customer might encounter. Most explicitly engineered memory model in the segment.",
+    "citation": "https://www.cognigy.com/news/nice-closes-acquisition-of-cognigy",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "Repo archived by owner 2026-03-24; README points to the hosted Mem0 MCP server (docs.mem0.ai/platform/mem0-mcp).",
+  "lifecycle_citation": "https://github.com/mem0ai/mem0-mcp",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Mem0's managed cloud API exposed as MCP tools. Semantic search + CRUD on memories scoped by user / agent / session. Cloud-hosted MCP endpoint — no local infrastructure required.",
+    "new": "Archived 2026-03-24 (read-only); README now points to Mem0's official cloud-hosted MCP server at mcp.mem0.ai/mcp. Mem0's managed cloud API exposed as MCP tools. Semantic search + CRUD on memories scoped by user / agent / session. Cloud-hosted MCP endpoint — no local infrastructure required.",
+    "citation": "https://github.com/mem0ai/mem0-mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Continue bought by Cursor (~2026-06-16); product discontinued, data export deadline 2026-07-15; final 2.0.0 release, repo read-only (Apache-2.0). Rules docs page still served.",
+  "lifecycle_citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "not applicable — not commercial",
+    "new": "not applicable — feature of Continue; Continue acquired by Cursor (2026-06, terms undisclosed) and discontinued",
+    "citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Check Point completed its acquisition of Lakera by 2025-11-11 (agreement 2025-09); terms not officially disclosed.",
+  "lifecycle_citation": "https://cxotoday.com/press-release/check-point-software-technologies-completes-acquisition-of-lakera-to-secure-the-worlds-ai-transformation/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Screens every prompt, response, and retrieved document for indirect prompt injection — primary vector for memory poisoning. Treats memory as untrusted: anything written to or read from memory is adversarial until proven clean. Lakera Red provides \"Agent Breaker\" gamified red-teaming.",
+    "new": "Acquired by Check Point Software (completed by 2025-11-11); being folded into Check Point's AI security platform. Screens every prompt, response, and retrieved document for indirect prompt injection — primary vector for memory poisoning. Treats memory as untrusted: anything written to or read from memory is adversarial until proven clean. Lakera Red provides \"Agent Breaker\" gamified red-teaming.",
+    "citation": "https://cxotoday.com/press-release/check-point-software-technologies-completes-acquisition-of-lakera-to-secure-the-worlds-ai-transformation/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sourcegraph-cody-cody-json--docs-sourcegraph-com",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "Cody Free/Pro/Enterprise Starter discontinued 2025-07-23; Cody Enterprise continues; Sourcegraph points individual users to Amp. Old custom-commands doc redirects to the Cody prompts page.",
+  "lifecycle_citation": "https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": ".vscode/cody.json (workspace-scoped). JSON defining slash-commands with prompt text, context options ( currentFile , openTabs , terminal ), and mode ( ask / edit / insert ). Reusable prompt templates for project-specific workflows; checked in for team sharing.",
+    "new": "Cody Free, Pro and Enterprise Starter were discontinued 2025-07-23 (Amp offered as replacement); only Cody Enterprise continues. .vscode/cody.json (workspace-scoped). JSON defining slash-commands with prompt text, context options ( currentFile , openTabs , terminal ), and mode ( ask / edit / insert ). Reusable prompt templates for project-specific workflows; checked in for team sharing.",
+    "citation": "https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Asana completed its acquisition of StackAI (2026-05-28, terms undisclosed; $75M reported by trade press); StackAI continues as its own product and brand; co-founders joined Asana.",
+  "lifecycle_citation": "https://www.nasdaq.com/press-release/asana-acquires-stackai-adding-cross-system-execution-human-agent-teams-2026-05-28",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Connects enterprise knowledge sources (SharePoint, Confluence, Notion, Drive, DBs) as memory layer with access controls, versioning, citations. Agents query at runtime; no separate session/cross-session store.",
+    "new": "Acquired by Asana (completed 2026-05-28); continues as its own product and brand. Connects enterprise knowledge sources (SharePoint, Confluence, Notion, Drive, DBs) as memory layer with access controls, versioning, citations. Agents query at runtime; no separate session/cross-session store.",
+    "citation": "https://www.nasdaq.com/press-release/asana-acquires-stackai-adding-cross-system-execution-human-agent-teams-2026-05-28",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$16.6M total; Series A 2025 from Lobby Capital; YC W23",
+    "new": "$16.6M total (Series A 2025 from Lobby Capital; YC W23); acquired by Asana (completed 2026-05-28, terms undisclosed)",
+    "citation": "https://www.nasdaq.com/press-release/asana-acquires-stackai-adding-cross-system-execution-human-agent-teams-2026-05-28",
+    "confidence": "high"
+   }
+  ]
+ }
+]

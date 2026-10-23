@@ -4,6 +4,7 @@ apply_reverify.py — merge research-agent re-verification results into
 data/landscape.json.
 
 Input: one or more JSON files, each a list of rows shaped like
+(optional keys: "record": {"name", "url"} and "taxonomy": {axis: [...]})
 
     {"id": "...", "lifecycle": "active|maintenance|archived|deprecated|
       acquired|renamed|dead|unknown", "lifecycle_note": "...",
@@ -50,6 +51,67 @@ def clean(value: str) -> str:
     return re.sub(r"\s+", " ", value.replace("<", "‹").replace(">", "›")).strip()
 
 
+AXES = ("storage", "retrieval", "persistence", "update", "unit", "governance", "conflict")
+
+
+def taxonomy_vocab(landscape: dict) -> dict[str, set[str]]:
+    """Values each taxonomy axis already uses — the controlled vocabulary."""
+    voc: dict[str, set[str]] = {a: {"n/a"} for a in AXES}
+    # Canonical values from taxonomy/schema.md count even before any
+    # record uses them (e.g. storage `cache`, governance `editable`).
+    schema = ROOT / "taxonomy" / "schema.md"
+    if schema.exists():
+        axis_of = {"1": "storage", "2": "retrieval", "3": "persistence",
+                   "4": "update", "5": "unit", "6": "governance"}
+        cur = None
+        for line in schema.read_text().splitlines():
+            m = re.match(r"## Axis (\d)", line)
+            if m:
+                cur = axis_of.get(m.group(1))
+                continue
+            m = re.match(r"- `([a-z0-9-]+)`", line)
+            if cur and m:
+                voc[cur].add(m.group(1))
+    for r in landscape["records"]:
+        for a in AXES:
+            for v in (r.get("taxonomy") or {}).get(a, []):
+                voc[a].add(v["value"])
+    return voc
+
+
+def apply_taxonomy(rec: dict, tax: dict, vocab: dict[str, set[str]]) -> bool:
+    """Replace a record's taxonomy with curated values. Rejects the whole
+    proposal if any axis is missing, uses a value outside the vocabulary,
+    or doesn't have exactly one primary — partial taxonomy is worse than
+    the honest n/a it replaces."""
+    new: dict[str, list] = {}
+    for a in AXES:
+        vals = tax.get(a)
+        if not isinstance(vals, list) or not vals:
+            return False
+        if sum(1 for v in vals if v.get("primary")) != 1:
+            return False
+        out = []
+        for v in vals:
+            if v.get("value") not in vocab[a]:
+                return False
+            out.append({"value": v["value"], "primary": bool(v.get("primary")), "reason": None})
+        out.sort(key=lambda v: not v["primary"])  # primary first
+        # Only a single-value axis can carry a reason through the HTML
+        # round-trip: it renders as prose whose first token is re-read as
+        # the value, so the prose must start with the value. Multi-value
+        # axes render as pills, which drop reasons.
+        if len(out) == 1:
+            reason = clean(str(vals[0].get("reason") or "")).replace(":", " —")
+            if reason and reason.lower() not in ("none", "null", out[0]["value"]):
+                if not reason.lower().startswith(out[0]["value"]):
+                    reason = f"{out[0]['value']} — {reason}"
+                out[0]["reason"] = reason
+        new[a] = out
+    rec["taxonomy"] = new
+    return True
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("files", nargs="+")
@@ -59,7 +121,9 @@ def main() -> int:
 
     landscape = load_landscape(LANDSCAPE)
     stats = {"rows_seen": 0, "rows_verified": 0, "cells_applied": 0,
-             "cells_skipped": 0, "decayed": 0}
+             "cells_skipped": 0, "decayed": 0, "renamed": 0, "url_changed": 0,
+             "taxonomy_set": 0}
+    vocab = taxonomy_vocab(landscape)
     lifecycle_notes: list[str] = []
 
     for f in args.files:
@@ -71,6 +135,22 @@ def main() -> int:
                 continue
             stats["rows_verified"] += 1
             rec["last_verified_at"] = args.date
+            # Record-level changes: display name (renames/acquisitions keep
+            # the old name first, "Old (now New)", so search still finds it)
+            # and primary url (when the old one redirects or died). The id
+            # stays stable.
+            recd = row.get("record") or {}
+            new_name = clean(str(recd.get("name") or ""))
+            if new_name and new_name != rec["name"]:
+                rec["name"] = new_name
+                stats["renamed"] += 1
+            new_url = (recd.get("url") or "").strip()
+            if new_url and _URL.match(new_url) and new_url != rec.get("url"):
+                rec["url"] = new_url
+                stats["url_changed"] += 1
+            if row.get("taxonomy"):
+                if apply_taxonomy(rec, row["taxonomy"], vocab):
+                    stats["taxonomy_set"] += 1
             for u in row.get("updates") or []:
                 cit = (u.get("citation") or "").strip()
                 new = clean(str(u.get("new") or ""))

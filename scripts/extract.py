@@ -735,8 +735,18 @@ def iter_records(soup: BeautifulSoup):
             if isinstance(decay_evidence_raw, str) and decay_evidence_raw.strip()
             else None
         )
+        # Pinned id (SCHEMA.md §2.1.4): present only when a record was
+        # renamed after its id was minted, so the id — and every
+        # /systems/<id> permalink — survives the rename.
+        pinned_raw = tr.get("data-id")
+        pinned_id = (
+            pinned_raw.strip()
+            if isinstance(pinned_raw, str) and pinned_raw.strip()
+            else None
+        )
         # First is name; next 7 are tax-*; rest are cells.
         yield {
+            "pinned_id": pinned_id,
             "tier": tier,
             "name": name,
             "url": url,
@@ -894,8 +904,9 @@ def build_record(
     name = parsed["name"]
     url = parsed["url"]
 
-    # id with collision suffix per §2.1.4
-    base_id = make_id(name, url)
+    # id with collision suffix per §2.1.4 (a pinned id wins: see the
+    # data-id note in iter_rows)
+    base_id = parsed.get("pinned_id") or make_id(name, url)
     count = used_ids.get(base_id, 0)
     used_ids[base_id] = count + 1
     rec_id = base_id if count == 0 else f"{base_id}-{count + 1}"

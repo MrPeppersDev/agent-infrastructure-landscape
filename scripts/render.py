@@ -255,6 +255,15 @@ DEFAULT_OUTPUT = ROOT / "landscape.html"
 DEFAULT_SECTION_SIDECAR = ROOT / "extraction" / "section-explainers.json"
 
 
+
+def _id_is_derived(rid: str, record: dict) -> bool:
+    """True when rid is what extract.make_id would produce for this record
+    (allowing the -N collision suffix)."""
+    import re as _re
+    from extract import make_id  # local: render must not need bs4 at import
+    base = make_id(record.get("name") or "", record.get("url"))
+    return rid == base or bool(_re.fullmatch(_re.escape(base) + r"-\d+", rid))
+
 def slice_template(html: str) -> tuple[str, str]:
     """Return (head, tail) so that render output is `head + body + tail`."""
     open_marker = "\n  <tbody>\n"
@@ -547,6 +556,13 @@ def render_row(record: dict[str, Any]) -> str:
         tr_attrs += (
             f' data-decay-evidence="{escape(decay_evidence, quote=True)}"'
         )
+    # Pinned id: when a record has been renamed, its id no longer matches
+    # what extract.py would mint from (name, url). Emit it so the id and
+    # its permalinks survive the round-trip. Absent for every record whose
+    # id is still the derived one, so existing rows render unchanged.
+    rid = record.get("id")
+    if isinstance(rid, str) and rid and not _id_is_derived(rid, record):
+        tr_attrs += f' data-id="{escape(rid, quote=True)}"'
     lines.append(f"  <tr {tr_attrs}>")
     # Name with optional cross-listing marker injected after the closing </a>.
     name_cell = render_name_cell(record)

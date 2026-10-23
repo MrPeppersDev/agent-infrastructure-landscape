@@ -12,12 +12,13 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help
+.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help
 
 help:
 	@echo "Targets:"
 	@echo "  make build              — Path A pipeline: reconcile JSON → build_edges → fetch_citations --offline → bucket_s2_citations → render HTML"
 	@echo "  make build-path-a       — assert render.py(landscape.json) is byte-identical to committed landscape.html (refs #68)"
+	@echo "  make lint               — contradiction / defect report (visibility only)"
 	@echo "  make validate           — schema + determinism + round-trip + cache + tier-provenance gates (~25s)"
 	@echo "  make all                — build then validate"
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
@@ -94,6 +95,13 @@ build-path-a:
 # Cheap round-trip validation gates. <30s.
 validate:
 	$(PYTHON) scripts/validate.py
+
+# Contradiction / defect report: cells within a record that disagree
+# (OSS licence vs "code closed", acquisition years), truncated values,
+# citations that point at a bare multi-tenant host, memory rows with no
+# taxonomy. Visibility only — never fails. See scripts/lint_contradictions.py.
+lint:
+	$(PYTHON) scripts/lint_contradictions.py
 
 # Convenience.
 all: build validate

@@ -33,6 +33,9 @@ jobs:
         run: pip install beautifulsoup4
       - name: Run validate.py
         run: make validate
+      - name: Contradiction lint (report only)
+        run: |
+          python3 scripts/lint_contradictions.py --json /tmp/lint.json | tee -a "$GITHUB_STEP_SUMMARY"
 
   build-path-a:
     runs-on: ubuntu-latest

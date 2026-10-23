@@ -1,0 +1,2182 @@
+[
+ {
+  "id": "ace-agentic-context-engineering--arxiv-2510-04618",
+  "source": "https://arxiv.org/abs/2510.04618",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "evolving playbook kept as structured plain-text context, no DB"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "playbook is placed in the prompt/system context"
+    },
+    {
+     "value": "similarity",
+     "primary": false,
+     "reason": "grow-and-refine dedups bullets by embedding similarity"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "online mode carries agent memory across task episodes"
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "Reflector distills lessons from trajectories; Curator emits delta bullets"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "grow-and-refine prunes/merges redundant bullets"
+    }
+   ],
+   "unit": [
+    {
+     "value": "skill",
+     "primary": true,
+     "reason": "playbook bullets = strategies/insights"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": "itemized human-readable playbook"
+    },
+    {
+     "value": "plaintext",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "deterministic",
+     "primary": true,
+     "reason": "paper: delta entries merged by lightweight non-LLM logic; helpful/harmful counters; embedding dedup"
+    }
+   ]
+  }
+ },
+ {
+  "id": "agentmemory-rohitg00--agent-memory-dev",
+  "source": "https://github.com/rohitg00/agentmemory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "SQLite KV + optional local embeddings + optional knowledge graph"
+    },
+    {
+     "value": "kv",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "README: BM25 + vector + graph fused with RRF"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "session-start hook injects ~2000-token context"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "consolidation",
+     "primary": true,
+     "reason": "4 tiers: raw observations -> session summaries -> facts -> procedures"
+    },
+    {
+     "value": "extraction",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "evict-oldest",
+     "primary": false,
+     "reason": "Ebbinghaus decay, TTL expiry, importance eviction"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": "hook-captured tool-use observations"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "local-only, privacy filter, /forget and governance delete tool"
+    },
+    {
+     "value": "inspectable",
+     "primary": false,
+     "reason": "real-time viewer; immutable origin channel per memory"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "last-write-wins",
+     "primary": true,
+     "reason": "README: contradictions detected and superseded; old versions dropped from search but kept in KV version chain"
+    }
+   ]
+  }
+ },
+ {
+  "id": "beads-steve-yegge--gh-steveyegge-beads",
+  "source": "https://github.com/steveyegge/beads",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "relational",
+     "primary": true,
+     "reason": "Dolt version-controlled SQL database"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "exact-match",
+     "primary": true,
+     "reason": "bd ready/show/list queries by ID and status"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "bd prime injects workflow context and remembered facts"
+    },
+    {
+     "value": "graph-traversal",
+     "primary": false,
+     "reason": "dependency graph: ready = no open blockers"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "project-bound",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "agents create/update/close issues, bd remember"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "compaction 'memory decay' summarizes old closed tasks"
+    }
+   ],
+   "unit": [
+    {
+     "value": "document",
+     "primary": true,
+     "reason": "unit is an issue/bead (task record with dependencies)"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": "bd remember durable project facts"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "auditable",
+     "primary": true,
+     "reason": "Dolt history; bd show includes audit trail"
+    },
+    {
+     "value": "editable",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "branch-and-merge",
+     "primary": true,
+     "reason": "Dolt cell-level merge + branching; hash IDs avoid merge collisions"
+    }
+   ]
+  }
+ },
+ {
+  "id": "cl-of-llms-survey--dl-acm-org",
+  "source": "https://dl.acm.org/doi/10.1145/3735633",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "parametric",
+     "primary": true,
+     "reason": "survey scope: continual pre-training / fine-tuning of weights"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "parametric-recall",
+     "primary": true,
+     "reason": "survey scope"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "parametric-permanent",
+     "primary": true,
+     "reason": "survey scope"
+    }
+   ],
+   "update": [
+    {
+     "value": "parametric-edit",
+     "primary": true,
+     "reason": "survey scope: continual pre-training, DAP, continual fine-tuning"
+    }
+   ],
+   "unit": [
+    {
+     "value": "weight",
+     "primary": true,
+     "reason": "survey scope"
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": "survey scope: knowledge held in weights"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "training-time",
+     "primary": true,
+     "reason": "survey scope: old/new knowledge reconciled during training (forgetting mitigation)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "context-engineering-naming-event--simonwillison-net",
+  "source": "https://simonwillison.net/2025/Jun/27/context-engineering/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ],
+   "unit": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "not applicable: blog post naming a discipline, no memory system to classify"
+    }
+   ]
+  }
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "source": "https://github.com/mksglu/context-mode",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "relational",
+     "primary": true,
+     "reason": "per-project SQLite with FTS5"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "exact-match",
+     "primary": true,
+     "reason": "BM25 full-text search over FTS5 index"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "SessionStart hook restores resume snapshot"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": "README: without --continue previous session data deleted"
+    },
+    {
+     "value": "cross-session",
+     "primary": false,
+     "reason": "--continue keeps index, 14-day cleanup"
+    }
+   ],
+   "update": [
+    {
+     "value": "evict-oldest",
+     "primary": true,
+     "reason": "URL content 24h TTL; DBs older than 14 days removed at startup"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "PreCompact hook builds resume snapshot"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": "tracked session events: edits, git ops, errors, decisions"
+    },
+    {
+     "value": "chunk",
+     "primary": false,
+     "reason": "indexed markdown chunks by heading"
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "local only; ctx_purge deletes all indexed content"
+    },
+    {
+     "value": "deterministic",
+     "primary": false,
+     "reason": "hooks + FTS5, no LLM in memory path"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "events appended; README describes no reconciliation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "cursor-memories--docs-cursor-com",
+  "source": "https://docs.cursor.com/context/memories",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "proprietary",
+     "primary": true,
+     "reason": "kept in Cursor settings as auto-generated rules; format undocumented"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "applied as rules in agent context"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "docs: project-scoped, carries across sessions"
+    },
+    {
+     "value": "project-bound",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "background sidecar model extracts from chats"
+    },
+    {
+     "value": "agent-controlled",
+     "primary": false,
+     "reason": "agent saves via tool calls"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "managed under Cursor Settings -> Rules"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ]
+  }
+ },
+ {
+  "id": "evo-memory--arxiv-2511-20857",
+  "source": "https://arxiv.org/abs/2511.20857",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "benchmark harness over 10+ pluggable memory modules"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "benchmark; ExpRAG/ReMem are baselines, not the artifact"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "evaluates memory carried across sequential task streams"
+    }
+   ],
+   "update": [
+    {
+     "value": "read-only",
+     "primary": true,
+     "reason": "benchmark datasets"
+    }
+   ],
+   "unit": [
+    {
+     "value": "trajectory",
+     "primary": true,
+     "reason": "task-stream experiences reused across tasks"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: benchmark"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "benchmark"
+    }
+   ]
+  }
+ },
+ {
+  "id": "externalization-in-llm-agents--arxiv-2604-08224",
+  "source": "https://arxiv.org/abs/2604.08224",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ],
+   "unit": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "not applicable: conceptual review paper, no memory system to classify"
+    }
+   ]
+  }
+ },
+ {
+  "id": "from-human-memory-to-ai-memory-survey--arxiv-2504-15965",
+  "source": "https://arxiv.org/abs/2504.15965",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ],
+   "unit": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "not applicable: survey/taxonomy paper, no memory system to classify"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "source": "https://geminicli.com/docs/tools/memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "tiered Markdown: repo GEMINI.md, private project folder, ~/.gemini/GEMINI.md"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "docs: facts auto-included in hierarchical context every session"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "project-bound",
+     "primary": false,
+     "reason": "repo and per-project tiers"
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "agent edits files with write_file/replace"
+    },
+    {
+     "value": "overwrite",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "file",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "plain Markdown the user can edit"
+    },
+    {
+     "value": "plaintext",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "agent",
+     "primary": true,
+     "reason": "agent edits Markdown in place; docs only advise avoiding duplicate facts across tiers"
+    }
+   ]
+  }
+ },
+ {
+  "id": "halumem--arxiv-2511-03506",
+  "source": "https://arxiv.org/abs/2511.03506",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "benchmark dataset"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "benchmark"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "1.5k-2.6k turns per user, >1M-token contexts"
+    }
+   ],
+   "update": [
+    {
+     "value": "read-only",
+     "primary": true,
+     "reason": "benchmark datasets"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "~15k annotated memory points per dataset"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "multi-turn user dialogues"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: benchmark"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "benchmark (scores update-stage hallucination, does not resolve conflicts)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "honcho-plastic-labs--honcho-dev",
+  "source": "https://github.com/plastic-labs/honcho",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "relational",
+     "primary": true,
+     "reason": "PostgreSQL + pgvector"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "observations as vector-embedded documents per observer/observed pair"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "chat endpoint: tool-calling LLM reasons over stored conclusions"
+    },
+    {
+     "value": "hybrid",
+     "primary": false,
+     "reason": "BM25 + vector search"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "context/representation endpoints return a static peer document"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "deriver worker LLM derives conclusions/representations from messages"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "background dreaming tasks"
+    }
+   ],
+   "unit": [
+    {
+     "value": "profile",
+     "primary": true,
+     "reason": "peer representations and peer cards"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": "deductive/inductive conclusions"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": "session summaries"
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": "conclusions API, honcho workspace inspect"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "docs (honcho.dev dreaming): deduction specialist deletes outdated conclusion and creates current one; flags conflicting conclusions"
+    }
+   ]
+  }
+ },
+ {
+  "id": "iclr-2026-memagents-workshop--sites-google-com",
+  "source": "https://sites.google.com/view/memagent-iclr26/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ],
+   "unit": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "not applicable: workshop venue, no memory system to classify"
+    }
+   ]
+  }
+ },
+ {
+  "id": "letta-code--gh-letta-ai-letta-code",
+  "source": "https://github.com/letta-ai/letta-code",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "MemFS: memory blocks and agent skills tracked in git, syncable to GitHub"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "Letta server/Cloud stores agent state and conversations"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "memory blocks are part of the agent's context"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "agents /search their own and other agents' conversations"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "README: agents programmatically rewrite their context/memory blocks"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "periodic /sleeptime dreaming, /reflect"
+    }
+   ],
+   "unit": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "memory blocks as MemFS files"
+    },
+    {
+     "value": "skill",
+     "primary": false,
+     "reason": "agent-scoped skills"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "conversation history"
+    }
+   ],
+   "governance": [
+    {
+     "value": "auditable",
+     "primary": true,
+     "reason": "all context incl. memory blocks tracked via git"
+    },
+    {
+     "value": "inspectable",
+     "primary": false,
+     "reason": "/palace memory viewer"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "agent",
+     "primary": true,
+     "reason": "agent rewrites its own blocks"
+    },
+    {
+     "value": "document-version",
+     "primary": false,
+     "reason": "git history preserves prior versions"
+    }
+   ]
+  }
+ },
+ {
+  "id": "m-flow-m-flow--gh-flowelement-xinliuyuansu-m-flow",
+  "source": "https://github.com/FlowElement-xinliuyuansu/m_flow",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "graph store + vector store adapters (Neo4j/Kuzu + LanceDB/pgvector/Chroma/Pinecone)"
+    },
+    {
+     "value": "graph",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "graph-traversal",
+     "primary": true,
+     "reason": "README: vector/hybrid finds entry points, graph propagation scores strongest path"
+    },
+    {
+     "value": "similarity",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "memorize() builds KG + embeddings with coreference resolution"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": "four-layer cone: Episode -> Facet -> FacetPoint -> Entity; returns Episode bundles"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": "FacetPoints are atomic facts"
+    },
+    {
+     "value": "skill",
+     "primary": false,
+     "reason": "separate procedural memory"
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": "CLI, web console, KG visualization"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memanto-moorcheh--memanto-ai",
+  "source": "https://github.com/moorcheh-ai/memanto",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "proprietary",
+     "primary": true,
+     "reason": "Moorcheh information-theoretic semantic engine (local Docker or cloud); pluggable backends"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": "semantic recall with filters and --as-of/--changed-since temporal queries"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "agent bootstrap briefs agent with relevant slice"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "consolidation",
+     "primary": true,
+     "reason": "daily run merges duplicates; repeats strengthen confidence"
+    },
+    {
+     "value": "extraction",
+     "primary": false,
+     "reason": "--from-conversation extraction from chat logs"
+    },
+    {
+     "value": "agent-controlled",
+     "primary": false,
+     "reason": "agents write via memanto remember"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "13 typed categories (fact, decision, preference, commitment, error...) with confidence and provenance"
+    }
+   ],
+   "governance": [
+    {
+     "value": "auditable",
+     "primary": true,
+     "reason": "provenance + timestamps per belief; dashboard to audit"
+    },
+    {
+     "value": "editable",
+     "primary": false,
+     "reason": "memanto edit/forget/expire/restore"
+    },
+    {
+     "value": "deterministic",
+     "primary": false,
+     "reason": "YAML retention policies, first matching rule wins"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "human-arbitrate",
+     "primary": true,
+     "reason": "README: conflicts versioned and surfaced for review; memanto conflicts interactive resolution"
+    },
+    {
+     "value": "bi-temporal",
+     "primary": false,
+     "reason": "superseded beliefs kept; point-in-time --as-of queries"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memgpt-v2-agent-tools--arxiv-2310-08560",
+  "source": "https://arxiv.org/abs/2310.08560",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "in-context core memory + recall DB + archival vector store"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "kv",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "LLM pages memory in/out via function calls"
+    },
+    {
+     "value": "similarity",
+     "primary": false,
+     "reason": "archival search"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "core memory always in context"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "LLM self-edits core/archival memory via tools"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": "recursive summary of evicted messages"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "agent",
+     "primary": true,
+     "reason": "LLM rewrites core memory (core_memory_replace) itself"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memory-lancedb-pro-openclaw-plugin--gh-cortexreach-memory-lancedb-pro",
+  "source": "https://github.com/CortexReach/memory-lancedb-pro",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "column",
+     "primary": true,
+     "reason": "LanceDB table 'memories' (schema lists LanceDB as column)"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "file",
+     "primary": false,
+     "reason": "canonical MEMORY.md remains source of truth"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "vector ANN + BM25 fusion, cross-encoder rerank, decay boosts, MMR"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "LLM Smart Extraction auto-capture at conversation end"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "LLM CREATE/MERGE/SKIP; Peripheral/Working/Core tier promotion"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "categories: preference, fact, decision, entity, reflection"
+    },
+    {
+     "value": "profile",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": "L0/L1/L2 layered summaries"
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "management CLI list/search/delete/export + memory_update tool"
+    },
+    {
+     "value": "user-controllable",
+     "primary": false,
+     "reason": "multi-scope isolation with per-agent access"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "README: vector prefilter >=0.7 then LLM chooses CREATE/MERGE/SKIP; profile always merges, events append-only"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memory-r1--aclanthology-org",
+  "source": "https://arxiv.org/abs/2508.19828",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "vector",
+     "primary": true,
+     "reason": "memory bank queried by similarity-based RAG (60 candidates)"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "RL-trained Answer Agent distills retrieved entries"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "multi-session LoCoMo/MSC/LongMemEval"
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "RL-trained Memory Manager picks ADD/UPDATE/DELETE/NOOP"
+    },
+    {
+     "value": "extraction",
+     "primary": false,
+     "reason": "LLM extracts info worth remembering each turn"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "short natural-language entries"
+    }
+   ],
+   "governance": [
+    {
+     "value": "plaintext",
+     "primary": true,
+     "reason": "memory bank of natural-language entries"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "learned (PPO/GRPO) Memory Manager decides UPDATE/DELETE vs ADD"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memsearch-zilliz--gh-zilliztech-memsearch",
+  "source": "https://github.com/zilliztech/memsearch",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "Markdown is the source of truth (memory/YYYY-MM-DD.md)"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "Milvus rebuildable shadow index"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "dense + BM25 sparse + RRF, optional reranker"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "per-turn LLM summaries appended to daily file"
+    },
+    {
+     "value": "extraction",
+     "primary": false,
+     "reason": null
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "memsearch compact LLM chunk summarization"
+    }
+   ],
+   "unit": [
+    {
+     "value": "chunk",
+     "primary": true,
+     "reason": "daily Markdown logs split into hashed chunks"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "users edit .md files; watcher re-indexes"
+    },
+    {
+     "value": "plaintext",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "daily logs appended; README describes no reconciliation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "microsoft-foundry-agent-service-memory--devblogs-microsoft-com",
+  "source": "https://devblogs.microsoft.com/foundry/introducing-memory-in-foundry-agent-service/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "proprietary",
+     "primary": true,
+     "reason": "fully managed Foundry store; BYO storage only 'in the future'"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "embedding model configured"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "post: 'hybrid search techniques'"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "core memories retrieved at conversation start"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "LLMs merge similar or duplicate topics"
+    }
+   ],
+   "unit": [
+    {
+     "value": "profile",
+     "primary": true,
+     "reason": "user profile memory"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": "chat summary memory"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "post: LLM consolidation resolves conflicts (e.g. new allergy) to one accurate memory"
+    }
+   ]
+  }
+ },
+ {
+  "id": "openai-codex-memories-chronicle--developers-openai-com",
+  "source": "https://codex.danielvaughan.com/2026/04/24/codex-chronicle-screen-context-memories-ambient-developer-awareness/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "~/.codex/memories and ~/.codex/memories_extensions/chronicle/ (unencrypted markdown)"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "relevant memories injected into system prompt of new sessions"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "memories kept indefinitely"
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "background agents summarize threads/screen captures"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "consolidation_model turns raw captures into entries"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "preferences, conventions, pitfalls"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "opt-in consent, pause, /memories off, generate_memories/use_memories config"
+    },
+    {
+     "value": "plaintext",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "guide: no conflict mechanism; stale memories flagged as a limitation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "source": "https://github.com/volcengine/OpenViking",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "viking:// virtual filesystem with .abstract.md/.overview.md per directory"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "embedding vector ranking"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": "directory-scoped semantic search"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "search plans retrieval from session context; multi-round only when needed"
+    },
+    {
+     "value": "exact-match",
+     "primary": false,
+     "reason": "ov ls/tree/grep by URI"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "session commit extracts memories as Markdown"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "VikingMem event-driven update/consolidation"
+    }
+   ],
+   "unit": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "context items as files/dirs with L0/L1/L2 tiers"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": "L0 abstract, L1 overview"
+    },
+    {
+     "value": "skill",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "'open any directory to inspect and edit what your agent knows'"
+    },
+    {
+     "value": "inspectable",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ]
+  }
+ },
+ {
+  "id": "pose--arxiv-2309-10400",
+  "source": "https://arxiv.org/abs/2309.10400",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "kv-cache",
+     "primary": true,
+     "reason": "extends the attention context window via skip-wise position fine-tuning"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "attention",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "persistence": [
+    {
+     "value": "ephemeral",
+     "primary": true,
+     "reason": "context window only"
+    }
+   ],
+   "update": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "context grows by appending tokens; no eviction policy"
+    }
+   ],
+   "unit": [
+    {
+     "value": "kv-token",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "context-extension training method"
+    }
+   ]
+  }
+ },
+ {
+  "id": "rwkv-7--gh-blinkdl-rwkv-lm",
+  "source": "https://github.com/BlinkDL/RWKV-LM",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "cache",
+     "primary": true,
+     "reason": "fixed-size recurrent state (compressed memory), no growing KV cache"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "attention",
+     "primary": true,
+     "reason": "state read via linear-attention-style WKV recurrence"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": "state is per sequence"
+    }
+   ],
+   "update": [
+    {
+     "value": "overwrite",
+     "primary": true,
+     "reason": "v7 generalized delta-rule state update"
+    },
+    {
+     "value": "evict-oldest",
+     "primary": false,
+     "reason": "data-dependent decay of old state"
+    }
+   ],
+   "unit": [
+    {
+     "value": "summary",
+     "primary": true,
+     "reason": "fixed-size state compresses entire history"
+    },
+    {
+     "value": "token",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "model architecture"
+    }
+   ]
+  }
+ },
+ {
+  "id": "second-me-mindverse--gh-mindverse-second-me",
+  "source": "https://arxiv.org/abs/2503.08102",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "parametric",
+     "primary": true,
+     "reason": "L2 AI-native memory in a locally trained Qwen2.5 model"
+    },
+    {
+     "value": "hybrid",
+     "primary": false,
+     "reason": "L0 raw data (RAG) + L1 natural-language memory + L2 weights"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "parametric-recall",
+     "primary": true,
+     "reason": "L2 model answers from weights"
+    },
+    {
+     "value": "similarity",
+     "primary": false,
+     "reason": "L0 retrieval-augmented over raw data"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "parametric-permanent",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "lifelong",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "parametric-edit",
+     "primary": true,
+     "reason": "SFT (PEFT) + DPO on synthesized personal data"
+    }
+   ],
+   "unit": [
+    {
+     "value": "weight",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "profile",
+     "primary": false,
+     "reason": "L1 user bio, status, preference tags"
+    },
+    {
+     "value": "document",
+     "primary": false,
+     "reason": "L0 raw notes/documents"
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "locally trained and hosted; data stays local"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "training-time",
+     "primary": true,
+     "reason": "personal knowledge reconciled when the model is retrained"
+    }
+   ]
+  }
+ },
+ {
+  "id": "simplemem--arxiv-2601-02553",
+  "source": "https://github.com/aiming-lab/SimpleMem",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "column",
+     "primary": true,
+     "reason": "LanceDB (schema lists LanceDB as column)"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "semantic + keyword + metadata filtering"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "intent-aware retrieval planning sets retrieval scope"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "lifelong",
+     "primary": true,
+     "reason": "paper: efficient lifelong memory"
+    },
+    {
+     "value": "long-term",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "semantic structured compression into atomic facts"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "online semantic synthesis merges related memories"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "self-contained facts with resolved coreferences and absolute timestamps"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ]
+  }
+ },
+ {
+  "id": "stale-cupmem--arxiv-2605-06527",
+  "source": "https://arxiv.org/pdf/2605.06527v1",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "benchmark dataset"
+    },
+    {
+     "value": "kv",
+     "primary": false,
+     "reason": "CUPMEM: typed temporal store of state domains/slots"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "benchmark"
+    },
+    {
+     "value": "hybrid",
+     "primary": false,
+     "reason": "CUPMEM: touched + structurally affected slots + global top-k"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "contexts up to ~150K tokens"
+    }
+   ],
+   "update": [
+    {
+     "value": "read-only",
+     "primary": true,
+     "reason": "benchmark dataset"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "CUPMEM: write-time state consolidation and invalidation"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "user-state attributes invalidated by later evidence"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: benchmark"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "CUPMEM: LLM adjudicator labels each old state KEEP/STALE/REPLACE/UNKNOWN"
+    },
+    {
+     "value": "out-of-scope",
+     "primary": false,
+     "reason": "benchmark itself only evaluates"
+    }
+   ]
+  }
+ },
+ {
+  "id": "test-time-training-ttt--arxiv-2407-04620",
+  "source": "https://arxiv.org/abs/2407.04620",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "parametric",
+     "primary": true,
+     "reason": "hidden state is the weights of an inner model"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "parametric-recall",
+     "primary": true,
+     "reason": "output = inner model applied to the token"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": "hidden state per sequence"
+    }
+   ],
+   "update": [
+    {
+     "value": "parametric-edit",
+     "primary": true,
+     "reason": "gradient step on self-supervised loss per token at test time"
+    }
+   ],
+   "unit": [
+    {
+     "value": "weight",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "model architecture"
+    }
+   ]
+  }
+ }
+]

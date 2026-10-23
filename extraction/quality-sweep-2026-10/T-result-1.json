@@ -1,0 +1,2152 @@
+[
+ {
+  "id": "acontext-memodb--gh-memodb-io-acontext",
+  "source": "https://github.com/memodb-io/Acontext",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "README: 'Skill memories are Markdown files', exportable as ZIP"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "Postgres + S3 listed as infrastructure in architecture diagram"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "README: 'Retrieval is by tool use and reasoning, not semantic top-k' (list_skills/get_skill); no embeddings"
+    },
+    {
+     "value": "exact-match",
+     "primary": false,
+     "reason": "get_skill / get_skill_file by name"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "README: LLM pass distills what worked/failed and user prefs from the trace on task complete/fail"
+    },
+    {
+     "value": "agent-controlled",
+     "primary": false,
+     "reason": "Skill Agent decides to update an existing skill or create a new one"
+    }
+   ],
+   "unit": [
+    {
+     "value": "skill",
+     "primary": true,
+     "reason": "SKILL.md-schema skill files"
+    },
+    {
+     "value": "file",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "README: files you can read, edit and share; Git/grep compatible"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "Skill Agent routes learnings into existing vs new skills; no explicit contradiction policy documented"
+    }
+   ]
+  }
+ },
+ {
+  "id": "basic-memory--gh-basicmachines-co-basic-memory",
+  "source": "https://github.com/basicmachines-co/basic-memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "README: Markdown files are the source of truth"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "SQLite index by default, Postgres optional"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "FastEmbed vectors; Milvus extra for Postgres"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "README: hybrid full-text + vector ranking, optional reranker"
+    },
+    {
+     "value": "graph-traversal",
+     "primary": false,
+     "reason": "build_context follows memory:// URLs link by link"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "LLM reads/searches via MCP tools"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "write_note/edit_note/move_note/delete_note MCP tools"
+    },
+    {
+     "value": "user-edit",
+     "primary": false,
+     "reason": "humans edit the same Markdown in Obsidian/VS Code"
+    }
+   ],
+   "unit": [
+    {
+     "value": "document",
+     "primary": true,
+     "reason": "each Markdown note is an Entity"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": "Observations = categorized facts on an entity"
+    },
+    {
+     "value": "entity",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "plain Markdown editable by hand; AI sees changes"
+    },
+    {
+     "value": "user-controllable",
+     "primary": false,
+     "reason": "local-first; cloud optional"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "manual",
+     "primary": true,
+     "reason": "files are source of truth, edited by humans/LLM; cloud sync 'conflict resolution' unspecified"
+    }
+   ]
+  }
+ },
+ {
+  "id": "beam-beyond-a-million-tokens-light--arxiv-2510-27246",
+  "source": "https://arxiv.org/abs/2510.27246",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "benchmark dataset; LIGHT method's backing store not specified in abstract"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "benchmark; LIGHT adds episodic/working/scratchpad memory (mechanism not in abstract)"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "probes over coherent conversations up to 10M tokens"
+    }
+   ],
+   "update": [
+    {
+     "value": "read-only",
+     "primary": true,
+     "reason": "fixed benchmark of 100 conversations / 2,000 probes"
+    },
+    {
+     "value": "append-only",
+     "primary": false,
+     "reason": "LIGHT scratchpad accumulates salient facts"
+    }
+   ],
+   "unit": [
+    {
+     "value": "turn",
+     "primary": true,
+     "reason": "conversation dialogue"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "LIGHT long-term episodic memory"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: benchmark has no memory store to govern"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "benchmark; contradiction resolution is a probed ability of systems under test"
+    }
+   ]
+  }
+ },
+ {
+  "id": "context-engineering--x-com",
+  "source": "https://x.com/karpathy/status/1937902205765607626",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "concept is about filling the context window; no store"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "'filling the context window with just the right information for the next step'"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "ephemeral",
+     "primary": true,
+     "reason": "context window only; LLM as 'coworker with anterograde amnesia'"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: discipline/concept, no update mechanism"
+    }
+   ],
+   "unit": [
+    {
+     "value": "chunk",
+     "primary": true,
+     "reason": "task descriptions, few-shot examples, RAG passages"
+    },
+    {
+     "value": "turn",
+     "primary": false,
+     "reason": "state and history"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: theoretical concept"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "theoretical concept, no implementation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "context-expansion-law--huyenchip-com",
+  "source": "https://huyenchip.com/2025/01/07/agents.html",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "law concerns the context window, not a store"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "application context expands to fill the context limit"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "ephemeral",
+     "primary": true,
+     "reason": "context window"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: theoretical observation"
+    }
+   ],
+   "unit": [
+    {
+     "value": "token",
+     "primary": true,
+     "reason": "context measured against model token limits"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: theoretical observation"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "theoretical concept, no implementation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "core-redplanet--gh-redplanethq-core",
+  "source": "https://docs.getcore.me/memory/how-core-ingests",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "graph",
+     "primary": true,
+     "reason": "docs: graph aspects stored as SPO triples in Neo4j"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "embeddings in five vector namespaces"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "graph-traversal",
+     "primary": true,
+     "reason": "docs: label routing, entity resolution, Neo4j traversal"
+    },
+    {
+     "value": "similarity",
+     "primary": false,
+     "reason": "EPISODE-namespace similarity fallback"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "docs: statements extracted and classified into 12 aspects; entity dedup"
+    },
+    {
+     "value": "append-only",
+     "primary": false,
+     "reason": "episodes kept verbatim as source of truth; old statements invalidated, not deleted"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "discrete statements / triples"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "raw ingested content"
+    },
+    {
+     "value": "entity",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "auditable",
+     "primary": true,
+     "reason": "every statement links back to its source episode; history accessible"
+    },
+    {
+     "value": "user-controllable",
+     "primary": false,
+     "reason": "self-hostable; AES-256 at rest"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "bi-temporal",
+     "primary": true,
+     "reason": "docs: old statement gets invalidAt timestamp, new one becomes current; history retained"
+    }
+   ]
+  }
+ },
+ {
+  "id": "episodic-memory-is-the-missing-piece--arxiv-2502-06975",
+  "source": "https://arxiv.org/abs/2502.06975",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "CLS framing: fast episodic store plus slow consolidation into parametric memory (desc)"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "position paper; retrieval method not specified"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "targets long-term LLM agents"
+    },
+    {
+     "value": "parametric-permanent",
+     "primary": false,
+     "reason": "consolidated knowledge"
+    }
+   ],
+   "update": [
+    {
+     "value": "consolidation",
+     "primary": true,
+     "reason": "'selective consolidation' is one of the five properties"
+    },
+    {
+     "value": "append-only",
+     "primary": false,
+     "reason": "single-shot acquisition of instance-specific episodes"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: position paper"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "position paper, no implementation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "evomembench--alphaxiv-org",
+  "source": "https://arxiv.org/abs/2605.18421",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "benchmark; evaluates 15 memory methods"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "benchmark"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "crosses in-episode vs cross-episode scope"
+    },
+    {
+     "value": "session",
+     "primary": false,
+     "reason": "in-episode memory"
+    }
+   ],
+   "update": [
+    {
+     "value": "read-only",
+     "primary": true,
+     "reason": "fixed benchmark protocol"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": "in-/cross-episode tasks"
+    },
+    {
+     "value": "trajectory",
+     "primary": false,
+     "reason": "execution-oriented memory"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: benchmark has no memory store to govern"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "benchmark"
+    }
+   ]
+  }
+ },
+ {
+  "id": "four-type-agent-memory-taxonomy--lilianweng-github-io",
+  "source": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "vector",
+     "primary": true,
+     "reason": "long-term memory = external vector store with fast MIPS retrieval"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": "MIPS via LSH/ANNOY/HNSW/FAISS/ScaNN"
+    },
+    {
+     "value": "attention",
+     "primary": false,
+     "reason": "short-term memory = in-context learning"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "LTM tier"
+    },
+    {
+     "value": "ephemeral",
+     "primary": false,
+     "reason": "STM = context window"
+    }
+   ],
+   "update": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "taxonomy does not specify a write path"
+    }
+   ],
+   "unit": [
+    {
+     "value": "chunk",
+     "primary": true,
+     "reason": "embedded information in the external store"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: taxonomy/blog"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "theoretical taxonomy, no implementation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gbrain-garry-tan--gh-garrytan-gbrain",
+  "source": "https://github.com/garrytan/gbrain",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "README: Markdown pages in a git-backed brain repo"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "PGLite (Postgres via WASM) or Postgres index"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "pgvector"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "README: vector + keyword + RRF + source-tier boost + reranker"
+    },
+    {
+     "value": "graph-traversal",
+     "primary": false,
+     "reason": "typed graph, breadth-first traversal"
+    },
+    {
+     "value": "injection",
+     "primary": false,
+     "reason": "recalled memory injected into the harness model"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "explicit remember via CLI/MCP; auto-capture opt-in"
+    },
+    {
+     "value": "extraction",
+     "primary": false,
+     "reason": "auto-link extraction on page writes; nightly enrichment"
+    },
+    {
+     "value": "user-edit",
+     "primary": false,
+     "reason": "users edit Markdown in the repo"
+    }
+   ],
+   "unit": [
+    {
+     "value": "document",
+     "primary": true,
+     "reason": "schema-typed pages (person, company, concept)"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": "explicit facts with sources"
+    },
+    {
+     "value": "entity",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "auditable",
+     "primary": true,
+     "reason": "facts tied to sources; revision history; corrections and withdrawals"
+    },
+    {
+     "value": "editable",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "human-arbitrate",
+     "primary": true,
+     "reason": "README: 'think' and nightly enrichment flag contradictions; explicit corrections/withdrawals; resolution not automated"
+    }
+   ]
+  }
+ },
+ {
+  "id": "github-copilot-memory-agentic-memory--gh-en-copilot",
+  "source": "https://docs.github.com/en/copilot/concepts/agents/copilot-memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "proprietary",
+     "primary": true,
+     "reason": "GitHub-hosted store"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "docs: Copilot checks a memory's citations against current branch before using it; lookup mechanism undocumented"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "docs: unused memories auto-deleted after 28 days; timer resets on validated use"
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "coding agent, code review and CLI write memories automatically"
+    },
+    {
+     "value": "evict-oldest",
+     "primary": false,
+     "reason": "28-day unused expiry"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "repository-level facts with code citations"
+    },
+    {
+     "value": "profile",
+     "primary": false,
+     "reason": "user-level coding preferences"
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "users view/delete own preferences; owners delete repo facts; admins export/bulk delete"
+    },
+    {
+     "value": "inspectable",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "grounded-ranking",
+     "primary": true,
+     "reason": "citations re-validated against current branch before use; stale facts not used"
+    },
+    {
+     "value": "llm-arbitrate",
+     "primary": false,
+     "reason": "'best judgment' that a preference still applies"
+    }
+   ]
+  }
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "source": "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "docs: ~/.hermes/memories/MEMORY.md (2,200 chars) and USER.md (1,375 chars)"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "past sessions in SQLite state.db with FTS5"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "docs: frozen snapshot injected into system prompt at session start"
+    },
+    {
+     "value": "exact-match",
+     "primary": false,
+     "reason": "FTS5 session_search returns raw messages"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "docs: memory tool add / patch / remove"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "agent must consolidate entries when char limit is hit"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "MEMORY.md notes"
+    },
+    {
+     "value": "profile",
+     "primary": false,
+     "reason": "USER.md user profile"
+    },
+    {
+     "value": "skill",
+     "primary": false,
+     "reason": "autonomous skill creation"
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "plain-text files on disk managed via tool"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "agent",
+     "primary": true,
+     "reason": "docs: agent patches/removes outdated entries; exact duplicates rejected"
+    }
+   ]
+  }
+ },
+ {
+  "id": "hyperconsciousness-hc--gh-louis030195-hyperconsciousness",
+  "source": "https://github.com/louis030195/hyperconsciousness",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "README: encrypted, append-only store of signed records; engine specified in SPEC.md"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "exact-match",
+     "primary": true,
+     "reason": "README: literal search + chronological pagination default; opt-in relevance mode needs no model"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "unit": [
+    {
+     "value": "document",
+     "primary": true,
+     "reason": "notes and imported source records"
+    },
+    {
+     "value": "file",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "scoped, expiring, revocable grants by kind/tag/sensitivity"
+    },
+    {
+     "value": "auditable",
+     "primary": false,
+     "reason": "signed records; hc audit; grant-scoped reads verify history"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "append",
+     "primary": true,
+     "reason": "append-only store; no sync-conflict policy documented"
+    }
+   ]
+  }
+ },
+ {
+  "id": "jamba-ai21--ai21-com",
+  "source": "https://www.ai21.com/blog/announcing-jamba",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "hybrid",
+     "primary": true,
+     "reason": "attention-layer KV cache + Mamba fixed-size recurrent state"
+    },
+    {
+     "value": "kv-cache",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "attention",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": "256k-token context window"
+    }
+   ],
+   "update": [
+    {
+     "value": "replacement",
+     "primary": true,
+     "reason": "Mamba layers overwrite recurrent state"
+    },
+    {
+     "value": "append-only",
+     "primary": false,
+     "reason": "attention layers append KV within window"
+    }
+   ],
+   "unit": [
+    {
+     "value": "kv-token",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "token",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "model architecture"
+    }
+   ]
+  }
+ },
+ {
+  "id": "longlora--arxiv-2309-12307",
+  "source": "https://arxiv.org/abs/2309.12307",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "kv-cache",
+     "primary": true,
+     "reason": "extended context window"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "attention",
+     "primary": true,
+     "reason": "shifted sparse attention in training, full attention at inference"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "tokens accumulate in the extended window"
+    },
+    {
+     "value": "parametric-edit",
+     "primary": false,
+     "reason": "LoRA + trainable embedding/norm layers fine-tuned to extend context"
+    }
+   ],
+   "unit": [
+    {
+     "value": "kv-token",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "weight",
+     "primary": false,
+     "reason": "LoRA adapter"
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "model/fine-tuning method"
+    }
+   ]
+  }
+ },
+ {
+  "id": "mamba-2-ssd--arxiv-2405-21060",
+  "source": "https://arxiv.org/abs/2405.21060",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "kv",
+     "primary": true,
+     "reason": "fixed-size recurrent SSM state; tagged as the Mamba row"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "attention",
+     "primary": true,
+     "reason": "SSD: SSM dual to structured masked attention"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "replacement",
+     "primary": true,
+     "reason": "state recurrently overwritten via decay gating"
+    }
+   ],
+   "unit": [
+    {
+     "value": "token",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "model architecture"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memconflict--arxiv-2605-20926",
+  "source": "https://arxiv.org/abs/2605.20926",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "none-trivial",
+     "primary": true,
+     "reason": "benchmark; evaluates A-Mem, LangMem, Letta, MemOS, Mem0, Memobase"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "benchmark; white-box metrics score retrieval/ranking of systems under test"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "multi-session dialogue histories with cross-session conflicts"
+    }
+   ],
+   "update": [
+    {
+     "value": "read-only",
+     "primary": true,
+     "reason": "fixed benchmark"
+    }
+   ],
+   "unit": [
+    {
+     "value": "turn",
+     "primary": true,
+     "reason": "multi-session dialogue"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": "competing memory candidates"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: benchmark has no memory store to govern"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "benchmark: measures dynamic/static/conditional conflict handling; resolves none itself"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memory-as-metabolism--arxiv-2604-12034",
+  "source": "https://arxiv.org/abs/2604.12034",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "normative framework; tiers (raw buffer, active wiki, cold memory) not tied to a storage primitive"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not specified; 'memory gravity' recency/frequency weighting only"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "lifelong",
+     "primary": true,
+     "reason": "companion memory as a continuous metabolic process"
+    }
+   ],
+   "update": [
+    {
+     "value": "consolidation",
+     "primary": true,
+     "reason": "CONSOLIDATE operation"
+    },
+    {
+     "value": "evict-oldest",
+     "primary": false,
+     "reason": "DECAY with recency/frequency 'memory gravity'"
+    }
+   ],
+   "unit": [
+    {
+     "value": "document",
+     "primary": true,
+     "reason": "active-wiki tier (desc)"
+    }
+   ],
+   "governance": [
+    {
+     "value": "auditable",
+     "primary": true,
+     "reason": "AUDIT operation; testable conformance invariants"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "append",
+     "primary": true,
+     "reason": "minority-hypothesis retention: contradicting evidence kept and can update dominant view over cycles"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memory-poisoning-as-attack-surface--simonwillison-net",
+  "source": "https://simonwillison.net/2025/Sep/18/agents/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: security framing"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "long-term memory is 'an extra set of tools'"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "poisoned long-term store"
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "adversarial document instructs the agent's memory tool to write facts"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "malicious facts"
+    },
+    {
+     "value": "attack",
+     "primary": false,
+     "reason": "poisoned memory entry as payload"
+    }
+   ],
+   "governance": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "not applicable: security framing"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "theoretical framing, no implementation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memorybear--memorybear-ai",
+  "source": "https://github.com/SuanmoSuanyangTechnology/MemoryBear",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "graph",
+     "primary": true,
+     "reason": "README: extracted triples sync to Neo4j"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "PostgreSQL primary DB"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "Elasticsearch hybrid index with BERT embeddings"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "README: semantic retrieval expands candidates, keyword retrieval filters"
+    },
+    {
+     "value": "graph-traversal",
+     "primary": false,
+     "reason": "graph-first architecture"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "structured triples from conversations/docs"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "daily self-reflection reinforces high-value knowledge"
+    },
+    {
+     "value": "evict-oldest",
+     "primary": false,
+     "reason": "strength-based dormancy -> decay -> clearance"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "structured triples as atomic units"
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "'machine-generated + human-optimized' graph management"
+    },
+    {
+     "value": "inspectable",
+     "primary": false,
+     "reason": "graph visualization"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "human-arbitrate",
+     "primary": true,
+     "reason": "README: self-reflection detects logical conflicts, flags records for human review"
+    }
+   ]
+  }
+ },
+ {
+  "id": "memu-nevamind--gh-nevamind-ai-memu",
+  "source": "https://github.com/NevaMind-AI/memU",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "Markdown memory and skill files on disk"
+    },
+    {
+     "value": "relational",
+     "primary": false,
+     "reason": "SQLite default, Postgres for concurrency"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "pgvector / brute-force cosine"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": "embedding search via progressive_retrieve"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "standing instruction has the agent run retrieval before answering"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "shared across sessions, agents and devices"
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "README: judgment and synthesis stay in the agent; MemoryService makes no LLM calls"
+    },
+    {
+     "value": "extraction",
+     "primary": false,
+     "reason": "agent distills sliced session logs into memory/skills"
+    }
+   ],
+   "unit": [
+    {
+     "value": "document",
+     "primary": true,
+     "reason": "shared 'LLM wiki' Markdown"
+    },
+    {
+     "value": "skill",
+     "primary": false,
+     "reason": "reusable workflow skills"
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "readable Markdown; viewable at memu.so"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "agent",
+     "primary": true,
+     "reason": "agent chooses to do nothing, patch an existing skill, or create a new one"
+    }
+   ]
+  }
+ },
+ {
+  "id": "neo4j-agent-memory-neo4j-labs--gh-neo4j-labs-agent-memory",
+  "source": "https://github.com/neo4j-labs/agent-memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "graph",
+     "primary": true,
+     "reason": "Neo4j (Aura/self-hosted or hosted NAMS)"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "vector + text search"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": "vector + text search; similar-task retrieval"
+    },
+    {
+     "value": "graph-traversal",
+     "primary": false,
+     "reason": "POLE+O graph; read-only Cypher via MCP"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "multi-stage entity extraction (spaCy / GLiNER / LLM)"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "entity resolution and dedupe_entities"
+    }
+   ],
+   "unit": [
+    {
+     "value": "entity",
+     "primary": true,
+     "reason": "POLE+O entities, facts, preferences"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "conversation messages"
+    },
+    {
+     "value": "trajectory",
+     "primary": false,
+     "reason": "reasoning traces and tool use"
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": "Cypher access to the graph"
+    },
+    {
+     "value": "auditable",
+     "primary": false,
+     "reason": ":TOUCHED audit edges from reasoning steps to entities"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "none",
+     "primary": true,
+     "reason": "no documented contradiction handling beyond entity resolution/dedup"
+    }
+   ]
+  }
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "source": "https://docs.openclaw.ai/concepts/memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "docs: plain Markdown in agent workspace; 'no hidden state'"
+    },
+    {
+     "value": "vector",
+     "primary": false,
+     "reason": "pluggable LanceDB engine"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "USER.md and MEMORY.md loaded at session start"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "memory_search / memory_get over daily notes"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "model writes Markdown; pre-compaction flush"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "dreaming sweep distils daily notes into MEMORY.md"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "durable facts and decisions in MEMORY.md"
+    },
+    {
+     "value": "profile",
+     "primary": false,
+     "reason": "USER.md"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "daily memory/YYYY-MM-DD.md notes"
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "plain Markdown; DREAMS.md for human review"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "overwrite",
+     "primary": true,
+     "reason": "docs: supersede in place rather than append contradictory directive; active/superseded metadata"
+    }
+   ]
+  }
+ },
+ {
+  "id": "perplexity-brain--perplexity-ai",
+  "source": "https://www.testingcatalog.com/perplexity-releases-brain-memory-system-for-perplexity-computer.md",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "proprietary",
+     "primary": true,
+     "reason": "closed vendor store"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "context organised by topic, retrieved only when a task calls for it"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "accumulated context across tasks"
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "'model gathers information and groups it by subject' (reported)"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "projects, decisions and sources grouped by topic"
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": "exposes topics, underlying context and 3D connection map; editing not mentioned"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "n/a",
+     "primary": true,
+     "reason": "searched not found"
+    }
+   ]
+  }
+ },
+ {
+  "id": "redis-agent-memory-server--gh-redis-agent-memory-server",
+  "source": "https://redis.io/docs/latest/develop/ai/context-engine/agent-memory/overview/",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "vector",
+     "primary": true,
+     "reason": "long-term facts as text + vector embeddings"
+    },
+    {
+     "value": "kv",
+     "primary": false,
+     "reason": "Redis session memory with TTL"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "similarity",
+     "primary": true,
+     "reason": "semantic search over long-term memory"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    },
+    {
+     "value": "session",
+     "primary": false,
+     "reason": "session memory with configurable TTL"
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "background extraction of facts/preferences from session events"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "summarizes older events past a threshold"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "semantic memories"
+    },
+    {
+     "value": "episode",
+     "primary": false,
+     "reason": "episodic memories"
+    },
+    {
+     "value": "summary",
+     "primary": false,
+     "reason": "session summary"
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": "direct long-term writes via REST/MCP API"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "Redis docs: extraction weighs new vs existing memories, model judgment decides duplicate vs distinct"
+    }
+   ]
+  }
+ },
+ {
+  "id": "screenpipe--gh-mediar-ai-screenpipe",
+  "source": "https://github.com/mediar-ai/screenpipe",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "relational",
+     "primary": true,
+     "reason": "README: local SQLite with FTS5"
+    },
+    {
+     "value": "file",
+     "primary": false,
+     "reason": "media files on disk"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "exact-match",
+     "primary": true,
+     "reason": "FTS5 keyword search with app/window/URL/date filters"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "MCP server for AI assistants"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": "24/7 capture; configurable retention"
+    }
+   ],
+   "update": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "continuous capture"
+    }
+   ],
+   "unit": [
+    {
+     "value": "episode",
+     "primary": true,
+     "reason": "frames + accessibility tree, audio transcripts, UI events"
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "local-first; capture filters, PII model, export/delete"
+    },
+    {
+     "value": "inspectable",
+     "primary": false,
+     "reason": "REST API and raw SQL"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "append",
+     "primary": true,
+     "reason": "captures appended; no reconciliation"
+    }
+   ]
+  }
+ },
+ {
+  "id": "serena-oraios--gh-oraios-serena",
+  "source": "https://github.com/oraios/serena/blob/main/src/serena/tools/memory_tools.py",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "memories are Markdown files; project and global/ scopes"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "agentic",
+     "primary": true,
+     "reason": "agent calls list_memories / read_memory"
+    },
+    {
+     "value": "exact-match",
+     "primary": false,
+     "reason": "read by memory name/topic"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "cross-session",
+     "primary": true,
+     "reason": "shared across sessions, users and projects"
+    }
+   ],
+   "update": [
+    {
+     "value": "agent-controlled",
+     "primary": true,
+     "reason": "write/edit/rename/delete memory tools"
+    },
+    {
+     "value": "overwrite",
+     "primary": false,
+     "reason": "edit_memory literal/regex replace"
+    }
+   ],
+   "unit": [
+    {
+     "value": "file",
+     "primary": true,
+     "reason": "named Markdown memory"
+    },
+    {
+     "value": "document",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "editable",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "agent",
+     "primary": true,
+     "reason": "agent edits/replaces content; delete only on explicit instruction"
+    }
+   ]
+  }
+ },
+ {
+  "id": "sleep-time-compute-letta--letta-com",
+  "source": "https://letta.com/blog/sleep-time-compute",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "kv",
+     "primary": true,
+     "reason": "Letta core memory blocks (as Letta/MemGPT row)"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "injection",
+     "primary": true,
+     "reason": "pre-computed 'learned context' in core memory"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "consolidation",
+     "primary": true,
+     "reason": "sleep-time agent rewrites memory state during idle time"
+    },
+    {
+     "value": "agent-controlled",
+     "primary": false,
+     "reason": "background agent manages primary agent's core memory"
+    }
+   ],
+   "unit": [
+    {
+     "value": "summary",
+     "primary": true,
+     "reason": "learned context / pre-reasoned inferences"
+    },
+    {
+     "value": "fact",
+     "primary": false,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "inspectable",
+     "primary": true,
+     "reason": "as Letta/MemGPT row"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "llm-arbitrate",
+     "primary": true,
+     "reason": "sleep-time agent rewrites the primary agent's memory"
+    }
+   ]
+  }
+ },
+ {
+  "id": "tencentdb-agent-memory--gh-tencent-tencentdb-agent-memory",
+  "source": "https://github.com/Tencent/TencentDB-Agent-Memory",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "vector",
+     "primary": true,
+     "reason": "vector retrieval index"
+    },
+    {
+     "value": "graph",
+     "primary": false,
+     "reason": "Wiki link graph and CodeGraph"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "hybrid-rerank",
+     "primary": true,
+     "reason": "README: BM25 + vector + RRF"
+    },
+    {
+     "value": "graph-traversal",
+     "primary": false,
+     "reason": "wiki link drill-down; code caller/callee"
+    },
+    {
+     "value": "agentic",
+     "primary": false,
+     "reason": "on-demand via /v3/tools/call"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "long-term",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "extraction",
+     "primary": true,
+     "reason": "L0 conversations refined async into L1 facts, L2 knowledge, L3 profiles"
+    },
+    {
+     "value": "consolidation",
+     "primary": false,
+     "reason": "multi-granularity layering"
+    }
+   ],
+   "unit": [
+    {
+     "value": "fact",
+     "primary": true,
+     "reason": "L1 facts and preferences"
+    },
+    {
+     "value": "skill",
+     "primary": false,
+     "reason": "versioned skills"
+    },
+    {
+     "value": "document",
+     "primary": false,
+     "reason": "LLM-Wiki pages"
+    }
+   ],
+   "governance": [
+    {
+     "value": "user-controllable",
+     "primary": true,
+     "reason": "private/team/restricted ACLs; revocable sharing"
+    },
+    {
+     "value": "editable",
+     "primary": false,
+     "reason": "Hub manages ownership, versions, status"
+    }
+   ],
+   "conflict": [
+    {
+     "value": "document-version",
+     "primary": true,
+     "reason": "README: version/status tracking of which version is valid; Wiki/CodeGraph resync on source change"
+    }
+   ]
+  }
+ },
+ {
+  "id": "yarn--arxiv-2309-00071",
+  "source": "https://arxiv.org/abs/2309.00071",
+  "taxonomy": {
+   "storage": [
+    {
+     "value": "kv-cache",
+     "primary": true,
+     "reason": "extended context window"
+    }
+   ],
+   "retrieval": [
+    {
+     "value": "attention",
+     "primary": true,
+     "reason": "RoPE interpolation + attention scaling"
+    }
+   ],
+   "persistence": [
+    {
+     "value": "session",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "update": [
+    {
+     "value": "append-only",
+     "primary": true,
+     "reason": "tokens accumulate in window"
+    },
+    {
+     "value": "parametric-edit",
+     "primary": false,
+     "reason": "short fine-tune to extend window"
+    }
+   ],
+   "unit": [
+    {
+     "value": "kv-token",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "governance": [
+    {
+     "value": "opaque",
+     "primary": true,
+     "reason": null
+    }
+   ],
+   "conflict": [
+    {
+     "value": "out-of-scope",
+     "primary": true,
+     "reason": "position-encoding method"
+    }
+   ]
+  }
+ }
+]
