@@ -14,9 +14,9 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "node dist/test-tools.js && node dist/test-recommender.js && node dist/test-composite.js",
+    "test": "node dist/test-tools.js && node dist/test-recommender.js && node dist/test-composite.js && node dist/test-stack-check.js",
     "prepare": "tsc",
-    "prepack": "tsc && mkdir -p data && cp ../data/landscape.json ../data/landscape.edges.json data/ && cp ../taxonomy/families.json data/"
+    "prepack": "tsc && mkdir -p data && cp ../data/landscape.json ../data/landscape.edges.json ../data/stack-index.json data/ && cp ../taxonomy/families.json data/"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"

@@ -1,0 +1,353 @@
+{
+  "_doc": "Package names (npm / PyPI / Docker image) → the catalog record that ships them, by exact record name. Used by scripts/build_stack_index.py for the stack checker (\"check my stack\"). Package names from pypi.org/npmjs.com citations and GitHub repo names are indexed automatically; list a package here when it isn't (the import name differs from the repo name, or one product ships several packages). Ecosystem prefixes: npm:, pypi:, docker:. A package listed under several records maps to the first.",
+  "records": {
+    "Mem0": [
+      "pypi:mem0ai",
+      "npm:mem0ai"
+    ],
+    "Mem0 MCP (official)": [
+      "pypi:mem0-mcp",
+      "npm:@mem0/mcp-server"
+    ],
+    "Mem0 Security / OpenMemory": [
+      "docker:mem0/openmemory-mcp"
+    ],
+    "Zep & Graphiti": [
+      "pypi:graphiti-core",
+      "pypi:zep-cloud",
+      "npm:@getzep/zep-cloud",
+      "pypi:zep-python",
+      "npm:@getzep/zep-js"
+    ],
+    "Graphiti MCP Server (Zep)": [
+      "docker:zepai/knowledge-graph-mcp"
+    ],
+    "Letta / MemGPT": [
+      "pypi:letta",
+      "pypi:letta-client",
+      "npm:@letta-ai/letta-client",
+      "pypi:pymemgpt",
+      "pypi:memgpt"
+    ],
+    "Letta Code": [
+      "npm:@letta-ai/letta-code"
+    ],
+    "Cognee": [
+      "pypi:cognee"
+    ],
+    "Cognee MCP": [
+      "pypi:cognee-mcp"
+    ],
+    "LangChain (framework)": [
+      "pypi:langchain",
+      "pypi:langchain-core",
+      "pypi:langchain-community",
+      "npm:langchain",
+      "npm:@langchain/core",
+      "npm:@langchain/community"
+    ],
+    "LangMem (LangChain)": [
+      "pypi:langmem"
+    ],
+    "LangGraph (orchestration)": [
+      "pypi:langgraph",
+      "npm:@langchain/langgraph"
+    ],
+    "LangGraph Persistence": [
+      "pypi:langgraph-checkpoint",
+      "pypi:langgraph-checkpoint-postgres",
+      "pypi:langgraph-checkpoint-sqlite",
+      "npm:@langchain/langgraph-checkpoint"
+    ],
+    "LangSmith": [
+      "pypi:langsmith",
+      "npm:langsmith"
+    ],
+    "LlamaIndex (framework)": [
+      "pypi:llama-index",
+      "pypi:llama-index-core",
+      "npm:llamaindex"
+    ],
+    "CrewAI": [
+      "pypi:crewai",
+      "pypi:crewai-tools"
+    ],
+    "AutoGen / AG2": [
+      "pypi:pyautogen",
+      "pypi:ag2"
+    ],
+    "Microsoft Semantic Kernel": [
+      "pypi:semantic-kernel",
+      "npm:semantic-kernel"
+    ],
+    "Haystack (framework)": [
+      "pypi:haystack-ai",
+      "pypi:farm-haystack"
+    ],
+    "Flowise Memory": [
+      "npm:flowise",
+      "npm:flowise-components",
+      "npm:flowise-embed",
+      "docker:flowiseai/flowise"
+    ],
+    "Langflow Memory": [
+      "pypi:langflow",
+      "docker:langflowai/langflow"
+    ],
+    "n8n (AI agent flows)": [
+      "npm:n8n",
+      "docker:n8nio/n8n"
+    ],
+    "Mastra": [
+      "npm:@mastra/core",
+      "npm:mastra"
+    ],
+    "Mastra Memory": [
+      "npm:@mastra/memory"
+    ],
+    "Phidata (now Agno)": [
+      "pypi:phidata"
+    ],
+    "Agno (Phidata) Memory": [
+      "pypi:agno"
+    ],
+    "Pydantic-AI": [
+      "pypi:pydantic-ai",
+      "pypi:pydantic-ai-slim"
+    ],
+    "Chroma": [
+      "pypi:chromadb",
+      "npm:chromadb",
+      "docker:chromadb/chroma"
+    ],
+    "Qdrant": [
+      "pypi:qdrant-client",
+      "npm:@qdrant/js-client-rest",
+      "docker:qdrant/qdrant"
+    ],
+    "Pinecone": [
+      "pypi:pinecone",
+      "pypi:pinecone-client",
+      "npm:@pinecone-database/pinecone"
+    ],
+    "Weaviate": [
+      "pypi:weaviate-client",
+      "npm:weaviate-client",
+      "npm:weaviate-ts-client",
+      "docker:semitechnologies/weaviate"
+    ],
+    "Milvus": [
+      "pypi:pymilvus",
+      "npm:@zilliz/milvus2-sdk-node",
+      "docker:milvusdb/milvus"
+    ],
+    "LanceDB": [
+      "pypi:lancedb",
+      "npm:@lancedb/lancedb",
+      "npm:vectordb"
+    ],
+    "PostgreSQL pgvector": [
+      "pypi:pgvector",
+      "npm:pgvector",
+      "docker:pgvector/pgvector"
+    ],
+    "Neo4j": [
+      "pypi:neo4j",
+      "npm:neo4j-driver",
+      "docker:neo4j"
+    ],
+    "Neo4j Agent Memory (Neo4j Labs)": [
+      "pypi:neo4j-agent-memory",
+      "npm:@neo4j-labs/agent-memory"
+    ],
+    "FalkorDB": [
+      "pypi:falkordb",
+      "docker:falkordb/falkordb"
+    ],
+    "Redis Agent Memory Server": [
+      "pypi:agent-memory-server",
+      "pypi:agent-memory-client",
+      "docker:redislabs/agent-memory-server"
+    ],
+    "Supermemory": [
+      "npm:supermemory",
+      "pypi:supermemory"
+    ],
+    "Honcho (Plastic Labs)": [
+      "pypi:honcho-ai",
+      "npm:@honcho-ai/sdk"
+    ],
+    "Memobase": [
+      "pypi:memobase"
+    ],
+    "MemOS (MemTensor)": [
+      "pypi:memoryos"
+    ],
+    "Memary": [
+      "pypi:memary"
+    ],
+    "Langfuse": [
+      "pypi:langfuse",
+      "npm:langfuse",
+      "docker:langfuse/langfuse"
+    ],
+    "Helicone": [
+      "npm:@helicone/helicone"
+    ],
+    "Arize Phoenix": [
+      "pypi:arize-phoenix",
+      "pypi:openinference-instrumentation"
+    ],
+    "Braintrust": [
+      "pypi:braintrust",
+      "npm:braintrust"
+    ],
+    "AgentOps": [
+      "pypi:agentops"
+    ],
+    "OpenAI Agents SDK": [
+      "pypi:openai-agents",
+      "npm:@openai/agents"
+    ],
+    "Vercel AI SDK": [
+      "npm:ai",
+      "npm:@ai-sdk/openai",
+      "npm:@ai-sdk/anthropic"
+    ],
+    "smolagents (Hugging Face)": [
+      "pypi:smolagents"
+    ],
+    "OpenAI Swarm (deprecated)": [],
+    "Official MCP Memory server": [
+      "npm:@modelcontextprotocol/server-memory"
+    ],
+    "Basic Memory": [
+      "pypi:basic-memory"
+    ],
+    "Memori": [
+      "pypi:memorisdk"
+    ],
+    "Vespa": [
+      "pypi:pyvespa"
+    ],
+    "Elasticsearch / OpenSearch": [
+      "pypi:elasticsearch",
+      "pypi:opensearch-py",
+      "npm:@elastic/elasticsearch"
+    ],
+    "Turbopuffer": [
+      "pypi:turbopuffer",
+      "npm:@turbopuffer/turbopuffer"
+    ],
+    "Marqo": [
+      "pypi:marqo"
+    ],
+    "Cohere Embed": [
+      "pypi:cohere",
+      "npm:cohere-ai"
+    ],
+    "Voyage AI (MongoDB)": [
+      "pypi:voyageai",
+      "npm:voyageai"
+    ],
+    "Ragas": [
+      "pypi:ragas"
+    ],
+    "Confident AI / DeepEval": [
+      "pypi:deepeval"
+    ],
+    "TruLens": [
+      "pypi:trulens",
+      "pypi:trulens-eval"
+    ],
+    "vLLM": [
+      "pypi:vllm",
+      "docker:vllm/vllm-openai"
+    ],
+    "LiteLLM": [
+      "pypi:litellm",
+      "docker:ghcr.io/berriai/litellm"
+    ],
+    "Portkey AI": [
+      "pypi:portkey-ai",
+      "npm:portkey-ai"
+    ],
+    "Continue.dev (framework)": [
+      "npm:@continuedev/cli"
+    ],
+    "Aider": [
+      "pypi:aider-chat"
+    ],
+    "MetaGPT": [
+      "pypi:metagpt"
+    ],
+    "Browserbase": [
+      "pypi:browserbase",
+      "npm:@browserbasehq/sdk"
+    ],
+    "Stagehand": [
+      "npm:@browserbasehq/stagehand"
+    ],
+    "e2b": [
+      "pypi:e2b",
+      "pypi:e2b-code-interpreter",
+      "npm:e2b",
+      "npm:@e2b/code-interpreter"
+    ],
+    "Modal": [
+      "pypi:modal"
+    ],
+    "Daytona": [
+      "pypi:daytona",
+      "npm:@daytonaio/sdk"
+    ],
+    "Hindsight (Vectorize)": [
+      "pypi:hindsight-client",
+      "npm:@vectorize-io/hindsight-client"
+    ],
+    "memU (NevaMind)": [
+      "pypi:memu-py"
+    ],
+    "Beads (Steve Yegge)": [
+      "npm:@beads/bd"
+    ],
+    "Serena (Oraios)": [
+      "pypi:serena-agent"
+    ],
+    "context-mode": [
+      "npm:context-mode"
+    ],
+    "agentmemory (rohitg00)": [
+      "npm:agentmemory"
+    ],
+    "memsearch (Zilliz)": [
+      "pypi:memsearch"
+    ],
+    "Acontext (memodb)": [
+      "pypi:acontext",
+      "npm:@acontext/acontext"
+    ],
+    "A-MEM": [
+      "pypi:agentic-memory"
+    ],
+    "HippoRAG / HippoRAG2": [
+      "pypi:hipporag"
+    ],
+    "LightRAG": [
+      "pypi:lightrag-hku"
+    ],
+    "GraphRAG (Microsoft)": [
+      "pypi:graphrag"
+    ],
+    "Screenpipe": [
+      "npm:screenpipe",
+      "npm:@screenpipe/js"
+    ],
+    "Cline (framework)": [],
+    "AutoGen Memory": [
+      "pypi:autogen-agentchat",
+      "pypi:autogen-core",
+      "pypi:autogen-ext"
+    ]
+  }
+}

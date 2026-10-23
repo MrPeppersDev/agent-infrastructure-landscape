@@ -37,7 +37,10 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex } from '../../mcp/dist/data.js';
+import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
+import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
+import { readFileSync } from 'node:fs';
 import type { EdgeType } from '../../mcp/dist/tools.js';
 import {
   formatSearch,
@@ -137,6 +140,47 @@ program
       limit: opts.limit
     });
     emit(formatSearch(result, globalOpts(cmd)));
+  });
+
+// ===========================================================================
+// 1b. check — is anything in my stack archived / acquired / stale?
+// ===========================================================================
+
+program
+  .command('check')
+  .description('Check a manifest (package.json, requirements.txt, pyproject.toml, MCP config) for catalogued dependencies that are archived, deprecated, acquired, renamed or stale.')
+  .argument('[file]', 'manifest path (reads stdin when omitted or "-")')
+  .option('-f, --format <fmt>', 'force format: package.json | requirements.txt | pyproject.toml | mcp-config | list')
+  .option('--all', 'also list matched dependencies that are fine')
+  .option('--fail-on-attention', 'exit 2 when any dependency needs attention (for CI)')
+  .option('--json', 'emit JSON')
+  .action((file: string | undefined, opts: { format?: string; all?: boolean; failOnAttention?: boolean }, cmd: Command) => {
+    const text = !file || file === '-' ? readFileSync(0, 'utf-8') : readFileSync(file, 'utf-8');
+    const report = checkManifest(text, loadStackIndex(), {
+      filename: file,
+      format: opts.format as ManifestFormat | undefined
+    });
+    if (globalOpts(cmd).json) {
+      emit(JSON.stringify(report, null, 2));
+    } else {
+      const lines: string[] = [];
+      lines.push(`${report.dependencyCount} dependencies (${report.format}) · ${report.matched.length} in the catalog · ${report.attention.length} need attention`);
+      const show = opts.all ? report.matched : report.attention;
+      for (const f of show) {
+        const r = f.record;
+        lines.push('');
+        lines.push(`  ${f.dependency.name}  →  ${r.name}`);
+        lines.push(`    ${STATUS_LABEL[r.status]}${r.note ? ' — ' + r.note : ''}`);
+        if (r.context) lines.push(`    ${r.context}`);
+        if (r.llm_lock) lines.push(`    model lock-in: ${r.llm_lock}`);
+        if (r.evidence) lines.push(`    evidence: ${r.evidence}`);
+        lines.push(`    record: landscape show ${f.recordId}`);
+      }
+      if (!report.attention.length && !opts.all) lines.push('\n  Nothing archived, deprecated, acquired or stale among the catalogued dependencies.');
+      lines.push(`\nindex built ${report.indexGeneratedAt}`);
+      emit(lines.join('\n'));
+    }
+    if (opts.failOnAttention && report.attention.length) process.exit(2);
   });
 
 // ===========================================================================

@@ -112,11 +112,33 @@ def apply_taxonomy(rec: dict, tax: dict, vocab: dict[str, set[str]]) -> bool:
     return True
 
 
+def canonicalize() -> None:
+    """Rewrite landscape.json into its render → extract → reconcile form
+    (cell tiers derived from citations, normalised text, key order), which
+    is what validate gate 2 and `make build` expect."""
+    import subprocess
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        ex, rc = Path(td) / "extract.json", Path(td) / "reconciled.json"
+        html = ROOT / "landscape.html"
+        for cmd in (
+            [sys.executable, "scripts/render.py", "--input", str(LANDSCAPE), "--output", str(html)],
+            [sys.executable, "scripts/extract.py", "--output", str(ex)],
+            [sys.executable, "scripts/reconcile.py", "--input", str(ex), "--output", str(rc)],
+        ):
+            res = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True)
+            if res.returncode != 0:
+                sys.exit(f"canonicalize failed at {cmd[1]}:\n{res.stderr[-2000:]}")
+        LANDSCAPE.write_text(rc.read_text())
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("files", nargs="+")
     ap.add_argument("--date", required=True)
     ap.add_argument("--report", default=None, help="write a markdown summary here")
+    ap.add_argument("--no-canonicalize", action="store_true",
+                    help="skip the render → extract → reconcile pass (leaves derived tiers unset)")
     args = ap.parse_args()
 
     landscape = load_landscape(LANDSCAPE)
@@ -186,6 +208,8 @@ def main() -> int:
                                        + (f" ([source]({lc_cit}))" if _URL.match(lc_cit) else ""))
 
     save_landscape(landscape, LANDSCAPE)
+    if not args.no_canonicalize:
+        canonicalize()
     print(json.dumps(stats))
     if args.report:
         Path(args.report).write_text(

@@ -14,6 +14,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { LandscapeFile, LandscapeRecord, EdgesFile, Edge } from './types.js';
+import type { StackIndex } from './stack-check.js';
 
 let cachedRecords: LandscapeRecord[] | null = null;
 let cachedEdges: Edge[] | null = null;
@@ -115,4 +116,18 @@ export function loadFamilies(): Family[] {
 export function familyIdForSection(section: string): string {
   for (const f of loadFamilies()) if (f.sections.includes(section)) return f.id;
   return 'other';
+}
+
+// ---------------------------------------------------------------------------
+// Stack-checker index (data/stack-index.json, built by
+// scripts/build_stack_index.py). Shipped next to landscape.json.
+// ---------------------------------------------------------------------------
+
+
+let cachedStackIndex: StackIndex | null = null;
+
+export function loadStackIndex(): StackIndex {
+  if (cachedStackIndex) return cachedStackIndex;
+  cachedStackIndex = JSON.parse(readFileSync(join(DATA_DIR, 'stack-index.json'), 'utf-8')) as StackIndex;
+  return cachedStackIndex;
 }
