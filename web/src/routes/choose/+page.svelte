@@ -27,7 +27,7 @@
 
   $effect(() => {
     if (!browser) return;
-    const qs = answersToParams(answers).toString();
+    const qs = new URLSearchParams(answersToParams(answers)).toString();
     const target = qs ? `?${qs}` : window.location.pathname;
     if (window.location.search !== (qs ? `?${qs}` : '')) {
       goto(target, { replaceState: true, noScroll: true, keepFocus: true });

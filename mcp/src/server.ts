@@ -14,8 +14,9 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems } from './data.js';
 import { checkManifest } from './stack-check.js';
+import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
   searchRecords,
   getRecord,
@@ -188,7 +189,7 @@ async function main() {
         'dependencies are catalogued systems that are archived, deprecated, in maintenance mode, ' +
         'acquired, renamed, stale (no commits in 12+ months) or locked to one model vendor. ' +
         '`attention` lists the ones that need action, most severe first, each with the catalog ' +
-        'record id (use get_record for detail) and an evidence URL.',
+        'record id (use get_record for detail), an evidence URL and up to three live `replacements`.',
       inputSchema: {
         manifest: z.string().describe('The manifest file contents, or one package per line (npm:/pypi: prefixes optional).'),
         filename: z.string().optional().describe('Original filename, e.g. "requirements.txt" (helps format detection).'),
@@ -201,9 +202,77 @@ async function main() {
     async (args) => {
       const report = checkManifest(args.manifest, loadStackIndex(), {
         filename: args.filename,
-        format: args.format
+        format: args.format,
+        replacements: loadReplacements()
       });
       return jsonResult(report);
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // 1d. choose_memory_layer / find_alternatives
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'choose_memory_layer',
+    {
+      title: 'Recommend an agent memory layer',
+      description:
+        'Which memory layer should this project use? Give what you are building and your ' +
+        'requirements; returns three picks (Mem0, Zep/Graphiti, Letta, Cognee, Supermemory, …) ' +
+        'each with reasons that are catalogued facts plus source URLs, an also-consider list, and ' +
+        '`unconfirmed` systems the catalog cannot confirm a must-have for. Archived systems are ' +
+        'never recommended. Same logic as the /choose page.',
+      inputSchema: {
+        building: z.enum(['app', 'coding']).optional().describe('"app": an app/agent that remembers its users (default); "coding": a coding agent or dev tool.'),
+        hosting: z.enum(['self', 'managed', 'any']).optional().describe('Where it must run (default any).'),
+        oss: z.boolean().optional().describe('Require an open-source licence.'),
+        mcp: z.boolean().optional().describe('Require MCP support.'),
+        conflict: z.enum(['history', 'latest', 'llm', 'any']).optional().describe('When a fact changes: keep history (bi-temporal/versioned), latest wins, an LLM decides, or any.'),
+        shape: z.enum(['facts', 'conversations', 'documents', 'relationships', 'any']).optional().describe('What it will mostly remember.')
+      }
+    },
+    async (args) => {
+      const answers: Answers = { ...DEFAULT_ANSWERS, ...Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) };
+      const r = choose(loadChooserItems(), answers);
+      const slim = (x: (typeof r.picks)[number]) => ({
+        id: x.item.id, name: x.item.name, section: x.item.section, reasons: x.reasons,
+        unconfirmed: x.unconfirmed, warning: x.warning, url: x.item.url
+      });
+      return jsonResult({
+        answers,
+        picks: r.picks.map(slim),
+        alsoConsider: r.alsoConsider.map((x) => ({ id: x.item.id, name: x.item.name, warning: x.warning })),
+        unconfirmed: r.unconfirmed.map(slim),
+        poolSize: r.poolSize,
+        excludedCount: r.excludedCount
+      });
+    }
+  );
+
+  server.registerTool(
+    'find_alternatives',
+    {
+      title: 'Find alternatives to a system',
+      description:
+        'Live alternatives to a catalogued system (use search_records to find its id), ranked by ' +
+        'shared memory design (storage, retrieval, conflict handling, memory unit), same section and ' +
+        'shared must-haves (open source, self-host, MCP). Archived systems and other packagings of ' +
+        'the same product are excluded. Use it to replace an archived or acquired dependency.',
+      inputSchema: {
+        id: z.string().describe('Catalog record id.'),
+        limit: z.number().int().min(1).max(20).optional().describe('How many (default 5).')
+      }
+    },
+    async (args) => {
+      const items = loadChooserItems();
+      const target = items.find((i) => i.id === args.id);
+      if (!target) return jsonResult({ error: `no record with id ${args.id}; use search_records` });
+      const fam = familyIdForSection(target.section);
+      const pool = items.filter((i) => familyIdForSection(i.section) === fam);
+      return jsonResult({
+        target: { id: target.id, name: target.name, section: target.section, status: target.status },
+        alternatives: alternatives(target, pool, args.limit ?? 5)
+      });
     }
   );
 

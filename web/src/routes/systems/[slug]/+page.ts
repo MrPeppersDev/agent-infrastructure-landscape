@@ -9,6 +9,10 @@
 import { error } from '@sveltejs/kit';
 import { getRecords, getEdges } from '$lib/data';
 import { allPairs, pairToSlug } from '$lib/seo/compare';
+import { familyForSection } from '$lib/families';
+
+// Families with /alternatives/<id> pages (mirror of $lib/alternatives ALT_FAMILIES).
+const ALT_FAMILIES = new Set(['memory', 'agents', 'data']);
 import type { LandscapeRecord, Edge } from '$lib/types';
 
 export const prerender = true;
@@ -92,5 +96,8 @@ export function load({ params }: { params: { slug: string } }): {
       }));
   }
 
-  return { record, outgoing, incoming, relatedNames, relatedPairs, similar };
+  const primary = record.sections.find((s) => s.primary)?.section ?? record.sections[0]?.section ?? '';
+  const hasAlternatives = ALT_FAMILIES.has(familyForSection(primary)?.id ?? '');
+
+  return { record, outgoing, incoming, relatedNames, relatedPairs, similar, hasAlternatives };
 }

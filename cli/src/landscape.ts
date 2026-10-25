@@ -37,7 +37,9 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection } from '../../mcp/dist/data.js';
+import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
+import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
 import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
 import { readFileSync } from 'node:fs';
@@ -158,7 +160,8 @@ program
     const text = !file || file === '-' ? readFileSync(0, 'utf-8') : readFileSync(file, 'utf-8');
     const report = checkManifest(text, loadStackIndex(), {
       filename: file,
-      format: opts.format as ManifestFormat | undefined
+      format: opts.format as ManifestFormat | undefined,
+      replacements: loadReplacements()
     });
     if (globalOpts(cmd).json) {
       emit(JSON.stringify(report, null, 2));
@@ -174,6 +177,7 @@ program
         if (r.context) lines.push(`    ${r.context}`);
         if (r.llm_lock) lines.push(`    model lock-in: ${r.llm_lock}`);
         if (r.evidence) lines.push(`    evidence: ${r.evidence}`);
+        if (f.replacements?.length) lines.push(`    consider instead: ${f.replacements.map((x) => x.name).join(', ')}`);
         lines.push(`    record: landscape show ${f.recordId}`);
       }
       if (!report.attention.length && !opts.all) lines.push('\n  Nothing archived, deprecated, acquired or stale among the catalogued dependencies.');
@@ -181,6 +185,60 @@ program
       emit(lines.join('\n'));
     }
     if (opts.failOnAttention && report.attention.length) process.exit(2);
+  });
+
+// ===========================================================================
+// 1c. choose / alternatives
+// ===========================================================================
+
+program
+  .command('choose')
+  .description('Recommend a memory layer: three picks with cited reasons (same logic as /choose).')
+  .option('--coding', 'building a coding agent / dev tool (default: an app that remembers users)')
+  .option('--hosting <h>', 'self | managed | any', 'any')
+  .option('--oss', 'require an open-source licence')
+  .option('--mcp', 'require MCP support')
+  .option('--conflict <c>', 'history | latest | llm | any', 'any')
+  .option('--shape <s>', 'facts | conversations | documents | relationships | any', 'any')
+  .option('--json', 'emit JSON')
+  .action((o: { coding?: boolean; hosting: string; oss?: boolean; mcp?: boolean; conflict: string; shape: string }, cmd: Command) => {
+    const answers = {
+      ...DEFAULT_ANSWERS,
+      building: o.coding ? 'coding' : 'app',
+      hosting: o.hosting,
+      oss: !!o.oss,
+      mcp: !!o.mcp,
+      conflict: o.conflict,
+      shape: o.shape
+    } as Answers;
+    const r = choose(loadChooserItems(), answers);
+    if (globalOpts(cmd).json) return emit(JSON.stringify(r, null, 2));
+    const lines: string[] = [];
+    r.picks.forEach((p, i) => {
+      lines.push(`${i + 1}. ${p.item.name}${p.warning ? '  ⚠ ' + p.warning : ''}`);
+      for (const x of p.reasons) lines.push(`     · ${x.text}${x.citation ? '  ' + x.citation : ''}`);
+      if (p.unconfirmed.length) lines.push(`     not confirmed: ${p.unconfirmed.join(', ')}`);
+    });
+    if (!r.picks.length) lines.push('No catalogued system confirms all of those must-haves.');
+    if (r.alsoConsider.length) lines.push('', `also consider: ${r.alsoConsider.map((x) => x.item.name).join(', ')}`);
+    if (r.unconfirmed.length) lines.push(`might fit (unconfirmed): ${r.unconfirmed.map((x) => x.item.name).join(', ')}`);
+    emit(lines.join('\n'));
+  });
+
+program
+  .command('alternatives')
+  .description('Live alternatives to a system, ranked by shared memory design and must-haves.')
+  .argument('<id>', 'record id (see `landscape search`)')
+  .option('-l, --limit <n>', 'how many (default 5)', (v) => parseInt(v, 10))
+  .option('--json', 'emit JSON')
+  .action((id: string, o: { limit?: number }, cmd: Command) => {
+    const items = loadChooserItems();
+    const t = items.find((i) => i.id === id);
+    if (!t) die(`record not found: ${id}`);
+    const fam = familyIdForSection(t.section);
+    const alts = alternatives(t, items.filter((i) => familyIdForSection(i.section) === fam), o.limit ?? 5);
+    if (globalOpts(cmd).json) return emit(JSON.stringify({ target: t.name, alternatives: alts }, null, 2));
+    emit([`Alternatives to ${t.name}:`, ...alts.map((a) => `  ${a.name}${a.warning ? '  ⚠ ' + a.warning : ''}\n     ${a.why.join('; ')}`)].join('\n'));
   });
 
 // ===========================================================================

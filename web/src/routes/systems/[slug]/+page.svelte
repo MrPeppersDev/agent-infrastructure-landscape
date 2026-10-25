@@ -25,6 +25,7 @@
       relatedNames: Record<string, string>;
       relatedPairs: RelatedPair[];
       similar: SimilarSystem[];
+      hasAlternatives: boolean;
     };
   } = $props();
 
@@ -252,6 +253,13 @@
     </section>
   {/if}
 
+  {#if data.hasAlternatives}
+    <p class="alt-link">
+      <a href="{base}/alternatives/{record.id}">Alternatives to {record.name} →</a>
+      <span>live options ranked by shared design, licence, hosting and MCP support</span>
+    </p>
+  {/if}
+
   {#if data.similar.length}
     <section class="similar">
       <h2>Similar systems</h2>
@@ -405,6 +413,19 @@
     dt {
       margin-top: 0.5rem;
     }
+  }
+  .alt-link {
+    margin: 20px 0 0;
+    font-size: 14px;
+  }
+  .alt-link a {
+    color: #58a6ff;
+    font-weight: 600;
+  }
+  .alt-link span {
+    color: #6e7681;
+    font-size: 12px;
+    margin-left: 8px;
   }
   .compare-list ul,
   .similar ul,

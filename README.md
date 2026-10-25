@@ -22,14 +22,15 @@ The section → family map lives in [`taxonomy/families.json`](./taxonomy/famili
 
 ## Questions it answers
 
+- *Which memory layer should I use?* → [**/choose**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose): five questions, three picks with cited reasons, a side-by-side table
+- *Is anything in my stack archived, acquired or stale, and what should replace it?* → [**/check**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/check): paste a package.json, requirements.txt, pyproject.toml or MCP config
+- *What are the alternatives to Mem0 / Zep / Flowise / Chroma…?* → [**/alternatives**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/alternatives)
 - *Which self-hostable memory layers support MCP and SOC 2?* → [best-of lists](https://mrpeppersdev.github.io/agent-infrastructure-landscape/best/self-hostable-agent-memory)
 - *How does each memory system handle contradictions and forgetting?* → the `contradiction`, `forgetting` and `conflict` columns, filterable in the table
-- *What does my stack depend on, and what breaks if a vendor goes away?* → `find_substrate_risk` in the MCP server
-- *Given my constraints, what should I use?* → [recommender](https://mrpeppersdev.github.io/agent-infrastructure-landscape/recommend/by-constraints) or `recommend_for_project` over MCP
 
 ## Use it from your agent (MCP)
 
-The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 14 read-only tools, including `search_records`, `compare`, `find_related`, `recommend_for_project`, `find_substrate_risk` and `recent_changes`.
+The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 18 read-only tools, including `choose_memory_layer`, `find_alternatives`, `check_stack`, `search_records`, `compare`, `find_related`, `find_substrate_risk` and `recent_changes`.
 
 ```sh
 git clone https://github.com/MrPeppersDev/agent-infrastructure-landscape
@@ -37,7 +38,7 @@ cd agent-infrastructure-landscape/mcp && npm install && npm run build
 claude mcp add landscape -- node $PWD/dist/server.js
 ```
 
-A [CLI](./cli/README.md) offers the same queries for scripts (`--json` / `--csv`).
+A [CLI](./cli/README.md) offers the same queries for scripts (`--json` / `--csv`), including `landscape choose`, `landscape alternatives <id>` and `landscape check <manifest> --fail-on-attention` for CI.
 
 ## What a record looks like
 

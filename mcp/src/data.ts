@@ -14,7 +14,9 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { LandscapeFile, LandscapeRecord, EdgesFile, Edge } from './types.js';
-import type { StackIndex } from './stack-check.js';
+import type { StackIndex, Replacement } from './stack-check.js';
+import { alternativesFor, toItem, type ChooserItem } from './chooser.js';
+import { attentionIds } from './stack-check.js';
 
 let cachedRecords: LandscapeRecord[] | null = null;
 let cachedEdges: Edge[] | null = null;
@@ -130,4 +132,32 @@ export function loadStackIndex(): StackIndex {
   if (cachedStackIndex) return cachedStackIndex;
   cachedStackIndex = JSON.parse(readFileSync(join(DATA_DIR, 'stack-index.json'), 'utf-8')) as StackIndex;
   return cachedStackIndex;
+}
+
+let cachedReplacements: Record<string, Replacement[]> | null = null;
+
+/** Live alternatives for every dependency the stack index flags. */
+export function loadReplacements(): Record<string, Replacement[]> {
+  if (cachedReplacements) return cachedReplacements;
+  const index = loadStackIndex();
+  cachedReplacements = alternativesFor(
+    loadRecords() as unknown as Parameters<typeof alternativesFor>[0],
+    attentionIds(index),
+    familyIdForSection,
+    index.records,
+    3
+  );
+  return cachedReplacements;
+}
+
+let cachedItems: ChooserItem[] | null = null;
+
+/** Every record as a chooser item (with stack-index lifecycle status). */
+export function loadChooserItems(): ChooserItem[] {
+  if (cachedItems) return cachedItems;
+  const status = loadStackIndex().records;
+  cachedItems = loadRecords().map((r) =>
+    toItem(r as unknown as Parameters<typeof toItem>[0], status[r.id])
+  );
+  return cachedItems;
 }

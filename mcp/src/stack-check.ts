@@ -60,11 +60,25 @@ export interface StackIndex {
   records: Record<string, IndexRecord>;
 }
 
+/** A suggested replacement (computed by chooser.alternatives). */
+export interface Replacement {
+  id: string;
+  name: string;
+  why: string[];
+}
+
 export interface Finding {
   dependency: Dependency;
   matchedBy: string;
   recordId: string;
   record: IndexRecord;
+  /** Live alternatives, for dependencies that need attention. */
+  replacements?: Replacement[];
+}
+
+export interface CheckOptions {
+  /** recordId → suggested replacements (see chooser.alternativesFor). */
+  replacements?: Record<string, Replacement[]>;
 }
 
 export interface StackReport {
@@ -328,13 +342,18 @@ function lookup(dep: Dependency, index: StackIndex): { id: string; by: string } 
 const ALL_STATUSES: StackStatus[] = ['dead', 'archived', 'deprecated', 'maintenance', 'inactive', 'stale',
   'acquired', 'renamed', 'research-code', 'active'];
 
-export function checkStack(deps: Dependency[], index: StackIndex, format = 'list'): StackReport {
+export function checkStack(deps: Dependency[], index: StackIndex, format = 'list', opts: CheckOptions = {}): StackReport {
   const matched: Finding[] = [];
   const unmatched: Dependency[] = [];
   for (const d of deps) {
     const hit = lookup(d, index);
     const rec = hit ? index.records[hit.id] : undefined;
-    if (hit && rec) matched.push({ dependency: d, matchedBy: hit.by, recordId: hit.id, record: rec });
+    if (hit && rec) {
+      const f: Finding = { dependency: d, matchedBy: hit.by, recordId: hit.id, record: rec };
+      const alts = rec.severity >= 2 ? opts.replacements?.[hit.id] : undefined;
+      if (alts?.length) f.replacements = alts.map(({ id, name, why }) => ({ id, name, why }));
+      matched.push(f);
+    }
     else unmatched.push(d);
   }
   matched.sort((a, b) => b.record.severity - a.record.severity || a.record.name.localeCompare(b.record.name));
@@ -351,9 +370,19 @@ export function checkStack(deps: Dependency[], index: StackIndex, format = 'list
   };
 }
 
-export function checkManifest(text: string, index: StackIndex, opts: { filename?: string; format?: ManifestFormat } = {}): StackReport {
+export function checkManifest(
+  text: string,
+  index: StackIndex,
+  opts: { filename?: string; format?: ManifestFormat } & CheckOptions = {}
+): StackReport {
   const { format, dependencies } = parseManifest(text, opts);
-  return checkStack(dependencies, index, format);
+  return checkStack(dependencies, index, format, opts);
+}
+
+/** Record ids in the index that need attention (severity >= 2) — the ones
+ * worth precomputing replacements for. */
+export function attentionIds(index: StackIndex): string[] {
+  return Object.entries(index.records).filter(([, r]) => r.severity >= 2).map(([id]) => id);
 }
 
 export const STATUS_LABEL: Record<StackStatus, string> = {
