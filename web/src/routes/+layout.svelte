@@ -16,6 +16,7 @@
 
   const routes = [
     { path: '/', label: 'Table' },
+    { path: '/choose', label: 'Choose memory' },
     { path: '/check', label: 'Check stack' },
     { path: '/findings', label: 'Findings' },
     { path: '/systems', label: 'Systems' },
