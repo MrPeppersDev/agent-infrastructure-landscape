@@ -20,6 +20,8 @@
 
   const index = indexRaw as unknown as StackIndex;
 
+  let { data }: { data: { replacements: Record<string, { id: string; name: string; why: string[] }[]> } } = $props();
+
   const SAMPLES: Record<string, { label: string; filename: string; text: string }> = {
     pkg: {
       label: 'package.json',
@@ -70,7 +72,7 @@
 
   function run() {
     report = text.trim()
-      ? checkManifest(text, index, { filename: filename || undefined, format: format || undefined })
+      ? checkManifest(text, index, { filename: filename || undefined, format: format || undefined, replacements: data.replacements })
       : null;
   }
 
@@ -200,6 +202,13 @@
               </div>
               {#if r.note}<p class="note">{r.note}</p>{/if}
               {#if r.context}<p class="ctx">{r.context}</p>{/if}
+              {#if f.replacements?.length}
+                <p class="alts">
+                  Consider instead:
+                  {#each f.replacements as alt, j (alt.id)}<a href="{base}/systems/{alt.id}" title={alt.why.join('; ')}>{alt.name}</a>{j < f.replacements.length - 1 ? ', ' : ''}{/each}
+                  · <a href="{base}/alternatives/{f.recordId}">more alternatives</a>
+                </p>
+              {/if}
               <p class="meta">
                 {#if r.last_commit}<span>last commit {r.last_commit}</span>{/if}
                 {#if r.license}<span>licence: {r.license}</span>{/if}
@@ -419,8 +428,14 @@
     font-size: 12px;
     color: #6e7681;
   }
-  .meta a {
+  .meta a,
+  .alts a {
     color: #58a6ff;
+  }
+  .alts {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: #c9d1d9;
   }
   .unmatched {
     margin-top: 20px;
