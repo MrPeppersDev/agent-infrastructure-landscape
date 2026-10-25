@@ -9,6 +9,7 @@
   import SeoHead from '$lib/components/SeoHead.svelte';
   import {
     choose,
+    clip,
     answersToParams,
     paramsToAnswers,
     DEFAULT_ANSWERS,
@@ -242,7 +243,7 @@
               <td>{[...new Set([...i.storage, ...i.unit])].slice(0, 3).join(', ')}</td>
               <td class="num">{fmtStars(i.stars)}</td>
               <td>{i.releaseDate ?? ''}</td>
-              <td class="lic">{i.facts.license.value.slice(0, 28)}</td>
+              <td class="lic" title={i.facts.license.value}>{clip(i.facts.license.value, 32)}</td>
             </tr>
           {/each}
         </tbody>

@@ -5,7 +5,7 @@
   // packagings of the same product are excluded.
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
-  import type { ChooserItem, Alternative, Tri } from '$lib/chooser';
+  import { clip, type ChooserItem, type Alternative, type Tri } from '$lib/chooser';
 
   let { data }: { data: { target: ChooserItem; family: string; alts: (Alternative & { compare: string })[] } } = $props();
   const t = $derived(data.target);
@@ -54,7 +54,7 @@
             <span title="MCP support">MCP {tri(a.mcp)}</span>
             {#if a.stars}<span>★ {fmt(a.stars)}</span>{/if}
             {#if a.releaseDate}<span>released {a.releaseDate}</span>{/if}
-            {#if a.license}<span class="lic">{a.license.slice(0, 40)}</span>{/if}
+            {#if a.license}<span class="lic" title={a.license}>{clip(a.license, 48)}</span>{/if}
             <a href="{base}{a.compare}">Compare with {t.name} →</a>
           </p>
         </li>

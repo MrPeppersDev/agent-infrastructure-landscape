@@ -109,6 +109,17 @@ function fact(r: LandscapeRecord, slug: string): Fact {
   return { value: String(c.value ?? '').replace(/<[^>]+>/g, '').trim(), citation: c.citation ?? null };
 }
 
+/** Shorten to <= max chars at a sentence end, else a word boundary + "…" —
+ * never mid-word. */
+export function clip(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const sentence = cut.lastIndexOf('. ');
+  if (sentence > max * 0.5) return cut.slice(0, sentence + 1);
+  const space = cut.lastIndexOf(' ');
+  return (space > 0 ? cut.slice(0, space) : cut).replace(/[,;:(—-]+$/, '').trimEnd() + '…';
+}
+
 function tax(r: LandscapeRecord, axis: string): string[] {
   const vals = (r.taxonomy as unknown as Record<string, { value: string }[]>)[axis] ?? [];
   return vals.map((v) => v.value).filter((v) => v && v !== 'n/a');
@@ -158,7 +169,7 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
     section,
     tier: r.tier,
     url: r.url,
-    desc: fact(r, 'desc').value.slice(0, 260),
+    desc: clip(fact(r, 'desc').value, 260),
     ...hosting(dep.value, oss, hasRepo),
     oss,
     mcp: mcpTri(mcp.value),
@@ -386,13 +397,16 @@ export interface Alternative {
   releaseDate: string | null;
 }
 
-function jaccard(a: string[], b: string[]): number {
-  const A = new Set(a.filter((x) => !['none', 'none-trivial', 'out-of-scope'].includes(x)));
-  const B = new Set(b.filter((x) => !['none', 'none-trivial', 'out-of-scope'].includes(x)));
-  if (!A.size || !B.size) return 0;
-  let inter = 0;
-  for (const x of A) if (B.has(x)) inter++;
-  return inter / (A.size + B.size - inter);
+const IGNORE = new Set(['none', 'none-trivial', 'out-of-scope']);
+
+/** Shared values and overlap coefficient (|A∩B| / min(|A|,|B|)), which
+ * doesn't punish a system for listing more values than the target. */
+function overlap(a: string[], b: string[]): { score: number; shared: string[] } {
+  const A = [...new Set(a.filter((x) => !IGNORE.has(x)))];
+  const B = new Set(b.filter((x) => !IGNORE.has(x)));
+  if (!A.length || !B.size) return { score: 0, shared: [] };
+  const shared = A.filter((x) => B.has(x));
+  return { score: shared.length / Math.min(A.length, B.size), shared };
 }
 
 function repoKey(i: ChooserItem): string | null {
@@ -442,14 +456,9 @@ export function alternatives(target: ChooserItem, candidates: ChooserItem[], n =
       ['unit', 'memory unit']
     ];
     for (const [k, label] of axes) {
-      const a = target[k] as string[];
-      const b = c[k] as string[];
-      const j = jaccard(a, b);
-      sim += j * 2;
-      if (j >= 0.5) {
-        const shared = a.filter((x) => b.includes(x) && !['none', 'none-trivial', 'out-of-scope'].includes(x));
-        if (shared.length) why.push(`same ${label} (${shared.slice(0, 2).join(', ')})`);
-      }
+      const o = overlap(target[k] as string[], c[k] as string[]);
+      sim += o.score * 2;
+      if (o.shared.length) why.push(`same ${label} (${o.shared.slice(0, 2).join(', ')})`);
     }
     if (target.oss === 'yes' && c.oss === 'yes') { sim += 0.7; why.push('also open source'); }
     if (target.selfHost === 'yes' && c.selfHost === 'yes') { sim += 0.4; why.push('also self-hostable'); }
@@ -458,14 +467,14 @@ export function alternatives(target: ChooserItem, candidates: ChooserItem[], n =
     if (sim < 2) continue; // not meaningfully similar
     // maturity: live, adopted options should rise above research code
     // that merely shares a design (tiers 4–5 are papers / ideas)
-    sim += ({ 1: 1.5, 2: 1.0, 3: 0.5, 4: -0.5, 5: -1 } as Record<number, number>)[c.tier] ?? 0;
-    if (c.stars) sim += Math.min(1.2, Math.max(0, Math.log10(c.stars) - 2) * 0.4);
+    sim += ({ 1: 0.8, 2: 0.5, 3: 0.2, 4: -0.6, 5: -1 } as Record<number, number>)[c.tier] ?? 0;
+    if (c.stars) sim += Math.min(0.6, Math.max(0, Math.log10(c.stars) - 2) * 0.2);
     if (c.status.severity >= 2) sim -= 1;
     out.push({
       id: c.id,
       name: c.name,
       section: c.section,
-      why: why.slice(0, 5),
+      why: why.slice(0, 7),
       similarity: Math.round(sim * 100) / 100,
       warning: c.status.severity >= 1 && c.status.status !== 'active' ? `${c.status.status}${c.status.note ? ' — ' + c.status.note : ''}` : null,
       stars: c.stars,
