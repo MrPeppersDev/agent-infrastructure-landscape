@@ -44,7 +44,13 @@ GH = re.compile(r"github\.com/([\w.-]+)/([\w.-]+)", re.I)
 GH_VALUE = re.compile(r"^\s*(?:github\.com/)?([\w.-]+)/([\w.-]+)")
 COMMIT = re.compile(r"last (?:commit|push|update)[^0-9]{0,12}(20\d\d)-(\d\d)", re.I)
 ARCHIVED = re.compile(r"\barchived\b(?![^.]*\bnot archived)", re.I)
-ACQUIRED = re.compile(r"\bacquired by ([A-Z][\w&.\-]*(?: [A-Z][\w&.\-]*){0,3})", re.I)
+MONTH = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\b"
+# "acquired by" in any case; the acquirer: up to four Capitalised words,
+# stopping before a month, a year or a lower-case word.
+ACQUIRED = re.compile(r"(?i:\bacquired by) ((?!" + MONTH + r")[A-Z][\w&.\-]*(?: (?!" + MONTH + r")[A-Z][\w&.\-]*){0,3})")
+# Context that means the acquisition is about someone else (a founder's
+# previous company, a parent of a parent…), not this system.
+NOT_SELF = re.compile(r"\b(ex-|former|previously|founded by|founders?|co-?founder|team from)\b", re.I)
 SHUT = re.compile(r"\b(shut down|sunset|discontinued|end of life|end-of-life|receivership|liquidation|wound down|went offline)\b", re.I)
 DEPRECATED = re.compile(r"\b(deprecated|superseded by|no longer (?:actively )?maintained|read-only)\b", re.I)
 MAINT = re.compile(r"\b(maintenance mode|maintenance only|bug ?fixes (?:and|/) security only|successor (?:is|product)|now Microsoft Agent Framework)\b", re.I)
@@ -104,7 +110,16 @@ def lifecycle(rec: dict, today: dt.date) -> dict:
     mm = MAINT.search(desc) or MAINT.search(gh)
     if status == "active" and mm:
         status, note = "maintenance", "maintenance mode (bug and security fixes only)"
-    am = ACQUIRED.search(desc) or ACQUIRED.search(fund)
+    am = None
+    for txt in (desc, fund):
+        for m in ACQUIRED.finditer(txt):
+            pre = txt[max(0, m.start() - 45):m.start()]
+            if NOT_SELF.search(pre):
+                continue
+            am = m
+            break
+        if am:
+            break
     nm = NOW.search(name)
     if status == "active" and am:
         status, note = "acquired", f"acquired by {am.group(1)}"
