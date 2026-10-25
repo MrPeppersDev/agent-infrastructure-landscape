@@ -59,16 +59,17 @@
   ];
 
   // ---- comparison table ---------------------------------------------------
-  type SortKey = 'name' | 'stars' | 'release' | 'tier';
-  let sortKey = $state<SortKey>('stars');
+  type SortKey = 'fit' | 'name' | 'stars' | 'release' | 'tier';
+  let sortKey = $state<SortKey>('fit');
   let sortDir = $state<1 | -1>(-1);
   let onlyMatching = $state(true);
 
   const matchIds = $derived(new Set(result.fitIds));
+  const fitRank = $derived(new Map(result.fitIds.map((id, i) => [id, i])));
   const tableRows = $derived.by(() => {
     const pool = data.items.filter((i) => POOLS[answers.building].includes(i.section) && (!onlyMatching || matchIds.has(i.id)));
     const val = (i: ChooserItem): string | number =>
-      sortKey === 'name' ? i.name.toLowerCase() : sortKey === 'stars' ? i.stars ?? -1 : sortKey === 'release' ? i.releaseDate ?? '' : -i.tier;
+      sortKey === 'fit' ? -(fitRank.get(i.id) ?? 1e6) : sortKey === 'name' ? i.name.toLowerCase() : sortKey === 'stars' ? i.stars ?? -1 : sortKey === 'release' ? i.releaseDate ?? '' : -i.tier;
     return [...pool].sort((a, b) => {
       const x = val(a), y = val(b);
       return (x < y ? -1 : x > y ? 1 : 0) * sortDir;
@@ -217,7 +218,7 @@
       <table>
         <thead>
           <tr>
-            <th><button type="button" onclick={() => sortBy('name')}>System</button></th>
+            <th><button type="button" onclick={() => sortBy('fit')} title="Sort by how well it fits your answers">Fit</button> · <button type="button" onclick={() => sortBy('name')}>System</button></th>
             <th>Self-host</th>
             <th>Managed</th>
             <th>Open source</th>
