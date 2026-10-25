@@ -12,6 +12,7 @@
   import ComparePanel from '$lib/components/ComparePanel.svelte';
   import ExportButton from '$lib/components/ExportButton.svelte';
   import ProductTabs from '$lib/components/ProductTabs.svelte';
+  import StartHere from '$lib/components/StartHere.svelte';
   import { sortColumns } from '$lib/stores/sort';
   import { searchQuery, applySearch } from '$lib/stores/search';
   import { filters, applyFilters, FACET_ORDER } from '$lib/stores/filters';
@@ -309,6 +310,7 @@
     </div>
   </header>
 
+  <StartHere hidden={activeFilterCount > 0 || $searchQuery.trim().length > 0} />
   <ProductTabs records={data.records} />
 
   <div class="body">
