@@ -41,6 +41,8 @@ for (const kind of ['framework', 'data'] as const) {
     check(`${kind}/${need.value}: nothing archived recommended`, [...r.picks, ...r.alsoConsider].every((s) => s.item.status.severity < 3));
     const brands = [...r.picks, ...r.alsoConsider].map((s) => brand(s.item.name) ?? s.item.id);
     check(`${kind}/${need.value}: one product per brand`, new Set(brands).size === brands.length, brands.join(','));
+    const repos = [...r.picks, ...r.alsoConsider].map((s) => (s.item.facts.gh.value.match(/^\s*([\w.-]+\/[\w.-]+)/)?.[1] ?? s.item.id).toLowerCase());
+    check(`${kind}/${need.value}: one product per repo`, new Set(repos).size === repos.length, repos.join(','));
   }
 }
 {
@@ -60,6 +62,12 @@ for (const kind of ['framework', 'data'] as const) {
 {
   const a = { ...DEFAULT_INFRA.framework, language: 'python' as const, oss: true };
   check('infra params round-trip', JSON.stringify(paramsToInfra('framework', new Map(Object.entries(infraToParams(a))) as never)) === JSON.stringify(a));
+}
+
+{
+  const r = chooseInfra(items, { ...DEFAULT_INFRA.framework, language: 'typescript' });
+  check('framework typescript: has picks or might-fits', r.picks.length + r.unconfirmed.length > 0);
+  check('framework typescript: Mastra or Vercel AI SDK considered', [...r.picks, ...r.alsoConsider, ...r.unconfirmed].some((s) => /Mastra|Vercel AI SDK/.test(s.item.name)));
 }
 
 console.log('compat');
