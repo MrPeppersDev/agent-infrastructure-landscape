@@ -6,8 +6,11 @@
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import { clip, type ChooserItem, type Alternative, type Tri } from '$lib/chooser';
+  import type { Migration } from '$lib/migrations';
 
-  let { data }: { data: { target: ChooserItem; family: string; alts: (Alternative & { compare: string })[] } } = $props();
+  let { data }: { data: { target: ChooserItem; family: string; alts: (Alternative & { compare: string })[]; migration: Migration | null } } = $props();
+  const m = $derived(data.migration);
+  const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
   const t = $derived(data.target);
   const dead = $derived(t.status.severity >= 2);
   const tri = (v: Tri) => (v === 'yes' ? '✓' : v === 'no' ? '—' : '?');
@@ -36,7 +39,36 @@
     <a href="{base}/systems/{t.id}">Full {t.name} record →</a>
   </p>
 
+  {#if m}
+    <section class="migrate" id="migrate">
+      {#if m.action === 'none'}
+        <h2>Nothing to migrate</h2>
+        <p>{m.summary}</p>
+      {:else}
+        <h2>{m.to.length ? 'Official migration path' : 'What the maintainers say'}</h2>
+        <p>{m.summary}</p>
+        {#if m.to.length}
+          <p class="to">
+            Move to:
+            {#each m.to as t, i (t.name)}{#if t.id}<a href="{base}/systems/{t.id}">{t.name}</a>{:else}<strong>{t.name}</strong>{/if}{i < m.to.length - 1 ? ' or ' : ''}{/each}
+          </p>
+        {/if}
+        {#if m.steps.length}
+          <ol class="steps">
+            {#each m.steps as s (s)}<li>{s}</li>{/each}
+          </ol>
+        {/if}
+      {/if}
+      <p class="src">
+        Sources:
+        {#each m.sources as u, i (u)}<a href={u} rel="nofollow noopener">{host(u)}</a>{i < m.sources.length - 1 ? ' · ' : ''}{/each}
+        · checked {m.verified_at}
+      </p>
+    </section>
+  {/if}
+
   {#if data.alts.length}
+    {#if m}<h2 class="alth">Other live alternatives</h2>{/if}
     <ol class="alts">
       {#each data.alts as a, i (a.id)}
         <li>
@@ -73,6 +105,14 @@
 </main>
 
 <style>
+  .migrate { border: 1px solid #238636; background: #0f1d14; border-radius: 10px; padding: 12px 16px; margin: 16px 0; }
+  .migrate h2 { margin: 0 0 6px; font-size: 17px; color: #f0f6fc; }
+  .migrate p { margin: 6px 0; line-height: 1.5; }
+  .migrate a { color: #58a6ff; }
+  .steps { margin: 8px 0; padding-left: 20px; line-height: 1.5; }
+  .steps li { margin: 4px 0; }
+  .src { font-size: 12px; color: #8b949e; }
+  .alth { font-size: 17px; color: #f0f6fc; margin: 20px 0 0; }
   .page { max-width: 900px; margin: 0 auto; padding: 24px 16px 64px; color: #c9d1d9; }
   .crumbs { font-size: 12px; color: #6e7681; margin-bottom: 6px; }
   .crumbs a, .lede a, .foot a, .facts a { color: #58a6ff; }

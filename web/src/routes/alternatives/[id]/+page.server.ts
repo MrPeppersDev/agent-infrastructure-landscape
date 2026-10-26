@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { alternativesTo, alternativeIds, familyIdOfItem, familyName } from '$lib/alternatives';
 import { allPairs, pairToSlug } from '$lib/seo/compare';
+import { migrationFor } from '$lib/migrations';
 import { attentionIds, type StackIndex } from '../../../../../mcp/src/stack-check';
 import stackIndex from '../../../../../data/stack-index.json';
 
@@ -27,6 +28,7 @@ export function load({ params }: { params: { id: string } }) {
   return {
     target: r.target,
     family: familyName(familyIdOfItem(r.target)),
-    alts: r.alts.map((a) => ({ ...a, compare: compareHref(a.id) }))
+    alts: r.alts.map((a) => ({ ...a, compare: compareHref(a.id) })),
+    migration: migrationFor(r.target.id)
   };
 }

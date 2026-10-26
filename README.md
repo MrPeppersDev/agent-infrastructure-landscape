@@ -22,15 +22,17 @@ The section → family map lives in [`taxonomy/families.json`](./taxonomy/famili
 
 ## Questions it answers
 
-- *Which memory layer should I use?* → [**/choose**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose): five questions, three picks with cited reasons, a side-by-side table
+- *Which memory layer / agent framework / vector database should I use?* → [**/choose**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose), [/choose/framework](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose/framework), [/choose/data](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose/data): a few questions, three picks with cited reasons, a side-by-side table
+- *Do these work together?* → [**/compatibility**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/compatibility): integration evidence for every pair, with sources
 - *Is anything in my stack archived, acquired or stale, and what should replace it?* → [**/check**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/check): paste a package.json, requirements.txt, pyproject.toml or MCP config
-- *What are the alternatives to Mem0 / Zep / Flowise / Chroma…?* → [**/alternatives**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/alternatives)
+- *What are the alternatives to Mem0 / Zep / Flowise / Chroma…, and how do I migrate off an archived one?* → [**/alternatives**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/alternatives), with cited migration notes
+- *What changed?* → each system page's change log, [per-system feeds](https://mrpeppersdev.github.io/agent-infrastructure-landscape/data#feeds) and the [JSON/CSV API](https://mrpeppersdev.github.io/agent-infrastructure-landscape/data)
 - *Which self-hostable memory layers support MCP and SOC 2?* → [best-of lists](https://mrpeppersdev.github.io/agent-infrastructure-landscape/best/self-hostable-agent-memory)
 - *How does each memory system handle contradictions and forgetting?* → the `contradiction`, `forgetting` and `conflict` columns, filterable in the table
 
 ## Use it from your agent (MCP)
 
-The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 18 read-only tools, including `choose_memory_layer`, `find_alternatives`, `check_stack`, `search_records`, `compare`, `find_related`, `find_substrate_risk` and `recent_changes`.
+The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 21 read-only tools, including `choose_memory_layer`, `choose_framework_or_store`, `check_compatibility`, `find_alternatives`, `check_stack`, `system_history`, `search_records`, `compare`, `find_related`, `find_substrate_risk` and `recent_changes`.
 
 ```sh
 git clone https://github.com/MrPeppersDev/agent-infrastructure-landscape
@@ -38,7 +40,7 @@ cd agent-infrastructure-landscape/mcp && npm install && npm run build
 claude mcp add landscape -- node $PWD/dist/server.js
 ```
 
-A [CLI](./cli/README.md) offers the same queries for scripts (`--json` / `--csv`), including `landscape choose`, `landscape alternatives <id>` and `landscape check <manifest> --fail-on-attention` for CI.
+A [CLI](./cli/README.md) offers the same queries for scripts (`--json` / `--csv`), including `landscape choose`, `landscape choose-stack framework|data`, `landscape compat <ids…>`, `landscape alternatives <id>` and `landscape check <manifest> --fail-on-attention` for CI.
 
 ## What a record looks like
 
@@ -65,7 +67,7 @@ Every change lands as a reviewable PR. Nothing auto-merges. The maintenance cont
 ## Contributing
 
 - **Missing a system?** Use the [submit form](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) or open an issue titled `Intake: <name>`.
-- **Wrong cell?** Open an issue with the record id and a source URL, or edit `data/landscape.json` directly.
+- **Wrong cell?** Use **Suggest a correction** on the system page: it opens a pre-filled issue and a bot turns it into a PR.
 - **Pipeline:** `make build` reconciles the JSON, rebuilds edges and re-renders `landscape.html`. `make validate` runs the offline gates (~25 s). Commit the JSON, the edges file and the HTML together.
 
 Co-maintainers are welcome, especially for a single product family. See [`MAINTAINER.md`](./MAINTAINER.md) §4.

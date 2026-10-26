@@ -81,11 +81,13 @@ export interface ChooserItem {
   tier: number;
   url: string | null;
   desc: string;
+  /** The catalog's short type label ("TypeScript agent framework"). */
+  type: string;
   selfHost: Tri;
   managed: Tri;
   oss: Tri;
   mcp: Tri;
-  facts: Record<'license' | 'deployment' | 'mcp' | 'pricing' | 'release' | 'gh' | 'conflictText', Fact>;
+  facts: Record<'license' | 'deployment' | 'mcp' | 'pricing' | 'release' | 'gh' | 'conflictText' | 'runtimes' | 'api', Fact>;
   storage: string[];
   unit: string[];
   conflict: string[];
@@ -170,6 +172,7 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
     tier: r.tier,
     url: r.url,
     desc: clip(fact(r, 'desc').value, 260),
+    type: clip(fact(r, 'type').value, 120),
     ...hosting(dep.value, oss, hasRepo),
     oss,
     mcp: mcpTri(mcp.value),
@@ -180,7 +183,9 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
       pricing: fact(r, 'pricing'),
       release: rel,
       gh,
-      conflictText: fact(r, 'contradiction')
+      conflictText: fact(r, 'contradiction'),
+      runtimes: fact(r, 'runtimes'),
+      api: fact(r, 'api-surface')
     },
     storage: tax(r, 'storage'),
     unit: tax(r, 'unit'),
@@ -248,7 +253,7 @@ export interface ChooserResult {
 const TODAY = () => new Date();
 const HOSTED_SECTIONS = new Set(['Framework-embedded memory', 'Platform-provider memory']);
 
-function monthsSince(iso: string): number {
+export function monthsSince(iso: string): number {
   const d = new Date(iso + 'T00:00:00Z');
   const t = TODAY();
   return (t.getUTCFullYear() - d.getUTCFullYear()) * 12 + (t.getUTCMonth() - d.getUTCMonth());
@@ -414,7 +419,7 @@ function repoKey(i: ChooserItem): string | null {
   return m ? `${m[1]}/${m[2]}`.toLowerCase() : null;
 }
 
-function brand(name: string): string | null {
+export function brand(name: string): string | null {
   const t = name.toLowerCase().match(/[a-z0-9]+/);
   return t && t[0].length >= 3 && !['the', 'open', 'agent', 'memory', 'ai'].includes(t[0]) ? t[0] : null;
 }

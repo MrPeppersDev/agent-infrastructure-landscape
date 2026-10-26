@@ -161,3 +161,54 @@ export function loadChooserItems(): ChooserItem[] {
   );
   return cachedItems;
 }
+
+// ---------------------------------------------------------------------------
+// Optional sidecar files: migration notes, change history, system aliases.
+// Missing files load as empty so older data bundles keep working.
+// ---------------------------------------------------------------------------
+
+function readOptional<T>(names: string[], fallback: T): T {
+  for (const n of names) {
+    for (const p of [join(DATA_DIR, n), join(DATA_DIR, '..', 'taxonomy', n)]) {
+      if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8')) as T;
+    }
+  }
+  return fallback;
+}
+
+export interface MigrationNote {
+  id: string;
+  action: 'migrate' | 'none';
+  summary: string;
+  to: { name: string; id: string | null }[];
+  steps: string[];
+  sources: string[];
+  verified_at: string;
+}
+
+let cachedMigrations: Map<string, MigrationNote> | null = null;
+export function loadMigrations(): Map<string, MigrationNote> {
+  if (cachedMigrations) return cachedMigrations;
+  const raw = readOptional<{ notes: MigrationNote[] }>(['migrations.json'], { notes: [] });
+  cachedMigrations = new Map(raw.notes.map((n) => [n.id, n]));
+  return cachedMigrations;
+}
+
+export interface HistoryEvent {
+  date: string;
+  commit: string;
+  pr: number | null;
+  kind: string;
+  changes: { field: string; label: string; from: string; to: string; source?: string; first?: boolean }[];
+}
+
+let cachedHistory: Record<string, HistoryEvent[]> | null = null;
+export function loadHistory(): Record<string, HistoryEvent[]> {
+  if (cachedHistory) return cachedHistory;
+  cachedHistory = readOptional<{ records: Record<string, HistoryEvent[]> }>(['history.json'], { records: {} }).records;
+  return cachedHistory;
+}
+
+export function loadSystemAliases(): Record<string, string[]> {
+  return readOptional<{ aliases: Record<string, string[]> }>(['system-aliases.json'], { aliases: {} }).aliases;
+}

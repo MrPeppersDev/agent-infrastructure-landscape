@@ -28,6 +28,8 @@
   ];
   const research = [
     { path: '/systems', label: 'All systems' },
+    { path: '/compatibility', label: 'Compatibility' },
+    { path: '/compare/many', label: 'Compare up to 5' },
     { path: '/best', label: 'Best-of lists' },
     { path: '/leaderboards', label: 'Leaderboards' },
     { path: '/timeline', label: 'Timeline' },

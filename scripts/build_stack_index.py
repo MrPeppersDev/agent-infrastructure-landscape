@@ -54,6 +54,24 @@ NOT_SELF = re.compile(r"\b(ex-|former|previously|founded by|founders?|co-?founde
 SHUT = re.compile(r"\b(shut down|sunset|discontinued|end of life|end-of-life|receivership|liquidation|wound down|went offline)\b", re.I)
 DEPRECATED = re.compile(r"\b(deprecated|superseded by|no longer (?:actively )?maintained|read-only)\b", re.I)
 MAINT = re.compile(r"\b(maintenance mode|maintenance only|bug ?fixes (?:and|/) security only|successor (?:is|product)|now Microsoft Agent Framework)\b", re.I)
+# Context meaning a lifecycle word is about a different product ("distinct
+# from the older Codex API (deprecated 2023)", "unlike X, which was
+# archived"), not this system.
+OTHER = re.compile(r"\b(distinct from|unlike|not to be confused|older|predecessor|the old|legacy|formerly|replaces|replaced the|successor to|instead of|vs\.?)\b", re.I)
+
+
+def self_match(rx: re.Pattern, *texts: str):
+    """First match of `rx` in any text whose preceding clause doesn't point
+    at another product (OTHER within the same sentence, up to 80 chars)."""
+    for t in texts:
+        for m in rx.finditer(t):
+            pre = re.split(r"[.;]\s", t[max(0, m.start() - 80):m.start()])[-1]
+            if OTHER.search(pre):
+                continue
+            return m
+    return None
+
+
 NOW = re.compile(r"\(now ([^)]+)\)\s*$")
 
 # Repos that are not one product (orgs' docs/monorepos) — never index.
@@ -101,13 +119,13 @@ def lifecycle(rec: dict, today: dt.date) -> dict:
     elif decay == "unknown":
         status, note = "inactive", "development has stopped"
 
-    sm = SHUT.search(desc) or SHUT.search(fund)
+    sm = self_match(SHUT, desc, fund)
     if status == "active" and sm:
         status, note = "dead", f"{sm.group(0)}"
-    dm = DEPRECATED.search(desc) or DEPRECATED.search(gh)
+    dm = self_match(DEPRECATED, desc, gh)
     if status == "active" and dm:
         status, note = "deprecated", dm.group(0)
-    mm = MAINT.search(desc) or MAINT.search(gh)
+    mm = self_match(MAINT, desc, gh)
     if status == "active" and mm:
         status, note = "maintenance", "maintenance mode (bug and security fixes only)"
     am = None

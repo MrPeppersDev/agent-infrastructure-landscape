@@ -37,7 +37,10 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases } from '../../mcp/dist/data.js';
+import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
+import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
+import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
 import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
 import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
@@ -226,6 +229,62 @@ program
   });
 
 program
+  .command('choose-stack')
+  .description('Recommend an agent framework or data store: three picks with cited reasons (same logic as /choose/framework and /choose/data).')
+  .argument('<kind>', 'framework | data')
+  .option('--need <n>', 'framework: library | durable | tools | nocode | sandbox; data: vectors | graph | embeddings')
+  .option('--language <l>', 'python | typescript | any', 'any')
+  .option('--hosting <h>', 'self | managed | any', 'any')
+  .option('--oss', 'require an open-source licence')
+  .option('--mcp', 'require MCP support')
+  .option('--existing', 'data: prefer a store on a database you may already run (Postgres, MongoDB, Elastic, Redis…)')
+  .option('--json', 'emit JSON')
+  .action((kind: string, o: { need?: string; language: string; hosting: string; oss?: boolean; mcp?: boolean; existing?: boolean }, cmd: Command) => {
+    if (kind !== 'framework' && kind !== 'data') die('kind must be framework or data');
+    const k = kind as InfraKind;
+    const need = o.need ?? DEFAULT_INFRA[k].need;
+    if (!NEEDS[k].some((n) => n.value === need)) die(`--need must be one of ${NEEDS[k].map((n) => n.value).join(', ')}`);
+    const a = { ...DEFAULT_INFRA[k], need, language: o.language, hosting: o.hosting, oss: !!o.oss, mcp: !!o.mcp, existing: !!o.existing } as InfraAnswers;
+    const r = chooseInfra(loadChooserItems(), a);
+    if (globalOpts(cmd).json) return emit(JSON.stringify(r, null, 2));
+    const lines: string[] = [];
+    r.picks.forEach((p, i) => {
+      lines.push(`${i + 1}. ${p.item.name}${p.warning ? '  ⚠ ' + p.warning : ''}`);
+      for (const x of p.reasons) lines.push(`     · ${x.text}${x.citation ? '  ' + x.citation : ''}`);
+      if (p.unconfirmed.length) lines.push(`     not confirmed: ${p.unconfirmed.join(', ')}`);
+    });
+    if (!r.picks.length) lines.push('No catalogued system confirms all of those must-haves.');
+    if (r.alsoConsider.length) lines.push('', `also consider: ${r.alsoConsider.map((x) => x.item.name).join(', ')}`);
+    if (r.unconfirmed.length) lines.push(`might fit (unconfirmed): ${r.unconfirmed.map((x) => x.item.name).join(', ')}`);
+    emit(lines.join('\n'));
+  });
+
+program
+  .command('compat')
+  .description('Do these systems work together? Integration evidence for every pair (or, with one id, what it works with).')
+  .argument('<ids...>', 'record ids (see `landscape search`)')
+  .option('--json', 'emit JSON')
+  .action((ids: string[], _o: unknown, cmd: Command) => {
+    setAliases(loadSystemAliases());
+    const records = loadRecords() as never;
+    const edges = loadEdges() as never;
+    if (ids.length === 1) {
+      const w = worksWith(records, edges, ids[0], 50);
+      if (globalOpts(cmd).json) return emit(JSON.stringify({ id: ids[0], worksWith: w }, null, 2));
+      return emit([`Documented to work with ${ids[0]}:`, ...w.map((x) => `  ${x.name}  (${x.evidence.length} source${x.evidence.length === 1 ? '' : 's'})`)].join('\n'));
+    }
+    const r = compatibility(records, edges, ids);
+    if (globalOpts(cmd).json) return emit(JSON.stringify(r, null, 2));
+    const name = new Map(r.systems.map((s) => [s.id, s.name]));
+    const lines: string[] = r.missing.length ? [`unknown ids: ${r.missing.join(', ')}`] : [];
+    for (const p of r.pairs) {
+      lines.push(`${name.get(p.a)} + ${name.get(p.b)}: ${p.status}`);
+      for (const e of p.evidence) lines.push(`     · ${e.kind === 'edge' ? `${e.type}: ${e.text}` : `${e.cell}: ${e.text}`}${e.citation ? '  ' + e.citation : ''}`);
+    }
+    emit(lines.join('\n'));
+  });
+
+program
   .command('alternatives')
   .description('Live alternatives to a system, ranked by shared memory design and must-haves.')
   .argument('<id>', 'record id (see `landscape search`)')
@@ -237,7 +296,11 @@ program
     if (!t) die(`record not found: ${id}`);
     const fam = familyIdForSection(t.section);
     const alts = alternatives(t, items.filter((i) => familyIdForSection(i.section) === fam), o.limit ?? 5);
-    if (globalOpts(cmd).json) return emit(JSON.stringify({ target: t.name, alternatives: alts }, null, 2));
+    const mig = loadMigrations().get(t.id) ?? null;
+    if (globalOpts(cmd).json) return emit(JSON.stringify({ target: t.name, migration: mig, alternatives: alts }, null, 2));
+    if (mig && mig.action === 'migrate') {
+      emit([`Official migration path for ${t.name}: ${mig.summary}`, ...mig.steps.map((x, i) => `  ${i + 1}. ${x}`), `  sources: ${mig.sources.join(' ')}`, ''].join('\n'));
+    }
     emit([`Alternatives to ${t.name}:`, ...alts.map((a) => `  ${a.name}${a.warning ? '  ⚠ ' + a.warning : ''}\n     ${a.why.join('; ')}`)].join('\n'));
   });
 

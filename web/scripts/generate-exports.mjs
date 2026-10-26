@@ -186,10 +186,11 @@ write('llms.txt', `# AI Agent Infrastructure Landscape
 
 ## Answer a builder's question
 
-- [Choose a memory layer](${PUBLIC}/choose): five questions → three cited picks.
+- [Choose a memory layer](${PUBLIC}/choose), [an agent framework](${PUBLIC}/choose/framework) or [a vector / graph database](${PUBLIC}/choose/data): a few questions → three cited picks.
 - [Check a stack](${PUBLIC}/check): paste package.json / requirements.txt / pyproject.toml / MCP config → archived, acquired or stale dependencies and replacements.
 - [Alternatives](${PUBLIC}/alternatives): live alternatives to any memory layer, framework or data store.
-- [Compare](${PUBLIC}/compare): side-by-side comparisons.
+- [Compatibility](${PUBLIC}/compatibility): do these systems work together? Integration evidence for every pair, with sources.
+- [Compare](${PUBLIC}/compare): head-to-head pages; [compare up to five](${PUBLIC}/compare/many).
 - [Findings](${PUBLIC}/findings): headline findings from the catalog.
 
 ## Machine-readable data (static JSON, no auth)
@@ -207,7 +208,7 @@ ${famLines}
 
 ## Tools
 
-- [MCP server](${REPO}/tree/main/mcp): choose_memory_layer, check_stack, find_alternatives, search_records, compare, recent_changes and more.
+- [MCP server](${REPO}/tree/main/mcp): choose_memory_layer, choose_framework_or_store, check_stack, check_compatibility, find_alternatives, system_history, search_records, compare, recent_changes and more.
 - [CLI](${REPO}/tree/main/cli): \`landscape check package.json --fail-on-attention\` for CI.
 
 ## Optional

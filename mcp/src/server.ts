@@ -14,7 +14,9 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases } from './data.js';
+import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
+import { compatibility, worksWith, setAliases } from './compat.js';
 import { checkManifest } from './stack-check.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
@@ -250,6 +252,99 @@ async function main() {
   );
 
   server.registerTool(
+    'choose_framework_or_store',
+    {
+      title: 'Recommend an agent framework or data store',
+      description:
+        'Which agent framework, durable-execution engine, tool/auth platform, code sandbox, vector ' +
+        'database, knowledge-graph store or embedding service should this project use? Returns three ' +
+        'picks with reasons that are catalogued facts plus source URLs, an also-consider list, and ' +
+        '`unconfirmed` systems the catalog cannot confirm a must-have for. One product per vendor; ' +
+        'archived systems are never recommended. Same logic as /choose/framework and /choose/data. ' +
+        'For memory layers use choose_memory_layer.',
+      inputSchema: {
+        kind: z.enum(['framework', 'data']).describe('"framework": agent frameworks and runtimes; "data": vector / graph / embedding.'),
+        need: z.string().optional().describe('framework: library | durable | tools | nocode | sandbox (default library). data: vectors | graph | embeddings (default vectors).'),
+        language: z.enum(['python', 'typescript', 'any']).optional().describe('Required SDK language (default any).'),
+        hosting: z.enum(['self', 'managed', 'any']).optional().describe('Where it must run (default any).'),
+        oss: z.boolean().optional().describe('Require an open-source licence.'),
+        mcp: z.boolean().optional().describe('Require MCP support.'),
+        existing: z.boolean().optional().describe('data only: prefer something that runs on a database you may already operate (Postgres, MongoDB, Elastic, Redis…).')
+      }
+    },
+    async (args) => {
+      const base = DEFAULT_INFRA[args.kind];
+      const a: InfraAnswers = { ...base, ...Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) } as InfraAnswers;
+      if (!NEEDS[a.kind].some((n) => n.value === a.need)) {
+        return jsonResult({ error: `need must be one of ${NEEDS[a.kind].map((n) => n.value).join(', ')}` });
+      }
+      const r = chooseInfra(loadChooserItems(), a);
+      const slim = (x: (typeof r.picks)[number]) => ({
+        id: x.item.id, name: x.item.name, section: x.item.section, reasons: x.reasons,
+        unconfirmed: x.unconfirmed, warning: x.warning, url: x.item.url
+      });
+      return jsonResult({
+        answers: a,
+        picks: r.picks.map(slim),
+        alsoConsider: r.alsoConsider.map((x) => ({ id: x.item.id, name: x.item.name, warning: x.warning })),
+        unconfirmed: r.unconfirmed.map(slim),
+        poolSize: r.poolSize,
+        excludedCount: r.excludedCount
+      });
+    }
+  );
+
+  server.registerTool(
+    'check_compatibility',
+    {
+      title: 'Do these systems work together?',
+      description:
+        'For 2–8 catalogued systems (ids from search_records), returns every pair with the catalog\'s ' +
+        'evidence that they integrate: typed edges and integration cells (backend storage, adjacent ' +
+        'infrastructure, API surface, embedding model, MCP, runtimes) naming the other, each with a ' +
+        'source. "not-recorded" means no source either way, not incompatible. With one id, lists ' +
+        'what that system is documented to work with.',
+      inputSchema: {
+        ids: z.array(z.string()).min(1).max(8).describe('Catalog record ids.'),
+        limit: z.number().int().min(1).max(100).optional().describe('With one id: how many systems to list (default 30).')
+      }
+    },
+    async (args) => {
+      setAliases(loadSystemAliases());
+      const records = loadRecords() as never;
+      const edges = loadEdges() as never;
+      if (args.ids.length === 1) {
+        return jsonResult({ id: args.ids[0], worksWith: worksWith(records, edges, args.ids[0], args.limit ?? 30) });
+      }
+      return jsonResult(compatibility(records, edges, args.ids));
+    }
+  );
+
+  server.registerTool(
+    'system_history',
+    {
+      title: 'What changed for a system',
+      description:
+        'Recorded changes to one catalogued system (lifecycle, licence, latest release, pricing, ' +
+        'deployment, MCP/A2A support, ownership), newest first, each with date, source PR and the ' +
+        'cell citation, plus any migration note for archived / acquired systems.',
+      inputSchema: { id: z.string().describe('Catalog record id.') }
+    },
+    async (args) => {
+      const rec = loadRecords().find((r) => r.id === args.id);
+      if (!rec) return jsonResult({ error: `no record with id ${args.id}; use search_records` });
+      return jsonResult({
+        id: rec.id,
+        name: rec.name,
+        last_verified_at: rec.last_verified_at ?? null,
+        status: loadStackIndex().records[rec.id] ?? { status: 'active' },
+        migration: loadMigrations().get(rec.id) ?? null,
+        history: loadHistory()[rec.id] ?? []
+      });
+    }
+  );
+
+  server.registerTool(
     'find_alternatives',
     {
       title: 'Find alternatives to a system',
@@ -271,6 +366,7 @@ async function main() {
       const pool = items.filter((i) => familyIdForSection(i.section) === fam);
       return jsonResult({
         target: { id: target.id, name: target.name, section: target.section, status: target.status },
+        migration: loadMigrations().get(target.id) ?? null,
         alternatives: alternatives(target, pool, args.limit ?? 5)
       });
     }

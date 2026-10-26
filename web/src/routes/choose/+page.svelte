@@ -7,6 +7,8 @@
   import { browser } from '$app/environment';
   import { goto } from '$app/navigation';
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import ChooserTabs from '$lib/components/ChooserTabs.svelte';
+  import CompareBar from '$lib/components/CompareBar.svelte';
   import {
     choose,
     clip,
@@ -64,6 +66,8 @@
   let sortKey = $state<SortKey>('fit');
   let sortDir = $state<1 | -1>(-1);
   let onlyMatching = $state(true);
+  let picked = $state<string[]>([]);
+  const togglePick = (id: string) => (picked = picked.includes(id) ? picked.filter((x) => x !== id) : picked.length < 5 ? [...picked, id] : picked);
 
   const matchIds = $derived(new Set(result.fitIds));
   const fitRank = $derived(new Map(result.fitIds.map((id, i) => [id, i])));
@@ -98,6 +102,7 @@
 
 <main class="page">
   <header>
+    <ChooserTabs active="memory" />
     <h1>Which memory layer should I use?</h1>
     <p class="lede">
       Answer a few questions and get three picks from {data.items.length} catalogued memory systems. Every reason is a
@@ -219,6 +224,7 @@
       <table>
         <thead>
           <tr>
+            <th class="cmp" title="Tick up to five to compare">Compare</th>
             <th><button type="button" onclick={() => sortBy('fit')} title="Sort by how well it fits your answers">Fit</button> · <button type="button" onclick={() => sortBy('name')}>System</button></th>
             <th>Self-host</th>
             <th>Managed</th>
@@ -234,6 +240,7 @@
         <tbody>
           {#each tableRows as i (i.id)}
             <tr class:dim={i.status.severity >= 3}>
+              <td class="cmp"><input type="checkbox" checked={picked.includes(i.id)} disabled={!picked.includes(i.id) && picked.length >= 5} onchange={() => togglePick(i.id)} aria-label="Compare {i.name}" /></td>
               <td><a href="{base}/systems/{i.id}">{i.name}</a>{#if i.status.severity >= 2}<span class="tag">{i.status.status}</span>{/if}</td>
               <td class="tri tri-{i.selfHost}" title={i.facts.deployment.value}>{triLabel(i.selfHost)}</td>
               <td class="tri tri-{i.managed}" title={i.facts.deployment.value}>{triLabel(i.managed)}</td>
@@ -249,6 +256,7 @@
         </tbody>
       </table>
     </div>
+    <CompareBar ids={picked} names={data.items} onclear={() => (picked = [])} />
     <p class="meta">✓ confirmed · — no · ? not in the catalog yet. Hover a cell for the catalogued text. Already using some of these? <a href="{base}/check">Check your stack</a> for archived or acquired dependencies.</p>
   </section>
 </main>
@@ -303,5 +311,6 @@
   .tri-unknown { color: #d29922; }
   .lic { color: #8b949e; }
   tr.dim td { opacity: 0.5; }
+  .cmp { text-align: center; width: 1%; }
   .tag { margin-left: 6px; font-size: 11px; color: #d29922; border: 1px solid #d29922; border-radius: 999px; padding: 0 6px; }
 </style>
