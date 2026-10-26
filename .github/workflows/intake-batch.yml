@@ -56,7 +56,13 @@ jobs:
         id: pick
         run: |
           if [ -n "${{ inputs.file }}" ]; then f="extraction/intake-batches/${{ inputs.file }}"
-          else f=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'extraction/intake-batches/*.json' | head -1); fi
+          else
+            # Everything the branch adds relative to main (a branch's first
+            # push has before=000…0, and a re-push may not touch the file).
+            git fetch -q origin main && base=$(git merge-base origin/main HEAD)
+            f=$(git diff --name-only "$base" HEAD -- 'extraction/intake-batches/*.json' | head -1)
+          fi
+          [ -n "$f" ] || { echo "::error title=Batch intake::no candidates file changed on this push"; exit 1; }
           echo "file=$f" >> "$GITHUB_OUTPUT"; echo "candidates: $f"
       - name: Research and add
         env:
