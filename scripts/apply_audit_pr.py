@@ -834,6 +834,14 @@ def main() -> int:
         if new_dump != original_dump:
             save_landscape(landscape, LANDSCAPE_JSON)
             print(f"patched {LANDSCAPE_JSON.name}")
+            # Same canonicalization as the intake bot: re-derive cell tiers
+            # etc. through render → extract → reconcile, or validate gate 2
+            # rejects the patch (the 2026-10-23 scheduled audit failed so).
+            from apply_intake_pr import canonicalize_landscape_json
+            ok, out = canonicalize_landscape_json()
+            if not ok:
+                print(f"error: canonicalize failed:\n{out[-2000:]}", file=sys.stderr)
+                return 4
         else:
             print(f"note: no {LANDSCAPE_JSON.name} patches applied (nothing actionable to write)")
     else:
