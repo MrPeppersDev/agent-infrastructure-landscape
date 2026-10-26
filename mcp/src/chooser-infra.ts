@@ -76,9 +76,21 @@ const ANY_LANG = /\b(any (language|http)|language[- ]agnostic|rest api|http api|
 export function languageTri(i: ChooserItem, lang: Language): { tri: Tri; fact: Fact } {
   if (lang === 'any') return { tri: 'yes', fact: { value: '', citation: null } };
   const facts = [i.facts.runtimes, i.facts.api].filter((f) => f.value);
-  if (!facts.length) return { tri: 'unknown', fact: { value: '', citation: null } };
   const hit = facts.find((f) => LANG_RX[lang].test(f.value)) ?? facts.find((f) => ANY_LANG.test(f.value));
-  return hit ? { tri: 'yes', fact: hit } : { tri: i.facts.runtimes.value ? 'no' : 'unknown', fact: facts[0] };
+  if (hit) return { tri: 'yes', fact: hit };
+  // Fall back to the catalog's own type label / description ("TypeScript
+  // agent framework"), which is how many framework rows state it.
+  const label = `${i.type} ${i.desc}`;
+  if (LANG_RX[lang].test(label)) return { tri: 'yes', fact: { value: i.type || i.desc, citation: i.url } };
+  if (!facts.length) return { tri: 'unknown', fact: { value: '', citation: null } };
+  return { tri: i.facts.runtimes.value ? 'no' : 'unknown', fact: facts[0] };
+}
+
+/** GitHub owner/repo a record points at, to treat two rows for the same
+ * repo (pgvector / PostgreSQL pgvector) as one product. */
+function repoOf(i: ChooserItem): string | null {
+  const m = i.facts.gh.value.match(/^\s*([\w.-]+)\/([\w.-]+)/) || (i.facts.gh.citation ?? '').match(/github\.com\/([\w.-]+)\/([\w.-]+)/i);
+  return m ? `${m[1]}/${m[2]}`.toLowerCase() : null;
 }
 
 const EXISTING = /\b(postgres(ql)?|pgvector|mongo(db)?|elastic(search)?|opensearch|redis|supabase|sqlite|clickhouse|cassandra|astra)\b/i;
@@ -170,13 +182,14 @@ export function chooseInfra(items: ChooserItem[], a: InfraAnswers): InfraResult 
   const byScore = (x: Scored, y: Scored) => y.score - x.score || (y.item.stars ?? 0) - (x.item.stars ?? 0) || x.item.name.localeCompare(y.item.name);
   ok.sort(byScore);
   maybe.sort(byScore);
-  // One recommendation per brand ("Qdrant" / "Qdrant Cloud").
+  // One recommendation per product: same brand ("Qdrant" / "Qdrant Cloud")
+  // or same repo ("pgvector" / "PostgreSQL pgvector").
   const seen = new Set<string>();
   const uniq = (xs: Scored[]) =>
     xs.filter((x) => {
-      const b = brand(x.item.name) ?? x.item.id;
-      if (seen.has(b)) return false;
-      seen.add(b);
+      const keys = [brand(x.item.name) ?? x.item.id, repoOf(x.item)].filter((k): k is string => !!k);
+      if (keys.some((k) => seen.has(k))) return false;
+      for (const k of keys) seen.add(k);
       return true;
     });
   const okU = uniq(ok);
