@@ -1,0 +1,605 @@
+[
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "01.AI site still offers Yi API (Yi-Lightning, Yi-Large) but lists no Yi model newer than Yi-Lightning (2024-10); no new releases found in 2025-2026",
+  "lifecycle_citation": "https://lingyiwanwu.com/en",
+  "verified": true,
+  "updates": []
+ },
+ {
+  "id": "1x-technologies--1x-tech",
+  "lifecycle": "active",
+  "lifecycle_note": "NEO full-scale production started at Hayward factory (2026-04); US customer deliveries slated for 2026",
+  "lifecycle_citation": "https://www.1x.tech/discover/neo-factory",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "NEO home humanoid (orders opened 2025-10-28; US deliveries slated 2026); NEO hands platform (2026-07-09)",
+    "citation": "https://www.1x.tech/discover/category/product",
+    "confidence": "high",
+    "old": "Neo (consumer humanoid, 2025-2026 launch)"
+   },
+   {
+    "cell": "pricing",
+    "new": "NEO: $20,000 early-access purchase (3-yr warranty) or $499/month subscription; $200 refundable deposit",
+    "citation": "https://www.1x.tech/order",
+    "confidence": "high",
+    "old": "not applicable — wrong section"
+   }
+  ]
+ },
+ {
+  "id": "accelerate-hugging-face--gh-huggingface-accelerate",
+  "lifecycle": "active",
+  "lifecycle_note": "Regular releases; v1.15.0 tagged Sep 2026",
+  "lifecycle_citation": "https://github.com/huggingface/accelerate/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v1.15.0 (2026-09-09)",
+    "citation": "https://github.com/huggingface/accelerate/releases",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — pip-installable Python library (pip install accelerate); runs on local, multi-GPU, TPU and multi-node clusters",
+    "citation": "https://huggingface.co/docs/accelerate/main/en/basic_tutorials/install",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "gh",
+    "new": "huggingface/accelerate — ~9.9k stars, last commit 2026-09 (latest release tag)",
+    "citation": "https://github.com/huggingface/accelerate/releases",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free and open source (Apache-2.0); no paid tier",
+    "citation": "https://huggingface.co/docs/accelerate/main/en/basic_tutorials/install",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "mcp-support",
+    "new": "no",
+    "citation": "https://huggingface.co/docs/accelerate/main/en/basic_tutorials/install",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "funding",
+    "new": "Hugging Face-maintained OSS library (no separate funding)",
+    "citation": "https://github.com/huggingface/accelerate/releases",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "agility-robotics--agilityrobotics-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Digit 5 unveiled 2026-09-15; going public via SPAC merger with Churchill Capital Corp XI (vote 2026-11-02)",
+  "lifecycle_citation": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Digit 5 (unveiled 2026-09-15; early access H1 2027, GA by end-2027)",
+    "citation": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+    "confidence": "high",
+    "old": "Digit V4 / V6 (2024-2025)"
+   },
+   {
+    "cell": "funding",
+    "new": "Going public via merger with Churchill Capital Corp XI (announced 2026-06-24; $2.5B pre-money; Nasdaq: AGLT); S-4 effective, vote 2026-11-02, close expected 2026-11",
+    "citation": "https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-s-4-registration-statement-declared-effective-by-sec-in-connection-with-proposed-business-combination",
+    "confidence": "high",
+    "old": "$400M+ total — including $150M Series B 2022 (DCVC + Playground); Amazon IIF participant"
+   }
+  ]
+ },
+ {
+  "id": "alibaba-qwen-3-family--qwenlm-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Qwen3.8 series weights released Aug 2026, incl. Apache-2.0 Qwen3.8-27B",
+  "lifecycle_citation": "https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Qwen3.8 open weights: flagship Qwen3.8-2.4T-A95B + Qwen3.8-27B (Apache-2.0) (2026-08-17)",
+    "citation": "https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463",
+    "confidence": "medium",
+    "old": "Qwen 3 family (2025-04); Qwen 3-Max preview (2025-Q3)"
+   }
+  ]
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Nova 2 Lite (2025-12) and Nova 2.5 Sonic (2026-10) launched on Bedrock",
+  "lifecycle_citation": "https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/amazon-nova/feed/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Nova 2.5 Sonic speech-to-speech (2026-10); Nova 2 Lite reasoning model (2025-12-02) is newest text model on Bedrock",
+    "citation": "https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/amazon-nova/feed/",
+    "confidence": "medium",
+    "old": "Nova Premier (2025); Nova Pro / Lite / Micro / Canvas / Reel (2024-12)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Managed-only — Amazon Bedrock (custom Nova models also deployable via SageMaker Inference); weights closed",
+    "citation": "https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/amazon-nova/feed/",
+    "confidence": "high",
+    "old": "Managed-only via AWS Bedrock; no self-hosting (weights closed)"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-claude-foundation-models--anthropic-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Claude Opus 5.5 released 2026-09-22; Fable 5.1 2026-09-01",
+  "lifecycle_citation": "https://www.anthropic.com/claude-opus-5-5",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Claude Opus 5.5 (2026-09-22); Claude Fable 5.1 (2026-09-01); Sonnet 5.5 + Haiku 5.5 current",
+    "citation": "https://www.anthropic.com/claude-opus-5-5",
+    "confidence": "high",
+    "old": "Opus 4.5 + Haiku 4.5 (2025-11)"
+   },
+   {
+    "cell": "pricing",
+    "new": "API per 1M in/out: Fable 5.1 $10/$50; Opus 5.5 $4/$20; Sonnet 5.5 $2/$10; Haiku 5.5 from $0.10/$0.50",
+    "citation": "https://platform.claude.com/docs/en/about-claude/models/overview",
+    "confidence": "high",
+    "old": "Pay-per-token API (Opus 4.5 $5/$25 per 1M; Sonnet 4.5 $3/$15; Haiku 4.5 $0.80/$4); Claude.ai Free + Pro ($20/mo) + Team + Enterprise"
+   },
+   {
+    "cell": "deployment",
+    "new": "Managed-only — Claude API/Platform plus Amazon Web Services, Google Cloud and Microsoft Azure",
+    "citation": "https://www.anthropic.com/claude-opus-5-5",
+    "confidence": "high",
+    "old": "Managed-only (Anthropic API + AWS Bedrock + GCP Vertex)"
+   }
+  ]
+ },
+ {
+  "id": "anyscale--anyscale-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "apptronik--apptronik-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "argilla--argilla-io",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "arize-ai--arize-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "arize-phoenix--phoenix-arize-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "aws-sagemaker--aws-amazon-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "axolotl--gh-axolotl-ai-cloud-axolotl",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "azure-machine-learning--azure-microsoft-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "baseten--baseten-co",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "bonito--gh-batsresearch-bonito",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "braintrust--braintrust-dev",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "clearml--clear-ml",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "cohere-command-r-command-a--cohere-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Command A+ released 2026-05-20 (last of Command A family); Embed 5 / Rerank 5 Sep-Oct 2026",
+  "lifecycle_citation": "https://docs.cohere.com/v2/changelog",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Command A+ (command-a-plus-05-2026) (2026-05-20)",
+    "citation": "https://docs.cohere.com/changelog/command-a-plus-05-2026",
+    "confidence": "high",
+    "old": "Command A (2025-03); Command R7B (2024-12)"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 (Command A+ open weights, 2026-05); earlier Command R/A weights CC-BY-NC-4.0; API proprietary",
+    "citation": "https://cohere.com/blog/cohere-releases-command-a-plus",
+    "confidence": "high",
+    "old": "CC-BY-NC 4.0 (weights — non-commercial only); proprietary for commercial"
+   }
+  ]
+ },
+ {
+  "id": "collaborative-robotics--co-bot",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "colossalai--gh-hpcaitech-colossalai",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "comet-ml--comet-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "composer-mosaicml--gh-mosaicml-composer",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "covariant--covariant-ai",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "dagster--dagster-io",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "lifecycle": "active",
+  "lifecycle_note": "DeepSeek-V4 (2026-04), V4-Pro GA (2026-08), V4.1-Flash-1017 (2026-10) with open weights",
+  "lifecycle_citation": "https://api-docs.deepseek.com/news/news261017/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "DeepSeek-V4.1-Flash-1017 (2026-10-17); DeepSeek-V4-Pro GA (2026-08-13)",
+    "citation": "https://api-docs.deepseek.com/news/news261017/",
+    "confidence": "high",
+    "old": "V3.1 (2025-08), R1 (2025-01)"
+   },
+   {
+    "cell": "pricing",
+    "new": "API per 1M in (cache miss)/out, peak: V4-Pro $1.32/$3.96, V4.1-Flash $0.30/$1.20; off-peak 50% lower; weights free",
+    "citation": "https://api-docs.deepseek.com/quick_start/pricing/?tool=deepseek",
+    "confidence": "high",
+    "old": "API: V3 $0.27/$1.10 per 1M tokens; R1 $0.55/$2.19; ~10-30x cheaper than Anthropic/OpenAI; weights free under MIT"
+   }
+  ]
+ },
+ {
+  "id": "deepspeed--gh-microsoft-deepspeed",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "distilabel--gh-argilla-io-distilabel",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "dpo--arxiv-2305-18290",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "dvc--dvc-org",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "figure-ai--figure-ai",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "fireworks-ai--fireworks-ai",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "flyte--flyte-org",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "fsdp-pytorch--pytorch-org",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "galileo--galileo-ai",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "lifecycle": "active",
+  "lifecycle_note": "Gemini 4 Argon GA on Gemini API 2026-10-13; Gemini 3.8 Flash 2026-09-02",
+  "lifecycle_citation": "https://ai.google.dev/gemini-api/docs/changelog",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Gemini 4 Argon (GA 2026-10-13); Gemini 3.8 Flash (2026-09-02)",
+    "citation": "https://ai.google.dev/gemini-api/docs/changelog",
+    "confidence": "high",
+    "old": "Gemini 3 Pro (2025-12), Gemini 3 Flash, Gemini 3 Nano"
+   },
+   {
+    "cell": "pricing",
+    "new": "Paid per 1M in/out: Gemini 4 Argon $2/$10 intro to 2026-11-30, then $4/$20 (no free tier); Gemini 3.8 Flash $0.75/$3.75 (free tier available)",
+    "citation": "https://ai.google.dev/gemini-api/docs/pricing",
+    "confidence": "high",
+    "old": "Pay-per-token (Gemini 3 Pro $1.25/$10 per 1M; Flash $0.30/$2.50); Gemini Advanced ($20/mo consumer); Gemini Enterprise pricing via GCP"
+   }
+  ]
+ },
+ {
+  "id": "google-vertex-ai-training--cloud-google-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "grpo--arxiv-2402-03300",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "helicone--helicone-ai",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "hugging-face-datasets--huggingface-co",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "hugging-face-lerobot--huggingface-co",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "humanloop--humanloop-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "k-scale-labs--kscale-dev",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "label-studio-humansignal--labelstud-io",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "labelbox--labelbox-com",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "lakefs--lakefs-io",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "litellm--gh-berriai-litellm",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "llama-factory--gh-hiyouga-llama-factory",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "lora--arxiv-2106-09685",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "megatron-core--gh-nvidia-megatron-lm",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "megatron-lm--gh-nvidia-megatron-lm",
+  "lifecycle": null,
+  "lifecycle_note": "not re-verified: shared web-search budget ran out and fetching URLs not returned by search was blocked (permission timeout); existing values left unchanged",
+  "lifecycle_citation": null,
+  "verified": false,
+  "updates": []
+ }
+]

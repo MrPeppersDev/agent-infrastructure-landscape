@@ -1,0 +1,1634 @@
+[
+ {
+  "id": "aider-harness--aider-chat",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Not archived, but last release v0.86.2 on 2026-02-12 and last push 2026-02-25; no release in ~8 months.",
+  "lifecycle_citation": "https://www.piwheels.org/project/aider-chat/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host (pip install aider-chat)",
+    "new": "Self-hosted only — local CLI (pip install aider-chat); BYO LLM provider",
+    "citation": "https://aider.chat",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "aider 0.x rolling (2025-2026)",
+    "new": "v0.86.2 (2026-02-12)",
+    "citation": "https://www.piwheels.org/project/aider-chat/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~28k★, Python",
+    "new": "Aider-AI/aider — ~49.7k stars, last commit 2026-02 (last push 2026-02-25 per ecosyste.ms)",
+    "citation": "https://github.com/Aider-AI/aider",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "depth-floor — Aider primarily uses its own tool-call format; MCP support tracked in issues",
+    "new": "no — no MCP client/server in Aider README or docs",
+    "citation": "https://github.com/Aider-AI/aider",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "AWS announced end of support 2026-04-30: new Q Developer signups/subscriptions blocked from 2026-05-15; IDE plugins and paid subscriptions end support 2027-04-30; Kiro is the successor. Console/Slack/Teams Q unaffected.",
+  "lifecycle_citation": "https://aws.amazon.com/jp/blogs/news/amazon-q-developer-end-of-support-announcement/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud (AWS-hosted)",
+    "new": "Managed-only — AWS-hosted service via IDE plugins, AWS Console and CLI",
+    "citation": "https://aws.amazon.com/q/developer/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP support in Q Developer agentic coding (carried over to successor Kiro per AWS)",
+    "citation": "https://aws.amazon.com/jp/blogs/news/amazon-q-developer-end-of-support-announcement/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free tier + Pro $19/user/mo",
+    "new": "Free tier (50 agentic requests/mo); Pro $19/user/mo — new subscriptions closed from 2026-05-15",
+    "citation": "https://aws.amazon.com/q/developer/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-computer-use--docs-anthropic-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Docs moved to platform.claude.com; latest toolset computer_toolset_20260801 needs no beta header (older versions still beta).",
+  "lifecycle_citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "API (Anthropic Cloud) — runs on caller's machine via local environment",
+    "new": "Managed-only — Claude API tool (also Bedrock, Vertex, Foundry); actions execute in a caller-provided desktop environment",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "computer_toolset_20260801 (2026-08) — current tool version, no beta header required",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "no — computer use is a client-executed API tool, not an MCP server or client",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "API per-token + per-screen-action",
+    "new": "Standard Claude API token pricing; ~4.5k input-token toolset overhead plus screenshots billed as image input; no per-action fee",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bedrock-agentcore-aws--aws-amazon-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Pricing page current (Runtime v2 rates, memory pricing change 2026-10-06).",
+  "lifecycle_citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud (AWS-managed)",
+    "new": "Managed-only — AWS-hosted (Runtime, Gateway, Memory, Identity, Browser, Code Interpreter, Observability)",
+    "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "aws/bedrock-agentcore-sdk-python — ~750 stars (Apache-2.0 SDK; service itself closed source), last commit n/a",
+    "citation": "https://github.com/aws/bedrock-agentcore-sdk-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Gateway exposes APIs/Lambdas as MCP servers; Runtime hosts MCP-compatible tools; Agent Registry publishes MCP servers",
+    "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Usage-based AWS pricing",
+    "new": "Pay-per-use, no seat fee: Runtime from $0.0895/vCPU-hr + $0.00945/GB-hr; Gateway $0.005/1k calls; new AWS customers get up to $200 Free Tier credits",
+    "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bland-ai--bland-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Pricing page and MCP docs live with current plans (Start/Build/Enterprise).",
+  "lifecycle_citation": "https://bland.ai/pricing",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud-managed; Enterprise private deployments",
+    "new": "Both (self-hosted + managed cloud) — managed cloud by default; on-prem/VPC deployment on Enterprise only",
+    "citation": "https://bland.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — remote MCP server at api.bland.ai/v1/mcp for MCP clients (Claude, Claude Code, ChatGPT, VS Code, Windsurf, Gemini CLI)",
+    "citation": "https://docs.bland.ai/integrations/mcp/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Per-minute usage; Enterprise volume tiers",
+    "new": "Start: $0 platform fee + $0.14/connected min; Build: $299/mo + $0.12/min; Enterprise custom",
+    "citation": "https://bland.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bolt-new-stackblitz-harness--bolt-new",
+  "lifecycle": "active",
+  "lifecycle_note": "Product and help center live; MCP connector docs current; OSS stackblitz/bolt.new template repo public, not archived.",
+  "lifecycle_citation": "https://support.bolt.new/building/using-bolt/connect-mcp",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud (browser)",
+    "new": "Managed-only — browser-based (StackBlitz WebContainers); apps hosted on Bolt",
+    "citation": "https://support.bolt.new/building/using-bolt/connect-mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "stackblitz/bolt.new — ~16.5k stars (MIT, OSS Bolt codebase template), last commit n/a",
+    "citation": "https://github.com/stackblitz/bolt.new",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — client: connect MCP servers so Bolt can use external apps/data in chat",
+    "citation": "https://support.bolt.new/building/using-bolt/connect-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + Pro ($20/mo) + Teams ($30/seat/mo)",
+    "new": "Free (1M tokens/mo, 300K/day cap); Pro $25/mo (10M tokens); Teams $30/member/mo; Enterprise custom",
+    "citation": "https://www.jetadmin.io/blog/bolt-new-pricing-plans-tokens-and-real-costs-in-2026/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "browser-use--browser-use-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Changelog entries through 2026-08-24 (Browser Use CLI 3.0 in 2026-07); PyPI latest 0.13.11.",
+  "lifecycle_citation": "https://browser-use.com/changelog",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Pip self-host + Browser Use Cloud",
+    "new": "Both (self-hosted + managed cloud) — OSS Python library + Browser Use Cloud; on-prem via sales",
+    "citation": "https://browser-use.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Active weekly releases (PyPI: browser-use)",
+    "new": "v0.13.11 (2026; release date not confirmed)",
+    "citation": "https://pypistats.org/packages/browser-use",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/browser-use/browser-use — 60k+ stars",
+    "new": "browser-use/browser-use — ~119k stars, last commit 2026-09+ (release 0.13.10 on 2026-09-04)",
+    "citation": "https://github.com/browser-use/browser-use",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "Browser Use MCP server (community + first-party)",
+    "new": "yes — first-party hosted MCP server (api.browser-use.com/v3/mcp) plus local stdio browser-harness-mcp",
+    "citation": "https://browser-use.com/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS free; Cloud tiers (usage-based)",
+    "new": "OSS library free; Cloud pay-as-you-go: $1 free credit, $5 min top-up, browsers $0.02/hr, agents = model price +20%; on-prem via sales",
+    "citation": "https://browser-use.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "lifecycle": "archived",
+  "lifecycle_note": "bytebot-ai/bytebot archived by the owner on 2026-03-07 (read-only).",
+  "lifecycle_citation": "https://github.com/bytebot-ai/bytebot",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/bytebot-ai/bytebot",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Docker self-host (Linux container with VNC)",
+    "new": "Self-hosted only — Docker (Linux desktop container); repo archived",
+    "citation": "https://github.com/bytebot-ai/bytebot",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v0.x ongoing on GitHub",
+    "new": "none — no GitHub releases published; repo archived 2026-03-07",
+    "citation": "https://github.com/bytebot-ai/bytebot",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/bytebot-ai/bytebot",
+    "new": "bytebot-ai/bytebot — ~11.1k stars, archived 2026-03-07",
+    "citation": "https://github.com/bytebot-ai/bytebot",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS free; cloud tier on roadmap",
+    "new": "Free (Apache-2.0 OSS; repo archived, no paid tier listed)",
+    "citation": "https://github.com/bytebot-ai/bytebot",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Product page live; Premium Conversation Intelligence bundled into Lead Conversion plans.",
+  "lifecycle_citation": "https://www.callrail.com/conversation-intelligence",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud-managed",
+    "new": "Managed-only — CallRail-hosted SaaS",
+    "citation": "https://www.callrail.com/conversation-intelligence",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "no — not mentioned on product page",
+    "citation": "https://www.callrail.com/conversation-intelligence",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "$45-$245/mo per-tier",
+    "new": "No free tier; plans from $50/mo (Lead Tracking); Premium Conversation Intelligence included in Lead Conversion ($150/mo) and Lead Conversion Complete ($195/mo)",
+    "citation": "https://www.callrail.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cartesia-sonic--cartesia-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Sonic product page promotes Sonic-3.6; pricing page current.",
+  "lifecycle_citation": "https://cartesia.ai/sonic",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud-managed; private deployments on Enterprise",
+    "new": "Both (self-hosted + managed cloud) — managed API; on-prem (incl. air-gapped), customer VPC and OEM under enterprise contract",
+    "citation": "https://cartesia.ai/sonic",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Sonic 2 (2025)",
+    "new": "Sonic-3.6 (current model; release date not stated)",
+    "citation": "https://cartesia.ai/sonic",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Per-character TTS pricing; volume tiers",
+    "new": "Free (20K credits/mo); Pro $5/mo; Startup $49/mo; Scale $299/mo; Enterprise custom; managed voice agents $0.06/min",
+    "citation": "https://cartesia.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Cartesia MCP server (cartesia-ai/cartesia-mcp)",
+    "citation": "https://github.com/cartesia-ai/cartesia-mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "charm-crush--gh-charmbracelet-crush",
+  "lifecycle": "active",
+  "lifecycle_note": "Active (v0.92.0 on 2026-08-31; nightly builds).",
+  "lifecycle_citation": "https://github.com/charmbracelet/crush/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "FSL-1.1-MIT (source-available; converts to MIT after 2 years)",
+    "citation": "https://github.com/charmbracelet/crush",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-host (Go install)",
+    "new": "Self-hosted only — local terminal TUI/CLI (Go)",
+    "citation": "https://github.com/charmbracelet/crush",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "crush 0.x rolling",
+    "new": "v0.92.0 (2026-08-31)",
+    "citation": "https://github.com/charmbracelet/crush/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~7k★, Go",
+    "new": "charmbracelet/crush — ~27.9k stars, last commit 2026-09",
+    "citation": "https://github.com/charmbracelet/crush",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP client (http, stdio and sse servers)",
+    "citation": "https://github.com/charmbracelet/crush",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "chatgpt-codex-cloud-agent--chatgpt-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Codex Web (chatgpt.com/codex) is still pointed to from the openai/codex README; usage now metered in credits on ChatGPT plans.",
+  "lifecycle_citation": "https://github.com/openai/codex/blob/main/README.md",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud",
+    "new": "Managed-only — OpenAI-hosted sandboxed cloud environments, via ChatGPT web/app (chatgpt.com/codex), IDE extension and CLI",
+    "citation": "https://github.com/openai/codex/blob/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Bundled with ChatGPT Plus ($20/mo) + Pro ($200/mo)",
+    "new": "Included in ChatGPT plans (Free/Go limited, Plus $20/mo, Pro $100–200/mo, Business $25/user/mo); usage metered in credits per model tokens",
+    "citation": "https://www.jetadmin.io/blog/codex-pricing-current-costs-usage-limits-and-realistic-budgets-2026/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "claude-code-anthropic--anthropic-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Near-daily releases; v2.1.310 on 2026-10-23.",
+  "lifecycle_citation": "https://code.claude.com/docs/en/changelog",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Anthropic's official agentic coding CLI — runs Claude as a long-running coding agent in the developer's terminal. Memory layer = CLAUDE.md (project + user scoped), agent skills, MCP servers. Released GA October 2024; widely adopted as the reference harness for Claude-as-coder. Plan Mode and Compute Use surfaces extend it from coding to broader desktop automation.",
+    "new": "Anthropic's agentic coding tool: Claude as a coding agent in the terminal, IDEs (VS Code, JetBrains), desktop app, web/mobile, GitHub and Slack. Context via CLAUDE.md, skills, hooks, subagents and MCP servers.",
+    "citation": "https://claude.com/product/claude-code",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Proprietary (Anthropic) — JavaScript runtime open under separate terms",
+    "new": "proprietary — © Anthropic PBC, use subject to Anthropic Commercial Terms (repo public, not OSS)",
+    "citation": "https://github.com/anthropics/claude-code/blob/main/LICENSE.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Cloud (terminal runs locally; API in cloud)",
+    "new": "Both (self-hosted + managed cloud) — local CLI/IDE/desktop client plus cloud sessions on web; models via Anthropic API (or Bedrock/Vertex)",
+    "citation": "https://claude.com/product/claude-code",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Claude Code 1.x (2025-2026, rolling)",
+    "new": "v2.1.310 (2026-10-23)",
+    "citation": "https://code.claude.com/docs/en/changelog",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "anthropics/claude-code — ~153k stars, last commit 2026-10",
+    "citation": "https://github.com/anthropics/claude-code",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Claude Code is the reference MCP client",
+    "new": "yes — MCP client (claude mcp add; stdio and HTTP servers)",
+    "citation": "https://code.claude.com/docs/en/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Included with Anthropic API + Pro/Team subscriptions",
+    "new": "No free tier; included in Pro ($20/mo, $17 annual), Max (from $100/mo), Team ($25/seat/mo, $20 annual), Enterprise; or API pay-per-token via Console",
+    "citation": "https://claude.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "claude-for-chrome--anthropic-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Now 'Claude in Chrome'; research preview Aug 2025, beta to all Max users 2025-11-24, expanded to Pro/Team/Enterprise 2025-12-18. Old anthropic.com/news URL redirects to claude.com.",
+  "lifecycle_citation": "https://claude.com/resources/articles/claude-for-chrome",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Anthropic's Chrome extension that lets Claude act inside the user's existing browser (rather than a sandboxed one). Research preview launched August 2025 — limited to Claude Max tier. Distinct from Anthropic Computer Use (which is the API substrate); this is the consumer surface that uses it inside Chrome.",
+    "new": "Anthropic's Chrome extension (Claude in Chrome) letting Claude act inside the user's own browser. Research preview Aug 2025; beta for all Max users Nov 2025; on all paid plans since Dec 2025. Distinct from the Computer Use API.",
+    "citation": "https://claude.com/resources/articles/claude-for-chrome",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Chrome extension (consumer side) + Anthropic cloud",
+    "new": "Managed-only — Chrome extension in the user's browser; model runs in Anthropic cloud",
+    "citation": "https://claude.com/resources/articles/claude-for-chrome",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Bundled with Claude Max ($100-200/mo)",
+    "new": "Not on Free; included in Pro ($20/mo, $17 annual), Max (from $100/mo), Team and Enterprise",
+    "citation": "https://claude.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cline-harness--cline-bot",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo active (v4.1.17 marked Latest, Desktop beta and SDK releases).",
+  "lifecycle_citation": "https://github.com/cline/cline/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "VS Code extension (desktop) + Pro cloud",
+    "new": "Self-hosted only — local VS Code extension, JetBrains plugin and CLI; BYO model keys",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Cline 3.x (2025-2026 rolling)",
+    "new": "v4.1.17 (2026-09-02)",
+    "citation": "https://github.com/cline/cline/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "~45k★, TypeScript",
+    "new": "cline/cline — ~67.6k stars, last commit 2026-09",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Cline is an MCP client",
+    "new": "yes — MCP client in extension and CLI (cline mcp to manage servers)",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched this pass (cognition.ai / devin.ai blocked by permission gate). Pricing carried from the 2026-10-22 pass2 check of devin.ai/pricing.",
+  "lifecycle_citation": "https://devin.ai/pricing/",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid; Spec Mode in Pro",
+    "new": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo; Enterprise custom",
+    "citation": "https://devin.ai/pricing/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Continue acquired by Cursor (homepage notice ~2026-06-16; terms undisclosed, acqui-hire). Product discontinued, data export until 2026-07-15, final 2.0.0 release; Apache-2.0 code stays public.",
+  "lifecycle_citation": "https://continue.dev",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host (IDE plugin) + Continue Hub for shared assistants",
+    "new": "Self-hosted only — VS Code/JetBrains extensions and CLI (discontinued after Cursor acquisition; OSS code remains forkable)",
+    "citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Continue 1.x rolling",
+    "new": "v2.0.0-vscode (2026-06-19) — final release",
+    "citation": "https://github.com/continuedev/continue/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~20k★, TypeScript",
+    "new": "continuedev/continue — ~35.7k stars, last commit 2026-06 (read-only, no longer maintained)",
+    "citation": "https://github.com/continuedev/continue",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Discontinued — recurring billing turned off after Cursor acquisition; OSS code free (Apache-2.0)",
+    "citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$7.5M Seed · 2024-03 (Heavybit, Y Combinator W23)",
+    "new": "Acquired by Cursor (Anysphere), ~2026-06, terms undisclosed; prior $7.5M seed (Heavybit, YC)",
+    "citation": "https://continue.dev",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cursor-ide--cursor-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "The New Stack (2026-06-22) reports SpaceX confirmed a ~$60B purchase of Cursor, making SpaceX the indirect owner of Continue; cursor.com and primary SpaceX/Cursor sources not reachable this pass (permission gate).",
+  "lifecycle_citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$900M Series C at $9.9B · 2025-05 (Thrive, a16z)",
+    "new": "Reported acquired by SpaceX for ~$60B (2026-06, per The New Stack); prior $900M Series C at $9.9B (2025-05). Cursor itself acquired Continue (2026-06)",
+    "citation": "https://thenewstack.io/cursor-acquires-continue-coding/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "elevenlabs-conversational-ai--elevenlabs-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Product now documented as the ElevenLabs Agents Platform; local elevenlabs-mcp repo archived 2026-08-20 in favour of the hosted MCP server.",
+  "lifecycle_citation": "https://github.com/elevenlabs/elevenlabs-mcp",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — hosted ElevenLabs MCP server (recommended); local elevenlabs-mcp server deprecated/archived 2026-08-20",
+    "citation": "https://github.com/elevenlabs/elevenlabs-mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "github-copilot-agent-mode--gh-features-copilot",
+  "lifecycle": "active",
+  "lifecycle_note": "Plans page current: agent mode in IDEs plus Copilot cloud agent; third-party agents (Claude, Codex) assignable.",
+  "lifecycle_citation": "https://github.com/features/copilot",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud (IDE extension + GitHub-hosted models)",
+    "new": "Managed-only — GitHub-hosted service via IDE extensions, Copilot CLI and github.com cloud agent",
+    "citation": "https://github.com/features/copilot",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "MCP support GA in Agent Mode (2025)",
+    "new": "yes — client: custom MCP servers in agent mode/cloud agent; admins can allow-list MCP servers",
+    "citation": "https://github.com/features/copilot",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "$10/mo Individual; $19/mo Business; $39/mo Enterprise",
+    "new": "Free $0 (2,000 completions/mo); Pro $10/mo; Pro+ $39/mo; Max $100/mo; Business $19/user/mo; Enterprise $39/user/mo",
+    "citation": "https://github.com/features/copilot",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "github-copilot-workspace--githubnext-com",
+  "lifecycle": "dead",
+  "lifecycle_note": "Copilot Workspace technical preview ended (sunset 2025-05-30, superseded by Copilot coding agent / agent mode); its user-manual repo was archived 2025-09-02. githubnext.com and github.blog not reachable this pass.",
+  "lifecycle_citation": "https://github.com/githubnext/copilot-workspace-user-manual",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud (GitHub-hosted)",
+    "new": "Managed-only — GitHub-hosted (technical preview ended; discontinued)",
+    "citation": "https://github.com/githubnext/copilot-workspace-user-manual",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "githubnext/copilot-workspace-user-manual — archived 2025-09-02 (product closed source)",
+    "citation": "https://github.com/githubnext/copilot-workspace-user-manual",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Bundled in Copilot Business ($19/mo) and Enterprise ($39/mo)",
+    "new": "Discontinued — successor features (Copilot cloud agent) in Copilot Pro $10/mo, Business $19/user/mo, Enterprise $39/user/mo",
+    "citation": "https://github.com/features/copilot",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "goose-block--block-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Very active (v1.56.0 on 2026-10-23). Block contributed goose to the Agentic AI Foundation (AAIF) at the Linux Foundation; repo now aaif-goose/goose.",
+  "lifecycle_citation": "https://github.com/aaif-goose/goose/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host (CLI + desktop)",
+    "new": "Self-hosted only — local CLI + desktop app; BYO LLM provider",
+    "citation": "https://github.com/block/goose",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Goose 1.x rolling",
+    "new": "v1.56.0 (2026-10-23)",
+    "citation": "https://github.com/aaif-goose/goose/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~14k★, Rust",
+    "new": "aaif-goose/goose (formerly block/goose) — ~55.7k stars, last commit 2026-10",
+    "citation": "https://github.com/block/goose",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Goose is an MCP client",
+    "new": "yes — MCP client; extensions are MCP servers",
+    "citation": "https://github.com/block/goose",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "Block (parent — public co, NYSE:XYZ)",
+    "new": "Originated at Block; now part of the Agentic AI Foundation (AAIF) at the Linux Foundation",
+    "citation": "https://github.com/block/goose",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: highlightai.com blocked by permission gate and web-search budget exhausted. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "hume-evi--hume-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "HumeAI GitHub org active (hume-api-examples updated 2026-10-24); official mcp-server-hume repo exists. Product page and EVI version not reachable this pass.",
+  "lifecycle_citation": "https://github.com/HumeAI",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/HumeAI (SDKs)",
+    "new": "HumeAI org (SDKs/examples; hume-api-examples ~250 stars, updated 2026-10) — EVI service closed source",
+    "citation": "https://github.com/HumeAI",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP server (HumeAI/mcp-server-hume)",
+    "citation": "https://github.com/HumeAI",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Official hyperbrowserai/mcp repo public and not archived; hyperbrowser.ai itself not reachable this pass.",
+  "lifecycle_citation": "https://github.com/hyperbrowserai/mcp",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Hyperbrowser MCP server (hyperbrowserai/mcp, MIT)",
+    "citation": "https://github.com/hyperbrowserai/mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "jetbrains-ai-assistant--jetbrains-com",
+  "lifecycle": "active",
+  "lifecycle_note": "jetbrains.com blocked this pass; GitHub confirms MCP server built into IntelliJ-based IDEs since 2025.2.",
+  "lifecycle_citation": "https://github.com/JetBrains/mcp-jetbrains",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP server built into all IntelliJ-based IDEs since 2025.2 (standalone mcp-jetbrains deprecated)",
+    "citation": "https://github.com/JetBrains/mcp-jetbrains",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "jetbrains-junie--jetbrains-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: jetbrains.com/junie blocked by permission gate and web-search budget exhausted. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "kiro--kiro-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Frequent releases: IDE 1.4.26 (2026-10-22), CLI 2.34.0 (2026-10-23); now the AWS successor to Q Developer.",
+  "lifecycle_citation": "https://kiro.dev/changelog/index",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud (desktop client; backend via AWS); no self-host",
+    "new": "Managed-only — desktop IDE (Code OSS fork) and CLI run locally; agent/model backend AWS-hosted; no self-host",
+    "citation": "https://kiro.dev/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v1.4.26 (2026-10-22) IDE; Kiro CLI v2.34.0 (2026-10-23)",
+    "citation": "https://kiro.dev/changelog/index",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Kiro supports MCP servers",
+    "new": "yes — MCP client in IDE and CLI (CLI 2.34.0 added MCP elicitation)",
+    "citation": "https://kiro.dev/changelog/index",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free preview tier + Pro/Pro+ tiers ($19/$39 mo) announced post-preview",
+    "new": "Free $0 (50 credits/mo); Pro $20/user/mo (1,000 credits); Pro+ $40; Pro Max $100; Power $200; overage $0.04/credit; Enterprise custom",
+    "citation": "https://kiro.dev/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "livekit-agents--docs-livekit-io",
+  "lifecycle": "active",
+  "lifecycle_note": "livekit-agents 1.x actively released (1.7.1 marked Latest).",
+  "lifecycle_citation": "https://github.com/livekit/agents/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0 (framework); turn-detector models under LiveKit Model License",
+    "citation": "https://github.com/livekit/agents",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-host + LiveKit Cloud",
+    "new": "Both (self-hosted + managed cloud) — OSS framework self-host + LiveKit Cloud",
+    "citation": "https://github.com/livekit/agents",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v0.x ongoing; LiveKit Agents Cloud announced 2025",
+    "new": "v1.7.1 (2026-08-27) — livekit-agents (Python)",
+    "citation": "https://github.com/livekit/agents/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/livekit/agents",
+    "new": "livekit/agents — ~13k stars, last commit 2026-08+",
+    "citation": "https://github.com/livekit/agents",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "Composes with MCP tools",
+    "new": "yes — native MCP support (agents can use MCP server tools)",
+    "citation": "https://github.com/livekit/agents",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lovable-dev-harness--lovable-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched this pass (lovable.dev blocked). MCP/deployment values carried from the 2026-10-22 pass2 primary-source check.",
+  "lifecycle_citation": "https://lovable.dev/blog",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud",
+    "new": "Managed-only — Lovable-hosted editor/agent; Enterprise private preview can run generated apps in customer AWS/Azure",
+    "citation": "https://lovable.dev/blog/deploy-your-lovable-apps-in-your-own-aws-account",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — chat connectors incl. custom MCP servers; first-party Lovable MCP server at mcp.lovable.dev",
+    "citation": "https://docs.lovable.dev/integrations/mcp-servers",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "lutra-ai--lutra-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: lutra.ai blocked by permission gate and web-search budget exhausted. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "magic-dev--magic-dev",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: magic.dev blocked by permission gate and web-search budget exhausted. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "magnitudedev/magnitude no longer contains the browser-agent/E2E-testing framework; README now describes an open-source local inference engine and desktop app (claims >2x faster than Ollama).",
+  "lifecycle_citation": "https://github.com/magnitudedev/magnitude",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Open-source browser-agent framework focused on AI-driven end-to-end testing — natural-language test cases that translate to Playwright actions. Y Combinator 2025; positions itself as 'Playwright + Claude for QA' rather than general autonomy.",
+    "new": "Formerly an OSS AI browser-agent / natural-language E2E testing framework (YC 2025). The magnitudedev/magnitude repo now hosts an OSS local inference engine + desktop app that serves open models to agents.",
+    "citation": "https://github.com/magnitudedev/magnitude",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/magnitudedev/magnitude",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Library / CLI; runs locally",
+    "new": "Self-hosted only — local library/desktop app",
+    "citation": "https://github.com/magnitudedev/magnitude",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/magnitudedev/magnitude",
+    "new": "magnitudedev/magnitude — ~7.2k stars, last commit n/a (repo repurposed to inference engine)",
+    "citation": "https://github.com/magnitudedev/magnitude",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "no — not mentioned in repo",
+    "citation": "https://github.com/magnitudedev/magnitude",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "manus-ai--manus-im",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: manus.im blocked by permission gate and web-search budget exhausted. Ownership should be re-checked (Meta acquisition reported late 2025, unconfirmed here).",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "metagpt-harness--gh-foundationagents-metagpt",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo not archived but latest marked release v0.8.1 (Apr 2024; v0.8.2 tag Mar 2025) and newest README news Mar 2025; team focus shifted to MGX (mgx.dev).",
+  "lifecycle_citation": "https://github.com/FoundationAgents/MetaGPT/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host (pip)",
+    "new": "Self-hosted only — Python library/CLI (pip install metagpt)",
+    "citation": "https://github.com/FoundationAgents/MetaGPT",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "MetaGPT 0.x rolling",
+    "new": "v0.8.1 (2024-04-22) marked Latest; v0.8.2 tag (2025-03-09)",
+    "citation": "https://github.com/FoundationAgents/MetaGPT/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "~44k★, Python",
+    "new": "FoundationAgents/MetaGPT — ~71k stars, last commit n/a",
+    "citation": "https://github.com/FoundationAgents/MetaGPT",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "lifecycle": "active",
+  "lifecycle_note": "Actively developed Rust CLI; rust-v0.164.0 shipped 2026-10-23 (only the original TypeScript implementation was replaced).",
+  "lifecycle_citation": "https://www.havoptic.com/tools/openai-codex",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "OpenAI's open-source terminal coding agent — released April 2025 alongside o3/o4-mini. Counterpart to Claude Code in the OpenAI stack. Memory via ~/.codex/memories (file-backed); routes to OpenAI o-series and Codex (model) for execution. Distinct from the older OpenAI Codex API (deprecated 2023) and from the separate ChatGPT \"Codex\" cloud agent product.",
+    "new": "OpenAI's actively developed OSS terminal coding agent (Apr 2025), now written in Rust (codex-rs replaced the original TS CLI); also IDE extension + desktop app. Separate from the Codex Web cloud agent and the retired 2021 Codex model API.",
+    "citation": "https://github.com/openai/codex/blob/main/README.md",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-host CLI; API calls to OpenAI cloud",
+    "new": "Self-hosted only — local CLI (npm/Homebrew); model calls go to OpenAI via ChatGPT sign-in or API key",
+    "citation": "https://github.com/openai/codex",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "codex-cli rolling releases (2025-2026)",
+    "new": "v0.164.0 (2026-10-23) — tag rust-v0.164.0",
+    "citation": "https://www.havoptic.com/tools/openai-codex",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "~40k★, Rust + TypeScript",
+    "new": "openai/codex — ~128k stars, last commit 2026-10",
+    "citation": "https://github.com/openai/codex",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Codex CLI is an MCP client",
+    "new": "yes — MCP client (mcp_servers in ~/.codex/config.toml); documented in Codex MCP docs",
+    "citation": "https://developers.openai.com/codex/mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free (OSS); usage via OpenAI API",
+    "new": "CLI free (Apache-2.0); usage via ChatGPT plans (Free/Go limited, Plus $20/mo, Pro $100–200/mo, Business $25/user/mo) or API-key per-token billing",
+    "citation": "https://www.jetadmin.io/blog/codex-pricing-current-costs-usage-limits-and-realistic-budgets-2026/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified this pass (openai.com / help.openai.com article blocked). Should be re-checked: Operator was folded into ChatGPT agent in 2025 and the standalone product reportedly sunset.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "openai-realtime-api--platform-openai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Realtime docs/pricing pages blocked this pass; reference app openai/openai-realtime-agents public (MIT, built on Agents SDK). Pricing cell (Oct-2024 launch rates) likely stale but not re-verified.",
+  "lifecycle_citation": "https://github.com/openai/openai-realtime-agents",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/openai/openai-realtime-agents (examples)",
+    "new": "openai/openai-realtime-agents — ~6.9k stars (MIT reference app on Agents SDK), last commit n/a; API itself closed source",
+    "citation": "https://github.com/openai/openai-realtime-agents",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "opencode-sst--opencode-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo moved to anomalyco/opencode; v1.19.4 released 2026-10-22.",
+  "lifecycle_citation": "https://github.com/sst/opencode/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host (npm)",
+    "new": "Self-hosted only — local TUI/CLI (npm, Homebrew) and desktop app; BYO model provider",
+    "citation": "https://github.com/sst/opencode",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "opencode 0.x rolling",
+    "new": "v1.19.4 (2026-10-22)",
+    "citation": "https://github.com/sst/opencode/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~10k★, TypeScript",
+    "new": "anomalyco/opencode (formerly sst/opencode) — ~222k stars, last commit 2026-10",
+    "citation": "https://github.com/sst/opencode",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo moved to OpenHands/OpenHands org; v1.24.0 released 2026-09-25.",
+  "lifecycle_citation": "https://github.com/OpenHands/OpenHands/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host (Docker) + cloud SaaS",
+    "new": "Both (self-hosted + managed cloud) — Docker/local self-host + OpenHands Cloud (commercial)",
+    "citation": "https://github.com/OpenHands/OpenHands",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "OpenHands 0.x rolling",
+    "new": "v1.24.0 (2026-09-25)",
+    "citation": "https://github.com/OpenHands/OpenHands/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~40k★, Python",
+    "new": "OpenHands/OpenHands (formerly All-Hands-AI/OpenHands) — ~92k stars, last commit 2026-09",
+    "citation": "https://github.com/All-Hands-AI/OpenHands",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pipecat-daily--pipecat-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Active; v1.7.0 marked Latest; Pipecat Cloud deploy referenced in README.",
+  "lifecycle_citation": "https://github.com/pipecat-ai/pipecat/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Pip self-host + Daily Cloud (managed WebRTC)",
+    "new": "Both (self-hosted + managed cloud) — pip self-host + Pipecat Cloud",
+    "citation": "https://github.com/pipecat-ai/pipecat",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Active monthly releases (PyPI: pipecat-ai)",
+    "new": "v1.7.0 (2026-08-01)",
+    "citation": "https://github.com/pipecat-ai/pipecat/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/pipecat-ai/pipecat — 4k+ stars",
+    "new": "pipecat-ai/pipecat — ~16.8k stars, last commit 2026-08+",
+    "citation": "https://github.com/pipecat-ai/pipecat",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "project-mariner--deepmind-google",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: deepmind.google blocked by permission gate and web-search budget exhausted. Pricing cell (Gemini Advanced $19.99) likely stale; re-check.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "replit-agent-v3--replit-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched this pass (replit.com blocked). Pricing/MCP carried from the 2026-10-22 pass2 primary-source check.",
+  "lifecycle_citation": "https://docs.replit.com/replitai/agent",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Agent connects to listed or custom MCP servers via Integrations (OAuth or custom headers)",
+    "citation": "https://docs.replit.com/replitai/mcp/overview",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + Core ($20/mo) + Teams",
+    "new": "Starter free; Core $20/mo ($18 annual); Pro $100/mo ($90 annual); Enterprise custom",
+    "citation": "https://replit.com/pricing",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "retell-ai--retellai-com-2",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched this pass (retellai.com blocked); GitHub org RetellAI SDKs public. Values carried from the 2026-10-22 pass2 primary-source check.",
+  "lifecycle_citation": "https://www.retellai.com/pricing",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Cloud-managed",
+    "new": "Managed-only — Retell-hosted; Enterprise dedicated-server add-on; no self-host option listed",
+    "citation": "https://www.retellai.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP Node lets agents call tools on external MCP servers mid-call",
+    "citation": "https://retellai.com/blog/connect-any-ai-voice-agent-to-mcp-with-retell-ai-mcp-node",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Per-minute usage ($0.07/min + provider passthrough)",
+    "new": "Pay-as-you-go voice $0.07–0.31/min; $10 free credits; 20 free concurrent calls; Enterprise custom",
+    "citation": "https://www.retellai.com/pricing",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "roo-code--roocode-com",
+  "lifecycle": "archived",
+  "lifecycle_note": "Roo Code extension shut down 2026-05-15; RooCodeInc/Roo-Code archived (read-only) by owner the same day.",
+  "lifecycle_citation": "https://github.com/RooCodeInc/Roo-Code",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "OSS VS Code agentic extension — Cline fork that diverged with custom modes (Architect, Code, Ask, Debug). Memory via .roorules + Memory Bank. Smaller community than Cline but persistent contributor base.",
+    "new": "Discontinued OSS VS Code agentic extension — Cline fork with custom modes (Architect, Code, Ask, Debug) and .roorules/Memory Bank. Shut down 2026-05-15; repo archived.",
+    "citation": "https://github.com/RooCodeInc/Roo-Code",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "VS Code extension",
+    "new": "Self-hosted only — VS Code extension (shut down 2026-05-15)",
+    "citation": "https://github.com/RooCodeInc/Roo-Code",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~10k★, TypeScript",
+    "new": "RooCodeInc/Roo-Code — ~24.3k stars, archived 2026-05-15",
+    "citation": "https://github.com/RooCodeInc/Roo-Code",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free (OSS); usage via LLM provider",
+    "new": "Discontinued — extension shut down 2026-05-15 (code remains Apache-2.0)",
+    "citation": "https://github.com/RooCodeInc/Roo-Code",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "not applicable — OSS / no commercial entity",
+    "new": "Roo Code, Inc. (commercial entity, per repo copyright); extension shut down 2026-05-15",
+    "citation": "https://github.com/RooCodeInc/Roo-Code",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "skyvern--skyvern-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Active (v1.0.56 released 2026-10-14).",
+  "lifecycle_citation": "https://github.com/Skyvern-AI/skyvern/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Docker self-host + Skyvern Cloud",
+    "new": "Both (self-hosted + managed cloud) — Docker/pip self-host + Skyvern Cloud (cloud anti-bot features not in OSS)",
+    "citation": "https://github.com/Skyvern-AI/skyvern",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v0.x ongoing; weekly releases on GitHub",
+    "new": "v1.0.56 (2026-10-14)",
+    "citation": "https://github.com/Skyvern-AI/skyvern/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/Skyvern-AI/skyvern — 13k+ stars",
+    "new": "Skyvern-AI/skyvern — ~23.1k stars, last commit 2026-10",
+    "citation": "https://github.com/Skyvern-AI/skyvern",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP server so any MCP-capable LLM client can drive Skyvern",
+    "citation": "https://github.com/Skyvern-AI/skyvern",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "smol-developer--gh-smol-ai-developer",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo public and not archived, but no releases and only 124 commits; dormant historical project.",
+  "lifecycle_citation": "https://github.com/smol-ai/developer",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host",
+    "new": "Self-hosted only — Python library/CLI",
+    "citation": "https://github.com/smol-ai/developer",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Inactive since 2024",
+    "new": "none — no GitHub releases published",
+    "citation": "https://github.com/smol-ai/developer",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~12k★, Python",
+    "new": "smol-ai/developer — ~12.2k stars, last commit n/a (dormant)",
+    "citation": "https://github.com/smol-ai/developer",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "sourcegraph-cody-agent--sourcegraph-com",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "Cody moved to a private repo (public snapshot archived 2025-08-01); Cody Free/Pro/Enterprise Starter discontinued 2025-07-23, Cody remains for Enterprise only (blog per 2026-10 pass; not re-fetched).",
+  "lifecycle_citation": "https://github.com/sourcegraph/cody-public-snapshot",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "sourcegraph/cody-public-snapshot — ~3.8k stars, archived 2025-08-01 (development moved private)",
+    "citation": "https://github.com/sourcegraph/cody-public-snapshot",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + Pro $9/mo + Enterprise",
+    "new": "Cody Free/Pro discontinued 2025-07-23; Cody available to Enterprise customers only (contact sales)",
+    "citation": "https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "speechmatics-flow--speechmatics-com",
+  "lifecycle": "active",
+  "lifecycle_note": "speechmatics.com/flow blocked this pass; official Python SDK repo presents a current voice-agent SDK (speechmatics-voice / VoiceAgentClient). Whether 'Flow' branding persists is unconfirmed.",
+  "lifecycle_citation": "https://github.com/speechmatics/speechmatics-python-sdk",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "stagehand--stagehand-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Active monorepo (TS, Python, Go SDKs); TS core 3.7.3 marked Latest.",
+  "lifecycle_citation": "https://github.com/browserbase/stagehand/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Open-source TypeScript framework for browser automation, maintained by Browserbase. Hybrid of Playwright-style imperative APIs and AI-driven natural-language actions (e.g. page.act('click the sign-up button')). Used as the OSS substrate that Browserbase Cloud composes with.",
+    "new": "Open-source browser-automation framework by Browserbase (TypeScript core plus Python and Go SDKs). Mixes Playwright-style code with natural-language act/extract/observe; pairs with Browserbase Cloud.",
+    "citation": "https://github.com/browserbase/stagehand",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Library — runs anywhere Playwright runs; Browserbase Cloud for managed",
+    "new": "Both (self-hosted + managed cloud) — library runs locally; Browserbase cloud browsers optional",
+    "citation": "https://github.com/browserbase/stagehand",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v2.x; active monthly releases (npm: @browserbasehq/stagehand)",
+    "new": "v3.7.3 (2026-08-28) — @browserbasehq/stagehand",
+    "citation": "https://github.com/browserbase/stagehand/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/browserbase/stagehand — 9k+ stars",
+    "new": "browserbase/stagehand — ~25.5k stars, last commit 2026-08+",
+    "citation": "https://github.com/browserbase/stagehand",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "Composes with Browserbase MCP server",
+    "new": "yes — hosted Browserbase MCP server exposes navigate/act/observe/extract to any MCP client",
+    "citation": "https://github.com/browserbase/stagehand",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "steel-dev--steel-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "README says Steel is in public beta; latest release v0.5.4-beta (2026-08-25).",
+  "lifecycle_citation": "https://github.com/steel-dev/steel-browser",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/steel-dev/steel-browser",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Docker self-host + Steel Cloud",
+    "new": "Both (self-hosted + managed cloud) — Docker self-host (steel-browser) + Steel Cloud",
+    "citation": "https://github.com/steel-dev/steel-browser",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v0.x ongoing on GitHub",
+    "new": "v0.5.4-beta (2026-08-25)",
+    "citation": "https://github.com/steel-dev/steel-browser/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/steel-dev/steel-browser",
+    "new": "steel-dev/steel-browser — ~7.6k stars, last commit 2026-08",
+    "citation": "https://github.com/steel-dev/steel-browser",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: synthflow.ai blocked by permission gate and web-search budget exhausted. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "ui-tars--gh-bytedance-ui-tars",
+  "lifecycle": "active",
+  "lifecycle_note": "UI-TARS-2 announced 2025-09-04; companion UI-TARS-desktop / Agent TARS repo (~39k stars) shipped Agent TARS CLI v0.3.0 on 2025-11-05.",
+  "lifecycle_citation": "https://github.com/bytedance/UI-TARS",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/bytedance/UI-TARS",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-host (HuggingFace weights) + UI-TARS-Desktop Electron app",
+    "new": "Self-hosted only — open weights (Hugging Face) + UI-TARS-desktop / Agent TARS app",
+    "citation": "https://github.com/bytedance/UI-TARS",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "UI-TARS-1.5 (Apr 2025)",
+    "new": "UI-TARS-2 announced (2025-09-04); latest open weights UI-TARS-1.5-7B (2025-04-16)",
+    "citation": "https://github.com/bytedance/UI-TARS",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/bytedance/UI-TARS — 4k+ stars",
+    "new": "bytedance/UI-TARS — ~11.4k stars, last commit n/a; UI-TARS-desktop ~39k stars",
+    "citation": "https://github.com/bytedance/UI-TARS",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — via Agent TARS (UI-TARS-desktop): MCP-based kernel that mounts MCP servers",
+    "citation": "https://github.com/bytedance/UI-TARS-desktop",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "v0-vercel--v0-app",
+  "lifecycle": "active",
+  "lifecycle_note": "v0.app blocked this pass; vercel/v0-sdk (SDK for v0 Platform API) public.",
+  "lifecycle_citation": "https://github.com/vercel/v0-sdk",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "vercel/v0-sdk — ~510 stars (Apache-2.0 SDK for v0 Platform API), last commit n/a; v0 itself closed source",
+    "citation": "https://github.com/vercel/v0-sdk",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "vapi--vapi-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "vapi.ai blocked this pass; VapiAI/mcp-server repo active (not archived).",
+  "lifecycle_citation": "https://github.com/VapiAI/mcp-server",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "Tool-calling supports MCP servers (caller-side)",
+    "new": "yes — Vapi MCP server (remote https://mcp.vapi.ai/mcp, Streamable HTTP; VapiAI/mcp-server, MIT); assistants can also call MCP tools",
+    "citation": "https://github.com/VapiAI/mcp-server",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "vonage-ai-studio--vonage-com",
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: vonage.com blocked by permission gate; Vonage GitHub org shows SDKs only, no AI Studio mention. Current values left unchanged.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Windsurf now owned by Cognition and documented as 'Devin Desktop' (docs.windsurf.com redirects to docs.devin.ai per 2026-10 pass); Claude Code docs also list Devin Desktop as a VS Code-based IDE. Exafunction archived its Codeium/Windsurf editor plugins (Mar–Apr 2026).",
+  "lifecycle_citation": "https://docs.devin.ai/desktop/cascade/memories",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade — a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound — Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025).",
+    "new": "Codeium-built agentic IDE (VS Code fork) with the Cascade agent (Flows, Memories). OpenAI's ~$3B deal (May 2025) collapsed; Google paid ~$2.4B for a license + key staff (Jul 2025); Cognition acquired the rest and rebranded it Devin Desktop.",
+    "citation": "https://docs.devin.ai/desktop/cascade/memories",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "Codeium $150M Series C (2024); ~$3B reported OpenAI offer; ultimately $2.4B Google reverse-acqui-hire (2025-07)",
+    "new": "Acquired by Cognition (2025-07) after Google's ~$2.4B license/acqui-hire; prior Codeium $150M Series C (2024)",
+    "citation": "https://docs.devin.ai/desktop/cascade/memories",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "zed-agentic-editing--zed-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Zed 1.x stable releases (v1.15.0 marked Latest in captured page); Rules Library replaced by Skills from v1.4.0.",
+  "lifecycle_citation": "https://github.com/zed-industries/zed/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "GPL-3.0 (GUI); Apache-2.0 + GPL components",
+    "new": "GPL-3.0-or-later (primary), with Apache-2.0 components where marked",
+    "citation": "https://github.com/zed-industries/zed",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-host (desktop)",
+    "new": "Self-hosted only — native desktop editor; AI via Zed-hosted models, BYO API keys or local models",
+    "citation": "https://github.com/zed-industries/zed",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Zed 0.166 (2025)",
+    "new": "v1.15.0 (2026-08-12)",
+    "citation": "https://github.com/zed-industries/zed/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "~55k★, ~2k/mo, Rust",
+    "new": "zed-industries/zed — ~89k stars, last commit 2026-08+",
+    "citation": "https://github.com/zed-industries/zed",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Zed MCP support",
+    "new": "yes — MCP client ('context servers': tools + prompts, local or remote, via settings or extensions)",
+    "citation": "https://github.com/zed-industries/zed/blob/main/docs/src/ai/mcp.md",
+    "confidence": "high"
+   }
+  ]
+ }
+]

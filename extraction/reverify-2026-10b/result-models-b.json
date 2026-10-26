@@ -1,0 +1,1117 @@
+[
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "No Llama release found after Llama 4 (2025-04); Meta Superintelligence Labs' new frontier line is the Muse family (Muse Spark 2026-04-08). Official ai.meta.com / research.meta.ai pages blocked by fetch gate; secondary sources used.",
+  "lifecycle_citation": "https://the-decoder.com/metas-muse-spark-is-its-first-frontier-model-and-its-first-without-open-weights/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "No Llama release found after Llama 4 Scout + Maverick (2025-04-05); successor Muse family: Muse Spark (2026-04-08, closed), Muse Spark Open weights (2026-10-15)",
+    "citation": "https://itdaily.com/news/innovation/meta-muse-spark-open-weigh/",
+    "confidence": "medium",
+    "old": "Llama 4 Scout + Maverick (2025-04); Behemoth in preview as of 2025"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — open weights (llama.com / Hugging Face); hosted via AWS Bedrock, Azure AI, Together, Groq, Fireworks, Databricks",
+    "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+    "confidence": "medium",
+    "old": "Self-hostable (open-weights) + hosted via AWS Bedrock + Azure AI + Together AI + Groq + Fireworks + Replicate + Databricks"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Phi-4-reasoning-vision-15B (open-weight) listed in Microsoft Foundry Labs; no newer Phi generation found.",
+  "lifecycle_citation": "https://labs.ai.azure.com/projects/phi-4-reasoning-vision-15b/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Phi-4-reasoning-vision-15B (2026-03)",
+    "citation": "https://en.wikipedia.org/wiki/Phi_(language_model)",
+    "confidence": "medium",
+    "old": "Phi-4 Multimodal (2025-02); Phi-4 (2024-12)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — MIT open weights (Hugging Face, vLLM/Transformers); Microsoft Foundry catalog; on-device via ONNX Runtime",
+    "citation": "https://labs.ai.azure.com/projects/phi-4-reasoning-vision-15b/",
+    "confidence": "medium",
+    "old": "Self-hostable (MIT) + Azure AI Foundry hosted + on-device (Windows Copilot+ PCs, ONNX Runtime)"
+   }
+  ]
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Mistral Medium 3.5 GA 2026-04; Mistral Large 4 public preview via Mistral Studio from 2026-10 with weights promised by end of October. mistral.ai/news and docs models overview not fetchable (gate / site error).",
+  "lifecycle_citation": "https://letsdatascience.com/news/mistral-debuts-large-4-open-weight-model-preview-cbf9e0b5",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Mistral Medium 3.5 (2026-04-29); Mistral Large 4 in public preview (2026-10), weights not yet released",
+    "citation": "https://llm-stats.com/models/mistral-medium-3-5",
+    "confidence": "medium",
+    "old": "Mistral Large 2.1 (2025-Q1); Mistral Small 3 (2025-01); Codestral 2 (2025)"
+   },
+   {
+    "cell": "license",
+    "new": "Mixed: Modified MIT (Medium 3.5 weights); Apache-2.0 (Small / Large 3 / other open models); some models API-only proprietary",
+    "citation": "https://ai.azure.com/catalog/models/mistral-medium-3-5",
+    "confidence": "medium",
+    "old": "Apache 2.0 (Mixtral / Small 3 / Codestral); proprietary (Large 2 / Pixtral Large)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — La Plateforme / Mistral Studio API, open weights for self-hosting, plus Azure / AWS / GCP marketplaces",
+    "citation": "https://ai.azure.com/catalog/models/mistral-medium-3-5",
+    "confidence": "medium",
+    "old": "Managed cloud (La Plateforme) + on-prem (Mistral Forge enterprise) + open-weights (Apache 2.0 for Mixtral + Small + Codestral) + Azure / AWS / GCP hosted"
+   },
+   {
+    "cell": "pricing",
+    "new": "API: Mistral Medium 3.5 $1.50 in / $7.50 out per 1M; Mistral Large 3 $0.50 / $1.50; batch 50% off; open weights free",
+    "citation": "https://developer.puter.com/tutorials/mistral-api-pricing/",
+    "confidence": "medium",
+    "old": "API: Mistral Large 2 $2/$6 per 1M; Small 3 free / $0.10-$0.30; Apache 2.0 open weights for Mixtral + Small + Codestral; Enterprise Mistral Forge on-prem"
+   }
+  ]
+ },
+ {
+  "id": "mlflow--mlflow-org",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/mlflow/mlflow",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "mlflow/mlflow — ~25.9k stars, last commit 2026-05",
+    "citation": "https://github.com/mlflow/mlflow",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — OSS tracking server; managed MLflow on Databricks, SageMaker, Azure ML",
+    "citation": "https://github.com/mlflow/mlflow",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "modal--modal-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified. deployment/pricing carried from sibling row modal-sandboxes--modal-com (cited Modal docs); funding cell may be stale (sibling row cites Series B 2024-09, ~$1.1B).",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "deployment",
+    "new": "Managed-only — serverless CPU/GPU cloud (no self-hosting)",
+    "citation": "https://modal.com/docs/guide/sandbox",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free tier (~$30/mo compute credit); pay-per-second CPU/GPU billing; Team and Enterprise plans",
+    "citation": "https://modal.com/docs/guide/sandbox",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "nemotron-synthetic-data-nvidia--blogs-nvidia-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "nvidia-gr00t-isaac--developer-nvidia-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched live (search budget exhausted); values carried from sibling catalog row nvidia-isaac-gr00t-n1-7 verified 2026-10-22 (repo ~8.2k stars, last release 2026-04 = n1.7-release).",
+  "lifecycle_citation": "https://github.com/NVIDIA/Isaac-GR00T",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "GR00T N1.7 (n1.7-release, 2026-04-18)",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release",
+    "confidence": "medium",
+    "old": "GR00T N1 (2B) on HuggingFace Mar-2025"
+   },
+   {
+    "cell": "gh",
+    "new": "NVIDIA/Isaac-GR00T — ~8.2k stars, last release 2026-04",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T",
+    "confidence": "medium",
+    "old": "github.com/NVIDIA/Isaac-GR00T"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 (code); model weights under NVIDIA Open Model License",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T",
+    "confidence": "medium",
+    "old": "NVIDIA Open Model license"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — open weights run on-robot (Jetson Thor) and in simulation (Isaac Sim / Isaac Lab)",
+    "citation": "https://developer.nvidia.com/isaac/gr00t",
+    "confidence": "medium",
+    "old": "On-robot (Jetson Thor) + simulation (Isaac Sim) + training cloud (Cosmos)"
+   }
+  ]
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by NVIDIA (2024); per catalog's cited funding source. OctoAI public service was wound down after the acquisition (end-of-service 2024-10-31 per our recollection; not re-verified live, search budget exhausted).",
+  "lifecycle_citation": "https://blogs.nvidia.com/blog/nvidia-acquires-octoai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "GPT-6 rolled out in ChatGPT worldwide 2026-10-07; GPT-6 Astra API flagship announced 2026-09-03.",
+  "lifecycle_citation": "https://openai.com/ga-IE/index/gpt-6-for-everyone/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "GPT-6 Sol / Luna / Instant in ChatGPT (2026-10-07); API flagship GPT-6 Astra (announced 2026-09-03, staged rollout)",
+    "citation": "https://openai.com/ga-IE/index/gpt-6-for-everyone/",
+    "confidence": "medium",
+    "old": "GPT-5 (2025-08), o4-mini, GPT-4.1 series"
+   },
+   {
+    "cell": "license",
+    "new": "proprietary (API only)",
+    "citation": "https://openai.com/blog/gpt-6-astra",
+    "confidence": "high",
+    "old": "not applicable — not OSS"
+   },
+   {
+    "cell": "deployment",
+    "new": "Managed-only — OpenAI API + ChatGPT, also Microsoft Azure and AWS Bedrock (separate gpt-oss open-weight models exist)",
+    "citation": "https://openai.com/blog/gpt-6-astra",
+    "confidence": "high",
+    "old": "Managed-only (OpenAI API + Microsoft Azure OpenAI)"
+   },
+   {
+    "cell": "pricing",
+    "new": "API flagship GPT-6 Astra $10 input / $50 output per 1M tokens (Fast mode 2x price); ChatGPT Free / Go / Plus / Pro / Business / Enterprise plans",
+    "citation": "https://openai.com/blog/gpt-6-astra",
+    "confidence": "high",
+    "old": "Pay-per-token API (GPT-5 $1.25/$10 per 1M; GPT-4o $2.50/$10; o3 $2/$8); ChatGPT Free + Plus ($20/mo) + Pro ($200/mo) + Team + Enterprise"
+   }
+  ]
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/Arize-ai/openinference",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "Arize-ai/openinference — ~1.0k stars, last commit 2026-05",
+    "citation": "https://github.com/Arize-ai/openinference",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — OpenTelemetry instrumentation libraries (used with Arize Phoenix or any OTel backend)",
+    "citation": "https://github.com/Arize-ai/openinference",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/Arize-ai/openinference",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "openllmetry-traceloop--gh-traceloop-openllmetry",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/traceloop/openllmetry",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "traceloop/openllmetry — ~7.1k stars, last commit 2026-05",
+    "citation": "https://github.com/traceloop/openllmetry",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — OpenTelemetry instrumentation SDK exporting to any OTel backend (incl. Traceloop's cloud)",
+    "citation": "https://github.com/traceloop/openllmetry",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/traceloop/openllmetry",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "openmind-om1--openmind-org",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified. Note: local GitHub API snapshot (2026-05-15) returned repo-not-found for OpenMind-Labs/OM1; repo location needs a live check.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "openrlhf--gh-openrlhf-openrlhf",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/OpenRLHF/OpenRLHF",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "OpenRLHF/OpenRLHF — ~9.5k stars, last commit 2026-05",
+    "citation": "https://github.com/OpenRLHF/OpenRLHF",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — Ray/vLLM-based RLHF and agentic-RL training framework",
+    "citation": "https://github.com/OpenRLHF/OpenRLHF",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/OpenRLHF/OpenRLHF",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "openrouter--openrouter-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Live model pages with current availability stats (e.g. Mistral Medium 3.5 added 2026-04-30), (c) 2026 footer. Pricing/MCP/gh not re-checked: web search budget exhausted.",
+  "lifecycle_citation": "https://openrouter.ai/models/mistralai/mistral-medium-3-5",
+  "verified": true,
+  "updates": []
+ },
+ {
+  "id": "outerbounds--outerbounds-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "pachyderm-hpe--pachyderm-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by HPE (2023-01) per catalog's cited press release. Current product status (HPE Machine Learning Data Management) not re-verified live (search budget exhausted).",
+  "lifecycle_citation": "https://www.hpe.com/us/en/newsroom/press-release/2023/01/hewlett-packard-enterprise-acquires-pachyderm-to-accelerate-aiml-initiatives-with-reproducible-and-scalable-data-management.html",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "patronus-ai--patronus-ai",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "peft-hugging-face--gh-huggingface-peft",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/huggingface/peft",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "huggingface/peft — ~21.1k stars, last commit 2026-05",
+    "citation": "https://github.com/huggingface/peft",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — Python parameter-efficient fine-tuning library",
+    "citation": "https://github.com/huggingface/peft",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/huggingface/peft",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "physical-intelligence--physicalintelligence-company",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched live (search budget exhausted); carried from sibling row 0-5-physical-intelligence--pi-website verified 2026-10-23: openpi public, not archived, ships pi05 checkpoints.",
+  "lifecycle_citation": "https://github.com/Physical-Intelligence/openpi",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "Physical-Intelligence/openpi — ~13.3k stars (pi0.5 base / DROID / LIBERO checkpoints)",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "medium",
+    "old": "github.com/Physical-Intelligence/openpi"
+   },
+   {
+    "cell": "license",
+    "new": "Apache-2.0 (openpi code); Gemma-derived weight terms in LICENSE_GEMMA.txt",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "medium",
+    "old": "OpenPI Apache 2.0 (Feb 2025 release of weights)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — openpi weights served on own GPU with websocket streaming to on-robot client; no first-party public API",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "medium",
+    "old": "OSS weights (OpenPI) self-host on robot hardware; no first-party commercial endpoint as of 2025-04 — partners deploy in-house"
+   }
+  ]
+ },
+ {
+  "id": "pickle-robot--picklerobot-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/Portkey-AI/gateway",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "Portkey-AI/gateway — ~11.7k stars, last commit 2026-03",
+    "citation": "https://github.com/Portkey-AI/gateway",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — OSS AI gateway (MIT) self-hostable; Portkey managed cloud / enterprise",
+    "citation": "https://github.com/Portkey-AI/gateway",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "prefect--prefect-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/PrefectHQ/prefect",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "PrefectHQ/prefect — ~22.4k stars, last commit 2026-05",
+    "citation": "https://github.com/PrefectHQ/prefect",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — OSS Prefect server; managed Prefect Cloud",
+    "citation": "https://github.com/PrefectHQ/prefect",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "promptlayer--promptlayer-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "qlora--arxiv-2305-14314",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "ragas--gh-explodinggradients-ragas",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo has moved: explodinggradients/ragas now resolves to vibrantlabsai/ragas (per GitHub API full_name); last push 2026-02-24 as of snapshot. Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/explodinggradients/ragas",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "vibrantlabsai/ragas — ~13.9k stars, last commit 2026-02",
+    "citation": "https://github.com/explodinggradients/ragas",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — Python LLM-evaluation library",
+    "citation": "https://github.com/explodinggradients/ragas",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/explodinggradients/ragas",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "ray-train--docs-ray-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Ray Train ships inside ray-project/ray. Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/ray-project/ray",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "ray-project/ray — ~42.5k stars, last commit 2026-05",
+    "citation": "https://github.com/ray-project/ray",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — OSS Ray clusters (KubeRay); managed via Anyscale",
+    "citation": "https://github.com/ray-project/ray",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Independent (Snowflake acquisition talks were dropped); Reka API live, serving Reka Edge 2603 / Flash 3 plus third-party open models; Rho-1 research preview 2026-10-05.",
+  "lifecycle_citation": "https://developer.reka.ai/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Reka Edge 2603 (2026-03); Rho-1 research preview (2026-10-05)",
+    "citation": "https://developer.reka.ai/",
+    "confidence": "medium",
+    "old": "Reka Flash 3 (2025); Reka Core (2024-04)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — Reka API (developer.reka.ai, also serves third-party open models); Reka Flash 3 weights on Hugging Face",
+    "citation": "https://developer.reka.ai/",
+    "confidence": "medium",
+    "old": "Managed cloud (Reka API) + Snowflake Cortex AI post-acquisition; some weights via HuggingFace (Reka Flash 3)"
+   },
+   {
+    "cell": "pricing",
+    "new": "Reka API pay-per-token, per-model rates (e.g. Reka Edge 2603 $0.10 in / $0.10 out per 1M)",
+    "citation": "https://llmgateway.io/models/reka-edge-2603",
+    "confidence": "medium",
+    "old": "Reka API pay-per-token (~$3/$10 per 1M Core); post-Snowflake-acq: bundled into Snowflake Cortex AI"
+   },
+   {
+    "cell": "funding",
+    "new": "Independent — Snowflake acquisition talks dropped; raised $110M at ~$1B valuation (2025-07; Nvidia, Snowflake)",
+    "citation": "https://siliconangle.com/2025/07/22/multimodal-ai-startup-reka-ai-raises-110m-1b-valuation",
+    "confidence": "medium",
+    "old": "$103M total raised (Series B June-2023 led by DST Global + Snowflake Ventures); Snowflake acquisition reported May-2025 (~$2B)"
+   }
+  ]
+ },
+ {
+  "id": "replicate--replicate-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified. Known but uncited here: Cloudflare announced acquiring Replicate (2025-11) — lifecycle/funding likely need 'acquired'.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "rl4lms--gh-allenai-rl4lms",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Dormant: last commit 2023-03, last push 2024-03 (not archived). Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/allenai/RL4LMs",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "allenai/RL4LMs — ~2.4k stars, last commit 2023-03",
+    "citation": "https://github.com/allenai/RL4LMs",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — research Python library",
+    "citation": "https://github.com/allenai/RL4LMs",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/allenai/RL4LMs",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "rlhflow--gh-rlhflow-rlhf-reward-modeling",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Dormant: last push 2025-04 (not archived). Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "RLHFlow/RLHF-Reward-Modeling — ~1.5k stars, last commit 2025-04",
+    "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — research training recipes / code",
+    "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "roboflow--roboflow-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "rsl-rl--gh-leggedrobotics-rsl-rl",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/leggedrobotics/rsl_rl",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "leggedrobotics/rsl_rl — ~2.6k stars, last commit 2026-05",
+    "citation": "https://github.com/leggedrobotics/rsl_rl",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — PyTorch RL library (used with Isaac Lab)",
+    "citation": "https://github.com/leggedrobotics/rsl_rl",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, BSD)",
+    "citation": "https://github.com/leggedrobotics/rsl_rl",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "runpod--runpod-io",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "sanctuary-ai--sanctuary-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-fetched live; per sibling row verified 2026-10-22: site now sells hardware-agnostic 'Physical AI' (Carbon) for existing industrial robots plus hydraulic hands; Phoenix humanoid no longer featured; new CEO Daniel Friedmann.",
+  "lifecycle_citation": "https://www.sanctuary.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "scale-ai--scale-com",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified. Funding cell likely mis-dated: Meta's ~$14.3B investment for ~49% (Wang to Meta) was 2025-06, not 2024-06; needs a cited fix.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "sglang--gh-sgl-project-sglang",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/sgl-project/sglang",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "sgl-project/sglang — ~27.9k stars, last commit 2026-05",
+    "citation": "https://github.com/sgl-project/sglang",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — LLM/VLM serving engine with OpenAI-compatible server (pip / Docker)",
+    "citation": "https://github.com/sgl-project/sglang",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/sgl-project/sglang",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "snorkel-ai--snorkel-ai",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "stable-baselines3--gh-dlr-rm-stable-baselines3",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/DLR-RM/stable-baselines3",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "DLR-RM/stable-baselines3 — ~13.3k stars, last commit 2026-05",
+    "citation": "https://github.com/DLR-RM/stable-baselines3",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — PyTorch RL algorithms library",
+    "citation": "https://github.com/DLR-RM/stable-baselines3",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, MIT)",
+    "citation": "https://github.com/DLR-RM/stable-baselines3",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "surge-ai--surgehq-ai",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "tensorrt-llm--gh-nvidia-tensorrt-llm",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/NVIDIA/TensorRT-LLM",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "NVIDIA/TensorRT-LLM — ~13.7k stars, last commit 2026-05",
+    "citation": "https://github.com/NVIDIA/TensorRT-LLM",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — inference library/runtime for NVIDIA GPUs (also packaged in Triton / NVIDIA NIM)",
+    "citation": "https://github.com/NVIDIA/TensorRT-LLM",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/NVIDIA/TensorRT-LLM",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "lifecycle": "archived",
+  "lifecycle_note": "GitHub API snapshot (2026-05-15) reports the repo as archived (read-only); last push 2026-03-21. Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/huggingface/text-generation-inference",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "huggingface/text-generation-inference — ~10.9k stars, last commit 2026-03 (archived)",
+    "citation": "https://github.com/huggingface/text-generation-inference",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — Docker inference server (repo archived; HF recommends other engines)",
+    "citation": "https://github.com/huggingface/text-generation-inference",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/huggingface/text-generation-inference",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "together-ai--together-ai",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified. Funding cell likely off: Together's Series B was ~$305M at $3.3B (2025-02), not 2024-11; needs cited check.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "torchtune-pytorch--gh-pytorch-torchtune",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo moved: pytorch/torchtune now resolves to meta-pytorch/torchtune. Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/pytorch/torchtune",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "meta-pytorch/torchtune — ~5.8k stars, last commit 2026-05",
+    "citation": "https://github.com/pytorch/torchtune",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — PyTorch-native post-training / fine-tuning library",
+    "citation": "https://github.com/pytorch/torchtune",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, BSD-3-Clause)",
+    "citation": "https://github.com/pytorch/torchtune",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "toyota-research-institute-lbm--tri-global",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "trl-hugging-face--gh-huggingface-trl",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/huggingface/trl",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "huggingface/trl — ~18.4k stars, last commit 2026-05",
+    "citation": "https://github.com/huggingface/trl",
+    "confidence": "medium",
+    "old": "~13k★, active maintenance"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — Python post-training (SFT / DPO / GRPO) library",
+    "citation": "https://github.com/huggingface/trl",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/huggingface/trl",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "truera--truera-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Snowflake (2024-05) per catalog's cited source; TruLens OSS continues under truera/trulens. Not re-verified live (search budget exhausted).",
+  "lifecycle_citation": "https://www.snowflake.com/news/snowflake-acquires-truera/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "trulens--gh-truera-trulens",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/truera/trulens",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "truera/trulens — ~3.3k stars, last commit 2026-05",
+    "citation": "https://github.com/truera/trulens",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — Python evaluation/tracing library with local dashboard (Snowflake-maintained)",
+    "citation": "https://github.com/truera/trulens",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, MIT)",
+    "citation": "https://github.com/truera/trulens",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "unsloth--unsloth-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/unslothai/unsloth",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "unslothai/unsloth — ~64.1k stars, last commit 2026-05",
+    "citation": "https://github.com/unslothai/unsloth",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — OSS fine-tuning library plus Unsloth Studio local web UI",
+    "citation": "https://github.com/unslothai/unsloth",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "vellum-ai--vellum-ai",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "verl--gh-volcengine-verl",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo moved: volcengine/verl now resolves to verl-project/verl. Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/volcengine/verl",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "verl-project/verl — ~21.3k stars, last commit 2026-05",
+    "citation": "https://github.com/volcengine/verl",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — RL post-training library for LLMs (Ray-based)",
+    "citation": "https://github.com/volcengine/verl",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/volcengine/verl",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "vllm--gh-vllm-project-vllm",
+  "lifecycle": "active",
+  "lifecycle_note": "Frequent releases; v0.32.0 marked Latest on GitHub Releases (Oct 2026), v0.32.1rc0 on 2026-10-18.",
+  "lifecycle_citation": "https://github.com/vllm-project/vllm/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "v0.32.0 (2026-10-18)",
+    "citation": "https://github.com/vllm-project/vllm/releases",
+    "confidence": "high",
+    "old": "searched not found"
+   },
+   {
+    "cell": "gh",
+    "new": "vllm-project/vllm — ~95.4k stars, last commit 2026-10",
+    "citation": "https://releasealert.dev/github/vllm-project/vllm",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Self-hosted only — pip / Docker inference server with OpenAI-compatible API; managed hosting only via third-party clouds",
+    "citation": "https://github.com/vllm-project/vllm",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "pricing",
+    "new": "Free (open source, Apache-2.0)",
+    "citation": "https://github.com/vllm-project/vllm",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ },
+ {
+  "id": "weights-biases--wandb-ai",
+  "lifecycle": "",
+  "lifecycle_note": "Not re-verified: shared web-search budget (200/turn) exhausted mid-run and direct fetch of official URLs blocked (provenance gate); current values carried over unverified. Known but uncited here: W&B was acquired by CoreWeave (announced 2025-03, closed 2025-05) — lifecycle/funding likely need 'acquired'.",
+  "lifecycle_citation": "",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "xAI merged into SpaceX (announced 2026-02-02); x.ai now posts as SpaceXSI. Grok still actively shipping (Grok 4.5 2026-07-16, 4.6 2026-08-12, 4.7 2026-09-21).",
+  "lifecycle_citation": "https://www.bgr.com/2096335/xai-merged-with-spacex-elon-musk/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "new": "Grok 4.7 (2026-09-21)",
+    "citation": "https://x.ai/news?via=Bojan",
+    "confidence": "high",
+    "old": "Grok 4 (2025-07); Grok 4 Heavy (2025)"
+   },
+   {
+    "cell": "deployment",
+    "new": "Managed-only — xAI API, grok.com, X apps; also via Amazon Bedrock, Microsoft Foundry, GitHub Copilot (older Grok-1 / Grok 2 weights downloadable)",
+    "citation": "https://x.ai/news?via=Bojan",
+    "confidence": "high",
+    "old": "Managed-only (xAI API + X Premium); no self-hosting at Grok 4 tier (Grok 1 314B MoE Apache 2.0)"
+   },
+   {
+    "cell": "pricing",
+    "new": "API: Grok 4.7 $2 in / $6 out per 1M (prompts <200k tokens; $4 / $12 above); consumer via X / SuperGrok subscriptions",
+    "citation": "https://mer.vin/news/grok-4-7-arrives-with-the-same-price-and-a-hidden-pricing-tier/",
+    "confidence": "medium",
+    "old": "X Premium+ ($30+/mo includes Grok); API: Grok 4 $3/$15 per 1M (premium tier); Grok 4 Heavy $30/$150 per 1M"
+   },
+   {
+    "cell": "funding",
+    "new": "xAI merged into SpaceX (announced 2026-02-02, combined ~$1T); prior $20B Series E (2026-01, ~$230B valuation)",
+    "citation": "https://www.bgr.com/2096335/xai-merged-with-spacex-elon-musk/",
+    "confidence": "medium",
+    "old": "$12B+ total raised; $50B+ valuation 2024-25; Andreessen Horowitz, Sequoia, Valor, Vy Capital, Saudi PIF investors"
+   }
+  ]
+ },
+ {
+  "id": "zenml--zenml-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified live: shared web-search budget exhausted and direct GitHub fetch blocked (provenance gate). gh from local GitHub API snapshot (extraction/decay-cause-cache or gh-cache, 2026-05-12..16).",
+  "lifecycle_citation": "https://github.com/zenml-io/zenml",
+  "verified": false,
+  "updates": [
+   {
+    "cell": "gh",
+    "new": "zenml-io/zenml — ~5.4k stars, last commit 2026-05",
+    "citation": "https://github.com/zenml-io/zenml",
+    "confidence": "medium",
+    "old": "searched not found"
+   },
+   {
+    "cell": "deployment",
+    "new": "Both (self-hosted + managed cloud) — OSS ZenML server; managed ZenML Pro",
+    "citation": "https://github.com/zenml-io/zenml",
+    "confidence": "medium",
+    "old": "searched not found"
+   }
+  ]
+ }
+]
