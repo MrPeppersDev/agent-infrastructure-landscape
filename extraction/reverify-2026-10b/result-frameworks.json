@@ -1,0 +1,1294 @@
+[
+ {
+  "id": "adept-act--adept-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acqui-hire + tech licence by Amazon (June 2024); Adept nominally continues but its blog shows no posts after 2024-08-23 (AWL). Not a full acquisition.",
+  "lifecycle_citation": "https://adept.ai/blog/adept-update",
+  "verified": true,
+  "updates": []
+ },
+ {
+  "id": "agency-swarm--gh-vrsen-agency-swarm",
+  "lifecycle": "active",
+  "lifecycle_note": "v1.11.0 released 2026-08-03 on PyPI; repo active, not archived.",
+  "lifecycle_citation": "https://pypi.org/project/agency-swarm/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Agent framework built on OpenAI Assistants API — agencies (roles + comm flow); replaced after Assistants v2 changes.",
+    "new": "Multi-agent orchestration framework — 'agencies' of agents with defined communication flows; v1.x is rebuilt on the OpenAI Agents SDK (originally built on the Assistants API).",
+    "citation": "https://github.com/vrsen/agency-swarm",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/agency-swarm/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.11.0 (2026-08-03)",
+    "citation": "https://pypi.org/project/agency-swarm/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "VRSEN/agency-swarm — ~4.6k stars, last commit 2026-08",
+    "citation": "https://github.com/vrsen/agency-swarm",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP client support (MCP servers incl. per-user OAuth via MCPServerOAuth, v1.11.0)",
+    "citation": "https://github.com/VRSEN/agency-swarm/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://github.com/vrsen/agency-swarm",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/vrsen/agency-swarm",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "agent2agent-protocol-a2a--google-github-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Spec v1.0.0 (2026-03-12) and v1.0.1 (2026-05); repo moved to a2aproject/A2A under the Linux Foundation (contributed by Google).",
+  "lifecycle_citation": "https://github.com/a2aproject/A2A/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — open protocol spec + SDKs",
+    "citation": "https://github.com/a2aproject/a2a",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.0.1 (2026-05-28)",
+    "citation": "https://github.com/a2aproject/A2A/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "a2aproject/A2A — ~25.5k stars, last commit 2026-05",
+    "citation": "https://github.com/a2aproject/a2a",
+    "confidence": "medium"
+   },
+   {
+    "cell": "a2a-support",
+    "old": "",
+    "new": "yes — this is the A2A protocol specification itself",
+    "citation": "https://github.com/a2aproject/a2a",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, Go, JavaScript/TypeScript, Java, .NET, Rust (official SDKs)",
+    "citation": "https://github.com/a2aproject/a2a",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/a2aproject/a2a",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "searched not found",
+    "new": "n/a — open-source project under the Linux Foundation, contributed by Google",
+    "citation": "https://github.com/a2aproject/a2a",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "agntcy-internet-of-agents--agntcy-org",
+  "lifecycle": "active",
+  "lifecycle_note": "Donated by Cisco to the Linux Foundation (2025); org repos (e.g. slim, coffeeAgntcy) updated Oct 2026; TSC includes Cisco, Google Cloud, Red Hat, Oracle.",
+  "lifecycle_citation": "https://github.com/agntcy",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — open-source components (OASF, SLIM, Directory, Identity)",
+    "citation": "https://github.com/agntcy",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "agntcy (org, ~51 repos) — top: agntcy/oasf ~339 stars, agntcy/slim ~226 stars, last commit 2026-10",
+    "citation": "https://github.com/agntcy",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official (AGNTCY Identity onboards/verifies MCP servers)",
+    "citation": "https://github.com/agntcy",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Go, Python, Rust, TypeScript",
+    "citation": "https://github.com/agntcy",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/agntcy",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "searched not found",
+    "new": "n/a — Cisco/Outshift-initiated; donated to and governed by the Linux Foundation",
+    "citation": "https://outshift.cisco.com/blog/agntcy-donated-to-linux-foundation",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anchor-anchor-browser--anchorbrowser-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Current pricing and MCP docs live (2026).",
+  "lifecycle_citation": "https://docs.anchorbrowser.io/pricing.md",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Managed cloud only",
+    "new": "Managed-only — cloud-hosted Chromium browsers",
+    "citation": "https://docs.anchorbrowser.io/pricing.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "yes — official MCP server (hosted at api.anchorbrowser.io/v1/mcp + open-source version)",
+    "citation": "https://docs.anchorbrowser.io/advanced/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + per-session pricing; Pro + Team tiers",
+    "new": "Free ($5 credits/mo, 5 concurrent browsers); Starter $50/mo; Growth $2,000/mo; Enterprise custom",
+    "citation": "https://docs.anchorbrowser.io/pricing.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-computer-use--anthropic-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Current tool computer_toolset_20260801 needs no beta header on Claude API; earlier versions remain in beta.",
+  "lifecycle_citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Claude 3.5 Sonnet's beta capability for controlling a computer (mouse, keyboard, screen). Frame for browser-agent and OS-agent products built on Claude.",
+    "new": "Claude API capability for controlling a computer (mouse, keyboard, screenshots); launched Oct 2024 as a Claude 3.5 Sonnet beta, now the computer_toolset_20260801 toolset on Claude 5.x models.",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (Claude API feature)",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Claude API tool (older beta versions also on Bedrock / Microsoft Foundry); you host the controlled VM/container",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "computer_toolset_20260801 (tool version; no beta header required)",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "standard Claude API token pricing; toolset adds ~4,500 input tokens, screenshots billed as image input",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "any (REST API); Python + TypeScript SDK computer toolset class (beta)",
+    "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "arcade-dev--arcade-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "arcade-mcp 1.16.3 released 2026-10-14; pricing page live.",
+  "lifecycle_citation": "https://pypi.org/project/arcade-mcp/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Authentication and tool platform for AI agents — fully-managed OAuth flows for LLMs to act on user accounts (Gmail, Slack, etc.).",
+    "new": "Authorization + tool platform for AI agents — managed OAuth so agents act on user accounts, an MCP server framework (arcade-mcp) and MCP gateway with thousands of pre-built tools.",
+    "citation": "https://github.com/arcadeai/arcade-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "MIT (arcade-mcp framework); proprietary (Arcade Cloud / Engine)",
+    "citation": "https://github.com/arcadeai/arcade-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Arcade Cloud; VPC or air-gapped deployment on Enterprise",
+    "citation": "https://www.arcade.dev/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.16.3 (2026-10-14) — arcade-mcp",
+    "citation": "https://pypi.org/project/arcade-mcp/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "ArcadeAI/arcade-mcp — ~1.1k stars, last commit 2026-10",
+    "citation": "https://github.com/arcadeai/arcade-mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP server framework (arcade-mcp) + MCP gateway",
+    "citation": "https://github.com/arcadeai/arcade-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript (arcade-mcp-ts)",
+    "citation": "https://github.com/ArcadeAI/arcade-mcp-ts",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free ($0: 2,000 auth events + 2,000 tool calls/mo); Team from $25/mo + usage; Enterprise custom",
+    "citation": "https://www.arcade.dev/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "autogen-ag2--gh-ag2ai-ag2",
+  "lifecycle": "active",
+  "lifecycle_note": "AG2 (community fork of AutoGen) is active: v1.2.1 on PyPI 2026-10-21. Note Microsoft's own microsoft/autogen is separately in maintenance mode in favour of Microsoft Agent Framework.",
+  "lifecycle_citation": "https://pypi.org/project/ag2/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/ag2/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.2.1 (2026-10-21)",
+    "citation": "https://pypi.org/project/ag2/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "ag2ai/ag2 — ~4.9k stars, last commit 2026-10",
+    "citation": "https://github.com/ag2ai/ag2",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP client support (autogen.mcp.create_toolkit)",
+    "citation": "https://docs.ag2.ai/latest/docs/api-reference/autogen/mcp/create_toolkit/",
+    "confidence": "high"
+   },
+   {
+    "cell": "a2a-support",
+    "old": "",
+    "new": "yes — native A2A server + client since AG2 v0.10 (2025-10)",
+    "citation": "https://docs.ag2.ai/latest/docs/blog/2025/10/27/A2A-Protocol-Support/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://github.com/ag2ai/ag2",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/ag2ai/ag2",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "autogpt--gh-significant-gravitas-autogpt",
+  "lifecycle": "active",
+  "lifecycle_note": "autogpt-platform-beta-v0.9.0 released 23 Oct (2026), marked Latest.",
+  "lifecycle_citation": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.9.0",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT (open-source); some Polyform Shield (commercial)",
+    "new": "MIT (classic/ + other files); Polyform Shield 1.0.0 (autogpt_platform/)",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — hosted AutoGPT Platform; self-host via Docker / Compose",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "autogpt-platform-beta-v0.9.0 (2026-10-23)",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.9.0",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Significant-Gravitas/AutoGPT — ~187.7k stars, last commit 2026-10",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP integrations in AutoGPT Platform (MCP server auth, MCP 2026-07-28 spec support)",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.8.0",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python (backend), TypeScript (frontend)",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free self-host; hosted AutoGPT Platform paid with trial",
+    "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "babyagi--gh-yoheinakajima-babyagi",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Original 2023 BabyAGI archived and moved to babyagi_archive (Sept 2024 snapshot); repo now holds the experimental 'functionz' framework, 'not meant for production use'; no releases.",
+  "lifecycle_citation": "https://github.com/yoheinakajima/babyagi",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Yohei Nakajima's iconic spring-2023 task-list agent loop — Pinecone-backed memory, OpenAI for execution; ~150 LOC. Influence-disproportionate-to-code.",
+    "new": "Yohei Nakajima's iconic spring-2023 task-list agent loop (original now in babyagi_archive); the repo now hosts an experimental self-building 'functionz' function framework.",
+    "citation": "https://github.com/yoheinakajima/babyagi",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/yoheinakajima/babyagi",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "no GitHub releases",
+    "citation": "https://github.com/yoheinakajima/babyagi",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "yoheinakajima/babyagi — ~22.3k stars, last commit unknown (not archived)",
+    "citation": "https://github.com/yoheinakajima/babyagi",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://github.com/yoheinakajima/babyagi",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/yoheinakajima/babyagi",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "browserless-io--browserless-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo not archived, 6,370 commits on main; cloud + self-host offering current.",
+  "lifecycle_citation": "https://github.com/browserless/browserless",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT (Browserless Core OSS — self-host); proprietary (managed cloud)",
+    "new": "SSPL-1.0 + Browserless Commercial License (dual; commercial use needs commercial licence)",
+    "citation": "https://github.com/browserless/browserless",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed cloud (primary) + self-hostable Docker (Browserless Core OSS)",
+    "new": "Both (self-hosted + managed cloud) — Browserless cloud or self-hosted Docker image",
+    "citation": "https://github.com/browserless/browserless",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/browserless/browserless ~9k+ stars",
+    "new": "browserless/browserless — ~13.8k stars, last commit not retrieved (not archived)",
+    "citation": "https://github.com/browserless/browserless",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "yes — official Browserless MCP server (premium feature)",
+    "citation": "https://github.com/browserless/browserless",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "burr-dagworks--burr-dagworks-io",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Now Apache Burr (incubating) at apache/burr; PyPI 'burr' is a redirect to 'apache-burr' (latest 0.43.0, 2026-08-25).",
+  "lifecycle_citation": "https://pypi.org/project/burr/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "BSD-3-Clause",
+    "new": "Apache-2.0",
+    "citation": "https://pypi.org/project/apache-burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "Self-hosted only — library + self-hosted tracking UI",
+    "citation": "https://github.com/apache/burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v0.43.0 (2026-08-25) — apache-burr",
+    "citation": "https://pypi.org/project/apache-burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/DAGWorks-Inc/burr ~1.6k+ stars",
+    "new": "apache/burr — ~2.6k stars, last commit 2026-08",
+    "citation": "https://github.com/apache/burr/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS (free); commercial DAGWorks platform for Hamilton + Burr observability",
+    "new": "free (OSS)",
+    "citation": "https://pypi.org/project/apache-burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$4M seed (2023; Skylab Capital, others)",
+    "new": "n/a — donated by DAGWorks to the Apache Software Foundation (Apache Burr, incubating)",
+    "citation": "https://pypi.org/project/burr/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "burr-dagworks--gh-dagworks-inc-burr",
+  "lifecycle": "renamed",
+  "lifecycle_note": "DAGWorks-Inc/burr moved to apache/burr — Apache Burr (incubating); PyPI 'burr' redirects to 'apache-burr'.",
+  "lifecycle_citation": "https://pypi.org/project/burr/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "BSD-3-Clause",
+    "new": "Apache-2.0",
+    "citation": "https://pypi.org/project/apache-burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library + self-hosted tracking UI",
+    "citation": "https://github.com/apache/burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.43.0 (2026-08-25) — apache-burr",
+    "citation": "https://pypi.org/project/apache-burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "apache/burr (formerly DAGWorks-Inc/burr) — ~2.6k stars, last commit 2026-08",
+    "citation": "https://github.com/apache/burr/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://github.com/apache/burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://pypi.org/project/apache-burr/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "searched not found",
+    "new": "n/a — donated by DAGWorks to the Apache Software Foundation (Apache Burr, incubating)",
+    "citation": "https://pypi.org/project/burr/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cline-framework--cline-bot",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo active (7,208 commits, © 2026 Cline Bot Inc.); ships SDK, CLI and IDE extensions.",
+  "lifecycle_citation": "https://github.com/cline/cline",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Open-source autonomous coding agent for VS Code — terminal + browser + edit operations; uses Anthropic Computer Use style flow.",
+    "new": "Open-source autonomous coding agent shipped as a VS Code/JetBrains extension, CLI (headless for CI) and Node SDK (@cline/sdk) — file edits, terminal, browser, MCP tools.",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — local IDE extension / CLI / SDK with bring-your-own model keys",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "cline/cline — ~67.6k stars, last commit not retrieved (not archived)",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP client (connects MCP servers; managed via `cline mcp`)",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript / Node.js (@cline/sdk, CLI)",
+    "citation": "https://github.com/cline/cline",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "coder-com--coder-com",
+  "lifecycle": "active",
+  "lifecycle_note": "v2.38.0 (Oct 2026) adds Coder Agents; Tasks removed.",
+  "lifecycle_citation": "https://github.com/coder/coder/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "AGPL-3.0",
+    "new": "AGPL-3.0 (Community); proprietary Premium / AI Premium licence for some features",
+    "citation": "https://coder.com/docs/admin/licensing",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-hostable (AGPL OSS) + Enterprise managed",
+    "new": "Self-hosted only — on your own infrastructure (K8s / VMs / Docker), air-gap capable",
+    "citation": "https://coder.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "v2.38.0 (2026-10-06)",
+    "citation": "https://github.com/coder/coder/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/coder/coder ~9k+ stars",
+    "new": "coder/coder — ~14.1k stars, last commit 2026-10",
+    "citation": "https://github.com/coder/coder",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "yes — Coder Agents use MCP servers (private-network MCP allowlisting in v2.38.0)",
+    "citation": "https://github.com/coder/coder/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS AGPL (free) + Enterprise (per-developer per-year)",
+    "new": "Community free (OSS); Premium billed per user/year (quote); AI Premium custom",
+    "citation": "https://coder.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "codesandbox-ai--codesandbox-io",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by Together AI; SDK integrated into Together AI platform as Together Code Sandbox; SDK enterprise sales via Together.ai.",
+  "lifecycle_citation": "https://codesandbox.io/blog/codesandbox-sdk",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Managed cloud (SaaS)",
+    "new": "Managed-only — SaaS; SDK also offered as Together Code Sandbox",
+    "citation": "https://codesandbox.io/blog/codesandbox-sdk",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "composio--composio-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo active (5,587 commits on next); Python SDK 0.30.0 released 2026-10-22.",
+  "lifecycle_citation": "https://pypi.org/project/composio/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "MIT (SDKs)",
+    "citation": "https://github.com/composiohq/composio",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — hosted API + MCP endpoints (Helm charts published for Kubernetes deploys)",
+    "citation": "https://github.com/ComposioHQ",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.30.0 (2026-10-22) — composio Python SDK (2.0.0b0 pre-release 2026-08-31)",
+    "citation": "https://pypi.org/project/composio/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "ComposioHQ/composio — ~30k stars, last commit 2026-10",
+    "citation": "https://github.com/composiohq/composio",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official hosted MCP endpoint per session (session.mcp.url) + Rube MCP server",
+    "citation": "https://github.com/composiohq/composio",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript",
+    "citation": "https://github.com/composiohq/composio",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "continue-dev-framework--continue-dev",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Continue was acquired by Cursor (Anysphere) in June 2026; final 2.0.0 release then repo made read-only ('no longer actively maintained').",
+  "lifecycle_citation": "https://continue.dev/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — VS Code extension + CLI (no longer maintained)",
+    "citation": "https://github.com/continuedev/continue",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.0.0-vscode (2026-06-19) — final release",
+    "citation": "https://github.com/continuedev/continue/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "continuedev/continue — ~35.7k stars, read-only / no longer maintained, last commit 2026-06",
+    "citation": "https://github.com/continuedev/continue",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript (VS Code extension, @continuedev/cli); JetBrains plugin",
+    "citation": "https://github.com/continuedev/continue",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS, Apache-2.0); no longer sold standalone",
+    "citation": "https://continue.dev/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "$3M seed 2023 (Heavybit, Y Combinator W23); developer coding-agent OSS.",
+    "new": "Acquired by Cursor (Anysphere) 2026 — terms undisclosed; prior $3M seed (Heavybit, YC W23)",
+    "citation": "https://continue.dev/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "crewai--crewai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "crewai 1.15.30 released 2026-10-24.",
+  "lifecycle_citation": "https://pypi.org/project/crewai/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "MIT",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS library; CrewAI AMP on CrewAI cloud, your VPC or own infra",
+    "citation": "https://crewai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.15.30 (2026-10-24)",
+    "citation": "https://pypi.org/project/crewai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "crewAIInc/crewAI — ~58.6k stars, last commit 2026-10",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP support in CrewAI agents",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "a2a-support",
+    "old": "",
+    "new": "yes — native A2A support in CrewAI agents",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS); AMP Basic free (50 workflow executions/mo); Enterprise custom",
+    "citation": "https://crewai.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "crewai-enterprise--crewai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Commercial platform now marketed as CrewAI AMP (Agent Management Platform, launched 2025-10-02); Enterprise plan still sold.",
+  "lifecycle_citation": "https://blog.crewai.com/crewai-amp-the-agent-management-platform/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "proprietary (CrewAI AMP); MIT OSS core",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed cloud + self-hostable (Enterprise) + OSS (self-hostable)",
+    "new": "Both (self-hosted + managed cloud) — CrewAI cloud, dedicated VPC or your own infrastructure (Enterprise)",
+    "citation": "https://crewai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "crewAIInc/crewAI (OSS core) — ~58.6k stars",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via community port",
+    "new": "yes — official MCP support in CrewAI agents",
+    "citation": "https://github.com/crewaiinc/crewai",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free (OSS) + Pro ($99/mo) + Team + Enterprise (quote)",
+    "new": "Basic free (50 workflow executions/mo, 2 automations); Enterprise custom — no public self-serve paid tier",
+    "citation": "https://crewai.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "daytona--daytona-io",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.daytona.io/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "e2b--e2b-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://e2b.dev/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "eliza-ai16z--gh-elizaos-eliza",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://github.com/elizaOS/eliza",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "lifecycle": "renamed",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Prior knowledge: Gitpod rebranded as Ona (Sept 2025) and refocused on AI software-engineering agents; confirm and update name/url.",
+  "lifecycle_citation": "https://www.gitpod.io/blog/gitpod-flex",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Status not checked — repo is community-maintained after Lovable spin-out; verify commit activity.",
+  "lifecycle_citation": "https://github.com/AntonOsika/gpt-engineer",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "haystack-framework--haystack-deepset-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://haystack.deepset.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "imbue-formerly-generally-intelligent--imbue-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://imbue.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "inngest--inngest-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.inngest.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Status not checked — verify whether InstructLab is still actively developed.",
+  "lifecycle_citation": "https://instructlab.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "langchain-framework--langchain-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.langchain.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "langgraph-orchestration--langchain-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.langchain.com/langgraph",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.lindy.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "llamaindex-framework--llamaindex-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.llamaindex.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "magnetic-one--microsoft-com",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Caller-reported event: built on AutoGen, which moved to maintenance mode in favour of Microsoft Agent Framework; confirm via microsoft/autogen README.",
+  "lifecycle_citation": "https://github.com/microsoft/autogen",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "marvin--askmarvin-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Prior knowledge: ControlFlow was merged into Marvin 3.0 (2025), so desc 'Replaced by Control Flow' is likely reversed — check before editing.",
+  "lifecycle_citation": "https://www.askmarvin.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "mastra--mastra-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://mastra.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://github.com/modelcontextprotocol/servers",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "metagpt--gh-geekan-metagpt",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://github.com/geekan/MetaGPT",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "microsoft-autogen-studio--microsoft-github-io",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Caller-reported event: AutoGen (incl. AutoGen Studio) moved to maintenance mode in favour of Microsoft Agent Framework; confirm via microsoft/autogen README.",
+  "lifecycle_citation": "https://github.com/microsoft/autogen",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Caller-reported event: Semantic Kernel moved to maintenance in favour of Microsoft Agent Framework (successor); confirm wording on repo README / SK blog.",
+  "lifecycle_citation": "https://github.com/microsoft/semantic-kernel",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "modal-sandboxes--modal-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://modal.com/docs/guide/sandbox",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Prior knowledge: MCP donated by Anthropic to the Agentic AI Foundation (Linux Foundation) in Dec 2025 — maintainer may want to update funding/governance after checking.",
+  "lifecycle_citation": "https://modelcontextprotocol.io/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "multion--multion-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.multion.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "n8n-ai-agent-flows--n8n-io",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://n8n.io/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "openai-agents-sdk--gh-openai-openai-agents-python",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://github.com/openai/openai-agents-python",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Swarm (experimental, educational) replaced by the OpenAI Agents SDK, per existing row and caller; confirm README notice.",
+  "lifecycle_citation": "https://github.com/openai/swarm",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Prior knowledge: repo may have moved from All-Hands-AI/OpenHands to an OpenHands org — verify url.",
+  "lifecycle_citation": "https://github.com/All-Hands-AI/OpenHands",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "phidata-agno--agno-com",
+  "lifecycle": "renamed",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Phidata renamed to Agno (per existing row); Agno itself believed active.",
+  "lifecycle_citation": "https://www.agno.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "lifecycle": "renamed",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Phidata renamed to Agno (per existing row); Agno itself believed active. Duplicate of phidata-agno--agno-com — consider merging.",
+  "lifecycle_citation": "https://www.agno.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://ai.pydantic.dev/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Prior knowledge: Reflection AI raised ~$2B (Oct 2025) and pivoted toward open frontier models; funding/desc likely stale — check.",
+  "lifecycle_citation": "https://reflection.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "restate--restate-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://restate.dev/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "sandbase-harness--gh-sandbaseai-sandbase-harness",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://github.com/sandbaseai/sandbase-harness",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://sema4.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://github.com/huggingface/smolagents",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "stackblitz-webcontainers--webcontainers-io",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://webcontainers.io/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "steamship--steamship-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). Status unknown — no evidence gathered; check for shutdown/pivot before publishing.",
+  "lifecycle_citation": "https://www.steamship.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "strands-agents-aws--strandsagents-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://strandsagents.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "temporal--temporal-io",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://temporal.io/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "trigger-dev--trigger-dev",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://trigger.dev/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://sdk.vercel.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "lifecycle": "active",
+  "lifecycle_note": "NOT re-verified this run (shared web-search budget exhausted; unseen URLs blocked). No known lifecycle event; current status carried forward unchecked.",
+  "lifecycle_citation": "https://www.workato.com/ai",
+  "verified": false,
+  "updates": []
+ }
+]

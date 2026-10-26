@@ -63,13 +63,6 @@
       "citation": "https://www.adept.ai/"
     },
     {
-      "source": "agency-swarm--gh-vrsen-agency-swarm",
-      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
-      "type": "runtime-dependency",
-      "evidence": "Agent framework built on OpenAI Assistants API — agencies (roles + comm flow); replaced after Assistants v",
-      "citation": "https://github.com/VRSEN/agency-swarm"
-    },
-    {
       "source": "agent-reconfigure-reconfigurable-agent--arxiv-2410-21465",
       "target": "infinitebench-bench--arxiv-2402-13718",
       "type": "cites",
@@ -230,20 +223,6 @@
       "citation": "https://www.anthropic.com/news/memory"
     },
     {
-      "source": "anthropic-computer-use--anthropic-com",
-      "target": "anthropic-claude-foundation-models--anthropic-com",
-      "type": "runtime-dependency",
-      "evidence": "d OS-agent products built on Claude.",
-      "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use"
-    },
-    {
-      "source": "anthropic-computer-use--anthropic-com",
-      "target": "claude-code-anthropic--anthropic-com",
-      "type": "built-on",
-      "evidence": "d OS-agent products built on Claude.",
-      "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use"
-    },
-    {
       "source": "anthropic-computer-use--docs-anthropic-com",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
@@ -383,13 +362,6 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2406.10149",
       "isInfluential": true
-    },
-    {
-      "source": "babyagi--gh-yoheinakajima-babyagi",
-      "target": "pinecone--pinecone-io",
-      "type": "runtime-dependency",
-      "evidence": "k-list agent loop — Pinecone-backed memory, OpenAI for execution; ~150 LOC. Influence-dispropor",
-      "citation": "https://github.com/yoheinakajima/babyagi"
     },
     {
       "source": "backboard--github-com",
@@ -625,8 +597,8 @@
       "source": "claude-code-anthropic--anthropic-com",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
-      "evidence": "adjacent-infrastructure cell: Anthropic API; MCP server ecosystem",
-      "citation": "https://www.anthropic.com/claude-code"
+      "evidence": "and Slack. Context via CLAUDE.md, skills, hooks, subagents and MCP servers.",
+      "citation": "https://claude.com/product/claude-code"
     },
     {
       "source": "claude-code-anthropic--anthropic-com",
@@ -711,13 +683,6 @@
       "type": "built-on",
       "evidence": "Claude Code plugin packaging Supermemory for per-project memory.",
       "citation": "https://github.com/supermemoryai/claude-supermemory"
-    },
-    {
-      "source": "cline-framework--cline-bot",
-      "target": "anthropic-claude-foundation-models--anthropic-com",
-      "type": "runtime-dependency",
-      "evidence": "+ edit operations; uses Anthropic Computer Use style flow.",
-      "citation": "https://cline.bot/"
     },
     {
       "source": "cline-harness--cline-bot",

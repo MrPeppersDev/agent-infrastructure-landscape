@@ -90,6 +90,10 @@ def lint(rec: dict, fam: str) -> list[dict]:
             # projects (there are no weights to release), not a conflict.
             if m and m.group(0).lower() == "weights closed" and re.search(r"code (public|open)", v, re.I):
                 m = None
+            # One cell saying "the SDK repo is open, the service is closed
+            # source" is a precise statement, not a contradiction.
+            if m and k == "gh" and not OSI.search(lic) and re.search(r"\b(SDK|examples?|client|agents? repo)\b", v, re.I):
+                m = None
             if m:
                 out.append({"check": "oss-conflict", "cells": ["license" if OSI.search(lic) else "gh", k],
                             "why": f"{'license=' + lic[:40] if OSI.search(lic) else 'gh=' + gh[:50]} but {k} says '{m.group(0)}'"})
