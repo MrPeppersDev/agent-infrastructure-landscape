@@ -417342,7 +417342,10 @@
       "name": "Kuzu",
       "tier": 2,
       "url": "https://kuzudb.github.io",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-26",
+      "decay_cause": "archived",
+      "decay_date": "2025-10-10",
+      "decay_evidence": "https://github.com/kuzudb/kuzu",
       "sections": [
         {
           "section": "Knowledge-graph platforms",
@@ -417425,10 +417428,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Embedded graph DB with built-in vector index + full-text search. MCP server packages for Claude (sub-3ms recall). Offline-first, single-file deployment. Community fork adds concurrent multi-writer support for multi-agent.",
-          "citation": "https://kuzudb.com/",
+          "value": "Embedded property-graph database (Cypher) with a built-in vector index and full-text search, widely used as an embedded store for agent memory and GraphRAG. The kuzudb/kuzu repository was archived on 2025-10-10 after Apple acquired the company; 0.11.3 is the final release and earlier releases remain usable.",
+          "citation": "https://github.com/kuzudb/kuzu",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "Sub-3ms recall via MCP.",
@@ -417450,11 +417453,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "v1.12.9 2026-04-09",
-          "citation": "https://github.com/bobmatnyc/kuzu-memory/releases/tag/v1.12.9",
+          "value": "0.11.3 (final release; repository archived 2025-10-10)",
+          "citation": "https://github.com/kuzudb/kuzu",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-26"
         },
         "license": {
           "value": "Unlicensed",
@@ -417463,8 +417466,8 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "24★ Python",
-          "citation": "https://github.com/bobmatnyc/kuzu-memory",
+          "value": "kuzudb/kuzu — ~4.0k stars, archived 2025-10-10 (read-only)",
+          "citation": "https://github.com/kuzudb/kuzu",
           "status": "real-data",
           "tier": "T1",
           "last_verified_at": "2026-05-12"

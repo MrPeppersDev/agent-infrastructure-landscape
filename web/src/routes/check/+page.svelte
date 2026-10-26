@@ -21,7 +21,8 @@
 
   const index = indexRaw as unknown as StackIndex;
 
-  let { data }: { data: { replacements: Record<string, { id: string; name: string; why: string[] }[]> } } = $props();
+  let { data }: { data: { replacements: Record<string, { id: string; name: string; why: string[] }[]>; migrations: string[] } } = $props();
+  const hasMigration = $derived(new Set(data.migrations));
 
   const SAMPLES: Record<string, { label: string; filename: string; text: string }> = {
     pkg: {
@@ -268,6 +269,9 @@
               </div>
               {#if r.note}<p class="note">{r.note}</p>{/if}
               {#if r.context}<p class="ctx">{r.context}</p>{/if}
+              {#if hasMigration.has(f.recordId)}
+                <p class="alts"><a href="{base}/alternatives/{f.recordId}#migrate">Migration notes from the maintainers →</a></p>
+              {/if}
               {#if f.replacements?.length}
                 <p class="alts">
                   Consider instead:

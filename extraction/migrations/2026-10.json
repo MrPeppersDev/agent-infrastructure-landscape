@@ -1,0 +1,320 @@
+{
+  "generatedAt": "2026-10-26",
+  "notes": [
+    {
+      "id": "flowise-memory--docs-flowiseai-com",
+      "verified_status": "archived",
+      "status_source": "https://github.com/flowiseai/flowise",
+      "status_correct": true,
+      "action": "migrate",
+      "to": [],
+      "summary": "Flowise (acquired by Workday, Aug 2025) was sunset; the GitHub repo was archived read-only on 2026-08-13 and core-team support ended 2026-08-31, with no official successor named.",
+      "steps": [
+        "Fork the FlowiseAI/Flowise repo to keep maintaining it internally; the sunset page encourages teams to fork or join community-led forks",
+        "Expect no fixes from upstream: the flowise npm packages and Docker images are marked deprecated and issues/PRs are locked",
+        "The code stays Apache 2.0 licensed and remains visible on GitHub, so existing self-hosted deployments can keep building on it"
+      ],
+      "sources": [
+        "https://github.com/flowiseai/flowise",
+        "https://flowiseai.com/sunset",
+        "https://www.nasdaq.com/press-release/workday-acquires-flowise-bringing-powerful-ai-agent-builder-capabilities-workday"
+      ]
+    },
+    {
+      "id": "cipher-byterover--gh-campfirein-cipher",
+      "verified_status": "archived",
+      "status_source": "https://github.com/campfirein/byterover-cli",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["ByteRover CLI (brv)"],
+      "summary": "Cipher was renamed ByteRover CLI (npm byterover-cli, command brv, Elastic License 2.0); the campfirein/byterover-cli repo was then archived read-only on 2026-09-27, while ByteRover docs still present the CLI as the current product.",
+      "steps": [
+        "Install the renamed package with npm install -g byterover-cli (or curl -fsSL https://byterover.dev/install.sh | sh) and verify with brv --version",
+        "Repoint clones with git remote set-url origin https://github.com/campfirein/byterover-cli.git; old Cipher code is on the legacy-cipher branch",
+        "Replace legacy brv push / brv pull with brv vc push / brv vc pull; brv space switch is deprecated in favour of brv vc clone or the web dashboard",
+        "Note the license change to Elastic License 2.0 before redistributing or offering it as a service"
+      ],
+      "sources": [
+        "https://github.com/campfirein/byterover-cli",
+        "https://github.com/campfirein/byterover-cli/issues/301",
+        "https://docs.byterover.dev/archived/local-vs-cloud",
+        "https://docs.byterover.dev/"
+      ]
+    },
+    {
+      "id": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+      "verified_status": "archived",
+      "status_source": "https://github.com/mem0ai/mem0-mcp",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["Mem0 hosted MCP server (mcp.mem0.ai)"],
+      "summary": "mem0-mcp-server was archived on 2026-03-24 and is no longer maintained; Mem0 now offers an official cloud-hosted MCP server at https://mcp.mem0.ai/mcp.",
+      "steps": [
+        "Replace the local uvx mem0-mcp-server entry with the remote HTTP server https://mcp.mem0.ai/mcp in your MCP client config",
+        "Register it in one go with npx mcp-add --name mem0-mcp --type http --url \"https://mcp.mem0.ai/mcp\" --clients \"claude code,cursor\" (list only clients you use)",
+        "Authenticate via the browser sign-in flow, or for headless clients send your Mem0 API key as a bearer token (e.g. Codex bearer_token_env_var = \"MEM0_API_KEY\")",
+        "Claude Desktop rejects mcp-add; add the URL under Settings > Connectors > Add custom connector instead"
+      ],
+      "sources": [
+        "https://github.com/mem0ai/mem0-mcp",
+        "https://docs.mem0.ai/platform/mem0-mcp"
+      ]
+    },
+    {
+      "id": "openai-codex-cli--gh-openai-codex",
+      "verified_status": "active",
+      "status_source": "https://github.com/openai/codex",
+      "status_correct": false,
+      "action": "none",
+      "to": [],
+      "summary": "Not deprecated: openai/codex is not archived and ships frequent rust-v releases (e.g. rust-v0.142.x in June 2026); only the original TypeScript implementation was superseded by the native Rust CLI, which the plain @openai/codex npm package now installs.",
+      "steps": [],
+      "sources": [
+        "https://github.com/openai/codex",
+        "https://github.com/openai/codex/discussions/1174",
+        "https://www.havoptic.com/releases/openai-codex/2026/6"
+      ]
+    },
+    {
+      "id": "bytebot--bytebot-ai",
+      "verified_status": "archived",
+      "status_source": "https://github.com/bytebot-ai/bytebot",
+      "status_correct": true,
+      "action": "migrate",
+      "to": [],
+      "summary": "The bytebot-ai/bytebot repo was archived read-only on 2026-03-07 with no README notice of shutdown, successor or migration; no official successor.",
+      "steps": [
+        "No official migration steps are published; the README and docs.bytebot.ai carry no shutdown or successor notice",
+        "The repo has been read-only since 2026-03-07, so no further releases or fixes will land upstream"
+      ],
+      "sources": [
+        "https://github.com/bytebot-ai/bytebot",
+        "https://docs.bytebot.ai/core-concepts/agent-system"
+      ]
+    },
+    {
+      "id": "byterover--byterover-dev",
+      "verified_status": "active",
+      "status_source": "https://docs.byterover.dev/",
+      "status_correct": true,
+      "action": "none",
+      "to": [],
+      "summary": "ByteRover the product is still documented as current (install via byterover.dev/install.sh or npm byterover-cli); only the open campfirein/byterover-cli GitHub repo was archived on 2026-09-27 (see the Cipher record).",
+      "steps": [],
+      "sources": [
+        "https://docs.byterover.dev/",
+        "https://github.com/campfirein/byterover-cli"
+      ]
+    },
+    {
+      "id": "continue-dev-continue-rules--docs-continue-dev",
+      "verified_status": "acquired; discontinued (repo read-only)",
+      "status_source": "https://continue.dev/",
+      "status_correct": true,
+      "action": "migrate",
+      "to": [],
+      "summary": "Continue was acquired by Cursor (June 2026) and continuedev/continue is no longer actively maintained and read-only after a final 2.0.0 release; no official migration path for .continue/rules is named.",
+      "steps": [
+        "Treat the final 2.0.0 release of the VS Code extension, CLI and JetBrains plugin as the last upstream version",
+        "JetBrains users are told to use the Continue CLI instead of the JetBrains plugin",
+        "The open-source codebase remains freely available, so teams that rely on .continue/rules can fork it"
+      ],
+      "sources": [
+        "https://continue.dev/",
+        "https://github.com/continuedev/continue",
+        "https://thenewstack.io/cursor-acquires-continue-coding/"
+      ]
+    },
+    {
+      "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+      "verified_status": "archived",
+      "status_source": "https://github.com/antonosika/gpt-engineer",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["Lovable (gptengineer.app)", "Aider"],
+      "summary": "gpt-engineer was archived read-only on 2026-04-22; its README points managed-service users to gptengineer.app (Lovable) and CLI users to aider.",
+      "steps": [
+        "For a managed service, move to gptengineer.app, which the README calls the opinionated, managed evolution (repo About says precursor to lovable.dev)",
+        "For a maintained hackable CLI, install aider with python -m pip install aider-install then aider-install",
+        "Run aider from your project directory, e.g. aider --model sonnet --api-key anthropic=<key>"
+      ],
+      "sources": [
+        "https://github.com/antonosika/gpt-engineer",
+        "https://aider.chat/docs/install.html"
+      ]
+    },
+    {
+      "id": "openai-swarm-deprecated--gh-openai-swarm",
+      "verified_status": "deprecated",
+      "status_source": "https://github.com/openai/swarm",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["OpenAI Agents SDK"],
+      "summary": "Swarm's README says it is replaced by the OpenAI Agents SDK, a production-ready evolution, and recommends migrating for all production use (repo not archived).",
+      "steps": [
+        "Install the SDK with pip install openai-agents (or uv add openai-agents) and set OPENAI_API_KEY",
+        "Replace Swarm imports with from agents import Agent, Runner and define agents with name and instructions",
+        "Declare delegation via the handoffs=[...] parameter, giving each specialist a handoff_description",
+        "Run with await Runner.run(agent, input) and read result.final_output"
+      ],
+      "sources": [
+        "https://github.com/openai/swarm",
+        "https://openai.github.io/openai-agents-python/quickstart/"
+      ]
+    },
+    {
+      "id": "sweep-ai--sweep-dev",
+      "verified_status": "superseded",
+      "status_source": "https://github.com/sweepai/sweep",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["Sweep AI plugin for JetBrains IDEs"],
+      "summary": "The sweepai/sweep repo is not archived, but its README says the team now builds an AI coding assistant for JetBrains; the GitHub-app product is no longer the focus.",
+      "steps": [
+        "Open IDE plugin settings (Cmd/Ctrl + comma) and install Sweep AI from the JetBrains Marketplace",
+        "Restart the IDE and choose Sign In with Sweep, which redirects to the Sweep app",
+        "If sign-in fails, copy a token from app.sweep.dev and paste it into Sweep Settings in the Sweep sidebar"
+      ],
+      "sources": [
+        "https://github.com/sweepai/sweep",
+        "https://docs.sweep.dev/jetbrains",
+        "https://plugins.jetbrains.com/plugin/26860-sweep-ai-autocomplete--coding-agent"
+      ]
+    },
+    {
+      "id": "autogen-memory--microsoft-github-io",
+      "verified_status": "maintenance",
+      "status_source": "https://github.com/microsoft/autogen",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["Microsoft Agent Framework"],
+      "summary": "AutoGen is in maintenance mode (no new features, community managed); Microsoft directs new users to Microsoft Agent Framework and existing users to its AutoGen migration guide.",
+      "steps": [
+        "Install Agent Framework (e.g. pip install agent-framework-foundry azure-identity) in place of autogen-agentchat / autogen-ext",
+        "Swap from autogen_agentchat.agents import AssistantAgent for from agent_framework import Agent, tool; FunctionTool becomes the @tool decorator",
+        "Replace autogen_ext OpenAIChatCompletionClient with agent_framework.openai OpenAIChatCompletionClient (Azure via azure_endpoint, api_version, credential)",
+        "Move conversation memory to AgentSession (agent.create_session(), pass session= to run()); persist state via session.state or history/context providers"
+      ],
+      "sources": [
+        "https://github.com/microsoft/autogen",
+        "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+        "https://learn.microsoft.com/en-us/agent-framework/get-started/your-first-agent"
+      ]
+    },
+    {
+      "id": "kuzu--kuzudb-github-io",
+      "verified_status": "archived",
+      "status_source": "https://github.com/kuzudb/kuzu",
+      "status_correct": false,
+      "action": "migrate",
+      "to": [],
+      "summary": "Kuzu Inc archived kuzudb/kuzu read-only on 2025-10-10 (\"Kuzu is working on something new\") with a final 0.11.3 release and no official successor; the catalog record does not flag this.",
+      "steps": [
+        "Pin to the final release 0.11.3, which bundles many (but not all) extensions",
+        "For extensions not bundled, run a local extension server as the archive notice suggests",
+        "Use the documentation now hosted on GitHub Pages at kuzudb.github.io/docs, since resources moved off the Kuzu website"
+      ],
+      "sources": [
+        "https://github.com/kuzudb/kuzu",
+        "https://www.theregister.com/2025/10/14/kuzudb_abandoned/"
+      ]
+    },
+    {
+      "id": "langflow-memory--docs-langflow-org",
+      "verified_status": "acquired",
+      "status_source": "https://newsroom.ibm.com/2025-02-25-ibm-to-acquire-datastax,-deepening-watsonx-capabilities-and-addressing-generative-ai-data-needs-for-the-enterprise",
+      "status_correct": true,
+      "action": "none",
+      "to": [],
+      "summary": "DataStax acquired Langflow (Logspace) in April 2024 and IBM closed its DataStax acquisition on 2025-05-28, pledging continued open-source support; Langflow is still actively released (v1.11.4 tagged Aug 19), so nothing to migrate.",
+      "steps": [],
+      "sources": [
+        "https://newsroom.ibm.com/2025-02-25-ibm-to-acquire-datastax,-deepening-watsonx-capabilities-and-addressing-generative-ai-data-needs-for-the-enterprise",
+        "https://www.dbta.com/Editorial/News-Flashes/IBM-Officially-Closes-Acquisition-of-DataStax-169711.aspx",
+        "https://www.datanami.com/this-just-in/datastax-announces-acquisition-of-langflow-to-transform-rag-development/",
+        "https://github.com/langflow-ai/langflow/releases"
+      ]
+    },
+    {
+      "id": "langfuse--langfuse-com",
+      "verified_status": "acquired",
+      "status_source": "https://langfuse.com/blog/joining-clickhouse",
+      "status_correct": true,
+      "action": "none",
+      "to": [],
+      "summary": "ClickHouse acquired Langfuse (announced 2026-01-16); Langfuse stays open source and self-hostable with no planned licensing changes and Cloud running as-is, so nothing to migrate.",
+      "steps": [],
+      "sources": [
+        "https://langfuse.com/blog/joining-clickhouse",
+        "https://github.com/orgs/langfuse/discussions/11593"
+      ]
+    },
+    {
+      "id": "memary--gh-kingjulio8238-memary",
+      "verified_status": "inactive (not archived, no lifecycle notice)",
+      "status_source": "https://github.com/kingjulio8238/memary",
+      "status_correct": false,
+      "action": "none",
+      "to": [],
+      "summary": "Memary is not archived and its README has no deprecation or successor notice; it is merely dormant (last release v0.1.5, 2024-10-22), so there is no official migration path.",
+      "steps": [],
+      "sources": [
+        "https://github.com/kingjulio8238/memary",
+        "https://github.com/kingjulio8238/memary/releases"
+      ]
+    },
+    {
+      "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+      "verified_status": "maintenance",
+      "status_source": "https://devblogs.microsoft.com/agent-framework/semantic-kernel-and-microsoft-agent-framework/",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["Microsoft Agent Framework"],
+      "summary": "The README now says Semantic Kernel is now Microsoft Agent Framework, its enterprise-ready successor (1.0 GA); SK v1.x keeps getting critical bug and security fixes while new features go to Agent Framework.",
+      "steps": [
+        "Python: replace semantic-kernel with agent-framework; C#: move from Microsoft.SemanticKernel(.Agents) to Microsoft.Agents.AI and Microsoft.Extensions.AI",
+        "Drop the Kernel: create agents from a chat client, e.g. chatClient.AsAIAgent(instructions: ...) in C# or Agent(client=..., instructions=...) in Python",
+        "Turn plugins into tools without [KernelFunction] (AIFunctionFactory.Create in C#, @tool in Python); .as_agent_framework_tool() wraps existing ones",
+        "Replace AgentThread with agent.create_session() / CreateSessionAsync() and InvokeAsync/invoke with RunAsync/run(input, session=session)"
+      ],
+      "sources": [
+        "https://github.com/microsoft/semantic-kernel",
+        "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/",
+        "https://devblogs.microsoft.com/agent-framework/semantic-kernel-and-microsoft-agent-framework/"
+      ]
+    },
+    {
+      "id": "smol-developer--gh-smol-ai-developer",
+      "verified_status": "inactive (not archived, no lifecycle notice)",
+      "status_source": "https://github.com/smol-ai/developer",
+      "status_correct": false,
+      "action": "none",
+      "to": [],
+      "summary": "smol-ai/developer is not archived and its README has no deprecation, pivot or successor notice (it only lists community ports); the project is dormant, with no official migration path.",
+      "steps": [],
+      "sources": [
+        "https://github.com/smol-ai/developer"
+      ]
+    },
+    {
+      "id": "voyage-ai-mongodb--voyageai-com",
+      "verified_status": "acquired",
+      "status_source": "https://www.mongodb.com/company/newsroom/press-releases/mongodb-announces-acquisition-of-voyage-ai",
+      "status_correct": true,
+      "action": "migrate",
+      "to": ["MongoDB Atlas Embedding and Reranking API"],
+      "summary": "MongoDB announced the Voyage AI acquisition on 2025-02-24 and the models are still maintained; MongoDB documents an optional migration from api.voyageai.com to the Atlas Embedding and Reranking API but states no deprecation or deadline.",
+      "steps": [
+        "In your Atlas project open AI Model APIs, click Create model API key, and set it as VOYAGE_API_KEY in place of the old Voyage key",
+        "If endpoints are hard-coded, swap https://api.voyageai.com/v1/... for https://ai.mongodb.com/v1/... (embeddings, rerank, multimodal, contextualized)",
+        "voyageai Python client 0.3.7+ routes by key format automatically; the TypeScript client needs environment: \"https://ai.mongodb.com/v1\"",
+        "Test embeddings and reranking, then delete the old key on the Voyage AI platform"
+      ],
+      "sources": [
+        "https://www.mongodb.com/company/newsroom/press-releases/mongodb-announces-acquisition-of-voyage-ai",
+        "https://www.mongodb.com/docs/voyageai/tutorials/migrate-to-atlas/",
+        "https://www.mongodb.com/docs/voyageai/api-and-clients/"
+      ]
+    }
+  ]
+}

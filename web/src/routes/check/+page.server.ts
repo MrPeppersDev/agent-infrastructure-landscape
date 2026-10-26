@@ -8,6 +8,7 @@ import { familyForSection } from '$lib/families';
 import { alternativesFor } from '$lib/chooser';
 import { attentionIds, type StackIndex, type Replacement } from '../../../../mcp/src/stack-check';
 import stackIndex from '../../../../data/stack-index.json';
+import { migrationIds } from '$lib/migrations';
 
 export const prerender = true;
 
@@ -22,5 +23,5 @@ export const load = () => {
   );
   const replacements: Record<string, Replacement[]> = {};
   for (const [id, list] of Object.entries(alts)) replacements[id] = list.map(({ id, name, why }) => ({ id, name, why }));
-  return { replacements };
+  return { replacements, migrations: migrationIds() };
 };
