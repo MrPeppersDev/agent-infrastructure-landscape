@@ -12,7 +12,7 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help history
+.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help history action
 
 help:
 	@echo "Targets:"
@@ -52,6 +52,11 @@ help:
 #
 # The closing `render.py` step keeps landscape.html in sync with the JSON
 # source. `build-path-a` (the byte-identity gate) catches any drift.
+action:
+	tsc --ignoreConfig --target es2022 --module esnext --moduleResolution bundler --outDir .action-build mcp/src/stack-check.ts
+	(echo "// GENERATED from mcp/src/stack-check.ts by \`make action\` — do not edit."; cat .action-build/stack-check.js) > action/dist/stack-check.mjs
+	rm -rf .action-build
+
 history:
 	$(PYTHON) scripts/build_history.py
 

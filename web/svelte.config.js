@@ -29,6 +29,8 @@ const config = {
       base: process.env.BASE_PATH ?? ''
     },
     prerender: {
+      // '*' plus the prerendered JSON endpoints nothing links to.
+      entries: ['*', '/api/replacements.json', '/api/search-docs.json'],
       // /feed.xml is emitted by scripts/generate-feed.mjs after the Vite
       // build, so SvelteKit's prerender crawler can't see it. Every page's
       // <link rel="alternate"> points to it, so we tell the crawler to

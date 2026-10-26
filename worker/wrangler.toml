@@ -1,0 +1,11 @@
+# Hosted MCP endpoint — deploy with `npx wrangler deploy` from this folder
+# (needs a Cloudflare account; the free plan is enough).
+name = "agent-landscape-mcp"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+
+[vars]
+DATA_BASE = "https://raw.githubusercontent.com/MrPeppersDev/agent-infrastructure-landscape/main/"
+
+[limits]
+cpu_ms = 30000

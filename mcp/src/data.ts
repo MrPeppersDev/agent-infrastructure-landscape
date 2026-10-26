@@ -212,3 +212,10 @@ export function loadHistory(): Record<string, HistoryEvent[]> {
 export function loadSystemAliases(): Record<string, string[]> {
   return readOptional<{ aliases: Record<string, string[]> }>(['system-aliases.json'], { aliases: {} }).aliases;
 }
+
+export function loadPricing(): { checked: string; vendors: unknown[] } {
+  for (const p of [join(DATA_DIR, 'pricing-memory.json'), join(DATA_DIR, 'pricing', 'memory.json')]) {
+    if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8'));
+  }
+  return { checked: '', vendors: [] };
+}

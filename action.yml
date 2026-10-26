@@ -1,0 +1,45 @@
+name: 'AI stack check'
+description: 'Flag archived, deprecated, acquired or stale AI agent dependencies (frameworks, memory layers, vector DBs, MCP servers) and suggest live replacements.'
+author: 'Brian Sayer'
+branding:
+  icon: 'layers'
+  color: 'blue'
+inputs:
+  manifests:
+    description: 'Comma- or newline-separated manifest paths. Default: every package.json, requirements*.txt, pyproject.toml and MCP config (.mcp.json, mcp.json, claude_desktop_config.json) in the repo, skipping node_modules, dist and virtualenvs.'
+    required: false
+    default: ''
+  fail-on:
+    description: '"none" (default: report only), "attention" (fail on any flagged dependency) or "archived" (fail only on archived, deprecated or shut-down ones).'
+    required: false
+    default: 'none'
+  comment:
+    description: 'PR comment: "auto" (only when something is flagged; updates one comment in place), "always" or "never". Needs `pull-requests: write`.'
+    required: false
+    default: 'auto'
+  github-token:
+    description: 'Token used for the PR comment.'
+    required: false
+    default: ${{ github.token }}
+  badge-path:
+    description: 'Optional path to write a shields.io endpoint badge JSON (e.g. .github/badges/ai-stack.json).'
+    required: false
+    default: ''
+  index-url:
+    description: 'Stack index to check against. Default: the live index on the catalog site, falling back to the copy bundled with this action version.'
+    required: false
+    default: 'https://mrpeppersdev.github.io/agent-infrastructure-landscape/api/stack-index.json'
+  replacements-url:
+    description: 'Replacement suggestions for flagged systems.'
+    required: false
+    default: 'https://mrpeppersdev.github.io/agent-infrastructure-landscape/api/replacements.json'
+outputs:
+  attention-count:
+    description: 'Number of flagged dependencies.'
+  matched-count:
+    description: 'Number of dependencies found in the catalog.'
+  manifests:
+    description: 'Number of manifests checked.'
+runs:
+  using: 'node20'
+  main: 'action/check.mjs'

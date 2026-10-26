@@ -11,6 +11,8 @@ on:
       - 'data/**'
       - 'taxonomy/**'
       - 'mcp/**'
+      - 'worker/**'
+      - 'bench/results/**'
       - '.github/workflows/web-check.yml'
   workflow_dispatch:
 
@@ -74,3 +76,5 @@ jobs:
           npm install
           npm run build
           npm test
+      - name: Test hosted MCP worker handler
+        run: npx -y tsx worker/test/handler.test.ts

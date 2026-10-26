@@ -1,0 +1,36 @@
+# Deploy the hosted MCP endpoint (worker/) to Cloudflare Workers.
+# Needs repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# Data is fetched from main at request time, so data changes need no redeploy;
+# this runs on code changes and on demand.
+name: Deploy MCP worker
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['worker/**', 'mcp/src/chooser.ts', 'mcp/src/chooser-infra.ts', 'mcp/src/compat.ts', 'mcp/src/stack-check.ts', 'mcp/src/search.ts', 'mcp/src/costs.ts']
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Test handler
+        run: npx -y tsx worker/test/handler.test.ts
+      - name: Deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: worker
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice title=MCP worker not deployed::Add the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets to deploy (see worker/README.md)."
+            exit 0
+          fi
+          npx -y wrangler@4 deploy

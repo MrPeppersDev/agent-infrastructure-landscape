@@ -189,6 +189,9 @@ write('llms.txt', `# AI Agent Infrastructure Landscape
 - [Choose a memory layer](${PUBLIC}/choose), [an agent framework](${PUBLIC}/choose/framework) or [a vector / graph database](${PUBLIC}/choose/data): a few questions → three cited picks.
 - [Check a stack](${PUBLIC}/check): paste package.json / requirements.txt / pyproject.toml / MCP config → archived, acquired or stale dependencies and replacements.
 - [Alternatives](${PUBLIC}/alternatives): live alternatives to any memory layer, framework or data store.
+- [Ask the catalog](${PUBLIC}/search): plain-language search with requirement checking.
+- [Memory cost calculator](${PUBLIC}/costs): monthly cost of managed memory layers from published prices.
+- [Benchmarks](${PUBLIC}/benchmarks): reproducible memory benchmark runs vs vendor-reported scores.
 - [Compatibility](${PUBLIC}/compatibility): do these systems work together? Integration evidence for every pair, with sources.
 - [Compare](${PUBLIC}/compare): head-to-head pages; [compare up to five](${PUBLIC}/compare/many).
 - [Findings](${PUBLIC}/findings): headline findings from the catalog.
@@ -208,8 +211,10 @@ ${famLines}
 
 ## Tools
 
-- [MCP server](${REPO}/tree/main/mcp): choose_memory_layer, choose_framework_or_store, check_stack, check_compatibility, find_alternatives, system_history, search_records, compare, recent_changes and more.
+- [MCP server](${REPO}/tree/main/mcp): ask_catalog, choose_memory_layer, choose_framework_or_store, check_stack, check_compatibility, find_alternatives, system_history, estimate_memory_cost, search_records, compare, recent_changes and more.
 - [CLI](${REPO}/tree/main/cli): \`landscape check package.json --fail-on-attention\` for CI.
+- [GitHub Action](${REPO}/tree/main/action): \`uses: MrPeppersDev/agent-infrastructure-landscape@main\` flags archived, acquired or stale AI dependencies on pull requests.
+- [Hosted MCP endpoint](${REPO}/tree/main/worker): remote, read-only MCP server (Streamable HTTP).
 
 ## Optional
 
