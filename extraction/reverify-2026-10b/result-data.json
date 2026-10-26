@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "activeloop-deep-lake--activeloop-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://activeloop.ai",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "algolia--algolia-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Algolia GitHub org active (548 repos; JS client v5.60.0)",
+  "lifecycle_citation": "https://github.com/algolia/algoliasearch-client-javascript",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (hosted SaaS); open-source API clients/codegen are MIT",
+    "citation": "https://github.com/algolia/api-clients-automation",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — hosted search-as-a-service API",
+    "citation": "https://github.com/algolia/algoliasearch-client-javascript",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "not applicable — managed service (JS API client algoliasearch v5.60.0)",
+    "citation": "https://github.com/algolia/algoliasearch-client-javascript",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "not applicable — no public engine repo (official API clients under github.com/algolia)",
+    "citation": "https://github.com/algolia",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "PHP, JavaScript, Ruby, Python, Swift, Kotlin, C#, Java, Go, Scala (official API clients)",
+    "citation": "https://github.com/algolia/awesome-algolia",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "algolia-neuralsearch--algolia-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Algolia GitHub org active (548 repos; JS client v5.60.0)",
+  "lifecycle_citation": "https://github.com/algolia/algoliasearch-client-javascript",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "proprietary (hosted SaaS); open-source API clients/codegen are MIT",
+    "citation": "https://github.com/algolia/api-clients-automation",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "not applicable — managed service",
+    "citation": "https://github.com/algolia/algoliasearch-client-javascript",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "PHP, JavaScript, Ruby, Python, Swift, Kotlin, C#, Java, Go, Scala (official API clients)",
+    "citation": "https://github.com/algolia/awesome-algolia",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "allegrograph-franz--allegrograph-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://allegrograph.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "amazon-neptune-analytics--aws-amazon-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://aws.amazon.com/neptune/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "apache-age--age-apache-org",
+  "lifecycle": "active",
+  "lifecycle_note": "apache/age public; v1.8.0 supports PostgreSQL 11-18",
+  "lifecycle_citation": "https://github.com/apache/age",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/apache/age",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-hosted only (PostgreSQL extension; Azure Database for PostgreSQL ships it managed)",
+    "new": "Self-hosted only — PostgreSQL extension (PG 11–18); some managed Postgres services (e.g. Azure) offer it",
+    "citation": "https://github.com/apache/age",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v1.8.0 (release badge; date not captured)",
+    "citation": "https://github.com/apache/age",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "apache/age — ~4.8k stars, active (commit date not captured)",
+    "citation": "https://github.com/apache/age",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, Go, Java (JDBC), Node.js (+ community Rust, .NET)",
+    "citation": "https://github.com/apache/age",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "arangodb--arangodb-com",
+  "lifecycle": "active",
+  "lifecycle_note": "arangodb/arangodb public, 53k+ commits on devel; project docs now on arango.ai",
+  "lifecycle_citation": "https://github.com/arangodb/arangodb",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "BSL-1.1 (source-available; each release converts to Apache-2.0 four years after release)",
+    "citation": "https://github.com/arangodb/arangodb/blob/devel/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "arangodb/arangodb — ~14.3k stars, active (commit date not captured)",
+    "citation": "https://github.com/arangodb/arangodb",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — community ravenwits/mcp-server-arangodb",
+    "citation": "https://github.com/ravenwits/mcp-server-arangodb",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "bge-baai--huggingface-co",
+  "lifecycle": "maintenance",
+  "lifecycle_note": "FlagEmbedding repo public; README news entries end 2025-03",
+  "lifecycle_citation": "https://github.com/FlagOpen/FlagEmbedding",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — open weights on Hugging Face (FlagEmbedding library); also served by third-party inference APIs",
+    "citation": "https://github.com/FlagOpen/FlagEmbedding",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "FlagEmbedding v1.3.0 (pip; date not captured)",
+    "citation": "https://github.com/FlagOpen/FlagEmbedding",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "FlagOpen/FlagEmbedding — ~12.2k stars, last README news 2025-03",
+    "citation": "https://github.com/FlagOpen/FlagEmbedding",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (open weights, MIT)",
+    "citation": "https://github.com/FlagOpen/FlagEmbedding",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "chroma--trychroma-com",
+  "lifecycle": "active",
+  "lifecycle_note": "1.6.0 release PR merged 2026-10-13",
+  "lifecycle_citation": "https://github.com/chroma-core/chroma/pull/7907",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — OSS embedded/server; Chroma Cloud serverless; single-tenant/BYOC on Enterprise",
+    "citation": "https://www.trychroma.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "1.5.9 2026-05-05",
+    "new": "v1.6.0 (2026-10-13)",
+    "citation": "https://github.com/chroma-core/chroma/pull/7907",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "27.8k★ +125/mo Rust",
+    "new": "chroma-core/chroma — ~29.1k stars, last commit 2026-10",
+    "citation": "https://github.com/chroma-core/chroma",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — chroma-mcp",
+    "new": "yes — official chroma-core/chroma-mcp (GitHub, Apache-2.0)",
+    "citation": "https://github.com/chroma-core/chroma-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Starter $0 + usage ($5 free credits); Team $250/mo + usage ($100 credits); Enterprise custom; OSS free",
+    "citation": "https://www.trychroma.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, TypeScript/JavaScript, Rust",
+    "citation": "https://docs.trychroma.com/docs/overview/getting-started",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "clarivate--clarivate-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://clarivate.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "cohere-embed--cohere-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://cohere.com/embed",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "coveo--coveo-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.coveo.com",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "databricks-vector-search--databricks-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.databricks.com/product/machine-learning/vector-search",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "dgraph--dgraph-io",
+  "lifecycle": "active",
+  "lifecycle_note": "dgraph-io/dgraph public, README says v25, no archive notice; ownership changes not re-verified",
+  "lifecycle_citation": "https://github.com/dgraph-io/dgraph",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/dgraph-io/dgraph",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v25.x (README: Dgraph is at version v25; exact patch and date not captured)",
+    "citation": "https://github.com/dgraph-io/dgraph",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "dgraph-io/dgraph — ~21.8k stars, active (no archive notice; commit date not captured)",
+    "citation": "https://github.com/dgraph-io/dgraph",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "diffbot--diffbot-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.diffbot.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "elastic-cloud--elastic-co",
+  "lifecycle": "active",
+  "lifecycle_note": "Elastic Agent Builder MCP endpoint available on Elasticsearch Serverless projects",
+  "lifecycle_citation": "https://github.com/elastic/mcp-server-elasticsearch",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (managed service; Elasticsearch source is AGPL-3.0 / SSPL-1.0 / Elastic-2.0 choice)",
+    "citation": "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Elastic Cloud (hosted deployments and Elasticsearch Serverless projects)",
+    "citation": "https://github.com/elastic/mcp-server-elasticsearch",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "not applicable — managed service",
+    "citation": "https://github.com/elastic/mcp-server-elasticsearch",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "elastic/elasticsearch — ~78k stars, active (engine repo; commit date not captured)",
+    "citation": "https://github.com/topics/search-engine",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Elastic Agent Builder MCP endpoint (Elastic 9.2+ / Serverless); elastic/mcp-server-elasticsearch deprecated",
+    "citation": "https://github.com/elastic/mcp-server-elasticsearch",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "elasticsearch-opensearch--elastic-co",
+  "lifecycle": "active",
+  "lifecycle_note": "elastic/elasticsearch public and active, no archive notice",
+  "lifecycle_citation": "https://github.com/elastic/elasticsearch",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "AGPL-3.0 / SSPL-1.0 / Elastic-2.0 (choice) for Elasticsearch; OpenSearch fork is Apache-2.0",
+    "citation": "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "elastic/elasticsearch — ~78k stars, active (commit date not captured); OpenSearch: opensearch-project/OpenSearch ~13.7k stars",
+    "citation": "https://github.com/topics/search-engine",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Elastic MCP server",
+    "new": "yes — official Elastic Agent Builder MCP endpoint (Elastic 9.2+ / Serverless); older elastic/mcp-server-elasticsearch deprecated",
+    "citation": "https://github.com/elastic/mcp-server-elasticsearch",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "free (OSS) self-managed; Elastic Cloud / Amazon OpenSearch Service paid (price pages not re-verified)",
+    "citation": "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "falkordb--falkordb-com",
+  "lifecycle": "active",
+  "lifecycle_note": "FalkorDB/FalkorDB public, ~10.5k stars, no archive notice",
+  "lifecycle_citation": "https://github.com/FalkorDB/FalkorDB",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "SSPL-1.0 (source-available)",
+    "citation": "https://github.com/FalkorDB/FalkorDB",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — OSS server/Docker; FalkorDB Cloud (free trial)",
+    "citation": "https://github.com/FalkorDB/FalkorDB-MCPServer",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "FalkorDB/FalkorDB — ~10.5k stars, active (commit date not captured)",
+    "citation": "https://github.com/FalkorDB",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — FalkorDB MCP",
+    "new": "yes — official FalkorDB/FalkorDB-MCPServer (MIT)",
+    "citation": "https://github.com/FalkorDB/FalkorDB-MCPServer",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, TypeScript/JavaScript, Java (official clients)",
+    "citation": "https://github.com/FalkorDB",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "glean--glean-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.glean.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "gte-alibaba-nlp--huggingface-co",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://huggingface.co/Alibaba-NLP/gte-large",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "hugging-face-inference-api-embeddings--huggingface-co",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://huggingface.co/docs/api-inference",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "jina-ai-embeddings--jina-ai",
+  "lifecycle": "acquired",
+  "lifecycle_note": "jina-ai GitHub org: acquired by Elastic 2025-10",
+  "lifecycle_citation": "https://github.com/jina-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache-2.0 (open weights)",
+    "new": "mixed — many recent open-weight models CC-BY-NC-4.0 (commercial licence via Elastic); some older models Apache-2.0",
+    "citation": "https://github.com/jina-ai/jina-on-prem",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — hosted Jina API; open weights and jina-on-prem air-gapped Docker/K8s; SageMaker",
+    "citation": "https://github.com/jina-ai/jina-on-prem",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "no dedicated embeddings repo (weights on Hugging Face); jina-ai/MCP ~841 stars, jina-ai/reader ~11.9k",
+    "citation": "https://github.com/jina-ai",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official jina-ai/MCP remote server (mcp.jina.ai/v1; embeddings, rerank, reader, search tools)",
+    "citation": "https://github.com/jina-ai/MCP",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$37.5M total raised through Series A 2021 (Canaan Partners led).",
+    "new": "Acquired by Elastic (2025-10); previously ~$37.5M raised",
+    "citation": "https://github.com/jina-ai",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "kuzu--kuzudb-github-io",
+  "lifecycle": "archived",
+  "lifecycle_note": "Repository archived by owner on 2025-10-10, now read-only; v0.11.3 is the last release",
+  "lifecycle_citation": "https://github.com/kuzudb/kuzu",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Unlicensed",
+    "new": "MIT",
+    "citation": "https://github.com/kuzudb/kuzu",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lancedb--lancedb-com",
+  "lifecycle": "active",
+  "lifecycle_note": "lancedb 0.40.0 published to PyPI 2026-10-07",
+  "lifecycle_citation": "https://pypi.org/project/lancedb/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — embedded OSS library; LanceDB Enterprise as Managed or BYOC",
+    "citation": "https://docs.lancedb.com/enterprise",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "python-v0.31.0-… 2026-04-29",
+    "new": "v0.40.0 (2026-10-07)",
+    "citation": "https://pypi.org/project/lancedb/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "10.2k★ +200/mo HTML",
+    "new": "lancedb/lancedb — ~11.3k stars, last commit 2026-10",
+    "citation": "https://github.com/lancedb/lancedb",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — official reference server lancedb/lancedb-mcp-server (basic, 3 tools)",
+    "citation": "https://github.com/lancedb/lancedb-mcp-server",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "free (OSS); LanceDB Enterprise/Cloud pricing via sales (no public price list)",
+    "citation": "https://lancedb.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, TypeScript/JavaScript, Rust (Java via REST)",
+    "citation": "https://docs.lancedb.com/api-reference/sdk-reference",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lucidworks-conversational-q-a-ai-agent--lucidworks-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://lucidworks.com/platform/ai-agents/ai-powered-conversational-qa-agent-built-for-enterprises",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "marqo--marqo-ai",
+  "lifecycle": "deprecated",
+  "lifecycle_note": "README: Marqo's open-source project is deprecated and will no longer receive updates; company points to its commercial platform",
+  "lifecycle_citation": "https://github.com/marqo-ai/marqo",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/marqo-ai/marqo",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Managed-only — commercial Marqo platform; the self-hosted OSS engine is deprecated",
+    "citation": "https://github.com/marqo-ai/marqo",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "marqo-ai/marqo — ~5.0k stars, OSS deprecated (no further updates)",
+    "citation": "https://github.com/marqo-ai/marqo",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "meilisearch--meilisearch-com",
+  "lifecycle": "active",
+  "lifecycle_note": "v1.53.1 released 2026-08-13 with further commits to main since",
+  "lifecycle_citation": "https://github.com/meilisearch/meilisearch/releases/tag/v1.53.1",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT (Community Edition) / BSL-1.1 (source-available, Enterprise Edition parts)",
+    "citation": "https://github.com/meilisearch/meilisearch/blob/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — OSS binary/Docker; Meilisearch Cloud",
+    "citation": "https://github.com/meilisearch/meilisearch-mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v1.53.1 (2026-08-13)",
+    "citation": "https://github.com/meilisearch/meilisearch/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "meilisearch/meilisearch — ~59.6k stars, active (31 commits to main after v1.53.1)",
+    "citation": "https://github.com/meilisearch/meilisearch/releases/tag/v1.53.1",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via community port",
+    "new": "yes — official meilisearch/meilisearch-mcp (MIT)",
+    "citation": "https://github.com/meilisearch/meilisearch-mcp",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "meilisearch-cloud--meilisearch-com",
+  "lifecycle": "active",
+  "lifecycle_note": "v1.53.1 released 2026-08-13; Meilisearch Cloud linked from official repos",
+  "lifecycle_citation": "https://github.com/meilisearch/meilisearch/releases/tag/v1.53.1",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "MIT (Community Edition) / BSL-1.1 (source-available, Enterprise Edition parts); Cloud service proprietary",
+    "citation": "https://github.com/meilisearch/meilisearch/blob/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Meilisearch Cloud managed; same engine self-hostable",
+    "citation": "https://github.com/meilisearch/meilisearch-mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.53.1 (2026-08-13)",
+    "citation": "https://github.com/meilisearch/meilisearch/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "meilisearch/meilisearch — ~59.6k stars, active (31 commits to main after v1.53.1)",
+    "citation": "https://github.com/meilisearch/meilisearch/releases/tag/v1.53.1",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official meilisearch/meilisearch-mcp (MIT)",
+    "citation": "https://github.com/meilisearch/meilisearch-mcp",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "memgraph--memgraph-com",
+  "lifecycle": "active",
+  "lifecycle_note": "memgraph/memgraph public, no archive notice",
+  "lifecycle_citation": "https://github.com/memgraph/memgraph",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "BSL-1.1 (source-available, Community); Enterprise under proprietary MEL",
+    "citation": "https://github.com/memgraph/memgraph",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "memgraph/memgraph — ~4.4k stars, active (commit date not captured)",
+    "citation": "https://github.com/memgraph/memgraph",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Memgraph MCP",
+    "new": "yes — official MCP server in memgraph/ai-toolkit",
+    "citation": "https://github.com/memgraph/memgraph",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "milvus--milvus-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Milvus 3.0 line shipping; v3.0.3 released 2026-10-14",
+  "lifecycle_citation": "https://milvus.io/docs/release_notes.md",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "v2.6.15 2026-04-17",
+    "new": "v3.0.3 (2026-10-14)",
+    "citation": "https://milvus.io/docs/release_notes.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "44.1k★ +546/mo Go",
+    "new": "milvus-io/milvus — ~46k stars, last commit 2026-10",
+    "citation": "https://github.com/milvus-io/milvus",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — milvus-mcp",
+    "new": "yes — official zilliztech/mcp-server-milvus (GitHub)",
+    "citation": "https://github.com/zilliztech/mcp-server-milvus",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free (OSS Apache-2.0) + Zilliz Cloud (pay-per-use managed)",
+    "new": "free (OSS); managed via Zilliz Cloud (free tier, then usage-based)",
+    "citation": "https://zilliz.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, Go, Java, Node.js, C++ (+ RESTful API; C# community/Microsoft, Rust in development)",
+    "citation": "https://milvus.io/docs/overview.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mindbreeze-inspire--mindbreeze-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.mindbreeze.com",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://mistral.ai/news/mistral-embed",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.mixedbread.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "mongodb-atlas-vector-search--mongodb-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Official MongoDB MCP server actively published; supports Atlas Local deployments with auto-embedding vector search",
+  "lifecycle_citation": "https://github.com/mongodb-js/mongodb-mcp-server",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Managed-only",
+    "new": "Both (self-hosted + managed cloud) — Atlas managed; Atlas Local deployments with vector search (auto-embedding via Voyage AI)",
+    "citation": "https://github.com/mongodb-js/mongodb-mcp-server",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — MongoDB MCP server",
+    "new": "yes — official mongodb-js/mongodb-mcp-server (Apache-2.0)",
+    "citation": "https://github.com/mongodb-js/mongodb-mcp-server",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "nebulagraph--nebula-graph-io",
+  "lifecycle": "active",
+  "lifecycle_note": "vesoft-inc/nebula public, no archive notice",
+  "lifecycle_citation": "https://github.com/vesoft-inc/nebula",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/vesoft-inc/nebula",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v3.8.0 OSS line (version referenced by repo docs; release date not captured)",
+    "citation": "https://github.com/vesoft-inc/nebula",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "vesoft-inc/nebula — ~12.4k stars, active (commit date not captured)",
+    "citation": "https://github.com/vesoft-inc/nebula",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "neo4j--neo4j-com",
+  "lifecycle": "active",
+  "lifecycle_note": "neo4j/neo4j public, default branch 2026.07, no archive notice",
+  "lifecycle_citation": "https://github.com/neo4j/neo4j",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "GPL-3.0 (Community Edition); Enterprise Edition proprietary",
+    "citation": "https://github.com/neo4j/neo4j",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — Community/Enterprise self-managed; Neo4j Aura cloud",
+    "citation": "https://github.com/neo4j-contrib/mcp-neo4j",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "mcp-neo4j-cyphe… 2026-04-10",
+    "new": "2026.07 CalVer series (current default branch; exact patch and date not captured)",
+    "citation": "https://github.com/neo4j/neo4j",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "944★ +15/mo Python",
+    "new": "neo4j/neo4j — ~17.2k stars, active (default branch 2026.07)",
+    "citation": "https://github.com/neo4j/neo4j",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — neo4j-mcp",
+    "new": "yes — official neo4j/mcp (product team); Neo4j Labs also ships neo4j-contrib/mcp-neo4j",
+    "citation": "https://github.com/neo4j/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Java, JavaScript, Python (official drivers; Go and .NET drivers also exist)",
+    "citation": "https://github.com/neo4j",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "nomic-embed--nomic-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.nomic.ai/embed",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "ontotext-graphdb-graphwise--graphwise-ai",
+  "lifecycle": "renamed",
+  "lifecycle_note": "Ontotext merged with Semantic Web Company/PoolParty to form Graphwise per existing row; not re-verified this pass",
+  "lifecycle_citation": "https://graphwise.ai/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "openai-embeddings--platform-openai-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://platform.openai.com/docs/guides/embeddings",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "opensearch-aws--opensearch-org",
+  "lifecycle": "active",
+  "lifecycle_note": "opensearch-project/OpenSearch public, no archive notice",
+  "lifecycle_citation": "https://github.com/opensearch-project/OpenSearch",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "opensearch-project/OpenSearch — ~13.7k stars, active (commit date not captured)",
+    "citation": "https://github.com/opensearch-project/OpenSearch",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official opensearch-project/opensearch-mcp-server-py (Apache-2.0)",
+    "citation": "https://github.com/opensearch-project/opensearch-mcp-server-py",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS); Amazon OpenSearch Service billed separately by AWS",
+    "citation": "https://github.com/opensearch-project/OpenSearch",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "palantir-ontology--palantir-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.palantir.com/platforms/foundry/ontology/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "pgvector--gh-pgvector-pgvector",
+  "lifecycle": "active",
+  "lifecycle_note": "0.8.6 released 2026-07-29; 0.8.7 in progress",
+  "lifecycle_citation": "https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Custom",
+    "new": "PostgreSQL",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-hosted only (PostgreSQL extension; managed via Supabase/AWS RDS/etc.)",
+    "new": "Self-hosted only — PostgreSQL extension; also offered inside managed Postgres (Supabase, AWS RDS, Azure, Neon, etc.)",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "no releases",
+    "new": "v0.8.6 (2026-07-29)",
+    "citation": "https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "21.1k★ +123/mo C",
+    "new": "pgvector/pgvector — ~23.5k stars, last commit 2026-07 or later (0.8.7 unreleased)",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via Postgres MCP servers (community)",
+    "new": "yes — community Postgres MCP servers with pgvector tools (e.g. MOmayr/mcp-postgres-pgvector)",
+    "citation": "https://github.com/MOmayr/mcp-postgres-pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free (PostgreSQL License open source)",
+    "new": "free (OSS)",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Client libs for 35 languages incl. Python, JavaScript/TypeScript, Go, Java, Rust, C#, Ruby, PHP",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pinecone--pinecone-io",
+  "lifecycle": "active",
+  "lifecycle_note": "BYOC reached GA 2026-09-23",
+  "lifecycle_citation": "https://www.pinecone.io/blog/byoc-generally-available/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Hybrid",
+    "new": "Managed-only — serverless SaaS on AWS/GCP/Azure; BYOC (GA 2026-09) runs in the customer's cloud account",
+    "citation": "https://www.pinecone.io/blog/byoc-generally-available/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Pinecone MCP server",
+    "new": "yes — official @pinecone-database/mcp (npm) plus per-Assistant remote MCP servers",
+    "citation": "https://docs.pinecone.io/guides/operations/mcp-server",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Starter free (2 GB, 2M WU/1M RU per mo); Builder $20/mo; Standard $50/mo minimum; Enterprise $500/mo minimum",
+    "citation": "https://www.pinecone.io/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, Node.js/TypeScript, Java, Go",
+    "citation": "https://docs.pinecone.io/reference/pinecone-sdks",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "poolparty-now-graphwise--poolparty-biz",
+  "lifecycle": "renamed",
+  "lifecycle_note": "PoolParty now part of Graphwise (merger with Ontotext) per existing row; not re-verified this pass",
+  "lifecycle_citation": "https://www.poolparty.biz/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "postgresql-pgvector--gh-pgvector-pgvector",
+  "lifecycle": "active",
+  "lifecycle_note": "0.8.6 released 2026-07-29; 0.8.7 in progress",
+  "lifecycle_citation": "https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — PostgreSQL extension; also offered inside managed Postgres (Supabase, AWS RDS, Azure, Neon, etc.)",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.8.6 (2026-07-29)",
+    "citation": "https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "pgvector/pgvector — ~23.5k stars, last commit 2026-07 or later (0.8.7 unreleased)",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — community Postgres MCP servers with pgvector tools (e.g. MOmayr/mcp-postgres-pgvector)",
+    "citation": "https://github.com/MOmayr/mcp-postgres-pgvector",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Client libs for 35 languages incl. Python, JavaScript/TypeScript, Go, Java, Rust, C#, Ruby, PHP",
+    "citation": "https://github.com/pgvector/pgvector",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "qdrant--qdrant-tech",
+  "lifecycle": "active",
+  "lifecycle_note": "Regular releases; v1.19.2 published 2026-10-05",
+  "lifecycle_citation": "https://github.com/qdrant/qdrant/releases",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — OSS engine; Qdrant Managed Cloud, Hybrid Cloud and Private Cloud",
+    "citation": "https://qdrant.tech/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v1.17.1 2026-03-27",
+    "new": "v1.19.2 (2026-10-05)",
+    "citation": "https://github.com/qdrant/qdrant/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "31.1k★ +156/mo Rust",
+    "new": "qdrant/qdrant — ~34.9k stars, last commit 2026-10",
+    "citation": "https://github.com/qdrant/qdrant",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — mcp-server-qdrant",
+    "new": "yes — official qdrant/mcp-server-qdrant (GitHub, Apache-2.0)",
+    "citation": "https://github.com/qdrant/mcp-server-qdrant",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free tier forever (single node, 1 GB RAM / 4 GB disk); Standard usage-based hourly billing; Premium has minimum spend; Hybrid/Private Cloud via sales",
+    "citation": "https://qdrant.tech/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, JavaScript/TypeScript, Rust, Go, .NET, Java",
+    "citation": "https://qdrant.tech/documentation/interfaces/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "qdrant-cloud--cloud-qdrant-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Managed Qdrant service with current free and Standard tiers",
+  "lifecycle_citation": "https://qdrant.tech/pricing/",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (managed service; underlying Qdrant engine is Apache-2.0)",
+    "citation": "https://github.com/qdrant/qdrant",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Qdrant Managed Cloud on AWS/GCP/Azure; Hybrid Cloud and Private Cloud variants run in customer infrastructure",
+    "citation": "https://qdrant.tech/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "not applicable — managed service",
+    "citation": "https://qdrant.tech/pricing/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "qdrant/qdrant — ~34.9k stars, last commit 2026-10 (engine repo; cloud control plane is closed)",
+    "citation": "https://github.com/qdrant/qdrant",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official qdrant/mcp-server-qdrant (GitHub)",
+    "citation": "https://github.com/qdrant/mcp-server-qdrant",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free tier forever (1 GB RAM / 4 GB disk node + free cloud inference); Standard usage-based hourly; Premium minimum spend",
+    "citation": "https://qdrant.tech/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$37.8M Series A 2024-01 (Spark Capital led).",
+    "new": "Qdrant raised $50M Series B 2026-03, after a $28M Series A 2024-01",
+    "citation": "https://qdrant.tech/blog/series-b-announcement/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, JavaScript/TypeScript, Rust, Go, .NET, Java",
+    "citation": "https://qdrant.tech/documentation/interfaces/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "quickwit--quickwit-io",
+  "lifecycle": "active",
+  "lifecycle_note": "quickwit-oss/quickwit public, not archived; Datadog ownership per existing funding cell not re-verified",
+  "lifecycle_citation": "https://github.com/quickwit-oss/quickwit",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "AGPL-3.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/quickwit-oss/quickwit",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — OSS distributed search engine on object storage",
+    "citation": "https://github.com/quickwit-oss/quickwit",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "quickwit-oss/quickwit — ~11.6k stars, active (commit date not captured)",
+    "citation": "https://github.com/quickwit-oss/quickwit",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/quickwit-oss/quickwit",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sajari-now-search-io--search-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.search.io/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "searchunify--searchunify-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.searchunify.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "sentence-transformers--sbert-net",
+  "lifecycle": "active",
+  "lifecycle_note": "Repo now huggingface/sentence-transformers, maintained by Tom Aarsen (Hugging Face)",
+  "lifecycle_citation": "https://github.com/UKPLab/sentence-transformers",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — Python library (pip)",
+    "citation": "https://github.com/UKPLab/sentence-transformers",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "huggingface/sentence-transformers — ~19.2k stars, active (commit date not captured)",
+    "citation": "https://github.com/UKPLab/sentence-transformers",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/UKPLab/sentence-transformers",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python",
+    "citation": "https://github.com/UKPLab/sentence-transformers",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sinequa--sinequa-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by ChapsVision 2024-11 per existing funding cell; not re-verified this pass",
+  "lifecycle_citation": "https://www.sinequa.com",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "snowflake-cortex-search--docs-snowflake-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Snowflake points users to its fully supported official MCP server",
+  "lifecycle_citation": "https://github.com/Snowflake-Labs/mcp",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Snowflake MCP",
+    "new": "yes — official Snowflake-managed MCP server (Cortex Agents MCP); Snowflake-Labs/mcp community server deprecated",
+    "citation": "https://github.com/Snowflake-Labs/mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "stardog--stardog-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.stardog.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "supabase-vector--supabase-com",
+  "lifecycle": "active",
+  "lifecycle_note": "supabase/supabase public, ~108k stars",
+  "lifecycle_citation": "https://github.com/supabase/supabase",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "Apache-2.0 (Supabase stack); vectors via pgvector (PostgreSQL licence)",
+    "citation": "https://github.com/supabase/supabase",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Supabase Cloud or self-hosted Supabase stack",
+    "citation": "https://github.com/supabase/supabase",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "supabase/supabase — ~108k stars, active (commit date not captured)",
+    "citation": "https://github.com/supabase/supabase",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official supabase/mcp (Apache-2.0)",
+    "citation": "https://github.com/supabase/mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "JavaScript/TypeScript, Flutter/Dart, Swift, Python",
+    "citation": "https://github.com/supabase/supabase",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "tantivy--gh-quickwit-oss-tantivy",
+  "lifecycle": "active",
+  "lifecycle_note": "quickwit-oss/tantivy public, 3.8k commits, no archive notice",
+  "lifecycle_citation": "https://github.com/quickwit-oss/tantivy",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — embedded Rust full-text search library",
+    "citation": "https://github.com/quickwit-oss/tantivy",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "quickwit-oss/tantivy — ~16.2k stars, active (commit date not captured)",
+    "citation": "https://github.com/quickwit-oss/tantivy",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/quickwit-oss/tantivy",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Rust (native); Python bindings tantivy-py, Ruby bindings tantiny",
+    "citation": "https://github.com/quickwit-oss/tantivy",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "tigergraph--tigergraph-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.tigergraph.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://www.topquadrant.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "turbopuffer--turbopuffer-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Not re-verified this pass: web search budget exhausted and vendor domains not fetchable; status assumed unchanged",
+  "lifecycle_citation": "https://turbopuffer.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "typesense--typesense-org",
+  "lifecycle": "active",
+  "lifecycle_note": "typesense/typesense public, v31 branch, no archive notice",
+  "lifecycle_citation": "https://github.com/typesense/typesense",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS server; Typesense Cloud",
+    "citation": "https://github.com/typesense/typesense",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "typesense/typesense — ~27k stars, active (commit date not captured)",
+    "citation": "https://github.com/typesense/typesense",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — community suhail-ak-2/mcp-typesense-server",
+    "citation": "https://github.com/suhail-ak-2/mcp-typesense-server",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "JavaScript, PHP, Python, Ruby (official clients)",
+    "citation": "https://github.com/typesense/typesense",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "vald--vald-vdaas-org",
+  "lifecycle": "active",
+  "lifecycle_note": "vdaas/vald public, no archive notice",
+  "lifecycle_citation": "https://github.com/vdaas/vald",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — Kubernetes-native distributed vector search engine",
+    "citation": "https://github.com/vdaas/vald",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "vdaas/vald — ~1.7k stars, active (commit date not captured)",
+    "citation": "https://github.com/vdaas/vald",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "free (OSS)",
+    "citation": "https://github.com/vdaas/vald",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "vespa--vespa-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Releases made from master Mon–Thu per README; repo public, not archived",
+  "lifecycle_citation": "https://github.com/vespa-engine/vespa",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — OSS self-hosted; Vespa Cloud (free trial)",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "vespa-engine/vespa — ~7.1k stars, active (releases from master Mon–Thu)",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python (pyvespa), Java (in core repo); HTTP APIs for other languages",
+    "citation": "https://github.com/vespa-engine",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "vespa-cloud--cloud-vespa-ai",
+  "lifecycle": "active",
+  "lifecycle_note": "Vespa Cloud console and free trial linked from the official repo",
+  "lifecycle_citation": "https://github.com/vespa-engine/vespa",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (managed service; Vespa engine is Apache-2.0)",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Vespa Cloud (console.vespa-cloud.com), free trial available; same engine self-hostable",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "not applicable — managed service",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "vespa-engine/vespa — ~7.1k stars, active (engine repo)",
+    "citation": "https://github.com/vespa-engine/vespa",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python (pyvespa), Java (in core repo); HTTP APIs for other languages",
+    "citation": "https://github.com/vespa-engine",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "voyage-ai-mongodb--voyageai-com",
+  "lifecycle": "acquired",
+  "lifecycle_note": "Acquired by MongoDB 2025-02 per existing funding cell; not re-verified this pass (primary sources unreachable)",
+  "lifecycle_citation": "https://www.voyageai.com/",
+  "verified": false,
+  "updates": []
+ },
+ {
+  "id": "weaviate--weaviate-io",
+  "lifecycle": "active",
+  "lifecycle_note": "v1.40.x line shipping; v1.40.2 release PR merged 2026-10-21",
+  "lifecycle_citation": "https://github.com/weaviate/weaviate/pull/13576",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — OSS (Docker/K8s); Weaviate Cloud shared (Free/Flex) and dedicated (Premium)",
+    "citation": "https://weaviate.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v1.37.2 2026-04-23",
+    "new": "v1.40.2 (2026-10-21)",
+    "citation": "https://github.com/weaviate/weaviate/pull/13576",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "16.1k★ +134/mo Go",
+    "new": "weaviate/weaviate — ~16.8k stars, last commit 2026-10",
+    "citation": "https://github.com/weaviate/weaviate",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — weaviate-mcp",
+    "new": "yes — official MCP server built into Weaviate since v1.38 (Streamable HTTP at /v1/mcp)",
+    "citation": "https://docs.weaviate.io/weaviate/configuration/mcp-server",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free cluster $0 (100k objects, 1 GB RAM, 10 GB disk); Flex pay-as-you-go from $45/mo; Premium prepaid via sales; OSS free",
+    "citation": "https://weaviate.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, TypeScript/JavaScript, Go, Java, C#",
+    "citation": "https://docs.weaviate.io/weaviate/client-libraries",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "weaviate-cloud--weaviate-io",
+  "lifecycle": "active",
+  "lifecycle_note": "Current Free/Flex/Premium plans listed",
+  "lifecycle_citation": "https://weaviate.io/pricing",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (managed service; Weaviate engine is BSD-3-Clause)",
+    "citation": "https://github.com/weaviate/weaviate",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Weaviate Cloud shared clusters (Free, Flex) and dedicated (Premium)",
+    "citation": "https://weaviate.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "not applicable — managed service",
+    "citation": "https://weaviate.io/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "weaviate/weaviate — ~16.8k stars, last commit 2026-10 (engine repo)",
+    "citation": "https://github.com/weaviate/weaviate",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official MCP server built into Weaviate since v1.38 (Streamable HTTP at /v1/mcp)",
+    "citation": "https://docs.weaviate.io/weaviate/configuration/mcp-server",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free cluster $0 (100k objects, 1 GB RAM, 10 GB disk); Flex pay-as-you-go from $45/mo; Premium prepaid via sales",
+    "citation": "https://weaviate.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, TypeScript/JavaScript, Go, Java, C#",
+    "citation": "https://docs.weaviate.io/weaviate/client-libraries",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "zilliz-cloud--zilliz-com",
+  "lifecycle": "active",
+  "lifecycle_note": "Managed Milvus with current Free/Standard/Enterprise/BYOC plans",
+  "lifecycle_citation": "https://zilliz.com/pricing",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary (managed service; underlying Milvus is Apache-2.0)",
+    "citation": "https://github.com/milvus-io/milvus",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — serverless and dedicated clusters on AWS/GCP/Azure; BYOC deploys into customer cloud",
+    "citation": "https://zilliz.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "not applicable — managed service",
+    "citation": "https://zilliz.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "milvus-io/milvus — ~46k stars, last commit 2026-10 (engine repo)",
+    "citation": "https://github.com/milvus-io/milvus",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official zilliztech/zilliz-mcp-server (Zilliz Cloud) and zilliztech/mcp-server-milvus",
+    "citation": "https://github.com/zilliztech/zilliz-mcp-server",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free tier (5 GB storage, 2.5M vCUs/mo); Standard serverless pay-as-you-go plus dedicated; Enterprise from $197/mo; BYOC via sales",
+    "citation": "https://zilliz.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "not applicable — wrong section",
+    "new": "Python, Go, Java, Node.js, C++ (+ RESTful API)",
+    "citation": "https://milvus.io/docs/overview.md",
+    "confidence": "high"
+   }
+  ]
+ }
+]

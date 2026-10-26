@@ -275,6 +275,71 @@
     "https://www.mongodb.com/docs/voyageai/api-and-clients/"
    ],
    "verified_at": "2026-10-26"
+  },
+  {
+   "id": "amazon-q-developer--aws-amazon-com",
+   "action": "migrate",
+   "summary": "AWS announced end of support for Amazon Q Developer: new sign-ups and subscriptions are blocked from 2026-05-15, and the IDE plugins and paid subscriptions lose support on 2027-04-30. AWS names Kiro as the successor; Q in the AWS console, Slack and Teams is unaffected.",
+   "to": [
+    {
+     "name": "Kiro",
+     "id": "kiro--kiro-dev"
+    }
+   ],
+   "steps": [],
+   "sources": [
+    "https://aws.amazon.com/jp/blogs/news/amazon-q-developer-end-of-support-announcement/"
+   ],
+   "verified_at": "2026-10-26"
+  },
+  {
+   "id": "github-copilot-workspace--githubnext-com",
+   "action": "migrate",
+   "summary": "The Copilot Workspace technical preview ended and was superseded by Copilot's coding agent and agent mode; its user-manual repository was archived on 2025-09-02.",
+   "to": [
+    {
+     "name": "GitHub Copilot (Agent Mode)",
+     "id": "github-copilot-agent-mode--gh-features-copilot"
+    }
+   ],
+   "steps": [],
+   "sources": [
+    "https://github.com/githubnext/copilot-workspace-user-manual"
+   ],
+   "verified_at": "2026-10-26"
+  },
+  {
+   "id": "roo-code--roocode-com",
+   "action": "migrate",
+   "summary": "The Roo Code extension was shut down on 2026-05-15 and RooCodeInc/Roo-Code was archived (read-only) the same day; no official successor is named.",
+   "to": [],
+   "steps": [],
+   "sources": [
+    "https://github.com/RooCodeInc/Roo-Code"
+   ],
+   "verified_at": "2026-10-26"
+  },
+  {
+   "id": "marqo--marqo-ai",
+   "action": "migrate",
+   "summary": "Marqo's README says the open-source project is deprecated and will receive no further updates; no official successor is named.",
+   "to": [],
+   "steps": [],
+   "sources": [
+    "https://github.com/marqo-ai/marqo"
+   ],
+   "verified_at": "2026-10-26"
+  },
+  {
+   "id": "sourcegraph-cody-agent--sourcegraph-com",
+   "action": "migrate",
+   "summary": "Cody moved to a private repository (the public snapshot was archived on 2025-08-01) and Cody Free, Pro and Enterprise Starter were discontinued; Cody remains for Enterprise customers only.",
+   "to": [],
+   "steps": [],
+   "sources": [
+    "https://github.com/sourcegraph/cody-public-snapshot"
+   ],
+   "verified_at": "2026-10-26"
   }
  ]
 }

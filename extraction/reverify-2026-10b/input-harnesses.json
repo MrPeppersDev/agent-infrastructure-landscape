@@ -1,0 +1,1046 @@
+[
+ {
+  "id": "aider-harness--aider-chat",
+  "name": "Aider (harness)",
+  "url": "https://aider.chat",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "OSS terminal coding agent by Paul Gauthier — one of the original AI-pair-programmer CLIs (2023). Architect/Editor modes; repo-map for context; uses any LiteLLM-compatible model. Memory via CONVENTIONS.md and .aider.conf.yml — author-edited markdown. Distinct from the separate Aider memory-row in \"Coding-agent memory\"; this row characterises the harness itself.",
+   "license": "Apache-2.0",
+   "deployment": "Self-host (pip install aider-chat)",
+   "latest-release": "aider 0.x rolling (2025-2026)",
+   "gh": "~28k★, Python",
+   "mcp-support": "depth-floor — Aider primarily uses its own tool-call format; MCP support tracked in issues",
+   "pricing": "Free (OSS); usage via LLM provider",
+   "funding": "OSS — no commercial entity",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI (Python)"
+  }
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "name": "Amazon Q Developer",
+  "url": "https://aws.amazon.com/q/developer/",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Amazon's developer-focused agent — formerly CodeWhisperer (renamed 2024-Q4). Available as IDE plugins (VS Code, JetBrains, Visual Studio, Eclipse), in AWS Console, and CLI. Strong AWS-tooling integration: Q can read CloudWatch, troubleshoot IAM, suggest AWS-SDK code. Companion to Kiro for spec-driven flows.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (AWS-hosted)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free tier + Pro $19/user/mo",
+   "funding": "Amazon / AWS (parent — public, NASDAQ:AMZN)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "IDE plugins (VS Code, JetBrains, VS, Eclipse) + AWS Console + CLI"
+  }
+ },
+ {
+  "id": "anthropic-computer-use--docs-anthropic-com",
+  "name": "Anthropic Computer Use",
+  "url": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Anthropic's API-surface capability that lets Claude control a virtual desktop — see screenshots, type, click. Launched 2024-10 as a public beta. Not a finished IDE itself; it's the substrate that other harnesses (and Anthropic's own Claude apps) use to operate a computer.",
+   "license": "not applicable — not OSS",
+   "deployment": "API (Anthropic Cloud) — runs on caller's machine via local environment",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "API per-token + per-screen-action",
+   "funding": "Anthropic (parent — $13.7B Sep-2025)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Anthropic Messages API with computer-use tool"
+  }
+ },
+ {
+  "id": "bedrock-agentcore-aws--aws-amazon-com",
+  "name": "Bedrock AgentCore (AWS)",
+  "url": "https://aws.amazon.com/bedrock/agentcore/",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "AWS Bedrock AgentCore — managed runtime to deploy + scale + observe agents. Multi-component: Runtime, Identity, Memory, Gateway, Browser, Code Interpreter, Observability. Distinct from Bedrock Agents (older fixed-config product); AgentCore is the 2025 framework-agnostic runtime for any agent (LangGraph, CrewAI, Strands, OpenAI Agents SDK).",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (AWS-managed)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Usage-based AWS pricing",
+   "funding": "Amazon / AWS (parent)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "AWS SDK (Python, JS, Java); Bedrock API"
+  }
+ },
+ {
+  "id": "bland-ai--bland-ai",
+  "name": "Bland AI",
+  "url": "https://www.bland.ai/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Voice-AI platform with custom STT + LLM + TTS stack ('the whole pipeline'). Raised $40M Series A Apr-2024 (Lightspeed + Anthology). Distinguished by 'pathway' graphs (deterministic call flows) and aggressive outbound-calling positioning.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed; Enterprise private deployments",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Per-minute usage; Enterprise volume tiers",
+   "funding": "$40M total to date — $22M Series A Apr-2024 (Lightspeed)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST API + SDKs + dashboard"
+  }
+ },
+ {
+  "id": "bolt-new-stackblitz-harness--bolt-new",
+  "name": "Bolt.new (StackBlitz) — harness",
+  "url": "https://bolt.new",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Cross-listing of Bolt.new at the harness layer. StackBlitz's WebContainer technology runs full Node.js in-browser; Bolt prompts the user for an app spec, then writes/edits/runs/deploys it entirely in-browser. The Coding-agent-memory row remains canonical for the memory framing.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (browser)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free + Pro ($20/mo) + Teams ($30/seat/mo)",
+   "funding": "$105M Series B 2025 (Insight Partners et al.)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web app"
+  }
+ },
+ {
+  "id": "browser-use--browser-use-com",
+  "name": "Browser Use",
+  "url": "https://browser-use.com/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Python library that turns any LLM into a browser agent — extracts DOM into a structured representation the LLM can act on (rather than pure screenshot). Browser Use Inc. raised $17M seed Q1 2025 (Felicis); cloud product at cloud.browser-use.com. Project is one of the most-starred browser-agent OSS repos (~60k stars).",
+   "license": "MIT",
+   "deployment": "Pip self-host + Browser Use Cloud",
+   "latest-release": "Active weekly releases (PyPI: browser-use)",
+   "gh": "github.com/browser-use/browser-use — 60k+ stars",
+   "mcp-support": "Browser Use MCP server (community + first-party)",
+   "pricing": "OSS free; Cloud tiers (usage-based)",
+   "funding": "$17M seed Mar-2025 (Felicis lead)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python SDK + Cloud REST API"
+  }
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "name": "Bytebot",
+  "url": "https://bytebot.ai/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Open-source desktop-agent runtime that runs an LLM-controlled Linux desktop inside Docker — uses xdotool / X11 capture for control. Pitched as the 'self-hosted Operator' alternative; agent sees a real desktop screen, not just a browser.",
+   "license": "Apache 2.0",
+   "deployment": "Docker self-host (Linux container with VNC)",
+   "latest-release": "v0.x ongoing on GitHub",
+   "gh": "github.com/bytebot-ai/bytebot",
+   "mcp-support": "searched not found",
+   "pricing": "OSS free; cloud tier on roadmap",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python SDK + REST control plane"
+  }
+ },
+ {
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "name": "CallRail Conversation Intelligence",
+  "url": "https://www.callrail.com/conversation-intelligence",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "CallRail's AI-driven conversation intelligence layer atop their call-tracking product. Marketing-vertical voice analytics — auto-tagging, sentiment, lead scoring. CallRail is profitable / private (Sageview-backed); not a voice-agent runtime but the BI / analytics adjacent layer.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "$45-$245/mo per-tier",
+   "funding": "$75M+ (Sageview Capital lead; rumored profitable)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST API for call data + AI analytics"
+  }
+ },
+ {
+  "id": "cartesia-sonic--cartesia-ai",
+  "name": "Cartesia Sonic",
+  "url": "https://cartesia.ai/sonic",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Cartesia's Sonic TTS — state-space-model-based voice generation, lowest published TTS latency (~40ms). Cartesia raised $64M Series A Q1 2025 (Index + Lightspeed); founded by Mamba authors. Agent platform layer ('Cartesia Line') wraps Sonic with telephony + LLM.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed; private deployments on Enterprise",
+   "latest-release": "Sonic 2 (2025)",
+   "gh": "github.com/cartesia-ai (SDKs)",
+   "mcp-support": "searched not found",
+   "pricing": "Per-character TTS pricing; volume tiers",
+   "funding": "$64M Series A Q1-2025 (Index + Lightspeed)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + WebSocket APIs + Python/JS SDKs"
+  }
+ },
+ {
+  "id": "charm-crush--gh-charmbracelet-crush",
+  "name": "Charm Crush",
+  "url": "https://github.com/charmbracelet/crush",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Charm Bracelet's terminal-native AI coding assistant — built in Go atop the Bubble Tea TUI framework. Multi-model via Glamour/Mods integration. Open-sourced 2025; positioned as a TUI-native alternative to web/Electron harnesses for developers who live in the terminal.",
+   "license": "MIT",
+   "deployment": "Self-host (Go install)",
+   "latest-release": "crush 0.x rolling",
+   "gh": "~7k★, Go",
+   "mcp-support": "searched not found",
+   "pricing": "Free (OSS)",
+   "funding": "Charm (independent OSS company, small)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI (Go) — TUI"
+  }
+ },
+ {
+  "id": "chatgpt-codex-cloud-agent--chatgpt-com",
+  "name": "ChatGPT — Codex (cloud agent)",
+  "url": "https://chatgpt.com/codex",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "OpenAI's cloud-hosted, asynchronous coding agent surfaced inside ChatGPT — distinct from Codex CLI (terminal) and from the deprecated 2021 Codex API. Released 2025-05. Reads + writes from sandboxed cloud environments; integrates with GitHub. Cross-listing — the coding-agent-memory row remains canonical for memory framing.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Bundled with ChatGPT Plus ($20/mo) + Pro ($200/mo)",
+   "funding": "OpenAI (parent)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "ChatGPT web/app + API (Codex tasks)"
+  }
+ },
+ {
+  "id": "claude-code-anthropic--anthropic-com",
+  "name": "Claude Code (Anthropic)",
+  "url": "https://www.anthropic.com/claude-code",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Anthropic's official agentic coding CLI — runs Claude as a long-running coding agent in the developer's terminal. Memory layer = CLAUDE.md (project + user scoped), agent skills, MCP servers. Released GA October 2024; widely adopted as the reference harness for Claude-as-coder. Plan Mode and Compute Use surfaces extend it from coding to broader desktop automation.",
+   "license": "Proprietary (Anthropic) — JavaScript runtime open under separate terms",
+   "deployment": "Cloud (terminal runs locally; API in cloud)",
+   "latest-release": "Claude Code 1.x (2025-2026, rolling)",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "native — Claude Code is the reference MCP client",
+   "pricing": "Included with Anthropic API + Pro/Team subscriptions",
+   "funding": "Anthropic (parent) — $13.7B Series F 2025-09 $183B val",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI (Node.js); subagents; hooks; MCP"
+  }
+ },
+ {
+  "id": "claude-for-chrome--anthropic-com",
+  "name": "Claude for Chrome",
+  "url": "https://www.anthropic.com/news/claude-for-chrome",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Anthropic's Chrome extension that lets Claude act inside the user's existing browser (rather than a sandboxed one). Research preview launched August 2025 — limited to Claude Max tier. Distinct from Anthropic Computer Use (which is the API substrate); this is the consumer surface that uses it inside Chrome.",
+   "license": "not applicable — not OSS",
+   "deployment": "Chrome extension (consumer side) + Anthropic cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "Claude supports MCP servers (caller-side)",
+   "pricing": "Bundled with Claude Max ($100-200/mo)",
+   "funding": "Anthropic parent — $13.7B raised Sep-2025; ~$170B val",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Chrome extension UI; underlying API = Anthropic Messages"
+  }
+ },
+ {
+  "id": "cline-harness--cline-bot",
+  "name": "Cline (harness)",
+  "url": "https://cline.bot",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "OSS VS Code extension that runs as a fully agentic coding assistant — plan/act modes, file ops, shell exec, browser-use, MCP. Originally \"Claude Dev\" (2024); rebranded Cline 2024-Q4. Multi-model: Anthropic, OpenAI, OpenRouter, Bedrock, Vertex. Memory layer = .clinerules and Memory Bank pattern (distinct rows in catalog).",
+   "license": "Apache-2.0",
+   "deployment": "VS Code extension (desktop) + Pro cloud",
+   "latest-release": "Cline 3.x (2025-2026 rolling)",
+   "gh": "~45k★, TypeScript",
+   "mcp-support": "native — Cline is an MCP client",
+   "pricing": "Free (OSS) + paid Pro",
+   "funding": "Cline Inc. — Series A reported (2025; HQ undisclosed)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "VS Code extension"
+  }
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "name": "Cognition Devin v2 / Spec Mode",
+  "url": "https://cognition.ai",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Cross-listing of Cognition's Devin product framed at the harness level rather than the memory layer. Devin 2.0 (Mar 2025) added cheaper concurrent sessions; Spec Mode (Aug 2025, post-Windsurf-IP acquisition) integrates Windsurf-style spec authoring. The Coding-agent-memory row remains canonical for the memory framing.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "native (Devin MCP integrations)",
+   "pricing": "Free + paid; Spec Mode in Pro",
+   "funding": "$1.1B total $10.2B val Series E 2025-09",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web + Slack + REST"
+  }
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "name": "Continue.dev (harness)",
+  "url": "https://continue.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "OSS in-IDE coding-assistant plugin — supports VS Code and JetBrains. Customisable: any model, any context provider, any slash-command. \"Agent mode\" added 2024 for multi-step plan + execute. Memory layer = .continue/rules; separate Memory MCP. Built by Nate Sesti and Ty Dunn.",
+   "license": "Apache-2.0",
+   "deployment": "Self-host (IDE plugin) + Continue Hub for shared assistants",
+   "latest-release": "Continue 1.x rolling",
+   "gh": "~20k★, TypeScript",
+   "mcp-support": "native — Continue MCP client",
+   "pricing": "Free + paid",
+   "funding": "$7.5M Seed · 2024-03 (Heavybit, Y Combinator W23)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "VS Code + JetBrains plugins"
+  }
+ },
+ {
+  "id": "cursor-ide--cursor-com",
+  "name": "Cursor (IDE)",
+  "url": "https://cursor.com",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "AI-first IDE that forked VS Code; Composer (multi-file edit) and Agent Mode (long-running coding agent) are its flagship surfaces. Memory layer = .cursorrules / Rules; recall via repo-aware Context Engine. Anysphere (parent) raised $900M Series C at $9.9B in May 2025; reportedly $200M ARR by mid-2025.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (desktop client + cloud agents)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "native — Cursor MCP support since 2025",
+   "pricing": "Free + paid",
+   "funding": "$900M Series C at $9.9B · 2025-05 (Thrive, a16z)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Desktop IDE; CLI in preview"
+  }
+ },
+ {
+  "id": "elevenlabs-conversational-ai--elevenlabs-io",
+  "name": "ElevenLabs Conversational AI",
+  "url": "https://elevenlabs.io/conversational-ai",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "ElevenLabs launched Conversational AI Nov-2024 — STT + LLM + their own market-leading TTS in one pipeline. Combines vendor's voice cloning + multilingual TTS strengths with hosted call orchestration. ElevenLabs raised $180M Series C Jan-2025 at $3.3B val.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed",
+   "latest-release": "not applicable — not OSS",
+   "gh": "github.com/elevenlabs (SDKs only)",
+   "mcp-support": "searched not found",
+   "pricing": "Per-minute usage (Conv AI tier); free + Pro + Enterprise",
+   "funding": "$180M Series C Jan-2025 (a16z + ICONIQ; $3.3B val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + WebSocket APIs + SDKs (Python, JS, Swift, Android)"
+  }
+ },
+ {
+  "id": "github-copilot-agent-mode--gh-features-copilot",
+  "name": "GitHub Copilot (Agent Mode)",
+  "url": "https://github.com/features/copilot",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "The original AI coding assistant (Copilot in editor; 2021). 2025 evolved into a full agentic surface: chat, completions, Agent Mode (multi-step), and Copilot Workspace. Backed by Microsoft. Distinct row from Workspace — this row covers the everyday in-editor + agent mode product, Workspace covers the hosted spec-driven workflow.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (IDE extension + GitHub-hosted models)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "MCP support GA in Agent Mode (2025)",
+   "pricing": "$10/mo Individual; $19/mo Business; $39/mo Enterprise",
+   "funding": "Microsoft (parent — public co, NASDAQ:MSFT)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "VS Code + JetBrains + Visual Studio + Neovim plugins; CLI"
+  }
+ },
+ {
+  "id": "github-copilot-workspace--githubnext-com",
+  "name": "GitHub Copilot Workspace",
+  "url": "https://githubnext.com/projects/copilot-workspace",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "GitHub's hosted agentic workspace — given an issue, generates a spec, plan, and PR. Preview launched April 2024; rebranded \"GitHub Copilot Coding Agent\" + \"Copilot Agent Mode\" in 2025 with broader GA. Backed by Microsoft Azure OpenAI + Anthropic Claude (added 2024). Companion to in-editor Copilot.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (GitHub-hosted)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "MCP support added 2025 (Copilot Agent Mode)",
+   "pricing": "Bundled in Copilot Business ($19/mo) and Enterprise ($39/mo)",
+   "funding": "Microsoft (parent — public co, NASDAQ:MSFT)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web UI + GitHub API integration"
+  }
+ },
+ {
+  "id": "goose-block--block-github-io",
+  "name": "Goose (Block)",
+  "url": "https://block.github.io/goose/",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Block (Square)'s open-source on-machine agent — terminal + desktop GUI. Modular: extensions for shell, computer-control, MCP servers; multi-model via LiteLLM. Released 2024; positioned as a general-purpose local agent, not coding-only. Goose Recipes provide reusable agent workflows.",
+   "license": "Apache-2.0",
+   "deployment": "Self-host (CLI + desktop)",
+   "latest-release": "Goose 1.x rolling",
+   "gh": "~14k★, Rust",
+   "mcp-support": "native — Goose is an MCP client",
+   "pricing": "Free (OSS); usage via LLM provider",
+   "funding": "Block (parent — public co, NYSE:XYZ)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI (Rust) + desktop GUI; MCP"
+  }
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "name": "Highlight AI",
+  "url": "https://highlightai.com/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Always-on desktop AI assistant that watches the user's screen (across all apps) and answers questions / takes actions based on what's currently visible. Mac + Windows. Founded by Mac Bishop (ex-Mixpanel); raised $13M Series A from Aspect / Lightspeed (Oct 2024). Distinguishes itself from Rewind by being action-oriented (not just recall).",
+   "license": "not applicable — not OSS",
+   "deployment": "Desktop app (Mac + Windows); local + cloud hybrid",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free tier + Pro ($20/mo)",
+   "funding": "$13M Series A Oct-2024 (Aspect Ventures / Lightspeed)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Desktop app; HTTP API on roadmap"
+  }
+ },
+ {
+  "id": "hume-evi--hume-ai",
+  "name": "Hume EVI",
+  "url": "https://www.hume.ai/products/empathic-voice-interface",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Hume's Empathic Voice Interface (EVI) — voice agent platform with vocal-affect understanding. Hume raised $50M Series B Mar-2024 (EQT). Distinguished from pure LLM voice agents by emotion/prosody modelling; uses Hume's proprietary speech-prosody models.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed",
+   "latest-release": "EVI 2 (2024-09)",
+   "gh": "github.com/HumeAI (SDKs)",
+   "mcp-support": "searched not found",
+   "pricing": "Per-minute usage; tiered + Enterprise",
+   "funding": "$50M Series B Mar-2024 (EQT)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "WebSocket + REST APIs + SDKs (Python, JS, React Native)"
+  }
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "name": "Hyperbrowser",
+  "url": "https://www.hyperbrowser.ai/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Cloud-hosted headless browser API tuned for AI agents — captcha solving, stealth mode, session recordings. Y Combinator S24; pitched as a faster / cheaper Browserbase alternative. Used as substrate by agents that need browser execution but don't want to run their own Chromium fleet.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud only (no self-host)",
+   "latest-release": "Rolling cloud releases",
+   "gh": "github.com/hyperbrowserai (client SDKs only)",
+   "mcp-support": "searched not found",
+   "pricing": "Per-session-minute + free tier",
+   "funding": "YC S24 ($500k); larger round not publicly disclosed",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CDP + REST API + Python/TS SDKs"
+  }
+ },
+ {
+  "id": "jetbrains-ai-assistant--jetbrains-com",
+  "name": "JetBrains AI Assistant",
+  "url": "https://www.jetbrains.com/ai/",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "JetBrains' in-IDE assistant integrated across IntelliJ, PyCharm, GoLand, WebStorm, Rider, etc. Multi-model: OpenAI, Anthropic, Google, local. Differentiated by its deep IDE-API integration — refactorings, run configs, debugger context.",
+   "license": "not applicable — not OSS",
+   "deployment": "IDE plugin (cloud LLM by default; offline/self-host options)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "$8.33/mo Personal / $16.50/mo Business AI add-on",
+   "funding": "JetBrains (private; revenue ~$400M+ per Forbes)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "JetBrains IDE plugin"
+  }
+ },
+ {
+  "id": "jetbrains-junie--jetbrains-com",
+  "name": "JetBrains Junie",
+  "url": "https://www.jetbrains.com/junie/",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "JetBrains' answer to Cursor Agent Mode / Devin — an autonomous in-IDE coding agent. Public beta 2024-Q4; runs alongside AI Assistant inside IntelliJ-platform IDEs. Plans, edits, runs tests; multi-model.",
+   "license": "not applicable — not OSS",
+   "deployment": "IDE plugin (cloud LLM)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Bundled with JetBrains AI Pro tier",
+   "funding": "JetBrains (parent)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "JetBrains IDE plugin"
+  }
+ },
+ {
+  "id": "kiro--kiro-dev",
+  "name": "Kiro",
+  "url": "https://kiro.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Spec-driven agentic IDE from AWS — preview launch July 2025. Codifies the AI-coding workflow as Requirements / Design / Tasks files generated before code (\"specs\"); also persists \"steering\" files and Hooks. Built as a VS Code fork; runs Anthropic Claude models and Amazon-Nova by default. AWS positions it as an enterprise-grade alternative to Cursor/Windsurf with native IAM, Bedrock-routing, and an emphasis on durable specs over chat scrollback.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (desktop client; backend via AWS); no self-host",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "native — Kiro supports MCP servers",
+   "pricing": "Free preview tier + Pro/Pro+ tiers ($19/$39 mo) announced post-preview",
+   "funding": "AWS internal product — no external round (Amazon-owned)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Desktop IDE (VS Code fork); no public API as of launch"
+  }
+ },
+ {
+  "id": "livekit-agents--docs-livekit-io",
+  "name": "LiveKit Agents",
+  "url": "https://docs.livekit.io/agents/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "LiveKit Agents — agent framework built on LiveKit's open-source WebRTC media server. LiveKit raised $45M Series B Sep-2024 ($300M val). Powers OpenAI Realtime API's WebRTC transport (LiveKit is the substrate OpenAI chose). Agents framework formally launched 2024.",
+   "license": "Apache 2.0",
+   "deployment": "Self-host + LiveKit Cloud",
+   "latest-release": "v0.x ongoing; LiveKit Agents Cloud announced 2025",
+   "gh": "github.com/livekit/agents",
+   "mcp-support": "Composes with MCP tools",
+   "pricing": "OSS free; LiveKit Cloud tiered ($50/mo+ + usage)",
+   "funding": "$45M Series B Sep-2024 (Altimeter; $300M val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python + Node SDKs; WebRTC transport; tools / function-calling"
+  }
+ },
+ {
+  "id": "lovable-dev-harness--lovable-dev",
+  "name": "Lovable.dev — harness",
+  "url": "https://lovable.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Cross-listing of Lovable at the harness layer. Swedish startup (Stockholm) that grew out of GPT Engineer (Anton Osika). Builds full-stack React/Supabase apps from prompts; AI handles git, deploys, DB. The Coding-agent-memory row remains canonical for memory.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free + Pro ($25/mo) + Teams ($50/mo)",
+   "funding": "$200M Series A at $1.8B val · 2025-mid (Accel, Creandum)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web app"
+  }
+ },
+ {
+  "id": "lutra-ai--lutra-ai",
+  "name": "Lutra AI",
+  "url": "https://lutra.ai/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "AI agent platform that automates SaaS workflows across Gmail, Slack, Sheets, etc. — uses natural-language instructions that compile to durable 'playbooks.' Founded by ex-Google/Facebook engineers; raised seed funding 2024. Positions itself as Zapier-meets-Claude for knowledge workers.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud only",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free tier + Plus ($20/mo) + Team / Enterprise",
+   "funding": "Seed round 2024 (a16z + others reported)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web app; programmatic API on roadmap"
+  }
+ },
+ {
+  "id": "magic-dev--magic-dev",
+  "name": "Magic.dev",
+  "url": "https://magic.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "AI-coding startup focused on extremely long-context models (claimed 100M tokens) and a frontier coding agent. Raised $320M Series B from Eric Schmidt, CapitalG, Atlassian Aug 2024. Lower public-product surface than peers — mostly known for the model claims and the funding round.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (private beta)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$465M total $1.5-1.6B val Series B 2024-08 (CapitalG, Atlassian, Eric Schmidt, Nat Friedman)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "name": "Magnitude",
+  "url": "https://magnitude.run/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Open-source browser-agent framework focused on AI-driven end-to-end testing — natural-language test cases that translate to Playwright actions. Y Combinator 2025; positions itself as 'Playwright + Claude for QA' rather than general autonomy.",
+   "license": "Apache 2.0",
+   "deployment": "Library / CLI; runs locally",
+   "latest-release": "v0.x ongoing on GitHub",
+   "gh": "github.com/magnitudedev/magnitude",
+   "mcp-support": "searched not found",
+   "pricing": "OSS free; cloud / enterprise on roadmap",
+   "funding": "YC 2025 batch (~$500k standard YC)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI + Playwright-style API"
+  }
+ },
+ {
+  "id": "manus-ai--manus-im",
+  "name": "Manus AI",
+  "url": "https://manus.im",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Chinese-origin general-purpose autonomous agent launched March 2025 by Butterfly Effect. Operates in a cloud sandbox — browser, file system, shell. Went viral on launch with invite-only access; positioned as a Devin/AutoGPT competitor for non-coding tasks (research, ops, data analysis).",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (browser app)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "$39/$199/mo tier reportedly post-beta",
+   "funding": "$75M Series A reported (Benchmark + others) at ~$500M val · 2025-mid",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web app; API in preview"
+  }
+ },
+ {
+  "id": "metagpt-harness--gh-foundationagents-metagpt",
+  "name": "MetaGPT (harness)",
+  "url": "https://github.com/FoundationAgents/MetaGPT",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Cross-listing of MetaGPT as a harness. Multi-agent OSS framework that simulates a software company — PM, architect, engineer, QA. Generates docs + code + tests from a one-line prompt. ~44k★. Distinct from \"Agent frameworks (no first-party memory layer)\" row in framing.",
+   "license": "MIT",
+   "deployment": "Self-host (pip)",
+   "latest-release": "MetaGPT 0.x rolling",
+   "gh": "~44k★, Python",
+   "mcp-support": "searched not found",
+   "pricing": "Free (OSS)",
+   "funding": "not applicable — OSS / no commercial entity",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI + Python SDK"
+  }
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "name": "OpenAI Codex CLI",
+  "url": "https://github.com/openai/codex",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "OpenAI's open-source terminal coding agent — released April 2025 alongside o3/o4-mini. Counterpart to Claude Code in the OpenAI stack. Memory via ~/.codex/memories (file-backed); routes to OpenAI o-series and Codex (model) for execution. Distinct from the older OpenAI Codex API (deprecated 2023) and from the separate ChatGPT \"Codex\" cloud agent product.",
+   "license": "Apache-2.0",
+   "deployment": "Self-host CLI; API calls to OpenAI cloud",
+   "latest-release": "codex-cli rolling releases (2025-2026)",
+   "gh": "~40k★, Rust + TypeScript",
+   "mcp-support": "native — Codex CLI is an MCP client",
+   "pricing": "Free (OSS); usage via OpenAI API",
+   "funding": "OpenAI (parent) — $40B Series I 2025-03 $300B val",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI (Rust); MCP support"
+  }
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "name": "OpenAI Operator",
+  "url": "https://openai.com/index/introducing-operator/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "OpenAI's general-purpose browser agent — research preview launched January 2025 (US Pro tier). Built on the Computer-Using Agent (CUA) model that processes screenshots and emits mouse / keyboard actions; runs inside an OpenAI-hosted browser sandbox. Operator is the consumer product; the underlying CUA model is the substrate.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (OpenAI-hosted browser sandbox) — no self-host",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Bundled with ChatGPT Pro $200/mo",
+   "funding": "OpenAI parent — ~$157B val 2024-10; $40B round Mar-2025 ($300B val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Computer-use tool exposed via Responses API (computer-use-preview model)"
+  }
+ },
+ {
+  "id": "openai-realtime-api--platform-openai-com",
+  "name": "OpenAI Realtime API",
+  "url": "https://platform.openai.com/docs/guides/realtime",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "OpenAI's Realtime API for native speech-to-speech multimodal interaction with GPT-4o — launched Oct 2024 (DevDay). Skips the STT → LLM → TTS pipeline by passing speech directly to GPT-4o. The platform substrate that Vapi/Retell/Bland integrate as one of their LLM choices.",
+   "license": "not applicable — not OSS",
+   "deployment": "API (Cloud); no self-host",
+   "latest-release": "not applicable — not OSS",
+   "gh": "github.com/openai/openai-realtime-agents (examples)",
+   "mcp-support": "searched not found",
+   "pricing": "Audio token-based: $40/$80 per 1M input/output audio tokens (Oct-2024 launch)",
+   "funding": "OpenAI parent — $40B round Mar-2025 ($300B val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "WebSocket + WebRTC + REST"
+  }
+ },
+ {
+  "id": "opencode-sst--opencode-ai",
+  "name": "Opencode (SST)",
+  "url": "https://opencode.ai",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "SST team's open-source terminal coding agent — TypeScript, multi-model, MCP-native. Released 2025; explicitly positioned as a permissively-licensed Claude Code alternative. Memory via AGENTS.md (the emerging cross-harness convention).",
+   "license": "MIT",
+   "deployment": "Self-host (npm)",
+   "latest-release": "opencode 0.x rolling",
+   "gh": "~10k★, TypeScript",
+   "mcp-support": "native — Opencode is an MCP client",
+   "pricing": "Free (OSS)",
+   "funding": "SST (Anomaly Innovations — OSS company)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI (Node.js); MCP"
+  }
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "name": "OpenHands (All Hands AI)",
+  "url": "https://www.all-hands.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Cross-listing of OpenHands at the harness layer. OSS Devin-alternative — sandboxed full SWE agent with browser + shell + editor. Renamed from OpenDevin Mar 2024. ~40k★. Commercial offering: All Hands AI cloud (managed SaaS).",
+   "license": "MIT",
+   "deployment": "Self-host (Docker) + cloud SaaS",
+   "latest-release": "OpenHands 0.x rolling",
+   "gh": "~40k★, Python",
+   "mcp-support": "searched not found",
+   "pricing": "Free (OSS) + paid cloud ($20/mo+)",
+   "funding": "All Hands AI — $5M Seed 2024 (Menlo Ventures)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web UI + CLI + Python SDK"
+  }
+ },
+ {
+  "id": "pipecat-daily--pipecat-ai",
+  "name": "Pipecat (Daily)",
+  "url": "https://www.pipecat.ai/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Open-source Python framework for real-time voice + multimodal AI agents, maintained by Daily.co. Pipeline-style architecture (STT → context → LLM → TTS) wired over WebRTC. The OSS substrate that many of the voice platforms build on or compose with.",
+   "license": "BSD-2-Clause",
+   "deployment": "Pip self-host + Daily Cloud (managed WebRTC)",
+   "latest-release": "Active monthly releases (PyPI: pipecat-ai)",
+   "gh": "github.com/pipecat-ai/pipecat — 4k+ stars",
+   "mcp-support": "Composes with MCP tools (caller-side)",
+   "pricing": "OSS free; runs on Daily.co Cloud or self-host",
+   "funding": "Maintained by Daily.co — $60M raised (parent)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python API; WebRTC transport; HTTP + Twilio integrations"
+  }
+ },
+ {
+  "id": "project-mariner--deepmind-google",
+  "name": "Project Mariner",
+  "url": "https://deepmind.google/technologies/project-mariner/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Google DeepMind's experimental browser agent built on Gemini 2.0 — Chrome extension that takes actions on the user's behalf. Research-preview launched Dec 2024. The Google answer to OpenAI Operator / Anthropic Computer Use; integrated into Gemini app surfaces in 2025.",
+   "license": "not applicable — not OSS",
+   "deployment": "Chrome extension + Google Cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Bundled with Gemini Advanced ($19.99/mo)",
+   "funding": "Google DeepMind parent (Alphabet)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Chrome extension; underlying Gemini 2.0 API"
+  }
+ },
+ {
+  "id": "replit-agent-v3--replit-com",
+  "name": "Replit Agent v3",
+  "url": "https://replit.com/ai",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Cross-listing of Replit Agent at the harness layer. Replit Agent v3 (2025) added background agents + agent-driven deploy. The Coding-agent-memory row remains canonical for the memory framing.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free + Core ($20/mo) + Teams",
+   "funding": "Replit — $97M Series B 2023 + later rounds (~$1.16B val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web IDE + REST API"
+  }
+ },
+ {
+  "id": "retell-ai--retellai-com-2",
+  "name": "Retell AI",
+  "url": "https://www.retellai.com/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Voice-agent platform with vendor focus on sub-800ms turn latency and proprietary voice models. Y Combinator S24; raised $4.6M seed Aug 2024 (BoxGroup + others); >$1M ARR by month 6 per founders. Direct competitor to Vapi with proprietary-model focus.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed",
+   "latest-release": "not applicable — not OSS",
+   "gh": "github.com/RetellAI (SDKs only)",
+   "mcp-support": "searched not found",
+   "pricing": "Per-minute usage ($0.07/min + provider passthrough)",
+   "funding": "$4.6M seed Aug-2024 (BoxGroup + others)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST API + Python/JS/Go SDKs; webhooks"
+  }
+ },
+ {
+  "id": "roo-code--roocode-com",
+  "name": "Roo Code",
+  "url": "https://roocode.com",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "OSS VS Code agentic extension — Cline fork that diverged with custom modes (Architect, Code, Ask, Debug). Memory via .roorules + Memory Bank. Smaller community than Cline but persistent contributor base.",
+   "license": "Apache-2.0",
+   "deployment": "VS Code extension",
+   "latest-release": "Roo Code 3.x rolling",
+   "gh": "~10k★, TypeScript",
+   "mcp-support": "native (inherited from Cline)",
+   "pricing": "Free (OSS); usage via LLM provider",
+   "funding": "not applicable — OSS / no commercial entity",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "VS Code extension"
+  }
+ },
+ {
+  "id": "skyvern--skyvern-com",
+  "name": "Skyvern",
+  "url": "https://www.skyvern.com/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Open-source autonomous browser agent that uses computer vision + LLMs to navigate websites. Workflow-based: agents follow recorded plans that adapt to layout changes. Skyvern Inc. raised $4.5M seed (Sep-2024, Felicis lead). Self-hostable; cloud version on skyvern.com.",
+   "license": "AGPL-3.0",
+   "deployment": "Docker self-host + Skyvern Cloud",
+   "latest-release": "v0.x ongoing; weekly releases on GitHub",
+   "gh": "github.com/Skyvern-AI/skyvern — 13k+ stars",
+   "mcp-support": "searched not found",
+   "pricing": "Cloud usage tiers + self-host (free OSS)",
+   "funding": "$4.5M seed Sep-2024 (Felicis lead)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST API + Python SDK + cloud UI"
+  }
+ },
+ {
+  "id": "smol-developer--gh-smol-ai-developer",
+  "name": "smol-developer",
+  "url": "https://github.com/smol-ai/developer",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Early (2023) OSS coding agent by Swyx — minimalist single-prompt-to-codebase loop. ~12k★. More artifact-than-product now (subsumed by Cline / Aider / Claude Code) but historically significant — defined the \"smol\" school of single-file coding agents.",
+   "license": "MIT",
+   "deployment": "Self-host",
+   "latest-release": "Inactive since 2024",
+   "gh": "~12k★, Python",
+   "mcp-support": "searched not found",
+   "pricing": "Free (OSS)",
+   "funding": "not applicable — OSS / no commercial entity",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CLI"
+  }
+ },
+ {
+  "id": "sourcegraph-cody-agent--sourcegraph-com",
+  "name": "Sourcegraph Cody (agent)",
+  "url": "https://sourcegraph.com/cody",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Sourcegraph's coding assistant — IDE plugin (VS Code, JetBrains) plus web. Distinguishes itself with Sourcegraph's code-search index as the context provider (cross-repo, codebase-wide retrieval). Agentic chat added 2024; runs Claude / GPT / Gemini.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud + on-prem",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free + Pro $9/mo + Enterprise",
+   "funding": "Sourcegraph — $125M Series D 2021 ($2.6B val); profitable since 2023",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "VS Code + JetBrains plugins + web + CLI; API for codebase search"
+  }
+ },
+ {
+  "id": "speechmatics-flow--speechmatics-com",
+  "name": "Speechmatics Flow",
+  "url": "https://www.speechmatics.com/flow",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Speechmatics (UK; STT leader) launched Flow Q4 2024 — conversational voice-agent platform composed on Speechmatics STT + caller LLM. Speechmatics raised $62M Series B (2022); enterprise + media customers. UK / EU data-residency lead.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud + on-prem / private cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "github.com/speechmatics (SDKs)",
+   "mcp-support": "searched not found",
+   "pricing": "Enterprise / per-minute",
+   "funding": "$62M Series B (2022, Susquehanna)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + WebSocket; SDKs"
+  }
+ },
+ {
+  "id": "stagehand--stagehand-dev",
+  "name": "Stagehand",
+  "url": "https://www.stagehand.dev/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Open-source TypeScript framework for browser automation, maintained by Browserbase. Hybrid of Playwright-style imperative APIs and AI-driven natural-language actions (e.g. page.act('click the sign-up button')). Used as the OSS substrate that Browserbase Cloud composes with.",
+   "license": "MIT",
+   "deployment": "Library — runs anywhere Playwright runs; Browserbase Cloud for managed",
+   "latest-release": "v2.x; active monthly releases (npm: @browserbasehq/stagehand)",
+   "gh": "github.com/browserbase/stagehand — 9k+ stars",
+   "mcp-support": "Composes with Browserbase MCP server",
+   "pricing": "OSS free; Browserbase Cloud handles runtime",
+   "funding": "Maintained by Browserbase ($40M Series B Q4 2024; Kleiner Perkins)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "TS API (act/extract/observe); npm: @browserbasehq/stagehand"
+  }
+ },
+ {
+  "id": "steel-dev--steel-dev",
+  "name": "Steel.dev",
+  "url": "https://steel.dev/",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "Open-source browser API ('the browser for agents') — Chromium fleet with stealth mode, session recordings, CDP. OSS repo + managed cloud. Compatible with Playwright / Puppeteer. Distinguishes itself as the 'OSS Browserbase'.",
+   "license": "Apache 2.0",
+   "deployment": "Docker self-host + Steel Cloud",
+   "latest-release": "v0.x ongoing on GitHub",
+   "gh": "github.com/steel-dev/steel-browser",
+   "mcp-support": "searched not found",
+   "pricing": "OSS free; Cloud per-session-hour tiers",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "CDP + REST API + Python/TS SDKs"
+  }
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "name": "Synthflow",
+  "url": "https://synthflow.ai/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "No-code voice-AI platform — drag-and-drop call-flow builder targeted at non-developers. Berlin-based; raised $7.4M Series A Sep-2024 (Singular). Distinguishes itself from Vapi/Retell with visual call-flow builder rather than code-first SDK.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed (EU + US regions)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Tiered: Starter $29/mo + per-minute; Pro $450/mo",
+   "funding": "$7.4M Series A Sep-2024 (Singular lead)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST API + dashboard + Zapier integration"
+  }
+ },
+ {
+  "id": "ui-tars--gh-bytedance-ui-tars",
+  "name": "UI-TARS",
+  "url": "https://github.com/bytedance/UI-TARS",
+  "section": "Computer-use & desktop agents",
+  "cells": {
+   "desc": "ByteDance Seed's open-source GUI-agent foundation model — released Jan 2025; trained end-to-end on screenshot → action pairs. Comes with UI-TARS-Desktop (Electron app) that runs the model against the user's screen. SOTA on OSWorld at release; weights on HuggingFace.",
+   "license": "Apache 2.0",
+   "deployment": "Self-host (HuggingFace weights) + UI-TARS-Desktop Electron app",
+   "latest-release": "UI-TARS-1.5 (Apr 2025)",
+   "gh": "github.com/bytedance/UI-TARS — 4k+ stars",
+   "mcp-support": "searched not found",
+   "pricing": "OSS weights free",
+   "funding": "ByteDance internal (Seed team)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python / VLLM; desktop app for end users"
+  }
+ },
+ {
+  "id": "v0-vercel--v0-app",
+  "name": "v0 (Vercel)",
+  "url": "https://v0.app",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Vercel's AI product (formerly v0.dev) that generates React/Next.js components and full apps from natural-language prompts. Tight integration with Vercel deploy; uses Vercel-hosted models (multi-LLM). Differentiator: best-in-class shadcn/ui generations and Vercel-deploy story.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "Free + Pro ($20/mo) + Team",
+   "funding": "Vercel (parent) — $250M Series E 2024 ($3.25B val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Web app + REST API + Vercel deploy"
+  }
+ },
+ {
+  "id": "vapi--vapi-ai",
+  "name": "Vapi",
+  "url": "https://vapi.ai/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Voice-AI developer platform — STT + LLM + TTS pipelines wired to telephony (Twilio / SIP). Used to build outbound + inbound phone agents at scale. Raised $20M Series A from Bessemer + Y Combinator (Dec 2024) at $130M valuation; revenue reported >$10M ARR by Q1 2025.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed; private deployments on Enterprise tier",
+   "latest-release": "not applicable — not OSS",
+   "gh": "github.com/VapiAI (SDKs only)",
+   "mcp-support": "Tool-calling supports MCP servers (caller-side)",
+   "pricing": "Per-minute usage ($0.05/min base + provider passthrough)",
+   "funding": "$20M Series A Dec-2024 (Bessemer); $130M val",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST API; SDKs (Python, JS, React); webhooks"
+  }
+ },
+ {
+  "id": "vonage-ai-studio--vonage-com",
+  "name": "Vonage AI Studio",
+  "url": "https://www.vonage.com/communications-apis/ai-studio/",
+  "section": "Voice agent platforms",
+  "cells": {
+   "desc": "Vonage's AI Studio — visual conversational-agent designer that runs on Vonage CPaaS (SMS / Voice / WhatsApp). Vonage acquired by Ericsson 2022 ($6.2B); AI Studio is the conversational AI layer of the broader CPaaS. Enterprise focus.",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud-managed",
+   "latest-release": "not applicable — not OSS",
+   "gh": "github.com/Vonage (SDKs)",
+   "mcp-support": "searched not found",
+   "pricing": "Tiered + per-minute / per-message",
+   "funding": "Vonage acquired by Ericsson 2022 — $6.2B",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Visual builder + REST / SDKs"
+  }
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "name": "Windsurf (Codeium / OpenAI)",
+  "url": "https://windsurf.com",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade — a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound — Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025).",
+   "license": "not applicable — not OSS",
+   "deployment": "Cloud (desktop client) + on-prem (enterprise Codeium)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "native — Windsurf supports MCP",
+   "pricing": "Free + paid",
+   "funding": "Codeium $150M Series C (2024); ~$3B reported OpenAI offer; ultimately $2.4B Google reverse-acqui-hire (2025-07)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Desktop IDE; CLI"
+  }
+ },
+ {
+  "id": "zed-agentic-editing--zed-dev",
+  "name": "Zed (Agentic Editing)",
+  "url": "https://zed.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "cells": {
+   "desc": "Native (Rust) collaborative code editor by Zed Industries (founded by the Atom + Tree-sitter team). Added Agentic Editing in 2024 — multi-step coding agent driven by Claude or local models; .rules markdown + Threads form the memory layer. GPU-accelerated rendering and CRDT collaboration are core differentiators vs VS Code forks.",
+   "license": "GPL-3.0 (GUI); Apache-2.0 + GPL components",
+   "deployment": "Self-host (desktop)",
+   "latest-release": "Zed 0.166 (2025)",
+   "gh": "~55k★, ~2k/mo, Rust",
+   "mcp-support": "native — Zed MCP support",
+   "pricing": "Free + paid",
+   "funding": "$10M Series A 2023 (Sequoia)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Desktop editor; LSP-native"
+  }
+ }
+]

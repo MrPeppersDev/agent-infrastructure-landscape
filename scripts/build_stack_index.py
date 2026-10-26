@@ -43,7 +43,7 @@ NPM = re.compile(r"npmjs\.com/package/((?:@[\w.-]+/)?[\w.-]+)")
 GH = re.compile(r"github\.com/([\w.-]+)/([\w.-]+)", re.I)
 GH_VALUE = re.compile(r"^\s*(?:github\.com/)?([\w.-]+)/([\w.-]+)")
 COMMIT = re.compile(r"last (?:commit|push|update)[^0-9]{0,12}(20\d\d)-(\d\d)", re.I)
-ARCHIVED = re.compile(r"\barchived\b(?![^.]*\bnot archived)", re.I)
+ARCHIVED = re.compile(r"(?<!not )(?<!un)\barchived\b(?![^.]*\bnot archived)", re.I)
 MONTH = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\b"
 # "acquired by" in any case; the acquirer: up to four Capitalised words,
 # stopping before a month, a year or a lower-case word.
