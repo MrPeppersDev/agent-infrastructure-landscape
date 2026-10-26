@@ -359,7 +359,23 @@ def run(args: argparse.Namespace) -> int:
     seen_checkable_count = 0  # rows the active mode could meaningfully check
     partial = False
 
+    # Research code (papers, benchmarks, ideas) normally goes quiet once
+    # the paper ships; that's not a lifecycle event worth an issue. Skip the
+    # Memory Research & Benchmarks family and tier 4–5 records — before
+    # this the bot opened ~20 stale-row issues a week for paper repos.
+    research_sections = set()
+    fam_path = Path(__file__).resolve().parent.parent / "taxonomy" / "families.json"
+    if fam_path.exists():
+        for fam in json.loads(fam_path.read_text())["families"]:
+            if fam["id"] == "memory-research":
+                research_sections.update(fam["sections"])
+    research_skipped = 0
+
     for rec in records:
+        primary = next((s["section"] for s in rec.get("sections", []) if s.get("primary")), "")
+        if primary in research_sections or int(rec.get("tier") or 0) >= 4:
+            research_skipped += 1
+            continue
         if rec.get("decay_cause"):
             # Row's lifecycle is already classified (SCHEMA.md §3c). The
             # catalog is a museum, not an active-only registry — once a
