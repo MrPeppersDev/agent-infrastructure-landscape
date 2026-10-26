@@ -23,7 +23,7 @@ jobs:
           node-version: '20'
       - name: dist is up to date
         run: |
-          npm install -g typescript@5
+          npm install -g typescript@6.0.3
           make action
           git diff --exit-code action/dist/stack-check.mjs || { echo "::error title=action/dist out of date::run 'make action' and commit"; exit 1; }
       - name: Run the action on the fixture

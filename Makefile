@@ -53,7 +53,8 @@ help:
 # The closing `render.py` step keeps landscape.html in sync with the JSON
 # source. `build-path-a` (the byte-identity gate) catches any drift.
 action:
-	tsc --ignoreConfig --target es2022 --module esnext --moduleResolution bundler --outDir .action-build mcp/src/stack-check.ts
+	rm -rf .action-build && mkdir -p .action-build && cp mcp/src/stack-check.ts .action-build/
+	cd .action-build && tsc --target es2022 --module esnext --moduleResolution bundler stack-check.ts
 	(echo "// GENERATED from mcp/src/stack-check.ts by \`make action\` — do not edit."; cat .action-build/stack-check.js) > action/dist/stack-check.mjs
 	rm -rf .action-build
 
