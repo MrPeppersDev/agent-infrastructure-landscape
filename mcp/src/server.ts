@@ -17,6 +17,9 @@ import { z } from 'zod';
 import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases } from './data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
 import { compatibility, worksWith, setAliases } from './compat.js';
+import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
+import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from './costs.js';
+import { loadPricing } from './data.js';
 import { checkManifest } from './stack-check.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
@@ -291,6 +294,64 @@ async function main() {
         poolSize: r.poolSize,
         excludedCount: r.excludedCount
       });
+    }
+  );
+
+  let askIndex: SearchIndex | null = null;
+  server.registerTool(
+    'ask_catalog',
+    {
+      title: 'Search the catalog in plain words',
+      description:
+        'Plain-language search over the whole catalog, e.g. "self-hosted vector db with MCP, python" or ' +
+        '"memory that handles contradictions on postgres". Requirement phrases (self-hosted, managed, ' +
+        'open source, MCP, Python, TypeScript, memory layer / framework / vector db / paper, maintained) ' +
+        'are checked against catalogued facts; the remaining words rank results (BM25 with catalog ' +
+        'synonyms). Each hit lists which requirements it confirms and which the catalog cannot confirm.',
+      inputSchema: {
+        query: z.string().min(2).describe('What you need, in plain words.'),
+        limit: z.number().int().min(1).max(50).optional().describe('How many results (default 10).')
+      }
+    },
+    async (args) => {
+      if (!askIndex) {
+        const items = new Map(loadChooserItems().map((i) => [i.id, i]));
+        askIndex = buildIndex(loadRecords().map((r) => {
+          const item = items.get(r.id)!;
+          return { item, text: docText(r.cells), family: familyIdForSection(item.section) };
+        }));
+      }
+      const r = askSearch(askIndex, args.query, args.limit ?? 10);
+      return jsonResult({
+        query: args.query,
+        requirements: r.constraints.map((c) => c.label),
+        rankedBy: r.terms,
+        considered: r.considered,
+        results: r.hits.map((h) => ({ ...h, page: `https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/${h.id}` }))
+      });
+    }
+  );
+
+  server.registerTool(
+    'estimate_memory_cost',
+    {
+      title: 'Estimate managed memory-layer cost',
+      description:
+        'Monthly cost of managed memory layers (Mem0, Zep, Supermemory, Cognee, Letta…) for a workload, ' +
+        'using only each vendor\'s published plans and rates, with the arithmetic and the pricing page. ' +
+        'Usage beyond the largest published plan is reported as contact-sales, not extrapolated.',
+      inputSchema: {
+        users: z.number().min(0).optional().describe('Monthly active users (default 1000).'),
+        messagesPerUser: z.number().min(0).optional().describe('Messages written to memory per user per month (default 60).'),
+        bytesPerMessage: z.number().min(1).optional().describe('Average bytes per message (default 600).'),
+        retrievalsPerMessage: z.number().min(0).optional().describe('Memory searches per message (default 1).'),
+        agentsPerUser: z.number().min(0).optional().describe('Agents per user, for per-agent pricing (default 1).')
+      }
+    },
+    async (args) => {
+      const p = loadPricing();
+      const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) };
+      return jsonResult({ workload: w, pricesChecked: p.checked, estimates: estimateAll(p.vendors as VendorPricing[], w) });
     }
   );
 

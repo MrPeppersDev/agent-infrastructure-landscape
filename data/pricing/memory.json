@@ -1,0 +1,68 @@
+{
+  "note": "Published list prices of managed memory layers, as stated on each vendor's pricing page on the date checked. Used by the cost estimator (mcp/src/costs.ts, /costs). Enterprise / custom tiers are not priced. Re-check before relying on a number.",
+  "checked": "2026-10-26",
+  "vendors": [
+    {
+      "system": "Mem0",
+      "model": "requests",
+      "source": "https://mem0.ai/pricing",
+      "plans": [
+        { "name": "Hobby", "usd": 0, "adds": 10000, "retrievals": 1000 },
+        { "name": "Starter", "usd": 19, "adds": 50000, "retrievals": 5000 },
+        { "name": "Pro", "usd": 249, "adds": 500000, "retrievals": 50000 }
+      ],
+      "beyond": "Enterprise (custom); no overage rates published",
+      "notes": "Plans meter add and retrieval requests; end users unlimited."
+    },
+    {
+      "system": "Zep & Graphiti",
+      "model": "credits",
+      "source": "https://www.getzep.com/pricing",
+      "credit_bytes": 350,
+      "plans": [
+        { "name": "Free", "usd": 0, "credits": 10000 },
+        { "name": "Flex", "usd": 125, "credits": 50000, "topup_usd": 25, "topup_credits": 10000 },
+        { "name": "Flex Plus", "usd": 375, "credits": 200000, "topup_usd": 75, "topup_credits": 40000 }
+      ],
+      "beyond": "Enterprise (custom)",
+      "notes": "One credit per episode up to 350 bytes, plus one per additional 350 bytes; retrieval, storage and users unmetered."
+    },
+    {
+      "system": "Supermemory",
+      "model": "metered-credits",
+      "source": "https://supermemory.ai/pricing",
+      "rates": { "memory_text_per_m_tokens": 5, "search_per_m_queries": 5 },
+      "plans": [
+        { "name": "Free", "usd": 0, "credit_usd": 5, "topup": false },
+        { "name": "Pro", "usd": 19, "credit_usd": 20, "topup": true },
+        { "name": "Max", "usd": 100, "credit_usd": 130, "topup": true },
+        { "name": "Scale", "usd": 399, "credit_usd": 600, "topup": true }
+      ],
+      "beyond": "Enterprise (committed spend)",
+      "notes": "Usage draws from a monthly credit balance at the same rates on every plan; paid plans can buy more credits."
+    },
+    {
+      "system": "Cognee",
+      "model": "tokens",
+      "source": "https://cognee.ai/pricing",
+      "plans": [
+        { "name": "Free", "usd": 0, "tokens": 1000000 },
+        { "name": "Standard", "usd": 0, "per_m_tokens": 1, "per_extra_workspace": 5 }
+      ],
+      "beyond": "Enterprise BYOC (custom)",
+      "notes": "Standard is usage-based: $1 per 1M tokens, $5 per additional workspace per month."
+    },
+    {
+      "system": "Letta / MemGPT",
+      "model": "agents",
+      "source": "https://docs.letta.com/pricing",
+      "plans": [
+        { "name": "Free", "usd": 0, "agents": 3 },
+        { "name": "Pro", "usd": 20, "agents": 20 },
+        { "name": "Developer", "usd": 0, "per_active_agent": 0.1 }
+      ],
+      "beyond": "Enterprise (volume pricing)",
+      "notes": "Developer is pay-as-you-go: $0.10 per active agent per month plus LLM usage and $0.00015 per second of tool execution, which aren't estimated here."
+    }
+  ]
+}

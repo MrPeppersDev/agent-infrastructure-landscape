@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { toItem, brand, type ChooserItem } from './chooser.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, paramsToInfra, infraToParams, inNeed } from './chooser-infra.js';
 import { compatibility, worksWith, allLinks, aliasesOf, setAliases } from './compat.js';
+import { buildIndex, search, parseQuery, docText } from './search.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 function find(name: string): string {
@@ -81,6 +82,26 @@ console.log('compat');
   const noisy = [...deg].filter(([id, n]) => n > 30 && !/Claude|GPT|Model Context Protocol|Claude Code/.test(String(name.get(id))));
   check('no system over-matched by a generic alias', noisy.length === 0, noisy.map(([id, n]) => `${name.get(id)}:${n}`).join(', '));
   check('aliases never a bare one-word brand of a multi-word name', aliasesOf({ id: 'x', name: 'Stack AI', cells: {} }).every((a) => a !== 'Stack'));
+}
+
+console.log('search');
+{
+  const F = JSON.parse(readFileSync(find('families.json'), 'utf-8')).families as { id: string; sections: string[] }[];
+  const fam = new Map<string, string>();
+  for (const f of F) for (const sec of f.sections) fam.set(sec, f.id);
+  const ix = buildIndex(L.records.map((r: { id: string; cells: unknown }, n: number) => ({ item: items[n], text: docText(r.cells), family: fam.get(items[n].section) ?? 'other' })));
+  const p = parseQuery('self-hosted vector db with MCP, python');
+  check('parses requirements', ['self-hostable', 'MCP support', 'Python SDK'].every((l) => p.constraints.some((c) => c.label === l)), p.constraints.map((c) => c.label).join(','));
+  const r = search(ix, 'self-hosted vector db with MCP, python', 10);
+  check('requirements never contradicted', r.hits.every((h) => {
+    const i = items.find((x) => x.id === h.id)!;
+    return i.selfHost !== 'no' && i.mcp !== 'no';
+  }));
+  check('vector db query returns data-family systems', r.hits.length > 0 && r.hits.every((h) => h.family === 'data'));
+  const g = search(ix, 'open source graph memory with temporal history', 5);
+  check('graph+temporal finds Zep/Graphiti first', /Zep|Graphiti/.test(g.hits[0]?.name ?? ''), g.hits[0]?.name);
+  const s = search(ix, 'sandbox for running agent code', 5);
+  check('sandbox query finds a sandbox', s.hits.some((h) => /e2b|Daytona|Modal/i.test(h.name)), s.hits.map((h) => h.name).join(','));
 }
 
 if (failures) {

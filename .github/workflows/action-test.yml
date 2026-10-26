@@ -1,0 +1,40 @@
+# Self-test for the "AI stack check" GitHub Action (action.yml): runs it
+# against action/test/fixture and checks it flags the archived dependency,
+# and checks action/dist/stack-check.mjs matches mcp/src/stack-check.ts.
+name: Action self-test
+
+on:
+  pull_request:
+    paths: ['action.yml', 'action/**', 'mcp/src/stack-check.ts', 'data/stack-index.json']
+  push:
+    branches: [main]
+    paths: ['action.yml', 'action/**', 'mcp/src/stack-check.ts']
+
+permissions:
+  contents: read
+
+jobs:
+  self-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: dist is up to date
+        run: |
+          npm install -g typescript@6.0.3
+          make action
+          git diff --exit-code action/dist/stack-check.mjs || { echo "::error title=action/dist out of date::run 'make action' and commit"; exit 1; }
+      - name: Run the action on the fixture
+        id: check
+        uses: ./
+        with:
+          manifests: action/test/fixture/package.json, action/test/fixture/requirements.txt
+          comment: never
+          badge-path: badge.json
+      - name: Flags what it should
+        run: |
+          test "${{ steps.check.outputs.manifests }}" = "2"
+          test "${{ steps.check.outputs.attention-count }}" -ge 1
+          grep -q '"label":"AI stack"' badge.json
