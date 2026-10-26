@@ -8,6 +8,7 @@
   // leave the page.
 
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import {
     checkManifest,
@@ -116,6 +117,63 @@
   };
 
   const shown = $derived(report ? (showAll ? report.matched : report.attention) : []);
+
+  // ---- permalinks -----------------------------------------------------------
+  // A result link carries only the dependency names (npm:x, pypi:y…), in the
+  // URL fragment, which browsers never send to a server.
+  const depKey = (d: { ecosystem: string; name: string }) => (d.ecosystem === 'unknown' ? d.name : `${d.ecosystem}:${d.name}`);
+  const permalink = $derived.by(() => {
+    if (!report) return '';
+    const deps = [...report.matched.map((f) => f.dependency), ...report.unmatched];
+    const origin = typeof location === 'undefined' ? '' : location.origin;
+    return `${origin}${base}/check#deps=${encodeURIComponent(deps.map(depKey).join(','))}`;
+  });
+  let copied = $state('');
+  async function copy(what: 'link' | 'md') {
+    const textOut = what === 'link' ? permalink : markdown();
+    try {
+      await navigator.clipboard.writeText(textOut);
+      copied = what;
+      setTimeout(() => (copied = ''), 1800);
+    } catch {
+      prompt('Copy this:', textOut);
+    }
+  }
+  function markdown(): string {
+    if (!report) return '';
+    const site = `https://mrpeppersdev.github.io/agent-infrastructure-landscape`;
+    const lines = [`**Stack check:** ${report.attention.length} of ${report.matched.length} catalogued dependencies need attention ([details](${permalink}))`, ''];
+    for (const f of report.attention) {
+      const alts = (f.replacements ?? []).map((a) => `[${a.name}](${site}/systems/${a.id})`).join(', ');
+      lines.push(`- \`${f.dependency.name}\` → [${f.record.name}](${site}/systems/${f.recordId}): **${STATUS_LABEL[f.record.status]}**${f.record.note ? ` (${f.record.note})` : ''}${alts ? `. Consider: ${alts}` : ''}`);
+    }
+    return lines.join('\n');
+  }
+  // ---- watch my stack: an OPML bundle of the per-system change feeds ---------
+  function downloadOpml() {
+    if (!report) return;
+    const site = `https://mrpeppersdev.github.io/agent-infrastructure-landscape`;
+    const esc = (x: string) => x.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+    const seen = new Set<string>();
+    const outlines = report.matched
+      .filter((f) => !seen.has(f.recordId) && seen.add(f.recordId))
+      .map((f) => `    <outline type="rss" text="${esc(f.record.name)}" title="${esc(f.record.name)}" xmlUrl="${site}/feeds/${f.recordId}.xml" htmlUrl="${site}/systems/${f.recordId}"/>`);
+    const opml = `<?xml version="1.0" encoding="UTF-8"?>\n<opml version="2.0">\n  <head><title>My AI stack — catalog changes</title></head>\n  <body>\n  <outline text="My AI stack">\n${outlines.join('\n')}\n  </outline>\n  </body>\n</opml>\n`;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([opml], { type: 'text/x-opml' }));
+    a.download = 'my-ai-stack.opml';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  onMount(() => {
+    const m = location.hash.match(/deps=([^&]*)/);
+    if (m) {
+      text = decodeURIComponent(m[1]).split(',').join('\n');
+      format = 'list';
+      run();
+    }
+  });
 </script>
 
 <SeoHead
@@ -179,6 +237,14 @@
         <strong class:alert={report.attention.length > 0}>{report.attention.length}</strong> need attention
       </p>
 
+      <div class="share">
+        <button type="button" onclick={() => copy('link')}>{copied === 'link' ? 'Copied ✓' : 'Copy link to this result'}</button>
+        <button type="button" onclick={() => copy('md')}>{copied === 'md' ? 'Copied ✓' : 'Copy as Markdown (for a PR)'}</button>
+        {#if report.matched.length}
+          <button type="button" onclick={downloadOpml} title="An OPML file of change feeds for every catalogued dependency; import it into any feed reader">Watch these {new Set(report.matched.map((f) => f.recordId)).size} systems (feeds)</button>
+        {/if}
+      </div>
+
       {#if report.attention.length === 0}
         <p class="clean">
           Nothing archived, deprecated, acquired or stale among the dependencies the catalog knows about.
@@ -235,13 +301,18 @@
       <p class="footnote">
         Status comes from the catalog's verified lifecycle data (index built {report.indexGeneratedAt}). "Stale"
         means no commits in 12+ months on the repo the catalog tracks. Also available as the MCP tool
-        <code>check_stack</code> and <code>landscape check &lt;file&gt;</code> on the CLI, for CI.
+        <code>check_stack</code> and <code>landscape check &lt;file&gt;</code> on the CLI, for CI. The result link
+        holds only package names, in the part of the URL that is never sent to a server. "Watch" downloads an OPML file of
+        per-system <a href="{base}/data#feeds">change feeds</a> for your feed reader.
       </p>
     </section>
   {/if}
 </main>
 
 <style>
+  .share { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+  .share button { border: 1px solid #30363d; background: #161b22; color: #c9d1d9; border-radius: 6px; padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+  .share button:hover { border-color: #58a6ff; }
   .page {
     max-width: 920px;
     margin: 0 auto;

@@ -6,6 +6,7 @@
   import { websiteLd, organizationLd } from '$lib/seo/jsonld';
 
   let { children } = $props();
+  let menu: HTMLDetailsElement | undefined = $state();
 
   // Site-wide entity markup. WebSite/SearchAction makes the SERP listing
   // eligible for a sitelinks search box; Organization plants the catalog
@@ -14,20 +15,28 @@
   // additive and lives on the individual routes.
   const siteLd = [websiteLd(), organizationLd()];
 
+  // Primary nav: the six things people come for. Everything else (the
+  // research views) lives under one "Research" menu so the bar stays
+  // readable on a laptop.
   const routes = [
-    { path: '/', label: 'Table' },
-    { path: '/choose', label: 'Choose memory' },
+    { path: '/choose', label: 'Choose' },
     { path: '/check', label: 'Check stack' },
-    { path: '/findings', label: 'Findings' },
-    { path: '/systems', label: 'Systems' },
-    { path: '/timeline', label: 'Timeline' },
+    { path: '/alternatives', label: 'Alternatives' },
+    { path: '/', label: 'Catalog' },
+    { path: '/compare', label: 'Compare' },
+    { path: '/findings', label: 'Findings' }
+  ];
+  const research = [
+    { path: '/systems', label: 'All systems' },
+    { path: '/best', label: 'Best-of lists' },
     { path: '/leaderboards', label: 'Leaderboards' },
+    { path: '/timeline', label: 'Timeline' },
     { path: '/sections', label: 'Sections' },
-    { path: '/best', label: 'Best of' },
     { path: '/graph', label: 'Graph' },
     { path: '/lineages', label: 'Lineages' },
     { path: '/analyses', label: 'Analyses' },
-    { path: '/submit', label: 'Submit' },
+    { path: '/data', label: 'Data & API' },
+    { path: '/submit', label: 'Submit a system' },
     { path: '/about', label: 'About' }
   ];
 
@@ -44,6 +53,7 @@
     title="AI Agent Infrastructure Landscape — recent activity"
     href="{base}/feed.xml"
   />
+  <link rel="alternate" type="application/atom+xml" title="AI Agent Infrastructure Landscape — changes" href="{base}/changes.xml" />
 </svelte:head>
 
 <JsonLd data={siteLd} />
@@ -61,6 +71,16 @@
         </a>
       </li>
     {/each}
+    <li class="more">
+      <details bind:this={menu}>
+        <summary class:active={research.some((r) => relPath.startsWith(r.path))}>Research ▾</summary>
+        <ul class="menu">
+          {#each research as r}
+            <li><a href="{base}{r.path}" onclick={() => menu?.removeAttribute('open')} class:active={relPath.startsWith(r.path)}>{r.label}</a></li>
+          {/each}
+        </ul>
+      </details>
+    </li>
   </ul>
 </nav>
 
@@ -104,6 +124,32 @@
     color: #e8e8e8;
     background: #202020;
   }
+  .topnav summary {
+    color: #aaa;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .topnav summary::-webkit-details-marker { display: none; }
+  .topnav summary:hover, .topnav summary.active { color: #e8e8e8; background: #202020; }
+  .more { position: relative; }
+  .menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    flex-direction: column;
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 6px !important;
+    min-width: 190px;
+    z-index: 60;
+  }
+  .menu a { display: block; white-space: nowrap; }
+  .topnav { flex-wrap: wrap; }
+  .topnav ul { flex-wrap: wrap; }
   .topnav a.active {
     color: #e8e8e8;
     background: #242424;

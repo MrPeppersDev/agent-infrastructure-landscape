@@ -1,0 +1,45 @@
+# Turn a "Correct a record" issue (label `correction`) into a draft PR.
+# scripts/apply_correction.py validates the record id, field and source
+# URL, patches the cell, runs make build + make validate, and opens the PR
+# (or comments a compare link when Actions can't open PRs). Editing the
+# issue re-runs it. Nothing auto-merges.
+name: Apply correction
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: correction-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  apply:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'correction') ||
+      startsWith(github.event.issue.title, 'Correction:')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          git config user.name "landscape-correction-bot"
+          git config user.email "correction-bot@users.noreply.github.com"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install beautifulsoup4 requests
+      - name: Ensure label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh label create correction --color FBCA04 --description "Fix to an existing record" 2>/dev/null || true
+      - name: Apply correction
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/apply_correction.py --issue-number ${{ github.event.issue.number }}

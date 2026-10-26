@@ -1,0 +1,17 @@
+import { getRecords } from '$lib/data';
+import { getFamilies, familyForSection, primarySectionOf } from '$lib/families';
+import { allEvents } from '$lib/history';
+
+export const prerender = true;
+
+export const load = () => {
+  const records = getRecords();
+  const counts = new Map<string, number>();
+  for (const r of records) {
+    const f = familyForSection(primarySectionOf(r))?.id ?? 'other';
+    counts.set(f, (counts.get(f) ?? 0) + 1);
+  }
+  const catalogs = getFamilies().map((f) => ({ id: f.id, name: f.name, count: counts.get(f.id) ?? 0 }));
+  const sample = records.find((r) => r.id === 'mem0--mem0-ai') ?? records[0];
+  return { catalogs, total: records.length, sample: { id: sample.id, name: sample.name }, changes: allEvents().length };
+};
