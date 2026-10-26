@@ -1,0 +1,52 @@
+name: Correct a record
+description: Fix a wrong or outdated value for a system already in the catalog. A bot turns it into a reviewable PR.
+title: "Correction: <record id>"
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for fixing the catalog. Every system page has a **Suggest a correction** link that fills in the
+        record id and field for you. A bot checks that the source URL resolves, patches the cell and opens a
+        PR for maintainer review. Vendors are welcome to correct their own listings; please cite a public page.
+  - type: input
+    id: record
+    attributes:
+      label: Record id
+      description: The id in the system page URL (/systems/<id>).
+      placeholder: mem0--mem0-ai
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field
+      description: The column slug (e.g. license, latest-release, pricing, mcp-support, deployment, desc).
+      placeholder: license
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current value
+      description: What the catalog says now (pre-filled from the system page).
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Correct value
+      description: The value the cell should have. Keep it short and factual.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+      description: A public page that states the correct value (docs, repo, release notes, pricing page).
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything the reviewer should know. Optional.

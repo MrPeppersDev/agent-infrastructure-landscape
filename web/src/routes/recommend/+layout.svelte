@@ -19,6 +19,12 @@
   );
 </script>
 
+<p class="moved">
+  Picking a memory layer? The <a href="{base}/choose">memory-layer chooser</a> is the newer, simpler version of this
+  page: five questions, three cited picks. To see what to replace in an existing project,
+  <a href="{base}/check">check your stack</a>.
+</p>
+
 <header class="hub-header">
   <h1>Recommender</h1>
   <p>
@@ -40,6 +46,8 @@
 {@render children?.()}
 
 <style>
+  .moved { max-width: 900px; margin: 12px auto 0; padding: 10px 14px; border: 1px solid #1f6feb; background: #0d1d33; color: #c9d1d9; border-radius: 8px; }
+  .moved a { color: #58a6ff; }
   .hub-header {
     max-width: 1100px;
     margin: 24px 0 16px;

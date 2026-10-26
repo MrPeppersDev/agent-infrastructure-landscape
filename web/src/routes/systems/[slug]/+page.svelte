@@ -6,6 +6,7 @@
   import { sectionToSlug } from '$lib/seo/sections';
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
+  import { correctionUrl, REPO, type HistoryEvent } from '$lib/history';
 
   type RelatedPair = { slug: string; otherId: string; otherName: string };
   type SimilarSystem = {
@@ -26,6 +27,8 @@
       relatedPairs: RelatedPair[];
       similar: SimilarSystem[];
       hasAlternatives: boolean;
+      history: HistoryEvent[];
+      citedCells: number;
     };
   } = $props();
 
@@ -47,24 +50,25 @@
   const title = `${record.name} — ${primarySection ?? 'AI agent memory'} | Landscape Profile`;
 
   // Headline facts gathered in render-order. nulls dropped at template time.
-  const facts: { label: string; value: string | null; cite?: string | null; internal?: string }[] = [
-    { label: 'Type', value: cellText(record.cells.type) },
+  const facts: { label: string; value: string | null; cite?: string | null; internal?: string; slug?: string }[] = [
+    { label: 'Type', value: cellText(record.cells.type), slug: 'type' },
     { label: 'Tier', value: `T${record.tier}` },
     {
       label: 'Section',
       value: primarySection,
       internal: primarySectionSlug ? `${base}/category/${primarySectionSlug}` : undefined
     },
-    { label: 'Created', value: cellText(record.cells.created) },
-    { label: 'Latest release', value: cellText(record.cells['latest-release']) },
-    { label: 'License', value: cellText(record.cells.license) },
+    { label: 'Created', value: cellText(record.cells.created), slug: 'created' },
+    { label: 'Latest release', value: cellText(record.cells['latest-release']), slug: 'latest-release' },
+    { label: 'License', value: cellText(record.cells.license), slug: 'license' },
     {
       label: 'GitHub',
       value: cellText(record.cells.gh),
-      cite: record.cells.gh?.citation ?? null
+      cite: record.cells.gh?.citation ?? null,
+      slug: 'gh'
     },
-    { label: 'Pricing', value: cellText(record.cells.pricing) },
-    { label: 'Funding', value: cellText(record.cells.funding) }
+    { label: 'Pricing', value: cellText(record.cells.pricing), slug: 'pricing' },
+    { label: 'Funding', value: cellText(record.cells.funding), slug: 'funding' }
   ];
 
   // Group primary taxonomy values by axis for the "at a glance" panel.
@@ -145,6 +149,11 @@
       <p class="home"><a href={record.url} rel="nofollow noopener">{record.url}</a></p>
     {/if}
     <p class="lede">{desc ?? fallbackDesc}</p>
+    <p class="fresh">
+      Verified <strong>{record.last_verified_at ?? 'not yet'}</strong> · {data.citedCells} cited facts
+      {#if data.history.length}· <a href="#changes">{data.history.length} recorded change{data.history.length === 1 ? '' : 's'}</a>{/if}
+      · <a href={correctionUrl(record.id)} rel="noopener">Suggest a correction</a>
+    </p>
   </header>
 
   <section class="facts" aria-label="At a glance">
@@ -162,6 +171,7 @@
               {:else}
                 {f.value}
               {/if}
+              {#if f.slug}<a class="fix" href={correctionUrl(record.id, f.slug, f.value ?? '')} rel="noopener" title="Suggest a correction to {f.label.toLowerCase()}">fix</a>{/if}
             </dd>
           </div>
         {/if}
@@ -279,6 +289,45 @@
     </section>
   {/if}
 
+  {#if data.history.length}
+    <section class="changes" id="changes">
+      <h2>What changed</h2>
+      <p class="similar-lede">
+        Changes to this record's lifecycle, licence, release, pricing and hosting facts, from the catalog's git history.
+        <a href="{base}/feeds/{record.id}.xml">Subscribe (Atom)</a>
+      </p>
+      <ol>
+        {#each data.history as ev}
+          <li>
+            <span class="when">{ev.date}</span>
+            {#if ev.kind === 'added'}
+              <span>Added to the catalog</span>
+            {:else if ev.kind === 'removed'}
+              <span>Removed from the catalog</span>
+            {:else}
+              <ul>
+                {#each ev.changes as c}
+                  <li>
+                    <strong>{c.label}</strong>
+                    {#if c.first}
+                      first recorded as “{c.to}”
+                    {:else if !c.to}
+                      cleared (was “{c.from}”)
+                    {:else}
+                      “{c.from}” → “{c.to}”
+                    {/if}
+                    {#if c.source}<a href={c.source} rel="nofollow noopener">source</a>{/if}
+                  </li>
+                {/each}
+              </ul>
+            {/if}
+            {#if ev.pr}<a class="pr" href="{REPO}/pull/{ev.pr}">#{ev.pr}</a>{:else}<a class="pr" href="{REPO}/commit/{ev.commit}">{ev.commit.slice(0, 7)}</a>{/if}
+          </li>
+        {/each}
+      </ol>
+    </section>
+  {/if}
+
   {#if data.outgoing.length || data.incoming.length}
     <section class="edges">
       <h2>Related systems</h2>
@@ -312,12 +361,23 @@
   <footer class="meta">
     <p>
       Row last verified {record.last_verified_at}. Catalog data is CC-BY-4.0 — see
-      <a href="{base}/about">how to read this</a>.
+      <a href="{base}/about">how to read this</a>. Raw record:
+      <a href="{base}/api/systems/{record.id}.json">JSON</a>. Something wrong?
+      <a href={correctionUrl(record.id)} rel="noopener">Suggest a correction</a>.
     </p>
   </footer>
 </article>
 
 <style>
+  .fresh { font-size: 0.85rem; color: #8b949e; margin: -0.25rem 0 1rem; }
+  .fresh a, .changes a { color: #58a6ff; }
+  .fix { margin-left: 0.5rem; font-size: 0.72rem; color: #6e7681 !important; text-decoration: none; }
+  .fix:hover { color: #58a6ff !important; text-decoration: underline; }
+  .changes ol { list-style: none; padding: 0; margin: 0.5rem 0; }
+  .changes > ol > li { border-left: 2px solid #30363d; padding: 0.25rem 0 0.5rem 0.75rem; margin-bottom: 0.25rem; font-size: 0.9rem; }
+  .changes .when { color: #8b949e; font-variant-numeric: tabular-nums; margin-right: 0.5rem; }
+  .changes ul { margin: 0.25rem 0 0; padding-left: 1rem; }
+  .changes .pr { font-size: 0.75rem; margin-left: 0.25rem; }
   .system {
     max-width: 760px;
     margin: 0 auto;

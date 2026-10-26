@@ -10,6 +10,7 @@ import { error } from '@sveltejs/kit';
 import { getRecords, getEdges } from '$lib/data';
 import { allPairs, pairToSlug } from '$lib/seo/compare';
 import { familyForSection } from '$lib/families';
+import { historyFor, type HistoryEvent } from '$lib/history';
 
 // Families with /alternatives/<id> pages (mirror of $lib/alternatives ALT_FAMILIES).
 const ALT_FAMILIES = new Set(['memory', 'agents', 'data']);
@@ -31,6 +32,9 @@ export function load({ params }: { params: { slug: string } }): {
   relatedNames: Record<string, string>;
   relatedPairs: RelatedPair[];
   similar: SimilarSystem[];
+  hasAlternatives: boolean;
+  history: HistoryEvent[];
+  citedCells: number;
 } {
   const records = getRecords();
   const record = records.find((r) => r.id === params.slug);
@@ -99,5 +103,7 @@ export function load({ params }: { params: { slug: string } }): {
   const primary = record.sections.find((s) => s.primary)?.section ?? record.sections[0]?.section ?? '';
   const hasAlternatives = ALT_FAMILIES.has(familyForSection(primary)?.id ?? '');
 
-  return { record, outgoing, incoming, relatedNames, relatedPairs, similar, hasAlternatives };
+  const citedCells = Object.values(record.cells).filter((c) => c && c.citation && c.status === 'real-data').length;
+
+  return { record, outgoing, incoming, relatedNames, relatedPairs, similar, hasAlternatives, history: historyFor(record.id), citedCells };
 }

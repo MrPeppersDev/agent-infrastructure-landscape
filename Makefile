@@ -12,7 +12,7 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help
+.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help history
 
 help:
 	@echo "Targets:"
@@ -52,6 +52,9 @@ help:
 #
 # The closing `render.py` step keeps landscape.html in sync with the JSON
 # source. `build-path-a` (the byte-identity gate) catches any drift.
+history:
+	$(PYTHON) scripts/build_history.py
+
 build:
 	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
 	$(PYTHON) scripts/build_edges.py

@@ -46,6 +46,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history for the per-system change log
+
+      - name: Rebuild change history
+        run: python3 scripts/build_history.py
 
       - name: Setup Node
         uses: actions/setup-node@v4

@@ -34,7 +34,11 @@ const config = {
       // <link rel="alternate"> points to it, so we tell the crawler to
       // ignore that single missing href instead of failing the build.
       handleHttpError: ({ path, referrer, message }) => {
-        if (path.endsWith('/feed.xml')) return;
+        // Same for the files scripts/generate-exports.mjs writes after the
+        // build (change feeds, JSON/CSV API, llms.txt). validate-links.mjs
+        // checks these links once the files exist.
+        if (path.endsWith('/feed.xml') || path.endsWith('/changes.xml') || path.endsWith('/llms.txt')) return;
+        if (/\/(feeds|api)\//.test(path)) return;
         throw new Error(`${message} (linked from ${referrer})`);
       }
     }
