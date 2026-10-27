@@ -1,0 +1,427 @@
+[
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Cognition is actively shipping Devin: Series E announced 2026-09-08, SWE-2 model 2026-09-10, Devin Security upgrade 2026-10-26, and release notes dated through 2026-10-26.",
+  "lifecycle_citation": "https://cognition.com/blog",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$1.1B total $10.2B val Series E 2025-09",
+    "new": "Over $2B Series E at $48B valuation (2026-09-08), led by Andreessen Horowitz and Accel with Founders Fund, General Catalyst and others",
+    "citation": "https://cognition.com/blog/series-e",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid; Spec Mode in Pro",
+    "new": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom",
+    "citation": "https://devin.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native (Devin MCP integrations)",
+    "new": "yes — MCP marketplace plus custom MCP servers (STDIO and remote) configurable in Devin; Devin also ships its own Devin MCP server",
+    "citation": "https://docs.devin.ai/work-with-devin/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "Devin release notes update (2026-10-26)",
+    "citation": "https://docs.devin.ai/release-notes/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Cloud",
+    "new": "Managed-only — Cognition cloud agents plus Devin Desktop and CLI; enterprise plan offers a dedicated deployment option",
+    "citation": "https://devin.ai/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "Web + Slack + REST",
+    "new": "Web app, Devin Desktop, Devin CLI, Slack and REST API",
+    "citation": "https://docs.devin.ai/release-notes/overview",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "cursor-ide--cursor-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cursor (Anysphere) announced on 2026-08-14 that it has officially been acquired by SpaceX (terms undisclosed); the product continues under the Cursor brand.",
+  "lifecycle_citation": "https://cursor.com/blog/joining-spacex",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI-first IDE that forked VS Code; Composer (multi-file edit) and Agent Mode (long-running coding agent) are its flagship surfaces. Memory layer = .cursorrules / Rules; recall via repo-aware Context Engine. Anysphere (parent) raised $900M Series C at $9.9B in May 2025; reportedly $200M ARR by mid-2025.",
+    "new": "AI-first IDE that forked VS Code; Composer (multi-file edit) and Agent Mode (long-running coding agent) are its flagship surfaces. Memory layer = .cursorrules / Rules; recall via repo-aware Context Engine. Anysphere (parent) raised $900M Series C at $9.9B in May 2025; acquired by SpaceX (announced 2026-08-14, terms undisclosed), product continues under the Cursor brand.",
+    "citation": "https://cursor.com/blog/joining-spacex",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$900M Series C at $9.9B · 2025-05 (Thrive, a16z)",
+    "new": "Acquired by SpaceX (announced 2026-08-14, terms undisclosed); previously $900M Series C at $9.9B (2025-05)",
+    "citation": "https://cursor.com/blog/joining-spacex",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free $0; Plus $8/mo (Grok models only); Premium $30/mo; Super $100/mo; Ultra $200/mo; Teams from $30/user/mo; Enterprise custom; third-party models billed separately by usage",
+    "citation": "https://cursor.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "Agent SDK (2026-10-20)",
+    "citation": "https://cursor.com/changelog",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Cursor MCP support since 2025",
+    "new": "yes — install and manage MCP servers in Cursor (editor and CLI)",
+    "citation": "https://cursor.com/docs/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "Desktop IDE; CLI in preview",
+    "new": "Desktop IDE; Cursor CLI (interactive, headless/CI, ACP); Agent SDK (TypeScript, Python; GA 2026-10-20)",
+    "citation": "https://cursor.com/blog/agent-sdk",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "Cloud (desktop client + cloud agents)",
+    "new": "Managed-only — desktop app backed by vendor cloud; Agent SDK agents can also run as a Node process on own infrastructure",
+    "citation": "https://cursor.com/blog/agent-sdk",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Highlight AI is operating as of 2026-10-27, with changelog releases dated 2026-10-20 and a live pricing page; now positioned as an AI multitasker for meetings and work.",
+  "lifecycle_citation": "https://highlightai.com/changelog",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free tier + Pro ($20/mo)",
+    "new": "Free $0/mo (14-day Pro trial); Pro $35/mo; Max $200/mo",
+    "citation": "https://highlightai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v2.0.20 (2026-10-20)",
+    "citation": "https://highlightai.com/changelog",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "jetbrains-junie--jetbrains-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Junie is actively released: Junie CLI release 26.10.20 shipped 2026-10-21 and the IDE plugin 263.2144.10 was published 2026-10-19.",
+  "lifecycle_citation": "https://junie.jetbrains.com/whats-new",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "Junie CLI 26.10.20 (2026-10-21)",
+    "citation": "https://junie.jetbrains.com/whats-new",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Junie CLI and Junie in JetBrains IDEs share an MCP JSON configuration; /mcp command manages servers",
+    "citation": "https://junie.jetbrains.com/docs/junie-cli-mcp-configuration.html",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Bundled with JetBrains AI Pro tier",
+    "new": "Junie Lite free; AI Pro $8.33/user/mo (10 AI credits per 30 days); AI Ultimate $25/user/mo (35 AI credits per 30 days); top-ups available",
+    "citation": "https://junie.jetbrains.com/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "JetBrains IDE plugin",
+    "new": "JetBrains IDE plugin; Junie CLI; GitHub Action; GitLab CI/CD; ACP clients",
+    "citation": "https://junie.jetbrains.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lovable-dev-harness--lovable-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Lovable is active: Series C announced 2026-08-12 and product posts through 2026-10-21.",
+  "lifecycle_citation": "https://lovable.dev/blog",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$200M Series A at $1.8B val · 2025-mid (Accel, Creandum)",
+    "new": "$400M Series C at $13.3B valuation (2026-08-12), led by Menlo Ventures, co-led by Scaleup Europe Fund (EQT); prior $330M Series B at $6.6B (2025-12-18)",
+    "citation": "https://lovable.dev/blog/series-c",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — chat connectors connect external tools to Lovable via MCP servers",
+    "citation": "https://docs.lovable.dev/integrations/chat-connectors",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "Web app",
+    "new": "Web app + Lovable API (REST: workspaces, projects, deployments)",
+    "citation": "https://docs.lovable.dev/api-reference/introduction",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lutra-ai--lutra-ai",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "As of 2026-10-27 lutra.ai shows only a notice that support for Lutra has been discontinued; the shutdown date is not stated.",
+  "lifecycle_citation": "https://lutra.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI agent platform that automates SaaS workflows across Gmail, Slack, Sheets, etc. — uses natural-language instructions that compile to durable 'playbooks.' Founded by ex-Google/Facebook engineers; raised seed funding 2024. Positions itself as Zapier-meets-Claude for knowledge workers.",
+    "new": "AI agent platform that automated SaaS workflows across Gmail, Slack, Sheets, etc. using natural-language instructions compiled into durable playbooks. Founded by ex-Google/Facebook engineers; raised seed funding 2024. Discontinued: lutra.ai now states support for Lutra has been discontinued (seen 2026-10-27).",
+    "citation": "https://lutra.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "magic-dev--magic-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Magic is active as a research company: a pretraining research update was posted 2026-09-08 and its site lists open roles; no public product, pricing or API is offered.",
+  "lifecycle_citation": "https://magic.dev/blog",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$465M total $1.5-1.6B val Series B 2024-08 (CapitalG, Atlassian, Eric Schmidt, Nat Friedman)",
+    "new": "$768M total raised (company-stated, 2026) from Nat Friedman, Daniel Gross, CapitalG, Elad Gil, Sequoia, Jane Street, Eric Schmidt and others",
+    "citation": "https://magic.dev/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "manus-ai--manus-im",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Manus joined Meta on 2025-12-29, announced on 2026-08-11 it would separate from Meta, and formally resumed independent operations on 2026-09-01; Manus 2.0 launched 2026-09-28.",
+  "lifecycle_citation": "https://manus.im/blog/manus-resumes-independent-operations",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "Manus 2.0 (2026-09-28)",
+    "citation": "https://manus.im/blog/introducing-manus-2-0",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "Web app; API in preview",
+    "new": "Web app + Manus Studio desktop app + Manus API v2 (REST: tasks, projects, agents, files, connectors, webhooks)",
+    "citation": "https://open.manus.ai/docs/v2/introduction",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "The standalone Operator site operator.chatgpt.com now returns a 308 redirect to ChatGPT agent mode (chatgpt.com/?system_hints=agent), checked 2026-10-27; the OpenAI announcement pages could not be fetched (HTTP 403).",
+  "lifecycle_citation": "https://operator.chatgpt.com/",
+  "updates": [
+   {
+    "cell": "api-surface",
+    "old": "Computer-use tool exposed via Responses API (computer-use-preview model)",
+    "new": "Computer tool (type computer) in the Responses API; current docs use gpt-6.1-sol, with a migration guide from computer-use-preview",
+    "citation": "https://developers.openai.com/api/docs/guides/tools-computer-use",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "project-mariner--deepmind-google",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "Google states Project Mariner was shut down on 2026-05-04 and points users to Gemini for complex tasks; the DeepMind product page now redirects to the DeepMind homepage.",
+  "lifecycle_citation": "https://labs.google.com/mariner/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Google DeepMind's experimental browser agent built on Gemini 2.0 — Chrome extension that takes actions on the user's behalf. Research-preview launched Dec 2024. The Google answer to OpenAI Operator / Anthropic Computer Use; integrated into Gemini app surfaces in 2025.",
+    "new": "Google DeepMind's experimental browser agent built on Gemini 2.0, a Chrome extension that took actions on the user's behalf. Research preview launched Dec 2024 as Google's answer to OpenAI Operator / Anthropic Computer Use. Shut down on 2026-05-04; Google directs users to Gemini for complex agentic tasks.",
+    "citation": "https://labs.google.com/mariner/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "replit-agent-v3--replit-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Replit is active: Agent 4 launched 2026-03-13, BYOC announced 2026-10-16 and Replit for Business announced 2026-10-26.",
+  "lifecycle_citation": "https://replit.com/blog",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "Replit Agent 4 (2026-03-13)",
+    "citation": "https://docs.replit.com/updates/2026/03/13/changelog",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + Core ($20/mo) + Teams",
+    "new": "Core $20/mo ($18/mo billed annually); Pro $100/mo ($90/mo billed annually; higher usage tiers up to $2,000/mo); Enterprise custom",
+    "citation": "https://replit.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — one-click MCP server list plus custom MCP servers; Agent loads their tools",
+    "citation": "https://docs.replit.com/replitai/mcp/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Cloud",
+    "new": "Both (self-hosted + managed cloud) — managed SaaS; enterprise Bring Your Own Cloud on AWS, Azure or Google Cloud (Full BYOC private preview, 2026-10)",
+    "citation": "https://replit.com/blog/bring-your-own-cloud",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "retell-ai--retellai-com-2",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Retell AI is operating with a live pricing page and docs (MCP, CLI, changelog) as of 2026-10-27.",
+  "lifecycle_citation": "https://www.retellai.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Per-minute usage ($0.07/min + provider passthrough)",
+    "new": "Pay-as-you-go $0.07-$0.31/min for voice agents (Retell voice infra $0.055/min plus TTS and LLM components), $10 free credits, 20 concurrent calls included; Enterprise custom",
+    "citation": "https://www.retellai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — agents can call MCP tools during live calls",
+    "citation": "https://docs.retellai.com/build/single-multi-prompt/mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "speechmatics-flow--speechmatics-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "As of 2026-10-27 speechmatics.com/flow and the Flow docs redirect to Agent STT (Linden 1) pages; no explicit Flow deprecation notice was found.",
+  "lifecycle_citation": "https://www.speechmatics.com/voice-agents",
+  "updates": []
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Synthflow is operating with a live enterprise pricing page and MCP server docs as of 2026-10-27.",
+  "lifecycle_citation": "https://synthflow.ai/pricing",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$7.4M Series A Sep-2024 (Singular lead)",
+    "new": "$20M Series A (2025-06-25) led by Accel with Atlantic Labs and Singular; $30M total",
+    "citation": "https://synthflow.ai/news/synthflow-raises-20m-series-a",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Tiered: Starter $29/mo + per-minute; Pro $450/mo",
+    "new": "Enterprise contracts from $30,000/yr, scoped by call volume, concurrency, telephony and integrations",
+    "citation": "https://synthflow.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Synthflow MCP server for managing agents, calls and knowledge bases from MCP clients",
+    "citation": "https://docs.synthflow.ai/mcp-server",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "vonage-ai-studio--vonage-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Vonage AI Studio developer and product docs are live as of 2026-10-27 and include an Agentic NLU AI engine; vonage.com product and pricing pages returned 403.",
+  "lifecycle_citation": "https://developer.vonage.com/en/ai-studio/overview",
+  "updates": []
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "Cognition renamed Windsurf to Devin Desktop on 2026-06-02; windsurf.com now 308-redirects to devin.ai/desktop and existing plans and pricing carry over.",
+  "lifecycle_citation": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade — a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound — Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025).",
+    "new": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent.",
+    "citation": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom",
+    "citation": "https://devin.ai/desktop",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native — Windsurf supports MCP",
+    "new": "yes — Cascade MCP configuration in Devin Desktop (formerly Windsurf)",
+    "citation": "https://docs.devin.ai/desktop/cascade/mcp",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "Windsurf (now Devin Desktop)"
+  }
+ }
+]
