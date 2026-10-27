@@ -1,0 +1,781 @@
+[
+ {
+  "id": "mlflow--mlflow-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "mlflow/mlflow pushed 2026-10-27 and mlflow 3.17.2 released on PyPI 2026-10-21; repo LICENSE is Apache-2.0.",
+  "lifecycle_citation": "https://github.com/mlflow/mlflow",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.17.2 (2026-10-21) — mlflow",
+    "citation": "https://pypi.org/project/mlflow/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "mlflow/mlflow — ~28.6k stars, last commit 2026-10",
+    "citation": "https://github.com/mlflow/mlflow",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — built-in MCP server (experimental, mlflow mcp run, MLflow 3.5.1+) exposing trace search, tagging and feedback tools",
+    "citation": "https://mlflow.org/docs/latest/genai/mcp/",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, CLI, MCP server",
+    "citation": "https://mlflow.org/docs/latest/genai/mcp/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "modal--modal-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "modal client 1.6.2 released 2026-10-16 and modal-labs/modal-client pushed 2026-10-27; pricing page live.",
+  "lifecycle_citation": "https://modal.com/pricing",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; client SDK Apache-2.0",
+    "citation": "https://github.com/modal-labs/modal-client",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — serverless cloud",
+    "citation": "https://modal.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.6.2 (2026-10-16) — modal",
+    "citation": "https://pypi.org/project/modal/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "modal-labs/modal-client — ~530 stars, last commit 2026-10",
+    "citation": "https://github.com/modal-labs/modal-client",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Starter $0 + compute ($30/mo free credits); Team $250/mo + compute ($100/mo credits); Enterprise custom; usage per second (e.g. H100 $0.001097/sec)",
+    "citation": "https://modal.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK",
+    "citation": "https://pypi.org/project/modal/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "nemotron-synthetic-data-nvidia--blogs-nvidia-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "The row URL (blogs.nvidia.com/blog/synthetic-data-generation-nemotron/) returned 404 on 2026-10-27; Nemotron-4 340B Instruct is still published on Hugging Face under the NVIDIA Open Model License. The row URL needs replacing.",
+  "lifecycle_citation": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "NVIDIA Open Model License — Nemotron-4 340B weights",
+    "citation": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "nvidia-gr00t-isaac--developer-nvidia-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "NVIDIA/Isaac-GR00T pushed 2026-10-22; GR00T N1.7 released 2026-04-21 (n1.6.1 patch 2026-04-23).",
+  "lifecycle_citation": "https://github.com/NVIDIA/Isaac-GR00T",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "NVIDIA Open Model license",
+    "new": "Apache-2.0 code; model weights NVIDIA Open Model License",
+    "citation": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "GR00T N1 (2B) on HuggingFace Mar-2025",
+    "new": "GR00T N1.7 (2026-04-21) — Isaac-GR00T",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/NVIDIA/Isaac-GR00T",
+    "new": "NVIDIA/Isaac-GR00T — ~8.3k stars, last commit 2026-10",
+    "citation": "https://github.com/NVIDIA/Isaac-GR00T",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "NVIDIA acquired OctoAI in 2024 (per NVIDIA developer-blog author bio); octo.ai now 301-redirects to nvidia.com, so the OctoAI service is no longer offered.",
+  "lifecycle_citation": "https://developer.nvidia.com/blog/author/benhamm/",
+  "updates": []
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Arize-ai/openinference pushed 2026-10-26; semantic-conventions packages released 2026-10-23 on PyPI and npm.",
+  "lifecycle_citation": "https://github.com/Arize-ai/openinference",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/Arize-ai/openinference",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.1.42 (2026-10-23) — openinference-semantic-conventions",
+    "citation": "https://pypi.org/project/openinference-semantic-conventions/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Arize-ai/openinference — ~1.3k stars, last commit 2026-10",
+    "citation": "https://github.com/Arize-ai/openinference",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python and JS/TS OpenTelemetry instrumentation packages",
+    "citation": "https://www.npmjs.com/package/@arizeai/openinference-semantic-conventions",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "openllmetry-traceloop--gh-traceloop-openllmetry",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "traceloop/openllmetry pushed 2026-10-19; traceloop-sdk 0.62.4 released 2026-09-29.",
+  "lifecycle_citation": "https://github.com/traceloop/openllmetry",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/traceloop/openllmetry",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.62.4 (2026-09-29) — traceloop-sdk",
+    "citation": "https://pypi.org/project/traceloop-sdk/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "traceloop/openllmetry — ~7.5k stars, last commit 2026-10",
+    "citation": "https://github.com/traceloop/openllmetry",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK (traceloop-sdk); JS/TS SDK in openllmetry-js",
+    "citation": "https://www.npmjs.com/package/@traceloop/node-server-sdk",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "openmind-om1--openmind-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "OpenMind/OM1 pushed 2026-10-13 with a nightly build 2026-09-30; the README now recommends the Go runtime and says the Python runtime is deprecated.",
+  "lifecycle_citation": "https://github.com/OpenMind/OM1",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-host; runs on Linux/ROS-class robots",
+    "new": "Self-hosted only — prebuilt binaries for Linux/macOS or build from source; connects to robot HAL/ROS2 via DDS or websockets",
+    "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/OpenMind/OM1",
+    "new": "OpenMind/OM1 — ~3.0k stars, last commit 2026-10",
+    "citation": "https://github.com/OpenMind/OM1",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "Python + ROS APIs",
+    "new": "Go runtime (recommended; Python runtime deprecated); ROS2 integration via DDS or websockets",
+    "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openrlhf--gh-openrlhf-openrlhf",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "OpenRLHF/OpenRLHF pushed 2026-10-05; openrlhf 0.11.2 released 2026-09-14.",
+  "lifecycle_citation": "https://github.com/OpenRLHF/OpenRLHF",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/OpenRLHF/OpenRLHF",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.11.2 (2026-09-14) — openrlhf",
+    "citation": "https://pypi.org/project/openrlhf/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "OpenRLHF/OpenRLHF — ~10.1k stars, last commit 2026-10",
+    "citation": "https://github.com/OpenRLHF/OpenRLHF",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "outerbounds--outerbounds-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Anaconda announced its acquisition of Outerbounds on 2026-04-29 (closing not stated); outerbounds.com shows an Outerbounds is joining Anaconda banner and /pricing redirects to anaconda.com. Metaflow stays open source.",
+  "lifecycle_citation": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Commercial platform behind Metaflow (originally Netflix OSS) — ML workflow orchestration with managed compute, focused on data scientists shipping production pipelines.",
+    "new": "Commercial platform behind Metaflow (originally Netflix OSS) — ML workflow orchestration with managed compute. Acquisition by Anaconda announced 2026-04-29; now marketed as AI Orchestration in Anaconda Platform, and Metaflow stays open source.",
+    "citation": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Metaflow Apache-2.0",
+    "citation": "https://github.com/Netflix/metaflow",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.12.53 (2026-10-16) — outerbounds",
+    "citation": "https://pypi.org/project/outerbounds/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Netflix/metaflow — ~10.3k stars, last commit 2026-10",
+    "citation": "https://github.com/Netflix/metaflow",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "$26.6M total raised through Series A 2022 (Index Ventures led); commercial steward of Metaflow OSS.",
+    "new": "$26.6M total raised through Series A 2022 (Index Ventures led); acquisition by Anaconda announced 2026-04-29 (terms not disclosed in the announcement).",
+    "citation": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pachyderm-hpe--pachyderm-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "pachyderm/pachyderm is not archived but has had no pushes since 2025-02-03 (last release 2.12.2 on 2025-01-15); pachyderm.com and docs.pachyderm.com were unreachable from this session and HPE product status was not confirmed.",
+  "lifecycle_citation": "https://github.com/pachyderm/pachyderm",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/pachyderm/pachyderm",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.12.2 (2025-01-15)",
+    "citation": "https://github.com/pachyderm/pachyderm/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "pachyderm/pachyderm — ~6.3k stars, last commit 2025-02",
+    "citation": "https://github.com/pachyderm/pachyderm",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "patronus-ai--patronus-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "patronus Python SDK 0.1.26 released on PyPI 2026-09-17; the vendor site is live (pricing is contact-only).",
+  "lifecycle_citation": "https://pypi.org/project/patronus/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK MIT",
+    "citation": "https://pypi.org/project/patronus/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.1.26 (2026-09-17) — patronus",
+    "citation": "https://pypi.org/project/patronus/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Contact sales — no public price list",
+    "citation": "https://www.patronus.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK",
+    "citation": "https://pypi.org/project/patronus/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "peft-hugging-face--gh-huggingface-peft",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "huggingface/peft pushed 2026-10-26; peft 0.21.2 released 2026-10-01.",
+  "lifecycle_citation": "https://github.com/huggingface/peft",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/huggingface/peft",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.21.2 (2026-10-01) — peft",
+    "citation": "https://pypi.org/project/peft/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "huggingface/peft — ~21.9k stars, last commit 2026-10",
+    "citation": "https://github.com/huggingface/peft",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library",
+    "citation": "https://pypi.org/project/peft/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "physical-intelligence--physicalintelligence-company",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Physical Intelligence released pi0.7 on 2026-04-16 and opened a Pi API beta on 2026-10-13; openpi pushed 2026-08-24. The company domain now redirects to pi.website.",
+  "lifecycle_citation": "https://www.pi.website/blog/api-beta",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "OSS weights (OpenPI) self-host on robot hardware; no first-party commercial endpoint as of 2025-04 — partners deploy in-house",
+    "new": "Both (self-hosted + managed cloud) — openpi weights self-hosted; Pi API beta (managed fine-tuning + hosted inference, waitlist) since 2026-10-13",
+    "citation": "https://www.pi.website/blog/api-beta",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "π0.5 (2025)",
+    "new": "pi0.7 (2026-04-16) — model; openpi repo has no GitHub releases",
+    "citation": "https://www.pi.website/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/Physical-Intelligence/openpi",
+    "new": "Physical-Intelligence/openpi — ~14.4k stars, last commit 2026-08",
+    "citation": "https://github.com/Physical-Intelligence/openpi",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "pickle-robot--picklerobot-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "picklerobot.com is live with robots described as deployed (UPS testimonial); latest news item dated 2026-06-30.",
+  "lifecycle_citation": "https://www.picklerobot.com/",
+  "updates": []
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Portkey-AI/gateway pushed 2026-05-25 (last release v1.15.2 on 2026-01-12); SDKs and pricing page current.",
+  "lifecycle_citation": "https://portkey.ai/pricing",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS gateway self-hosted or Portkey cloud",
+    "citation": "https://portkey.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.15.2 (2026-01-12) — gateway",
+    "citation": "https://github.com/Portkey-AI/gateway/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Portkey-AI/gateway — ~13.3k stars, last commit 2026-05",
+    "citation": "https://github.com/Portkey-AI/gateway",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP Gateway product (unified layer to access and govern MCP tools)",
+    "citation": "https://portkey.ai/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Open-source gateway free (self-host); Developer free (10K logs/mo); Production $49/mo (100K logs, $9 per extra 100K up to 3M); Enterprise custom",
+    "citation": "https://portkey.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, Node SDK, gateway HTTP API",
+    "citation": "https://pypi.org/project/portkey-ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "prefect--prefect-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "PrefectHQ/prefect pushed 2026-10-27; prefect 3.9.0 released 2026-10-21.",
+  "lifecycle_citation": "https://github.com/PrefectHQ/prefect",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS server or Prefect Cloud",
+    "citation": "https://www.prefect.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.9.0 (2026-10-21) — prefect",
+    "citation": "https://pypi.org/project/prefect/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "PrefectHQ/prefect — ~24.1k stars, last commit 2026-10",
+    "citation": "https://github.com/PrefectHQ/prefect",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Prefect Cloud: Hobby free; Starter $100/mo; Team $100/user/mo; Enterprise custom",
+    "citation": "https://www.prefect.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK",
+    "citation": "https://pypi.org/project/prefect/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "promptlayer--promptlayer-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "promptlayer SDK 1.5.16 released 2026-08-19; the pricing page is live.",
+  "lifecycle_citation": "https://www.promptlayer.com/pricing",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/MagnivOrg/prompt-layer-library",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — self-hosting on Enterprise plan (GCP, AWS, Azure)",
+    "citation": "https://www.promptlayer.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.5.16 (2026-08-19) — promptlayer",
+    "citation": "https://pypi.org/project/promptlayer/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "MagnivOrg/prompt-layer-library — ~0.8k stars, last commit 2026-08",
+    "citation": "https://github.com/MagnivOrg/prompt-layer-library",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free $0 (2.5k requests/mo); Pro $49/mo; Team $500/mo (100k+ requests); Enterprise custom",
+    "citation": "https://www.promptlayer.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK",
+    "citation": "https://pypi.org/project/promptlayer/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "qlora--arxiv-2305-14314",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "The official implementation artidoro/qlora is not archived, but its last push was 2024-06-10 and the README updates stop at 2023-07; QLoRA lives on in bitsandbytes/PEFT.",
+  "lifecycle_citation": "https://github.com/artidoro/qlora",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "MIT — artidoro/qlora (Guanaco weights follow LLaMA license)",
+    "citation": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "artidoro/qlora — ~11.1k stars, last commit 2024-06",
+    "citation": "https://github.com/artidoro/qlora",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "ragas--gh-explodinggradients-ragas",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "The repo now lives at vibrantlabsai/ragas (explodinggradients redirects) and is not archived, but it has had no pushes since 2026-02-24 and no release since v0.4.3 (2026-01-13); no deprecation notice.",
+  "lifecycle_citation": "https://github.com/vibrantlabsai/ragas",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/vibrantlabsai/ragas",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.4.3 (2026-01-13) — ragas",
+    "citation": "https://github.com/vibrantlabsai/ragas/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "vibrantlabsai/ragas — ~16.2k stars, last commit 2026-02",
+    "citation": "https://github.com/vibrantlabsai/ragas",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "ray-train--docs-ray-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "ray-project/ray pushed 2026-10-27; ray 2.59.0 released 2026-10-02.",
+  "lifecycle_citation": "https://github.com/ray-project/ray",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.59.0 (2026-10-02) — ray",
+    "citation": "https://pypi.org/project/ray/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "ray-project/ray — ~44.1k stars, last commit 2026-10",
+    "citation": "https://github.com/ray-project/ray",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library (ray.train)",
+    "citation": "https://pypi.org/project/ray/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "replicate--replicate-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cloudflare announced the acquisition 2025-11-17 and closed it 2025-12-01 (Replicate is officially part of Cloudflare); Replicate continues as a distinct brand and its API is unchanged.",
+  "lifecycle_citation": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Hosted-API platform for OSS models — Cog format packages models with their environment; thousands of community models behind a single REST API.",
+    "new": "Hosted-API platform for OSS models, part of Cloudflare since 2025-12-01 (still runs as a distinct brand) — Cog format packages models with their environment; thousands of community models behind a single REST API.",
+    "citation": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Cog Apache-2.0",
+    "citation": "https://github.com/replicate/cog",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — hosted API (Cog is OSS for packaging models)",
+    "citation": "https://replicate.com/blog/replicate-cloudflare",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.23.1 (2026-10-20) — cog",
+    "citation": "https://pypi.org/project/cog/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "replicate/cog — ~9.5k stars, last commit 2026-10",
+    "citation": "https://github.com/replicate/cog",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "$57M total raised through Series B 2024-02 ($40M, a16z led; $350M valuation).",
+    "new": "$57M total raised through Series B 2024-02 ($40M, a16z led); acquired by Cloudflare (announced 2025-11-17, closed 2025-12-01).",
+    "citation": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API, Python SDK, Cog CLI",
+    "citation": "https://github.com/replicate/replicate-python",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "rl4lms--gh-allenai-rl4lms",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "allenai/RL4LMs is not archived but has had no pushes since 2024-03-01; the last dated changelog entry is v0.2.0 (2022-11-23) and nothing is published on PyPI.",
+  "lifecycle_citation": "https://github.com/allenai/RL4LMs",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/allenai/RL4LMs",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "no releases",
+    "citation": "https://github.com/allenai/RL4LMs/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "allenai/RL4LMs — ~2.4k stars, last commit 2024-03",
+    "citation": "https://github.com/allenai/RL4LMs",
+    "confidence": "medium"
+   }
+  ]
+ }
+]
