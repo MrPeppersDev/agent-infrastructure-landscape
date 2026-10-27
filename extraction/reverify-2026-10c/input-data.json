@@ -1,0 +1,534 @@
+[
+ {
+  "group": "data",
+  "id": "activeloop-deep-lake--activeloop-ai",
+  "name": "Activeloop Deep Lake",
+  "url": "https://activeloop.ai",
+  "section": "Vector-database infrastructure",
+  "cells": {
+   "desc": "Deep Memory feature optimises embedding space per use-case (+22% retrieval accuracy). Deep Lake PG unifies serverless Postgres (agent short-term state) + billion-scale vector search (long-term memory).",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Free + paid",
+   "funding": "~$20M total (Seed + $11M Series A)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: Python, JS/TS"
+  }
+ },
+ {
+  "group": "data",
+  "id": "allegrograph-franz--allegrograph-com",
+  "name": "AllegroGraph (Franz)",
+  "url": "https://allegrograph.com/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "RDF triple/quad store with RDFS++ / OWL reasoning. v8.4 (May 2025) added an NLQ interface.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both (on-prem + cloud)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Free tier + commercial licenses (quote-based)",
+   "funding": "No external funding — privately held since 1984",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SPARQL, SDK: Java, Python, Lisp"
+  }
+ },
+ {
+  "group": "data",
+  "id": "amazon-neptune-analytics--aws-amazon-com",
+  "name": "Amazon Neptune Analytics",
+  "url": "https://aws.amazon.com/neptune/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "Vector index on graph nodes queryable via openCypher. Mem0 integration GA 2025; Cognee integration for agentic RAG. Combines semantic recall with multi-hop traversal in one managed service.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed-only",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Pay-per-use",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, openCypher, Gremlin, SPARQL, SDK: AWS SDKs"
+  }
+ },
+ {
+  "group": "data",
+  "id": "clarivate--clarivate-com",
+  "name": "Clarivate",
+  "url": "https://clarivate.com/",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "Bibliographic metadata curation (Web of Science, Derwent, Cortellis). Human editorial governance + journal-deindexing. Memory-adjacent — included as a curated-knowledge baseline.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "Public company (NYSE:CLVT); $1B pre-IPO funding",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "cohere-embed--cohere-com",
+  "name": "Cohere Embed",
+  "url": "https://cohere.com/embed",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "Cohere's hosted embedding models (embed-v3 family) — multi-lingual, image+text, compression. Reranker API (Rerank-v3). Cohere is one of three major LLM startups (alongside Anthropic, OpenAI) by revenue scale.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Cohere raised $500M Series D 2024-07 ($5.5B valuation; PSP Investments + Cisco led); ~$970M total.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "coveo--coveo-com",
+  "name": "Coveo",
+  "url": "https://www.coveo.com",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "RAG-as-a-Service for AWS (Dec 2025) via hosted MCP server grounding Amazon Bedrock agents in enterprise knowledge. Passage retrieval + answer generation + ranked search + fetch in one API.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed-only",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "$339M total; IPO 2021 TSX/NYSE:CVO",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: JS/TS, Atomic"
+  }
+ },
+ {
+  "group": "data",
+  "id": "databricks-vector-search--databricks-com",
+  "name": "Databricks Vector Search",
+  "url": "https://www.databricks.com/product/machine-learning/vector-search",
+  "section": "Vector-database infrastructure",
+  "cells": {
+   "desc": "Storage-optimised index scaling to billions of vectors. Hosted MCP servers for UC functions, Genie, Vector Search. Agent framework integrates retrieval with Unity Catalog governance.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed-only",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "via official adapter — Databricks MCP",
+   "pricing": "Pay-per-use",
+   "funding": "$20.2B total over 14 rounds; $62B valuation Dec 2024",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: Python"
+  }
+ },
+ {
+  "group": "data",
+  "id": "diffbot--diffbot-com",
+  "name": "Diffbot",
+  "url": "https://www.diffbot.com/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "Auto-built knowledge graph from web crawl. 1T+ facts, 10B+ entities. GraphRAG-fine-tuned model based on open-source Llama 3.3.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed-only",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "SaaS",
+   "funding": "$12.5M total (Seed + Series A 2016)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + GraphQL (DQL Knowledge Graph; Enhance, Extract APIs)"
+  }
+ },
+ {
+  "group": "data",
+  "id": "glean--glean-com",
+  "name": "Glean",
+  "url": "https://www.glean.com/",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "Enterprise search with 100+ connectors. Personalised per-user knowledge graph. No governance layer.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "native (first-party) — Glean MCP server",
+   "pricing": "Enterprise only",
+   "funding": "$765M total $7.2B val Series F · 2025-06",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: Python, JS/TS"
+  }
+ },
+ {
+  "group": "data",
+  "id": "gte-alibaba-nlp--huggingface-co",
+  "name": "GTE (Alibaba-NLP)",
+  "url": "https://huggingface.co/Alibaba-NLP/gte-large",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "Alibaba DAMO Academy's GTE family — open-weight multilingual embedding models; gte-large/base/small + Qwen-based gte-Qwen2.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "hugging-face-inference-api-embeddings--huggingface-co",
+  "name": "Hugging Face Inference API (Embeddings)",
+  "url": "https://huggingface.co/docs/api-inference",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "HF's hosted Inference API and Inference Endpoints — serve any model from the Hub including the BGE/GTE/E5 embedding families.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "lucidworks-conversational-q-a-ai-agent--lucidworks-com",
+  "name": "Lucidworks Conversational Q&A AI Agent",
+  "url": "https://lucidworks.com/platform/ai-agents/ai-powered-conversational-qa-agent-built-for-enterprises",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "Enterprise Q&A agent powered by Luci patent-pending ultra-precise RAG. Embeds on product detail pages; consumes technical PDFs, spec sheets, images, tables, charts, graphs and product manuals. Maintains session history for multi-turn follow-ups; refuses out-of-scope queries via prompt-injection guard.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed cloud (no-code deploy) + self-hosted (on-prem) + hybrid",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$254M total raised (Series F 2019; backed by TPG/Top Tier/Francisco Partners)",
+   "runtimes": "No third-party benchmark; conversion-lift claims are vendor-reported; pricing opaque; session memory scope (cross-session?) not documented.",
+   "api-surface": "REST + embeddable JavaScript widget (PDP-native)"
+  }
+ },
+ {
+  "group": "data",
+  "id": "mindbreeze-inspire--mindbreeze-com",
+  "name": "Mindbreeze InSpire",
+  "url": "https://www.mindbreeze.com",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "Hybrid keyword + vector retrieval with entitlement-aware filtering. Unified enterprise knowledge graph linking documents, tickets, records. RAG prompt orchestration built in.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "No external funding — unfunded private company",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: Java, JS"
+  }
+ },
+ {
+  "group": "data",
+  "id": "mistral-embed--mistral-ai",
+  "name": "Mistral Embed",
+  "url": "https://mistral.ai/news/mistral-embed",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "Mistral AI's hosted embedding API — mistral-embed; available via Mistral La Plateforme and Azure AI.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Mistral AI raised $640M Series B 2024-06 ($6B valuation; General Catalyst led); ~$1.07B total.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "mixedbread-ai--mixedbread-com",
+  "name": "Mixedbread AI",
+  "url": "https://www.mixedbread.com/",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "Hosted embedding and reranker APIs — mxbai-embed-large + reranker. Open-weight models + paid API + agentic search.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Pre-seed / undisclosed (2024); German embeddings/rerankers startup; OSS-friendly.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "nomic-embed--nomic-ai",
+  "name": "Nomic Embed",
+  "url": "https://www.nomic.ai/embed",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "Nomic's open-weight embedding models (nomic-embed-text-v1.5, nomic-embed-vision). Nomic Atlas for vector dataset exploration.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$17M Series A 2023-07 (Coatue led); embeddings + Atlas visualization.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "ontotext-graphdb-graphwise--graphwise-ai",
+  "name": "Ontotext GraphDB / Graphwise",
+  "url": "https://graphwise.ai/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "RDF store with real-time inference. Ontotext merged with PoolParty in 2025 to form Graphwise.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "~€41M total (€30M valuation + €11M invested by Integral/PortfoLion/Carpathian/EBRD in 2022-2023)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + SPARQL 1.1 endpoint + RDF4J Workbench"
+  }
+ },
+ {
+  "group": "data",
+  "id": "openai-embeddings--platform-openai-com",
+  "name": "OpenAI Embeddings",
+  "url": "https://platform.openai.com/docs/guides/embeddings",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "OpenAI's hosted embedding API — text-embedding-3-small, text-embedding-3-large. Most widely used commercial embedding API in OSS RAG/memory stacks.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "palantir-ontology--palantir-com",
+  "name": "Palantir Ontology",
+  "url": "https://www.palantir.com/platforms/foundry/ontology/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "Proprietary operational ontology — semantic objects + kinetic actions wired to microservices. Not open-standards KG; closed platform.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "$2.46B total over 18 rounds; IPO 2020 NYSE:PLTR",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "poolparty-now-graphwise--poolparty-biz",
+  "name": "PoolParty (now Graphwise)",
+  "url": "https://www.poolparty.biz/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "Taxonomy and knowledge organisation. Taxonomy Advisor (LLM-powered). SKOS-based.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both (on-prem + SaaS via Azure Marketplace)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "Undisclosed seed 2014; no further rounds",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + SPARQL 1.1 endpoint; SKOS thesaurus APIs"
+  }
+ },
+ {
+  "group": "data",
+  "id": "sajari-now-search-io--search-io",
+  "name": "Sajari (now Search.io)",
+  "url": "https://www.search.io/",
+  "section": "Search platforms (non-memory)",
+  "cells": {
+   "desc": "Site-search platform (formerly Sajari) — vector and lexical search for e-commerce / content sites. Smaller player vs Algolia/Coveo.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "data",
+  "id": "searchunify--searchunify-com",
+  "name": "SearchUnify",
+  "url": "https://www.searchunify.com/",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "Agentic enterprise search with Knowbler — quality checks via the KCS (Knowledge-Centered Service) standard. Most explicit governance features in the segment.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed-only",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "SearchUnify (a Grazitti Interactive product) — privately held; funding undisclosed; ~200 staff per LinkedIn.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST"
+  }
+ },
+ {
+  "group": "data",
+  "id": "sinequa--sinequa-com",
+  "name": "Sinequa",
+  "url": "https://www.sinequa.com",
+  "section": "Enterprise-search adjacencies",
+  "cells": {
+   "desc": "Hybrid retrieval combining dense vector + keyword + graph traversal + multimodal. Agentic RAG grounding AI agents in internal knowledge. SOC 2 / ISO 27001 compliant.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "Acquired by ChapsVision · 2024-11",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: JS/TS"
+  }
+ },
+ {
+  "group": "data",
+  "id": "stardog--stardog-com",
+  "name": "Stardog",
+  "url": "https://www.stardog.com/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "RDF-native semantic platform with SHACL validation, virtual graphs, and the Voicebox AI assistant. $32.5M funding. Pitches itself as a governed-knowledge layer.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "$32M Series C (last known) · 2022-01",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SPARQL, SDK: Java, Python, JS"
+  }
+ },
+ {
+  "group": "data",
+  "id": "tigergraph--tigergraph-com",
+  "name": "TigerGraph",
+  "url": "https://www.tigergraph.com/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "Parallel graph DB with GSQL/GQL. CoPilot for entity extraction. Free community edition.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only",
+   "funding": "$105M total Series C · 2021-02",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, GSQL, SDK: Python, Java"
+  }
+ },
+ {
+  "group": "data",
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "name": "TopQuadrant (TopBraid EDG)",
+  "url": "https://www.topquadrant.com/",
+  "section": "Knowledge-graph platforms",
+  "cells": {
+   "desc": "Ontology-native semantic governance suite. SHACL + AI Copilots for taxonomy management.",
+   "license": "not applicable — not OSS",
+   "deployment": "Both (on-prem + Azure Marketplace SaaS)",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Enterprise only — modular packages (Metadata Mgmt, Reference Data Mgmt, Vocabulary Mgmt, Business Glossaries)",
+   "funding": "$350K (seed; bootstrapped)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST + SPARQL 1.1 endpoint; GraphQL schema generation"
+  }
+ },
+ {
+  "group": "data",
+  "id": "turbopuffer--turbopuffer-com",
+  "name": "Turbopuffer",
+  "url": "https://turbopuffer.com/",
+  "section": "Vector-database infrastructure",
+  "cells": {
+   "desc": "Object-storage-first vector DB. Powers Notion and Cursor. SPFresh indexing; ~10× cost reduction vs. memory-resident peers.",
+   "license": "not applicable — not OSS",
+   "deployment": "Hybrid",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+   "pricing": "Pay-per-use",
+   "funding": "Seed+ · 2025-12",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "REST, SDK: Python, TS, Go"
+  }
+ },
+ {
+  "group": "data",
+  "id": "voyage-ai-mongodb--voyageai-com",
+  "name": "Voyage AI (MongoDB)",
+  "url": "https://www.voyageai.com/",
+  "section": "Embedding & reranker services",
+  "cells": {
+   "desc": "Specialised embedding and reranker provider — voyage-3, voyage-multilingual, voyage-finance, voyage-law, voyage-code. Acquired by MongoDB Feb 2025 for $220M.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Acquired by MongoDB for $220M in 2025-02; previously $28M total (Series A 2024 led by CRV).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ }
+]
