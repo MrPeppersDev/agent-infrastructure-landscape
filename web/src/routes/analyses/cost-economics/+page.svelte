@@ -62,8 +62,10 @@
     if (activeSection !== 'all') {
       rows = rows.filter((r) => r.section === activeSection);
     }
-    if (activeFeature !== 'all') {
-      rows = rows.filter((r) => r.features[activeFeature] === 'yes');
+    // Copy first: narrowing of the $state value doesn't reach the callback.
+    const key = activeFeature;
+    if (key !== 'all') {
+      rows = rows.filter((r) => r.features[key] === 'yes');
     }
     switch (sortMode) {
       case 'score':
