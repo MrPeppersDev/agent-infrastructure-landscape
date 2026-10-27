@@ -1,6 +1,6 @@
 {
   "note": "Published list prices of managed memory layers, as stated on each vendor's pricing page on the date checked. Used by the cost estimator (mcp/src/costs.ts, /costs). Enterprise / custom tiers are not priced. Re-check before relying on a number.",
-  "checked": "2026-10-26",
+  "checked": "2026-10-27",
   "vendors": [
     {
       "system": "Mem0",
@@ -63,6 +63,17 @@
       ],
       "beyond": "Enterprise (volume pricing)",
       "notes": "Developer is pay-as-you-go: $0.10 per active agent per month plus LLM usage and $0.00015 per second of tool execution, which aren't estimated here."
+    },
+    {
+      "system": "Honcho (Plastic Labs)",
+      "model": "metered-credits",
+      "source": "https://honcho.dev",
+      "plans": [
+        { "name": "Pay as you go (card on file)", "usd": 0, "credit_usd": 5, "topup": true }
+      ],
+      "rates": { "memory_text_per_m_tokens": 2, "search_per_m_queries": 0 },
+      "beyond": "Enterprise (custom)",
+      "notes": "$2 per 1M tokens ingested; context() reads are unlimited and standard dreaming is included; $5 credit a month once a card is added. Reasoning queries ($0.001–$0.50 each) are billed separately and not estimated here."
     }
   ]
 }

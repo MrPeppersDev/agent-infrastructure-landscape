@@ -85,6 +85,10 @@ try {
   const usd = await texts('.res .usd');
   check('/costs estimates every vendor', usd.length >= 5, JSON.stringify(usd));
 
+  await go('/costs?tab=vector');
+  const vusd = await texts('.res .usd');
+  check('/costs vector tab prices published vendors', vusd.filter((t) => t.startsWith('$') || t.startsWith('from')).length >= 4, JSON.stringify(vusd));
+
   await go('/systems/mem0--mem0-ai');
   check('system page has change log', (await page.locator('#changes li').count()) > 0);
   check('system page has correction link', (await page.locator('a[href*="template=correction.yml"]').count()) > 0);

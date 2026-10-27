@@ -50,14 +50,14 @@ Apply them with `python3 scripts/apply_reverify.py --date YYYY-MM-DD <files> --r
 
 | Path | What |
 |---|---|
-| `mcp/src/stack-check.ts`, `chooser.ts`, `chooser-infra.ts`, `compat.ts`, `search.ts`, `costs.ts` | Pure, dependency-free logic shared by the web, the MCP server, the CLI, the worker and the Action. Import siblings with a `.js` suffix. |
+| `mcp/src/stack-check.ts`, `chooser.ts`, `chooser-infra.ts`, `compat.ts`, `search.ts`, `costs.ts`, `vector-costs.ts` | Pure, dependency-free logic shared by the web, the MCP server, the CLI, the worker and the Action. Import siblings with a `.js` suffix. |
 | `mcp/src/server.ts` | stdio MCP server (23 tools). Tests: `cd mcp && npm test`, or run `tsx src/test-*.ts` directly |
 | `cli/src/landscape.ts` | CLI (`check`, `choose`, `choose-stack`, `compat`, `alternatives`, …) |
 | `worker/` | Hosted MCP: stateless Streamable HTTP, Cloudflare Worker. `npx tsx worker/test/handler.test.ts` |
 | `action.yml`, `action/` | "AI stack check" GitHub Action; self-test in `.github/workflows/action-test.yml` |
 | `web/` | SvelteKit (Svelte 5). The postbuild script `web/scripts/generate-exports.mjs` writes `/api/*`, `/feeds/*`, `/changes.xml` and `llms.txt`. `web/scripts/smoke.mjs` is the Playwright smoke test that runs in PR checks |
 | `scripts/` | Python pipeline and bots: `build_stack_index.py` (lifecycle detection), `build_history.py`, `apply_*.py`, `lint_contradictions.py` |
-| `data/` | `landscape.json`, edges, `stack-index.json`, `history.json`, `migrations.json` (curated, official sources only), `pricing/memory.json` (published list prices + date checked) |
+| `data/` | `landscape.json`, edges, `stack-index.json`, `history.json`, `migrations.json` (curated, official sources only), `pricing/memory.json` and `pricing/vector.json` (published list prices + date checked) |
 | `taxonomy/` | `families.json` (section → 5 product families), `package-aliases.json`, `system-aliases.json` |
 | `bench/` | Memory benchmark harness (LongMemEval, LoCoMo). Never run against live services yet |
 

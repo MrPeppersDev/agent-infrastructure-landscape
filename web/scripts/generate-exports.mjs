@@ -196,7 +196,7 @@ write('llms.txt', `# AI Agent Infrastructure Landscape
 - [Check a stack](${PUBLIC}/check): paste package.json / requirements.txt / pyproject.toml / MCP config → archived, acquired or stale dependencies and replacements.
 - [Alternatives](${PUBLIC}/alternatives): live alternatives to any memory layer, framework or data store.
 - [Ask the catalog](${PUBLIC}/search): plain-language search with requirement checking.
-- [Memory cost calculator](${PUBLIC}/costs): monthly cost of managed memory layers from published prices.
+- [Memory & vector cost calculator](${PUBLIC}/costs): monthly cost of managed memory layers and vector stores from published prices.
 - [Benchmarks](${PUBLIC}/benchmarks): reproducible memory benchmark runs vs vendor-reported scores.
 - [Compatibility](${PUBLIC}/compatibility): do these systems work together? Integration evidence for every pair, with sources.
 - [Compare](${PUBLIC}/compare): head-to-head pages; [compare up to five](${PUBLIC}/compare/many).
