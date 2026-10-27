@@ -14,7 +14,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
 import { compatibility, worksWith, setAliases } from './compat.js';
 import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
@@ -108,6 +108,23 @@ async function main() {
       }
     }
   );
+
+  // Ids of merged-away records resolve to the record they were folded into,
+  // for every tool that takes `id`, `ids` or `record_id`. Tools without an
+  // input schema are called with `extra` only, so only rewrite two-arg calls.
+  const redirects = loadRedirects();
+  const resolveId = (v: unknown) => (typeof v === 'string' ? (redirects[v] ?? v) : v);
+  const resolveArgs = (a: Record<string, unknown>) => ({
+    ...a,
+    ...('id' in a ? { id: resolveId(a.id) } : {}),
+    ...('record_id' in a ? { record_id: resolveId(a.record_id) } : {}),
+    ...(Array.isArray(a.ids) ? { ids: a.ids.map(resolveId) } : {})
+  });
+  const register = server.registerTool.bind(server) as (...a: unknown[]) => unknown;
+  server.registerTool = ((name: string, config: unknown, cb: (...a: unknown[]) => unknown) =>
+    register(name, config, (...a: unknown[]) =>
+      a.length > 1 ? cb(resolveArgs(a[0] as Record<string, unknown>), ...a.slice(1)) : cb(...a)
+    )) as typeof server.registerTool;
 
   // -----------------------------------------------------------------------
   // 1. search_records

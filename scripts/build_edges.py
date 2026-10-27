@@ -152,6 +152,7 @@ NAME_ALIASES: dict[str, str] = {
     "amazon bedrock agentcore memory": "AWS Bedrock AgentCore Memory",
     "official memory mcp": "Official MCP Memory server",
     "official mcp memory": "Official MCP Memory server",
+    "opensearch": "OpenSearch",
 }
 
 # Names that legitimately don't have a row in landscape.json — log once and
@@ -166,7 +167,6 @@ KNOWN_UNRESOLVABLE = {
     "llama 3.3",                     # generic LLM, not a memory system
     "hunyuan",                       # generic LLM
     "mcp servers (general)",         # umbrella reference
-    "opensearch",                    # only listed as 'Elasticsearch / OpenSearch' compound
 }
 
 # ---------------------------------------------------------------------------
@@ -249,6 +249,7 @@ SUBSTRATE_ALIASES: dict[str, str] = {
     "postgresql pgvector":     "pgvector--gh-pgvector-pgvector",
     "elasticsearch":           "elasticsearch-opensearch--elastic-co",
     "elastic":                 "elasticsearch-opensearch--elastic-co",
+    "opensearch":              "opensearch-aws--opensearch-org",
     "lancedb":                 "lancedb--lancedb-com",
     "mongodb atlas":           "mongodb-atlas-vector-search--mongodb-com",
     "mongodb vector":          "mongodb-atlas-vector-search--mongodb-com",

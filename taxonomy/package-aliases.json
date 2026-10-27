@@ -146,11 +146,6 @@
       "npm:@lancedb/lancedb",
       "npm:vectordb"
     ],
-    "PostgreSQL pgvector": [
-      "pypi:pgvector",
-      "npm:pgvector",
-      "docker:pgvector/pgvector"
-    ],
     "Neo4j": [
       "pypi:neo4j",
       "npm:neo4j-driver",
@@ -230,11 +225,6 @@
     "Vespa": [
       "pypi:pyvespa"
     ],
-    "Elasticsearch / OpenSearch": [
-      "pypi:elasticsearch",
-      "pypi:opensearch-py",
-      "npm:@elastic/elasticsearch"
-    ],
     "Turbopuffer": [
       "pypi:turbopuffer",
       "npm:@turbopuffer/turbopuffer"
@@ -271,9 +261,6 @@
     "Portkey AI": [
       "pypi:portkey-ai",
       "npm:portkey-ai"
-    ],
-    "Continue.dev (framework)": [
-      "npm:@continuedev/cli"
     ],
     "Aider": [
       "pypi:aider-chat"
@@ -352,6 +339,22 @@
     "Kuzu": [
       "pypi:kuzu",
       "npm:kuzu"
+    ],
+    "pgvector": [
+      "pypi:pgvector",
+      "npm:pgvector",
+      "docker:pgvector/pgvector"
+    ],
+    "Elasticsearch": [
+      "pypi:elasticsearch",
+      "npm:@elastic/elasticsearch"
+    ],
+    "OpenSearch": [
+      "pypi:opensearch-py",
+      "npm:@opensearch-project/opensearch"
+    ],
+    "Continue.dev": [
+      "npm:@continuedev/cli"
     ]
   }
 }

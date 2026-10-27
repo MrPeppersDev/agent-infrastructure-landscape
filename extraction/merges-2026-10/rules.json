@@ -1,0 +1,159 @@
+{
+  "_doc": "Duplicate-record merges (HANDOFF item 2). Each rule keeps one record and folds the `drop` records into it: the kept record's real-data cells win, the dropped records fill cells the kept one lacks, dropped names become compat aliases (taxonomy/system-aliases.json) and dropped ids redirect to the kept id (system-aliases.json `redirects`). `name` renames the kept record; `cells` overwrites cells on the kept record (subtractive edits that keep the existing citation). Apply with scripts/merge_records.py. `packages` replaces the kept record's taxonomy/package-aliases.json entry (used for the split).",
+  "date": "2026-10-27",
+  "rules": [
+    {
+      "keep": "qdrant--qdrant-tech",
+      "drop": [
+        "qdrant-cloud--cloud-qdrant-io"
+      ],
+      "aliases": [
+        "Qdrant Cloud"
+      ],
+      "reason": "Qdrant Cloud is the managed packaging of the same Qdrant engine."
+    },
+    {
+      "keep": "weaviate--weaviate-io",
+      "drop": [
+        "weaviate-cloud--weaviate-io"
+      ],
+      "aliases": [
+        "Weaviate Cloud"
+      ],
+      "reason": "Weaviate Cloud is the managed packaging of the same Weaviate engine."
+    },
+    {
+      "keep": "pgvector--gh-pgvector-pgvector",
+      "drop": [
+        "postgresql-pgvector--gh-pgvector-pgvector"
+      ],
+      "aliases": [
+        "PostgreSQL pgvector"
+      ],
+      "reason": "Same project (github.com/pgvector/pgvector) listed twice."
+    },
+    {
+      "keep": "vespa--vespa-ai",
+      "drop": [
+        "vespa-cloud--cloud-vespa-ai"
+      ],
+      "aliases": [
+        "Vespa Cloud"
+      ],
+      "reason": "Vespa Cloud is the managed packaging of the same Vespa engine."
+    },
+    {
+      "keep": "milvus--milvus-io",
+      "drop": [
+        "zilliz-cloud--zilliz-com"
+      ],
+      "aliases": [
+        "Zilliz Cloud"
+      ],
+      "reason": "Zilliz Cloud is the managed Milvus service from Milvus's creator, Zilliz."
+    },
+    {
+      "keep": "meilisearch--meilisearch-com",
+      "drop": [
+        "meilisearch-cloud--meilisearch-com"
+      ],
+      "aliases": [
+        "Meilisearch Cloud"
+      ],
+      "reason": "Meilisearch Cloud is the managed packaging of the same Meilisearch engine."
+    },
+    {
+      "keep": "algolia--algolia-com",
+      "drop": [
+        "algolia-neuralsearch--algolia-com"
+      ],
+      "aliases": [
+        "Algolia NeuralSearch",
+        "NeuralSearch"
+      ],
+      "reason": "NeuralSearch is a feature of the Algolia platform, not a separate product."
+    },
+    {
+      "keep": "elasticsearch-opensearch--elastic-co",
+      "drop": [
+        "elastic-cloud--elastic-co"
+      ],
+      "name": "Elasticsearch",
+      "aliases": [
+        "Elastic Cloud",
+        "Elasticsearch Serverless"
+      ],
+      "cells": {
+        "license": "AGPL-3.0 / SSPL-1.0 / Elastic-2.0 (choice)",
+        "gh": "elastic/elasticsearch — ~78k stars, active (commit date not captured)",
+        "mindshare": "One of the highest-mindshare entries in the table — Elasticsearch dominates general-purpose enterprise search",
+        "pricing": "free (OSS) self-managed; Elastic Cloud paid (price pages not re-verified)",
+        "perf": "Elastic 8.12 + RaBitQ binary quantisation: 32× memory reduction, recall@10 >0.95 on MS MARCO.",
+        "cons": "Vector performance is behind dedicated engines.",
+        "links": "elastic.co"
+      },
+      "reason": "The combined 'Elasticsearch / OpenSearch' row is split: it becomes Elasticsearch (Elastic Cloud folded in) and the OpenSearch row carries OpenSearch. OpenSearch-only facts were removed from this row; the OpenSearch row already holds them with its own citations.",
+      "packages": [
+        "pypi:elasticsearch",
+        "npm:@elastic/elasticsearch"
+      ]
+    },
+    {
+      "keep": "opensearch-aws--opensearch-org",
+      "drop": [],
+      "name": "OpenSearch",
+      "aliases": [
+        "Amazon OpenSearch Service",
+        "OpenSearch (AWS)"
+      ],
+      "reason": "Split out of the combined 'Elasticsearch / OpenSearch' row; this record is now the single OpenSearch entry (opensearch.org), with Amazon OpenSearch Service as an alias.",
+      "packages": [
+        "pypi:opensearch-py",
+        "npm:@opensearch-project/opensearch"
+      ]
+    },
+    {
+      "keep": "ontotext-graphdb-graphwise--graphwise-ai",
+      "drop": [
+        "poolparty-now-graphwise--poolparty-biz"
+      ],
+      "aliases": [
+        "PoolParty",
+        "PoolParty (now Graphwise)"
+      ],
+      "reason": "Ontotext and Semantic Web Company (PoolParty) merged into Graphwise; PoolParty is now part of the Graphwise Platform (https://www.poolparty.biz/)."
+    },
+    {
+      "keep": "phidata-now-agno--agno-com",
+      "drop": [
+        "phidata-agno--agno-com"
+      ],
+      "aliases": [
+        "Phidata / Agno"
+      ],
+      "reason": "Same product (agno.com, github.com/agno-agi/agno) listed twice. The Agent-frameworks row is kept so the framework chooser keeps it."
+    },
+    {
+      "keep": "burr-dagworks--gh-dagworks-inc-burr",
+      "drop": [
+        "burr-dagworks--burr-dagworks-io"
+      ],
+      "aliases": [
+        "Apache Burr"
+      ],
+      "reason": "Same project listed twice (repo URL and docs URL); now Apache Burr (incubating)."
+    },
+    {
+      "keep": "continue-dev-harness--continue-dev",
+      "drop": [
+        "continue-dev-framework--continue-dev"
+      ],
+      "name": "Continue.dev",
+      "aliases": [
+        "Continue.dev (framework)",
+        "Continue.dev (harness)"
+      ],
+      "reason": "One product (continue.dev) listed as both a framework and a harness."
+    }
+  ]
+}

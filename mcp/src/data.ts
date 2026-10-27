@@ -213,6 +213,11 @@ export function loadSystemAliases(): Record<string, string[]> {
   return readOptional<{ aliases: Record<string, string[]> }>(['system-aliases.json'], { aliases: {} }).aliases;
 }
 
+/** Ids of records merged into another record: old id → kept id. */
+export function loadRedirects(): Record<string, string> {
+  return readOptional<{ redirects?: Record<string, string> }>(['system-aliases.json'], {}).redirects ?? {};
+}
+
 export function loadPricing(): { checked: string; vendors: unknown[] } {
   for (const p of [join(DATA_DIR, 'pricing-memory.json'), join(DATA_DIR, 'pricing', 'memory.json')]) {
     if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8'));

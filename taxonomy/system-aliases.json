@@ -11,13 +11,6 @@
     "LangGraph Persistence": [
       "LangGraph"
     ],
-    "Elasticsearch / OpenSearch": [
-      "Elasticsearch",
-      "OpenSearch"
-    ],
-    "PostgreSQL pgvector": [
-      "pgvector"
-    ],
     "Weights & Biases": [
       "W&B",
       "Weave"
@@ -47,6 +40,59 @@
     "MCP Servers (Reference)": [
       "modelcontextprotocol/servers",
       "MCP reference servers"
+    ],
+    "Qdrant": [
+      "Qdrant Cloud"
+    ],
+    "Weaviate": [
+      "Weaviate Cloud"
+    ],
+    "pgvector": [
+      "PostgreSQL pgvector"
+    ],
+    "Vespa": [
+      "Vespa Cloud"
+    ],
+    "Milvus": [
+      "Zilliz Cloud"
+    ],
+    "Meilisearch": [
+      "Meilisearch Cloud"
+    ],
+    "Algolia": [
+      "Algolia NeuralSearch",
+      "NeuralSearch"
+    ],
+    "Elasticsearch": [
+      "Elastic Cloud",
+      "Elasticsearch Serverless"
+    ],
+    "OpenSearch": [
+      "Amazon OpenSearch Service"
+    ],
+    "Ontotext GraphDB / Graphwise": [
+      "PoolParty",
+      "PoolParty (now Graphwise)"
+    ],
+    "Phidata (now Agno)": [
+      "Phidata / Agno"
+    ],
+    "Burr (DAGWorks)": [
+      "Apache Burr"
     ]
+  },
+  "redirects": {
+    "algolia-neuralsearch--algolia-com": "algolia--algolia-com",
+    "burr-dagworks--burr-dagworks-io": "burr-dagworks--gh-dagworks-inc-burr",
+    "continue-dev-framework--continue-dev": "continue-dev-harness--continue-dev",
+    "elastic-cloud--elastic-co": "elasticsearch-opensearch--elastic-co",
+    "meilisearch-cloud--meilisearch-com": "meilisearch--meilisearch-com",
+    "phidata-agno--agno-com": "phidata-now-agno--agno-com",
+    "poolparty-now-graphwise--poolparty-biz": "ontotext-graphdb-graphwise--graphwise-ai",
+    "postgresql-pgvector--gh-pgvector-pgvector": "pgvector--gh-pgvector-pgvector",
+    "qdrant-cloud--cloud-qdrant-io": "qdrant--qdrant-tech",
+    "vespa-cloud--cloud-vespa-ai": "vespa--vespa-ai",
+    "weaviate-cloud--weaviate-io": "weaviate--weaviate-io",
+    "zilliz-cloud--zilliz-com": "milvus--milvus-io"
   }
 }

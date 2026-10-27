@@ -6,8 +6,9 @@
 // landscape into each of 912 __data.json sidecars would balloon the
 // build by ~5 GB; the per-page slice keeps each sidecar under ~10 kB.
 
-import { error } from '@sveltejs/kit';
-import { getRecords, getEdges } from '$lib/data';
+import { error, redirect } from '@sveltejs/kit';
+import { base } from '$app/paths';
+import { getRecords, getEdges, getRedirects } from '$lib/data';
 import { allPairs, pairToSlug } from '$lib/seo/compare';
 import { familyForSection } from '$lib/families';
 import { historyFor, type HistoryEvent } from '$lib/history';
@@ -22,7 +23,8 @@ export type RelatedPair = { slug: string; otherId: string; otherName: string };
 export type SimilarSystem = { id: string; name: string; tier: 1 | 2 | 3 | 4 | 5; desc: string | null };
 
 export function entries(): { slug: string }[] {
-  return getRecords().map((r) => ({ slug: r.id }));
+  // Merged-away ids keep a page that redirects to the kept record.
+  return [...getRecords().map((r) => r.id), ...Object.keys(getRedirects())].map((slug) => ({ slug }));
 }
 
 export function load({ params }: { params: { slug: string } }): {
@@ -38,6 +40,8 @@ export function load({ params }: { params: { slug: string } }): {
 } {
   const records = getRecords();
   const record = records.find((r) => r.id === params.slug);
+  const movedTo = getRedirects()[params.slug];
+  if (!record && movedTo) redirect(308, `${base}/systems/${movedTo}`);
   if (!record) throw error(404, `System "${params.slug}" not found`);
 
   const edges = getEdges();

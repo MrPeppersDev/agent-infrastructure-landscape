@@ -1,4 +1,6 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
+import { base } from '$app/paths';
+import { getRedirects } from '$lib/data';
 import { alternativesTo, alternativeIds, familyIdOfItem, familyName } from '$lib/alternatives';
 import { allPairs, pairToSlug } from '$lib/seo/compare';
 import { migrationFor } from '$lib/migrations';
@@ -11,10 +13,13 @@ export function entries(): { id: string }[] {
   const ids = new Set(alternativeIds());
   // every flagged dependency must resolve (stack checker links here)
   for (const id of attentionIds(stackIndex as unknown as StackIndex)) ids.add(id);
+  for (const [from, to] of Object.entries(getRedirects())) if (ids.has(to)) ids.add(from);
   return [...ids].map((id) => ({ id }));
 }
 
 export function load({ params }: { params: { id: string } }) {
+  const movedTo = getRedirects()[params.id];
+  if (movedTo) redirect(308, `${base}/alternatives/${movedTo}`);
   const r = alternativesTo(params.id, 8);
   if (!r) throw error(404, `No system "${params.id}"`);
   const pairs = new Set(allPairs().map((p) => pairToSlug(p.a, p.b)));

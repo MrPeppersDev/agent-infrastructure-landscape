@@ -401,6 +401,13 @@
     },
     {
       "source": "bedrock-agentcore-aws--aws-amazon-com",
+      "target": "opensearch-aws--opensearch-org",
+      "type": "runtime-dependency",
+      "evidence": "backend-storage cell: AWS-managed (DynamoDB, S3, OpenSearch under the hood)",
+      "citation": "https://aws.amazon.com/bedrock/agentcore/"
+    },
+    {
+      "source": "bedrock-agentcore-aws--aws-amazon-com",
       "target": "strands-agents-aws--strandsagents-com",
       "type": "integrates-with",
       "evidence": "framework-agnostic; integrates with Strands Agents, Mem0 as memory provider.",
@@ -451,7 +458,7 @@
       "citation": "https://github.com/browser-use/browser-use"
     },
     {
-      "source": "burr-dagworks--burr-dagworks-io",
+      "source": "burr-dagworks--gh-dagworks-inc-burr",
       "target": "langgraph-orchestration--langchain-com",
       "type": "runtime-dependency",
       "evidence": "adjacent-infrastructure cell: Hamilton (sister OSS framework, same company); LangGraph (closest competitor); MLflow / Phoenix observability",
@@ -3171,6 +3178,13 @@
       "citation": "https://mem0.ai/openmemory"
     },
     {
+      "source": "opensearch-aws--opensearch-org",
+      "target": "elasticsearch-opensearch--elastic-co",
+      "type": "forks",
+      "evidence": "AWS-led fork of Elasticsearch 7 — Apache-licensed; k-NN plugin, OpenSearch ML, neural-searc",
+      "citation": "https://opensearch.org/"
+    },
+    {
       "source": "openviking-bytedance-volcengine--gh-volcengine-openviking",
       "target": "verl--gh-volcengine-verl",
       "type": "same-team-as",
@@ -3208,35 +3222,21 @@
       "citation": "https://github.com/pgvector/pgvector"
     },
     {
-      "source": "pgvector--gh-pgvector-pgvector",
-      "target": "postgresql-pgvector--gh-pgvector-pgvector",
-      "type": "same-team-as",
-      "evidence": "Same GitHub organisation `pgvector` publishes both repos.",
-      "citation": "https://github.com/pgvector/pgvector"
-    },
-    {
-      "source": "phidata-agno--agno-com",
+      "source": "phidata-now-agno--agno-com",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
       "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; OpenAI / Anthropic / Gemini SDKs; YC W22 alumni network",
       "citation": "https://www.agno.com/"
     },
     {
-      "source": "phidata-agno--agno-com",
+      "source": "phidata-now-agno--agno-com",
       "target": "google-gemini-3-family--blog-google",
       "type": "runtime-dependency",
       "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; OpenAI / Anthropic / Gemini SDKs; YC W22 alumni network",
       "citation": "https://www.agno.com/"
     },
     {
-      "source": "phidata-agno--agno-com",
-      "target": "langchain-framework--langchain-com",
-      "type": "competes-with",
-      "evidence": "soning. Lightweight alternative to LangChain. ~25k+ stars combined Phidata + Agno repos. Mozilla Venture",
-      "citation": "https://www.agno.com/"
-    },
-    {
-      "source": "phidata-agno--agno-com",
+      "source": "phidata-now-agno--agno-com",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
       "evidence": "adjacent-infrastructure cell: HuggingFace Transformers; OpenAI / Anthropic / Gemini SDKs; YC W22 alumni network",
@@ -3694,6 +3694,13 @@
       "target": "mem0--mem0-ai",
       "type": "runtime-dependency",
       "evidence": "ni, OpenAI). Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics) or Bedrock Age",
+      "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
+    },
+    {
+      "source": "strands-agents-memory-aws--docs-aws-amazon-com",
+      "target": "opensearch-aws--opensearch-org",
+      "type": "built-on",
+      "evidence": "OpenSearch for production",
       "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
     },
     {

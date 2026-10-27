@@ -28,6 +28,7 @@ make action     # regenerate action/dist/stack-check.mjs from mcp/src/stack-chec
 - Taxonomy reasons on single-value axes must start with the value and contain no colons.
 - Renames keep the id. `render.py` emits `data-id` when the id isn't `make_id(name, url)`.
 - Commit `landscape.json`, `landscape.edges.json`, `landscape.html` and `stack-index.json` together.
+- To merge duplicate records, write a rules file like `extraction/merges-2026-10/rules.json` and run `python3 scripts/merge_records.py <rules>`. Removed ids go into `taxonomy/system-aliases.json` → `redirects`. The site, API, MCP server, worker and CLI all resolve them to the kept record.
 
 ## Applying research results
 
