@@ -1,0 +1,149 @@
+{
+  "note": "Published list prices of managed vector stores, as stated on each vendor's pricing page or pricing docs on the date checked. Used by the vector-store tab of the cost estimator (mcp/src/vector-costs.ts, /costs). Only published rates are used; anything a vendor does not publish is listed under not_published and never estimated. Re-check before relying on a number.",
+  "checked": "2026-10-27",
+  "vendors": [
+    {
+      "system": "Pinecone",
+      "record": "pinecone--pinecone-io",
+      "model": "pinecone",
+      "source": "https://www.pinecone.io/pricing/",
+      "units": "https://docs.pinecone.io/guides/manage-cost/understanding-cost",
+      "plans": [
+        {
+          "name": "Starter",
+          "usd": 0,
+          "storage_gb": 2,
+          "write_units": 2000000,
+          "read_units": 1000000
+        },
+        {
+          "name": "Builder",
+          "usd": 20,
+          "storage_gb": 10,
+          "write_units": 5000000,
+          "read_units": 2000000
+        },
+        {
+          "name": "Standard",
+          "minimum_usd": 50,
+          "storage_gb_month": 0.33,
+          "per_m_write_units": 4,
+          "per_m_read_units": 16
+        }
+      ],
+      "unit_rules": {
+        "write_units_per_kb": 1,
+        "min_write_units_per_request": 5,
+        "read_units_per_gb_queried": 1,
+        "min_read_units_per_query": 0.25
+      },
+      "notes": "Starter and Builder block usage beyond their quotas. Standard write and read rates are published as ranges ($4–4.50 per 1M WU, $16–18 per 1M RU) by region; the low end is used. Egress, backup and import are billed separately.",
+      "not_published": [
+        "which region carries the low end of the WU/RU ranges",
+        "BYOC pricing"
+      ]
+    },
+    {
+      "system": "Turbopuffer",
+      "record": "turbopuffer--turbopuffer-com",
+      "model": "turbopuffer",
+      "source": "https://turbopuffer.com/pricing",
+      "plans": [
+        {
+          "name": "Launch",
+          "minimum_usd": 16
+        },
+        {
+          "name": "Scale",
+          "minimum_usd": 256
+        }
+      ],
+      "rates": {
+        "storage_gb_month": 0.33,
+        "write_per_gb": 2,
+        "query_per_pb": 1
+      },
+      "unit_rules": {
+        "bytes_per_dimension": 4,
+        "min_write_kb": 10,
+        "min_query_gb": 1.28,
+        "query_discount_32_128_gb": 0.8,
+        "query_discount_over_128_gb": 0.96
+      },
+      "notes": "Rates are published as upper bounds (≤). Writes get a batch discount of min(0.5, 0.2 × (log10 KB − 1)). Data returned by queries is also billed per GB.",
+      "not_published": [
+        "the per-GB rate for data returned by queries (calculator only)",
+        "a free tier"
+      ]
+    },
+    {
+      "system": "Weaviate Cloud",
+      "record": "weaviate--weaviate-io",
+      "model": "weaviate",
+      "source": "https://weaviate.io/pricing",
+      "plans": [
+        {
+          "name": "Flex",
+          "minimum_usd": 45,
+          "per_m_dimensions": 0.00465,
+          "storage_gib_month": 0.12,
+          "backup_gib_month": 0.03036
+        }
+      ],
+      "notes": "Rates are published as 'from' prices. Queries and writes are not metered. Backups are on by default.",
+      "not_published": [
+        "dimension rates for each compression / index type",
+        "which region the 'from' prices refer to"
+      ]
+    },
+    {
+      "system": "Zilliz Cloud",
+      "record": "milvus--milvus-io",
+      "model": "zilliz",
+      "source": "https://zilliz.com/pricing",
+      "units": "https://docs.zilliz.com/docs/serverless-cluster-cost",
+      "plans": [
+        {
+          "name": "Free",
+          "usd": 0,
+          "storage_gb": 5,
+          "vcus": 2500000
+        },
+        {
+          "name": "Serverless",
+          "per_m_vcus": 4
+        }
+      ],
+      "unit_rules": {
+        "insert_vcus_per_kb": 0.25,
+        "min_read_vcus_per_query": 6
+      },
+      "notes": "Serverless reads and writes are billed in vCUs. Dedicated clusters are priced per CU-hour.",
+      "not_published": [
+        "serverless storage per GB-month",
+        "the full formula for read vCUs (only a 6 vCU minimum per query)"
+      ]
+    },
+    {
+      "system": "Qdrant Cloud",
+      "record": "qdrant--qdrant-tech",
+      "model": "unpublished",
+      "source": "https://qdrant.tech/pricing/",
+      "notes": "Free tier: 0.5 vCPU, 1 GB RAM, 4 GB disk. Paid clusters bill vCPU, RAM, disk and backup hourly; the rates appear only in the interactive calculator (https://cloud.qdrant.io/calculator), not as text.",
+      "not_published": [
+        "vCPU, RAM, disk and backup unit rates"
+      ]
+    },
+    {
+      "system": "LanceDB Cloud",
+      "record": "lancedb--lancedb-com",
+      "model": "unpublished",
+      "source": "https://lancedb.com/pricing",
+      "notes": "The pricing page lists no prices, only contact sales.",
+      "not_published": [
+        "plans",
+        "storage, write and query rates"
+      ]
+    }
+  ]
+}

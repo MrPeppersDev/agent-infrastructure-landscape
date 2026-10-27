@@ -31,7 +31,7 @@
     { path: '/compatibility', label: 'Compatibility' },
     { path: '/compare/many', label: 'Compare up to 5' },
     { path: '/search', label: 'Ask the catalog' },
-    { path: '/costs', label: 'Memory cost calculator' },
+    { path: '/costs', label: 'Memory & vector cost calculator' },
     { path: '/benchmarks', label: 'Benchmarks' },
     { path: '/best', label: 'Best-of lists' },
     { path: '/leaderboards', label: 'Leaderboards' },
