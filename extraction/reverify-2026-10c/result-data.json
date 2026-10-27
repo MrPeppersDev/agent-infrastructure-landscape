@@ -1,0 +1,829 @@
+[
+ {
+  "id": "activeloop-deep-lake--activeloop-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Deep Lake (rebranded Deeplake) is maintained: PyPI deeplake 4.7.4 released 2026-08-25 and repo pushed 2026-05; deeplake.ai now leads with Hivemind agent memory and on-prem deployment.",
+  "lifecycle_citation": "https://pypi.org/project/deeplake/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/activeloopai/deeplake",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "activeloopai/deeplake — ~9.3k stars, last commit 2026-05",
+    "citation": "https://github.com/activeloopai/deeplake",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "v4.7.4 (2026-08-25) — deeplake (PyPI)",
+    "citation": "https://pypi.org/project/deeplake/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Both",
+    "new": "Both (self-hosted + managed cloud) — Apache-2.0 library and managed Deeplake cloud; Enterprise runs in your own VPC",
+    "citation": "https://deeplake.ai/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + paid",
+    "new": "Hivemind Basic $0/month ($15 credits; 150k traces and 1.5M queries included, then $0.25 per 1k traces and 10k queries); Team $99/seat/month; Enterprise custom (own VPC)",
+    "citation": "https://deeplake.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "allegrograph-franz--allegrograph-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "AllegroGraph 9.1.0 release notes (GraphTalker 2.0.0) were last updated 2026-10-13.",
+  "lifecycle_citation": "https://franz.com/agraph/support/documentation/current/release-notes.html",
+  "updates": []
+ },
+ {
+  "id": "amazon-neptune-analytics--aws-amazon-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Neptune Analytics is listed with current on-demand rates in the AWS price list (publication 2026-09-11).",
+  "lifecycle_citation": "https://aws.amazon.com/neptune/pricing/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — official AWS Labs Amazon Neptune MCP server (openCypher queries, schema and status for Neptune Analytics graphs)",
+    "citation": "https://github.com/awslabs/mcp/tree/main/src/amazon-neptune-mcp-server",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Pay-per-use",
+    "new": "Pay-per-use — billed per m-NCU-hour (1 m-NCU = 1 GB memory plus compute for 1 hour), $0.03 per m-NCU-hour in us-east-1 (16 m-NCU graph = $0.48/hour); paused graphs billed at 10% of compute",
+    "citation": "https://aws.amazon.com/neptune/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "clarivate--clarivate-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Clarivate site (checked 2026-10-27) markets the IPOne ecosystem with AI agents, APIs and MCP servers.",
+  "lifecycle_citation": "https://clarivate.com/intellectual-property/ipone-solutions/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — IPOne MCP servers: Derwent Patent MCP, CompuMark Trademark MCP, Darts-ip Litigation MCP",
+    "citation": "https://clarivate.com/intellectual-property/ipone-solutions/ipone-derwent-patent-mcp/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST APIs and XML data feeds (Web of Science APIs, Derwent patent data APIs, Darts-ip API); IPOne MCP servers",
+    "citation": "https://clarivate.com/academia-government/scientific-and-academic-research/research-discovery-and-referencing/web-of-science/web-of-science-apis-and-xml-data/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "cohere-embed--cohere-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Cohere introduced the Embed 5 family (embed-v5.0-pro / embed-v5.0-fast) on 2026-09-30; Rerank 5 (rerank-v5.0-pro/fast) is also listed.",
+  "lifecycle_citation": "https://cohere.com/blog/embed-5",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK MIT",
+    "citation": "https://pypi.org/project/cohere/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Cohere API and Model Vault; deployable in customer cloud via Amazon SageMaker, Azure AI Foundry and Oracle OCI",
+    "citation": "https://docs.cohere.com/docs/models",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "Embed 5 (2026-09-30)",
+    "citation": "https://cohere.com/blog/embed-5",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "cohere-ai/cohere-python — ~406 stars, last commit 2026-10 (official Python SDK)",
+    "citation": "https://github.com/cohere-ai/cohere-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Model Vault dedicated instances: Embed 5 Fast/Pro Small $3.00/hour ($2,000/month), Medium $5.00/hour ($3,250/month); Rerank 5 Fast Medium $4.00/hour ($2,500/month); embed models billed per token embedded, rerank per search on the API",
+    "citation": "https://cohere.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API (Embed, Rerank endpoints), Python SDK, TypeScript SDK",
+    "citation": "https://docs.cohere.com/docs/models",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "coveo--coveo-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Coveo markets a hosted Coveo MCP Server for grounding AI agents (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.coveo.com/en/developers/mcp-server",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — hosted Coveo MCP Server connecting AI agents (ChatGPT, Claude, Copilot) to Coveo retrieval",
+    "citation": "https://www.coveo.com/en/developers/mcp-server",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "databricks-vector-search--databricks-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "Databricks Vector Search is now marketed as Databricks AI Search; the vector-search product URL 301-redirects to /product/artificial-intelligence/ai-search (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.databricks.com/product/artificial-intelligence/ai-search",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "via official adapter — Databricks MCP",
+    "new": "yes — Databricks managed MCP server for AI Search indexes (/api/2.0/mcp/ai-search/{catalog}/{schema}/{index})",
+    "citation": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Pay-per-use",
+    "new": "Pay-per-use DBUs — Standard $0.28/hour per unit (2M 768-dim vectors, 4 DBU/hour); Storage Optimized $1.28/hour per unit (64M vectors, 18.29 DBU/hour), effective US East prices",
+    "citation": "https://www.databricks.com/product/pricing/vector-search",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "diffbot--diffbot-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Diffbot publishes current plans and an official MCP server repo updated 2026-10.",
+  "lifecycle_citation": "https://www.diffbot.com/pricing/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — official diffbot/diffbot-mcp server (extract, search_web, crawl, entity resolution tools)",
+    "citation": "https://github.com/diffbot/diffbot-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "SaaS",
+    "new": "Free $0/month (10,000 credits); Startup $299/month (250,000 credits, overage $0.001/credit); Startup Plus $899/month (1,000,000 credits, overage $0.0009/credit); Enterprise custom",
+    "citation": "https://www.diffbot.com/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "glean--glean-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Glean homepage advertises its October Drop 2026 release.",
+  "lifecycle_citation": "https://www.glean.com/",
+  "updates": []
+ },
+ {
+  "id": "gte-alibaba-nlp--huggingface-co",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Most recent Alibaba-NLP GTE releases are gte-modernbert-base and gte-reranker-modernbert-base (2025-01-20); the row URL huggingface.co/Alibaba-NLP/gte-large does not exist (gte-large lives at thenlper/gte-large).",
+  "lifecycle_citation": "https://huggingface.co/Alibaba-NLP/gte-modernbert-base",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache-2.0",
+    "new": "Apache-2.0 (Alibaba-NLP gte-multilingual, gte-modernbert, gte-Qwen2); MIT (original thenlper/gte-large/base/small)",
+    "citation": "https://huggingface.co/thenlper/gte-large",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — open weights on Hugging Face",
+    "citation": "https://huggingface.co/Alibaba-NLP/gte-multilingual-base",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "gte-modernbert-base / gte-reranker-modernbert-base (2025-01-20) — Hugging Face",
+    "citation": "https://huggingface.co/Alibaba-NLP/gte-modernbert-base",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free — open weights",
+    "citation": "https://huggingface.co/Alibaba-NLP/gte-multilingual-base",
+    "confidence": "medium"
+   }
+  ],
+  "record": {
+   "url": "https://huggingface.co/thenlper/gte-large"
+  }
+ },
+ {
+  "id": "hugging-face-inference-api-embeddings--huggingface-co",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "The serverless Inference API is now Inference Providers; huggingface.co/docs/api-inference redirects to /docs/inference-providers (checked 2026-10-27).",
+  "lifecycle_citation": "https://huggingface.co/docs/inference-providers/en/pricing",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary service; huggingface_hub SDK Apache-2.0; Text Embeddings Inference Apache-2.0",
+    "citation": "https://github.com/huggingface/text-embeddings-inference",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — managed Inference Providers and Inference Endpoints; self-hosted Text Embeddings Inference (TEI)",
+    "citation": "https://github.com/huggingface/text-embeddings-inference",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.3.0 (2026-10-23) — huggingface_hub",
+    "citation": "https://pypi.org/project/huggingface_hub/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "huggingface/text-embeddings-inference — ~5.1k stars, last commit 2026-10",
+    "citation": "https://github.com/huggingface/text-embeddings-inference",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Hugging Face MCP Server (huggingface/hf-mcp-server)",
+    "citation": "https://huggingface.co/docs/hub/en/hf-mcp-server",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Inference Providers pay-as-you-go at provider rates with no Hugging Face markup; PRO users get $2.00/month credits, Team/Enterprise $2.00 per seat; Inference Endpoints billed hourly per instance",
+    "citation": "https://huggingface.co/docs/inference-providers/en/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API, Python SDK (huggingface_hub), JavaScript SDK (@huggingface/inference)",
+    "citation": "https://huggingface.co/docs/inference-providers/en/pricing",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "lucidworks-conversational-q-a-ai-agent--lucidworks-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Conversational Q&A agent is documented as an Agent Studio agent on the Lucidworks Platform (docs checked 2026-10-27; lucidworks.com marketing page returned 403).",
+  "lifecycle_citation": "https://doc.lucidworks.com/docs/lw-platform/lw-agent-studio/conversational-qna",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Lucidworks MCP server exposes Fusion query pipelines to Claude and other MCP clients",
+    "citation": "https://doc.lucidworks.com/docs/5/fusion/getting-data-out/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed cloud (no-code deploy) + self-hosted (on-prem) + hybrid",
+    "new": "Both (self-hosted + managed cloud) — Lucidworks Platform SaaS; self-hosted Fusion",
+    "citation": "https://doc.lucidworks.com/docs/lw-platform",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "mindbreeze-inspire--mindbreeze-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Mindbreeze markets a Model Context Protocol Server for InSpire (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.mindbreeze.com/mcp",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — Mindbreeze Model Context Protocol Server (permission-aware enterprise context for AI assistants and agents)",
+    "citation": "https://www.mindbreeze.com/mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "mistral-embed (v23.12) and Codestral Embed (v25.05) are both listed as current embedding models in Mistral docs (checked 2026-10-27).",
+  "lifecycle_citation": "https://docs.mistral.ai/getting-started/models/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; SDK Apache-2.0",
+    "citation": "https://github.com/mistralai/client-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.5.0 (2026-10-25) — mistralai (PyPI)",
+    "citation": "https://pypi.org/project/mistralai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "mistralai/client-python — ~775 stars, last commit 2026-10 (official Python SDK)",
+    "citation": "https://github.com/mistralai/client-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "mistral-embed $0.10 per 1M tokens; Codestral Embed $0.15 per 1M tokens; batch API 50% cheaper",
+    "citation": "https://docs.mistral.ai/models/mistral-embed-23-12",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API (/v1/embeddings, /v1/batch), Python SDK, TypeScript SDK",
+    "citation": "https://docs.mistral.ai/models/mistral-embed-23-12",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Mixedbread publishes current plans and SDK releases (@mixedbread/sdk 0.78.0 on 2026-09-14); latest open-weight models are mxbai-edge-colbert-v0 (2025-10-13).",
+  "lifecycle_citation": "https://www.mixedbread.com/pricing",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary API; open-weight models Apache-2.0 (mxbai-embed-large-v1, mxbai-rerank-v2); SDKs Apache-2.0",
+    "citation": "https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — managed Mixedbread API (BYOC/BYOB on Enterprise); Apache-2.0 open-weight models self-hostable",
+    "citation": "https://www.mixedbread.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.78.0 (2026-09-14) — @mixedbread/sdk",
+    "citation": "https://www.npmjs.com/package/@mixedbread/sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Mixedbread MCP Server connecting AI assistants to Mixedbread Stores/Search",
+    "citation": "https://www.mixedbread.com/docs",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Starter free ($5 one-time credits); Scale $20/month (includes $20 credits, then pay-as-you-go); Enterprise custom. Indexing $1.50/1M tokens (Fast) or $3 (High Quality); semantic search $4 per 1K queries (+$3.50 with rerank); grep search $0.10 per 1K queries",
+    "citation": "https://www.mixedbread.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API, Python SDK, TypeScript SDK, CLI, MCP server",
+    "citation": "https://www.mixedbread.com/docs",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "nomic-embed--nomic-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Open-weight Nomic Embed models remain on Hugging Face (latest new family nomic-embed-multimodal, 2025-03); Nomic has pivoted to an AEC agent platform and the nomic.ai/embed page now returns 404 (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.nomic.ai/pricing",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Apache-2.0 open weights on Hugging Face; hosted models via Nomic Agent API (Business/Enterprise)",
+    "citation": "https://www.nomic.ai/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.9.0 (2025-11-11) — nomic (PyPI)",
+    "citation": "https://pypi.org/project/nomic/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "nomic-ai/nomic — ~1.9k stars, last commit 2025-11",
+    "citation": "https://github.com/nomic-ai/nomic",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Open weights free; Nomic platform Free, Individual $20/month, Business $40/user/month (25-seat minimum, includes Agent API), Enterprise custom",
+    "citation": "https://www.nomic.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "ontotext-graphdb-graphwise--graphwise-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Semantic Web Company and Ontotext joined forces as Graphwise in 2024 (not 2025); GraphDB 11.5 is current on Graphwise Platform Pulse, and Oakley Capital acquired a majority stake in Graphwise in 2026.",
+  "lifecycle_citation": "https://graphwise.ai/about-us/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "RDF store with real-time inference. Ontotext merged with PoolParty in 2025 to form Graphwise.",
+    "new": "RDF graph database with real-time inference, now a component of the Graphwise Platform. Ontotext and Semantic Web Company (PoolParty) joined forces as Graphwise in 2024; Oakley Capital took a majority stake in 2026.",
+    "citation": "https://graphwise.ai/about-us/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — GraphDB 11.4 supports custom MCP prompt templates (defined via REST) for AI agents",
+    "citation": "https://graphwise.ai/platform-pulse/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "~€41M total (€30M valuation + €11M invested by Integral/PortfoLion/Carpathian/EBRD in 2022-2023)",
+    "new": "Majority stake acquired by Oakley Capital (2026); terms undisclosed",
+    "citation": "https://graphwise.ai/about-us/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "openai-embeddings--platform-openai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "text-embedding-3-small and text-embedding-3-large remain the current embedding models in OpenAI docs (checked 2026-10-27).",
+  "lifecycle_citation": "https://platform.openai.com/docs/guides/embeddings",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; SDKs Apache-2.0",
+    "citation": "https://github.com/openai/openai-python",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — OpenAI API",
+    "citation": "https://platform.openai.com/docs/guides/embeddings",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.39.0 (2026-10-26) — openai (PyPI)",
+    "citation": "https://pypi.org/project/openai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "openai/openai-python — ~32k stars, last commit 2026-10 (official Python SDK)",
+    "citation": "https://github.com/openai/openai-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "text-embedding-3-small $0.02 per 1M tokens; text-embedding-3-large $0.13 per 1M tokens",
+    "citation": "https://platform.openai.com/docs/models/text-embedding-3-small",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API (/v1/embeddings), Python SDK, TypeScript SDK",
+    "citation": "https://platform.openai.com/docs/guides/embeddings",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "palantir-ontology--palantir-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Palantir documents the Ontology SDK and Ontology MCP / Palantir MCP in current Foundry docs (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.palantir.com/docs/foundry/ontology-sdk/overview/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — Ontology MCP (exposes Ontology to external agents) and Palantir MCP (palantir/palantir-mcp)",
+    "citation": "https://www.palantir.com/docs/foundry/palantir-mcp/overview/",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST (Foundry platform APIs), Ontology SDK: TypeScript, Python, Java; WebSocket Ontology subscriptions",
+    "citation": "https://www.palantir.com/docs/foundry/ontology-sdk/overview/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "poolparty-now-graphwise--poolparty-biz",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "poolparty.biz is titled 'PoolParty is now part of the Graphwise Platform'; Semantic Web Company and Ontotext joined forces as Graphwise in 2024.",
+  "lifecycle_citation": "https://graphwise.ai/about-us/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Taxonomy and knowledge organisation. Taxonomy Advisor (LLM-powered). SKOS-based.",
+    "new": "SKOS-based taxonomy and knowledge-organisation suite with LLM-powered Taxonomy Advisor. PoolParty is now part of the Graphwise Platform after Semantic Web Company and Ontotext joined forces as Graphwise in 2024.",
+    "citation": "https://www.poolparty.biz/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Undisclosed seed 2014; no further rounds",
+    "new": "Semantic Web Company merged with Ontotext as Graphwise (2024); Oakley Capital acquired a majority stake in Graphwise (2026)",
+    "citation": "https://graphwise.ai/about-us/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sajari-now-search-io--search-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Algolia announced the acquisition of Search.io (formerly Sajari, Neuralsearch vector engine) on 2022-09-12; www.search.io now 301-redirects to algolia.com (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.algolia.com/about/news/algolia-disrupts-market-with-search-io-acquisition-ushering-in-a-new-era-of-search-and-discovery",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Site-search platform (formerly Sajari) — vector and lexical search for e-commerce / content sites. Smaller player vs Algolia/Coveo.",
+    "new": "Site-search platform (formerly Sajari) with the Neuralsearch vector engine. Acquired by Algolia in September 2022 and folded into Algolia's hybrid search; search.io now redirects to algolia.com.",
+    "citation": "https://www.algolia.com/about/news/algolia-disrupts-market-with-search-io-acquisition-ushering-in-a-new-era-of-search-and-discovery",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "searched not found",
+    "new": "Acquired by Algolia · 2022-09",
+    "citation": "https://www.algolia.com/about/news/algolia-disrupts-market-with-search-io-acquisition-ushering-in-a-new-era-of-search-and-discovery",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "sajari/sajari-sdk-go — ~4 stars, last commit 2019-05",
+    "citation": "https://github.com/sajari/sajari-sdk-go",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "searchunify--searchunify-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "SearchUnify markets SearchUnify MCP and publishes searchunify/su-mcp (updated 2026-09).",
+  "lifecycle_citation": "https://www.searchunify.com/platform/model-context-protocols/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — official SearchUnify MCP server (su-mcp) exposing search and analytics tools",
+    "citation": "https://www.searchunify.com/platform/model-context-protocols/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sinequa--sinequa-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Sinequa now operates as 'Sinequa by ChapsVision' and is listed as a ChapsVision platform (checked 2026-10-27); the acquisition date was not confirmed on a primary page this session.",
+  "lifecycle_citation": "https://www.chapsvision.com/en-us/platform/sinequa/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — Sinequa MCP Server exposing 200+ connectors and search to MCP clients",
+    "citation": "https://www.sinequa.com/product/sinequa-mcp/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "stardog--stardog-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Stardog pricing page and stardog-cloud-mcp repo (updated 2026-07) are current.",
+  "lifecycle_citation": "https://www.stardog.com/pricing/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — official Stardog Cloud MCP server (stardog-union/stardog-cloud-mcp; remote setup in beta)",
+    "citation": "https://github.com/stardog-union/stardog-cloud-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Enterprise only",
+    "new": "Stardog Free (renewable 1-year license, commercial use allowed, no HA/caching/backups); Enterprise on-prem and cloud quote-based",
+    "citation": "https://www.stardog.com/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "tigergraph--tigergraph-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "TigerGraph publishes Savanna cloud pricing and an official tigergraph-mcp repo (created 2026-03).",
+  "lifecycle_citation": "https://www.tigergraph.com/pricing/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — official tigergraph/tigergraph-mcp server (stdio and Streamable HTTP, built on pyTigerGraph)",
+    "citation": "https://github.com/tigergraph/tigergraph-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Enterprise only",
+    "new": "Community Edition free; Savanna free trial; Savanna $45 per GB/month and Savanna Business Critical $126 per GB/month (24x7, US/Tier 1); Enterprise via sales",
+    "citation": "https://www.tigergraph.com/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "TopBraid EDG is now marketed as TQ Data Foundation; topquadrant.com/topbraid-edg 301-redirects to /tq-data-foundation (checked 2026-10-27).",
+  "lifecycle_citation": "https://www.topquadrant.com/tq-data-foundation",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Ontology-native semantic governance suite. SHACL + AI Copilots for taxonomy management.",
+    "new": "Ontology-native semantic governance suite (formerly TopBraid EDG, now TQ Data Foundation) built on RDF, OWL and SHACL; serves governed context to agents via MCP, a Python SDK and REST.",
+    "citation": "https://www.topquadrant.com/tq-data-foundation",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "no first-party MCP adapter published as of 2026-05; community connectors may exist.",
+    "new": "yes — TQ Data Foundation MCP connector serves governed context to agents",
+    "citation": "https://www.topquadrant.com/tq-data-foundation",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "REST + SPARQL 1.1 endpoint; GraphQL schema generation",
+    "new": "REST + SPARQL 1.1 endpoint; MCP; Python SDK",
+    "citation": "https://www.topquadrant.com/tq-data-foundation",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "turbopuffer--turbopuffer-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Turbopuffer pricing page is current (announces tpuf v3 coming) and SDKs released 2026-10 (turbopuffer 3.0.0 on PyPI 2026-10-23).",
+  "lifecycle_citation": "https://turbopuffer.com/pricing",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Hybrid",
+    "new": "Managed-only — multi-tenant cloud; single-tenant and BYOC (in customer cloud) on Enterprise",
+    "citation": "https://turbopuffer.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "Pay-per-use",
+    "new": "Usage-based with monthly minimums: Launch $16/month, Scale $256/month, Enterprise from $4,096/month (35% usage premium); calculator rates storage up to $0.33/GB, writes up to $2.00/GB, queries up to $1.00/PB",
+    "citation": "https://turbopuffer.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "voyage-ai-mongodb--voyageai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "MongoDB acquired Voyage AI, announced 2025-02-24; voyageai.com is now branded 'Voyage AI by MongoDB'.",
+  "lifecycle_citation": "https://www.mongodb.com/blog/post/redefining-database-ai-why-mongodb-acquired-voyage-ai",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; SDKs MIT (Python, TypeScript)",
+    "citation": "https://pypi.org/project/voyageai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Voyage API; AWS and Azure Marketplace model packages in customer VPC; on-prem and model licensing by request",
+    "citation": "https://www.voyageai.com/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.5.0 (2026-07-10) — voyageai (PyPI)",
+    "citation": "https://pypi.org/project/voyageai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "voyage-ai/voyageai-python — ~114 stars, last commit 2026-10 (official Python SDK)",
+    "citation": "https://github.com/voyage-ai/voyageai-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Per-token with free allowance: voyage-4-large $0.12/1M tokens, voyage-4 $0.06, voyage-4-lite $0.02 (first 200M tokens free); rerank-3 $0.05/1M, rerank-3-lite $0.02/1M; multimodal $0.12/1M tokens + $0.60/1B pixels",
+    "citation": "https://docs.voyageai.com/docs/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "REST API, Python SDK, TypeScript SDK",
+    "citation": "https://docs.voyageai.com/docs/pricing",
+    "confidence": "medium"
+   }
+  ]
+ }
+]

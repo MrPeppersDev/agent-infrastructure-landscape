@@ -248,3 +248,59 @@ One research agent checked vendor blogs, changelogs, pricing pages and acquirers
 - **Operator:** the sunset date and ChatGPT pricing (403).
 - **Prices:** Vonage (403), Lovable (rendered client-side), Manus and Speechmatics.
 - **Speechmatics Flow:** lifecycle `unknown`. Its pages redirect to Agent STT, but there is no deprecation notice.
+
+---
+
+# Re-verification 2026-10-27 — data group (28 rows)
+
+- rows seen: 28
+- rows verified: 28
+- cells applied: 82
+- cells skipped: 0
+- decayed: 0
+- renamed: 0
+- url changed: 1
+- taxonomy set: 0
+
+## Lifecycle changes found
+
+- **Databricks Vector Search** — renamed: Databricks Vector Search is now marketed as Databricks AI Search; the vector-search product URL 301-redirects to /product/artificial-intelligence/ai-search (checked 2026-10-27). ([source](https://www.databricks.com/product/artificial-intelligence/ai-search))
+- **Hugging Face Inference API (Embeddings)** — renamed: The serverless Inference API is now Inference Providers; huggingface.co/docs/api-inference redirects to /docs/inference-providers (checked 2026-10-27). ([source](https://huggingface.co/docs/inference-providers/en/pricing))
+- **Sajari (now Search.io)** — acquired: Algolia announced the acquisition of Search.io (formerly Sajari, Neuralsearch vector engine) on 2022-09-12; www.search.io now 301-redirects to algolia.com (checked 2026-10-27). ([source](https://www.algolia.com/about/news/algolia-disrupts-market-with-search-io-acquisition-ushering-in-a-new-era-of-search-and-discovery))
+- **Sinequa** — acquired: Sinequa now operates as 'Sinequa by ChapsVision' and is listed as a ChapsVision platform (checked 2026-10-27); the acquisition date was not confirmed on a primary page this session. ([source](https://www.chapsvision.com/en-us/platform/sinequa/))
+- **TopQuadrant (TopBraid EDG)** — renamed: TopBraid EDG is now marketed as TQ Data Foundation; topquadrant.com/topbraid-edg 301-redirects to /tq-data-foundation (checked 2026-10-27). ([source](https://www.topquadrant.com/tq-data-foundation))
+- **Voyage AI (MongoDB)** — acquired: MongoDB acquired Voyage AI, announced 2025-02-24; voyageai.com is now branded 'Voyage AI by MongoDB'. ([source](https://www.mongodb.com/blog/post/redefining-database-ai-why-mongodb-acquired-voyage-ai))
+
+## Method
+
+One research agent checked vendor pricing, docs and news pages, plus the PyPI/npm/Hugging Face APIs and GitHub repo search, using one web search. The GTE URL claim was re-checked independently: Alibaba-NLP/gte-large returns 401, while thenlper/gte-large exists and is MIT.
+
+## Notable findings
+
+- **MCP support:** about a dozen rows that said "no first-party MCP adapter as of 2026-05" now have official MCP servers. They are Amazon Neptune, Clarivate, Coveo, Databricks, Diffbot, Lucidworks, Mindbreeze, Palantir, SearchUnify, Sinequa, Stardog and TigerGraph, with Graphwise at medium confidence.
+- **Search.io (formerly Sajari)** has been part of Algolia since 2022-09-12.
+- **Voyage AI** was acquired by MongoDB on 2025-02-24.
+- **Renames:**
+  - Databricks Vector Search is now marketed as Databricks AI Search.
+  - Hugging Face Inference API is now Inference Providers.
+  - TopBraid EDG is now TQ Data Foundation.
+- **Graphwise:** formed in 2024, not 2025 as the description said, and Oakley Capital took a majority stake in 2026. PoolParty is now part of the Graphwise Platform.
+- **Licenses:**
+  - Activeloop Deep Lake is Apache-2.0; the row wrongly said "not OSS".
+  - The original GTE models are MIT; the newer Alibaba-NLP GTE models are Apache-2.0.
+- **GTE record URL:** changed to https://huggingface.co/thenlper/gte-large; the old URL is dead and the id is unchanged.
+- **Pricing:**
+  - Turbopuffer: $16 / $256 / ≥$4,096 monthly minimums plus calculator rates.
+  - OpenAI embeddings: $0.02 / $0.13 per 1M tokens.
+  - Mistral embed: $0.10 per 1M tokens.
+  - TigerGraph Savanna: $45 / $126 per GB-month.
+  - Neptune Analytics: $0.03 per m-NCU-hour.
+- **Nomic** has pivoted to an AEC agent platform; its embed pages return 404, and embedding API access now comes with the Business plan.
+
+## Left unchanged / to review
+
+- **Cohere desc:** still mentions embed-v3/Rerank-v3, while the current models are Embed 5/Rerank 5. The latest-release cell is updated.
+- **Sinequa:** acquisition date (ChapsVision press URL redirects).
+- **Prices:** Lucidworks (403) and Cohere per-token embed prices.
+- **AllegroGraph:** release date and MCP support.
+- **Funding:** for the embedding vendors.
