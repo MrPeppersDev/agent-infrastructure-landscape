@@ -1,0 +1,842 @@
+[
+ {
+  "id": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Anthropic announced on 2025-12-09 that it was donating MCP to the Linux Foundation's new Agentic AI Foundation; the project is now governed as Model Context Protocol, a Series of LF Projects, LLC, and the current spec revision is 2026-07-28.",
+  "lifecycle_citation": "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Anthropic-introduced open protocol (Nov 2024) for connecting LLMs to data sources and tools. Now standard across Anthropic, OpenAI, Microsoft, Cursor, Continue, IDEs, etc.",
+    "new": "Anthropic-introduced open protocol (Nov 2024) for connecting LLMs to data sources and tools. Donated by Anthropic to the Linux Foundation's Agentic AI Foundation (announced 2025-12-09); now governed as Model Context Protocol, a Series of LF Projects, LLC. Supported across Claude, ChatGPT, VS Code, Cursor and many other clients.",
+    "citation": "https://modelcontextprotocol.io/community/governance",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "MIT (spec)",
+    "new": "Apache-2.0 (new spec and code contributions; transitioning from MIT, un-relicensed MIT contributions remain MIT); docs CC-BY-4.0",
+    "citation": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.32.2 (2026-10-23) — TypeScript SDK; Python SDK v2.3.0 (2026-10-02); current spec revision 2026-07-28",
+    "citation": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "modelcontextprotocol/modelcontextprotocol — ~9.5k stars, last commit 2026-10",
+    "citation": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — this is the MCP specification itself",
+    "citation": "https://modelcontextprotocol.io/specification/versioning",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript, Python, C#, Go, Rust, Ruby, Java, Swift, PHP, Kotlin",
+    "citation": "https://modelcontextprotocol.io/docs/sdk",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "multion--multion-ai",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "As of 2026-10-27 www.multion.ai 301-redirects to theagi.company (AGI, Inc., building the AGI-0 on-device mobile action agent); the MultiOn Agent V1 Beta docs remain online but the multion Python SDK was last released 2024-10-08.",
+  "lifecycle_citation": "https://theagi.company/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Web-browsing agent API platform. Founded 2023 by Div Garg (Stanford); $30M+ raised. Provides 'Agent API' for autonomous web tasks (booking, shopping, research). Distinct from browser-agent memory section (Arc Max, Browser Company, Dia) — MultiOn ships an API for developers rather than a consumer browser. Demoed at 2024 Microsoft Build; partnered with NotebookLM for some flows.",
+    "new": "Web-browsing agent API platform (MultiOn Agent API, docs still labelled Agent V1 Beta). Founded 2023 by Div Garg. As of 2026-10 www.multion.ai redirects to AGI, Inc. (theagi.company), which now markets AGI-0, an on-device action model and agent that operates Android apps, plus a developer Platform; the multion Python SDK has had no release since 2024-10.",
+    "citation": "https://theagi.company/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v1.3.8 (2024-10-08) — multion Python SDK",
+    "citation": "https://pypi.org/project/multion/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "n8n-ai-agent-flows--n8n-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "n8n shipped v2.45.4 on 2026-10-26 and the n8n-io/n8n repo had commits on 2026-10-27.",
+  "lifecycle_citation": "https://www.npmjs.com/package/n8n",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — n8n Cloud (Starter/Pro/Enterprise) or self-hosted Community/Business editions",
+    "citation": "https://n8n.io/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.45.4 (2026-10-26)",
+    "citation": "https://www.npmjs.com/package/n8n",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "n8n-io/n8n — ~209k stars, last commit 2026-10",
+    "citation": "https://github.com/n8n-io/n8n",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — built-in instance-level MCP server (Settings, Instance-level MCP) plus MCP Server Trigger node to expose a workflow's tools",
+    "citation": "https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Cloud Starter EUR 20/mo and Pro EUR 50/mo (billed annually); Business EUR 667/mo (self-hosted, billed annually); Enterprise custom; Community Edition self-hosted from GitHub",
+    "citation": "https://n8n.io/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-agents-sdk--gh-openai-openai-agents-python",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "openai-agents v0.24.0 was released to PyPI on 2026-10-15 and @openai/agents v0.21.0 to npm on 2026-10-20.",
+  "lifecycle_citation": "https://pypi.org/project/openai-agents/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/openai/openai-agents-python",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.24.0 (2026-10-15) — Python; JS/TS @openai/agents v0.21.0 (2026-10-20)",
+    "citation": "https://pypi.org/project/openai-agents/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "openai/openai-agents-python — ~30k stars, last commit 2026-10 (JS: openai/openai-agents-js ~3.9k)",
+    "citation": "https://github.com/openai/openai-agents-python",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — HostedMCPTool plus MCPServerStreamableHttp, MCPServerStdio and MCPServerSse (deprecated) server classes",
+    "citation": "https://openai.github.io/openai-agents-python/mcp/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript",
+    "citation": "https://github.com/openai/openai-agents-js",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "The README states Swarm is replaced by the OpenAI Agents SDK (pointer added 2025-03-11); the repo is not archived and its only later commit is a 2026-04-15 pre-commit pin, with no tagged releases.",
+  "lifecycle_citation": "https://github.com/openai/swarm",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/openai/swarm",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "openai/swarm — ~22k stars, last commit 2026-04 (not archived; no releases)",
+    "citation": "https://github.com/openai/swarm/commits/main",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://github.com/openai/swarm",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The repo now lives at github.com/OpenHands/OpenHands (moved from All-Hands-AI) and is repositioned as OpenHands Agent Canvas; release v1.33.0 shipped 2026-10-23.",
+  "lifecycle_citation": "https://github.com/OpenHands/OpenHands/releases",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — self-hosted Agent Canvas (free) / Teams, plus OpenHands Cloud and Enterprise",
+    "citation": "https://openhands.dev/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.33.0 (2026-10-23) — OpenHands Agent Canvas; Python openhands-sdk v1.58.2 (2026-10-25)",
+    "citation": "https://github.com/OpenHands/OpenHands/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "OpenHands/OpenHands (formerly All-Hands-AI/OpenHands) — ~92k stars, last commit 2026-10",
+    "citation": "https://github.com/OpenHands/OpenHands",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — connects to external MCP servers over SSE, Streamable HTTP or stdio",
+    "citation": "https://docs.openhands.dev/openhands/usage/settings/mcp-settings",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Agent Canvas free to self-host (BYO LLM key); Teams USD 499/mo for up to 10 users (+USD 50/seat); Enterprise custom",
+    "citation": "https://openhands.dev/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "phidata-agno--agno-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Phidata was renamed Agno (github.com/phidatahq/phidata now redirects to agno-agi/agno; last phidata PyPI release 2025-01-27); agno v3.1.10 shipped 2026-10-23 under Apache-2.0.",
+  "lifecycle_citation": "https://github.com/agno-agi/agno",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MPL-2.0 (Agno OSS)",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/agno-agi/agno",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "Self-hosted only — open-source SDK and AgentOS run in your own cloud; paid tiers add a hosted control plane",
+    "citation": "https://www.agno.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v3.1.10 (2026-10-23)",
+    "citation": "https://pypi.org/project/agno/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/agno-agi/agno ~25k+ stars; github.com/phidatahq/phidata (legacy)",
+    "new": "agno-agi/agno — ~43k stars, last commit 2026-10 (phidatahq/phidata redirects here)",
+    "citation": "https://github.com/agno-agi/agno",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "native (first-party)",
+    "new": "yes — MCPTools class connects agents to MCP servers (stdio, Streamable HTTP)",
+    "citation": "https://docs.agno.com/tools/mcp/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS (free); future paid cloud tier",
+    "new": "Free (control plane against local AgentOS); Pro USD 150/mo (one live AgentOS connection, 3 seats); Enterprise custom",
+    "citation": "https://www.agno.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Phidata was renamed Agno (github.com/phidatahq/phidata now redirects to agno-agi/agno; last phidata PyPI release 2025-01-27); agno v3.1.10 shipped 2026-10-23 under Apache-2.0.",
+  "lifecycle_citation": "https://github.com/agno-agi/agno",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Mozilla MPL 2.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/agno-agi/agno",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — open-source SDK and AgentOS run in your own cloud; paid tiers add a hosted control plane",
+    "citation": "https://www.agno.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.1.10 (2026-10-23)",
+    "citation": "https://pypi.org/project/agno/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "agno-agi/agno — ~43k stars, last commit 2026-10 (phidatahq/phidata redirects here)",
+    "citation": "https://github.com/agno-agi/agno",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCPTools class connects agents to MCP servers (stdio, Streamable HTTP)",
+    "citation": "https://docs.agno.com/tools/mcp/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free (control plane against local AgentOS); Pro USD 150/mo (one live AgentOS connection, 3 seats); Enterprise custom",
+    "citation": "https://www.agno.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/agno/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "pydantic-ai v2.62.0 was released to PyPI on 2026-10-27 and the repo had commits the same day.",
+  "lifecycle_citation": "https://pypi.org/project/pydantic-ai/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/pydantic/pydantic-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.62.0 (2026-10-27)",
+    "citation": "https://pypi.org/project/pydantic-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "pydantic/pydantic-ai — ~21k stars, last commit 2026-10",
+    "citation": "https://github.com/pydantic/pydantic-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP client via MCP capability / MCPToolset, agents can run inside MCP servers, MCPServerTool for provider-native MCP",
+    "citation": "https://pydantic.dev/docs/ai/mcp/overview/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/pydantic-ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "As of 2026-10 reflection.ai presents the company as an open-weight model lab whose first model, Beam (501B MoE), is served via a Platform API or self-deployed; the Asimov coding agent is no longer featured.",
+  "lifecycle_citation": "https://reflection.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2024 by Misha Laskin and Ioannis Antonoglou (both ex-DeepMind, AlphaGo / Gemini RLHF). Building autonomous coding agents — Asimov is their code-research agent. Raised $130M Series A March-2025 at $555M valuation led by Lightspeed + CRV. Positioned as Devin/Cognition competitor with RL / robotics-research pedigree.",
+    "new": "Founded 2024 by Misha Laskin and Ioannis Antonoglou (ex-DeepMind). Pivoted from autonomous coding agents (Asimov) to open-weight frontier models: its first open-weight model Beam is a 501B-parameter MoE built for coding, reasoning and agentic workloads, offered with open-source harnesses/containers, a Platform API, and self-deployment (private cloud, air-gapped, edge).",
+    "citation": "https://reflection.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed cloud (private beta)",
+    "new": "Both (self-hosted + managed cloud) — Beam open weights deployable in own environment, or via Reflection Platform API",
+    "citation": "https://reflection.ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "restate--restate-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Restate server v1.8.1 was released 2026-10-21 and SDKs (TS 1.17.4, Python 1.1.0) shipped 2026-10-20/21.",
+  "lifecycle_citation": "https://github.com/restatedev/restate/releases",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "BUSL-1.1 (Restate server); SDKs MIT",
+    "citation": "https://github.com/restatedev/restate",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Restate Cloud or self-hosted server",
+    "citation": "https://docs.restate.dev/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.8.1 (2026-10-21) — server; TypeScript SDK v1.17.4 (2026-10-20)",
+    "citation": "https://github.com/restatedev/restate/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "restatedev/restate — ~4.6k stars, last commit 2026-10",
+    "citation": "https://github.com/restatedev/restate",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript, Java, Kotlin, Python, Go, Rust, Ruby",
+    "citation": "https://docs.restate.dev/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sandbase-harness--gh-sandbaseai-sandbase-harness",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Repo last pushed 2026-10-18; latest GitHub release v0.3.8 (2026-08-30); no PyPI/npm package (README says install from tagged GitHub source).",
+  "lifecycle_citation": "https://github.com/sandbaseai/sandbase-harness",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — local-first runtime (local, Docker, Kubernetes or self-hosted worker sandboxes), no hosted control plane",
+    "citation": "https://github.com/sandbaseai/sandbase-harness",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "last commit 2026-10-12",
+    "new": "v0.3.8 (2026-08-30)",
+    "citation": "https://github.com/sandbaseai/sandbase-harness/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "https://github.com/sandbaseai/sandbase-harness (635★)",
+    "new": "sandbaseai/sandbase-harness — ~640 stars, last commit 2026-10",
+    "citation": "https://github.com/sandbaseai/sandbase-harness",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP toolsets with permission policies/approvals; listed in the official MCP Registry as an MCP bridge",
+    "citation": "https://github.com/sandbaseai/sandbase-harness",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript",
+    "citation": "https://github.com/sandbaseai/sandbase-harness",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "robocorp v3.1.6 was released to PyPI on 2026-10-18 (repo pushed same day); Sema4AI/actions last pushed 2026-04-10 and sema4ai-actions last released 2025-12-17.",
+  "lifecycle_citation": "https://pypi.org/project/robocorp/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v1.6.6 (2025-12-17) — sema4ai-actions; robocorp v3.1.6 (2026-10-18)",
+    "citation": "https://pypi.org/project/sema4ai-actions/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/robocorp/robocorp ~1k+ stars; github.com/Sema4AI/actions repos",
+    "new": "robocorp/robocorp — ~650 stars, last commit 2026-10; Sema4AI/actions ~140 stars, last commit 2026-04",
+    "citation": "https://github.com/Sema4AI/actions",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "yes — Action Server exposes sema4ai.mcp @tool functions at an /mcp endpoint for MCP clients",
+    "citation": "https://github.com/Sema4AI/actions",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Last PyPI release v1.26.0 on 2026-05-29; commits continue (latest 2026-10-06, mostly CI/maintenance).",
+  "lifecycle_citation": "https://github.com/huggingface/smolagents/commits/main",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/huggingface/smolagents",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.26.0 (2026-05-29)",
+    "citation": "https://pypi.org/project/smolagents/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "huggingface/smolagents — ~30k stars, last commit 2026-10",
+    "citation": "https://github.com/huggingface/smolagents",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCPClient and ToolCollection.from_mcp load tools from stdio or Streamable HTTP MCP servers",
+    "citation": "https://huggingface.co/docs/smolagents/tutorials/tools",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/smolagents/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "stackblitz-webcontainers--webcontainers-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "@webcontainer/api v1.6.4 was published to npm on 2026-04-14 and webcontainers.io still offers commercial licensing.",
+  "lifecycle_citation": "https://www.npmjs.com/package/@webcontainer/api",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "v1.6.4 (2026-04-14) — @webcontainer/api",
+    "citation": "https://www.npmjs.com/package/@webcontainer/api",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "stackblitz/webcontainer-core — ~4.7k stars, last commit 2025-04 (public issue tracker/docs; runtime is closed source)",
+    "citation": "https://github.com/stackblitz/webcontainer-core",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "WebContainers API: free for OSS + paid for commercial use (tiered by traffic)",
+    "new": "Free for prototypes/POCs; commercial license required for production for-profit use (enterprise pricing via sales)",
+    "citation": "https://webcontainers.io/enterprise",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "steamship--steamship-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "As of 2026-10-27 www.steamship.com and docs.steamship.com serve expired TLS certificates/503 and steamship.com returns 404; the steamship SDK was last released 2024-01-24 and the python-client repo last pushed 2024-02-14.",
+  "lifecycle_citation": "https://pypi.org/project/steamship/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT (python-client SDK); hosted platform proprietary",
+    "citation": "https://github.com/steamship-core/python-client",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v2.17.34 (2024-01-24) — steamship Python SDK",
+    "citation": "https://pypi.org/project/steamship/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "steamship-core/python-client — ~320 stars, last commit 2024-02",
+    "citation": "https://github.com/steamship-core/python-client",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "strands-agents-aws--strandsagents-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The SDK repo is now strands-agents/harness-sdk (sdk-python redirects there; sdk-typescript archived), with strands-agents 1.62.0 and @strands-agents/sdk 1.22.0 released 2026-10-21.",
+  "lifecycle_citation": "https://github.com/strands-agents/harness-sdk",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/strands-agents/harness-sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.62.0 (2026-10-21) — Python; TypeScript @strands-agents/sdk v1.22.0 (2026-10-21)",
+    "citation": "https://pypi.org/project/strands-agents/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "strands-agents/harness-sdk (formerly sdk-python) — ~9k stars, last commit 2026-10",
+    "citation": "https://github.com/strands-agents/harness-sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCPClient exposes MCP server tools to agents (Python and TypeScript)",
+    "citation": "https://strandsagents.com/latest/documentation/docs/user-guide/concepts/tools/mcp-tools/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript",
+    "citation": "https://github.com/strands-agents/harness-sdk",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "temporal--temporal-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Temporal server v1.32.1 was released 2026-10-08 and temporalio Python SDK 1.34.0 on 2026-09-30.",
+  "lifecycle_citation": "https://github.com/temporalio/temporal/releases",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "MIT",
+    "citation": "https://github.com/temporalio/temporal",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Temporal Cloud or self-hosted Temporal server",
+    "citation": "https://temporal.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.32.1 (2026-10-08) — server; Python SDK v1.34.0 (2026-09-30)",
+    "citation": "https://github.com/temporalio/temporal/releases",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "temporalio/temporal — ~24k stars, last commit 2026-10",
+    "citation": "https://github.com/temporalio/temporal",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Go, Java, Python, TypeScript, .NET, Ruby, PHP, Rust",
+    "citation": "https://docs.temporal.io/encyclopedia/temporal-sdks",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Temporal Cloud: Pay-As-You-Go from USD 50 per million actions (volume down to USD 25/M) plus storage; Business from USD 500/mo; Enterprise and Mission Critical custom",
+    "citation": "https://temporal.io/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "trigger-dev--trigger-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "@trigger.dev/sdk v4.8.1 was published 2026-10-23 and the repo had commits 2026-10-27.",
+  "lifecycle_citation": "https://www.npmjs.com/package/@trigger.dev/sdk",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Trigger.dev Cloud or self-hosted (Apache-2.0)",
+    "citation": "https://trigger.dev/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v4.8.1 (2026-10-23)",
+    "citation": "https://www.npmjs.com/package/@trigger.dev/sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "triggerdotdev/trigger.dev — ~17k stars, last commit 2026-10",
+    "citation": "https://github.com/triggerdotdev/trigger.dev",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Trigger.dev MCP server lets AI assistants search docs, trigger and monitor runs, deploy, and query data",
+    "citation": "https://trigger.dev/docs/mcp-introduction",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free USD 0/mo; Hobby USD 10/mo; Pro USD 50/mo; Enterprise custom",
+    "citation": "https://trigger.dev/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript",
+    "citation": "https://www.npmjs.com/package/@trigger.dev/sdk",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The ai package v7.0.154 was published to npm on 2026-10-26 and vercel/ai had commits 2026-10-27.",
+  "lifecycle_citation": "https://www.npmjs.com/package/ai",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/vercel/ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v7.0.154 (2026-10-26)",
+    "citation": "https://www.npmjs.com/package/ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "vercel/ai — ~28k stars, last commit 2026-10",
+    "citation": "https://github.com/vercel/ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — createMCPClient from @ai-sdk/mcp (HTTP, SSE, stdio) converts MCP server tools for AI SDK calls",
+    "citation": "https://ai-sdk.dev/docs/ai-sdk-core/mcp-tools",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript",
+    "citation": "https://www.npmjs.com/package/ai",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "As of 2026-10 workato.com/ai markets Agent Studio, Genies, AIRO and Workato Enterprise MCP; no acquisition or shutdown notice.",
+  "lifecycle_citation": "https://www.workato.com/ai",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "yes — Workato Enterprise MCP (MCP gateway and registry, can proxy third-party MCP servers) plus App and Data MCP Servers",
+    "citation": "https://www.workato.com/ai",
+    "confidence": "high"
+   }
+  ]
+ }
+]
