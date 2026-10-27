@@ -425,6 +425,31 @@
     "https://pypi.org/project/instructlab/"
    ],
    "verified_at": "2026-10-27"
+  },
+  {
+   "id": "humanloop--humanloop-com",
+   "action": "migrate",
+   "summary": "Humanloop shut down: users were emailed on 2025-07-17, billing stopped 2025-07-30, and the platform and all account data were permanently deleted on 2025-09-08; the team joined Anthropic.",
+   "to": [
+    {
+     "name": "Langfuse",
+     "id": "langfuse--langfuse-com"
+    },
+    {
+     "name": "Braintrust",
+     "id": "braintrust--braintrust-dev"
+    }
+   ],
+   "steps": [
+    "The hosted platform is gone and its data was deleted on 2025-09-08, so new exports are no longer possible",
+    "Humanloop's migration guide names Langfuse and Braintrust as alternatives for prompt management, evaluation and logging",
+    "Exports taken before the shutdown with the humanloop-export tool are JSON/JSONL (Prompts, Tools, Datasets, Flows, Agents, Evaluators, versions, logs, evaluations) and may need transforming for the new platform"
+   ],
+   "sources": [
+    "https://humanloop.com/docs/guides/migrating-from-humanloop",
+    "https://github.com/humanloop/humanloop-export"
+   ],
+   "verified_at": "2026-10-27"
   }
  ]
 }

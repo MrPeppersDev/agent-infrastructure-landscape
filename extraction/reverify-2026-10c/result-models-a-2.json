@@ -1,0 +1,829 @@
+[
+ {
+  "id": "dvc--dvc-org",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "lakeFS (Treeverse) acquired the DVC open-source project from Iterative.ai on 2025-11-18; DVC continues as an Apache-2.0 tool under github.com/treeverse/dvc with v3.67.1 released 2026-03-31.",
+  "lifecycle_citation": "https://lakefs.io/media-mentions/lakefs-acquires-dvc-uniting-data-version-control-pioneers/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Open-source data and ML model version control — git-like commands for datasets/models stored in cloud blob storage. Foundational tool in MLOps stack.",
+    "new": "Open-source data and ML model version control — git-like commands for datasets/models stored in cloud blob storage. Created by Iterative.ai; the project was acquired by lakeFS (Treeverse) in Nov 2025 and now lives at github.com/treeverse/dvc.",
+    "citation": "https://lakefs.io/media-mentions/lakefs-acquires-dvc-uniting-data-version-control-pioneers/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — CLI and VS Code extension",
+    "citation": "https://github.com/treeverse/dvc",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.67.1 (2026-03-31)",
+    "citation": "https://pypi.org/project/dvc/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "treeverse/dvc — ~15.9k stars, last commit 2026-10",
+    "citation": "https://github.com/treeverse/dvc",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "CLI, Python API (dvc.api), VS Code extension",
+    "citation": "https://github.com/treeverse/dvc",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "figure-ai--figure-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Figure AI is operating: Series C closed 2025-09-16, Figure 03 launched 2025-10-09, and Helix 2.5 was announced 2026-09-17.",
+  "lifecycle_citation": "https://www.figure.ai/news",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "Helix VLA (Feb 2025); Figure 03 in development",
+    "new": "Helix 2.5 (2026-09-17)",
+    "citation": "https://www.figure.ai/news",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$675M Series B Feb-2024 (Microsoft, OpenAI, Bezos, NVIDIA, Intel, LG Innotek; $2.6B val); reported $39.5B val funding Q2 2025",
+    "new": "$675M Series B Feb-2024 ($2.6B val); Series C over $1B committed at $39B post-money, Sep-2025 (Parkway Venture Capital led)",
+    "citation": "https://www.figure.ai/news/series-c",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "fireworks-ai--fireworks-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Fireworks AI is operating; fireworks-ai Python SDK v1.2.30 shipped 2026-10-21 and the blog has posts through 2026-09.",
+  "lifecycle_citation": "https://fireworks.ai/pricing",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/fw-ai-external/python-sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.2.30 (2026-10-21) — fireworks-ai",
+    "citation": "https://pypi.org/project/fireworks-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Serverless pay-per-token; on-demand GPUs $8/hr (H100/H200), $13/hr (B200), $15/hr (B300); fine-tuning from $0.50 per 1M training tokens (LoRA SFT up to 16B)",
+    "citation": "https://fireworks.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "OpenAI-compatible REST API, Python SDK (fireworks-ai)",
+    "citation": "https://docs.fireworks.ai/getting-started/introduction",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "flyte--flyte-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Flyte is actively released; v2.0.53 (Flyte 2) shipped 2026-10-27 and flytekit 1.16.31 on 2026-10-22.",
+  "lifecycle_citation": "https://github.com/flyteorg/flyte/releases",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS on your own Kubernetes; Union.ai hosted control plane",
+    "citation": "https://www.union.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.0.53 (2026-10-27)",
+    "citation": "https://github.com/flyteorg/flyte/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "flyteorg/flyte — ~7.8k stars, last commit 2026-10",
+    "citation": "https://github.com/flyteorg/flyte",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Flyte OSS free; Union.ai Team $950/mo minimum credited to usage; Enterprise custom annual commit",
+    "citation": "https://www.union.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "fsdp-pytorch--pytorch-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "FSDP ships in PyTorch (torch 2.14.1 released 2026-09-30); docs recommend migrating from FSDP1 to FSDP2 (fully_shard).",
+  "lifecycle_citation": "https://docs.pytorch.org/docs/2.14/distributed.fsdp.fully_shard.html",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library (part of PyTorch)",
+    "citation": "https://docs.pytorch.org/docs/2.14/distributed.fsdp.fully_shard.html",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.14.1 (2026-09-30) — torch",
+    "citation": "https://pypi.org/project/torch/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "pytorch/pytorch — ~105k stars, last commit 2026-10",
+    "citation": "https://github.com/pytorch/pytorch",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python (torch.distributed.fsdp: fully_shard / FSDP2, FullyShardedDataParallel / FSDP1)",
+    "citation": "https://docs.pytorch.org/docs/2.14/distributed.fsdp.fully_shard.html",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "galileo--galileo-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cisco completed its acquisition of Galileo (announced Apr 2026); the product is now Splunk Agent Observability and galileo.ai/pricing redirects to Splunk.",
+  "lifecycle_citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Galileo Evaluate / Observe / Protect — eval, tracing, guardrails. Big focus on hallucination detection and ChainPoll evaluator metric.",
+    "new": "Galileo Evaluate / Observe / Protect — eval, tracing, guardrails; hallucination detection and ChainPoll metric. Acquired by Cisco in 2026 and now sold as Splunk Agent Observability.",
+    "citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/rungalileo/galileo-python",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — SaaS, VPC or on-premises",
+    "citation": "https://www.galileo.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.7.0 (2026-10-14) — galileo",
+    "citation": "https://pypi.org/project/galileo/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "rungalileo/galileo-python — ~22 stars, last commit 2026-10",
+    "citation": "https://github.com/rungalileo/galileo-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Agent Evals MCP server for IDEs such as Cursor and VS Code",
+    "citation": "https://www.galileo.ai/blog/bringing-agent-evals-into-your-ide-introducing-galileo-s-agent-evals-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Splunk Agent Observability from $100/mo per 1.2M spans billed annually (includes 500M Luna tokens); free edition available",
+    "citation": "https://www.splunk.com/en_us/products/pricing.html",
+    "confidence": "medium"
+   },
+   {
+    "cell": "funding",
+    "old": "$87.6M total raised through Series B 2024-06 ($45M, Scale Venture Partners led).",
+    "new": "$45M Series B Oct-2024 (Scale Venture Partners led); acquired by Cisco 2026",
+    "citation": "https://www.galileo.ai/blog/announcing-our-series-b",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Google DeepMind now lists Gemini Robotics 2, Gemini Robotics-ER 2 and On-Device 2, with ER 2 in preview in Google AI Studio and 100+ trusted testers.",
+  "lifecycle_citation": "https://deepmind.google/models/gemini-robotics/",
+  "updates": [
+   {
+    "cell": "api-surface",
+    "old": "Vertex AI / Google Cloud Robotics endpoint planned",
+    "new": "Gemini Robotics-ER 2 preview in Google AI Studio (gemini-robotics-er-2-preview); VLA models via trusted-tester waitlist",
+    "citation": "https://deepmind.google/models/gemini-robotics/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "google-vertex-ai-training--cloud-google-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Vertex AI is an active Google Cloud service; google-cloud-aiplatform SDK v2.6.0 released 2026-10-20.",
+  "lifecycle_citation": "https://pypi.org/project/google-cloud-aiplatform/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/googleapis/python-aiplatform",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Google Cloud service",
+    "citation": "https://cloud.google.com/vertex-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.6.0 (2026-10-20) — google-cloud-aiplatform",
+    "citation": "https://pypi.org/project/google-cloud-aiplatform/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "googleapis/python-aiplatform — ~910 stars, last commit 2026-10",
+    "citation": "https://github.com/googleapis/python-aiplatform",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Vertex AI SDK for Python (google-cloud-aiplatform)",
+    "citation": "https://github.com/googleapis/python-aiplatform",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "grpo--arxiv-2402-03300",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "GRPO (DeepSeekMath, arXiv 2402.03300, Feb 2024) remains a widely used RL post-training method; there is no standalone official GRPO implementation package to track.",
+  "lifecycle_citation": "https://arxiv.org/abs/2402.03300",
+  "updates": []
+ },
+ {
+  "id": "helicone--helicone-ai",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Mintlify announced the acquisition of Helicone on 2026-03-03 and put the product in maintenance mode (security fixes, bug fixes, new models); helicone.ai now says Helicone is no longer part of Mintlify, with details to come.",
+  "lifecycle_citation": "https://www.mintlify.com/blog/mintlify-acquires-helicone",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Open-source LLM observability with one-line proxy integration — gateway routes through their proxy, captures every LLM call. Sessions + custom properties + evals.",
+    "new": "Open-source LLM observability and AI gateway — one-line proxy integration captures every LLM call; sessions, custom properties, evals. Acquired by Mintlify in Mar 2026 and placed in maintenance mode; helicone.ai now states it is no longer part of Mintlify.",
+    "citation": "https://www.mintlify.com/blog/mintlify-acquires-helicone",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Docker Compose self-host; Helm and on-prem for Enterprise",
+    "citation": "https://github.com/Helicone/helicone",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.8.3 (2025-11-07) — @helicone/helpers",
+    "citation": "https://www.npmjs.com/package/@helicone/helpers",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Helicone/helicone — ~6.2k stars, last commit 2026-10",
+    "citation": "https://github.com/Helicone/helicone",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — @helicone/mcp server to query requests and sessions from MCP clients",
+    "citation": "https://docs.helicone.ai/integrations/tools/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Hobby free (10k requests); Pro $79/mo; Team $799/mo; Enterprise custom; plus usage-based pricing",
+    "citation": "https://www.helicone.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "OpenAI-compatible AI Gateway, REST API, JS/TS and Python integrations",
+    "citation": "https://github.com/Helicone/helicone",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "hugging-face-datasets--huggingface-co",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "datasets v5.1.0 released 2026-10-05; repo pushed 2026-10-23.",
+  "lifecycle_citation": "https://pypi.org/project/datasets/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/datasets/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v5.1.0 (2026-10-05)",
+    "citation": "https://pypi.org/project/datasets/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "huggingface/datasets — ~22.1k stars, last commit 2026-10",
+    "citation": "https://github.com/huggingface/datasets",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library (datasets)",
+    "citation": "https://github.com/huggingface/datasets",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "hugging-face-lerobot--huggingface-co",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "lerobot v0.6.1 released 2026-08-03; repo pushed 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/lerobot/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/huggingface/lerobot",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Pip install; runs anywhere PyTorch runs",
+    "new": "Self-hosted only — library (pip install lerobot)",
+    "citation": "https://pypi.org/project/lerobot/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Active weekly releases (pip: lerobot)",
+    "new": "v0.6.1 (2026-08-03)",
+    "citation": "https://pypi.org/project/lerobot/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/huggingface/lerobot — 10k+ stars",
+    "new": "huggingface/lerobot — ~28.5k stars, last commit 2026-10",
+    "citation": "https://github.com/huggingface/lerobot",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "humanloop--humanloop-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "The Humanloop team joined Anthropic and the platform was sunset: billing stopped 2025-07-30 and all accounts and data were deleted on 2025-09-08.",
+  "lifecycle_citation": "https://humanloop.com/docs/guides/migrating-from-humanloop",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Collaborative LLM development platform — non-eng prompt editor, eval, tracing. UK; Index Ventures + Y Combinator backed.",
+    "new": "Collaborative LLM development platform — prompt editor, evals, tracing. UK; Index Ventures + Y Combinator backed. The team joined Anthropic in 2025 and the platform shut down on 2025-09-08.",
+    "citation": "https://humanloop.com/docs/guides/migrating-from-humanloop",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.8.38 (2025-05-09) — humanloop SDK, final",
+    "citation": "https://pypi.org/project/humanloop/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "humanloop/humanloop-python — ~12 stars, last commit 2025-05",
+    "citation": "https://github.com/humanloop/humanloop-python",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "k-scale-labs--kscale-dev",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Shutdown reported only by secondary press (36kr, Nov 2025); kscale.dev did not resolve on 2026-10-27, but the kscalelabs GitHub org still shows recent pushes (kinfer updated 2026-10-17), so status is unconfirmed.",
+  "lifecycle_citation": "https://github.com/kscalelabs",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT (OS); humanoid hardware also OSS",
+    "new": "MIT (kos); K-Bot software GPL-3.0, hardware CERN-OHL-S",
+    "citation": "https://github.com/kscalelabs/kbot",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "K-Scale OS (kos) v0.x",
+    "new": "v0.3.18 (2025-09-04) — kscale SDK",
+    "citation": "https://pypi.org/project/kscale/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/kscalelabs",
+    "new": "kscalelabs/kos — ~75 stars, last commit 2025-05",
+    "citation": "https://github.com/kscalelabs/kos",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "label-studio-humansignal--labelstud-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "label-studio v1.23.2 released 2026-09-29; repo pushed 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/label-studio/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Community self-host; Starter Cloud hosted; Enterprise cloud or on-prem",
+    "citation": "https://humansignal.com/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.23.2 (2026-09-29)",
+    "citation": "https://pypi.org/project/label-studio/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "HumanSignal/label-studio — ~28.6k stars, last commit 2026-10",
+    "citation": "https://github.com/HumanSignal/label-studio",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Community free; Starter Cloud $99/mo for up to 12 users (+$49/user); Enterprise custom",
+    "citation": "https://humansignal.com/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "labelbox--labelbox-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "labelbox Python SDK v7.17.0 released 2026-10-22; SDK repo pushed 2026-10-26.",
+  "lifecycle_citation": "https://pypi.org/project/labelbox/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/Labelbox/labelbox-python",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v7.17.0 (2026-10-22) — labelbox SDK",
+    "citation": "https://pypi.org/project/labelbox/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Labelbox/labelbox-python — ~158 stars, last commit 2026-10",
+    "citation": "https://github.com/Labelbox/labelbox-python",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — documented MCP client connection for project insights and approved actions",
+    "citation": "https://docs.labelbox.com/reference/getting-started",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, GraphQL API",
+    "citation": "https://docs.labelbox.com/reference/getting-started",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lakefs--lakefs-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Treeverse continues lakeFS (v1.88.0 on 2026-10-01); from v1.87.0 (2026-09-22) the Community edition moved from Apache-2.0 to BSL 1.1, and Treeverse acquired DVC in Nov 2025.",
+  "lifecycle_citation": "https://lakefs.io/blog/lakefs-business-source-license/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Git-like branching, commits, and rollback for object-store data lakes (S3/GCS/Azure). Treeverse commercial; OSS + Cloud edition.",
+    "new": "Git-like branching, commits and rollback for object-store data lakes (S3/GCS/Azure). Built by Treeverse, which also acquired DVC in Nov 2025. The Community edition is source-available under BSL 1.1 from v1.87.0 (Sep 2026); Enterprise and lakeFS Cloud are commercial.",
+    "citation": "https://lakefs.io/blog/lakefs-business-source-license/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache-2.0",
+    "new": "BSL-1.1 from v1.87.0 (2026-09-22; each release converts to Apache-2.0 after 4 years); earlier releases Apache-2.0",
+    "citation": "https://raw.githubusercontent.com/treeverse/lakeFS/master/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — self-managed; managed lakeFS Cloud with Enterprise",
+    "citation": "https://lakefs.io/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.88.0 (2026-10-01)",
+    "citation": "https://github.com/treeverse/lakeFS/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "treeverse/lakeFS — ~5.6k stars, last commit 2026-10",
+    "citation": "https://github.com/treeverse/lakeFS",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "lakeFS Team $499/mo (5 users, 500GB); Enterprise custom",
+    "citation": "https://lakefs.io/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "litellm--gh-berriai-litellm",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "litellm v1.106.4 released 2026-10-25; repo pushed 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/litellm/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "MIT (except enterprise/ directory, commercial license)",
+    "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — SDK and proxy; Enterprise self-hosted or air-gapped",
+    "citation": "https://www.litellm.ai/enterprise",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.106.4 (2026-10-25)",
+    "citation": "https://pypi.org/project/litellm/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "BerriAI/litellm — ~62.1k stars, last commit 2026-10",
+    "citation": "https://github.com/BerriAI/litellm",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP Gateway in LiteLLM Proxy (Streamable HTTP, SSE, stdio) with per-key/team access control",
+    "citation": "https://docs.litellm.ai/docs/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "OSS free; Enterprise custom pricing (30-day self-hosted trial key)",
+    "citation": "https://www.litellm.ai/enterprise",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, OpenAI-compatible proxy REST API",
+    "citation": "https://github.com/BerriAI/litellm",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "llama-factory--gh-hiyouga-llama-factory",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: last commit 2026-10-21 and v0.9.5 on 2026-05-30; the GitHub repo is now named hiyouga/LlamaFactory.",
+  "lifecycle_citation": "https://github.com/hiyouga/LlamaFactory",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library with CLI and WebUI",
+    "citation": "https://github.com/hiyouga/LlamaFactory",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.9.5 (2026-05-30)",
+    "citation": "https://pypi.org/project/llamafactory/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "hiyouga/LlamaFactory — ~75.7k stars, last commit 2026-10",
+    "citation": "https://github.com/hiyouga/LlamaFactory/commits/main",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lora--arxiv-2106-09685",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "LoRA (arXiv 2106.09685, 2021) remains the standard adapter method; the reference repo microsoft/LoRA (loralib) was last pushed 2024-12 and last released 2023-08-27.",
+  "lifecycle_citation": "https://arxiv.org/abs/2106.09685",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "MIT (microsoft/LoRA, loralib)",
+    "citation": "https://github.com/microsoft/LoRA",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.1.2 (2023-08-27) — loralib",
+    "citation": "https://pypi.org/project/loralib/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "microsoft/LoRA — ~13.9k stars, last commit 2024-12",
+    "citation": "https://github.com/microsoft/LoRA",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "megatron-core--gh-nvidia-megatron-lm",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "megatron-core v0.19.2 (core_v0.19.2) released 2026-09-18; NVIDIA/Megatron-LM pushed 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/megatron-core/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library (pip install megatron-core)",
+    "citation": "https://github.com/NVIDIA/Megatron-LM",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.19.2 (2026-09-18) — megatron-core",
+    "citation": "https://pypi.org/project/megatron-core/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "NVIDIA/Megatron-LM — ~18.3k stars, last commit 2026-10",
+    "citation": "https://github.com/NVIDIA/Megatron-LM",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library (megatron.core)",
+    "citation": "https://github.com/NVIDIA/Megatron-LM",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "megatron-lm--gh-nvidia-megatron-lm",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "NVIDIA/Megatron-LM is active (pushed 2026-10-27); 26.09 release candidates were tagged in Oct 2026 and core_v0.19.2 on 2026-09-18.",
+  "lifecycle_citation": "https://github.com/NVIDIA/Megatron-LM/releases",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — reference training scripts plus library",
+    "citation": "https://github.com/NVIDIA/Megatron-LM",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.19.2 (2026-09-18) — megatron-core",
+    "citation": "https://pypi.org/project/megatron-core/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "NVIDIA/Megatron-LM — ~18.3k stars, last commit 2026-10",
+    "citation": "https://github.com/NVIDIA/Megatron-LM",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python training scripts (Megatron-LM) on top of the megatron.core library",
+    "citation": "https://github.com/NVIDIA/Megatron-LM",
+    "confidence": "high"
+   }
+  ]
+ }
+]

@@ -62,3 +62,66 @@
 - **Deployment and pricing:** Sema4.ai (site returned 403). Deployment for the MCP spec, WebContainers, Workato and Steamship.
 - **Gitpod:** post-shutdown deployment and pricing.
 - **Strands:** the description's "predecessor of AWS Agent SDK" claim.
+
+---
+
+# Re-verification 2026-10-27 — models-a group (45 rows)
+
+- rows seen: 45
+- rows verified: 45
+- cells applied: 179
+- cells skipped: 0
+- decayed: 2
+- renamed: 0
+- url changed: 0
+- taxonomy set: 0
+
+## Lifecycle changes found
+
+- **Argilla** — maintenance: README says the original authors have moved on and only bug fixes/patches will ship; last PyPI release 2.8.0 on 2025-03-10 and last develop commit 2025-08. ([source](https://github.com/argilla-io/argilla))
+- **Bonito** — maintenance: Only PyPI release bonito-llm 0.1.0 was 2025-02-12 and the repo was last pushed 2025-07; not archived. ([source](https://github.com/BatsResearch/bonito))
+- **Cleanba** — maintenance: Last commit 2024-08-22; README says the repo is intended for archiving purposes and work moves to CleanRL; not archived on GitHub. ([source](https://github.com/vwxyzjn/cleanba))
+- **Composer (MosaicML)** — archived: GitHub repo archived by the owner on 2026-10-23 (read-only); last PyPI release mosaicml 0.32.1 on 2025-07-26. ([source](https://github.com/mosaicml/composer))
+- **DVC** — acquired: lakeFS (Treeverse) acquired the DVC open-source project from Iterative.ai on 2025-11-18; DVC continues as an Apache-2.0 tool under github.com/treeverse/dvc with v3.67.1 released 2026-03-31. ([source](https://lakefs.io/media-mentions/lakefs-acquires-dvc-uniting-data-version-control-pioneers/))
+- **Distilabel** — maintenance: README says the original authors have moved on and community collaborators maintain it; fix commits landed 2026-10-06 but the last PyPI release is 1.5.3 (2025-01-28). ([source](https://github.com/argilla-io/distilabel))
+- **Galileo** — acquired: Cisco completed its acquisition of Galileo (announced Apr 2026); the product is now Splunk Agent Observability and galileo.ai/pricing redirects to Splunk. ([source](https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html))
+- **Helicone** — maintenance: Mintlify announced the acquisition of Helicone on 2026-03-03 and put the product in maintenance mode (security fixes, bug fixes, new models); helicone.ai now says Helicone is no longer part of Mintlify, with details to come. ([source](https://www.mintlify.com/blog/mintlify-acquires-helicone))
+- **Humanloop** — dead: The Humanloop team joined Anthropic and the platform was sunset: billing stopped 2025-07-30 and all accounts and data were deleted on 2025-09-08. ([source](https://humanloop.com/docs/guides/migrating-from-humanloop))
+
+## Method
+
+As for the frameworks group: a PyPI/npm snapshot (`registry-models-a.json`) plus two research agents (`result-models-a-1.json` with 23 rows, `result-models-a-2.json` with 22). They used GitHub repo pages, LICENSE/README files, vendor docs, pricing pages and press pages. Six web searches in total.
+
+## Notable findings
+
+- **lakeFS license change:** from v1.87.0 (2026-09-22) the Community edition is BUSL-1.1, and each release converts to Apache-2.0 after 4 years (https://lakefs.io/blog/lakefs-business-source-license/).
+- **DVC:** taken over by lakeFS (Treeverse) from Iterative.ai on 2025-11-18; the repo is now treeverse/dvc.
+- **Galileo:** acquired by Cisco and now sold as Splunk Agent Observability (https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html). Its Series B was 2024-10, not 2024-06.
+- **Humanloop:** shut down, with all data deleted on 2025-09-08; the team joined Anthropic. Confirms the HANDOFF lead.
+- **Helicone:** Mintlify acquired it (2026-03-03) and put it in maintenance mode. helicone.ai now says it is "no longer part of Mintlify".
+- **Covariant was not acquired.** Amazon took a non-exclusive model license and hired the founders (https://www.aboutamazon.com/news/company-news/amazon-covariant-ai-robots). The description no longer says "acqui-hired". This corrects the HANDOFF lead.
+- **Composer (MosaicML):** archived on 2026-10-23. **Argilla and Distilabel** are maintenance-only per their READMEs.
+- **Smaller corrections:**
+  - Arize Phoenix is Elastic-2.0.
+  - Megatron-LM/Core is BSD-3-Clause (PyPI metadata says Apache).
+  - LLaMA-Factory's repo is now hiyouga/LlamaFactory.
+  - Figure's Series C was over $1B at a $39B valuation (2025-09).
+  - Apptronik's Series A now totals over $935M.
+
+## Judgement calls
+
+- **K-Scale Labs:** the agent marked it `dead` on a secondary source (36kr). The kscalelabs GitHub org still shows pushes (kinfer, 2026-10-17), so lifecycle is `unknown` and nothing is decayed.
+- **Figure `latest-release`:** trimmed to "Helix 2.5 (2026-09-17)".
+- **Gemini Robotics `latest-release`:** dropped because the page gives no dates.
+- **Cleanba:** written as "no releases", the catalog's existing wording.
+
+## Migration notes
+
+- **Humanloop → Langfuse / Braintrust:** the two alternatives named in Humanloop's own migration guide.
+- **Composer:** no note, because the README names no successor.
+
+## Left unchanged (couldn't verify)
+
+- **Funding:** Anyscale (sources conflict), Collaborative Robotics, Covariant's "$1.5B licensing fee", Baseten, Braintrust, Arize, Comet, ClearML, Dagster, Fireworks, Labelbox, Label Studio, LiteLLM, lakeFS and Flyte/Union.
+- **Galileo:** the acquisition date isn't on any primary page.
+- **MCP support:** wherever docs didn't settle it.
