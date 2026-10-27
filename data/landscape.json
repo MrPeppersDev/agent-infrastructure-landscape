@@ -226822,7 +226822,7 @@
       "name": "Daytona",
       "tier": 2,
       "url": "https://www.daytona.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -226890,10 +226890,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Daytona is an open-source cloud development environment (CDE) platform — self-hostable alternative to Gitpod / GitHub Codespaces. 2024 added AI-agent sandbox tier for ephemeral agent code execution. Apache 2.0. Founded by ex-Atlas Antillia / Codeanywhere team (Ivan Burazin). $5M seed 2024 (RTP Global + others). Distinct from e2b / Modal by being self-hostable-first.",
-          "citation": "https://www.daytona.io/",
+          "value": "Daytona is secure, elastic sandbox infrastructure for running AI-generated code and agent workflows (isolated sandboxes with snapshots, volumes, computer use, MCP server). Pivoted from an open-source cloud development environment; as of June 2026 core development moved to a private codebase and the daytonaio/daytona repo was archived (2026-10-03). SDKs, API clients and CLI/MCP tools are published in the open daytona/clients repo. Founded by the ex-Codeanywhere team (Ivan Burazin).",
+          "citation": "https://github.com/daytonaio/daytona",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "Apache 2.0 OSS CDE; self-hostable; AI-sandbox tier for agent code execution 2024; $5M seed 2024 (RTP Global); founded 2024 by Ivan Burazin (ex-Codeanywhere)",
@@ -226915,24 +226915,24 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — sandbox/runtime, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v0.226.1 (2026-10-23)",
+          "citation": "https://pypi.org/project/daytona/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "Apache 2.0",
-          "citation": "https://www.daytona.io/",
+          "value": "Apache-2.0 (SDKs in daytona/clients; CLI under AGPL-3.0); core platform closed-source since June 2026 (archived OSS repo remains under its original license at v0.190.0)",
+          "citation": "https://raw.githubusercontent.com/daytona/clients/main/LICENSE",
           "status": "real-data",
           "tier": "T2"
         },
         "gh": {
-          "value": "github.com/daytonaio/daytona ~13k+ stars",
-          "citation": "https://www.daytona.io/",
+          "value": "daytona/clients — ~15 stars (SDKs, API clients, CLI); the former daytonaio/daytona monorepo (~71k stars, last commit 2026-07) stopped development when core moved to a private codebase in 2026-06",
+          "citation": "https://github.com/daytona/clients",
           "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -226962,8 +226962,8 @@
           "tier": "T3"
         },
         "pricing": {
-          "value": "OSS (free); Daytona Cloud managed paid tier; enterprise on-prem (quote)",
-          "citation": "https://www.daytona.io/",
+          "value": "Pay-as-you-go per-second billing (vCPU $0.0504/h, memory $0.0162/GiB-h, storage $0.000108/GiB-h, first 5 GiB free); $200 free compute; startup credits up to $50k; preemptible GPUs from $0.57/h; Enterprise custom (SSO, audit logs, BYOC)",
+          "citation": "https://www.daytona.io/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -226980,8 +226980,8 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Self-hostable (Apache 2.0) + managed cloud",
-          "citation": "https://www.daytona.io/",
+          "value": "Managed-only — Daytona cloud (pay-as-you-go); enterprise tier offers BYOC; archived OSS repo (v0.190.0) still forkable but unmaintained",
+          "citation": "https://www.daytona.io/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -227112,10 +227112,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "not applicable — sandbox/runtime, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
+          "value": "yes — Daytona MCP server (shipped with the CLI/MCP tools in daytona/clients) for agent sandbox control",
+          "citation": "https://github.com/daytona/clients",
+          "status": "real-data",
+          "tier": "T1"
         },
         "a2a-support": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -227191,10 +227191,10 @@
           "tier": "T3"
         },
         "runtimes": {
-          "value": "Docker + Kubernetes (self-hosted); managed cloud",
-          "citation": "https://www.daytona.io/",
+          "value": "TypeScript, Python, Ruby, Go, Java",
+          "citation": "https://github.com/daytona/clients",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "session-handling": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -227516,7 +227516,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/daytonaio/daytona",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -227532,16 +227535,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/daytona/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/daytona/clients/main/LICENSE",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/daytona/clients",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -227560,7 +227572,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.daytona.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -227572,8 +227587,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.daytona.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -227660,7 +227678,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/daytona/clients",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -227712,7 +227733,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/daytona/clients",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -258284,7 +258308,7 @@
       "name": "e2b",
       "tier": 1,
       "url": "https://e2b.dev/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -258377,24 +258401,24 @@
           "last_verified_at": "2026-05-13"
         },
         "latest-release": {
-          "value": "not applicable — sandbox/runtime, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "license": {
-          "value": "Apache 2.0 (SDK + CLI)",
-          "citation": "https://e2b.dev/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "gh": {
-          "value": "github.com/e2b-dev/e2b ~7k+ stars; github.com/e2b-dev/infra (runtime)",
-          "citation": "https://e2b.dev/",
+          "value": "v2.61.0 (2026-10-26)",
+          "citation": "https://pypi.org/project/e2b/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-27"
+        },
+        "license": {
+          "value": "Apache-2.0",
+          "citation": "https://github.com/e2b-dev/E2B",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "gh": {
+          "value": "e2b-dev/E2B — ~15k stars, last commit 2026-10",
+          "citation": "https://github.com/e2b-dev/E2B",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -258424,8 +258448,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Free + Pro ($150/mo) + Enterprise (quote); pay-per-second sandbox billing",
-          "citation": "https://e2b.dev/",
+          "value": "Hobby $0 (one-time $100 credit, 20 concurrent sandboxes); Pro $150/mo + usage (100 concurrent; Pro+ $650, Pro++ $1,150); Enterprise custom ($3,000/mo minimum, BYOC); per-second usage vCPU $0.000014/s, RAM $0.0000045/GiB-s",
+          "citation": "https://e2b.dev/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -258442,10 +258466,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Managed cloud (e2b.dev) + Apache 2.0 OSS SDK for self-hostable runtime",
-          "citation": "https://e2b.dev/",
+          "value": "Both (self-hosted + managed cloud) — E2B Cloud; open-source Apache-2.0 runtime (e2b-dev/infra) can be self-hosted; enterprise BYOC",
+          "citation": "https://github.com/e2b-dev/infra",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "hq": {
           "value": "San Francisco, US + Prague, Czech Republic",
@@ -258653,10 +258677,10 @@
           "tier": "T3"
         },
         "runtimes": {
-          "value": "Linux microVMs; SDK clients in Python / TS",
-          "citation": "https://e2b.dev/",
+          "value": "Python, TypeScript",
+          "citation": "https://github.com/e2b-dev/E2B",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "session-handling": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -258994,15 +259018,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/e2b/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/e2b-dev/E2B",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/e2b-dev/E2B",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -259022,7 +259055,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://e2b.dev/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -259034,7 +259070,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/e2b-dev/infra",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -259174,7 +259213,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/e2b-dev/E2B",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -264517,7 +264559,7 @@
       "name": "Eliza (ai16z)",
       "tier": 2,
       "url": "https://github.com/elizaOS/eliza",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -264610,11 +264652,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/elizaOS/eliza",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.7.2 (2026-01-19)",
+          "citation": "https://www.npmjs.com/package/@elizaos/core",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -264623,11 +264665,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "elizaOS/eliza — ~20k stars, last commit 2026-10",
           "citation": "https://github.com/elizaOS/eliza",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -264675,9 +264717,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Both (self-hosted + managed cloud) — open-source runtime runs locally; hosted Eliza Cloud (cloud.eliza.app)",
           "citation": "https://github.com/elizaOS/eliza",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -264807,10 +264849,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://github.com/elizaOS/eliza",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "yes — MCP client via the @elizaos/plugin-mcp plugin",
+          "citation": "https://www.npmjs.com/package/@elizaos/plugin-mcp",
+          "status": "real-data",
+          "tier": "T2"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -264886,9 +264928,9 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
+          "value": "TypeScript",
           "citation": "https://github.com/elizaOS/eliza",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "session-handling": {
@@ -265227,7 +265269,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@elizaos/core",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -265235,7 +265280,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/elizaOS/eliza",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -265267,7 +265315,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/elizaOS/eliza",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -265355,7 +265406,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@elizaos/plugin-mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -265407,7 +265461,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/elizaOS/eliza",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -324894,7 +324951,7 @@
       "name": "Gitpod AI features",
       "tier": 2,
       "url": "https://www.gitpod.io/blog/gitpod-flex",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -324962,8 +325019,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Gitpod is the original cloud development environment (CDE) — founded 2014 by Sven Efftinge + Johannes Landgraf (also TypeFox / Eclipse Theia / Open VSX). $25M Series A 2022 led by General Catalyst. 2024 launched Gitpod Flex with support for AI agents to run inside dev environments + automation runner. Free OSS tier (Gitpod Self-Hosted) for individual / OSS use.",
-          "citation": "https://www.gitpod.io/blog/gitpod-flex",
+          "value": "Gitpod was the original cloud development environment (CDE) — founded by Sven Efftinge + Johannes Landgraf (TypeFox / Eclipse Theia / Open VSX); $25M Series A 2022 led by General Catalyst. Renamed Ona on 2025-09-02 and repositioned as background AI software-engineering agents in cloud environments (Ona cloud or customer VPC). OpenAI agreed to acquire Ona on 2026-06-11 (closed 2026-08-10; team joined Codex); Ona Cloud is being wound down on 2026-10-31.",
+          "citation": "https://ona.com/stories/ona-joins-openai",
           "status": "real-data",
           "tier": "T2"
         },
@@ -325000,11 +325057,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "github.com/gitpod-io/gitpod ~13k+ stars; github.com/gitpod-io/gitpod-flex roadmap",
-          "citation": "https://www.gitpod.io/blog/gitpod-flex",
+          "value": "gitpod-io/gitpod — ~14k stars, last commit 2026-10",
+          "citation": "https://github.com/gitpod-io/gitpod",
           "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -325588,7 +325645,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://ona.com/stories/ona-joins-openai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -325612,8 +325672,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/gitpod-io/gitpod",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -335631,7 +335694,7 @@
       "name": "GPT Engineer",
       "tier": 3,
       "url": "https://github.com/AntonOsika/gpt-engineer",
-      "last_verified_at": "2026-05-15",
+      "last_verified_at": "2026-10-27",
       "decay_cause": "archived",
       "decay_date": "2026-05-15",
       "decay_evidence": "https://github.com/AntonOsika/gpt-engineer",
@@ -335702,7 +335765,7 @@
           "tier": "T1"
         },
         "desc": {
-          "value": "One of the original 'agent writes a whole codebase from a prompt' demos — community-maintained; spawned the commercial Lovable (gptengineer.app).",
+          "value": "One of the original 'agent writes a whole codebase from a prompt' CLI experiments; precursor to the commercial Lovable (lovable.dev / gptengineer.app). Repository archived (read-only) on 2026-04-22.",
           "citation": "https://github.com/AntonOsika/gpt-engineer",
           "status": "real-data",
           "tier": "T1"
@@ -335727,11 +335790,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/AntonOsika/gpt-engineer",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.3.1 (2024-06-06)",
+          "citation": "https://pypi.org/project/gpt-engineer/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -335740,11 +335803,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "AntonOsika/gpt-engineer — ~55k stars, last commit 2025-05 (archived 2026-04-22)",
           "citation": "https://github.com/AntonOsika/gpt-engineer",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -335792,9 +335855,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — CLI",
           "citation": "https://github.com/AntonOsika/gpt-engineer",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -336003,10 +336066,10 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://github.com/AntonOsika/gpt-engineer",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python",
+          "citation": "https://pypi.org/project/gpt-engineer/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "session-handling": {
           "value": "searched not found",
@@ -336328,7 +336391,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/AntonOsika/gpt-engineer",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -336344,7 +336410,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/gpt-engineer/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -336352,8 +336421,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/AntonOsika/gpt-engineer",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -336384,7 +336456,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/AntonOsika/gpt-engineer",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -336524,7 +336599,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/gpt-engineer/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -354745,7 +354823,7 @@
       "name": "Haystack (framework)",
       "tier": 1,
       "url": "https://haystack.deepset.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -354838,11 +354916,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://haystack.deepset.ai/",
-          "status": "depth-floor-reached",
+          "value": "v3.4.1 (2026-10-21)",
+          "citation": "https://pypi.org/project/haystack-ai/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -354851,11 +354929,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://haystack.deepset.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "deepset-ai/haystack — ~27k stars, last commit 2026-10",
+          "citation": "https://github.com/deepset-ai/haystack",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -354885,9 +354963,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://haystack.deepset.ai/",
-          "status": "depth-floor-reached",
+          "value": "OSS framework free; Haystack Enterprise Platform: Studio $0 (1 user, 100 pipeline hours, cloud deployment), Enterprise custom",
+          "citation": "https://www.deepset.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -354903,9 +354981,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://haystack.deepset.ai/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS library; deepset Haystack Enterprise Platform (cloud or custom deployment)",
+          "citation": "https://www.deepset.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -355035,9 +355113,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://haystack.deepset.ai/",
-          "status": "depth-floor-reached",
+          "value": "yes — MCPTool/MCPToolset client tools via the mcp-haystack integration (Streamable HTTP, SSE, stdio); Hayhooks can expose pipelines as MCP servers",
+          "citation": "https://docs.haystack.deepset.ai/docs/mcptool",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -355114,9 +355192,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://haystack.deepset.ai/",
-          "status": "depth-floor-reached",
+          "value": "Python",
+          "citation": "https://pypi.org/project/haystack-ai/",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -355455,7 +355533,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/haystack-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -355463,7 +355544,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/deepset-ai/haystack",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -355483,7 +355567,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.deepset.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -355495,7 +355582,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.deepset.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -355583,7 +355673,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.haystack.deepset.ai/docs/mcptool",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -355635,7 +355728,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/haystack-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -395773,7 +395869,7 @@
       "name": "Imbue (formerly Generally Intelligent)",
       "tier": 3,
       "url": "https://imbue.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -395841,7 +395937,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Founded 2017 as Generally Intelligent; rebranded Imbue 2023. Building foundation models for reasoning agents that write/edit code. Founders Kanjun Qiu + Josh Albrecht. $200M Series B 2023 ($1B valuation, Astera + Nvidia + Notion's Akshay Kothari). Trained 70B model for reasoning. Most public output is research blog + 'Carbon' OSS coding agent. Pulled back commercial roadmap post-2024.",
+          "value": "Founded 2017 as Generally Intelligent; rebranded Imbue 2023. Founders Kanjun Qiu + Josh Albrecht. $200M Series B 2023 ($1B valuation). Trained a 70B reasoning model, then shifted to user-owned AI tools: imbue.com now lists Studio (personal AI operating system, waitlist), Bouncer, Cloud in a Bottle, Sculptor, Vet (AI code review) and mngr (CLI for managing coding agents), with open-source repos under github.com/imbue-ai.",
           "citation": "https://imbue.com/",
           "status": "real-data",
           "tier": "T2"
@@ -395879,11 +395975,11 @@
           "tier": "T3"
         },
         "gh": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "value": "imbue-ai/mngr — ~430 stars, last commit 2026-10",
+          "citation": "https://github.com/imbue-ai/mngr",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -396467,8 +396563,11 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://imbue.com/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "claims": {
           "source": "legacy",
@@ -396491,8 +396590,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/imbue-ai/mngr",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -401844,7 +401946,7 @@
       "name": "Inngest",
       "tier": 1,
       "url": "https://www.inngest.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -401937,24 +402039,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.inngest.com/",
-          "status": "depth-floor-reached",
+          "value": "v4.26.0 (2026-10-22)",
+          "citation": "https://www.npmjs.com/package/inngest",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.inngest.com/",
-          "status": "depth-floor-reached",
+          "value": "SSPL-1.0 with delayed Apache-2.0 grant (server; each release becomes Apache-2.0 three years after publication); SDKs Apache-2.0",
+          "citation": "https://raw.githubusercontent.com/inngest/inngest/main/LICENSE.md",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.inngest.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "inngest/inngest — ~6k stars, last commit 2026-10",
+          "citation": "https://github.com/inngest/inngest",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -402002,9 +402104,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.inngest.com/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — Inngest Cloud; self-hosting supported since the 1.0 release",
+          "citation": "https://www.inngest.com/docs/self-hosting",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -402134,9 +402236,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.inngest.com/",
-          "status": "depth-floor-reached",
+          "value": "yes — AgentKit agents consume MCP servers as tools via mcpServers (Streamable HTTP, SSE, WebSocket)",
+          "citation": "https://agentkit.inngest.com/advanced-patterns/mcp",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -402213,10 +402315,10 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.inngest.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "TypeScript, Python, Go, Kotlin, Java",
+          "citation": "https://github.com/inngest/inngest",
+          "status": "real-data",
+          "tier": "T1"
         },
         "session-handling": {
           "value": "searched not found",
@@ -402554,15 +402656,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/inngest",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/inngest/inngest/main/LICENSE.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/inngest/inngest",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -402594,7 +402705,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.inngest.com/docs/self-hosting",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -402682,7 +402796,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://agentkit.inngest.com/advanced-patterns/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -402734,7 +402851,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/inngest/inngest",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -403876,7 +403996,9 @@
       "name": "InstructLab (Red Hat / IBM)",
       "tier": 2,
       "url": "https://instructlab.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "archived",
+      "decay_evidence": "https://github.com/instructlab/instructlab",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -403944,10 +404066,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Red Hat / IBM-stewarded open-source framework for community-driven LLM alignment + fine-tuning. Method paper 'LAB: Large-Scale Alignment for Chatbots' (Sudalairaj et al, IBM Research 2024). Built on the Granite model family (IBM's open-weights). Apache 2.0. Used in IBM watsonx + Red Hat OpenShift AI for fine-tuning workflows. Not strictly a multi-agent framework — included as 'orchestration platform' because of its role as a substrate for building domain-specific fine-tuned agent models.",
-          "citation": "https://instructlab.ai/",
+          "value": "Red Hat / IBM-stewarded open-source framework for community-driven LLM alignment + fine-tuning (LAB method, IBM Research 2024; Granite models). Apache 2.0. Main CLI repo archived 2026-04-23 after a 2025 refactor into separate libraries — synthetic data generation in SDG Hub and training in Training Hub (Red-Hat-AI-Innovation-Team). Not strictly a multi-agent framework.",
+          "citation": "https://github.com/instructlab/instructlab",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "Apache 2.0; LAB methodology paper IBM Research 2024; built on Granite open-weights; community-driven taxonomy contributions; integrated into Red Hat OpenShift AI + IBM watsonx",
@@ -403969,11 +404091,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v0.26.1 (2025-05-05)",
+          "citation": "https://pypi.org/project/instructlab/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache 2.0",
@@ -403982,11 +404104,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "github.com/instructlab/instructlab ~1.5k+ stars; sister repos for taxonomy + sdg",
-          "citation": "https://instructlab.ai/",
+          "value": "instructlab/instructlab — ~1.4k stars, last commit 2026-03 (archived 2026-04-23)",
+          "citation": "https://github.com/instructlab/instructlab",
           "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -404034,10 +404156,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Self-hostable (OSS); IBM watsonx + Red Hat OpenShift AI managed",
-          "citation": "https://instructlab.ai/",
+          "value": "Self-hosted only — CLI/library (archived)",
+          "citation": "https://github.com/instructlab/instructlab",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "hq": {
           "value": "Raleigh, US (Red Hat) + Armonk, US (IBM)",
@@ -404570,7 +404692,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/instructlab/instructlab",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -404586,7 +404711,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/instructlab/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -404594,8 +404722,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/instructlab/instructlab",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -404626,8 +404757,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/instructlab/instructlab",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -434828,7 +434962,7 @@
       "name": "LangChain (framework)",
       "tier": 1,
       "url": "https://www.langchain.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -434921,11 +435055,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/",
-          "status": "depth-floor-reached",
+          "value": "v1.4.7 (2026-10-21)",
+          "citation": "https://pypi.org/project/langchain/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT (OSS framework)",
@@ -434934,11 +435068,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "langchain-ai/langchain — ~149k stars, last commit 2026-10",
+          "citation": "https://github.com/langchain-ai/langchain",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -434986,9 +435120,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS library; agents deploy to LangSmith Deployment (cloud, hybrid or self-hosted)",
+          "citation": "https://docs.langchain.com/langsmith/deployment",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -435118,9 +435252,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/",
-          "status": "depth-floor-reached",
+          "value": "yes — MCP client tools via MCPAdapter in langchain.mcp (langchain[mcp] 1.4+, beta; successor to langchain-mcp-adapters)",
+          "citation": "https://docs.langchain.com/oss/python/langchain/mcp",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -435197,9 +435331,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/",
-          "status": "depth-floor-reached",
+          "value": "Python, TypeScript",
+          "citation": "https://www.npmjs.com/package/langchain",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -435538,7 +435672,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/langchain/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -435546,7 +435683,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/langchain-ai/langchain",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -435578,7 +435718,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://docs.langchain.com/langsmith/deployment",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -435666,7 +435809,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.langchain.com/oss/python/langchain/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -435718,7 +435864,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/langchain",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -439247,7 +439396,7 @@
       "name": "LangGraph (orchestration)",
       "tier": 1,
       "url": "https://www.langchain.com/langgraph",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -439340,11 +439489,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/langgraph",
-          "status": "depth-floor-reached",
+          "value": "v1.2.18 (2026-10-26)",
+          "citation": "https://pypi.org/project/langgraph/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -439353,11 +439502,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/langgraph",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "langchain-ai/langgraph — ~44k stars, last commit 2026-10",
+          "citation": "https://github.com/langchain-ai/langgraph",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -439405,9 +439554,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/langgraph",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS library; LangSmith Deployment cloud, hybrid, or self-hosted Agent Server",
+          "citation": "https://docs.langchain.com/langsmith/deployment",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -439537,9 +439686,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/langgraph",
-          "status": "depth-floor-reached",
+          "value": "yes — MCP tools via LangChain MCPAdapter (langchain.mcp) for LangGraph-based agents",
+          "citation": "https://docs.langchain.com/oss/python/langchain/mcp",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -439616,9 +439765,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.langchain.com/langgraph",
-          "status": "depth-floor-reached",
+          "value": "Python, TypeScript",
+          "citation": "https://www.npmjs.com/package/@langchain/langgraph",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -439957,7 +440106,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/langgraph/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -439965,7 +440117,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/langchain-ai/langgraph",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -439997,7 +440152,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://docs.langchain.com/langsmith/deployment",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -440085,8 +440243,11 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://docs.langchain.com/oss/python/langchain/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "a2a-support": {
           "source": "legacy",
@@ -440137,7 +440298,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@langchain/langgraph",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -460234,7 +460398,7 @@
       "name": "Lindy",
       "tier": 2,
       "url": "https://www.lindy.ai/",
-      "last_verified_at": "2026-10-23",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -470465,7 +470629,7 @@
       "name": "LlamaIndex (framework)",
       "tier": 1,
       "url": "https://www.llamaindex.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -470558,11 +470722,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.llamaindex.ai/",
-          "status": "depth-floor-reached",
+          "value": "v0.14.25 (2026-09-21)",
+          "citation": "https://pypi.org/project/llama-index/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -470571,11 +470735,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.llamaindex.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "run-llama/llama_index — ~53k stars, last commit 2026-10",
+          "citation": "https://github.com/run-llama/llama_index",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -470623,9 +470787,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.llamaindex.ai/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS library; LlamaAgents workflows deploy to LlamaCloud or self-host",
+          "citation": "https://developers.llamaindex.ai/python/llamaagents/overview/",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -470755,9 +470919,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.llamaindex.ai/",
-          "status": "depth-floor-reached",
+          "value": "yes — use MCP server tools in workflows and serve LlamaIndex workflows as MCP servers",
+          "citation": "https://developers.llamaindex.ai/python/framework/module_guides/mcp/",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -470834,9 +470998,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.llamaindex.ai/",
-          "status": "depth-floor-reached",
+          "value": "Python, TypeScript",
+          "citation": "https://www.npmjs.com/package/llamaindex",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -471175,7 +471339,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/llama-index/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -471183,7 +471350,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/run-llama/llama_index",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -471215,8 +471385,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://developers.llamaindex.ai/python/llamaagents/overview/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -471303,7 +471476,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://developers.llamaindex.ai/python/framework/module_guides/mcp/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -471355,7 +471531,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/llamaindex",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -500527,7 +500706,9 @@
       "name": "Magnetic-One",
       "tier": 3,
       "url": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "superseded",
+      "decay_evidence": "https://github.com/microsoft/autogen",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -500620,11 +500801,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-          "status": "depth-floor-reached",
+          "value": "v0.7.5 (2025-09-30)",
+          "citation": "https://pypi.org/project/autogen-ext/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -500633,11 +500814,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "microsoft/autogen — ~62k stars, last commit 2026-10",
+          "citation": "https://github.com/microsoft/autogen",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -500685,10 +500866,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Self-hosted only — library (autogen-agentchat / autogen-ext)",
+          "citation": "https://github.com/microsoft/autogen",
+          "status": "real-data",
+          "tier": "T1"
         },
         "hq": {
           "value": "searched not found",
@@ -500817,10 +500998,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "yes — MCP tools via McpWorkbench / StdioServerParams in autogen_ext.tools.mcp",
+          "citation": "https://github.com/microsoft/autogen",
+          "status": "real-data",
+          "tier": "T1"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -500896,9 +501077,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-          "status": "depth-floor-reached",
+          "value": "Python",
+          "citation": "https://pypi.org/project/autogen-ext/",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -501237,7 +501418,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/autogen-ext/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -501245,8 +501429,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -501277,7 +501464,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -501365,7 +501555,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -501417,7 +501610,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/autogen-ext/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -506635,7 +506831,7 @@
       "name": "Marvin",
       "tier": 3,
       "url": "https://www.askmarvin.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -506703,10 +506899,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Prefect's LLM toolkit — turns Python functions into LLM-powered ones; structured outputs, classification, extraction. Replaced by Control Flow for agentic workflows in 2024.",
-          "citation": "https://www.askmarvin.ai/",
+          "value": "Prefect's Python framework for structured outputs (cast, classify, extract, generate) and agentic workflows (tasks, agents, threads). Marvin 3.0 merged in ControlFlow's agentic engine, superseding ControlFlow (whose repo was archived 2026-03-19); uses Pydantic AI for LLM providers.",
+          "citation": "https://github.com/PrefectHQ/marvin",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "searched not found",
@@ -506728,11 +506924,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.askmarvin.ai/",
-          "status": "depth-floor-reached",
+          "value": "v3.2.7 (2026-03-04)",
+          "citation": "https://pypi.org/project/marvin/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -506741,11 +506937,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.askmarvin.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "PrefectHQ/marvin — ~6.2k stars, last commit 2026-09",
+          "citation": "https://github.com/PrefectHQ/marvin",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -506793,10 +506989,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.askmarvin.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Self-hosted only — library",
+          "citation": "https://github.com/PrefectHQ/marvin",
+          "status": "real-data",
+          "tier": "T1"
         },
         "hq": {
           "value": "searched not found",
@@ -507004,9 +507200,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.askmarvin.ai/",
-          "status": "depth-floor-reached",
+          "value": "Python",
+          "citation": "https://pypi.org/project/marvin/",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -507329,7 +507525,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/PrefectHQ/marvin",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -507345,7 +507544,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/marvin/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -507353,7 +507555,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/PrefectHQ/marvin",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -507385,7 +507590,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/PrefectHQ/marvin",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -507525,7 +507733,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/marvin/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -507639,7 +507850,7 @@
       "name": "Mastra",
       "tier": 2,
       "url": "https://mastra.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -507732,24 +507943,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://mastra.ai/",
-          "status": "depth-floor-reached",
+          "value": "v1.79.0 (2026-10-21)",
+          "citation": "https://www.npmjs.com/package/@mastra/core",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "Elastic 2.0",
-          "citation": "https://mastra.ai/",
+          "value": "Apache-2.0 (code under ee/ directories under a separate Mastra enterprise license)",
+          "citation": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
           "status": "real-data",
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://mastra.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "mastra-ai/mastra — ~29k stars, last commit 2026-10",
+          "citation": "https://github.com/mastra-ai/mastra",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -507779,9 +507990,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://mastra.ai/",
-          "status": "depth-floor-reached",
+          "value": "Framework free (Apache-2.0); Mastra Platform Starter $0/mo (100K observability events, 24 CPU hours), Teams $250/mo (1M events, 250 CPU hours, SSO), Enterprise custom; persistent server $100/project; enterprise self-hosted license custom",
+          "citation": "https://mastra.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -507797,9 +508008,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://mastra.ai/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — Apache-2.0 framework self-hosted; Mastra Platform hosted deployments",
+          "citation": "https://mastra.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -507929,10 +508140,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://mastra.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "yes — consume MCP servers and author MCP servers exposing agents/tools via @mastra/mcp",
+          "citation": "https://github.com/mastra-ai/mastra",
+          "status": "real-data",
+          "tier": "T1"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -508008,9 +508219,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://mastra.ai/",
-          "status": "depth-floor-reached",
+          "value": "TypeScript",
+          "citation": "https://www.npmjs.com/package/@mastra/core",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -508349,15 +508560,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@mastra/core",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/mastra-ai/mastra",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -508377,7 +508597,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://mastra.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -508389,7 +508612,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://mastra.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -508477,7 +508703,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/mastra-ai/mastra",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -508529,7 +508758,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@mastra/core",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -513807,7 +514039,7 @@
       "name": "MCP Servers (Reference)",
       "tier": 1,
       "url": "https://github.com/modelcontextprotocol/servers",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -513875,7 +514107,7 @@
           "tier": "T1"
         },
         "desc": {
-          "value": "Anthropic-led collection of reference Model Context Protocol servers (filesystem, GitHub, Slack, etc.) — substrate beneath the entire MCP-memory ecosystem (Cipher, Memobase, etc.).",
+          "value": "Official collection of reference Model Context Protocol servers maintained by the MCP project — currently Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking and Time; earlier servers such as GitHub, Google Drive and PostgreSQL were moved to the servers-archived repo. Substrate for the MCP-memory ecosystem.",
           "citation": "https://github.com/modelcontextprotocol/servers",
           "status": "real-data",
           "tier": "T1"
@@ -513900,24 +514132,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/modelcontextprotocol/servers",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v2.0.1 (2026-10-25)",
+          "citation": "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "MIT",
-          "citation": "https://github.com/modelcontextprotocol/servers",
+          "value": "Apache-2.0 (transitioning from MIT; contributions without relicensing consent remain MIT; docs CC-BY-4.0)",
+          "citation": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/LICENSE",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "modelcontextprotocol/servers — ~92k stars, last commit 2026-10",
           "citation": "https://github.com/modelcontextprotocol/servers",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -513965,9 +514197,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — run locally via npx (TypeScript) or uvx/pip (Python)",
           "citation": "https://github.com/modelcontextprotocol/servers",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -514097,9 +514329,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
+          "value": "yes — reference MCP server implementations",
           "citation": "https://github.com/modelcontextprotocol/servers",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "a2a-support": {
@@ -514176,9 +514408,9 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
+          "value": "TypeScript, Python",
           "citation": "https://github.com/modelcontextprotocol/servers",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "session-handling": {
@@ -514501,7 +514733,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/servers",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -514517,15 +514752,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/LICENSE",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/servers",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -514557,7 +514801,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/servers",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -514645,7 +514892,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/servers",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -514697,7 +514947,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/servers",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -600127,7 +600380,7 @@
       "name": "MetaGPT",
       "tier": 2,
       "url": "https://github.com/geekan/MetaGPT",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -600220,11 +600473,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/geekan/MetaGPT",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.8.2 (2025-03-09)",
+          "citation": "https://pypi.org/project/metagpt/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -600233,11 +600486,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://github.com/geekan/MetaGPT",
-          "status": "depth-floor-reached",
+          "value": "FoundationAgents/MetaGPT — ~71k stars, last commit 2026-01",
+          "citation": "https://github.com/FoundationAgents/MetaGPT",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -600285,9 +600538,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/geekan/MetaGPT",
-          "status": "depth-floor-reached",
+          "value": "Self-hosted only — library",
+          "citation": "https://github.com/FoundationAgents/MetaGPT",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -600496,10 +600749,10 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://github.com/geekan/MetaGPT",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python",
+          "citation": "https://pypi.org/project/metagpt/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "session-handling": {
           "value": "searched not found",
@@ -600837,7 +601090,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/metagpt/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -600845,8 +601101,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/FoundationAgents/MetaGPT",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -600877,7 +601136,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/FoundationAgents/MetaGPT",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -601017,7 +601279,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/metagpt/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -605556,7 +605821,7 @@
       "name": "Microsoft AutoGen Studio",
       "tier": 2,
       "url": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -605624,10 +605889,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Microsoft Research's low-code GUI for designing and deploying multi-agent workflows on top of the AutoGen framework. AutoGen v0.4 (Jan-2025) re-architecture moved to actor-based async runtime. Free OSS (MIT). Distinct from OSS AutoGen framework already in catalog — this row covers the Studio GUI / no-code product. Increasingly positioned as Microsoft's multi-agent answer to LangGraph / CrewAI.",
-          "citation": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+          "value": "Microsoft Research's low-code GUI for prototyping multi-agent workflows on top of the AutoGen framework (not intended for production). Ships in the microsoft/autogen repo, whose README now says the project is archived and no longer maintained (no bug, security or feature fixes); Microsoft points new users to Microsoft Agent Framework. Distinct from the OSS AutoGen framework row; this row covers the Studio GUI.",
+          "citation": "https://github.com/microsoft/autogen",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "OSS (MIT) + Microsoft Research-backed; AutoGen v0.4 actor-based async; >35k stars on AutoGen repo cumulative; AutoGen Studio is no-code GUI on top",
@@ -605649,11 +605914,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v0.4.2.2 (2025-05-27)",
+          "citation": "https://pypi.org/project/autogenstudio/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -605662,11 +605927,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "github.com/microsoft/autogen ~37k+ stars",
-          "citation": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+          "value": "microsoft/autogen — ~62k stars, last commit 2026-10",
+          "citation": "https://github.com/microsoft/autogen",
           "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -605714,10 +605979,10 @@
           "tier": "T3"
         },
         "deployment": {
-          "value": "Self-hostable (OSS); Azure AI integration; runs locally",
-          "citation": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+          "value": "Self-hosted only — local web UI (not intended for production)",
+          "citation": "https://github.com/microsoft/autogen",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "hq": {
           "value": "Redmond, US (Microsoft Research)",
@@ -606250,7 +606515,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -606266,7 +606534,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/autogenstudio/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -606274,8 +606545,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -606306,7 +606580,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/autogen",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -612263,7 +612540,7 @@
       "name": "Microsoft Semantic Kernel",
       "tier": 1,
       "url": "https://github.com/microsoft/semantic-kernel",
-      "last_verified_at": "2026-10-23",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -612356,11 +612633,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/microsoft/semantic-kernel",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.45.0 (2026-10-06)",
+          "citation": "https://pypi.org/project/semantic-kernel/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -612369,11 +612646,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "microsoft/semantic-kernel — ~29k stars, last commit 2026-10",
           "citation": "https://github.com/microsoft/semantic-kernel",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -612421,9 +612698,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/microsoft/semantic-kernel",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -612553,9 +612830,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
+          "value": "yes — MCP servers usable as plugins",
           "citation": "https://github.com/microsoft/semantic-kernel",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "a2a-support": {
@@ -612632,9 +612909,9 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
+          "value": "C#, Python, Java",
           "citation": "https://github.com/microsoft/semantic-kernel",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "session-handling": {
@@ -612976,7 +613253,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/semantic-kernel/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -612984,7 +613264,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/semantic-kernel",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -613016,7 +613299,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/semantic-kernel",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -613104,7 +613390,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/semantic-kernel",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -613156,7 +613445,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/microsoft/semantic-kernel",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -629764,7 +630056,7 @@
       "name": "Modal Sandboxes",
       "tier": 1,
       "url": "https://modal.com/docs/guide/sandbox",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -629857,24 +630149,24 @@
           "last_verified_at": "2026-05-13"
         },
         "latest-release": {
-          "value": "not applicable — sandbox/runtime, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v1.6.2 (2026-10-16)",
+          "citation": "https://pypi.org/project/modal/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
+          "value": "Apache-2.0 (client SDK only; platform proprietary)",
+          "citation": "https://github.com/modal-labs/modal-client",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "modal-labs/modal-client — ~530 stars, last commit 2026-10",
+          "citation": "https://github.com/modal-labs/modal-client",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -630133,7 +630425,7 @@
           "tier": "T3"
         },
         "runtimes": {
-          "value": "Python SDK; runs any Linux container",
+          "value": "Python, TypeScript, Go",
           "citation": "https://modal.com/docs/guide/sandbox",
           "status": "real-data",
           "tier": "T2"
@@ -630474,15 +630766,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/modal/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modal-labs/modal-client",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modal-labs/modal-client",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -630654,7 +630955,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://modal.com/docs/guide/sandbox",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -630778,7 +631082,7 @@
       "name": "Model Context Protocol (MCP spec)",
       "tier": 1,
       "url": "https://modelcontextprotocol.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -630846,8 +631150,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Anthropic-introduced open protocol (Nov 2024) for connecting LLMs to data sources and tools. Now standard across Anthropic, OpenAI, Microsoft, Cursor, Continue, IDEs, etc.",
-          "citation": "https://modelcontextprotocol.io/",
+          "value": "Anthropic-introduced open protocol (Nov 2024) for connecting LLMs to data sources and tools. Donated by Anthropic to the Linux Foundation's Agentic AI Foundation (announced 2025-12-09); now governed as Model Context Protocol, a Series of LF Projects, LLC. Supported across Claude, ChatGPT, VS Code, Cursor and many other clients.",
+          "citation": "https://modelcontextprotocol.io/community/governance",
           "status": "real-data",
           "tier": "T2"
         },
@@ -630871,24 +631175,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://modelcontextprotocol.io/",
-          "status": "depth-floor-reached",
+          "value": "v1.32.2 (2026-10-23) — TypeScript SDK; Python SDK v2.3.0 (2026-10-02); current spec revision 2026-07-28",
+          "citation": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "MIT (spec)",
-          "citation": "https://modelcontextprotocol.io/",
+          "value": "Apache-2.0 (new spec and code contributions; transitioning from MIT, un-relicensed MIT contributions remain MIT); docs CC-BY-4.0",
+          "citation": "https://github.com/modelcontextprotocol/modelcontextprotocol",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://modelcontextprotocol.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "modelcontextprotocol/modelcontextprotocol — ~9.5k stars, last commit 2026-10",
+          "citation": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -631068,9 +631372,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://modelcontextprotocol.io/",
-          "status": "depth-floor-reached",
+          "value": "yes — this is the MCP specification itself",
+          "citation": "https://modelcontextprotocol.io/specification/versioning",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -631147,9 +631451,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://modelcontextprotocol.io/",
-          "status": "depth-floor-reached",
+          "value": "TypeScript, Python, C#, Go, Rust, Ruby, Java, Swift, PHP, Kotlin",
+          "citation": "https://modelcontextprotocol.io/docs/sdk",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -631472,7 +631776,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://modelcontextprotocol.io/community/governance",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -631488,15 +631795,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -631616,7 +631932,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://modelcontextprotocol.io/specification/versioning",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -631668,7 +631987,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://modelcontextprotocol.io/docs/sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -635941,7 +636263,7 @@
       "name": "MultiOn",
       "tier": 2,
       "url": "https://www.multion.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -636009,8 +636331,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Web-browsing agent API platform. Founded 2023 by Div Garg (Stanford); $30M+ raised. Provides 'Agent API' for autonomous web tasks (booking, shopping, research). Distinct from browser-agent memory section (Arc Max, Browser Company, Dia) — MultiOn ships an API for developers rather than a consumer browser. Demoed at 2024 Microsoft Build; partnered with NotebookLM for some flows.",
-          "citation": "https://www.multion.ai/",
+          "value": "Web-browsing agent API platform (MultiOn Agent API, docs still labelled Agent V1 Beta). Founded 2023 by Div Garg. As of 2026-10 www.multion.ai redirects to AGI, Inc. (theagi.company), which now markets AGI-0, an on-device action model and agent that operates Android apps, plus a developer Platform; the multion Python SDK has had no release since 2024-10.",
+          "citation": "https://theagi.company/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -636034,11 +636356,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v1.3.8 (2024-10-08) — multion Python SDK",
+          "citation": "https://pypi.org/project/multion/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -636635,8 +636957,11 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://theagi.company/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "claims": {
           "source": "legacy",
@@ -636651,7 +636976,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/multion/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -637972,7 +638300,7 @@
       "name": "n8n (AI agent flows)",
       "tier": 1,
       "url": "https://n8n.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -638065,11 +638393,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://n8n.io/",
-          "status": "depth-floor-reached",
+          "value": "v2.45.4 (2026-10-26)",
+          "citation": "https://www.npmjs.com/package/n8n",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Sustainable Use License (semi-OSS)",
@@ -638078,11 +638406,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://n8n.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "n8n-io/n8n — ~209k stars, last commit 2026-10",
+          "citation": "https://github.com/n8n-io/n8n",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -638112,9 +638440,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://n8n.io/",
-          "status": "depth-floor-reached",
+          "value": "Cloud Starter EUR 20/mo and Pro EUR 50/mo (billed annually); Business EUR 667/mo (self-hosted, billed annually); Enterprise custom; Community Edition self-hosted from GitHub",
+          "citation": "https://n8n.io/pricing/",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -638130,9 +638458,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://n8n.io/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — n8n Cloud (Starter/Pro/Enterprise) or self-hosted Community/Business editions",
+          "citation": "https://n8n.io/pricing/",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -638262,9 +638590,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://n8n.io/",
-          "status": "depth-floor-reached",
+          "value": "yes — built-in instance-level MCP server (Settings, Instance-level MCP) plus MCP Server Trigger node to expose a workflow's tools",
+          "citation": "https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -638682,7 +639010,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/n8n",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -638690,7 +639021,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/n8n-io/n8n",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -638710,7 +639044,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://n8n.io/pricing/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -638722,7 +639059,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://n8n.io/pricing/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -638810,7 +639150,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -675623,7 +675966,7 @@
       "name": "OpenAI Agents SDK",
       "tier": 1,
       "url": "https://github.com/openai/openai-agents-python",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -675716,11 +676059,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/openai/openai-agents-python",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.24.0 (2026-10-15) — Python; JS/TS @openai/agents v0.21.0 (2026-10-20)",
+          "citation": "https://pypi.org/project/openai-agents/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -675729,11 +676072,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "openai/openai-agents-python — ~30k stars, last commit 2026-10 (JS: openai/openai-agents-js ~3.9k)",
           "citation": "https://github.com/openai/openai-agents-python",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -675781,9 +676124,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/openai/openai-agents-python",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -675913,10 +676256,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://github.com/openai/openai-agents-python",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "yes — HostedMCPTool plus MCPServerStreamableHttp, MCPServerStdio and MCPServerSse (deprecated) server classes",
+          "citation": "https://openai.github.io/openai-agents-python/mcp/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -675992,9 +676335,9 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://github.com/openai/openai-agents-python",
-          "status": "depth-floor-reached",
+          "value": "Python, TypeScript",
+          "citation": "https://github.com/openai/openai-agents-js",
+          "status": "real-data",
           "tier": "T1"
         },
         "session-handling": {
@@ -676333,7 +676676,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/openai-agents/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -676341,7 +676687,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/openai/openai-agents-python",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -676373,7 +676722,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/openai/openai-agents-python",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -676461,7 +676813,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://openai.github.io/openai-agents-python/mcp/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -676513,7 +676868,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/openai/openai-agents-js",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -688803,7 +689161,9 @@
       "name": "OpenAI Swarm (deprecated)",
       "tier": 4,
       "url": "https://github.com/openai/swarm",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "superseded",
+      "decay_evidence": "https://github.com/openai/swarm",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -688909,11 +689269,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://github.com/openai/swarm",
-          "status": "depth-floor-reached",
+          "value": "openai/swarm — ~22k stars, last commit 2026-04 (not archived; no releases)",
+          "citation": "https://github.com/openai/swarm/commits/main",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -688961,9 +689321,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/openai/swarm",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -689172,9 +689532,9 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
+          "value": "Python",
           "citation": "https://github.com/openai/swarm",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "session-handling": {
@@ -689521,7 +689881,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/openai/swarm/commits/main",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -689553,7 +689916,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/openai/swarm",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -689693,7 +690059,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/openai/swarm",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -693218,7 +693587,7 @@
       "name": "OpenDevin / OpenHands",
       "tier": 2,
       "url": "https://github.com/All-Hands-AI/OpenHands",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -693311,11 +693680,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/All-Hands-AI/OpenHands",
-          "status": "depth-floor-reached",
+          "value": "v1.33.0 (2026-10-23) — OpenHands Agent Canvas; Python openhands-sdk v1.58.2 (2026-10-25)",
+          "citation": "https://github.com/OpenHands/OpenHands/releases",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -693324,11 +693693,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://github.com/All-Hands-AI/OpenHands",
-          "status": "depth-floor-reached",
+          "value": "OpenHands/OpenHands (formerly All-Hands-AI/OpenHands) — ~92k stars, last commit 2026-10",
+          "citation": "https://github.com/OpenHands/OpenHands",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -693358,10 +693727,10 @@
           "tier": "T1"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://github.com/All-Hands-AI/OpenHands",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Agent Canvas free to self-host (BYO LLM key); Teams USD 499/mo for up to 10 users (+USD 50/seat); Enterprise custom",
+          "citation": "https://openhands.dev/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "compliance": {
           "value": "searched not found",
@@ -693376,10 +693745,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/All-Hands-AI/OpenHands",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Both (self-hosted + managed cloud) — self-hosted Agent Canvas (free) / Teams, plus OpenHands Cloud and Enterprise",
+          "citation": "https://openhands.dev/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "searched not found",
@@ -693508,10 +693877,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://github.com/All-Hands-AI/OpenHands",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "yes — connects to external MCP servers over SSE, Streamable HTTP or stdio",
+          "citation": "https://docs.openhands.dev/openhands/usage/settings/mcp-settings",
+          "status": "real-data",
+          "tier": "T2"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -693928,7 +694297,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/OpenHands/OpenHands/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -693936,7 +694308,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/OpenHands/OpenHands",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -693956,7 +694331,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://openhands.dev/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -693968,8 +694346,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://openhands.dev/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -694056,7 +694437,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.openhands.dev/openhands/usage/settings/mcp-settings",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -729805,7 +730189,7 @@
       "name": "Phidata / Agno",
       "tier": 2,
       "url": "https://www.agno.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -729898,24 +730282,24 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "license": {
-          "value": "MPL-2.0 (Agno OSS)",
-          "citation": "https://www.agno.com/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "gh": {
-          "value": "github.com/agno-agi/agno ~25k+ stars; github.com/phidatahq/phidata (legacy)",
-          "citation": "https://www.agno.com/",
+          "value": "v3.1.10 (2026-10-23)",
+          "citation": "https://pypi.org/project/agno/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
+        },
+        "license": {
+          "value": "Apache-2.0",
+          "citation": "https://github.com/agno-agi/agno",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "gh": {
+          "value": "agno-agi/agno — ~43k stars, last commit 2026-10 (phidatahq/phidata redirects here)",
+          "citation": "https://github.com/agno-agi/agno",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -729945,8 +730329,8 @@
           "tier": "T3"
         },
         "pricing": {
-          "value": "OSS (free); future paid cloud tier",
-          "citation": "https://www.agno.com/",
+          "value": "Free (control plane against local AgentOS); Pro USD 150/mo (one live AgentOS connection, 3 seats); Enterprise custom",
+          "citation": "https://www.agno.com/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -729963,10 +730347,10 @@
           "tier": "T3"
         },
         "deployment": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
+          "value": "Self-hosted only — open-source SDK and AgentOS run in your own cloud; paid tiers add a hosted control plane",
+          "citation": "https://www.agno.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "Distributed (US-based founders)",
@@ -730095,8 +730479,8 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "native (first-party)",
-          "citation": "https://www.agno.com/",
+          "value": "yes — MCPTools class connects agents to MCP servers (stdio, Streamable HTTP)",
+          "citation": "https://docs.agno.com/tools/mcp/overview",
           "status": "real-data",
           "tier": "T2"
         },
@@ -730515,15 +730899,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/agno/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/agno-agi/agno",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/agno-agi/agno",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -730543,7 +730936,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.agno.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -730555,8 +730951,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.agno.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -730643,7 +731042,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.agno.com/tools/mcp/overview",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -730824,7 +731226,7 @@
       "name": "Phidata (now Agno)",
       "tier": 3,
       "url": "https://www.agno.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -730917,24 +731319,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.agno.com/",
-          "status": "depth-floor-reached",
+          "value": "v3.1.10 (2026-10-23)",
+          "citation": "https://pypi.org/project/agno/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "Mozilla MPL 2.0",
-          "citation": "https://www.agno.com/",
+          "value": "Apache-2.0",
+          "citation": "https://github.com/agno-agi/agno",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.agno.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "agno-agi/agno — ~43k stars, last commit 2026-10 (phidatahq/phidata redirects here)",
+          "citation": "https://github.com/agno-agi/agno",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -730964,9 +731366,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://www.agno.com/",
-          "status": "depth-floor-reached",
+          "value": "Free (control plane against local AgentOS); Pro USD 150/mo (one live AgentOS connection, 3 seats); Enterprise custom",
+          "citation": "https://www.agno.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -730982,9 +731384,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.agno.com/",
-          "status": "depth-floor-reached",
+          "value": "Self-hosted only — open-source SDK and AgentOS run in your own cloud; paid tiers add a hosted control plane",
+          "citation": "https://www.agno.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -731114,9 +731516,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.agno.com/",
-          "status": "depth-floor-reached",
+          "value": "yes — MCPTools class connects agents to MCP servers (stdio, Streamable HTTP)",
+          "citation": "https://docs.agno.com/tools/mcp/overview",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -731193,9 +731595,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://www.agno.com/",
-          "status": "depth-floor-reached",
+          "value": "Python",
+          "citation": "https://pypi.org/project/agno/",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -731534,15 +731936,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/agno/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/agno-agi/agno",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/agno-agi/agno",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -731562,7 +731973,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.agno.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -731574,8 +731988,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.agno.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -731662,7 +732079,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.agno.com/tools/mcp/overview",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -731714,7 +732134,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/agno/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -758376,7 +758799,7 @@
       "name": "Pydantic-AI",
       "tier": 2,
       "url": "https://ai.pydantic.dev/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -758469,11 +758892,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://ai.pydantic.dev/",
-          "status": "depth-floor-reached",
+          "value": "v2.62.0 (2026-10-27)",
+          "citation": "https://pypi.org/project/pydantic-ai/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -758482,11 +758905,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://ai.pydantic.dev/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "pydantic/pydantic-ai — ~21k stars, last commit 2026-10",
+          "citation": "https://github.com/pydantic/pydantic-ai",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -758534,10 +758957,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://ai.pydantic.dev/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Self-hosted only — library",
+          "citation": "https://github.com/pydantic/pydantic-ai",
+          "status": "real-data",
+          "tier": "T1"
         },
         "hq": {
           "value": "searched not found",
@@ -758666,9 +759089,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://ai.pydantic.dev/",
-          "status": "depth-floor-reached",
+          "value": "yes — MCP client via MCP capability / MCPToolset, agents can run inside MCP servers, MCPServerTool for provider-native MCP",
+          "citation": "https://pydantic.dev/docs/ai/mcp/overview/",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -758745,9 +759168,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://ai.pydantic.dev/",
-          "status": "depth-floor-reached",
+          "value": "Python",
+          "citation": "https://pypi.org/project/pydantic-ai/",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -759086,7 +759509,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/pydantic-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -759094,7 +759520,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/pydantic/pydantic-ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -759126,7 +759555,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/pydantic/pydantic-ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -759214,7 +759646,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://pydantic.dev/docs/ai/mcp/overview/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -759266,7 +759701,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/pydantic-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -784213,7 +784651,7 @@
       "name": "Reflection AI",
       "tier": 2,
       "url": "https://reflection.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -784281,7 +784719,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Founded 2024 by Misha Laskin and Ioannis Antonoglou (both ex-DeepMind, AlphaGo / Gemini RLHF). Building autonomous coding agents — Asimov is their code-research agent. Raised $130M Series A March-2025 at $555M valuation led by Lightspeed + CRV. Positioned as Devin/Cognition competitor with RL / robotics-research pedigree.",
+          "value": "Founded 2024 by Misha Laskin and Ioannis Antonoglou (ex-DeepMind). Pivoted from autonomous coding agents (Asimov) to open-weight frontier models: its first open-weight model Beam is a 501B-parameter MoE built for coding, reasoning and agentic workloads, offered with open-source harnesses/containers, a Platform API, and self-deployment (private cloud, air-gapped, edge).",
           "citation": "https://reflection.ai/",
           "status": "real-data",
           "tier": "T2"
@@ -784371,7 +784809,7 @@
           "tier": "T3"
         },
         "deployment": {
-          "value": "Managed cloud (private beta)",
+          "value": "Both (self-hosted + managed cloud) — Beam open weights deployable in own environment, or via Reflection Platform API",
           "citation": "https://reflection.ai/",
           "status": "real-data",
           "tier": "T2"
@@ -784907,7 +785345,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://reflection.ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -784963,8 +785404,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://reflection.ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -799587,7 +800031,7 @@
       "name": "Restate",
       "tier": 3,
       "url": "https://restate.dev/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -799680,24 +800124,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://restate.dev/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.8.1 (2026-10-21) — server; TypeScript SDK v1.17.4 (2026-10-20)",
+          "citation": "https://github.com/restatedev/restate/releases",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://restate.dev/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "BUSL-1.1 (Restate server); SDKs MIT",
+          "citation": "https://github.com/restatedev/restate",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://restate.dev/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "restatedev/restate — ~4.6k stars, last commit 2026-10",
+          "citation": "https://github.com/restatedev/restate",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -799745,9 +800189,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://restate.dev/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — Restate Cloud or self-hosted server",
+          "citation": "https://docs.restate.dev/",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -799956,9 +800400,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://restate.dev/",
-          "status": "depth-floor-reached",
+          "value": "TypeScript, Java, Kotlin, Python, Go, Rust, Ruby",
+          "citation": "https://docs.restate.dev/",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -800297,15 +800741,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/restatedev/restate/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/restatedev/restate",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/restatedev/restate",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -800337,7 +800790,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://docs.restate.dev/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -800477,7 +800933,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://docs.restate.dev/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -836138,7 +836597,7 @@
       "name": "SandBase Harness",
       "tier": 3,
       "url": "https://github.com/sandbaseai/sandbase-harness",
-      "last_verified_at": "2026-10-22",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -836230,10 +836689,11 @@
           "tier": "T1"
         },
         "latest-release": {
-          "value": "last commit 2026-10-12",
-          "citation": "https://github.com/sandbaseai/sandbase-harness",
+          "value": "v0.3.8 (2026-08-30)",
+          "citation": "https://github.com/sandbaseai/sandbase-harness/releases",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -836242,10 +836702,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "https://github.com/sandbaseai/sandbase-harness (635★)",
+          "value": "sandbaseai/sandbase-harness — ~640 stars, last commit 2026-10",
           "citation": "https://github.com/sandbaseai/sandbase-harness",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "635 GitHub stars",
@@ -836290,9 +836751,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — local-first runtime (local, Docker, Kubernetes or self-hosted worker sandboxes), no hosted control plane",
           "citation": "https://github.com/sandbaseai/sandbase-harness",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -836422,9 +836883,9 @@
           "tier": "T1"
         },
         "mcp-support": {
-          "value": "searched not found",
+          "value": "yes — MCP toolsets with permission policies/approvals; listed in the official MCP Registry as an MCP bridge",
           "citation": "https://github.com/sandbaseai/sandbase-harness",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "a2a-support": {
@@ -836500,9 +836961,9 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
+          "value": "TypeScript",
           "citation": "https://github.com/sandbaseai/sandbase-harness",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "session-handling": {
@@ -836831,10 +837292,10 @@
           "verified": false
         },
         "latest-release": {
-          "citation": "https://github.com/sandbaseai/sandbase-harness",
-          "generated_at": "2026-10-22",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
+          "scrape_url": "https://github.com/sandbaseai/sandbase-harness/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": false
         },
         "license": {
@@ -836845,11 +837306,11 @@
           "verified": false
         },
         "gh": {
-          "citation": "https://github.com/sandbaseai/sandbase-harness",
-          "generated_at": "2026-10-22",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/sandbaseai/sandbase-harness",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "mindshare": {
           "citation": "https://github.com/sandbaseai/sandbase-harness",
@@ -836901,11 +837362,11 @@
           "verified": false
         },
         "deployment": {
-          "generated_at": "2026-10-22",
-          "model_id": "claude-opus-4-7",
-          "note": "depth-floor-reached",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/sandbaseai/sandbase-harness",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "hq": {
           "generated_at": "2026-10-22",
@@ -837055,11 +837516,11 @@
           "verified": false
         },
         "mcp-support": {
-          "generated_at": "2026-10-22",
-          "model_id": "claude-opus-4-7",
-          "note": "depth-floor-reached",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/sandbaseai/sandbase-harness",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "a2a-support": {
           "generated_at": "2026-10-22",
@@ -837146,10 +837607,10 @@
           "verified": false
         },
         "runtimes": {
-          "generated_at": "2026-10-22",
-          "model_id": "claude-opus-4-7",
-          "note": "depth-floor-reached",
-          "source": "llm",
+          "scrape_url": "https://github.com/sandbaseai/sandbase-harness",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": false
         },
         "session-handling": {
@@ -856420,7 +856881,7 @@
       "name": "Sema4.ai",
       "tier": 2,
       "url": "https://sema4.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -856513,11 +856974,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v1.6.6 (2025-12-17) — sema4ai-actions; robocorp v3.1.6 (2026-10-18)",
+          "citation": "https://pypi.org/project/sema4ai-actions/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache 2.0 (Robocorp framework)",
@@ -856526,11 +856987,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "github.com/robocorp/robocorp ~1k+ stars; github.com/Sema4AI/actions repos",
-          "citation": "https://sema4.ai/",
+          "value": "robocorp/robocorp — ~650 stars, last commit 2026-10; Sema4AI/actions ~140 stars, last commit 2026-04",
+          "citation": "https://github.com/Sema4AI/actions",
           "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -856710,10 +857171,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
+          "value": "yes — Action Server exposes sema4ai.mcp @tool functions at an /mcp endpoint for MCP clients",
+          "citation": "https://github.com/Sema4AI/actions",
+          "status": "real-data",
+          "tier": "T1"
         },
         "a2a-support": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -857130,7 +857591,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/sema4ai-actions/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -857138,7 +857602,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/Sema4AI/actions",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -857258,7 +857725,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/Sema4AI/actions",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -878045,7 +878515,7 @@
       "name": "smolagents (Hugging Face)",
       "tier": 2,
       "url": "https://github.com/huggingface/smolagents",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -878138,11 +878608,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/smolagents",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.26.0 (2026-05-29)",
+          "citation": "https://pypi.org/project/smolagents/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -878151,11 +878621,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "huggingface/smolagents — ~30k stars, last commit 2026-10",
           "citation": "https://github.com/huggingface/smolagents",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -878203,9 +878673,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/huggingface/smolagents",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -878335,10 +878805,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/smolagents",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "yes — MCPClient and ToolCollection.from_mcp load tools from stdio or Streamable HTTP MCP servers",
+          "citation": "https://huggingface.co/docs/smolagents/tutorials/tools",
+          "status": "real-data",
+          "tier": "T2"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -878414,10 +878884,10 @@
           "tier": "T1"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/smolagents",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python",
+          "citation": "https://pypi.org/project/smolagents/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "session-handling": {
           "value": "searched not found",
@@ -878755,7 +879225,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/smolagents/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -878763,7 +879236,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/smolagents",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -878795,7 +879271,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/smolagents",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -878883,7 +879362,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://huggingface.co/docs/smolagents/tutorials/tools",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -878935,7 +879417,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/smolagents/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -898488,7 +898973,7 @@
       "name": "StackBlitz WebContainers",
       "tier": 3,
       "url": "https://webcontainers.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -898581,11 +899066,11 @@
           "last_verified_at": "2026-05-13"
         },
         "latest-release": {
-          "value": "not applicable — sandbox/runtime, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v1.6.4 (2026-04-14) — @webcontainer/api",
+          "citation": "https://www.npmjs.com/package/@webcontainer/api",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -898594,11 +899079,11 @@
           "tier": "T3"
         },
         "gh": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "stackblitz/webcontainer-core — ~4.7k stars, last commit 2025-04 (public issue tracker and docs only; the runtime source is not published)",
+          "citation": "https://github.com/stackblitz/webcontainer-core",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -898628,8 +899113,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "WebContainers API: free for OSS + paid for commercial use (tiered by traffic)",
-          "citation": "https://webcontainers.io/",
+          "value": "Free for prototypes/POCs; commercial license required for production for-profit use (enterprise pricing via sales)",
+          "citation": "https://webcontainers.io/enterprise",
           "status": "real-data",
           "tier": "T2"
         },
@@ -899198,7 +899683,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@webcontainer/api",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -899206,8 +899694,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/stackblitz/webcontainer-core",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -899226,7 +899717,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://webcontainers.io/enterprise",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -903950,7 +904444,9 @@
       "name": "Steamship",
       "tier": 3,
       "url": "https://www.steamship.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "archived",
+      "decay_evidence": "https://pypi.org/project/steamship/",
       "sections": [
         {
           "section": "Multi-agent orchestration platforms",
@@ -904043,24 +904539,24 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — orchestration platform, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "v2.17.34 (2024-01-24) — steamship Python SDK",
+          "citation": "https://pypi.org/project/steamship/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
+          "value": "MIT (python-client SDK); hosted platform proprietary",
+          "citation": "https://github.com/steamship-core/python-client",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "steamship-core/python-client — ~320 stars, last commit 2024-02",
+          "citation": "https://github.com/steamship-core/python-client",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "not applicable — orchestration platform, not memory product",
@@ -904660,15 +905156,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/steamship/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/steamship-core/python-client",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/steamship-core/python-client",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -906003,7 +906508,7 @@
       "name": "Strands Agents (AWS)",
       "tier": 3,
       "url": "https://strandsagents.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -906096,11 +906601,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://strandsagents.com/",
-          "status": "depth-floor-reached",
+          "value": "v1.62.0 (2026-10-21) — Python; TypeScript @strands-agents/sdk v1.22.0 (2026-10-21)",
+          "citation": "https://pypi.org/project/strands-agents/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -906109,11 +906614,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://strandsagents.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "strands-agents/harness-sdk (formerly sdk-python) — ~9k stars, last commit 2026-10",
+          "citation": "https://github.com/strands-agents/harness-sdk",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -906161,10 +906666,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://strandsagents.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Self-hosted only — library",
+          "citation": "https://github.com/strands-agents/harness-sdk",
+          "status": "real-data",
+          "tier": "T1"
         },
         "hq": {
           "value": "searched not found",
@@ -906293,9 +906798,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://strandsagents.com/",
-          "status": "depth-floor-reached",
+          "value": "yes — MCPClient exposes MCP server tools to agents (Python and TypeScript)",
+          "citation": "https://strandsagents.com/latest/documentation/docs/user-guide/concepts/tools/mcp-tools/",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -906372,10 +906877,10 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://strandsagents.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Python, TypeScript",
+          "citation": "https://github.com/strands-agents/harness-sdk",
+          "status": "real-data",
+          "tier": "T1"
         },
         "session-handling": {
           "value": "searched not found",
@@ -906713,7 +907218,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/strands-agents/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -906721,7 +907229,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/strands-agents/harness-sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -906753,7 +907264,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/strands-agents/harness-sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -906841,7 +907355,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://strandsagents.com/latest/documentation/docs/user-guide/concepts/tools/mcp-tools/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -906893,7 +907410,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/strands-agents/harness-sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -926641,7 +927161,7 @@
       "name": "Temporal",
       "tier": 1,
       "url": "https://temporal.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -926734,24 +927254,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://temporal.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.32.1 (2026-10-08) — server; Python SDK v1.34.0 (2026-09-30)",
+          "citation": "https://github.com/temporalio/temporal/releases",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://temporal.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "MIT",
+          "citation": "https://github.com/temporalio/temporal",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://temporal.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "temporalio/temporal — ~24k stars, last commit 2026-10",
+          "citation": "https://github.com/temporalio/temporal",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -926781,9 +927301,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://temporal.io/",
-          "status": "depth-floor-reached",
+          "value": "Temporal Cloud: Pay-As-You-Go from USD 50 per million actions (volume down to USD 25/M) plus storage; Business from USD 500/mo; Enterprise and Mission Critical custom",
+          "citation": "https://temporal.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -926799,9 +927319,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://temporal.io/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — Temporal Cloud or self-hosted Temporal server",
+          "citation": "https://temporal.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -927010,9 +927530,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://temporal.io/",
-          "status": "depth-floor-reached",
+          "value": "Go, Java, Python, TypeScript, .NET, Ruby, PHP, Rust",
+          "citation": "https://docs.temporal.io/encyclopedia/temporal-sdks",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -927351,15 +927871,24 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/temporalio/temporal/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/temporalio/temporal",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/temporalio/temporal",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -927379,7 +927908,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://temporal.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -927391,7 +927923,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://temporal.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -927531,7 +928066,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://docs.temporal.io/encyclopedia/temporal-sdks",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -956384,7 +956922,7 @@
       "name": "Trigger.dev",
       "tier": 2,
       "url": "https://trigger.dev/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -956477,11 +957015,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://trigger.dev/",
-          "status": "depth-floor-reached",
+          "value": "v4.8.1 (2026-10-23)",
+          "citation": "https://www.npmjs.com/package/@trigger.dev/sdk",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -956490,11 +957028,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://trigger.dev/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "triggerdotdev/trigger.dev — ~17k stars, last commit 2026-10",
+          "citation": "https://github.com/triggerdotdev/trigger.dev",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -956524,9 +957062,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://trigger.dev/",
-          "status": "depth-floor-reached",
+          "value": "Free USD 0/mo; Hobby USD 10/mo; Pro USD 50/mo; Enterprise custom",
+          "citation": "https://trigger.dev/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -956542,9 +957080,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://trigger.dev/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — Trigger.dev Cloud or self-hosted (Apache-2.0)",
+          "citation": "https://trigger.dev/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -956674,9 +957212,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://trigger.dev/",
-          "status": "depth-floor-reached",
+          "value": "yes — Trigger.dev MCP server lets AI assistants search docs, trigger and monitor runs, deploy, and query data",
+          "citation": "https://trigger.dev/docs/mcp-introduction",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -956753,9 +957291,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://trigger.dev/",
-          "status": "depth-floor-reached",
+          "value": "TypeScript",
+          "citation": "https://www.npmjs.com/package/@trigger.dev/sdk",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -957094,7 +957632,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/@trigger.dev/sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -957102,7 +957643,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/triggerdotdev/trigger.dev",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -957122,7 +957666,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://trigger.dev/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -957134,7 +957681,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://trigger.dev/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -957222,7 +957772,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://trigger.dev/docs/mcp-introduction",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -957274,8 +957827,11 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.npmjs.com/package/@trigger.dev/sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "session-handling": {
           "source": "legacy",
@@ -975739,7 +976295,7 @@
       "name": "Vercel AI SDK",
       "tier": 1,
       "url": "https://sdk.vercel.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -975832,11 +976388,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://sdk.vercel.ai/",
-          "status": "depth-floor-reached",
+          "value": "v7.0.154 (2026-10-26)",
+          "citation": "https://www.npmjs.com/package/ai",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -975845,11 +976401,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://sdk.vercel.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "vercel/ai — ~28k stars, last commit 2026-10",
+          "citation": "https://github.com/vercel/ai",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -975897,10 +976453,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://sdk.vercel.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Self-hosted only — library",
+          "citation": "https://github.com/vercel/ai",
+          "status": "real-data",
+          "tier": "T1"
         },
         "hq": {
           "value": "US (Vercel)",
@@ -976029,9 +976585,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://sdk.vercel.ai/",
-          "status": "depth-floor-reached",
+          "value": "yes — createMCPClient from @ai-sdk/mcp (HTTP, SSE, stdio) converts MCP server tools for AI SDK calls",
+          "citation": "https://ai-sdk.dev/docs/ai-sdk-core/mcp-tools",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -976108,9 +976664,9 @@
           "tier": "T2"
         },
         "runtimes": {
-          "value": "searched not found",
-          "citation": "https://sdk.vercel.ai/",
-          "status": "depth-floor-reached",
+          "value": "TypeScript",
+          "citation": "https://www.npmjs.com/package/ai",
+          "status": "real-data",
           "tier": "T2"
         },
         "session-handling": {
@@ -976449,7 +977005,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -976457,7 +977016,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/vercel/ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -976489,7 +977051,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/vercel/ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -976577,7 +977142,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://ai-sdk.dev/docs/ai-sdk-core/mcp-tools",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -976629,7 +977197,10 @@
           "verified": true
         },
         "runtimes": {
-          "source": "legacy",
+          "scrape_url": "https://www.npmjs.com/package/ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "session-handling": {
@@ -996386,7 +996957,7 @@
       "name": "Workato AI (Workflow Bot Builder)",
       "tier": 2,
       "url": "https://www.workato.com/ai",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "AI sandbox & runtime environments",
@@ -996676,10 +997247,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "not applicable — sandbox/runtime, not memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
+          "value": "yes — Workato Enterprise MCP (MCP gateway and registry, can proxy third-party MCP servers) plus App and Data MCP Servers",
+          "citation": "https://www.workato.com/ai",
+          "status": "real-data",
+          "tier": "T2"
         },
         "a2a-support": {
           "value": "not applicable — sandbox/runtime, not memory product",
@@ -997224,7 +997795,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://www.workato.com/ai",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {

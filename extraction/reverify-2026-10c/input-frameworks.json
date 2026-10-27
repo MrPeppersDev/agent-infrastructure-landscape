@@ -1,0 +1,800 @@
+[
+ {
+  "group": "frameworks",
+  "id": "daytona--daytona-io",
+  "name": "Daytona",
+  "url": "https://www.daytona.io/",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "Daytona is an open-source cloud development environment (CDE) platform — self-hostable alternative to Gitpod / GitHub Codespaces. 2024 added AI-agent sandbox tier for ephemeral agent code execution. Apache 2.0. Founded by ex-Atlas Antillia / Codeanywhere team (Ivan Burazin). $5M seed 2024 (RTP Global + others). Distinct from e2b / Modal by being self-hostable-first.",
+   "license": "Apache 2.0",
+   "deployment": "Self-hostable (Apache 2.0) + managed cloud",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "gh": "github.com/daytonaio/daytona ~13k+ stars",
+   "mcp-support": "not applicable — sandbox/runtime, not memory product",
+   "pricing": "OSS (free); Daytona Cloud managed paid tier; enterprise on-prem (quote)",
+   "funding": "$5M seed 2024 (RTP Global + Lighthouse Ventures + 500 Startups)",
+   "runtimes": "Docker + Kubernetes (self-hosted); managed cloud",
+   "api-surface": "REST + CLI"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "e2b--e2b-dev",
+  "name": "e2b",
+  "url": "https://e2b.dev/",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "e2b provides secure, ephemeral sandboxes (Firecracker microVMs) for AI agent code execution. Each sandbox spins up in <200ms with full Linux environment, Python/Node/etc preinstalled. Substrate for code-agent products including Anthropic Claude Code (artifacts run on e2b), Perplexity, You.com Search, Cognition Devin (partially), and Hugging Face Spaces. Apache 2.0 OSS + managed cloud. $13M Seed + Series A 2024 (Sunflower Capital + a16z).",
+   "license": "Apache 2.0 (SDK + CLI)",
+   "deployment": "Managed cloud (e2b.dev) + Apache 2.0 OSS SDK for self-hostable runtime",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "gh": "github.com/e2b-dev/e2b ~7k+ stars; github.com/e2b-dev/infra (runtime)",
+   "mcp-support": "native (MCP server for sandbox tools)",
+   "pricing": "Free + Pro ($150/mo) + Enterprise (quote); pay-per-second sandbox billing",
+   "funding": "$13M+ total raised (seed 2023 + Series A Sept-2024; Sunflower Capital + a16z + Lightspeed; Decibel + Y Combinator)",
+   "runtimes": "Linux microVMs; SDK clients in Python / TS",
+   "api-surface": "REST + SDK (Python / TS / JS); CLI"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "eliza-ai16z--gh-elizaos-eliza",
+  "name": "Eliza (ai16z)",
+  "url": "https://github.com/elizaOS/eliza",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "ai16z's TypeScript agent framework popularised in the crypto/Web3 agent space — multi-platform (Discord, X, Telegram). Brand evolved into elizaOS.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "ai16z DAO launched 2024-10; ai16z token reached ~$2.5B market cap peak 2025-01.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "gitpod-ai-features--gitpod-io",
+  "name": "Gitpod AI features",
+  "url": "https://www.gitpod.io/blog/gitpod-flex",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "Gitpod is the original cloud development environment (CDE) — founded 2014 by Sven Efftinge + Johannes Landgraf (also TypeFox / Eclipse Theia / Open VSX). $25M Series A 2022 led by General Catalyst. 2024 launched Gitpod Flex with support for AI agents to run inside dev environments + automation runner. Free OSS tier (Gitpod Self-Hosted) for individual / OSS use.",
+   "license": "AGPL-3.0 (Gitpod Self-Hosted)",
+   "deployment": "Managed cloud + self-hostable (AGPL OSS) + on-prem (enterprise)",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "gh": "github.com/gitpod-io/gitpod ~13k+ stars; github.com/gitpod-io/gitpod-flex roadmap",
+   "mcp-support": "not applicable — sandbox/runtime, not memory product",
+   "pricing": "Free OSS tier + Personal Pro ($9/mo) + Team + Enterprise",
+   "funding": "$25M Series A May-2022 led by General Catalyst (Crane, Speedinvest, Cherry, Mango); ~$35M+ total raised",
+   "runtimes": "Docker + Kubernetes (Gitpod self-hosted)",
+   "api-surface": "REST + CLI + Gitpod SDK"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "name": "GPT Engineer",
+  "url": "https://github.com/AntonOsika/gpt-engineer",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "One of the original 'agent writes a whole codebase from a prompt' demos — community-maintained; spawned the commercial Lovable (gptengineer.app).",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "haystack-framework--haystack-deepset-ai",
+  "name": "Haystack (framework)",
+  "url": "https://haystack.deepset.ai/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "deepset's open-source framework for LLM/RAG/agent apps — Pipelines abstraction; deepset Cloud commercial. Memory is a downstream connector.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "deepset (Haystack maintainer) raised $30M Series B 2024-04 ($45M total; GV led).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "imbue-formerly-generally-intelligent--imbue-com",
+  "name": "Imbue (formerly Generally Intelligent)",
+  "url": "https://imbue.com/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Founded 2017 as Generally Intelligent; rebranded Imbue 2023. Building foundation models for reasoning agents that write/edit code. Founders Kanjun Qiu + Josh Albrecht. $200M Series B 2023 ($1B valuation, Astera + Nvidia + Notion's Akshay Kothari). Trained 70B model for reasoning. Most public output is research blog + 'Carbon' OSS coding agent. Pulled back commercial roadmap post-2024.",
+   "license": "not applicable — not OSS",
+   "deployment": "not applicable — orchestration platform, not memory product",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — orchestration platform, not memory product",
+   "pricing": "Pre-product (research-focused)",
+   "funding": "$200M Series B Sept-2023 ($1B val; Astera, Nvidia, Akshay Kothari, others)",
+   "runtimes": "not applicable — orchestration platform, not memory product",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "inngest--inngest-com",
+  "name": "Inngest",
+  "url": "https://www.inngest.com/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Event-driven durable workflow platform — competes with Temporal for the JS/TS/Python crowd. Inngest AgentKit (memory cross-listed) is the agent extension.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$24M total raised through Series A 2024-02 ($21M, Notable Capital led).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "name": "InstructLab (Red Hat / IBM)",
+  "url": "https://instructlab.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Red Hat / IBM-stewarded open-source framework for community-driven LLM alignment + fine-tuning. Method paper 'LAB: Large-Scale Alignment for Chatbots' (Sudalairaj et al, IBM Research 2024). Built on the Granite model family (IBM's open-weights). Apache 2.0. Used in IBM watsonx + Red Hat OpenShift AI for fine-tuning workflows. Not strictly a multi-agent framework — included as 'orchestration platform' because of its role as a substrate for building domain-specific fine-tuned agent models.",
+   "license": "Apache 2.0",
+   "deployment": "Self-hostable (OSS); IBM watsonx + Red Hat OpenShift AI managed",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "github.com/instructlab/instructlab ~1.5k+ stars; sister repos for taxonomy + sdg",
+   "mcp-support": "not applicable — orchestration platform, not memory product",
+   "pricing": "OSS (free); IBM watsonx + Red Hat OpenShift AI commercial pricing for the platforms",
+   "funding": "Red Hat (NYSE:RHT acquired by IBM 2019 for $34B); IBM (IBM) public ~$200B market cap",
+   "runtimes": "Python (primary); Kubernetes via OpenShift AI",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "langchain-framework--langchain-com",
+  "name": "LangChain (framework)",
+  "url": "https://www.langchain.com/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Dominant Python/JS framework for LLM apps — tool calling, agents, retrievers, runnables. Memory is one component (LangMem cross-listed); the framework itself is the product.",
+   "license": "MIT (OSS framework)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "LangChain Inc raised $25M Series A 2024-02 (Sequoia led; $200M valuation rumored); ~$110M total per later rounds 2024-2025.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "langgraph-orchestration--langchain-com",
+  "name": "LangGraph (orchestration)",
+  "url": "https://www.langchain.com/langgraph",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "LangChain's stateful graph runtime for agents — explicit state, persistence, time-travel debugging, human-in-the-loop. Memory is one persistence target (LangGraph Persistence cross-listed).",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Part of LangChain Inc — same funding (see LangChain row).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "lindy--lindy-ai",
+  "name": "Lindy",
+  "url": "https://www.lindy.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Lindy is a no-code multi-agent automation platform from Florent Crivello (ex-Teleport, ex-Twitter). Targets consumer / SMB segment with email triage, meeting scheduling, CRM-update agents. $50M Series A Oct-2024 led by Andreessen Horowitz + Sequoia. Distinct from Zapier / n8n traditional automation by putting LLMs at the core of every workflow node.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed cloud (SaaS only)",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — orchestration platform, not memory product",
+   "pricing": "Free: $50 in credits for 7 days, no card; Team $29.99/user/mo (3,000 credits, extra $10 per 1,000); Enterprise custom",
+   "funding": "$50M Series A Oct-2024 (a16z + Sequoia)",
+   "runtimes": "not applicable — orchestration platform, not memory product",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "llamaindex-framework--llamaindex-ai",
+  "name": "LlamaIndex (framework)",
+  "url": "https://www.llamaindex.ai/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Data framework for LLM apps — connectors, indices, query engines, agents, workflows. Memory is one of many subsystems (LlamaIndex Memory cross-listed).",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$27M total raised through Series A 2024-06 ($19M, Norwest led; $200M valuation rumored).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "magnetic-one--microsoft-com",
+  "name": "Magnetic-One",
+  "url": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Microsoft Research's generalist multi-agent system — Orchestrator + WebSurfer/FileSurfer/Coder/ComputerTerminal specialists. Built on AutoGen v0.4.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "marvin--askmarvin-ai",
+  "name": "Marvin",
+  "url": "https://www.askmarvin.ai/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Prefect's LLM toolkit — turns Python functions into LLM-powered ones; structured outputs, classification, extraction. Replaced by Control Flow for agentic workflows in 2024.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "mastra--mastra-ai",
+  "name": "Mastra",
+  "url": "https://mastra.ai/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "TypeScript-first agent framework — Workflows, Agents, RAG, eval. Built by the Gatsby team. YC W25.",
+   "license": "Elastic 2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Mastra raised undisclosed seed 2025 (Y Combinator W25); TypeScript agent framework.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+  "name": "MCP Servers (Reference)",
+  "url": "https://github.com/modelcontextprotocol/servers",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Anthropic-led collection of reference Model Context Protocol servers (filesystem, GitHub, Slack, etc.) — substrate beneath the entire MCP-memory ecosystem (Cipher, Memobase, etc.).",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "metagpt--gh-geekan-metagpt",
+  "name": "MetaGPT",
+  "url": "https://github.com/geekan/MetaGPT",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Multi-agent framework simulating a software company (PM, Architect, Engineer, QA). Famous for its software-development-via-multi-agent demo.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "microsoft-autogen-studio--microsoft-github-io",
+  "name": "Microsoft AutoGen Studio",
+  "url": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Microsoft Research's low-code GUI for designing and deploying multi-agent workflows on top of the AutoGen framework. AutoGen v0.4 (Jan-2025) re-architecture moved to actor-based async runtime. Free OSS (MIT). Distinct from OSS AutoGen framework already in catalog — this row covers the Studio GUI / no-code product. Increasingly positioned as Microsoft's multi-agent answer to LangGraph / CrewAI.",
+   "license": "MIT",
+   "deployment": "Self-hostable (OSS); Azure AI integration; runs locally",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "github.com/microsoft/autogen ~37k+ stars",
+   "mcp-support": "via community port",
+   "pricing": "Free (MIT)",
+   "funding": "Microsoft (MSFT) public; Microsoft Research-funded",
+   "runtimes": "Python (primary); .NET preview",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "name": "Microsoft Semantic Kernel",
+  "url": "https://github.com/microsoft/semantic-kernel",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Microsoft's enterprise-focused agent framework — multi-language (C#, Python, Java); Plugins / Planners / Memory; integrates with Azure AI / Foundry. Its README now names Microsoft Agent Framework as the successor; Semantic Kernel still ships releases (maintenance mode).",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "modal-sandboxes--modal-com",
+  "name": "Modal Sandboxes",
+  "url": "https://modal.com/docs/guide/sandbox",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "Modal Labs ships a serverless container platform with first-class GPU support; Sandboxes feature (2024) adds ephemeral, AI-agent-friendly compute sandboxes. Founded 2021 by Erik Bernhardsson (ex-Spotify ML, author of Luigi + Annoy). $87M total raised through Series B (Lux Capital + Redpoint + Definition + Amplify). Used by major LLM apps for batch inference + agent code execution.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed cloud (no self-hosting)",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — sandbox/runtime, not memory product",
+   "pricing": "Pay-per-second compute (CPU + GPU); free tier (~$30/mo credit); team + enterprise tiers",
+   "funding": "$87M total raised; Series B Sept-2024 led by Lux Capital + Redpoint; ~$1.1B valuation",
+   "runtimes": "Python SDK; runs any Linux container",
+   "api-surface": "Python SDK (primary); REST API"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+  "name": "Model Context Protocol (MCP spec)",
+  "url": "https://modelcontextprotocol.io/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Anthropic-introduced open protocol (Nov 2024) for connecting LLMs to data sources and tools. Now standard across Anthropic, OpenAI, Microsoft, Cursor, Continue, IDEs, etc.",
+   "license": "MIT (spec)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "multion--multion-ai",
+  "name": "MultiOn",
+  "url": "https://www.multion.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Web-browsing agent API platform. Founded 2023 by Div Garg (Stanford); $30M+ raised. Provides 'Agent API' for autonomous web tasks (booking, shopping, research). Distinct from browser-agent memory section (Arc Max, Browser Company, Dia) — MultiOn ships an API for developers rather than a consumer browser. Demoed at 2024 Microsoft Build; partnered with NotebookLM for some flows.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed-only (MultiOn API)",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "via community port",
+   "pricing": "API pay-per-task; freemium developer tier",
+   "funding": "$30M+ total raised (seed 2023-24); investors: Amazon AI Fund, Google, Samsung Next, Brave, GV, others",
+   "runtimes": "any (REST API)",
+   "api-surface": "REST + Python SDK"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "n8n-ai-agent-flows--n8n-io",
+  "name": "n8n (AI agent flows)",
+  "url": "https://n8n.io/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Open-source workflow automation platform with first-class AI Agent / LangChain / Memory / Tool nodes — fastest-growing workflow tool in the AI era.",
+   "license": "Sustainable Use License (semi-OSS)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$72M total raised through Series B 2024-12 ($60M, Highland Europe led).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "openai-agents-sdk--gh-openai-openai-agents-python",
+  "name": "OpenAI Agents SDK",
+  "url": "https://github.com/openai/openai-agents-python",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "OpenAI's official Python framework for agents — handoffs, guardrails, tracing built in. Successor to OpenAI Swarm (experimental); officially supported.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "name": "OpenAI Swarm (deprecated)",
+  "url": "https://github.com/openai/swarm",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "OpenAI Swarm — experimental educational multi-agent framework released Oct 2024; deprecated in favour of the OpenAI Agents SDK in Mar 2025.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "name": "OpenDevin / OpenHands",
+  "url": "https://github.com/All-Hands-AI/OpenHands",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Open-source SWE agent platform (renamed from OpenDevin to OpenHands). All Hands AI raised $5M; widely used as the OSS counterpart to Devin.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "All Hands AI raised $5M seed 2024 (Menlo Ventures led); commercial steward of OpenHands OSS.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "phidata-agno--agno-com",
+  "name": "Phidata / Agno",
+  "url": "https://www.agno.com/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Phidata rebranded to Agno in 2024. OSS Python framework for building multi-agent systems with memory, knowledge, tools, reasoning. Lightweight alternative to LangChain. ~25k+ stars combined Phidata + Agno repos. Mozilla Ventures + others backed. Distinct from Mem0 / Zep — Agno is a full agent framework with first-party memory + knowledge + reasoning + tools.",
+   "license": "MPL-2.0 (Agno OSS)",
+   "deployment": "not applicable — orchestration platform, not memory product",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "github.com/agno-agi/agno ~25k+ stars; github.com/phidatahq/phidata (legacy)",
+   "mcp-support": "native (first-party)",
+   "pricing": "OSS (free); future paid cloud tier",
+   "funding": "Pre-seed / seed disclosed (~$5M+); Mozilla Ventures + Y Combinator (W22) participation",
+   "runtimes": "Python (primary)",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "phidata-now-agno--agno-com",
+  "name": "Phidata (now Agno)",
+  "url": "https://www.agno.com/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Multi-modal agent framework (renamed from Phidata to Agno in 2025) — agents, memory, knowledge, tools; emphasis on multi-modal pipelines.",
+   "license": "Mozilla MPL 2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Agno (formerly Phidata) raised $10M seed 2025; commercial agent framework.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "name": "Pydantic-AI",
+  "url": "https://ai.pydantic.dev/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Pydantic team's agent framework — type-safe agent definitions, structured outputs, tool calls validated by Pydantic schemas.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Pydantic Services Inc raised $4.7M seed 2023-02 (Sequoia, Partech); commercial steward of Pydantic OSS.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "reflection-ai--reflection-ai",
+  "name": "Reflection AI",
+  "url": "https://reflection.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Founded 2024 by Misha Laskin and Ioannis Antonoglou (both ex-DeepMind, AlphaGo / Gemini RLHF). Building autonomous coding agents — Asimov is their code-research agent. Raised $130M Series A March-2025 at $555M valuation led by Lightspeed + CRV. Positioned as Devin/Cognition competitor with RL / robotics-research pedigree.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed cloud (private beta)",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — orchestration platform, not memory product",
+   "pricing": "Private beta; enterprise sales early",
+   "funding": "$130M Series A Mar-2025 ($555M val; Lightspeed + CRV; Sequoia, Nvidia investors)",
+   "runtimes": "not applicable — orchestration platform, not memory product",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "restate--restate-dev",
+  "name": "Restate",
+  "url": "https://restate.dev/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Durable-execution platform from ex-Confluent / Flink team — Restate Cloud + OSS server; emphasises low-latency invocation vs Temporal's polling.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$7M seed 2023-12 (Felicis led); durable execution / workflows alternative to Temporal.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "sandbase-harness--gh-sandbaseai-sandbase-harness",
+  "name": "SandBase Harness",
+  "url": "https://github.com/sandbaseai/sandbase-harness",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "A local-first, self-hosted runtime for persistent AI-agent sessions, sandboxed execution, MCP tools, approvals, audit, and replay. **Claims / pitch:** The public repository documents local, Docker, and Kubernetes sandbox backends; persistent sessions and event streams; MCP tools; skills and credential management; approval gates; audit and replay workflows. These are suggestions for curator verification, not endorsement claims. Traction: Submitted via intake issue #173",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "last commit 2026-10-12",
+   "gh": "https://github.com/sandbaseai/sandbase-harness (635★)",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "sema4-ai--sema4-ai",
+  "name": "Sema4.ai",
+  "url": "https://sema4.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "Sema4.ai is the AI-agent rebrand of Robocorp (RPA / Python automation OSS). Funded by Benchmark, Canvas Ventures, Slow Ventures. Founded 2019 (as Robocorp); rebranded 2024. Positioned as enterprise Python-based agent runtime with strong RPA heritage and governance focus. OSS Robocorp framework remains open-source (Apache 2.0). Distinct from no-code RPA — Sema4.ai is code-first.",
+   "license": "Apache 2.0 (Robocorp framework)",
+   "deployment": "OSS framework + managed cloud + on-prem enterprise",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "github.com/robocorp/robocorp ~1k+ stars; github.com/Sema4AI/actions repos",
+   "mcp-support": "not applicable — orchestration platform, not memory product",
+   "pricing": "OSS (Robocorp framework) + Sema4.ai Studio + Enterprise cloud (quote)",
+   "funding": "$83M total raised (Series B 2022; Benchmark, Canvas, Slow Ventures, Microsoft M12, NEA, Reaktor)",
+   "runtimes": "Python (primary)",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+  "name": "smolagents (Hugging Face)",
+  "url": "https://github.com/huggingface/smolagents",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Hugging Face's minimal agent library — emphasises code-execution agents (agent writes Python, runs it) over JSON tool-calling. Library is intentionally ~1k LOC.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "stackblitz-webcontainers--webcontainers-io",
+  "name": "StackBlitz WebContainers",
+  "url": "https://webcontainers.io/",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "StackBlitz's WebContainers technology — browser-native Node.js runtime running fully client-side via WASM. Powers Bolt.new (already in catalog) plus many browser-based AI dev experiences. Founded 2017 by Eric Simons + Albert Pai. $7M Series A 2022. Distinct from server-side sandboxes (e2b / Modal) by running entirely in-browser — zero cloud-execution latency.",
+   "license": "not applicable — not OSS",
+   "deployment": "Browser-native (client-side); no cloud compute required",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — sandbox/runtime, not memory product",
+   "pricing": "WebContainers API: free for OSS + paid for commercial use (tiered by traffic)",
+   "funding": "$7M Series A 2022 (GreyLock + GV)",
+   "runtimes": "WASM (browser-native Node.js)",
+   "api-surface": "WebContainers API (JS)"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "steamship--steamship-com",
+  "name": "Steamship",
+  "url": "https://www.steamship.com/",
+  "section": "Multi-agent orchestration platforms",
+  "cells": {
+   "desc": "YC W21 startup providing managed hosting + deployment for LLM agents — 'one-click deploy' for LangChain / agent code. Founded by Ted Benson (ex-Google Brain). Pre-seed + seed funded YC + Twin Ventures. Positioned as Heroku for AI agents — but the agent-platform space crowded post-2023, and Steamship's commercial momentum has slowed vs Vercel AI / Modal / Bedrock.",
+   "license": "not applicable — not OSS",
+   "deployment": "not applicable — orchestration platform, not memory product",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — orchestration platform, not memory product",
+   "pricing": "Free + paid tiers (per-call + storage)",
+   "funding": "Seed: YC + Twin Ventures + others (~$3M+ disclosed)",
+   "runtimes": "Python (primary)",
+   "api-surface": "not applicable — orchestration platform, not memory product"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "strands-agents-aws--strandsagents-com",
+  "name": "Strands Agents (AWS)",
+  "url": "https://strandsagents.com/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "AWS-released open-source agent framework — released March 2025; model-driven, simple Agent abstraction. Predecessor of AWS Agent SDK / Bedrock AgentCore.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "temporal--temporal-io",
+  "name": "Temporal",
+  "url": "https://temporal.io/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Durable-execution platform — Workflows-as-code with crash safety. Used as agent-orchestration backbone at Stripe, Snap, Coinbase, OpenAI Stargate.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$350M total raised through Series C 2023-05 ($120M, StepStone Group led; $1.7B valuation).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "trigger-dev--trigger-dev",
+  "name": "Trigger.dev",
+  "url": "https://trigger.dev/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Open-source JS/TS background-jobs platform — long-running, retries, observability. Trigger.dev v3 (2024) added 'tasks' abstraction for agent workflows.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$3.6M seed 2023-09 (Cavalry Ventures led); developer-first jobs framework.",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "name": "Vercel AI SDK",
+  "url": "https://sdk.vercel.ai/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "cells": {
+   "desc": "Vercel's TypeScript LLM SDK — streaming, tool calls, structured outputs, agents. Dominant framework for Next.js LLM apps.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Part of Vercel — Vercel raised $250M Series E 2024-05 ($3.25B valuation; Accel led).",
+   "runtimes": "searched not found",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "frameworks",
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "name": "Workato AI (Workflow Bot Builder)",
+  "url": "https://www.workato.com/ai",
+  "section": "AI sandbox & runtime environments",
+  "cells": {
+   "desc": "Workato is the enterprise iPaaS (integration platform) leader — $200M+ ARR, $5.7B valuation 2021. 2023-24 launched Workato AI / Workbot AI with AI-agent workflow sandbox capability inside its automation runtime. Used by Slack-bot / automation customers for AI-augmented workflows. Distinct from pure agent frameworks (CrewAI / LangGraph) by being deeply enterprise-iPaaS-anchored.",
+   "license": "not applicable — not OSS",
+   "deployment": "Managed cloud (SaaS only)",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — sandbox/runtime, not memory product",
+   "pricing": "Enterprise (quote-only); per-recipe + per-task pricing",
+   "funding": "$415M total raised; $5.7B valuation Series E Nov-2021 (Battery Ventures + Insight Partners + Altimeter Capital)",
+   "runtimes": "Workato proprietary runtime (Java + Ruby)",
+   "api-surface": "REST + Workato Connector SDK; recipe-based DSL"
+  }
+ }
+]
