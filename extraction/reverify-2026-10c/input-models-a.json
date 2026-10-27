@@ -1,0 +1,857 @@
+[
+ {
+  "group": "models-a",
+  "id": "anyscale--anyscale-com",
+  "name": "Anyscale",
+  "url": "https://www.anyscale.com/",
+  "section": "Inference platforms & gateways",
+  "cells": {
+   "desc": "Commercial platform built on Ray — distributed training, fine-tuning, serving. Anyscale Endpoints provides hosted OSS inference; ray cluster is the substrate underneath OpenAI's training stack.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$259M total raised through Series C 2021-12 ($99M, Addition led; $1B valuation).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "apptronik--apptronik-com",
+  "name": "Apptronik",
+  "url": "https://apptronik.com/",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Apollo humanoid maker, spun out of University of Texas Human Centered Robotics Lab. Raised $350M Series A (Feb-2025; B Capital + Capital Factory); Mercedes-Benz manufacturing partner (Mar 2024). Partnered with Google DeepMind on Gemini Robotics (Mar 2025) — Apollo is the headline reference platform for Gemini Robotics.",
+   "license": "not applicable — not OSS",
+   "deployment": "Direct customer (manufacturing + logistics)",
+   "latest-release": "Apollo (humanoid)",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section",
+   "funding": "$350M Series A Feb-2025 (B Capital + Capital Factory)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "No public API"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "argilla--argilla-io",
+  "name": "Argilla",
+  "url": "https://argilla.io/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open-source data-quality platform for LLM training data — human-in-the-loop labelling, RLHF data collection, dataset curation. Acquired by Hugging Face 2024.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Acquired by Hugging Face in 2024-06; previously seed-funded (~$2M, 2022).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "arize-ai--arize-com",
+  "name": "Arize AI",
+  "url": "https://arize.com/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Production ML monitoring + LLM observability (Arize AX) — drift, eval, root-cause. Pre-LLM observability leader; now LLM-pivoted.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$130.7M total raised through Series C 2024-07 ($70M, Salesforce Ventures + Battery led).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "arize-phoenix--phoenix-arize-com",
+  "name": "Arize Phoenix",
+  "url": "https://phoenix.arize.com/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Arize AI's open-source LLM observability tool — OpenTelemetry-native LLM tracing, evals, datasets. Arize commercial offers Phoenix + Surveyor.",
+   "license": "Elastic 2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "aws-sagemaker--aws-amazon-com",
+  "name": "AWS SageMaker",
+  "url": "https://aws.amazon.com/sagemaker/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "AWS's managed ML platform — Studio, Training, HyperPod (large-scale clusters), Endpoints. Industry-standard for enterprise AWS-hosted training.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "axolotl--gh-axolotl-ai-cloud-axolotl",
+  "name": "Axolotl",
+  "url": "https://github.com/axolotl-ai-cloud/axolotl",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open-source LLM fine-tuning library — single YAML config drives full / LoRA / QLoRA / DPO training across most popular base models.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Axolotl AI raised pre-seed / undisclosed; primarily OSS-led by Wing Lian; Apache-2.0.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "azure-machine-learning--azure-microsoft-com",
+  "name": "Azure Machine Learning",
+  "url": "https://azure.microsoft.com/en-us/products/machine-learning",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Microsoft Azure's managed ML platform — pipelines, AutoML, Designer, prompt flow (LLM). Heavy integration with Azure OpenAI and Azure AI Studio.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "baseten--baseten-co",
+  "name": "Baseten",
+  "url": "https://www.baseten.co/",
+  "section": "Inference platforms & gateways",
+  "cells": {
+   "desc": "Inference platform for ML models — Truss package format, Chains for multi-model workflows, autoscaling GPU/CPU serving. Targeted at production teams shipping LLM/diffusion endpoints.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$135M total raised through Series C 2024-12 ($75M, IVP led; $825M valuation).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "bonito--gh-batsresearch-bonito",
+  "name": "Bonito",
+  "url": "https://github.com/BatsResearch/bonito",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open model that generates instruction-tuning data conditioned on unstructured text — adapts pretrained LLMs to specialised tasks without manual labels (Brown Univ).",
+   "license": "BSD-3-Clause",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "braintrust--braintrust-dev",
+  "name": "Braintrust",
+  "url": "https://www.braintrust.dev/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Eval-first LLM platform — datasets, eval runs, prompt playground, tracing. Founded by ex-Impira (acquired by Dropbox) team. Used by Notion, Brex, AirOps.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$36M Series A 2024-04 (a16z led; $150M valuation).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "name": "Cleanba",
+  "url": "https://github.com/vwxyzjn/cleanba",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Distributed PPO/IMPALA reference implementations from CleanRL author — research-friendly, reproducible.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "clearml--clear-ml",
+  "name": "ClearML",
+  "url": "https://clear.ml/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open-source ML experiment tracking, orchestration, and data management. Allegro AI commercial; widely used in research labs.",
+   "license": "Apache-2.0 (Core)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$30M total raised through Series A 2022 (Atreides Mgmt led); rebranded Allegro AI -> ClearML.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "collaborative-robotics--co-bot",
+  "name": "Collaborative Robotics",
+  "url": "https://www.co.bot/",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Founded 2022 by Brad Porter (ex-Amazon Robotics VP + Scale AI CTO). Stealthier than the humanoid pack; raised $100M Series B Apr-2024 (General Catalyst). Targets warehouse + healthcare collaborative robots.",
+   "license": "not applicable — not OSS",
+   "deployment": "Direct customer pilot",
+   "latest-release": "not applicable — not OSS",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section",
+   "funding": "$140M total — including $100M Series B Apr-2024 (General Catalyst)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "No public API"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "colossalai--gh-hpcaitech-colossalai",
+  "name": "ColossalAI",
+  "url": "https://github.com/hpcaitech/ColossalAI",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "HPC-AI Tech's distributed training framework — ZeRO + tensor/pipeline parallel + heterogeneous training (CPU offload). HPC-AI raised $50M.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "comet-ml--comet-com",
+  "name": "Comet ML",
+  "url": "https://www.comet.com/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "ML experiment tracking + LLM evaluation platform (Opik for LLM eval). Comet competes head-to-head with Weights & Biases.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$108M total raised through Series B 2022-01 ($63M, OpenView led).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "composer-mosaicml--gh-mosaicml-composer",
+  "name": "Composer (MosaicML)",
+  "url": "https://github.com/mosaicml/composer",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open-source training library from MosaicML (Databricks) — Trainer + recipes for fast convergence; underlies the MPT model training stack.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "MosaicML acquired by Databricks for $1.3B in 2023-07; Composer remains Apache-2 OSS.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "name": "Confident AI / DeepEval",
+  "url": "https://www.confident-ai.com/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Open-source DeepEval framework + Confident AI cloud — pytest-style eval runs, hallucination/relevance/bias metrics, datasets.",
+   "license": "Apache-2.0 (DeepEval)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Confident AI raised seed 2024 (YC S24); commercial steward of DeepEval OSS.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "covariant--covariant-ai",
+  "name": "Covariant",
+  "url": "https://covariant.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. Acqui-hired by Amazon Aug-2024 (founders + 25% of team to Amazon Robotics); Covariant remains operating as licensee. The first major robotics-FM acquisition.",
+   "license": "not applicable — not OSS",
+   "deployment": "On-prem (warehouse) + cloud hybrid",
+   "latest-release": "RFM-1 (Mar 2024)",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "Enterprise; per-robot / per-pick fees",
+   "funding": "$222M total raised — $80M Series C 2021 (Index + Radical); Amazon acqui-hire 2024 reported $1.5B-equivalent licensing-fee",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Proprietary robot-control API"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "dagster--dagster-io",
+  "name": "Dagster",
+  "url": "https://dagster.io/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Data orchestrator with first-class ML pipeline support — software-defined assets model; competes with Airflow/Prefect for ML pipelines.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$47M total raised through Series B 2022-05 ($33M, Sapphire Ventures led).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "deepspeed--gh-microsoft-deepspeed",
+  "name": "DeepSpeed",
+  "url": "https://github.com/microsoft/DeepSpeed",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Microsoft's distributed-training library — ZeRO optimizer states/grads/params partitioning; ZeRO-Inference for serving. Foundation under many OSS LLM training stacks.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "distilabel--gh-argilla-io-distilabel",
+  "name": "Distilabel",
+  "url": "https://github.com/argilla-io/distilabel",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Argilla's framework for synthetic data generation — pipelines of LLM steps that produce SFT/DPO training data; integrates with Hub.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "dpo--arxiv-2305-18290",
+  "name": "DPO",
+  "url": "https://arxiv.org/abs/2305.18290",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Stanford method that converts RLHF into a supervised-learning loss over preference pairs — no separate reward model needed; widely adopted alignment recipe.",
+   "license": "searched not found",
+   "deployment": "not applicable — research paper",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "not applicable — research paper",
+   "pricing": "not applicable — research paper",
+   "funding": "not applicable — research paper",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "not applicable — research paper"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "dvc--dvc-org",
+  "name": "DVC",
+  "url": "https://dvc.org/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open-source data and ML model version control — git-like commands for datasets/models stored in cloud blob storage. Foundational tool in MLOps stack.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Iterative.ai raised $20M Series A 2022 (True Ventures led); also runs CML, MLEM, Studio.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "figure-ai--figure-ai",
+  "name": "Figure AI",
+  "url": "https://www.figure.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Figure AI — humanoid robot maker founded 2022 by Brett Adcock (ex-Archer Aviation). Figure 02 (Aug 2024) + Helix VLA model (Feb 2025) for full-body / hand control. Raised $675M Series B Feb-2024 (Microsoft / OpenAI / Bezos / Intel; $2.6B val); reported new round at $39.5B val Q2 2025. Partnered with BMW for manufacturing pilots.",
+   "license": "not applicable — not OSS",
+   "deployment": "Direct customer deployment (humanoid robot)",
+   "latest-release": "Helix VLA (Feb 2025); Figure 03 in development",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section",
+   "funding": "$675M Series B Feb-2024 (Microsoft, OpenAI, Bezos, NVIDIA, Intel, LG Innotek; $2.6B val); reported $39.5B val funding Q2 2025",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "No public API; closed humanoid platform"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "fireworks-ai--fireworks-ai",
+  "name": "Fireworks AI",
+  "url": "https://fireworks.ai/",
+  "section": "Inference platforms & gateways",
+  "cells": {
+   "desc": "Fast inference platform for OSS LLMs — custom Cuda kernels, speculative decoding, multi-LoRA serving. Targets latency-sensitive production use cases.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$77M total raised through Series B 2024-07 ($52M, Sequoia led; $552M valuation).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "flyte--flyte-org",
+  "name": "Flyte",
+  "url": "https://flyte.org/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Kubernetes-native workflow engine — type-safe Python tasks; Lyft origin; Union AI commercial. Strong adoption in regulated industries.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Union.ai (commercial Flyte) raised $19.1M Series A 2022 (NEA led); commercial steward of Flyte OSS.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "fsdp-pytorch--pytorch-org",
+  "name": "FSDP (PyTorch)",
+  "url": "https://pytorch.org/docs/stable/fsdp.html",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Native PyTorch fully-sharded data parallel implementation — Meta's response to DeepSpeed ZeRO; FSDP2 in 2024 with improved API.",
+   "license": "BSD-3-Clause (PyTorch)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "galileo--galileo-ai",
+  "name": "Galileo",
+  "url": "https://www.galileo.ai/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Galileo Evaluate / Observe / Protect — eval, tracing, guardrails. Big focus on hallucination detection and ChainPoll evaluator metric.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$87.6M total raised through Series B 2024-06 ($45M, Scale Venture Partners led).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "name": "Google DeepMind Gemini Robotics",
+  "url": "https://deepmind.google/technologies/gemini-robotics/",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Google DeepMind's Gemini Robotics + Gemini Robotics-ER (Embodied Reasoning) released Mar-2025. VLA models built on Gemini 2.0 backbone. Reference platform: Apptronik Apollo. The DeepMind line of robotics-FM, descendant of earlier RT-1 / RT-2 / RT-X work.",
+   "license": "not applicable — not OSS",
+   "deployment": "Trusted-tester via partners; Vertex AI / Cloud planned",
+   "latest-release": "Gemini Robotics 1.5 (2025)",
+   "gh": "not applicable — no GitHub repo",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section",
+   "funding": "Google DeepMind (Alphabet parent)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Vertex AI / Google Cloud Robotics endpoint planned"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "google-vertex-ai-training--cloud-google-com",
+  "name": "Google Vertex AI Training",
+  "url": "https://cloud.google.com/vertex-ai",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Google Cloud's managed training service — TPU and GPU clusters, hyperparameter tuning, model registry. Part of Vertex AI umbrella.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "grpo--arxiv-2402-03300",
+  "name": "GRPO",
+  "url": "https://arxiv.org/abs/2402.03300",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "DeepSeek-Math's GRPO — group-relative advantage estimation replacing PPO's critic. Used in DeepSeek-R1 reasoning post-training; widely adopted in OSS reasoning RLHF.",
+   "license": "searched not found",
+   "deployment": "not applicable — research paper",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "not applicable — research paper",
+   "pricing": "not applicable — research paper",
+   "funding": "not applicable — research paper",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "not applicable — research paper"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "helicone--helicone-ai",
+  "name": "Helicone",
+  "url": "https://www.helicone.ai/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Open-source LLM observability with one-line proxy integration — gateway routes through their proxy, captures every LLM call. Sessions + custom properties + evals.",
+   "license": "Apache-2.0 (Core)",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$5M total: $2.7M seed 2023 (YC W23 + Lightspeed); $2M extension 2024.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "hugging-face-datasets--huggingface-co",
+  "name": "Hugging Face Datasets",
+  "url": "https://huggingface.co/docs/datasets",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Library for accessing and processing 100k+ public datasets on the Hub. Apache Arrow-backed; default dataset layer for the open ML ecosystem.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "hugging-face-lerobot--huggingface-co",
+  "name": "Hugging Face LeRobot",
+  "url": "https://huggingface.co/lerobot",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Hugging Face's open-source robotics platform — datasets, baselines, training code for imitation learning + diffusion policy + ACT. Launched May 2024; growing rapidly with community contributions (HopeJR, SO-100 arms). LeRobot is the de-facto OSS robotics-ML platform analogous to transformers.",
+   "license": "Apache 2.0",
+   "deployment": "Pip install; runs anywhere PyTorch runs",
+   "latest-release": "Active weekly releases (pip: lerobot)",
+   "gh": "github.com/huggingface/lerobot — 10k+ stars",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "OSS free; HF Hub free + paid tiers",
+   "funding": "Hugging Face parent — $235M Series D 2023 ($4.5B val)",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python; HF Hub for datasets + models"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "humanloop--humanloop-com",
+  "name": "Humanloop",
+  "url": "https://humanloop.com/",
+  "section": "Evaluation & observability platforms",
+  "cells": {
+   "desc": "Collaborative LLM development platform — non-eng prompt editor, eval, tracing. UK; Index Ventures + Y Combinator backed.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$5.6M total: $2.8M seed 2023 (Index Ventures + YC W21).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "k-scale-labs--kscale-dev",
+  "name": "K-Scale Labs",
+  "url": "https://www.kscale.dev/",
+  "section": "Robotics foundation models & agent stacks",
+  "cells": {
+   "desc": "Open-source humanoid robot maker — K-Scale OS (Kos), Stompy and KBot humanoids. YC W24. Pitched as the 'open-source humanoid' alternative to Figure / Tesla — full hardware + software OSS.",
+   "license": "MIT (OS); humanoid hardware also OSS",
+   "deployment": "Hardware ships; OS self-host",
+   "latest-release": "K-Scale OS (kos) v0.x",
+   "gh": "github.com/kscalelabs",
+   "mcp-support": "not applicable — wrong section",
+   "pricing": "Hardware kits ($8-16k range); OS free",
+   "funding": "YC W24 (~$500k); additional seed reported",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "Python + ROS / kos APIs"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "label-studio-humansignal--labelstud-io",
+  "name": "Label Studio (HumanSignal)",
+  "url": "https://labelstud.io/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Open-source data-labelling platform supporting text, image, audio, video, time-series. Commercial Enterprise edition + Cloud (HumanSignal).",
+   "license": "Apache-2.0 (Community); proprietary Enterprise",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "HumanSignal raised $25M Series A in 2022-06 (Redpoint Ventures led); Label Studio OSS is Apache-2.0.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "labelbox--labelbox-com",
+  "name": "Labelbox",
+  "url": "https://labelbox.com/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Enterprise data-labelling platform — annotation tools + 'Frontier' offering (expert RLHF labelers + Boost compute). Pivoting toward frontier-lab data services.",
+   "license": "searched not found",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "$188.9M total raised (Series D $110M, 2022-01; led by SoftBank Vision Fund 2).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "lakefs--lakefs-io",
+  "name": "lakeFS",
+  "url": "https://lakefs.io/",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Git-like branching, commits, and rollback for object-store data lakes (S3/GCS/Azure). Treeverse commercial; OSS + Cloud edition.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "Treeverse raised $23M Series A 2022-04 (Dell Technologies Capital led; total ~$31M).",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "litellm--gh-berriai-litellm",
+  "name": "LiteLLM",
+  "url": "https://github.com/BerriAI/litellm",
+  "section": "Inference platforms & gateways",
+  "cells": {
+   "desc": "BerriAI's open-source LLM gateway — unified OpenAI-format API for 100+ providers; LiteLLM Proxy adds budgets, fallbacks, observability, rate-limiting.",
+   "license": "MIT",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "BerriAI raised $1.6M seed 2023 (Y Combinator W23); commercial steward of LiteLLM OSS.",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "llama-factory--gh-hiyouga-llama-factory",
+  "name": "LLaMA-Factory",
+  "url": "https://github.com/hiyouga/LLaMA-Factory",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Unified efficient fine-tuning of 100+ LLMs — SFT, DPO, PPO, KTO, ORPO with LoRA/QLoRA/full; CLI + WebUI. Popular in the Chinese OSS scene.",
+   "license": "Apache-2.0",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "lora--arxiv-2106-09685",
+  "name": "LoRA",
+  "url": "https://arxiv.org/abs/2106.09685",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "Microsoft Research's Low-Rank Adapters method — trains rank-r matrices added to attention weights; 10000x parameter reduction. Foundation of all adapter-style fine-tuning.",
+   "license": "searched not found",
+   "deployment": "not applicable — research paper",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "not applicable — research paper",
+   "pricing": "not applicable — research paper",
+   "funding": "not applicable — research paper",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "not applicable — research paper"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "megatron-core--gh-nvidia-megatron-lm",
+  "name": "Megatron-Core",
+  "url": "https://github.com/NVIDIA/Megatron-LM",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "PyTorch-library form of Megatron-LM — distributed training building blocks (tensor/pipeline/expert parallel) packaged for embedding into custom training stacks.",
+   "license": "BSD-3-Clause",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ },
+ {
+  "group": "models-a",
+  "id": "megatron-lm--gh-nvidia-megatron-lm",
+  "name": "Megatron-LM",
+  "url": "https://github.com/NVIDIA/Megatron-LM",
+  "section": "Training infrastructure",
+  "cells": {
+   "desc": "NVIDIA's reference framework for training large transformer models with tensor, pipeline, sequence, and expert parallelism. Underpins many frontier-lab training stacks.",
+   "license": "BSD-3-Clause",
+   "deployment": "searched not found",
+   "latest-release": "searched not found",
+   "gh": "searched not found",
+   "mcp-support": "searched not found",
+   "pricing": "searched not found",
+   "funding": "searched not found",
+   "runtimes": "not applicable — wrong section",
+   "api-surface": "searched not found"
+  }
+ }
+]
