@@ -33,6 +33,7 @@ interface Data {
   migrations: Map<string, unknown>;
   history: Record<string, unknown[]>;
   pricing: { checked: string; vendors: VendorPricing[] };
+  redirects: Record<string, string>;
   search?: SearchIndex;
   replacements?: Record<string, { id: string; name: string; why: string[] }[]>;
 }
@@ -110,22 +111,25 @@ export function createHandler(load: Loader) {
         load('landscape.json'), load('landscape.edges.json'), load('stack-index.json'), load('families.json'),
         load('migrations.json').catch(() => ({ notes: [] })), load('history.json').catch(() => ({ records: {} })),
         load('system-aliases.json').catch(() => ({ aliases: {} })), load('pricing-memory.json').catch(() => ({ checked: '', vendors: [] }))
-      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]> }, { checked: string; vendors: VendorPricing[] }];
+      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }];
       const fam = new Map<string, string>();
       for (const f of F.families) for (const s of f.sections) fam.set(s, f.id);
       setAliases(A.aliases);
       const items = L.records.map((r) => toItem(r as never, I.records[r.id] as never));
       return {
         records: L.records, edges: E.edges, index: I, famOf: (s: string) => fam.get(s) ?? 'other', items,
-        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P
+        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, redirects: A.redirects ?? {}
       };
     })().catch((e) => {
       dataP = null;
       throw e;
     }));
 
-  async function call(name: string, a: Record<string, unknown>): Promise<unknown> {
+  async function call(name: string, args: Record<string, unknown>): Promise<unknown> {
     const d = await getData();
+    // Ids of merged-away records resolve to the record they were folded into.
+    const resolve = (v: unknown) => (typeof v === 'string' ? (d.redirects[v] ?? v) : v);
+    const a = { ...args, ...('id' in args ? { id: resolve(args.id) } : {}), ...(Array.isArray(args.ids) ? { ids: args.ids.map(resolve) } : {}) };
     switch (name) {
       case 'ask_catalog': {
         d.search ??= buildIndex(d.records.map((r, n) => ({ item: d.items[n], text: docText(r.cells), family: d.famOf(d.items[n].section) })));

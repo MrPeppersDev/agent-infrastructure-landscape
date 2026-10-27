@@ -86,6 +86,12 @@ for (const r of records) {
   write(`api/systems/${r.id}.json`, JSON.stringify(doc));
   index.push({ id: r.id, name: r.name, family: fam, section: sec, tier: r.tier, status: doc.lifecycle.status, json: `${baseUrl}/api/systems/${r.id}.json` });
 }
+// Merged-away ids (taxonomy/system-aliases.json `redirects`) keep a stub that
+// points at the record they were folded into.
+const redirects = JSON.parse(readFileSync(resolve(__dirname, '..', '..', 'taxonomy', 'system-aliases.json'), 'utf8')).redirects ?? {};
+for (const [from, to] of Object.entries(redirects)) {
+  write(`api/systems/${from}.json`, JSON.stringify({ id: from, merged_into: to, json: `${baseUrl}/api/systems/${to}.json`, page: `${baseUrl}/systems/${to}` }));
+}
 write('api/index.json', JSON.stringify({ generatedAt: landscape.generatedAt ?? null, count: index.length, systems: index }));
 write('api/stack-index.json', JSON.stringify(stack));
 

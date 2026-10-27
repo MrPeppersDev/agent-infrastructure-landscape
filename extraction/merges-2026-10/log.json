@@ -1,0 +1,278 @@
+{
+ "date": "2026-10-27",
+ "merges": [
+  {
+   "kept_id": "qdrant--qdrant-tech",
+   "name": "Qdrant",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "qdrant-cloud--cloud-qdrant-io",
+     "name": "Qdrant Cloud",
+     "cells_filled": []
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Qdrant Cloud is the managed packaging of the same Qdrant engine."
+  },
+  {
+   "kept_id": "weaviate--weaviate-io",
+   "name": "Weaviate",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "weaviate-cloud--weaviate-io",
+     "name": "Weaviate Cloud",
+     "cells_filled": []
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Weaviate Cloud is the managed packaging of the same Weaviate engine."
+  },
+  {
+   "kept_id": "pgvector--gh-pgvector-pgvector",
+   "name": "pgvector",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "postgresql-pgvector--gh-pgvector-pgvector",
+     "name": "PostgreSQL pgvector",
+     "cells_filled": []
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Same project (github.com/pgvector/pgvector) listed twice."
+  },
+  {
+   "kept_id": "vespa--vespa-ai",
+   "name": "Vespa",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "vespa-cloud--cloud-vespa-ai",
+     "name": "Vespa Cloud",
+     "cells_filled": [
+      "latest-release"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Vespa Cloud is the managed packaging of the same Vespa engine."
+  },
+  {
+   "kept_id": "milvus--milvus-io",
+   "name": "Milvus",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "zilliz-cloud--zilliz-com",
+     "name": "Zilliz Cloud",
+     "cells_filled": []
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Zilliz Cloud is the managed Milvus service from Milvus's creator, Zilliz."
+  },
+  {
+   "kept_id": "meilisearch--meilisearch-com",
+   "name": "Meilisearch",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "meilisearch-cloud--meilisearch-com",
+     "name": "Meilisearch (Cloud)",
+     "cells_filled": [
+      "code-release"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Meilisearch Cloud is the managed packaging of the same Meilisearch engine."
+  },
+  {
+   "kept_id": "algolia--algolia-com",
+   "name": "Algolia",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "algolia-neuralsearch--algolia-com",
+     "name": "Algolia (NeuralSearch)",
+     "cells_filled": [
+      "modalities",
+      "pricing",
+      "compliance",
+      "data-handling",
+      "volume",
+      "perf",
+      "api-surface",
+      "latency",
+      "backend-storage",
+      "multi-tenancy",
+      "encryption",
+      "sso-rbac",
+      "embedding-model",
+      "schema-evolution",
+      "namespace",
+      "mcp-support",
+      "webhooks",
+      "import-export",
+      "validated-verticals",
+      "time-to-running",
+      "anti-fit",
+      "optimised-for",
+      "adjacent-infrastructure",
+      "pros",
+      "cons",
+      "links",
+      "cost-input-usd-per-mtok",
+      "cost-output-usd-per-mtok",
+      "cost-tier",
+      "cost-pricing-model",
+      "cost-last-verified"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "NeuralSearch is a feature of the Algolia platform, not a separate product."
+  },
+  {
+   "kept_id": "elasticsearch-opensearch--elastic-co",
+   "name": "Elasticsearch",
+   "renamed_from": "Elasticsearch / OpenSearch",
+   "dropped": [
+    {
+     "id": "elastic-cloud--elastic-co",
+     "name": "Elastic Cloud",
+     "cells_filled": [
+      "latest-release"
+     ]
+    }
+   ],
+   "cells_edited": [
+    "cons",
+    "gh",
+    "license",
+    "links",
+    "mindshare",
+    "perf",
+    "pricing"
+   ],
+   "reason": "The combined 'Elasticsearch / OpenSearch' row is split: it becomes Elasticsearch (Elastic Cloud folded in) and the OpenSearch row carries OpenSearch. OpenSearch-only facts were removed from this row; the OpenSearch row already holds them with its own citations."
+  },
+  {
+   "kept_id": "opensearch-aws--opensearch-org",
+   "name": "OpenSearch",
+   "renamed_from": "OpenSearch (AWS)",
+   "dropped": [],
+   "cells_edited": [],
+   "reason": "Split out of the combined 'Elasticsearch / OpenSearch' row; this record is now the single OpenSearch entry (opensearch.org), with Amazon OpenSearch Service as an alias."
+  },
+  {
+   "kept_id": "ontotext-graphdb-graphwise--graphwise-ai",
+   "name": "Ontotext GraphDB / Graphwise",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "poolparty-now-graphwise--poolparty-biz",
+     "name": "PoolParty (now Graphwise)",
+     "cells_filled": []
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Ontotext and Semantic Web Company (PoolParty) merged into Graphwise; PoolParty is now part of the Graphwise Platform (https://www.poolparty.biz/)."
+  },
+  {
+   "kept_id": "phidata-now-agno--agno-com",
+   "name": "Phidata (now Agno)",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "phidata-agno--agno-com",
+     "name": "Phidata / Agno",
+     "cells_filled": [
+      "claims",
+      "hq",
+      "code-release",
+      "agent-abstraction",
+      "memory-primitives",
+      "llm-lock",
+      "optimised-for",
+      "adjacent-infrastructure",
+      "pros",
+      "cons",
+      "links",
+      "cost-input-usd-per-mtok",
+      "cost-output-usd-per-mtok",
+      "cost-tier",
+      "cost-pricing-model",
+      "cost-last-verified"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Same product (agno.com, github.com/agno-agi/agno) listed twice. The Agent-frameworks row is kept so the framework chooser keeps it."
+  },
+  {
+   "kept_id": "burr-dagworks--gh-dagworks-inc-burr",
+   "name": "Burr (DAGWorks)",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "burr-dagworks--burr-dagworks-io",
+     "name": "Burr (DAGWorks)",
+     "cells_filled": [
+      "claims",
+      "hq",
+      "code-release",
+      "agent-abstraction",
+      "llm-lock",
+      "optimised-for",
+      "adjacent-infrastructure",
+      "pros",
+      "cons",
+      "links",
+      "cost-input-usd-per-mtok",
+      "cost-output-usd-per-mtok",
+      "cost-tier",
+      "cost-pricing-model",
+      "cost-last-verified"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Same project listed twice (repo URL and docs URL); now Apache Burr (incubating)."
+  },
+  {
+   "kept_id": "continue-dev-harness--continue-dev",
+   "name": "Continue.dev",
+   "renamed_from": "Continue.dev (harness)",
+   "dropped": [
+    {
+     "id": "continue-dev-framework--continue-dev",
+     "name": "Continue.dev (framework)",
+     "cells_filled": [
+      "runtimes",
+      "obs-opentelemetry",
+      "obs-custom",
+      "cost-token-budget",
+      "cost-prompt-caching",
+      "cost-semantic-caching",
+      "cost-batching",
+      "cost-model-routing",
+      "cost-streaming-only",
+      "cost-observability-cost-attribution",
+      "eval-langsmith-evals",
+      "eval-braintrust",
+      "eval-weights-and-biases-agent",
+      "eval-helicone-evals",
+      "eval-custom-test-harness",
+      "eval-human-loop",
+      "eval-production-traffic-replay"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "One product (continue.dev) listed as both a framework and a harness."
+  }
+ ]
+}

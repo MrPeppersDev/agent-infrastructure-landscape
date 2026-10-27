@@ -11,6 +11,7 @@
 
 import landscapeRaw from '../../../data/landscape.json';
 import edgesRaw from '../../../data/landscape.edges.json';
+import systemAliasesRaw from '../../../taxonomy/system-aliases.json';
 import type { EdgesFile, LandscapeFile, LandscapeRecord, Edge } from './types';
 
 const landscape = landscapeRaw as unknown as LandscapeFile;
@@ -34,4 +35,10 @@ export function getRecordCount(): number {
 
 export function getEdgeCount(): number {
   return edges.edges.length;
+}
+
+/** Ids of records merged into another record (old id → kept id), from
+ * taxonomy/system-aliases.json. Pages for old ids redirect to the kept one. */
+export function getRedirects(): Record<string, string> {
+  return ((systemAliasesRaw as { redirects?: Record<string, string> }).redirects) ?? {};
 }

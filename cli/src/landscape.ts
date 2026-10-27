@@ -37,7 +37,7 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
@@ -264,7 +264,9 @@ program
   .description('Do these systems work together? Integration evidence for every pair (or, with one id, what it works with).')
   .argument('<ids...>', 'record ids (see `landscape search`)')
   .option('--json', 'emit JSON')
-  .action((ids: string[], _o: unknown, cmd: Command) => {
+  .action((rawIds: string[], _o: unknown, cmd: Command) => {
+    const moved = loadRedirects();
+    const ids = rawIds.map((i) => moved[i] ?? i);
     setAliases(loadSystemAliases());
     const records = loadRecords() as never;
     const edges = loadEdges() as never;
@@ -292,7 +294,7 @@ program
   .option('--json', 'emit JSON')
   .action((id: string, o: { limit?: number }, cmd: Command) => {
     const items = loadChooserItems();
-    const t = items.find((i) => i.id === id);
+    const t = items.find((i) => i.id === (loadRedirects()[id] ?? id));
     if (!t) die(`record not found: ${id}`);
     const fam = familyIdForSection(t.section);
     const alts = alternatives(t, items.filter((i) => familyIdForSection(i.section) === fam), o.limit ?? 5);

@@ -32,6 +32,8 @@ const comp = await callTool('check_compatibility', { ids: ['mem0--mem0-ai', 'qdr
 check('check_compatibility', comp.structuredContent.pairs[0].status === 'documented');
 const sys = await callTool('get_system', { id: 'mem0--mem0-ai' });
 check('get_system', sys.structuredContent.cells.license?.value?.length > 0);
+const moved = await callTool('get_system', { id: 'qdrant-cloud--cloud-qdrant-io' });
+check('merged-away id resolves to the kept record', moved.structuredContent?.id === 'qdrant--qdrant-tech');
 const cost = await callTool('estimate_memory_cost', { users: 50 });
 check('estimate_memory_cost', cost.structuredContent.estimates.length >= 5);
 const bad = await callTool('get_system', { id: 'nope' });
