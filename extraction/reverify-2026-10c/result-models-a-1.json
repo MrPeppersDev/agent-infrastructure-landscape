@@ -1,0 +1,831 @@
+[
+ {
+  "id": "anyscale--anyscale-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "anyscale CLI/SDK 0.26.112 released 2026-10-20 and Ray 2.59.0 on 2026-10-02; pricing page live in 2026-10.",
+  "lifecycle_citation": "https://pypi.org/project/anyscale/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Ray Apache-2.0",
+    "citation": "https://github.com/ray-project/ray",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Anyscale-hosted, or BYOC in your own cloud/VPC/on-prem (VMs or Kubernetes)",
+    "citation": "https://www.anyscale.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.26.112 (2026-10-20) — anyscale",
+    "citation": "https://pypi.org/project/anyscale/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "ray-project/ray — ~44.1k stars, last commit 2026-10",
+    "citation": "https://github.com/ray-project/ray",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Pay-as-you-go compute billed in Anyscale credits per hour (e.g. A100 ~4.96 AC/hr); $100 free credit for new users; committed contracts with volume discounts via sales",
+    "citation": "https://www.anyscale.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "apptronik--apptronik-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Apptronik closed a $520M Series A-X extension on 2026-02-11 and published press releases through 2026-06.",
+  "lifecycle_citation": "https://apptronik.com/company/press-releases",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$350M Series A Feb-2025 (B Capital + Capital Factory)",
+    "new": "Over $935M Series A (incl. $520M Series A-X extension Feb-2026; B Capital, Google, Mercedes-Benz, PEAK6, plus new AT&T Ventures, John Deere, QIA); nearly $1B total raised",
+    "citation": "https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "argilla--argilla-io",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "README says the original authors have moved on and only bug fixes/patches will ship; last PyPI release 2.8.0 on 2025-03-10 and last develop commit 2025-08.",
+  "lifecycle_citation": "https://github.com/argilla-io/argilla",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — server deployed via Hugging Face Spaces template; Python SDK client",
+    "citation": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.8.0 (2025-03-10)",
+    "citation": "https://pypi.org/project/argilla/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "argilla-io/argilla — ~5.2k stars, last commit 2025-08",
+    "citation": "https://github.com/argilla-io/argilla/commits/develop",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK",
+    "citation": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "arize-ai--arize-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "arize Python SDK 8.61.0 released 2026-10-26; AX pricing tiers live 2026-10.",
+  "lifecycle_citation": "https://pypi.org/project/arize/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/Arize-ai/client_python",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — AX SaaS; self-hosted on AX Enterprise only",
+    "citation": "https://arize.com/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v8.61.0 (2026-10-26) — arize",
+    "citation": "https://pypi.org/project/arize/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP servers and skills for coding agents to set up Arize AX",
+    "citation": "https://arize.com/docs/ax",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "AX Free $0/mo (25k spans/mo); AX Pro $50/mo (50k spans/mo); AX Enterprise custom (SaaS or self-hosted); Phoenix OSS free",
+    "citation": "https://arize.com/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, Arize AX CLI (ax)",
+    "citation": "https://arize.com/docs/ax",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "arize-phoenix--phoenix-arize-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "arize-phoenix 20.26.1 released 2026-10-25; repo pushed 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/arize-phoenix/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Elastic 2.0",
+    "new": "Elastic-2.0",
+    "citation": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v20.26.1 (2026-10-25)",
+    "citation": "https://pypi.org/project/arize-phoenix/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "Arize-ai/phoenix — ~12.0k stars, last commit 2026-10",
+    "citation": "https://github.com/Arize-ai/phoenix",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — built-in remote MCP server at /mcp; legacy stdio @arizeai/phoenix-mcp in maintenance",
+    "citation": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, TypeScript SDK, REST API (OpenAPI), GraphQL API, CLI (phoenix-cli)",
+    "citation": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "aws-sagemaker--aws-amazon-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "sagemaker Python SDK 3.27.0 released 2026-10-21; service pricing page live.",
+  "lifecycle_citation": "https://pypi.org/project/sagemaker/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://github.com/aws/sagemaker-python-sdk",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — AWS",
+    "citation": "https://aws.amazon.com/sagemaker/ai/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.27.0 (2026-10-21) — sagemaker",
+    "citation": "https://pypi.org/project/sagemaker/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "aws/sagemaker-python-sdk — ~2.3k stars, last commit 2026-10",
+    "citation": "https://github.com/aws/sagemaker-python-sdk",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Pay-as-you-go by instance type and duration, no minimum fees; free tier for new users; savings plans for commitments",
+    "citation": "https://aws.amazon.com/sagemaker/ai/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "axolotl--gh-axolotl-ai-cloud-axolotl",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "axolotl 0.21.1 released on PyPI 2026-10-27; repo pushed 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/axolotl/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library/CLI with Docker images; runs on third-party GPU clouds",
+    "citation": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.21.1 (2026-10-27)",
+    "citation": "https://pypi.org/project/axolotl/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "axolotl-ai-cloud/axolotl — ~12.6k stars, last commit 2026-10",
+    "citation": "https://github.com/axolotl-ai-cloud/axolotl",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "CLI (axolotl train/fetch/export), YAML config, Docker images",
+    "citation": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "azure-machine-learning--azure-microsoft-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "azure-ai-ml SDK 1.35.2 released 2026-10-12; pricing page live.",
+  "lifecycle_citation": "https://pypi.org/project/azure-ai-ml/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK (azure-ai-ml) MIT",
+    "citation": "https://pypi.org/project/azure-ai-ml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — Azure",
+    "citation": "https://azure.microsoft.com/en-us/pricing/details/machine-learning/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.35.2 (2026-10-12) — azure-ai-ml",
+    "citation": "https://pypi.org/project/azure-ai-ml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "No additional charge for Azure Machine Learning; pay for underlying compute and other Azure services consumed",
+    "citation": "https://azure.microsoft.com/en-us/pricing/details/machine-learning/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "baseten--baseten-co",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "truss 0.18.36 released 2026-10-21 and baseten SDK 0.13.1 on 2026-10-23.",
+  "lifecycle_citation": "https://pypi.org/project/truss/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Truss MIT",
+    "citation": "https://github.com/basetenlabs/truss",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Baseten Cloud, self-hosted in your VPC (Enterprise), or hybrid",
+    "citation": "https://www.baseten.co/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.18.36 (2026-10-21) — truss",
+    "citation": "https://pypi.org/project/truss/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "basetenlabs/truss — ~1.2k stars, last commit 2026-10",
+    "citation": "https://github.com/basetenlabs/truss",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Baseten MCP servers and skill for agents to manage the workspace and search docs",
+    "citation": "https://docs.baseten.co/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Basic $0/mo pay-as-you-go; dedicated deployments billed per GPU-minute (e.g. H100 $0.10833/min); Model APIs per 1M tokens; Pro and Enterprise by quote",
+    "citation": "https://www.baseten.co/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Baseten CLI, Truss (Python), inference/management/training APIs, OpenAI-compatible Model APIs",
+    "citation": "https://docs.baseten.co/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bonito--gh-batsresearch-bonito",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Only PyPI release bonito-llm 0.1.0 was 2025-02-12 and the repo was last pushed 2025-07; not archived.",
+  "lifecycle_citation": "https://github.com/BatsResearch/bonito",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/bonito-llm/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.1.0 (2025-02-12) — bonito-llm",
+    "citation": "https://pypi.org/project/bonito-llm/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "BatsResearch/bonito — ~830 stars, last commit 2025-07",
+    "citation": "https://github.com/BatsResearch/bonito",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "braintrust--braintrust-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "braintrust Python 0.48.1 and npm 3.40.0 SDKs released 2026-10-26.",
+  "lifecycle_citation": "https://pypi.org/project/braintrust/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; SDKs open source",
+    "citation": "https://pypi.org/project/braintrust/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — hosted SaaS; on-prem deployment on Enterprise",
+    "citation": "https://www.braintrust.dev/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.48.1 (2026-10-26) — braintrust Python SDK",
+    "citation": "https://pypi.org/project/braintrust/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Braintrust MCP server (Connect with MCP quickstart)",
+    "citation": "https://www.braintrust.dev/docs",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Starter $0/mo; Pro $249/mo; Enterprise custom",
+    "citation": "https://www.braintrust.dev/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, TypeScript SDK, bt CLI",
+    "citation": "https://www.braintrust.dev/docs",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Last commit 2024-08-22; README says the repo is intended for archiving purposes and work moves to CleanRL; not archived on GitHub.",
+  "lifecycle_citation": "https://github.com/vwxyzjn/cleanba",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — research reference code",
+    "citation": "https://github.com/vwxyzjn/cleanba",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "no releases (no GitHub releases or PyPI package)",
+    "citation": "https://github.com/vwxyzjn/cleanba",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "vwxyzjn/cleanba — ~127 stars, last commit 2024-08",
+    "citation": "https://github.com/vwxyzjn/cleanba/commits/main",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "clearml--clear-ml",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "clearml 2.1.12 released 2026-08-19; repo pushed 2026-10-23.",
+  "lifecycle_citation": "https://pypi.org/project/clearml/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — hosted Community/Pro; VPC or on-prem on Scale/Enterprise; open-source server self-hostable",
+    "citation": "https://clear.ml/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.1.12 (2026-08-19)",
+    "citation": "https://pypi.org/project/clearml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "clearml/clearml — ~6.9k stars, last commit 2026-10",
+    "citation": "https://github.com/clearml/clearml",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Community $0 (up to 3 users); Pro $15/user/mo plus usage; Scale and Enterprise custom quote",
+    "citation": "https://clear.ml/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "collaborative-robotics--co-bot",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Company site co.bot live in 2026 promoting its Proxie robot.",
+  "lifecycle_citation": "https://www.co.bot/",
+  "updates": []
+ },
+ {
+  "id": "colossalai--gh-hpcaitech-colossalai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Repo pushed 2026-10-27; last release v0.5.0 on 2025-06-04.",
+  "lifecycle_citation": "https://github.com/hpcaitech/ColossalAI",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/colossalai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.5.0 (2025-06-04)",
+    "citation": "https://pypi.org/project/colossalai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "hpcaitech/ColossalAI — ~41.4k stars, last commit 2026-10",
+    "citation": "https://github.com/hpcaitech/ColossalAI",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "comet-ml--comet-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "comet-ml 3.58.8 released 2026-10-08 and opik 2.2.122 on 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/opik/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; comet-ml SDK MIT; Opik Apache-2.0",
+    "citation": "https://github.com/comet-ml/opik",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Comet cloud; Opik self-hosted via Docker Compose/Helm; on-prem on Enterprise",
+    "citation": "https://www.comet.com/site/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.58.8 (2026-10-08) — comet-ml",
+    "citation": "https://pypi.org/project/comet-ml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "comet-ml/opik — ~23.0k stars, last commit 2026-10",
+    "citation": "https://github.com/comet-ml/opik",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — opik-mcp MCP server for Claude Code, Cursor, VS Code",
+    "citation": "https://raw.githubusercontent.com/comet-ml/opik/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Opik: open source free, Free Cloud $0, Pro Cloud $19/mo, Enterprise custom; Experiment Management: Free, Pro $19/user/mo, Enterprise custom",
+    "citation": "https://www.comet.com/site/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK, TypeScript SDK, REST API, OpenTelemetry ingestion",
+    "citation": "https://raw.githubusercontent.com/comet-ml/opik/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "composer-mosaicml--gh-mosaicml-composer",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "GitHub repo archived by the owner on 2026-10-23 (read-only); last PyPI release mosaicml 0.32.1 on 2025-07-26.",
+  "lifecycle_citation": "https://github.com/mosaicml/composer",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/mosaicml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.32.1 (2025-07-26) — mosaicml",
+    "citation": "https://pypi.org/project/mosaicml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "mosaicml/composer — ~5.5k stars, archived 2026-10-23, last push 2026-04",
+    "citation": "https://github.com/mosaicml/composer",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "deepeval 4.3.1 released 2026-10-16; repo pushed 2026-10-23.",
+  "lifecycle_citation": "https://pypi.org/project/deepeval/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Confident AI cloud; dedicated on-prem on Enterprise; DeepEval runs locally",
+    "citation": "https://www.confident-ai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v4.3.1 (2026-10-16) — deepeval",
+    "citation": "https://pypi.org/project/deepeval/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "confident-ai/deepeval — ~19.1k stars, last commit 2026-10",
+    "citation": "https://github.com/confident-ai/deepeval",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — Confident AI MCP server for Claude Code/Cursor; DeepEval MCP-use evaluation metrics",
+    "citation": "https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free $0; Starter $200/mo; Team $2,000/mo; Enterprise custom",
+    "citation": "https://www.confident-ai.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library, CLI (deepeval test run), pytest integration, Confident AI web platform",
+    "citation": "https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "covariant--covariant-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Amazon signed a commercial agreement in Aug 2024 for a non-exclusive license to Covariant models and hired founders Abbeel, Chen and Duan; Amazon said Covariant would continue serving its customers (covariant.ai is now a bare placeholder page).",
+  "lifecycle_citation": "https://www.aboutamazon.com/news/company-news/amazon-covariant-ai-robots",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. Acqui-hired by Amazon Aug-2024 (founders + 25% of team to Amazon Robotics); Covariant remains operating as licensee. The first major robotics-FM acquisition.",
+    "new": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. In Aug 2024 Amazon took a non-exclusive license to its robotic foundation models and hired founders Abbeel, Chen and Rocky Duan plus research staff; Covariant was not acquired and continued serving customers.",
+    "citation": "https://www.aboutamazon.com/news/company-news/amazon-covariant-ai-robots",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "dagster--dagster-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "dagster 1.13.27 released 2026-10-26.",
+  "lifecycle_citation": "https://pypi.org/project/dagster/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Dagster+ Serverless or Hybrid; OSS self-hosted",
+    "citation": "https://dagster.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.13.27 (2026-10-26)",
+    "citation": "https://pypi.org/project/dagster/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "dagster-io/dagster — ~16.3k stars, last commit 2026-10",
+    "citation": "https://github.com/dagster-io/dagster",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Dagster+ Solo $10/mo, Starter $100/mo (plus per-credit and serverless compute usage), Pro custom",
+    "citation": "https://dagster.io/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "deepspeed--gh-microsoft-deepspeed",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "DeepSpeed v0.19.8 released 2026-10-20; repo now lives at deepspeedai/DeepSpeed.",
+  "lifecycle_citation": "https://github.com/deepspeedai/DeepSpeed/releases",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/deepspeed/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.19.8 (2026-10-20)",
+    "citation": "https://pypi.org/project/deepspeed/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "deepspeedai/DeepSpeed — ~43.3k stars, last commit 2026-10",
+    "citation": "https://github.com/deepspeedai/DeepSpeed",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "distilabel--gh-argilla-io-distilabel",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "README says the original authors have moved on and community collaborators maintain it; fix commits landed 2026-10-06 but the last PyPI release is 1.5.3 (2025-01-28).",
+  "lifecycle_citation": "https://github.com/argilla-io/distilabel",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/distilabel/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.5.3 (2025-01-28)",
+    "citation": "https://pypi.org/project/distilabel/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "argilla-io/distilabel — ~3.4k stars, last commit 2026-10",
+    "citation": "https://github.com/argilla-io/distilabel/commits/develop",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "dpo--arxiv-2305-18290",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "DPO (arXiv 2305.18290, 2023) remains a widely used alignment method; the authors reference implementation was last pushed 2024-08.",
+  "lifecycle_citation": "https://arxiv.org/abs/2305.18290",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "Apache-2.0 (authors reference implementation)",
+    "citation": "https://github.com/eric-mitchell/direct-preference-optimization",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "eric-mitchell/direct-preference-optimization — ~2.9k stars, last commit 2024-08",
+    "citation": "https://github.com/eric-mitchell/direct-preference-optimization",
+    "confidence": "medium"
+   }
+  ]
+ }
+]
