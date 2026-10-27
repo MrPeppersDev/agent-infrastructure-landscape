@@ -474,6 +474,34 @@
     "https://github.com/huggingface/text-generation-inference"
    ],
    "verified_at": "2026-10-27"
+  },
+  {
+   "id": "project-mariner--deepmind-google",
+   "action": "migrate",
+   "summary": "Google Labs says Project Mariner was shut down on 2026-05-04 and points users to Gemini Spark for complex tasks.",
+   "to": [],
+   "steps": [
+    "Move browser-task workflows to Gemini, using Gemini Spark for complex multi-step tasks as the Mariner page recommends"
+   ],
+   "sources": [
+    "https://labs.google.com/mariner/"
+   ],
+   "verified_at": "2026-10-27"
+  },
+  {
+   "id": "openai-operator--openai-com",
+   "action": "migrate",
+   "summary": "Operator's standalone site now redirects to agent mode in ChatGPT; OpenAI's announcement pages could not be read for a sunset date.",
+   "to": [],
+   "steps": [
+    "Use agent mode in ChatGPT (operator.chatgpt.com redirects to chatgpt.com with the agent system hint)",
+    "For API use, OpenAI's computer-use tool documentation includes a migration guide from computer-use-preview"
+   ],
+   "sources": [
+    "https://operator.chatgpt.com/",
+    "https://developers.openai.com/api/docs/guides/tools-computer-use"
+   ],
+   "verified_at": "2026-10-27"
   }
  ]
 }

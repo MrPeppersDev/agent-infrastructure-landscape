@@ -181760,7 +181760,7 @@
       "name": "Cognition Devin v2 / Spec Mode",
       "tier": 1,
       "url": "https://cognition.ai",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -181868,11 +181868,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "value": "Devin release notes update (2026-10-26)",
+          "citation": "https://docs.devin.ai/release-notes/overview",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -181902,11 +181902,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$1.1B total $10.2B val Series E 2025-09",
-          "citation": "https://cognition.ai",
+          "value": "Over $2B Series E at $48B valuation (2026-09-08), led by Andreessen Horowitz and Accel with Founders Fund, General Catalyst and others",
+          "citation": "https://cognition.com/blog/series-e",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "$150M+ ARR (reported); Goldman Sachs, Citi, Dell, Cisco, Ramp, MongoDB",
@@ -181915,8 +181915,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Free + paid; Spec Mode in Pro",
-          "citation": "https://cognition.ai",
+          "value": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom",
+          "citation": "https://devin.ai/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -181933,8 +181933,8 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Cloud",
-          "citation": "https://cognition.ai",
+          "value": "Managed-only — Cognition cloud agents plus Devin Desktop and CLI; enterprise plan offers a dedicated deployment option",
+          "citation": "https://devin.ai/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -181975,8 +181975,8 @@
           "tier": "T3"
         },
         "api-surface": {
-          "value": "Web + Slack + REST",
-          "citation": "https://cognition.ai",
+          "value": "Web app, Devin Desktop, Devin CLI, Slack and REST API",
+          "citation": "https://docs.devin.ai/release-notes/overview",
           "status": "real-data",
           "tier": "T2"
         },
@@ -182065,8 +182065,8 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "native (Devin MCP integrations)",
-          "citation": "https://cognition.ai",
+          "value": "yes — MCP marketplace plus custom MCP servers (STDIO and remote) configurable in Devin; Devin also ships its own Devin MCP server",
+          "citation": "https://docs.devin.ai/work-with-devin/mcp",
           "status": "real-data",
           "tier": "T2"
         },
@@ -182485,7 +182485,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://docs.devin.ai/release-notes/overview",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -182505,7 +182508,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://cognition.com/blog/series-e",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -182513,7 +182519,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://devin.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -182525,8 +182534,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://devin.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -182553,8 +182565,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://docs.devin.ai/release-notes/overview",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -182613,7 +182628,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.devin.ai/work-with-devin/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -218441,7 +218459,7 @@
       "name": "Cursor (IDE)",
       "tier": 1,
       "url": "https://cursor.com",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -218509,8 +218527,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "AI-first IDE that forked VS Code; Composer (multi-file edit) and Agent Mode (long-running coding agent) are its flagship surfaces. Memory layer = .cursorrules / Rules; recall via repo-aware Context Engine. Anysphere (parent) raised $900M Series C at $9.9B in May 2025; reportedly $200M ARR by mid-2025.",
-          "citation": "https://cursor.com",
+          "value": "AI-first IDE that forked VS Code; Composer (multi-file edit) and Agent Mode (long-running coding agent) are its flagship surfaces. Memory layer = .cursorrules / Rules; recall via repo-aware Context Engine. Anysphere (parent) raised $900M Series C at $9.9B in May 2025; acquired by SpaceX (announced 2026-08-14, terms undisclosed), product continues under the Cursor brand.",
+          "citation": "https://cursor.com/blog/joining-spacex",
           "status": "real-data",
           "tier": "T2"
         },
@@ -218534,11 +218552,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "value": "Agent SDK (2026-10-20)",
+          "citation": "https://cursor.com/changelog",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -218568,11 +218586,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$900M Series C at $9.9B · 2025-05 (Thrive, a16z)",
-          "citation": "https://cursor.com",
+          "value": "Acquired by SpaceX (announced 2026-08-14, terms undisclosed); previously $900M Series C at $9.9B (2025-05)",
+          "citation": "https://cursor.com/blog/joining-spacex",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "$200M ARR (reported); 51-200 ppl; Shopify, Instacart, Mercado Libre, Perplexity",
@@ -218581,8 +218599,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Free + paid",
-          "citation": "https://cursor.com",
+          "value": "Free $0; Plus $8/mo (Grok models only); Premium $30/mo; Super $100/mo; Ultra $200/mo; Teams from $30/user/mo; Enterprise custom; third-party models billed separately by usage",
+          "citation": "https://cursor.com/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -218599,8 +218617,8 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Cloud (desktop client + cloud agents)",
-          "citation": "https://cursor.com",
+          "value": "Managed-only — desktop app backed by vendor cloud; Agent SDK agents can also run as a Node process on own infrastructure",
+          "citation": "https://cursor.com/blog/agent-sdk",
           "status": "real-data",
           "tier": "T2"
         },
@@ -218641,8 +218659,8 @@
           "tier": "T3"
         },
         "api-surface": {
-          "value": "Desktop IDE; CLI in preview",
-          "citation": "https://cursor.com",
+          "value": "Desktop IDE; Cursor CLI (interactive, headless/CI, ACP); Agent SDK (TypeScript, Python; GA 2026-10-20)",
+          "citation": "https://cursor.com/blog/agent-sdk",
           "status": "real-data",
           "tier": "T2"
         },
@@ -218731,8 +218749,8 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "native — Cursor MCP support since 2025",
-          "citation": "https://cursor.com",
+          "value": "yes — install and manage MCP servers in Cursor (editor and CLI)",
+          "citation": "https://cursor.com/docs/mcp",
           "status": "real-data",
           "tier": "T2"
         },
@@ -219135,7 +219153,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://cursor.com/blog/joining-spacex",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -219151,7 +219172,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://cursor.com/changelog",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -219171,7 +219195,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://cursor.com/blog/joining-spacex",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -219179,7 +219206,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://cursor.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -219191,8 +219221,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://cursor.com/blog/agent-sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -219219,8 +219252,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://cursor.com/blog/agent-sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -219279,7 +219315,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://cursor.com/docs/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -367792,7 +367831,7 @@
       "name": "Highlight AI",
       "tier": 2,
       "url": "https://highlightai.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -367885,11 +367924,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "value": "v2.0.20 (2026-10-20)",
+          "citation": "https://highlightai.com/changelog",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -367932,7 +367971,7 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Free tier + Pro ($20/mo)",
+          "value": "Free $0/mo (14-day Pro trial); Pro $35/mo; Max $200/mo",
           "citation": "https://highlightai.com/pricing",
           "status": "real-data",
           "tier": "T2"
@@ -368502,8 +368541,11 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://highlightai.com/changelog",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "license": {
           "source": "legacy",
@@ -368530,7 +368572,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://highlightai.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -418870,7 +418915,7 @@
       "name": "JetBrains Junie",
       "tier": 2,
       "url": "https://www.jetbrains.com/junie/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -418963,11 +419008,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "value": "Junie CLI 26.10.20 (2026-10-21)",
+          "citation": "https://junie.jetbrains.com/whats-new",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -419010,8 +419055,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Bundled with JetBrains AI Pro tier",
-          "citation": "https://www.jetbrains.com/junie/",
+          "value": "Junie Lite free; AI Pro $8.33/user/mo (10 AI credits per 30 days); AI Ultimate $25/user/mo (35 AI credits per 30 days); top-ups available",
+          "citation": "https://junie.jetbrains.com/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -419070,8 +419115,8 @@
           "tier": "T3"
         },
         "api-surface": {
-          "value": "JetBrains IDE plugin",
-          "citation": "https://www.jetbrains.com/junie/",
+          "value": "JetBrains IDE plugin; Junie CLI; GitHub Action; GitLab CI/CD; ACP clients",
+          "citation": "https://junie.jetbrains.com/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -419160,9 +419205,9 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.jetbrains.com/junie/",
-          "status": "depth-floor-reached",
+          "value": "yes — Junie CLI and Junie in JetBrains IDEs share an MCP JSON configuration; /mcp command manages servers",
+          "citation": "https://junie.jetbrains.com/docs/junie-cli-mcp-configuration.html",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -419580,7 +419625,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://junie.jetbrains.com/whats-new",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -419608,8 +419656,11 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://junie.jetbrains.com/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "compliance": {
           "source": "legacy",
@@ -419648,7 +419699,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://junie.jetbrains.com/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -419708,7 +419762,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://junie.jetbrains.com/docs/junie-cli-mcp-configuration.html",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -489502,7 +489559,7 @@
       "name": "Lovable.dev — harness",
       "tier": 1,
       "url": "https://lovable.dev",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -489629,11 +489686,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$200M Series A at $1.8B val · 2025-mid (Accel, Creandum)",
-          "citation": "https://lovable.dev",
+          "value": "$400M Series C at $13.3B valuation (2026-08-12), led by Menlo Ventures, co-led by Scaleup Europe Fund (EQT); prior $330M Series B at $6.6B (2025-12-18)",
+          "citation": "https://lovable.dev/blog/series-c",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "$200M ARR (founder claim Q3 2025); millions of users",
@@ -489702,8 +489759,8 @@
           "tier": "T3"
         },
         "api-surface": {
-          "value": "Web app",
-          "citation": "https://lovable.dev",
+          "value": "Web app + Lovable API (REST: workspaces, projects, deployments)",
+          "citation": "https://docs.lovable.dev/api-reference/introduction",
           "status": "real-data",
           "tier": "T2"
         },
@@ -489792,9 +489849,9 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://lovable.dev",
-          "status": "depth-floor-reached",
+          "value": "yes — chat connectors connect external tools to Lovable via MCP servers",
+          "citation": "https://docs.lovable.dev/integrations/chat-connectors",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -490232,7 +490289,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://lovable.dev/blog/series-c",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -490280,7 +490340,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://docs.lovable.dev/api-reference/introduction",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -490340,7 +490403,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.lovable.dev/integrations/chat-connectors",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -492743,7 +492809,9 @@
       "name": "Lutra AI",
       "tier": 2,
       "url": "https://lutra.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "archived",
+      "decay_evidence": "https://lutra.ai/",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -492811,7 +492879,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "AI agent platform that automates SaaS workflows across Gmail, Slack, Sheets, etc. — uses natural-language instructions that compile to durable 'playbooks.' Founded by ex-Google/Facebook engineers; raised seed funding 2024. Positions itself as Zapier-meets-Claude for knowledge workers.",
+          "value": "AI agent platform that automated SaaS workflows across Gmail, Slack, Sheets, etc. using natural-language instructions compiled into durable playbooks. Founded by ex-Google/Facebook engineers; raised seed funding 2024. Discontinued: lutra.ai now states support for Lutra has been discontinued (seen 2026-10-27).",
           "citation": "https://lutra.ai/",
           "status": "real-data",
           "tier": "T2"
@@ -493437,7 +493505,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://lutra.ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -498182,7 +498253,7 @@
       "name": "Magic.dev",
       "tier": 2,
       "url": "https://magic.dev",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -498309,11 +498380,11 @@
           "last_verified_at": "2026-05-14"
         },
         "funding": {
-          "value": "$465M total $1.5-1.6B val Series B 2024-08 (CapitalG, Atlassian, Eric Schmidt, Nat Friedman)",
-          "citation": "https://magic.dev",
+          "value": "$768M total raised (company-stated, 2026) from Nat Friedman, Daniel Gross, CapitalG, Elad Gil, Sequoia, Jane Street, Eric Schmidt and others",
+          "citation": "https://magic.dev/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "private beta; few publicly named customers",
@@ -498912,7 +498983,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://magic.dev/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -505294,7 +505368,7 @@
       "name": "Manus AI",
       "tier": 2,
       "url": "https://manus.im",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -505392,11 +505466,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
+          "value": "Manus 2.0 (2026-09-28)",
+          "citation": "https://manus.im/blog/introducing-manus-2-0",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -505499,8 +505573,8 @@
           "tier": "T3"
         },
         "api-surface": {
-          "value": "Web app; API in preview",
-          "citation": "https://manus.im",
+          "value": "Web app + Manus Studio desktop app + Manus API v2 (REST: tasks, projects, agents, files, connectors, webhooks)",
+          "citation": "https://open.manus.ai/docs/v2/introduction",
           "status": "real-data",
           "tier": "T2"
         },
@@ -506009,7 +506083,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://manus.im/blog/introducing-manus-2-0",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -506077,7 +506154,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://open.manus.ai/docs/v2/introduction",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -687534,7 +687614,9 @@
       "name": "OpenAI Operator",
       "tier": 1,
       "url": "https://openai.com/index/introducing-operator/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "superseded",
+      "decay_evidence": "https://operator.chatgpt.com/",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -687734,8 +687816,8 @@
           "tier": "T3"
         },
         "api-surface": {
-          "value": "Computer-use tool exposed via Responses API (computer-use-preview model)",
-          "citation": "https://platform.openai.com/docs/guides/tools-computer-use",
+          "value": "Computer tool (type computer) in the Responses API; current docs use gpt-6.1-sol, with a migration guide from computer-use-preview",
+          "citation": "https://developers.openai.com/api/docs/guides/tools-computer-use",
           "status": "real-data",
           "tier": "T2"
         },
@@ -688312,7 +688394,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -754393,7 +754478,9 @@
       "name": "Project Mariner",
       "tier": 1,
       "url": "https://deepmind.google/technologies/project-mariner/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
+      "decay_cause": "archived",
+      "decay_evidence": "https://labs.google.com/mariner/",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -754461,8 +754548,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Google DeepMind's experimental browser agent built on Gemini 2.0 — Chrome extension that takes actions on the user's behalf. Research-preview launched Dec 2024. The Google answer to OpenAI Operator / Anthropic Computer Use; integrated into Gemini app surfaces in 2025.",
-          "citation": "https://deepmind.google/technologies/project-mariner/",
+          "value": "Google DeepMind's experimental browser agent built on Gemini 2.0, a Chrome extension that took actions on the user's behalf. Research preview launched Dec 2024 as Google's answer to OpenAI Operator / Anthropic Computer Use. Shut down on 2026-05-04; Google directs users to Gemini for complex agentic tasks.",
+          "citation": "https://labs.google.com/mariner/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -755087,7 +755174,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://labs.google.com/mariner/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -796671,7 +796761,7 @@
       "name": "Replit Agent v3",
       "tier": 1,
       "url": "https://replit.com/ai",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -796764,11 +796854,11 @@
           "last_verified_at": "2026-05-13"
         },
         "latest-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "Replit Agent 4 (2026-03-13)",
+          "citation": "https://docs.replit.com/updates/2026/03/13/changelog",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -796811,8 +796901,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Free + Core ($20/mo) + Teams",
-          "citation": "https://replit.com/ai",
+          "value": "Core $20/mo ($18/mo billed annually); Pro $100/mo ($90/mo billed annually; higher usage tiers up to $2,000/mo); Enterprise custom",
+          "citation": "https://replit.com/pricing",
           "status": "real-data",
           "tier": "T2"
         },
@@ -796829,8 +796919,8 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Cloud",
-          "citation": "https://replit.com/ai",
+          "value": "Both (self-hosted + managed cloud) — managed SaaS; enterprise Bring Your Own Cloud on AWS, Azure or Google Cloud (Full BYOC private preview, 2026-10)",
+          "citation": "https://replit.com/blog/bring-your-own-cloud",
           "status": "real-data",
           "tier": "T2"
         },
@@ -796961,9 +797051,9 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://replit.com/ai",
-          "status": "depth-floor-reached",
+          "value": "yes — one-click MCP server list plus custom MCP servers; Agent loads their tools",
+          "citation": "https://docs.replit.com/replitai/mcp/overview",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -797381,7 +797471,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://docs.replit.com/updates/2026/03/13/changelog",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -797409,7 +797502,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://replit.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -797421,8 +797517,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://replit.com/blog/bring-your-own-cloud",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -797509,7 +797608,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.replit.com/replitai/mcp/overview",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -804890,7 +804992,7 @@
       "name": "Retell AI",
       "tier": 1,
       "url": "https://www.retellai.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Voice agent platforms",
@@ -805030,7 +805132,7 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Per-minute usage ($0.07/min + provider passthrough)",
+          "value": "Pay-as-you-go $0.07-$0.31/min for voice agents (Retell voice infra $0.055/min plus TTS and LLM components), $10 free credits, 20 concurrent calls included; Enterprise custom",
           "citation": "https://www.retellai.com/pricing",
           "status": "real-data",
           "tier": "T2"
@@ -805180,9 +805282,9 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.google.com/search?q=Retell+AI+MCP",
-          "status": "depth-floor-reached",
+          "value": "yes — agents can call MCP tools during live calls",
+          "citation": "https://docs.retellai.com/build/single-multi-prompt/mcp",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -805628,7 +805730,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.retellai.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -805728,7 +805833,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.retellai.com/build/single-multi-prompt/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -893734,7 +893842,7 @@
       "name": "Speechmatics Flow",
       "tier": 2,
       "url": "https://www.speechmatics.com/flow",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Voice agent platforms",
@@ -921916,7 +922024,7 @@
       "name": "Synthflow",
       "tier": 2,
       "url": "https://synthflow.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Voice agent platforms",
@@ -922043,11 +922151,11 @@
           "last_verified_at": "2026-05-14"
         },
         "funding": {
-          "value": "$7.4M Series A Sep-2024 (Singular lead)",
-          "citation": "https://www.crunchbase.com/organization/synthflow",
+          "value": "$20M Series A (2025-06-25) led by Accel with Atlantic Labs and Singular; $30M total",
+          "citation": "https://synthflow.ai/news/synthflow-raises-20m-series-a",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "1000+ SMB customers; case studies in real estate + hospitality",
@@ -922056,7 +922164,7 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Tiered: Starter $29/mo + per-minute; Pro $450/mo",
+          "value": "Enterprise contracts from $30,000/yr, scoped by call volume, concurrency, telephony and integrations",
           "citation": "https://synthflow.ai/pricing",
           "status": "real-data",
           "tier": "T2"
@@ -922206,9 +922314,9 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://www.google.com/search?q=Synthflow+MCP",
-          "status": "depth-floor-reached",
+          "value": "yes — Synthflow MCP server for managing agents, calls and knowledge bases from MCP clients",
+          "citation": "https://docs.synthflow.ai/mcp-server",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -922646,7 +922754,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://synthflow.ai/news/synthflow-raises-20m-series-a",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -922654,7 +922765,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://synthflow.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -922754,7 +922868,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.synthflow.ai/mcp-server",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -984458,7 +984575,7 @@
       "name": "Vonage AI Studio",
       "tier": 2,
       "url": "https://www.vonage.com/communications-apis/ai-studio/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Voice agent platforms",
@@ -994740,10 +994857,10 @@
     },
     {
       "id": "windsurf-codeium-openai--windsurf-com",
-      "name": "Windsurf (Codeium / OpenAI)",
+      "name": "Windsurf (now Devin Desktop)",
       "tier": 1,
       "url": "https://windsurf.com",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -994811,8 +994928,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade — a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound — Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025).",
-          "citation": "https://windsurf.com",
+          "value": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent.",
+          "citation": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
           "status": "real-data",
           "tier": "T2"
         },
@@ -994883,8 +995000,8 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Free + paid",
-          "citation": "https://windsurf.com",
+          "value": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom",
+          "citation": "https://devin.ai/desktop",
           "status": "real-data",
           "tier": "T2"
         },
@@ -995033,8 +995150,8 @@
           "tier": "T2"
         },
         "mcp-support": {
-          "value": "native — Windsurf supports MCP",
-          "citation": "https://windsurf.com",
+          "value": "yes — Cascade MCP configuration in Devin Desktop (formerly Windsurf)",
+          "citation": "https://docs.devin.ai/desktop/cascade/mcp",
           "status": "real-data",
           "tier": "T2"
         },
@@ -995437,7 +995554,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -995481,7 +995601,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://devin.ai/desktop",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -995581,7 +995704,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://docs.devin.ai/desktop/cascade/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {

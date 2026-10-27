@@ -193,3 +193,58 @@ Same as the earlier groups: a PyPI/npm snapshot (`registry-models-b.json`) plus 
 - **Nemotron:** the row URL now returns 404 and needs a replacement.
 - **Pachyderm:** status unknown; its site was unreachable.
 - **Funding:** not re-checked for Surge AI, Roboflow, RunPod, Vellum, ZenML, Unsloth, Modal, Patronus, Portkey or PromptLayer.
+
+---
+
+# Re-verification 2026-10-27 — harnesses group (16 rows)
+
+- rows seen: 16
+- rows verified: 16
+- cells applied: 40
+- cells skipped: 0
+- decayed: 3
+- renamed: 1
+- url changed: 0
+- taxonomy set: 0
+
+## Lifecycle changes found
+
+- **Cursor (IDE)** — acquired: Cursor (Anysphere) announced on 2026-08-14 that it has officially been acquired by SpaceX (terms undisclosed); the product continues under the Cursor brand. ([source](https://cursor.com/blog/joining-spacex))
+- **Lutra AI** — dead: As of 2026-10-27 lutra.ai shows only a notice that support for Lutra has been discontinued; the shutdown date is not stated. ([source](https://lutra.ai/))
+- **OpenAI Operator** — deprecated: The standalone Operator site operator.chatgpt.com now returns a 308 redirect to ChatGPT agent mode (chatgpt.com/?system_hints=agent), checked 2026-10-27; the OpenAI announcement pages could not be fetched (HTTP 403). ([source](https://operator.chatgpt.com/))
+- **Project Mariner** — dead: Google states Project Mariner was shut down on 2026-05-04 and points users to Gemini for complex tasks; the DeepMind product page now redirects to the DeepMind homepage. ([source](https://labs.google.com/mariner/))
+- **Windsurf (now Devin Desktop)** — renamed: Cognition renamed Windsurf to Devin Desktop on 2026-06-02; windsurf.com now 308-redirects to devin.ai/desktop and existing plans and pricing carry over. ([source](https://devin.ai/blog/windsurf-is-now-devin-desktop))
+
+## Method
+
+One research agent checked vendor blogs, changelogs, pricing pages and acquirers' posts; it used two web searches, only to find the primary pages. The Cursor, Windsurf and Mariner pages were re-checked independently before applying (Mariner from its raw HTML).
+
+## HANDOFF leads
+
+- **Cursor — confirmed, date corrected.** "Cursor has officially been acquired by SpaceX", posted 2026-08-14, not 2026-06 (https://cursor.com/blog/joining-spacex). The brand continues.
+- **Windsurf — confirmed.** Renamed Devin Desktop on 2026-06-02 (https://devin.ai/blog/windsurf-is-now-devin-desktop). The record is now "Windsurf (now Devin Desktop)"; the id is unchanged.
+- **Manus — confirmed, then reversed.** It joined Meta on 2025-12-29 and resumed independent operations on 2026-09-01 (https://manus.im/blog/manus-resumes-independent-operations). Current ownership isn't stated.
+- **OpenAI Operator — partly confirmed.** operator.chatgpt.com redirects to ChatGPT agent mode. openai.com and help.openai.com returned 403, so there is no sunset date.
+
+## Other findings
+
+- **Project Mariner** was shut down on 2026-05-04; Google points users to Gemini Spark (https://labs.google.com/mariner/).
+- **Lutra AI** says support has been discontinued.
+- **Funding:**
+  - Cognition: Series E of over $2B at $48B (2026-09-08).
+  - Lovable: $400M Series C at $13.3B (2026-08-12).
+  - Synthflow: $20M Series A.
+  - Magic: $768M total raised.
+- **Latest releases:** Replit Agent 4 (2026-03-13), Manus 2.0 (2026-09-28), Junie CLI 26.10.20.
+- **MCP support** confirmed for Junie, Lovable, Replit, Retell and Synthflow.
+
+## Migration notes
+
+- **Project Mariner → Gemini Spark:** as named on the Mariner page.
+- **Operator → ChatGPT agent mode:** plus the computer-use migration guide for API users.
+
+## Left unchanged
+
+- **Operator:** the sunset date and ChatGPT pricing (403).
+- **Prices:** Vonage (403), Lovable (rendered client-side), Manus and Speechmatics.
+- **Speechmatics Flow:** lifecycle `unknown`. Its pages redirect to Agent STT, but there is no deprecation notice.
