@@ -237,7 +237,7 @@
    "to": [
     {
      "name": "Microsoft Agent Framework",
-     "id": null
+     "id": "microsoft-agent-framework--gh-microsoft-agent-framework"
     }
    ],
    "steps": [
@@ -340,6 +340,91 @@
     "https://github.com/sourcegraph/cody-public-snapshot"
    ],
    "verified_at": "2026-10-26"
+  },
+  {
+   "id": "magnetic-one--microsoft-com",
+   "action": "migrate",
+   "summary": "Magentic-One ships in AutoGen (autogen-agentchat / autogen-ext), whose README now says the project is archived and no longer maintained (no bug or security fixes); Microsoft points users to Microsoft Agent Framework, which has a Magentic orchestration.",
+   "to": [
+    {
+     "name": "Microsoft Agent Framework",
+     "id": "microsoft-agent-framework--gh-microsoft-agent-framework"
+    }
+   ],
+   "steps": [
+    "Install the successor with pip install agent-framework",
+    "Replace MagenticOneGroupChat(participants=..., model_client=...) with MagenticBuilder(participants=..., manager_agent=...) from agent_framework.orchestrations and call .build()",
+    "Map the AutoGen termination condition to MagenticBuilder limits: max_round_count, max_stall_count and max_reset_count",
+    "Run with workflow.run(task, stream=True) and read the final messages from events where event.type == 'output'"
+   ],
+   "sources": [
+    "https://github.com/microsoft/autogen",
+    "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+    "https://pypi.org/project/agent-framework/"
+   ],
+   "verified_at": "2026-10-27"
+  },
+  {
+   "id": "microsoft-autogen-studio--microsoft-github-io",
+   "action": "migrate",
+   "summary": "AutoGen Studio is part of the AutoGen repo, whose README now says the project is archived and no longer maintained (no bug, security or feature fixes); new users are told to start with Microsoft Agent Framework. The official migration guide covers the AutoGen agent and team APIs, not the Studio UI.",
+   "to": [
+    {
+     "name": "Microsoft Agent Framework",
+     "id": "microsoft-agent-framework--gh-microsoft-agent-framework"
+    }
+   ],
+   "steps": [
+    "Install the successor with pip install agent-framework",
+    "Rebuild each Studio agent as an agent_framework Agent(name=..., client=..., instructions=..., tools=[...]); tools are plain functions decorated with @tool",
+    "Rebuild teams as workflows: RoundRobinGroupChat becomes SequentialBuilder(participants=[...]).build(), MagenticOneGroupChat becomes MagenticBuilder",
+    "Follow the AutoGen to Microsoft Agent Framework migration guide for model clients, streaming, state and checkpointing"
+   ],
+   "sources": [
+    "https://github.com/microsoft/autogen",
+    "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+    "https://pypi.org/project/agent-framework/"
+   ],
+   "verified_at": "2026-10-27"
+  },
+  {
+   "id": "gitpod-ai-features--gitpod-io",
+   "action": "migrate",
+   "summary": "Gitpod renamed itself Ona (2025-09-02); Ona agreed to join OpenAI's Codex team on 2026-06-11 (closed 2026-08-10) and Ona Cloud shuts down on 2026-10-31, with Codex Cloud named as the replacement.",
+   "to": [
+    {
+     "name": "OpenAI Codex (cloud agent)",
+     "id": "openai-codex-cloud-agent--developers-openai-com"
+    }
+   ],
+   "steps": [
+    "Before 2026-10-31, have the agent commit and push all changes to your repository",
+    "Back up any other files separately and confirm everything you need is stored outside Ona",
+    "Ona environments do not move automatically: sign in to Codex with your ChatGPT account, connect your repositories and create a new cloud environment",
+    "October payments and unused purchased credits are refunded"
+   ],
+   "sources": [
+    "https://ona.com/stories/ona-core-shutdown",
+    "https://ona.com/stories/ona-joins-openai",
+    "https://ona.com/stories/gitpod-is-now-ona"
+   ],
+   "verified_at": "2026-10-27"
+  },
+  {
+   "id": "instructlab-red-hat-ibm--instructlab-ai",
+   "action": "migrate",
+   "summary": "The instructlab/instructlab repo was archived read-only on 2026-04-23; a 2025-09-02 README announcement split the project into separate component repos.",
+   "to": [],
+   "steps": [
+    "For synthetic data generation, move to sdg_hub (github.com/Red-Hat-AI-Innovation-Team/sdg_hub)",
+    "For training, move to training_hub (github.com/Red-Hat-AI-Innovation-Team/training_hub)",
+    "The archived CLI stays readable on GitHub but gets no further fixes; its last release is v0.26.1 (2025-05-05)"
+   ],
+   "sources": [
+    "https://github.com/instructlab/instructlab",
+    "https://pypi.org/project/instructlab/"
+   ],
+   "verified_at": "2026-10-27"
   }
  ]
 }

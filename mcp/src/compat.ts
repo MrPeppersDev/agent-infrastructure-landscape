@@ -58,6 +58,11 @@ export function setAliases(a: AliasMap): void {
   ALIASES = a;
 }
 
+/** Names that are generic phrases once their parenthetical is dropped
+ * ("MCP Servers (Reference)" → "MCP Servers"); for these the full name is
+ * used instead, since the bare phrase turns up in most MCP-support cells. */
+const GENERIC_BASES = new Set(['mcp servers']);
+
 function esc(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -69,8 +74,11 @@ function esc(s: string): string {
 export function aliasesOf(r: CompatRecord): string[] {
   const out = new Set<string>();
   const base = r.name.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
-  if (base.length >= 3) out.add(base);
-  for (const part of base.split(/\s*[\/·]\s*/)) if (part.length >= 4) out.add(part.trim());
+  if (GENERIC_BASES.has(base.toLowerCase())) out.add(r.name);
+  else {
+    if (base.length >= 3) out.add(base);
+    for (const part of base.split(/\s*[\/·]\s*/)) if (part.length >= 4) out.add(part.trim());
+  }
   const now = r.name.match(/\(now ([^)]+)\)/);
   if (now) out.add(now[1].trim());
   for (const a of ALIASES[r.name] ?? []) out.add(a);

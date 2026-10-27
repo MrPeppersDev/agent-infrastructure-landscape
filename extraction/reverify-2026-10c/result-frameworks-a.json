@@ -1,0 +1,890 @@
+[
+ {
+  "id": "daytona--daytona-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Daytona product and SDKs remain active (SDK v0.226.1 on 2026-10-23), but per the README core development moved to a private codebase in June 2026 and the daytonaio/daytona OSS repo was archived on 2026-10-03.",
+  "lifecycle_citation": "https://github.com/daytonaio/daytona",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Daytona is an open-source cloud development environment (CDE) platform — self-hostable alternative to Gitpod / GitHub Codespaces. 2024 added AI-agent sandbox tier for ephemeral agent code execution. Apache 2.0. Founded by ex-Atlas Antillia / Codeanywhere team (Ivan Burazin). $5M seed 2024 (RTP Global + others). Distinct from e2b / Modal by being self-hostable-first.",
+    "new": "Daytona is secure, elastic sandbox infrastructure for running AI-generated code and agent workflows (isolated sandboxes with snapshots, volumes, computer use, MCP server). Pivoted from an open-source cloud development environment; as of June 2026 core development moved to a private codebase and the daytonaio/daytona repo was archived (2026-10-03). SDKs, API clients and CLI/MCP tools are published in the open daytona/clients repo. Founded by the ex-Codeanywhere team (Ivan Burazin).",
+    "citation": "https://github.com/daytonaio/daytona",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache 2.0",
+    "new": "Apache-2.0 (SDKs in daytona/clients; CLI under AGPL-3.0); core platform closed-source since June 2026 (archived OSS repo remains under its original license at v0.190.0)",
+    "citation": "https://raw.githubusercontent.com/daytona/clients/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-hostable (Apache 2.0) + managed cloud",
+    "new": "Managed-only — Daytona cloud (pay-as-you-go); enterprise tier offers BYOC; archived OSS repo (v0.190.0) still forkable but unmaintained",
+    "citation": "https://www.daytona.io/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "v0.226.1 (2026-10-23)",
+    "citation": "https://pypi.org/project/daytona/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/daytonaio/daytona ~13k+ stars",
+    "new": "daytona/clients — ~15 stars (SDKs, API clients, CLI); the former daytonaio/daytona monorepo (~71k stars, last commit 2026-07) stopped development when core moved to a private codebase in 2026-06",
+    "citation": "https://github.com/daytona/clients",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "yes — Daytona MCP server (shipped with the CLI/MCP tools in daytona/clients) for agent sandbox control",
+    "citation": "https://github.com/daytona/clients",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "Docker + Kubernetes (self-hosted); managed cloud",
+    "new": "TypeScript, Python, Ruby, Go, Java",
+    "citation": "https://github.com/daytona/clients",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "OSS (free); Daytona Cloud managed paid tier; enterprise on-prem (quote)",
+    "new": "Pay-as-you-go per-second billing (vCPU $0.0504/h, memory $0.0162/GiB-h, storage $0.000108/GiB-h, first 5 GiB free); $200 free compute; startup credits up to $50k; preemptible GPUs from $0.57/h; Enterprise custom (SSO, audit logs, BYOC)",
+    "citation": "https://www.daytona.io/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "e2b--e2b-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: e2b SDK v2.61.0 released 2026-10-26 and e2b-dev/E2B commits in 2026-10.",
+  "lifecycle_citation": "https://github.com/e2b-dev/E2B",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache 2.0 (SDK + CLI)",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/e2b-dev/E2B",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Managed cloud (e2b.dev) + Apache 2.0 OSS SDK for self-hostable runtime",
+    "new": "Both (self-hosted + managed cloud) — E2B Cloud; open-source Apache-2.0 runtime (e2b-dev/infra) can be self-hosted; enterprise BYOC",
+    "citation": "https://github.com/e2b-dev/infra",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "v2.61.0 (2026-10-26)",
+    "citation": "https://pypi.org/project/e2b/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/e2b-dev/e2b ~7k+ stars; github.com/e2b-dev/infra (runtime)",
+    "new": "e2b-dev/E2B — ~15k stars, last commit 2026-10",
+    "citation": "https://github.com/e2b-dev/E2B",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "Linux microVMs; SDK clients in Python / TS",
+    "new": "Python, TypeScript",
+    "citation": "https://github.com/e2b-dev/E2B",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free + Pro ($150/mo) + Enterprise (quote); pay-per-second sandbox billing",
+    "new": "Hobby $0 (one-time $100 credit, 20 concurrent sandboxes); Pro $150/mo + usage (100 concurrent; Pro+ $650, Pro++ $1,150); Enterprise custom ($3,000/mo minimum, BYOC); per-second usage vCPU $0.000014/s, RAM $0.0000045/GiB-s",
+    "citation": "https://e2b.dev/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "eliza-ai16z--gh-elizaos-eliza",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: elizaOS/eliza monorepo receiving commits in 2026-10; npm @elizaos/core latest tag v1.7.2 (2026-01-19) with 2.0 pre-releases ongoing.",
+  "lifecycle_citation": "https://github.com/elizaOS/eliza",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — open-source runtime runs locally; hosted Eliza Cloud (cloud.eliza.app)",
+    "citation": "https://github.com/elizaOS/eliza",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.7.2 (2026-01-19)",
+    "citation": "https://www.npmjs.com/package/@elizaos/core",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "elizaOS/eliza — ~20k stars, last commit 2026-10",
+    "citation": "https://github.com/elizaOS/eliza",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP client via the @elizaos/plugin-mcp plugin",
+    "citation": "https://www.npmjs.com/package/@elizaos/plugin-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript",
+    "citation": "https://github.com/elizaOS/eliza",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Gitpod renamed itself Ona on 2025-09-02; OpenAI agreed to acquire Ona on 2026-06-11 (closed 2026-08-10, team joined Codex) and Ona Cloud is being wound down on 2026-10-31.",
+  "lifecycle_citation": "https://ona.com/stories/ona-joins-openai",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Gitpod is the original cloud development environment (CDE) — founded 2014 by Sven Efftinge + Johannes Landgraf (also TypeFox / Eclipse Theia / Open VSX). $25M Series A 2022 led by General Catalyst. 2024 launched Gitpod Flex with support for AI agents to run inside dev environments + automation runner. Free OSS tier (Gitpod Self-Hosted) for individual / OSS use.",
+    "new": "Gitpod was the original cloud development environment (CDE) — founded by Sven Efftinge + Johannes Landgraf (TypeFox / Eclipse Theia / Open VSX); $25M Series A 2022 led by General Catalyst. Renamed Ona on 2025-09-02 and repositioned as background AI software-engineering agents in cloud environments (Ona cloud or customer VPC). OpenAI agreed to acquire Ona on 2026-06-11 (closed 2026-08-10; team joined Codex); Ona Cloud is being wound down on 2026-10-31.",
+    "citation": "https://ona.com/stories/ona-joins-openai",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/gitpod-io/gitpod ~13k+ stars; github.com/gitpod-io/gitpod-flex roadmap",
+    "new": "gitpod-io/gitpod — ~14k stars, last commit 2026-10",
+    "citation": "https://github.com/gitpod-io/gitpod",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "Repository archived by the owner on 2026-04-22; last PyPI release v0.3.1 on 2024-06-06; README points to gptengineer.app/Lovable and aider.",
+  "lifecycle_citation": "https://github.com/AntonOsika/gpt-engineer",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "One of the original 'agent writes a whole codebase from a prompt' demos — community-maintained; spawned the commercial Lovable (gptengineer.app).",
+    "new": "One of the original 'agent writes a whole codebase from a prompt' CLI experiments; precursor to the commercial Lovable (lovable.dev / gptengineer.app). Repository archived (read-only) on 2026-04-22.",
+    "citation": "https://github.com/AntonOsika/gpt-engineer",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — CLI",
+    "citation": "https://github.com/AntonOsika/gpt-engineer",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.3.1 (2024-06-06)",
+    "citation": "https://pypi.org/project/gpt-engineer/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "AntonOsika/gpt-engineer — ~55k stars, last commit 2025-05 (archived 2026-04-22)",
+    "citation": "https://github.com/AntonOsika/gpt-engineer",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/gpt-engineer/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "haystack-framework--haystack-deepset-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: haystack-ai v3.4.1 released 2026-10-21 with commits in 2026-10.",
+  "lifecycle_citation": "https://github.com/deepset-ai/haystack",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS library; deepset Haystack Enterprise Platform (cloud or custom deployment)",
+    "citation": "https://www.deepset.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.4.1 (2026-10-21)",
+    "citation": "https://pypi.org/project/haystack-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "deepset-ai/haystack — ~27k stars, last commit 2026-10",
+    "citation": "https://github.com/deepset-ai/haystack",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCPTool/MCPToolset client tools via the mcp-haystack integration (Streamable HTTP, SSE, stdio); Hayhooks can expose pipelines as MCP servers",
+    "citation": "https://docs.haystack.deepset.ai/docs/mcptool",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/haystack-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "OSS framework free; Haystack Enterprise Platform: Studio $0 (1 user, 100 pipeline hours, cloud deployment), Enterprise custom",
+    "citation": "https://www.deepset.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "imbue-formerly-generally-intelligent--imbue-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: imbue.com lists current products (Studio waitlist, Bouncer, Sculptor, Vet, Blueprint, mngr) and imbue-ai repos such as mngr are updated in 2026-10.",
+  "lifecycle_citation": "https://imbue.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2017 as Generally Intelligent; rebranded Imbue 2023. Building foundation models for reasoning agents that write/edit code. Founders Kanjun Qiu + Josh Albrecht. $200M Series B 2023 ($1B valuation, Astera + Nvidia + Notion's Akshay Kothari). Trained 70B model for reasoning. Most public output is research blog + 'Carbon' OSS coding agent. Pulled back commercial roadmap post-2024.",
+    "new": "Founded 2017 as Generally Intelligent; rebranded Imbue 2023. Founders Kanjun Qiu + Josh Albrecht. $200M Series B 2023 ($1B valuation). Trained a 70B reasoning model, then shifted to user-owned AI tools: imbue.com now lists Studio (personal AI operating system, waitlist), Bouncer, Cloud in a Bottle, Sculptor, Vet (AI code review) and mngr (CLI for managing coding agents), with open-source repos under github.com/imbue-ai.",
+    "citation": "https://imbue.com/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "imbue-ai/mngr — ~430 stars, last commit 2026-10",
+    "citation": "https://github.com/imbue-ai/mngr",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "inngest--inngest-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: npm inngest v4.26.0 released 2026-10-22; inngest/inngest commits in 2026-10.",
+  "lifecycle_citation": "https://github.com/inngest/inngest",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "SSPL-1.0 with delayed Apache-2.0 grant (server; each release becomes Apache-2.0 three years after publication); SDKs Apache-2.0",
+    "citation": "https://raw.githubusercontent.com/inngest/inngest/main/LICENSE.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Inngest Cloud; self-hosting supported since the 1.0 release",
+    "citation": "https://www.inngest.com/docs/self-hosting",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v4.26.0 (2026-10-22)",
+    "citation": "https://www.npmjs.com/package/inngest",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "inngest/inngest — ~6k stars, last commit 2026-10",
+    "citation": "https://github.com/inngest/inngest",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — AgentKit agents consume MCP servers as tools via mcpServers (Streamable HTTP, SSE, WebSocket)",
+    "citation": "https://agentkit.inngest.com/advanced-patterns/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript, Python, Go, Kotlin, Java",
+    "citation": "https://github.com/inngest/inngest",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "instructlab/instructlab repository archived on 2026-04-23 (last PyPI release v0.26.1 on 2025-05-05); README points to successor SDG Hub and Training Hub repos.",
+  "lifecycle_citation": "https://github.com/instructlab/instructlab",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Red Hat / IBM-stewarded open-source framework for community-driven LLM alignment + fine-tuning. Method paper 'LAB: Large-Scale Alignment for Chatbots' (Sudalairaj et al, IBM Research 2024). Built on the Granite model family (IBM's open-weights). Apache 2.0. Used in IBM watsonx + Red Hat OpenShift AI for fine-tuning workflows. Not strictly a multi-agent framework — included as 'orchestration platform' because of its role as a substrate for building domain-specific fine-tuned agent models.",
+    "new": "Red Hat / IBM-stewarded open-source framework for community-driven LLM alignment + fine-tuning (LAB method, IBM Research 2024; Granite models). Apache 2.0. Main CLI repo archived 2026-04-23 after a 2025 refactor into separate libraries — synthetic data generation in SDG Hub and training in Training Hub (Red-Hat-AI-Innovation-Team). Not strictly a multi-agent framework.",
+    "citation": "https://github.com/instructlab/instructlab",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "Self-hostable (OSS); IBM watsonx + Red Hat OpenShift AI managed",
+    "new": "Self-hosted only — CLI/library (archived)",
+    "citation": "https://github.com/instructlab/instructlab",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v0.26.1 (2025-05-05)",
+    "citation": "https://pypi.org/project/instructlab/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/instructlab/instructlab ~1.5k+ stars; sister repos for taxonomy + sdg",
+    "new": "instructlab/instructlab — ~1.4k stars, last commit 2026-03 (archived 2026-04-23)",
+    "citation": "https://github.com/instructlab/instructlab",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "langchain-framework--langchain-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: langchain v1.4.7 (PyPI, 2026-10-21) and langchain JS v1.5.20 (2026-10-27); commits in 2026-10.",
+  "lifecycle_citation": "https://github.com/langchain-ai/langchain",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS library; agents deploy to LangSmith Deployment (cloud, hybrid or self-hosted)",
+    "citation": "https://docs.langchain.com/langsmith/deployment",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.4.7 (2026-10-21)",
+    "citation": "https://pypi.org/project/langchain/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "langchain-ai/langchain — ~149k stars, last commit 2026-10",
+    "citation": "https://github.com/langchain-ai/langchain",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP client tools via MCPAdapter in langchain.mcp (langchain[mcp] 1.4+, beta; successor to langchain-mcp-adapters)",
+    "citation": "https://docs.langchain.com/oss/python/langchain/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript",
+    "citation": "https://www.npmjs.com/package/langchain",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "langgraph-orchestration--langchain-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: langgraph v1.2.18 (PyPI) and @langchain/langgraph v1.5.3 (npm) both released 2026-10-26.",
+  "lifecycle_citation": "https://github.com/langchain-ai/langgraph",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS library; LangSmith Deployment cloud, hybrid, or self-hosted Agent Server",
+    "citation": "https://docs.langchain.com/langsmith/deployment",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.2.18 (2026-10-26)",
+    "citation": "https://pypi.org/project/langgraph/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "langchain-ai/langgraph — ~44k stars, last commit 2026-10",
+    "citation": "https://github.com/langchain-ai/langgraph",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP tools via LangChain MCPAdapter (langchain.mcp) for LangGraph-based agents",
+    "citation": "https://docs.langchain.com/oss/python/langchain/mcp",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript",
+    "citation": "https://www.npmjs.com/package/@langchain/langgraph",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: lindy.ai pricing page live with Free, Team and Enterprise plans as of 2026-10.",
+  "lifecycle_citation": "https://www.lindy.ai/pricing",
+  "updates": []
+ },
+ {
+  "id": "llamaindex-framework--llamaindex-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: llama-index v0.14.25 released 2026-09-21 and commits in 2026-10, though the README says the company's primary focus has shifted to LlamaParse.",
+  "lifecycle_citation": "https://github.com/run-llama/llama_index",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS library; LlamaAgents workflows deploy to LlamaCloud or self-host",
+    "citation": "https://developers.llamaindex.ai/python/llamaagents/overview/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.14.25 (2026-09-21)",
+    "citation": "https://pypi.org/project/llama-index/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "run-llama/llama_index — ~53k stars, last commit 2026-10",
+    "citation": "https://github.com/run-llama/llama_index",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — use MCP server tools in workflows and serve LlamaIndex workflows as MCP servers",
+    "citation": "https://developers.llamaindex.ai/python/framework/module_guides/mcp/",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python, TypeScript",
+    "citation": "https://www.npmjs.com/package/llamaindex",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "magnetic-one--microsoft-com",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "Magentic-One ships in AutoGen (autogen-ext, last release v0.7.5 on 2025-09-30); the microsoft/autogen README now states the project is archived and no longer maintained, with Microsoft Agent Framework as successor.",
+  "lifecycle_citation": "https://github.com/microsoft/autogen",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library (autogen-agentchat / autogen-ext)",
+    "citation": "https://github.com/microsoft/autogen",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.7.5 (2025-09-30)",
+    "citation": "https://pypi.org/project/autogen-ext/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "microsoft/autogen — ~62k stars, last commit 2026-10",
+    "citation": "https://github.com/microsoft/autogen",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP tools via McpWorkbench / StdioServerParams in autogen_ext.tools.mcp",
+    "citation": "https://github.com/microsoft/autogen",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/autogen-ext/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "marvin--askmarvin-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: commits through 2026-09; latest PyPI release v3.2.7 on 2026-03-04. Marvin 3.0 absorbed ControlFlow's agentic engine; the ControlFlow repo was archived 2026-03-19.",
+  "lifecycle_citation": "https://github.com/PrefectHQ/marvin",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Prefect's LLM toolkit — turns Python functions into LLM-powered ones; structured outputs, classification, extraction. Replaced by Control Flow for agentic workflows in 2024.",
+    "new": "Prefect's Python framework for structured outputs (cast, classify, extract, generate) and agentic workflows (tasks, agents, threads). Marvin 3.0 merged in ControlFlow's agentic engine, superseding ControlFlow (whose repo was archived 2026-03-19); uses Pydantic AI for LLM providers.",
+    "citation": "https://github.com/PrefectHQ/marvin",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/PrefectHQ/marvin",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.2.7 (2026-03-04)",
+    "citation": "https://pypi.org/project/marvin/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "PrefectHQ/marvin — ~6.2k stars, last commit 2026-09",
+    "citation": "https://github.com/PrefectHQ/marvin",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/marvin/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mastra--mastra-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: @mastra/core v1.79.0 released 2026-10-21; commits in 2026-10.",
+  "lifecycle_citation": "https://github.com/mastra-ai/mastra",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Elastic 2.0",
+    "new": "Apache-2.0 (code under ee/ directories under a separate Mastra enterprise license)",
+    "citation": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — Apache-2.0 framework self-hosted; Mastra Platform hosted deployments",
+    "citation": "https://mastra.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.79.0 (2026-10-21)",
+    "citation": "https://www.npmjs.com/package/@mastra/core",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "mastra-ai/mastra — ~29k stars, last commit 2026-10",
+    "citation": "https://github.com/mastra-ai/mastra",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — consume MCP servers and author MCP servers exposing agents/tools via @mastra/mcp",
+    "citation": "https://github.com/mastra-ai/mastra",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript",
+    "citation": "https://www.npmjs.com/package/@mastra/core",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Framework free (Apache-2.0); Mastra Platform Starter $0/mo (100K observability events, 24 CPU hours), Teams $250/mo (1M events, 250 CPU hours, SSO), Enterprise custom; persistent server $100/project; enterprise self-hosted license custom",
+    "citation": "https://mastra.ai/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: commits in 2026-10 and @modelcontextprotocol/server-filesystem v2.0.1 published 2026-10-25; many original servers moved to servers-archived.",
+  "lifecycle_citation": "https://github.com/modelcontextprotocol/servers",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Anthropic-led collection of reference Model Context Protocol servers (filesystem, GitHub, Slack, etc.) — substrate beneath the entire MCP-memory ecosystem (Cipher, Memobase, etc.).",
+    "new": "Official collection of reference Model Context Protocol servers maintained by the MCP project — currently Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking and Time; earlier servers such as GitHub, Google Drive and PostgreSQL were moved to the servers-archived repo. Substrate for the MCP-memory ecosystem.",
+    "citation": "https://github.com/modelcontextprotocol/servers",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "MIT",
+    "new": "Apache-2.0 (transitioning from MIT; contributions without relicensing consent remain MIT; docs CC-BY-4.0)",
+    "citation": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — run locally via npx (TypeScript) or uvx/pip (Python)",
+    "citation": "https://github.com/modelcontextprotocol/servers",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.0.1 (2026-10-25)",
+    "citation": "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "modelcontextprotocol/servers — ~92k stars, last commit 2026-10",
+    "citation": "https://github.com/modelcontextprotocol/servers",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — reference MCP server implementations",
+    "citation": "https://github.com/modelcontextprotocol/servers",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "TypeScript, Python",
+    "citation": "https://github.com/modelcontextprotocol/servers",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "metagpt--gh-geekan-metagpt",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo (now FoundationAgents/MetaGPT) last pushed 2026-01-21 and last PyPI release v0.8.2 on 2025-03-09; not archived; team focus moved to the MGX (MetaGPT X) product.",
+  "lifecycle_citation": "https://github.com/FoundationAgents/MetaGPT",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/FoundationAgents/MetaGPT",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.8.2 (2025-03-09)",
+    "citation": "https://pypi.org/project/metagpt/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "FoundationAgents/MetaGPT — ~71k stars, last commit 2026-01",
+    "citation": "https://github.com/FoundationAgents/MetaGPT",
+    "confidence": "medium"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "Python",
+    "citation": "https://pypi.org/project/metagpt/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-autogen-studio--microsoft-github-io",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "The microsoft/autogen README now states AutoGen is archived and no longer maintained (no bug or security fixes), naming Microsoft Agent Framework as successor; autogenstudio last released v0.4.2.2 on 2025-05-27.",
+  "lifecycle_citation": "https://github.com/microsoft/autogen",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "Self-hostable (OSS); Azure AI integration; runs locally",
+    "new": "Self-hosted only — local web UI (not intended for production)",
+    "citation": "https://github.com/microsoft/autogen",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — orchestration platform, not memory product",
+    "new": "v0.4.2.2 (2025-05-27)",
+    "citation": "https://pypi.org/project/autogenstudio/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/microsoft/autogen ~37k+ stars",
+    "new": "microsoft/autogen — ~62k stars, last commit 2026-10",
+    "citation": "https://github.com/microsoft/autogen",
+    "confidence": "medium"
+   },
+   {
+    "cell": "desc",
+    "old": "Microsoft Research's low-code GUI for designing and deploying multi-agent workflows on top of the AutoGen framework. AutoGen v0.4 (Jan-2025) re-architecture moved to actor-based async runtime. Free OSS (MIT). Distinct from OSS AutoGen framework already in catalog — this row covers the Studio GUI / no-code product. Increasingly positioned as Microsoft's multi-agent answer to LangGraph / CrewAI.",
+    "new": "Microsoft Research's low-code GUI for prototyping multi-agent workflows on top of the AutoGen framework (not intended for production). Ships in the microsoft/autogen repo, whose README now says the project is archived and no longer maintained (no bug, security or feature fixes); Microsoft points new users to Microsoft Agent Framework. Distinct from the OSS AutoGen framework row; this row covers the Studio GUI.",
+    "citation": "https://github.com/microsoft/autogen",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "README: \"Semantic Kernel is now Microsoft Agent Framework\"; SK v1.x still gets critical bug and security fixes and releases (Python v1.45.0, 2026-10-06) while new features go to Agent Framework.",
+  "lifecycle_citation": "https://github.com/microsoft/semantic-kernel",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/microsoft/semantic-kernel",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.45.0 (2026-10-06)",
+    "citation": "https://pypi.org/project/semantic-kernel/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "microsoft/semantic-kernel — ~29k stars, last commit 2026-10",
+    "citation": "https://github.com/microsoft/semantic-kernel",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — MCP servers usable as plugins",
+    "citation": "https://github.com/microsoft/semantic-kernel",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "searched not found",
+    "new": "C#, Python, Java",
+    "citation": "https://github.com/microsoft/semantic-kernel",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "modal-sandboxes--modal-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Active: modal client v1.6.2 released 2026-10-16; Sandboxes docs current.",
+  "lifecycle_citation": "https://modal.com/docs/guide/sandbox",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "Apache-2.0 (client SDK only; platform proprietary)",
+    "citation": "https://github.com/modal-labs/modal-client",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — sandbox/runtime, not memory product",
+    "new": "v1.6.2 (2026-10-16)",
+    "citation": "https://pypi.org/project/modal/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "modal-labs/modal-client — ~530 stars, last commit 2026-10",
+    "citation": "https://github.com/modal-labs/modal-client",
+    "confidence": "high"
+   },
+   {
+    "cell": "runtimes",
+    "old": "Python SDK; runs any Linux container",
+    "new": "Python, TypeScript, Go",
+    "citation": "https://modal.com/docs/guide/sandbox",
+    "confidence": "high"
+   }
+  ]
+ }
+]
