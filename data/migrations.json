@@ -450,6 +450,30 @@
     "https://github.com/humanloop/humanloop-export"
    ],
    "verified_at": "2026-10-27"
+  },
+  {
+   "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+   "action": "migrate",
+   "summary": "TGI's README put it in maintenance mode (minor bug fixes and docs only) and the huggingface/text-generation-inference repo was archived read-only on 2026-03-21; Hugging Face recommends inference engines built on transformers model architectures instead.",
+   "to": [
+    {
+     "name": "vLLM",
+     "id": "vllm--gh-vllm-project-vllm"
+    },
+    {
+     "name": "SGLang",
+     "id": "sglang--gh-sgl-project-sglang"
+    }
+   ],
+   "steps": [
+    "For server-side inference, move to vLLM or SGLang, the engines the TGI README recommends",
+    "For local inference with interchangeable model formats, the README points to llama.cpp or MLX",
+    "Expect no further fixes: the repo is archived and the README gives no step-by-step migration path, so test the replacement engine against your existing TGI endpoints"
+   ],
+   "sources": [
+    "https://github.com/huggingface/text-generation-inference"
+   ],
+   "verified_at": "2026-10-27"
   }
  ]
 }

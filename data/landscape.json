@@ -626570,7 +626570,7 @@
       "name": "MLflow",
       "tier": 1,
       "url": "https://mlflow.org/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -626663,11 +626663,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://mlflow.org/",
-          "status": "depth-floor-reached",
+          "value": "v3.17.2 (2026-10-21) — mlflow",
+          "citation": "https://pypi.org/project/mlflow/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -626676,11 +626676,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://mlflow.org/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "mlflow/mlflow — ~28.6k stars, last commit 2026-10",
+          "citation": "https://github.com/mlflow/mlflow",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -626770,9 +626770,9 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://mlflow.org/",
-          "status": "depth-floor-reached",
+          "value": "Python SDK, CLI, MCP server",
+          "citation": "https://mlflow.org/docs/latest/genai/mcp/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -626860,9 +626860,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://mlflow.org/",
-          "status": "depth-floor-reached",
+          "value": "yes — built-in MCP server (experimental, mlflow mcp run, MLflow 3.5.1+) exposing trace search, tagging and feedback tools",
+          "citation": "https://mlflow.org/docs/latest/genai/mcp/",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -627280,7 +627280,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/mlflow/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -627288,8 +627291,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/mlflow/mlflow",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -627348,8 +627354,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://mlflow.org/docs/latest/genai/mcp/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -627408,7 +627417,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://mlflow.org/docs/latest/genai/mcp/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -629593,7 +629605,7 @@
       "name": "Modal",
       "tier": 1,
       "url": "https://modal.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -629686,24 +629698,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://modal.com/",
-          "status": "depth-floor-reached",
+          "value": "v1.6.2 (2026-10-16) — modal",
+          "citation": "https://pypi.org/project/modal/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://modal.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "proprietary; client SDK Apache-2.0",
+          "citation": "https://github.com/modal-labs/modal-client",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://modal.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "modal-labs/modal-client — ~530 stars, last commit 2026-10",
+          "citation": "https://github.com/modal-labs/modal-client",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -629733,9 +629745,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://modal.com/",
-          "status": "depth-floor-reached",
+          "value": "Starter $0 + compute ($30/mo free credits); Team $250/mo + compute ($100/mo credits); Enterprise custom; usage per second (e.g. H100 $0.001097/sec)",
+          "citation": "https://modal.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -629751,9 +629763,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://modal.com/",
-          "status": "depth-floor-reached",
+          "value": "Managed-only — serverless cloud",
+          "citation": "https://modal.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -629793,9 +629805,9 @@
           "tier": "T2"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://modal.com/",
-          "status": "depth-floor-reached",
+          "value": "Python SDK",
+          "citation": "https://pypi.org/project/modal/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -630303,16 +630315,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/modal/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/modal-labs/modal-client",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/modal-labs/modal-client",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -630331,7 +630352,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://modal.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -630343,7 +630367,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://modal.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -630371,8 +630398,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/modal/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -647048,7 +647078,7 @@
       "name": "Nemotron Synthetic Data (NVIDIA)",
       "tier": 2,
       "url": "https://blogs.nvidia.com/blog/synthetic-data-generation-nemotron/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -647148,9 +647178,9 @@
           "last_verified_at": "2026-05-12"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://blogs.nvidia.com/blog/synthetic-data-generation-nemotron/",
-          "status": "depth-floor-reached",
+          "value": "NVIDIA Open Model License — Nemotron-4 340B weights",
+          "citation": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
@@ -647762,7 +647792,10 @@
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
@@ -660814,7 +660847,7 @@
       "name": "NVIDIA GR00T / Isaac",
       "tier": 1,
       "url": "https://developer.nvidia.com/isaac/gr00t",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -660907,24 +660940,24 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "GR00T N1 (2B) on HuggingFace Mar-2025",
-          "citation": "https://huggingface.co/nvidia/GR00T-N1-2B",
+          "value": "GR00T N1.7 (2026-04-21) — Isaac-GR00T",
+          "citation": "https://github.com/NVIDIA/Isaac-GR00T/releases",
           "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "NVIDIA Open Model license",
-          "citation": "https://huggingface.co/nvidia/GR00T-N1-2B",
+          "value": "Apache-2.0 code; model weights NVIDIA Open Model License",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
           "status": "real-data",
           "tier": "T2"
         },
         "gh": {
-          "value": "github.com/NVIDIA/Isaac-GR00T",
+          "value": "NVIDIA/Isaac-GR00T — ~8.3k stars, last commit 2026-10",
           "citation": "https://github.com/NVIDIA/Isaac-GR00T",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "Major GTC keynote launches 2024-2025; partner ecosystem (Figure, Apptronik, BD, Agility)",
@@ -661524,16 +661557,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/NVIDIA/Isaac-GR00T/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/NVIDIA/Isaac-GR00T",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -670182,7 +670224,7 @@
       "name": "OctoAI (now NVIDIA)",
       "tier": 2,
       "url": "https://octo.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -697282,7 +697324,7 @@
       "name": "OpenInference",
       "tier": 2,
       "url": "https://github.com/Arize-ai/openinference",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -697375,11 +697417,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/Arize-ai/openinference",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.1.42 (2026-10-23) — openinference-semantic-conventions",
+          "citation": "https://pypi.org/project/openinference-semantic-conventions/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -697388,11 +697430,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "Arize-ai/openinference — ~1.3k stars, last commit 2026-10",
           "citation": "https://github.com/Arize-ai/openinference",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -697440,9 +697482,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/Arize-ai/openinference",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -697482,10 +697524,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://github.com/Arize-ai/openinference",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python and JS/TS OpenTelemetry instrumentation packages",
+          "citation": "https://www.npmjs.com/package/@arizeai/openinference-semantic-conventions",
+          "status": "real-data",
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -697992,7 +698034,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/openinference-semantic-conventions/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -698000,8 +698045,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/Arize-ai/openinference",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -698032,7 +698080,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/Arize-ai/openinference",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -698060,8 +698111,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.npmjs.com/package/@arizeai/openinference-semantic-conventions",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -698292,7 +698346,7 @@
       "name": "OpenLLMetry (Traceloop)",
       "tier": 2,
       "url": "https://github.com/traceloop/openllmetry",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -698385,11 +698439,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/traceloop/openllmetry",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.62.4 (2026-09-29) — traceloop-sdk",
+          "citation": "https://pypi.org/project/traceloop-sdk/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -698398,11 +698452,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "traceloop/openllmetry — ~7.5k stars, last commit 2026-10",
           "citation": "https://github.com/traceloop/openllmetry",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -698450,9 +698504,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/traceloop/openllmetry",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -698492,10 +698546,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://github.com/traceloop/openllmetry",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python SDK (traceloop-sdk); JS/TS SDK in openllmetry-js",
+          "citation": "https://www.npmjs.com/package/@traceloop/node-server-sdk",
+          "status": "real-data",
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -699002,7 +699056,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/traceloop-sdk/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -699010,8 +699067,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/traceloop/openllmetry",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -699042,7 +699102,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/traceloop/openllmetry",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -699070,8 +699133,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.npmjs.com/package/@traceloop/node-server-sdk",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -701362,7 +701428,7 @@
       "name": "OpenMind OM1",
       "tier": 3,
       "url": "https://www.openmind.org/",
-      "last_verified_at": "2026-08-24",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -701468,11 +701534,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "github.com/OpenMind/OM1",
+          "value": "OpenMind/OM1 — ~3.0k stars, last commit 2026-10",
           "citation": "https://github.com/OpenMind/OM1",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-08-24"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "Niche; growing as 'open robot OS' narrative gains traction",
@@ -701520,10 +701586,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "Self-host; runs on Linux/ROS-class robots",
-          "citation": "https://github.com/OpenMind-Labs/OM1",
+          "value": "Self-hosted only — prebuilt binaries for Linux/macOS or build from source; connects to robot HAL/ROS2 via DDS or websockets",
+          "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T2"
         },
         "hq": {
           "value": "US (Bay Area)",
@@ -701562,10 +701628,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "Python + ROS APIs",
-          "citation": "https://github.com/OpenMind-Labs/OM1",
+          "value": "Go runtime (recommended; Python runtime deprecated); ROS2 integration via DDS or websockets",
+          "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -702080,8 +702146,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/OpenMind/OM1",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -702112,7 +702181,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -702140,7 +702212,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -702381,7 +702456,7 @@
       "name": "OpenRLHF",
       "tier": 2,
       "url": "https://github.com/OpenRLHF/OpenRLHF",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -702474,11 +702549,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/OpenRLHF/OpenRLHF",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.11.2 (2026-09-14) — openrlhf",
+          "citation": "https://pypi.org/project/openrlhf/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -702487,11 +702562,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "OpenRLHF/OpenRLHF — ~10.1k stars, last commit 2026-10",
           "citation": "https://github.com/OpenRLHF/OpenRLHF",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -702539,9 +702614,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/OpenRLHF/OpenRLHF",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -703091,7 +703166,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/openrlhf/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -703099,8 +703177,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/OpenRLHF/OpenRLHF",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -703131,7 +703212,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/OpenRLHF/OpenRLHF",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -711897,7 +711981,7 @@
       "name": "Outerbounds",
       "tier": 2,
       "url": "https://outerbounds.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -711965,8 +712049,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Commercial platform behind Metaflow (originally Netflix OSS) — ML workflow orchestration with managed compute, focused on data scientists shipping production pipelines.",
-          "citation": "https://outerbounds.com/",
+          "value": "Commercial platform behind Metaflow (originally Netflix OSS) — ML workflow orchestration with managed compute. Acquisition by Anaconda announced 2026-04-29; now marketed as AI Orchestration in Anaconda Platform, and Metaflow stays open source.",
+          "citation": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
           "status": "real-data",
           "tier": "T2"
         },
@@ -711990,24 +712074,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://outerbounds.com/",
-          "status": "depth-floor-reached",
+          "value": "v0.12.53 (2026-10-16) — outerbounds",
+          "citation": "https://pypi.org/project/outerbounds/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://outerbounds.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "proprietary; Metaflow Apache-2.0",
+          "citation": "https://github.com/Netflix/metaflow",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://outerbounds.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "Netflix/metaflow — ~10.3k stars, last commit 2026-10",
+          "citation": "https://github.com/Netflix/metaflow",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -712024,11 +712108,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$26.6M total raised through Series A 2022 (Index Ventures led); commercial steward of Metaflow OSS.",
-          "citation": "https://www.crunchbase.com/organization/outerbounds",
+          "value": "$26.6M total raised through Series A 2022 (Index Ventures led); acquisition by Anaconda announced 2026-04-29 (terms not disclosed in the announcement).",
+          "citation": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "searched not found",
@@ -712591,7 +712675,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -712607,16 +712694,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/outerbounds/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/Netflix/metaflow",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/Netflix/metaflow",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -712627,7 +712723,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -714933,7 +715032,7 @@
       "name": "Pachyderm (HPE)",
       "tier": 2,
       "url": "https://www.pachyderm.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -715026,24 +715125,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.pachyderm.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "v2.12.2 (2025-01-15)",
+          "citation": "https://github.com/pachyderm/pachyderm/releases",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.pachyderm.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "Apache-2.0",
+          "citation": "https://github.com/pachyderm/pachyderm",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.pachyderm.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "pachyderm/pachyderm — ~6.3k stars, last commit 2025-02",
+          "citation": "https://github.com/pachyderm/pachyderm",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -715643,16 +715742,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/pachyderm/pachyderm/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/pachyderm/pachyderm",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/pachyderm/pachyderm",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -720010,7 +720118,7 @@
       "name": "Patronus AI",
       "tier": 2,
       "url": "https://www.patronus.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -720103,16 +720211,16 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.patronus.ai/",
-          "status": "depth-floor-reached",
+          "value": "v0.1.26 (2026-09-17) — patronus",
+          "citation": "https://pypi.org/project/patronus/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.patronus.ai/",
-          "status": "depth-floor-reached",
+          "value": "proprietary; Python SDK MIT",
+          "citation": "https://pypi.org/project/patronus/",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
@@ -720150,9 +720258,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://www.patronus.ai/",
-          "status": "depth-floor-reached",
+          "value": "Contact sales — no public price list",
+          "citation": "https://www.patronus.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -720210,9 +720318,9 @@
           "tier": "T2"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://www.patronus.ai/",
-          "status": "depth-floor-reached",
+          "value": "Python SDK",
+          "citation": "https://pypi.org/project/patronus/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -720720,12 +720828,18 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/patronus/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/patronus/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "gh": {
           "source": "legacy",
@@ -720748,7 +720862,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.patronus.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -720788,8 +720905,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/patronus/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -721014,7 +721134,7 @@
       "name": "PEFT (Hugging Face)",
       "tier": 1,
       "url": "https://github.com/huggingface/peft",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -721107,11 +721227,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/peft",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.21.2 (2026-10-01) — peft",
+          "citation": "https://pypi.org/project/peft/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -721120,11 +721240,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "huggingface/peft — ~21.9k stars, last commit 2026-10",
           "citation": "https://github.com/huggingface/peft",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -721172,9 +721292,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/huggingface/peft",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -721214,10 +721334,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/peft",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python library",
+          "citation": "https://pypi.org/project/peft/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -721724,7 +721844,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/peft/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -721732,8 +721855,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/huggingface/peft",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -721764,7 +721890,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/peft",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -721792,7 +721921,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/peft/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -732792,7 +732924,7 @@
       "name": "Physical Intelligence (π)",
       "tier": 1,
       "url": "https://www.physicalintelligence.company/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -732885,11 +733017,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "π0.5 (2025)",
-          "citation": "https://www.physicalintelligence.company/blog/pi05",
+          "value": "pi0.7 (2026-04-16) — model; openpi repo has no GitHub releases",
+          "citation": "https://www.pi.website/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "OpenPI Apache 2.0 (Feb 2025 release of weights)",
@@ -732898,11 +733030,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "github.com/Physical-Intelligence/openpi",
+          "value": "Physical-Intelligence/openpi — ~14.4k stars, last commit 2026-08",
           "citation": "https://github.com/Physical-Intelligence/openpi",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "Front-page HN; one of the top robotics-FM stories of 2024-2025",
@@ -732950,10 +733082,10 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "OSS weights (OpenPI) self-host on robot hardware; no first-party commercial endpoint as of 2025-04 — partners deploy in-house",
-          "citation": "https://github.com/Physical-Intelligence/openpi",
+          "value": "Both (self-hosted + managed cloud) — openpi weights self-hosted; Pi API beta (managed fine-tuning + hosted inference, waitlist) since 2026-10-13",
+          "citation": "https://www.pi.website/blog/api-beta",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T2"
         },
         "hq": {
           "value": "US (San Francisco)",
@@ -733502,7 +733634,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://www.pi.website/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -733510,8 +733645,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/Physical-Intelligence/openpi",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -733542,7 +733680,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.pi.website/blog/api-beta",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -733887,7 +734028,7 @@
       "name": "Pickle Robot",
       "tier": 3,
       "url": "https://www.picklerobot.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -746108,7 +746249,7 @@
       "name": "Portkey AI",
       "tier": 2,
       "url": "https://portkey.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -746201,11 +746342,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://portkey.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.15.2 (2026-01-12) — gateway",
+          "citation": "https://github.com/Portkey-AI/gateway/releases",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT (Gateway)",
@@ -746214,11 +746355,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://portkey.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "Portkey-AI/gateway — ~13.3k stars, last commit 2026-05",
+          "citation": "https://github.com/Portkey-AI/gateway",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -746248,9 +746389,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://portkey.ai/",
-          "status": "depth-floor-reached",
+          "value": "Open-source gateway free (self-host); Developer free (10K logs/mo); Production $49/mo (100K logs, $9 per extra 100K up to 3M); Enterprise custom",
+          "citation": "https://portkey.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -746266,9 +746407,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://portkey.ai/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS gateway self-hosted or Portkey cloud",
+          "citation": "https://portkey.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -746308,9 +746449,9 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://portkey.ai/",
-          "status": "depth-floor-reached",
+          "value": "Python SDK, Node SDK, gateway HTTP API",
+          "citation": "https://pypi.org/project/portkey-ai/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -746398,9 +746539,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://portkey.ai/",
-          "status": "depth-floor-reached",
+          "value": "yes — MCP Gateway product (unified layer to access and govern MCP tools)",
+          "citation": "https://portkey.ai/mcp",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -746818,7 +746959,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/Portkey-AI/gateway/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -746826,8 +746970,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/Portkey-AI/gateway",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -746846,7 +746993,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://portkey.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -746858,7 +747008,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://portkey.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -746886,8 +747039,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/portkey-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -746946,7 +747102,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://portkey.ai/mcp",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -750174,7 +750333,7 @@
       "name": "Prefect",
       "tier": 1,
       "url": "https://www.prefect.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -750267,11 +750426,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.prefect.io/",
-          "status": "depth-floor-reached",
+          "value": "v3.9.0 (2026-10-21) — prefect",
+          "citation": "https://pypi.org/project/prefect/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -750280,11 +750439,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.prefect.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "PrefectHQ/prefect — ~24.1k stars, last commit 2026-10",
+          "citation": "https://github.com/PrefectHQ/prefect",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -750314,9 +750473,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://www.prefect.io/",
-          "status": "depth-floor-reached",
+          "value": "Prefect Cloud: Hobby free; Starter $100/mo; Team $100/user/mo; Enterprise custom",
+          "citation": "https://www.prefect.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -750332,9 +750491,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.prefect.io/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS server or Prefect Cloud",
+          "citation": "https://www.prefect.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -750374,9 +750533,9 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://www.prefect.io/",
-          "status": "depth-floor-reached",
+          "value": "Python SDK",
+          "citation": "https://pypi.org/project/prefect/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -750884,7 +751043,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/prefect/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -750892,8 +751054,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/PrefectHQ/prefect",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -750912,7 +751077,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.prefect.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -750924,7 +751092,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.prefect.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -750952,8 +751123,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/prefect/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -756325,7 +756499,7 @@
       "name": "PromptLayer",
       "tier": 3,
       "url": "https://www.promptlayer.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -756418,24 +756592,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.promptlayer.com/",
-          "status": "depth-floor-reached",
+          "value": "v1.5.16 (2026-08-19) — promptlayer",
+          "citation": "https://pypi.org/project/promptlayer/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.promptlayer.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "proprietary; Python SDK Apache-2.0",
+          "citation": "https://github.com/MagnivOrg/prompt-layer-library",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://www.promptlayer.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "MagnivOrg/prompt-layer-library — ~0.8k stars, last commit 2026-08",
+          "citation": "https://github.com/MagnivOrg/prompt-layer-library",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -756465,9 +756639,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://www.promptlayer.com/",
-          "status": "depth-floor-reached",
+          "value": "Free $0 (2.5k requests/mo); Pro $49/mo; Team $500/mo (100k+ requests); Enterprise custom",
+          "citation": "https://www.promptlayer.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -756483,9 +756657,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.promptlayer.com/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — self-hosting on Enterprise plan (GCP, AWS, Azure)",
+          "citation": "https://www.promptlayer.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -756525,9 +756699,9 @@
           "tier": "T2"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://www.promptlayer.com/",
-          "status": "depth-floor-reached",
+          "value": "Python SDK",
+          "citation": "https://pypi.org/project/promptlayer/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -757035,16 +757209,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/promptlayer/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/MagnivOrg/prompt-layer-library",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/MagnivOrg/prompt-layer-library",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -757063,7 +757246,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.promptlayer.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -757075,7 +757261,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.promptlayer.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -757103,8 +757292,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/promptlayer/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -764502,7 +764694,7 @@
       "name": "QLoRA",
       "tier": 3,
       "url": "https://arxiv.org/abs/2305.14314",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -764602,17 +764794,17 @@
           "last_verified_at": "2026-05-12"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://arxiv.org/abs/2305.14314",
-          "status": "depth-floor-reached",
+          "value": "MIT — artidoro/qlora (Guanaco weights follow LLaMA license)",
+          "citation": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://arxiv.org/abs/2305.14314",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "artidoro/qlora — ~11.1k stars, last commit 2024-06",
+          "citation": "https://github.com/artidoro/qlora",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -765216,12 +765408,18 @@
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/artidoro/qlora",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -770582,7 +770780,7 @@
       "name": "Ragas",
       "tier": 2,
       "url": "https://github.com/explodinggradients/ragas",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -770675,11 +770873,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/explodinggradients/ragas",
-          "status": "depth-floor-reached",
+          "value": "v0.4.3 (2026-01-13) — ragas",
+          "citation": "https://github.com/vibrantlabsai/ragas/releases",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -770688,11 +770886,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://github.com/explodinggradients/ragas",
-          "status": "depth-floor-reached",
+          "value": "vibrantlabsai/ragas — ~16.2k stars, last commit 2026-02",
+          "citation": "https://github.com/vibrantlabsai/ragas",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -770740,9 +770938,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/explodinggradients/ragas",
-          "status": "depth-floor-reached",
+          "value": "Self-hosted only — library",
+          "citation": "https://github.com/vibrantlabsai/ragas",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -771292,7 +771490,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/vibrantlabsai/ragas/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -771300,8 +771501,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/vibrantlabsai/ragas",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -771332,7 +771536,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/vibrantlabsai/ragas",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -774658,7 +774865,7 @@
       "name": "Ray Train",
       "tier": 2,
       "url": "https://docs.ray.io/en/latest/train/train.html",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -774751,11 +774958,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://docs.ray.io/en/latest/train/train.html",
-          "status": "depth-floor-reached",
+          "value": "v2.59.0 (2026-10-02) — ray",
+          "citation": "https://pypi.org/project/ray/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -774764,11 +774971,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://docs.ray.io/en/latest/train/train.html",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "ray-project/ray — ~44.1k stars, last commit 2026-10",
+          "citation": "https://github.com/ray-project/ray",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -774858,9 +775065,9 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://docs.ray.io/en/latest/train/train.html",
-          "status": "depth-floor-reached",
+          "value": "Python library (ray.train)",
+          "citation": "https://pypi.org/project/ray/",
+          "status": "real-data",
           "tier": "T2"
         },
         "latency": {
@@ -775368,7 +775575,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/ray/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -775376,8 +775586,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/ray-project/ray",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -775436,8 +775649,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/ray/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -793362,7 +793578,7 @@
       "name": "Replicate",
       "tier": 1,
       "url": "https://replicate.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -793430,8 +793646,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Hosted-API platform for OSS models — Cog format packages models with their environment; thousands of community models behind a single REST API.",
-          "citation": "https://replicate.com/",
+          "value": "Hosted-API platform for OSS models, part of Cloudflare since 2025-12-01 (still runs as a distinct brand) — Cog format packages models with their environment; thousands of community models behind a single REST API.",
+          "citation": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -793455,24 +793671,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://replicate.com/",
-          "status": "depth-floor-reached",
+          "value": "v0.23.1 (2026-10-20) — cog",
+          "citation": "https://pypi.org/project/cog/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://replicate.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "proprietary; Cog Apache-2.0",
+          "citation": "https://github.com/replicate/cog",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://replicate.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "replicate/cog — ~9.5k stars, last commit 2026-10",
+          "citation": "https://github.com/replicate/cog",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -793489,11 +793705,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$57M total raised through Series B 2024-02 ($40M, a16z led; $350M valuation).",
-          "citation": "https://www.crunchbase.com/organization/replicate-ai",
+          "value": "$57M total raised through Series B 2024-02 ($40M, a16z led); acquired by Cloudflare (announced 2025-11-17, closed 2025-12-01).",
+          "citation": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "Buzzfeed, Character.AI, Zoom, Headout, Notion; major model marketplace for image / video / audio.",
@@ -793520,9 +793736,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://replicate.com/",
-          "status": "depth-floor-reached",
+          "value": "Managed-only — hosted API (Cog is OSS for packaging models)",
+          "citation": "https://replicate.com/blog/replicate-cloudflare",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -793562,10 +793778,10 @@
           "tier": "T2"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://replicate.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "REST API, Python SDK, Cog CLI",
+          "citation": "https://github.com/replicate/replicate-python",
+          "status": "real-data",
+          "tier": "T1"
         },
         "latency": {
           "value": "searched not found",
@@ -794056,7 +794272,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -794072,16 +794291,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/cog/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/replicate/cog",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/replicate/cog",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -794092,7 +794320,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://blog.cloudflare.com/why-replicate-joining-cloudflare/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -794112,7 +794343,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://replicate.com/blog/replicate-cloudflare",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -794140,8 +794374,11 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/replicate/replicate-python",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "latency": {
           "source": "legacy",
@@ -812757,7 +812994,7 @@
       "name": "RL4LMs",
       "tier": 3,
       "url": "https://github.com/allenai/RL4LMs",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "decay_cause": "research-complete",
       "decay_evidence": "https://github.com/allenai/RL4LMs",
       "sections": [
@@ -812852,11 +813089,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/allenai/RL4LMs",
-          "status": "depth-floor-reached",
+          "value": "no releases",
+          "citation": "https://github.com/allenai/RL4LMs/releases",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -812865,11 +813102,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "allenai/RL4LMs — ~2.4k stars, last commit 2024-03",
           "citation": "https://github.com/allenai/RL4LMs",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -812917,9 +813154,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/allenai/RL4LMs",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -813469,7 +813706,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/allenai/RL4LMs/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -813477,8 +813717,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/allenai/RL4LMs",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -813509,7 +813752,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/allenai/RL4LMs",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -813766,7 +814012,7 @@
       "name": "RLHFlow",
       "tier": 4,
       "url": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -813859,11 +814105,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
-          "status": "depth-floor-reached",
+          "value": "no releases",
+          "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling/releases",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -813872,11 +814118,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "RLHFlow/RLHF-Reward-Modeling — ~1.5k stars, last commit 2025-04",
           "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -813924,9 +814170,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — research codebase (training recipes)",
           "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -814476,7 +814722,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/RLHFlow/RLHF-Reward-Modeling/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -814484,8 +814733,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -814516,7 +814768,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -815785,7 +816040,7 @@
       "name": "Roboflow",
       "tier": 1,
       "url": "https://roboflow.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -815878,24 +816133,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://roboflow.com/",
-          "status": "depth-floor-reached",
+          "value": "v1.7.3 (2026-10-26) — roboflow",
+          "citation": "https://pypi.org/project/roboflow/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://roboflow.com/",
-          "status": "depth-floor-reached",
+          "value": "proprietary; Python SDK Apache-2.0",
+          "citation": "https://pypi.org/project/roboflow/",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://roboflow.com/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "roboflow/inference — ~2.5k stars, last commit 2026-10",
+          "citation": "https://github.com/roboflow/inference",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -815925,9 +816180,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://roboflow.com/",
-          "status": "depth-floor-reached",
+          "value": "Free $0 (10 credits/mo); Core $39/mo (credit packs from $89/mo); Enterprise custom",
+          "citation": "https://roboflow.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -815943,9 +816198,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://roboflow.com/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — hosted training/inference; self-hosted Roboflow Inference free on own hardware; on-prem and air-gapped on Enterprise",
+          "citation": "https://roboflow.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -816075,9 +816330,9 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://roboflow.com/",
-          "status": "depth-floor-reached",
+          "value": "yes — official Roboflow MCP server and Skills installable into coding agents (Claude, Codex, Cursor, Gemini CLI)",
+          "citation": "https://roboflow.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "a2a-support": {
@@ -816495,16 +816750,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/roboflow/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/roboflow/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/roboflow/inference",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -816523,7 +816787,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://roboflow.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -816535,7 +816802,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://roboflow.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -816623,7 +816893,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://roboflow.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -821859,7 +822132,7 @@
       "name": "RSL-RL",
       "tier": 3,
       "url": "https://github.com/leggedrobotics/rsl_rl",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -821952,24 +822225,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/leggedrobotics/rsl_rl",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v5.5.1 (2026-09-09) — rsl-rl-lib",
+          "citation": "https://pypi.org/project/rsl-rl-lib/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "BSD",
-          "citation": "https://github.com/leggedrobotics/rsl_rl",
+          "value": "BSD-3-Clause",
+          "citation": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/LICENSE",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "leggedrobotics/rsl_rl — ~3.1k stars, last commit 2026-10",
           "citation": "https://github.com/leggedrobotics/rsl_rl",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -822017,10 +822290,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/leggedrobotics/rsl_rl",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Self-hosted only — library",
+          "citation": "https://pypi.org/project/rsl-rl-lib/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "searched not found",
@@ -822059,10 +822332,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://github.com/leggedrobotics/rsl_rl",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python library (PyPI rsl-rl-lib)",
+          "citation": "https://pypi.org/project/rsl-rl-lib/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -822569,16 +822842,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/rsl-rl-lib/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/LICENSE",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/leggedrobotics/rsl_rl",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -822609,7 +822891,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/rsl-rl-lib/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -822637,7 +822922,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/rsl-rl-lib/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -823891,7 +824179,7 @@
       "name": "RunPod",
       "tier": 2,
       "url": "https://www.runpod.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -823984,16 +824272,16 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.runpod.io/",
-          "status": "depth-floor-reached",
+          "value": "v1.12.0 (2026-08-10) — runpod (Python SDK)",
+          "citation": "https://pypi.org/project/runpod/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.runpod.io/",
-          "status": "depth-floor-reached",
+          "value": "proprietary; Python SDK MIT",
+          "citation": "https://pypi.org/project/runpod/",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
@@ -824031,7 +824319,7 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Per-second GPU billing",
+          "value": "Pay-as-you-go per-second or per-hour GPU billing; e.g. H100 PCIe Pod $2.89/hr, H100 SXM Pod $3.99/hr (Secure Cloud), Serverless H100 $4.79/hr; reserved capacity via sales",
           "citation": "https://www.runpod.io/pricing",
           "status": "real-data",
           "tier": "T2"
@@ -824049,9 +824337,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.runpod.io/",
-          "status": "depth-floor-reached",
+          "value": "Managed-only — GPU cloud (Pods, Serverless, Clusters)",
+          "citation": "https://www.runpod.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -824601,12 +824889,18 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/runpod/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/runpod/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "gh": {
           "source": "legacy",
@@ -824629,7 +824923,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.runpod.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -824641,7 +824938,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.runpod.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -834077,7 +834377,7 @@
       "name": "Sanctuary AI",
       "tier": 3,
       "url": "https://sanctuary.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -834145,8 +834445,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Vancouver-based humanoid maker; Phoenix robot powered by Carbon cognitive architecture. Founded 2018 by Geordie Rose (ex-D-Wave + Kindred). Less well-funded than Figure / 1X / Apptronik but with a distinctive cognitive-architecture (atomic-action-based) approach.",
-          "citation": "https://sanctuary.ai/",
+          "value": "Vancouver-based Physical AI company, founded 2018; originally built the Phoenix humanoid, and since 2026-06 deploys hardware-agnostic Physical AI on existing commercial industrial robots (Tier 1 automotive proof-of-concept), with hydraulic hands in development.",
+          "citation": "https://sanctuary.ai/news/sanctuary-ai-expands-physical-ai-strategy-to-industrial-robotics-demonstrating-production-ready-ai-performance/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -834771,7 +835071,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://sanctuary.ai/news/sanctuary-ai-expands-physical-ai-strategy-to-industrial-robotics-demonstrating-production-ready-ai-performance/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -839505,7 +839808,7 @@
       "name": "Scale AI",
       "tier": 1,
       "url": "https://scale.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -839598,16 +839901,16 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://scale.com/",
-          "status": "depth-floor-reached",
+          "value": "v2.18.4 (2026-04-24) — scaleapi (Python SDK)",
+          "citation": "https://pypi.org/project/scaleapi/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://scale.com/",
-          "status": "depth-floor-reached",
+          "value": "proprietary; Python SDK MIT",
+          "citation": "https://pypi.org/project/scaleapi/",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
@@ -839632,11 +839935,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$1.4B raised across rounds incl. $14B Meta strategic investment in 2024-06 (Meta took ~49% stake; Wang joined Meta Superintelligence Labs).",
-          "citation": "https://about.fb.com/news/2024/06/meta-scale-ai-partnership/",
+          "value": "Meta strategic investment announced 2025-06-12: Meta holds a minority stake, valuing Scale at over $29B (amount not disclosed by Scale); founder Alexandr Wang joined Meta and stays on the Scale board",
+          "citation": "https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "OpenAI, Meta, Microsoft, Anthropic, Google, US DoD (CDAO), General Motors, Toyota, Brex.",
@@ -839645,9 +839948,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://scale.com/",
-          "status": "depth-floor-reached",
+          "value": "No public pricing — contact sales",
+          "citation": "https://scale.com/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -840215,12 +840518,18 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/scaleapi/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/scaleapi/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "gh": {
           "source": "legacy",
@@ -840235,7 +840544,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -840243,7 +840555,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://scale.com/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -864897,7 +865212,7 @@
       "name": "SGLang",
       "tier": 2,
       "url": "https://github.com/sgl-project/sglang",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -864990,11 +865305,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/sgl-project/sglang",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.5.22 (2026-10-16) — sglang",
+          "citation": "https://pypi.org/project/sglang/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -865003,11 +865318,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "sgl-project/sglang — ~38.3k stars, last commit 2026-10",
           "citation": "https://github.com/sgl-project/sglang",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -865055,10 +865370,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/sgl-project/sglang",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Self-hosted only — LLM serving framework",
+          "citation": "https://pypi.org/project/sglang/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "searched not found",
@@ -865607,7 +865922,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/sglang/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -865615,8 +865933,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/sgl-project/sglang",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -865647,7 +865968,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/sglang/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -883123,7 +883447,7 @@
       "name": "Snorkel AI",
       "tier": 1,
       "url": "https://snorkel.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -883191,7 +883515,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Programmatic data labelling and weak supervision platform — built on Snorkel research from Stanford. Enterprise platform for high-volume data programming.",
+          "value": "AI data company spun out of Stanford Snorkel weak-supervision research; now sells expert-built training datasets, RL environments, benchmarks and evals to frontier AI labs (Snorkel Data Series, custom data development).",
           "citation": "https://snorkel.ai/",
           "status": "real-data",
           "tier": "T2"
@@ -883216,24 +883540,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://snorkel.ai/",
-          "status": "depth-floor-reached",
+          "value": "v0.10.0 (2024-02-27) — snorkel (OSS library)",
+          "citation": "https://pypi.org/project/snorkel/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://snorkel.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "proprietary; Snorkel OSS library Apache-2.0",
+          "citation": "https://github.com/snorkel-team/snorkel",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://snorkel.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "snorkel-team/snorkel — ~6.0k stars, last commit 2026-10",
+          "citation": "https://github.com/snorkel-team/snorkel",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -883250,11 +883574,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$135M total raised through Series C 2021-08 ($85M, Addition led; $1B valuation).",
-          "citation": "https://www.crunchbase.com/organization/snorkel-ai",
+          "value": "$350M Series E 2026-09-22 at $3.5B valuation (co-led by Insight Partners and S32, Addition participating)",
+          "citation": "https://snorkel.ai/press/snorkel-ai-raises-350m-to-scale-the-data-factory-for-frontier-ai/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "BMW, Pixar, Bayer, Wayfair, US DoD, JPMorgan; weak-supervision platform Snorkel Flow.",
@@ -883817,7 +884141,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://snorkel.ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -883833,16 +884160,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/snorkel/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/snorkel-team/snorkel",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/snorkel-team/snorkel",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -883853,7 +884189,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://snorkel.ai/press/snorkel-ai-raises-350m-to-scale-the-data-factory-for-frontier-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -897473,7 +897812,7 @@
       "name": "Stable-Baselines3",
       "tier": 1,
       "url": "https://github.com/DLR-RM/stable-baselines3",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -897566,11 +897905,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/DLR-RM/stable-baselines3",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v2.9.2 (2026-10-26) — stable-baselines3",
+          "citation": "https://pypi.org/project/stable-baselines3/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -897579,11 +897918,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "DLR-RM/stable-baselines3 — ~13.9k stars, last commit 2026-10",
           "citation": "https://github.com/DLR-RM/stable-baselines3",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -897631,10 +897970,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/DLR-RM/stable-baselines3",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Self-hosted only — library",
+          "citation": "https://pypi.org/project/stable-baselines3/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "searched not found",
@@ -897673,10 +898012,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://github.com/DLR-RM/stable-baselines3",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python library (PyPI stable-baselines3)",
+          "citation": "https://pypi.org/project/stable-baselines3/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -898183,7 +898522,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/stable-baselines3/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -898191,8 +898533,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/DLR-RM/stable-baselines3",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -898223,7 +898568,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/stable-baselines3/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -898251,7 +898599,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/stable-baselines3/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -917504,7 +917855,7 @@
       "name": "Surge AI",
       "tier": 2,
       "url": "https://www.surgehq.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -931146,7 +931497,7 @@
       "name": "TensorRT-LLM",
       "tier": 1,
       "url": "https://github.com/NVIDIA/TensorRT-LLM",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -931239,11 +931590,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/NVIDIA/TensorRT-LLM",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.2.1 (2026-04-20) — tensorrt-llm; GitHub pre-release v1.4.0rc1 (2026-10-22)",
+          "citation": "https://pypi.org/project/tensorrt-llm/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -931252,11 +931603,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "NVIDIA/TensorRT-LLM — ~15.0k stars, last commit 2026-10",
           "citation": "https://github.com/NVIDIA/TensorRT-LLM",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -931304,9 +931655,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — inference library/runtime for NVIDIA GPUs",
           "citation": "https://github.com/NVIDIA/TensorRT-LLM",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -931856,7 +932207,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/tensorrt-llm/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -931864,8 +932218,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/NVIDIA/TensorRT-LLM",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -931896,7 +932253,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/NVIDIA/TensorRT-LLM",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -934199,7 +934559,7 @@
       "name": "Text Generation Inference (TGI)",
       "tier": 2,
       "url": "https://github.com/huggingface/text-generation-inference",
-      "last_verified_at": "2026-05-15",
+      "last_verified_at": "2026-10-27",
       "decay_cause": "archived",
       "decay_date": "2026-05-16",
       "decay_evidence": "https://github.com/huggingface/text-generation-inference",
@@ -934270,7 +934630,7 @@
           "tier": "T1"
         },
         "desc": {
-          "value": "Hugging Face's production inference server for LLMs — continuous batching, FlashAttention, quantization (bitsandbytes, GPTQ).",
+          "value": "Hugging Face's LLM inference server (continuous batching, FlashAttention, quantization). Entered maintenance mode, then archived 2026-03-21; HF recommends vLLM, SGLang, llama.cpp or MLX instead.",
           "citation": "https://github.com/huggingface/text-generation-inference",
           "status": "real-data",
           "tier": "T1"
@@ -934295,11 +934655,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/text-generation-inference",
-          "status": "depth-floor-reached",
+          "value": "v3.3.7 (2025-12-19)",
+          "citation": "https://github.com/huggingface/text-generation-inference/releases",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -934308,11 +934668,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "huggingface/text-generation-inference — ~10.9k stars, archived 2026-03-21, last commit 2026-03",
           "citation": "https://github.com/huggingface/text-generation-inference",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -934360,9 +934720,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — inference server (Docker)",
           "citation": "https://github.com/huggingface/text-generation-inference",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -934896,7 +935256,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/text-generation-inference",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -934912,7 +935275,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/text-generation-inference/releases",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -934920,7 +935286,10 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/text-generation-inference",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "mindshare": {
@@ -934952,7 +935321,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/huggingface/text-generation-inference",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -941296,7 +941668,7 @@
       "name": "Together AI",
       "tier": 1,
       "url": "https://www.together.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Inference platforms & gateways",
@@ -941389,16 +941761,16 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.together.ai/",
-          "status": "depth-floor-reached",
+          "value": "v3.0.0 (2026-10-22) — together (Python SDK)",
+          "citation": "https://pypi.org/project/together/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.together.ai/",
-          "status": "depth-floor-reached",
+          "value": "proprietary; Python SDK Apache-2.0",
+          "citation": "https://pypi.org/project/together/",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
@@ -941423,11 +941795,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$228.5M total raised through Series A 2024-03 ($106M, Salesforce Ventures led; $1.25B valuation); Series B 2024-11 reportedly $200M+ at $3.3B.",
-          "citation": "https://www.together.ai/blog/announcing-our-series-a-funding",
+          "value": "$800M Series C 2026-07-01 (Aramco Ventures, NVIDIA, Vista Equity, General Catalyst, Salesforce Ventures and others); earlier rounds: $20M seed, $102.5M Series A, $305M Series B at $3.3B valuation",
+          "citation": "https://www.together.ai/blog/announcing-our-series-c",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "Salesforce, Zoom, The Washington Post, Cognition Labs, Pika Labs; serving Llama / Mixtral / Qwen for production.",
@@ -941436,7 +941808,7 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "Pay-per-token / dedicated GPU",
+          "value": "Serverless pay-per-token (e.g. $0.15–$3.00 per 1M input tokens); dedicated endpoints per GPU-hour (H100 $5.49/hr); fine-tuning per 1M training tokens; GPU clusters from $3.19–$3.99 per H100-hour",
           "citation": "https://www.together.ai/pricing",
           "status": "real-data",
           "tier": "T2"
@@ -941454,9 +941826,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://www.together.ai/",
-          "status": "depth-floor-reached",
+          "value": "Managed-only — serverless and dedicated inference, fine-tuning, GPU clusters",
+          "citation": "https://www.together.ai/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -942006,11 +942378,17 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/together/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/together/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
@@ -942026,7 +942404,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.together.ai/blog/announcing-our-series-c",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -942034,7 +942415,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.together.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -942046,8 +942430,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.together.ai/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -949384,7 +949771,7 @@
       "name": "torchtune (PyTorch)",
       "tier": 2,
       "url": "https://github.com/pytorch/torchtune",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -949452,7 +949839,7 @@
           "tier": "T1"
         },
         "desc": {
-          "value": "Pure-PyTorch library for fine-tuning LLMs — Llama/Mistral/Phi/Gemma recipes; native FSDP2 + memory-efficient training. From Meta PyTorch team.",
+          "value": "Pure-PyTorch library for fine-tuning LLMs — Llama/Mistral/Phi/Gemma recipes; native FSDP2 + memory-efficient training. From Meta PyTorch team. Per its README, torchtune is no longer actively maintained; active development ended in 2025.",
           "citation": "https://github.com/pytorch/torchtune",
           "status": "real-data",
           "tier": "T1"
@@ -949477,11 +949864,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/pytorch/torchtune",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.6.1 (2025-04-07) — torchtune",
+          "citation": "https://pypi.org/project/torchtune/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "BSD-3-Clause",
@@ -949490,11 +949877,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "meta-pytorch/torchtune (linked from pytorch/torchtune) — ~5.8k stars, last commit 2026-04",
           "citation": "https://github.com/pytorch/torchtune",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -949542,9 +949929,9 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
+          "value": "Self-hosted only — library",
           "citation": "https://github.com/pytorch/torchtune",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1"
         },
         "hq": {
@@ -950078,7 +950465,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/pytorch/torchtune",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -950094,7 +950484,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/torchtune/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -950102,8 +950495,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/pytorch/torchtune",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -950134,7 +950530,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/pytorch/torchtune",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -951395,7 +951794,7 @@
       "name": "Toyota Research Institute LBM",
       "tier": 1,
       "url": "https://www.tri.global/research/robotics",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -951488,11 +951887,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "Large Behavior Models 2.0 (2024)",
-          "citation": "https://www.tri.global/news/large-behavior-models-foundation-of-the-robot-of-the-future",
+          "value": "LBM paper, A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation (2025-07-07)",
+          "citation": "https://arxiv.org/abs/2507.05331",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Some research code OSS (BSD / MIT)",
@@ -951501,11 +951900,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "github.com/toyotaresearchinstitute — multiple repos",
-          "citation": "https://github.com/toyotaresearchinstitute",
+          "value": "ToyotaResearchInstitute (org) — 123 public repos incl. lbm_eval (~125 stars), last activity 2026-10",
+          "citation": "https://github.com/ToyotaResearchInstitute",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "TRI papers (diffusion policy, etc.) widely cited; foundational to robotics-FM lineage",
@@ -952105,7 +952504,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://arxiv.org/abs/2507.05331",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -952113,8 +952515,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/ToyotaResearchInstitute",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -958485,7 +958890,7 @@
       "name": "TRL (Hugging Face)",
       "tier": 1,
       "url": "https://github.com/huggingface/trl",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -958578,11 +958983,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/trl",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v1.16.0 (2026-10-15) — trl",
+          "citation": "https://pypi.org/project/trl/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -958591,11 +958996,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "~13k★, active maintenance",
+          "value": "huggingface/trl — ~19.6k stars, last commit 2026-10",
           "citation": "https://github.com/huggingface/trl",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -958643,10 +959048,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/huggingface/trl",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Self-hosted only — library",
+          "citation": "https://pypi.org/project/trl/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "FR/US (Paris/NYC)",
@@ -959195,7 +959600,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/trl/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -959203,8 +959611,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/huggingface/trl",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -959235,7 +959646,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/trl/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -959492,7 +959906,7 @@
       "name": "TruEra",
       "tier": 2,
       "url": "https://truera.com/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -959585,11 +959999,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://truera.com/",
-          "status": "depth-floor-reached",
+          "value": "v12.6.1 (2024-03-04) — truera (Python SDK)",
+          "citation": "https://pypi.org/project/truera/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "searched not found",
@@ -960202,7 +960616,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/truera/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -960496,7 +960913,7 @@
       "name": "TruLens",
       "tier": 2,
       "url": "https://github.com/truera/trulens",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -960589,11 +961006,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/truera/trulens",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v2.16.0 (2026-10-19) — trulens",
+          "citation": "https://pypi.org/project/trulens/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "MIT",
@@ -960602,11 +961019,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
+          "value": "truera/trulens — ~3.6k stars, last commit 2026-10",
           "citation": "https://github.com/truera/trulens",
-          "status": "depth-floor-reached",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -960654,10 +961071,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/truera/trulens",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Self-hosted only — library",
+          "citation": "https://pypi.org/project/trulens/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "searched not found",
@@ -960696,10 +961113,10 @@
           "tier": "T1"
         },
         "api-surface": {
-          "value": "searched not found",
-          "citation": "https://github.com/truera/trulens",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Python SDK (trulens plus provider and app-integration packages); OpenTelemetry-native tracing exportable to OTLP backends",
+          "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "latency": {
           "value": "searched not found",
@@ -960786,10 +961203,10 @@
           "tier": "T3"
         },
         "mcp-support": {
-          "value": "searched not found",
-          "citation": "https://github.com/truera/trulens",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "yes — instruments MCP tool calls via the MCP span type (tool name, arguments, output, latency)",
+          "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "a2a-support": {
           "value": "searched not found",
@@ -961206,7 +961623,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/trulens/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -961214,8 +961634,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/truera/trulens",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -961246,7 +961669,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/trulens/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -961274,7 +961700,10 @@
           "verified": true
         },
         "api-surface": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latency": {
@@ -961334,7 +961763,10 @@
           "verified": true
         },
         "mcp-support": {
-          "source": "legacy",
+          "scrape_url": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "a2a-support": {
@@ -966591,7 +967023,7 @@
       "name": "Unsloth",
       "tier": 1,
       "url": "https://unsloth.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -966684,11 +967116,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://unsloth.ai/",
-          "status": "depth-floor-reached",
+          "value": "v2026.10.9 (2026-10-26) — unsloth",
+          "citation": "https://pypi.org/project/unsloth/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0 (free tier)",
@@ -966697,11 +967129,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://unsloth.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "unslothai/unsloth — ~78.6k stars, last commit 2026-10",
+          "citation": "https://github.com/unslothai/unsloth",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -966749,9 +967181,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://unsloth.ai/",
-          "status": "depth-floor-reached",
+          "value": "Self-hosted only — library plus local Unsloth Studio web UI",
+          "citation": "https://unsloth.ai/docs",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -967301,7 +967733,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/unsloth/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -967309,8 +967744,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/unslothai/unsloth",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -967341,8 +967779,11 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://unsloth.ai/docs",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "hq": {
           "source": "legacy",
@@ -975832,7 +976273,7 @@
       "name": "Vellum AI",
       "tier": 2,
       "url": "https://www.vellum.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -975900,8 +976341,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "End-to-end LLM development platform — eval, prompt management, deployment, observability. Targeted at enterprise teams shipping LLM products.",
-          "citation": "https://www.vellum.ai/",
+          "value": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud), and Vellum announced its hosted Personal Assistant Platform shuts down 2026-11-02.",
+          "citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
           "status": "real-data",
           "tier": "T2"
         },
@@ -975925,16 +976366,16 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://www.vellum.ai/",
-          "status": "depth-floor-reached",
+          "value": "v1.14.8 (2026-10-02) — vellum-ai (Python SDK)",
+          "citation": "https://pypi.org/project/vellum-ai/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://www.vellum.ai/",
-          "status": "depth-floor-reached",
+          "value": "proprietary; Python SDK MIT",
+          "citation": "https://pypi.org/project/vellum-ai/",
+          "status": "real-data",
           "tier": "T2"
         },
         "gh": {
@@ -976526,7 +976967,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -976542,12 +976986,18 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/vellum-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://pypi.org/project/vellum-ai/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "gh": {
           "source": "legacy",
@@ -977855,7 +978305,7 @@
       "name": "Verl",
       "tier": 3,
       "url": "https://github.com/volcengine/verl",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -977948,11 +978398,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://github.com/volcengine/verl",
-          "status": "depth-floor-reached",
-          "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "value": "v0.9.1 (2026-09-20) — verl",
+          "citation": "https://pypi.org/project/verl/",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -977961,11 +978411,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://github.com/volcengine/verl",
-          "status": "depth-floor-reached",
+          "value": "verl-project/verl (formerly volcengine/verl) — ~24.0k stars, last commit 2026-10",
+          "citation": "https://github.com/verl-project/verl",
+          "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -978013,10 +978463,10 @@
           "tier": "T1"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://github.com/volcengine/verl",
-          "status": "depth-floor-reached",
-          "tier": "T1"
+          "value": "Self-hosted only — library",
+          "citation": "https://pypi.org/project/verl/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "hq": {
           "value": "searched not found",
@@ -978565,7 +979015,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/verl/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -978573,8 +979026,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/verl-project/verl",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -978605,7 +979061,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/verl/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {
@@ -992245,7 +992704,7 @@
       "name": "Weights & Biases",
       "tier": 1,
       "url": "https://wandb.ai/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -992313,8 +992772,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Experiment-tracking and ML-ops platform — log metrics, artifacts, datasets, sweeps. Acquired by CoreWeave in 2025 for $1.7B.",
-          "citation": "https://wandb.ai/",
+          "value": "Experiment-tracking and ML-ops platform (metrics, artifacts, sweeps, Weave tracing/evals). Acquired by CoreWeave (completed 2025-05-05, ~$1.7B); now part of CoreWeave Forge.",
+          "citation": "https://wandb.ai/site/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -992338,24 +992797,24 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://wandb.ai/",
-          "status": "depth-floor-reached",
+          "value": "v0.31.0 (2026-10-16) — wandb",
+          "citation": "https://pypi.org/project/wandb/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
-          "value": "searched not found",
-          "citation": "https://wandb.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2"
+          "value": "proprietary; wandb SDK MIT",
+          "citation": "https://github.com/wandb/wandb",
+          "status": "real-data",
+          "tier": "T1"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://wandb.ai/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "wandb/wandb — ~11.3k stars, last commit 2026-10",
+          "citation": "https://github.com/wandb/wandb",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -992372,11 +992831,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$250M total raised through Series C (2023-03, valuation reported ~$1.25B unicorn) — Insight Partners led.",
-          "citation": "https://www.crunchbase.com/organization/weights-biases",
+          "value": "Acquired by CoreWeave for ~$1.7B (agreement 2025-03, completed 2025-05-05); previously VC-backed",
+          "citation": "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "customers": {
           "value": "OpenAI, Toyota, Meta, NVIDIA, Salesforce, BMW; 1M+ users.",
@@ -992385,9 +992844,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://wandb.ai/",
-          "status": "depth-floor-reached",
+          "value": "CoreWeave Forge plans: Free $0 (up to 5 model seats); Pro from $60/mo; Enterprise custom; Academic free",
+          "citation": "https://coreweave.com/forge-pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -992939,7 +993398,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://wandb.ai/site/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -992955,16 +993417,25 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/wandb/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
-          "source": "legacy",
+          "scrape_url": "https://github.com/wandb/wandb",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/wandb/wandb",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -992975,7 +993446,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -992983,7 +993457,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://coreweave.com/forge-pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -1005632,7 +1006109,7 @@
       "name": "ZenML",
       "tier": 2,
       "url": "https://zenml.io/",
-      "last_verified_at": "2026-05-14",
+      "last_verified_at": "2026-10-27",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -1005725,11 +1006202,11 @@
           "last_verified_at": "2026-05-12"
         },
         "latest-release": {
-          "value": "searched not found",
-          "citation": "https://zenml.io/",
-          "status": "depth-floor-reached",
+          "value": "v0.98.0 (2026-10-14) — zenml",
+          "citation": "https://pypi.org/project/zenml/",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-27"
         },
         "license": {
           "value": "Apache-2.0",
@@ -1005738,11 +1006215,11 @@
           "tier": "T2"
         },
         "gh": {
-          "value": "searched not found",
-          "citation": "https://zenml.io/",
-          "status": "depth-floor-reached",
-          "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "value": "zenml-io/zenml — ~5.6k stars, last commit 2026-10",
+          "citation": "https://github.com/zenml-io/zenml",
+          "status": "real-data",
+          "tier": "T1",
+          "last_verified_at": "2026-10-27"
         },
         "mindshare": {
           "value": "searched not found",
@@ -1005772,9 +1006249,9 @@
           "tier": "T2"
         },
         "pricing": {
-          "value": "searched not found",
-          "citation": "https://zenml.io/",
-          "status": "depth-floor-reached",
+          "value": "Open Source free (self-hosted); Scale $999/mo per workspace (SaaS); Enterprise custom",
+          "citation": "https://www.zenml.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "compliance": {
@@ -1005790,9 +1006267,9 @@
           "tier": "T2"
         },
         "deployment": {
-          "value": "searched not found",
-          "citation": "https://zenml.io/",
-          "status": "depth-floor-reached",
+          "value": "Both (self-hosted + managed cloud) — OSS self-hosted; ZenML Pro as SaaS or self-hosted/air-gapped on Enterprise",
+          "citation": "https://www.zenml.io/pricing",
+          "status": "real-data",
           "tier": "T2"
         },
         "hq": {
@@ -1006342,7 +1006819,10 @@
           "verified": true
         },
         "latest-release": {
-          "source": "legacy",
+          "scrape_url": "https://pypi.org/project/zenml/",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "license": {
@@ -1006350,8 +1006830,11 @@
           "verified": true
         },
         "gh": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://github.com/zenml-io/zenml",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "mindshare": {
           "source": "legacy",
@@ -1006370,7 +1006853,10 @@
           "verified": true
         },
         "pricing": {
-          "source": "legacy",
+          "scrape_url": "https://www.zenml.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "compliance": {
@@ -1006382,7 +1006868,10 @@
           "verified": true
         },
         "deployment": {
-          "source": "legacy",
+          "scrape_url": "https://www.zenml.io/pricing",
+          "scraped_at": "2026-10-27",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "hq": {

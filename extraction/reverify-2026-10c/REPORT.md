@@ -125,3 +125,71 @@ As for the frameworks group: a PyPI/npm snapshot (`registry-models-a.json`) plus
 - **Funding:** Anyscale (sources conflict), Collaborative Robotics, Covariant's "$1.5B licensing fee", Baseten, Braintrust, Arize, Comet, ClearML, Dagster, Fireworks, Labelbox, Label Studio, LiteLLM, lakeFS and Flyte/Union.
 - **Galileo:** the acquisition date isn't on any primary page.
 - **MCP support:** wherever docs didn't settle it.
+
+---
+
+# Re-verification 2026-10-27 — models-b group (46 rows)
+
+- rows seen: 46
+- rows verified: 46
+- cells applied: 163
+- cells skipped: 0
+- decayed: 0
+- renamed: 0
+- url changed: 0
+- taxonomy set: 0
+
+## Lifecycle changes found
+
+- **OctoAI (now NVIDIA)** — acquired: NVIDIA acquired OctoAI in 2024 (per NVIDIA developer-blog author bio); octo.ai now 301-redirects to nvidia.com, so the OctoAI service is no longer offered. ([source](https://developer.nvidia.com/blog/author/benhamm/))
+- **Outerbounds** — acquired: Anaconda announced its acquisition of Outerbounds on 2026-04-29 (closing not stated); outerbounds.com shows an Outerbounds is joining Anaconda banner and /pricing redirects to anaconda.com. Metaflow stays open source. ([source](https://www.anaconda.com/blog/anaconda-acquires-outerbounds))
+- **QLoRA** — maintenance: The official implementation artidoro/qlora is not archived, but its last push was 2024-06-10 and the README updates stop at 2023-07; QLoRA lives on in bitsandbytes/PEFT. ([source](https://github.com/artidoro/qlora))
+- **RL4LMs** — maintenance: allenai/RL4LMs is not archived but has had no pushes since 2024-03-01; the last dated changelog entry is v0.2.0 (2022-11-23) and nothing is published on PyPI. ([source](https://github.com/allenai/RL4LMs))
+- **RLHFlow** — maintenance: Repo not archived, but no commits since 2025-04-24 and no releases as of 2026-10-27. ([source](https://github.com/RLHFlow/RLHF-Reward-Modeling))
+- **Replicate** — acquired: Cloudflare announced the acquisition 2025-11-17 and closed it 2025-12-01 (Replicate is officially part of Cloudflare); Replicate continues as a distinct brand and its API is unchanged. ([source](https://blog.cloudflare.com/why-replicate-joining-cloudflare/))
+- **Text Generation Inference (TGI)** — archived: README declared maintenance mode, recommending vLLM, SGLang, llama.cpp or MLX instead; the repo was archived (read-only) on 2026-03-21, and the last release was v3.3.7 on 2025-12-19. ([source](https://github.com/huggingface/text-generation-inference))
+- **TruEra** — acquired: On 2024-05-22 Snowflake announced a definitive agreement to acquire the TruEra AI observability platform (terms undisclosed); truera.com now shows a join-Snowflake banner and redirects. ([source](https://www.snowflake.com/en/blog/snowflake-acquires-truera-to-bring-llm-ml-observability-to-data-cloud/))
+- **Weights & Biases** — acquired: CoreWeave completed its acquisition of Weights & Biases on 2025-05-05; wandb.ai now says "Weights & Biases is now part of CoreWeave Forge", and wandb.ai/site/pricing redirects to CoreWeave Forge pricing. ([source](https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx))
+- **torchtune (PyTorch)** — maintenance: README says torchtune is no longer actively maintained and development wound down in 2025; last release v0.6.1 on 2025-04-07, and the last commit (2026-04-23) added that notice. Not archived. ([source](https://github.com/pytorch/torchtune))
+
+## Method
+
+Same as the earlier groups: a PyPI/npm snapshot (`registry-models-b.json`) plus two research agents (`result-models-b-1.json` and `result-models-b-2.json`, 23 rows each). Four web searches in total.
+
+## Notable findings
+
+- **Weights & Biases:** acquisition by CoreWeave completed 2025-05-05; W&B is now part of CoreWeave Forge (https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx). Confirms the HANDOFF lead.
+- **Replicate:** joined Cloudflare; announced 2025-11-17, closed 2025-12-01 (https://blog.cloudflare.com/why-replicate-joining-cloudflare/). Confirms the HANDOFF lead.
+- **Scale AI:** Scale's own post dates the Meta deal 2025-06-12, describes a minority stake, and gives a valuation of over $29B (https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution). The funding cell is corrected. Confirms the HANDOFF date lead.
+- **Acquisitions:**
+  - **OctoAI:** acquired by NVIDIA (NVIDIA staff bio; octo.ai redirects to nvidia.com).
+  - **TruEra:** joined Snowflake.
+  - **Outerbounds:** acquisition by Anaconda announced 2026-04-29, close not confirmed, so the row stays active.
+- **Text Generation Inference:** maintenance mode, then archived 2026-03-21. The README recommends vLLM or SGLang, or llama.cpp/MLX for local use.
+- **torchtune:** the README says it is no longer actively maintained and development ended in 2025.
+- **Funding:**
+  - Snorkel AI: $350M Series E (2026-09-22) and a pivot to expert data and evals.
+  - Together AI: $800M Series C (2026-07-01).
+- **Other changes:**
+  - Physical Intelligence: Pi API beta (2026-10-13) and pi0.7.
+  - Sanctuary AI: strategy shift to hardware-agnostic Physical AI.
+  - OM1: moved to a Go runtime.
+  - GR00T: now N1.7.
+  - Repo moves: Ragas to vibrantlabsai/ragas, verl to verl-project/verl, torchtune to meta-pytorch.
+
+## Judgement calls
+
+- **Vellum:** the agent proposed `deprecated`. Vellum's shutdown notice (2026-11-02) covers only its new Personal Assistant Platform. It says nothing about the LLM development platform, whose SDK last released 2026-10-02. Lifecycle is set to `unknown`; the description records the pivot.
+- **torchtune:** the description now carries the README's maintenance notice, so the stack check flags it.
+- **TRI `latest-release`:** shortened to the paper title and date.
+
+## Migration notes
+
+- **Text Generation Inference → vLLM / SGLang:** per the archived repo's README.
+
+## Left unchanged / to review
+
+- **Scale AI desc:** still has the "$14B / 49%" figures from secondary press; Scale's post doesn't state them.
+- **Nemotron:** the row URL now returns 404 and needs a replacement.
+- **Pachyderm:** status unknown; its site was unreachable.
+- **Funding:** not re-checked for Surge AI, Roboflow, RunPod, Vellum, ZenML, Unsloth, Modal, Patronus, Portkey or PromptLayer.

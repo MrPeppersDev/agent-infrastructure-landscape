@@ -1,0 +1,775 @@
+[
+ {
+  "id": "rlhflow--gh-rlhflow-rlhf-reward-modeling",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Repo not archived, but no commits since 2025-04-24 and no releases as of 2026-10-27.",
+  "lifecycle_citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — research codebase (training recipes)",
+    "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "no releases",
+    "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "RLHFlow/RLHF-Reward-Modeling — ~1.5k stars, last commit 2025-04",
+    "citation": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "roboflow--roboflow-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Roboflow SDKs released 2026-10-26 (roboflow 1.7.3, inference 1.8.3); pricing page live 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/roboflow/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://pypi.org/project/roboflow/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — hosted training/inference; self-hosted Roboflow Inference free on own hardware; on-prem and air-gapped on Enterprise",
+    "citation": "https://roboflow.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.7.3 (2026-10-26) — roboflow",
+    "citation": "https://pypi.org/project/roboflow/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "roboflow/inference — ~2.5k stars, last commit 2026-10",
+    "citation": "https://github.com/roboflow/inference",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — official Roboflow MCP server and Skills installable into coding agents (Claude, Codex, Cursor, Gemini CLI)",
+    "citation": "https://roboflow.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Free $0 (10 credits/mo); Core $39/mo (credit packs from $89/mo); Enterprise custom",
+    "citation": "https://roboflow.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "rsl-rl--gh-leggedrobotics-rsl-rl",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released v5.5.1 on 2026-09-09; last commit 2026-10-12.",
+  "lifecycle_citation": "https://github.com/leggedrobotics/rsl_rl/releases",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "BSD",
+    "new": "BSD-3-Clause",
+    "citation": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/rsl-rl-lib/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v5.5.1 (2026-09-09) — rsl-rl-lib",
+    "citation": "https://pypi.org/project/rsl-rl-lib/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "leggedrobotics/rsl_rl — ~3.1k stars, last commit 2026-10",
+    "citation": "https://github.com/leggedrobotics/rsl_rl",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library (PyPI rsl-rl-lib)",
+    "citation": "https://pypi.org/project/rsl-rl-lib/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "runpod--runpod-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Pricing page live 2026-10-27; runpod Python SDK 1.12.0 released 2026-08-10.",
+  "lifecycle_citation": "https://www.runpod.io/pricing",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK MIT",
+    "citation": "https://pypi.org/project/runpod/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — GPU cloud (Pods, Serverless, Clusters)",
+    "citation": "https://www.runpod.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.12.0 (2026-08-10) — runpod (Python SDK)",
+    "citation": "https://pypi.org/project/runpod/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Per-second GPU billing",
+    "new": "Pay-as-you-go per-second or per-hour GPU billing; e.g. H100 PCIe Pod $2.89/hr, H100 SXM Pod $3.99/hr (Secure Cloud), Serverless H100 $4.79/hr; reserved capacity via sales",
+    "citation": "https://www.runpod.io/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sanctuary-ai--sanctuary-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Operating as of 2026; on 2026-06-17 it announced deploying its Physical AI on existing commercial industrial robots rather than waiting for humanoid hardware; Daniel Friedmann named CEO.",
+  "lifecycle_citation": "https://sanctuary.ai/news/sanctuary-ai-expands-physical-ai-strategy-to-industrial-robotics-demonstrating-production-ready-ai-performance/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Vancouver-based humanoid maker; Phoenix robot powered by Carbon cognitive architecture. Founded 2018 by Geordie Rose (ex-D-Wave + Kindred). Less well-funded than Figure / 1X / Apptronik but with a distinctive cognitive-architecture (atomic-action-based) approach.",
+    "new": "Vancouver-based Physical AI company, founded 2018; originally built the Phoenix humanoid, and since 2026-06 deploys hardware-agnostic Physical AI on existing commercial industrial robots (Tier 1 automotive proof-of-concept), with hydraulic hands in development.",
+    "citation": "https://sanctuary.ai/news/sanctuary-ai-expands-physical-ai-strategy-to-industrial-robotics-demonstrating-production-ready-ai-performance/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "scale-ai--scale-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "On 2025-06-12 Scale announced a significant Meta investment (minority stake, valuing Scale at over $29B); founder Alexandr Wang joined Meta and remains a Scale director.",
+  "lifecycle_citation": "https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$1.4B raised across rounds incl. $14B Meta strategic investment in 2024-06 (Meta took ~49% stake; Wang joined Meta Superintelligence Labs).",
+    "new": "Meta strategic investment announced 2025-06-12: Meta holds a minority stake, valuing Scale at over $29B (amount not disclosed by Scale); founder Alexandr Wang joined Meta and stays on the Scale board",
+    "citation": "https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "No public pricing — contact sales",
+    "citation": "https://scale.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.18.4 (2026-04-24) — scaleapi (Python SDK)",
+    "citation": "https://pypi.org/project/scaleapi/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK MIT",
+    "citation": "https://pypi.org/project/scaleapi/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "sglang--gh-sgl-project-sglang",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released v0.5.22 on 2026-10-16; commits daily as of 2026-10-27.",
+  "lifecycle_citation": "https://pypi.org/project/sglang/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — LLM serving framework",
+    "citation": "https://pypi.org/project/sglang/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.5.22 (2026-10-16) — sglang",
+    "citation": "https://pypi.org/project/sglang/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "sgl-project/sglang — ~38.3k stars, last commit 2026-10",
+    "citation": "https://github.com/sgl-project/sglang",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "snorkel-ai--snorkel-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Raised a $350M Series E at a $3.5B valuation on 2026-09-22; now sells expert training data and evals for frontier AI teams.",
+  "lifecycle_citation": "https://snorkel.ai/press/snorkel-ai-raises-350m-to-scale-the-data-factory-for-frontier-ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Programmatic data labelling and weak supervision platform — built on Snorkel research from Stanford. Enterprise platform for high-volume data programming.",
+    "new": "AI data company spun out of Stanford Snorkel weak-supervision research; now sells expert-built training datasets, RL environments, benchmarks and evals to frontier AI labs (Snorkel Data Series, custom data development).",
+    "citation": "https://snorkel.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$135M total raised through Series C 2021-08 ($85M, Addition led; $1B valuation).",
+    "new": "$350M Series E 2026-09-22 at $3.5B valuation (co-led by Insight Partners and S32, Addition participating)",
+    "citation": "https://snorkel.ai/press/snorkel-ai-raises-350m-to-scale-the-data-factory-for-frontier-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Snorkel OSS library Apache-2.0",
+    "citation": "https://github.com/snorkel-team/snorkel",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.10.0 (2024-02-27) — snorkel (OSS library)",
+    "citation": "https://pypi.org/project/snorkel/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "snorkel-team/snorkel — ~6.0k stars, last commit 2026-10",
+    "citation": "https://github.com/snorkel-team/snorkel",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "stable-baselines3--gh-dlr-rm-stable-baselines3",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released v2.9.2 on 2026-10-26.",
+  "lifecycle_citation": "https://pypi.org/project/stable-baselines3/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/stable-baselines3/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.9.2 (2026-10-26) — stable-baselines3",
+    "citation": "https://pypi.org/project/stable-baselines3/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "DLR-RM/stable-baselines3 — ~13.9k stars, last commit 2026-10",
+    "citation": "https://github.com/DLR-RM/stable-baselines3",
+    "confidence": "medium"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python library (PyPI stable-baselines3)",
+    "citation": "https://pypi.org/project/stable-baselines3/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "surge-ai--surgehq-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "surgehq.ai is live as of 2026-10-27 (products, post-training runs, expert workforce); the site states nothing about funding, so the funding cell was left unchanged.",
+  "lifecycle_citation": "https://www.surgehq.ai/",
+  "updates": []
+ },
+ {
+  "id": "tensorrt-llm--gh-nvidia-tensorrt-llm",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Latest stable on PyPI is 1.2.1 (2026-04-20); GitHub pre-release v1.4.0rc1 published 2026-10-22.",
+  "lifecycle_citation": "https://github.com/NVIDIA/TensorRT-LLM/releases",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — inference library/runtime for NVIDIA GPUs",
+    "citation": "https://github.com/NVIDIA/TensorRT-LLM",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.2.1 (2026-04-20) — tensorrt-llm; GitHub pre-release v1.4.0rc1 (2026-10-22)",
+    "citation": "https://pypi.org/project/tensorrt-llm/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "NVIDIA/TensorRT-LLM — ~15.0k stars, last commit 2026-10",
+    "citation": "https://github.com/NVIDIA/TensorRT-LLM",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "README declared maintenance mode, recommending vLLM, SGLang, llama.cpp or MLX instead; the repo was archived (read-only) on 2026-03-21, and the last release was v3.3.7 on 2025-12-19.",
+  "lifecycle_citation": "https://github.com/huggingface/text-generation-inference",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Hugging Face's production inference server for LLMs — continuous batching, FlashAttention, quantization (bitsandbytes, GPTQ).",
+    "new": "Hugging Face's LLM inference server (continuous batching, FlashAttention, quantization). Entered maintenance mode, then archived 2026-03-21; HF recommends vLLM, SGLang, llama.cpp or MLX instead.",
+    "citation": "https://github.com/huggingface/text-generation-inference",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — inference server (Docker)",
+    "citation": "https://github.com/huggingface/text-generation-inference",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.3.7 (2025-12-19)",
+    "citation": "https://github.com/huggingface/text-generation-inference/releases",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "huggingface/text-generation-inference — ~10.9k stars, archived 2026-03-21, last commit 2026-03",
+    "citation": "https://github.com/huggingface/text-generation-inference",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "together-ai--together-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Announced an $800M Series C on 2026-07-01; SDKs released 2026-10-22.",
+  "lifecycle_citation": "https://www.together.ai/blog/announcing-our-series-c",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$228.5M total raised through Series A 2024-03 ($106M, Salesforce Ventures led; $1.25B valuation); Series B 2024-11 reportedly $200M+ at $3.3B.",
+    "new": "$800M Series C 2026-07-01 (Aramco Ventures, NVIDIA, Vista Equity, General Catalyst, Salesforce Ventures and others); earlier rounds: $20M seed, $102.5M Series A, $305M Series B at $3.3B valuation",
+    "citation": "https://www.together.ai/blog/announcing-our-series-c",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Pay-per-token / dedicated GPU",
+    "new": "Serverless pay-per-token (e.g. $0.15–$3.00 per 1M input tokens); dedicated endpoints per GPU-hour (H100 $5.49/hr); fine-tuning per 1M training tokens; GPU clusters from $3.19–$3.99 per H100-hour",
+    "citation": "https://www.together.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK Apache-2.0",
+    "citation": "https://pypi.org/project/together/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Managed-only — serverless and dedicated inference, fine-tuning, GPU clusters",
+    "citation": "https://www.together.ai/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v3.0.0 (2026-10-22) — together (Python SDK)",
+    "citation": "https://pypi.org/project/together/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "torchtune-pytorch--gh-pytorch-torchtune",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "README says torchtune is no longer actively maintained and development wound down in 2025; last release v0.6.1 on 2025-04-07, and the last commit (2026-04-23) added that notice. Not archived.",
+  "lifecycle_citation": "https://github.com/pytorch/torchtune",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://github.com/pytorch/torchtune",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.6.1 (2025-04-07) — torchtune",
+    "citation": "https://pypi.org/project/torchtune/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "meta-pytorch/torchtune (linked from pytorch/torchtune) — ~5.8k stars, last commit 2026-04",
+    "citation": "https://github.com/pytorch/torchtune",
+    "confidence": "medium"
+   },
+   {
+    "cell": "desc",
+    "old": "Pure-PyTorch library for fine-tuning LLMs — Llama/Mistral/Phi/Gemma recipes; native FSDP2 + memory-efficient training. From Meta PyTorch team.",
+    "new": "Pure-PyTorch library for fine-tuning LLMs — Llama/Mistral/Phi/Gemma recipes; native FSDP2 + memory-efficient training. From Meta PyTorch team. Per its README, torchtune is no longer actively maintained; active development ended in 2025.",
+    "citation": "https://github.com/pytorch/torchtune",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "toyota-research-institute-lbm--tri-global",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "TRI LBM team published \"A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation\" (arXiv 2025-07-07; Science Robotics 2026) and maintains the lbm_eval benchmark repo.",
+  "lifecycle_citation": "https://toyotaresearchinstitute.github.io/lbm1/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "Large Behavior Models 2.0 (2024)",
+    "new": "LBM paper, A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation (2025-07-07)",
+    "citation": "https://arxiv.org/abs/2507.05331",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/toyotaresearchinstitute — multiple repos",
+    "new": "ToyotaResearchInstitute (org) — 123 public repos incl. lbm_eval (~125 stars), last activity 2026-10",
+    "citation": "https://github.com/ToyotaResearchInstitute",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "trl-hugging-face--gh-huggingface-trl",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released v1.16.0 on 2026-10-15; commits daily.",
+  "lifecycle_citation": "https://pypi.org/project/trl/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/trl/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.16.0 (2026-10-15) — trl",
+    "citation": "https://pypi.org/project/trl/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "~13k★, active maintenance",
+    "new": "huggingface/trl — ~19.6k stars, last commit 2026-10",
+    "citation": "https://github.com/huggingface/trl",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "truera--truera-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "On 2024-05-22 Snowflake announced a definitive agreement to acquire the TruEra AI observability platform (terms undisclosed); truera.com now shows a join-Snowflake banner and redirects.",
+  "lifecycle_citation": "https://www.snowflake.com/en/blog/snowflake-acquires-truera-to-bring-llm-ml-observability-to-data-cloud/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v12.6.1 (2024-03-04) — truera (Python SDK)",
+    "citation": "https://pypi.org/project/truera/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "trulens--gh-truera-trulens",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released trulens 2.16.0 on 2026-10-19; last commit 2026-10-26.",
+  "lifecycle_citation": "https://pypi.org/project/trulens/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/trulens/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2.16.0 (2026-10-19) — trulens",
+    "citation": "https://pypi.org/project/trulens/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "truera/trulens — ~3.6k stars, last commit 2026-10",
+    "citation": "https://github.com/truera/trulens",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "searched not found",
+    "new": "yes — instruments MCP tool calls via the MCP span type (tool name, arguments, output, latency)",
+    "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "searched not found",
+    "new": "Python SDK (trulens plus provider and app-integration packages); OpenTelemetry-native tracing exportable to OTLP backends",
+    "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "unsloth--unsloth-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released unsloth 2026.10.9 on 2026-10-26; commits daily; now also ships Unsloth Studio, a local web UI.",
+  "lifecycle_citation": "https://pypi.org/project/unsloth/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v2026.10.9 (2026-10-26) — unsloth",
+    "citation": "https://pypi.org/project/unsloth/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "unslothai/unsloth — ~78.6k stars, last commit 2026-10",
+    "citation": "https://github.com/unslothai/unsloth",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library plus local Unsloth Studio web UI",
+    "citation": "https://unsloth.ai/docs",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "vellum-ai--vellum-ai",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "vellum.ai now markets a personal AI assistant and its hosted Personal Assistant Platform shuts down 2026-11-02; the notice says nothing about the LLM development platform, whose docs remain online and whose Python SDK last released 2026-10-02.",
+  "lifecycle_citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "End-to-end LLM development platform — eval, prompt management, deployment, observability. Targeted at enterprise teams shipping LLM products.",
+    "new": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud), and Vellum announced its hosted Personal Assistant Platform shuts down 2026-11-02.",
+    "citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v1.14.8 (2026-10-02) — vellum-ai (Python SDK)",
+    "citation": "https://pypi.org/project/vellum-ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; Python SDK MIT",
+    "citation": "https://pypi.org/project/vellum-ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "verl--gh-volcengine-verl",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Repo now lives at verl-project/verl (PyPI homepage points there); released v0.9.1 on 2026-09-20; commits daily.",
+  "lifecycle_citation": "https://pypi.org/project/verl/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Self-hosted only — library",
+    "citation": "https://pypi.org/project/verl/",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.9.1 (2026-09-20) — verl",
+    "citation": "https://pypi.org/project/verl/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "verl-project/verl (formerly volcengine/verl) — ~24.0k stars, last commit 2026-10",
+    "citation": "https://github.com/verl-project/verl",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "weights-biases--wandb-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "CoreWeave completed its acquisition of Weights & Biases on 2025-05-05; wandb.ai now says \"Weights & Biases is now part of CoreWeave Forge\", and wandb.ai/site/pricing redirects to CoreWeave Forge pricing.",
+  "lifecycle_citation": "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Experiment-tracking and ML-ops platform — log metrics, artifacts, datasets, sweeps. Acquired by CoreWeave in 2025 for $1.7B.",
+    "new": "Experiment-tracking and ML-ops platform (metrics, artifacts, sweeps, Weave tracing/evals). Acquired by CoreWeave (completed 2025-05-05, ~$1.7B); now part of CoreWeave Forge.",
+    "citation": "https://wandb.ai/site/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$250M total raised through Series C (2023-03, valuation reported ~$1.25B unicorn) — Insight Partners led.",
+    "new": "Acquired by CoreWeave for ~$1.7B (agreement 2025-03, completed 2025-05-05); previously VC-backed",
+    "citation": "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "CoreWeave Forge plans: Free $0 (up to 5 model seats); Pro from $60/mo; Enterprise custom; Academic free",
+    "citation": "https://coreweave.com/forge-pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "searched not found",
+    "new": "proprietary; wandb SDK MIT",
+    "citation": "https://github.com/wandb/wandb",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.31.0 (2026-10-16) — wandb",
+    "citation": "https://pypi.org/project/wandb/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "wandb/wandb — ~11.3k stars, last commit 2026-10",
+    "citation": "https://github.com/wandb/wandb",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "zenml--zenml-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Released zenml 0.98.0 on 2026-10-14; commits daily; pricing now also lists Kitaru (agents) workspaces.",
+  "lifecycle_citation": "https://pypi.org/project/zenml/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "searched not found",
+    "new": "Both (self-hosted + managed cloud) — OSS self-hosted; ZenML Pro as SaaS or self-hosted/air-gapped on Enterprise",
+    "citation": "https://www.zenml.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "v0.98.0 (2026-10-14) — zenml",
+    "citation": "https://pypi.org/project/zenml/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "searched not found",
+    "new": "zenml-io/zenml — ~5.6k stars, last commit 2026-10",
+    "citation": "https://github.com/zenml-io/zenml",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "searched not found",
+    "new": "Open Source free (self-hosted); Scale $999/mo per workspace (SaaS); Enterprise custom",
+    "citation": "https://www.zenml.io/pricing",
+    "confidence": "high"
+   }
+  ]
+ }
+]
