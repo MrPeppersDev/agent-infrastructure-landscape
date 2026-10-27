@@ -61,8 +61,10 @@
     if (activeSection !== 'all') {
       rows = rows.filter((r) => r.section === activeSection);
     }
-    if (activeTool !== 'all') {
-      rows = rows.filter((r) => r.integrations[activeTool] === 'yes');
+    // Copy first: narrowing of the $state value doesn't reach the callback.
+    const key = activeTool;
+    if (key !== 'all') {
+      rows = rows.filter((r) => r.integrations[key] === 'yes');
     }
     switch (sortMode) {
       case 'coverage':

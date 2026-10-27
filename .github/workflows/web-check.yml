@@ -40,9 +40,7 @@ jobs:
         run: npm ci
 
       - name: Type-check
-        # Reported (as annotations) but not yet a gate: the tree predates
-        # this check. Flip off continue-on-error once it is clean.
-        continue-on-error: true
+        # Blocking: svelte-check must report 0 errors (warnings are allowed).
         working-directory: web
         run: |
           set -o pipefail
