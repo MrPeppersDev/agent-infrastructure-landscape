@@ -1,0 +1,790 @@
+[
+ {
+  "id": "galileo-galileo-ai--galileo-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.splunk.com/en_us/products/agent-observability.html",
+  "confidence": "medium",
+  "note": "Galileo is now Splunk Agent Observability, part of Splunk Observability Cloud (free edition 'Get Observability Cloud free'); no self-host path outside enterprise Splunk."
+ },
+ {
+  "id": "galileo-galileo-ai--galileo-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+  "confidence": "high",
+  "note": "Galileo, now Splunk Agent Observability, 'gives AI teams the tools to evaluate and improve agent behavior'."
+ },
+ {
+  "id": "langsmith--langchain-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.langchain.com/pricing",
+  "confidence": "high",
+  "note": "Developer and Plus plans are 'Fully managed by LangChain' cloud; self-hosted and hybrid only on the Enterprise plan."
+ },
+ {
+  "id": "langsmith--langchain-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.langchain.com/langsmith",
+  "confidence": "high",
+  "note": "LangSmith Observability is an 'AI Agent Observability Platform' for teams building agents."
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://langfuse.com/self-hosting",
+  "confidence": "high",
+  "note": "Langfuse is open source and can be self-hosted (Docker Compose, Kubernetes) or used as Langfuse Cloud, 'fully managed by the Langfuse team'."
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://langfuse.com/",
+  "confidence": "high",
+  "note": "'Open Source Agent Evals & Observability' platform with SDKs, API and CLI 'made for developers'."
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/goweft/ratine/main/README.md",
+  "confidence": "high",
+  "note": "Installed with 'pip install ratine' and run as a local CLI ('ratine scan ~/.claude/') or a systemd user timer."
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/goweft/ratine/main/README.md",
+  "confidence": "medium",
+  "note": "A finished scanner CLI that users run against their agents' memory directories, not an SDK or API."
+ },
+ {
+  "id": "apple-notes-apple-intelligence--apple-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.apple.com/apple-intelligence/",
+  "confidence": "medium",
+  "note": "Apple Intelligence features in Notes run with 'powerful on-device processing', escalating to Private Cloud Compute only for larger models."
+ },
+ {
+  "id": "apple-notes-apple-intelligence--apple-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.apple.com/apple-intelligence/",
+  "confidence": "high",
+  "note": "Consumer features built into Apple devices and apps such as Notes ('right in Notes')."
+ },
+ {
+  "id": "core-redplanet--gh-redplanethq-core",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/RedPlanetHQ/core/main/README.md",
+  "confidence": "high",
+  "note": "'Open source, self-hosted, yours forever'; install on your machine with Docker or deploy to your own server."
+ },
+ {
+  "id": "core-redplanet--gh-redplanethq-core",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/RedPlanetHQ/core/main/README.md",
+  "confidence": "medium",
+  "note": "Positioned as 'Your Personal AI OS', an always-on assistant reached by voice, scratchpad and messaging."
+ },
+ {
+  "id": "capacities--capacities-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://capacities.io/pricing",
+  "confidence": "medium",
+  "note": "All plans include vendor 'Synchronization across all devices' and media upload quotas; apps for web, desktop and mobile with no self-host option."
+ },
+ {
+  "id": "capacities--capacities-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://capacities.io/",
+  "confidence": "high",
+  "note": "'A studio for your mind': a note-taking app for writers, researchers, students."
+ },
+ {
+  "id": "craft-ai--craft-do",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.craft.do/security",
+  "confidence": "medium",
+  "note": "Craft stores documents on its service with 'data encryption at rest and in transit'; usable on web or native apps, no self-host offered."
+ },
+ {
+  "id": "craft-ai--craft-do",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.craft.do/",
+  "confidence": "high",
+  "note": "'Productivity App for Notes, Tasks, and Docs' for end users."
+ },
+ {
+  "id": "heptabase--heptabase-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://heptabase.com/",
+  "confidence": "high",
+  "note": "'An intelligent, visual knowledge base built for students, researchers, and lifelong learners.'"
+ },
+ {
+  "id": "logseq--logseq-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/logseq/logseq/master/README.md",
+  "confidence": "high",
+  "note": "Download the latest release and 'install Logseq on your device'; optional RTC sync in the DB version."
+ },
+ {
+  "id": "logseq--logseq-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/logseq/logseq/master/README.md",
+  "confidence": "high",
+  "note": "A privacy-first, open-source knowledge-base app for end users."
+ },
+ {
+  "id": "mem-ai--mem-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://get.mem.ai/pricing",
+  "confidence": "medium",
+  "note": "Pricing FAQ: data is encrypted at rest and in transit but not end-to-end 'because Mem needs to process your knowledge' on its servers."
+ },
+ {
+  "id": "mem-ai--mem-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://get.mem.ai/",
+  "confidence": "high",
+  "note": "Marketed as an 'AI chief of staff' note-taking app for individuals."
+ },
+ {
+  "id": "microsoft-recall--microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall",
+  "confidence": "high",
+  "note": "Recall saves snapshots and lets you find what you have seen 'on your PC'; managed in Settings on Copilot+ PCs."
+ },
+ {
+  "id": "microsoft-recall--microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall",
+  "confidence": "high",
+  "note": "A Windows end-user feature on Copilot+ PCs."
+ },
+ {
+  "id": "mymind--access-mymind-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://access.mymind.com/pricing",
+  "confidence": "high",
+  "note": "Consumer subscription plans (Student of Life, Mastermind) for saving bookmarks, images and notes."
+ },
+ {
+  "id": "notion-ai--notion-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.notion.com/security",
+  "confidence": "medium",
+  "note": "'Notion's infrastructure is built on highly available cloud services'; data residency in vendor regions."
+ },
+ {
+  "id": "notion-ai--notion-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.notion.com/product/ai",
+  "confidence": "high",
+  "note": "Notion AI is sold to Notion workspace users as built-in AI ('Meet your AI team')."
+ },
+ {
+  "id": "obsidian-smart-connections--gh-brianpetro-obsidian-smart-connections",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/brianpetro/obsidian-smart-connections/main/README.md",
+  "confidence": "high",
+  "note": "Obsidian plugin that 'uses local embeddings' to surface related notes inside your vault."
+ },
+ {
+  "id": "obsidian-smart-connections--gh-brianpetro-obsidian-smart-connections",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/brianpetro/obsidian-smart-connections/main/README.md",
+  "confidence": "medium",
+  "note": "Plugin end users install into Obsidian; aimed at 'Obsidian power-users, researchers, writers'."
+ },
+ {
+  "id": "personal-ai--personal-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.personal.ai/",
+  "confidence": "medium",
+  "note": "Site description: 'telco-optimized stack for agents on the carrier network ... on-network inference', i.e. runs inside the operator's own network."
+ },
+ {
+  "id": "personal-ai--personal-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.personal.ai/",
+  "confidence": "medium",
+  "note": "'The AI Memory Platform': memory, identity and on-network inference stack sold to carriers, 'no app to install'."
+ },
+ {
+  "id": "reflect--reflect-app",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://reflect.app/",
+  "confidence": "high",
+  "note": "Reflect Open: 'local Markdown files', 'Keep your notes in a folder you choose', sync via iCloud Drive or Git."
+ },
+ {
+  "id": "reflect--reflect-app",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://reflect.app/",
+  "confidence": "high",
+  "note": "'An open-source note-taking app with daily notes, backlinks, and local Markdown files.'"
+ },
+ {
+  "id": "remnote-ai--remnote-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.remnote.com/",
+  "confidence": "high",
+  "note": "'Study Faster with AI Flashcards, Quizzes & Summaries': study app for learners."
+ },
+ {
+  "id": "saner-ai--saner-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.saner.ai/pricing",
+  "confidence": "medium",
+  "note": "Plans are metered by vendor-hosted storage (100MB to 100GB) and AI requests; web, Chrome extension and mobile, no self-host."
+ },
+ {
+  "id": "saner-ai--saner-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.saner.ai/",
+  "confidence": "high",
+  "note": "'AI Personal Assistant for ADHDers': an AI for your emails, notes and to-do list."
+ },
+ {
+  "id": "screenpipe--gh-mediar-ai-screenpipe",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mediar-ai/screenpipe/main/README.md",
+  "confidence": "high",
+  "note": "'Local-first: capture history stays on your device by default'; desktop app for macOS, Windows, Linux."
+ },
+ {
+  "id": "screenpipe--gh-mediar-ai-screenpipe",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mediar-ai/screenpipe/main/README.md",
+  "confidence": "medium",
+  "note": "Desktop app that records computer work to map workflows and power a company's agents; now pitched at companies."
+ },
+ {
+  "id": "scrintal--scrintal-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://scrintal.com/",
+  "confidence": "high",
+  "note": "'Visual Note-Taking & Research Made Easy'; plus Gobu AI research assistant."
+ },
+ {
+  "id": "second-me-mindverse--gh-mindverse-second-me",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mindverse/Second-Me/master/README.md",
+  "confidence": "high",
+  "note": "'It's locally trained and hosted: your data, your control.'"
+ },
+ {
+  "id": "second-me-mindverse--gh-mindverse-second-me",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mindverse/Second-Me/master/README.md",
+  "confidence": "medium",
+  "note": "Open-source prototype where an individual crafts their own 'AI self'."
+ },
+ {
+  "id": "supernotes-ai--supernotes-app",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://supernotes.app/pricing/",
+  "confidence": "medium",
+  "note": "Vendor-run 'Fast Sync' across Mac, Windows, Linux, Android, iOS and web ('We take care of everything for you'); no self-host."
+ },
+ {
+  "id": "supernotes-ai--supernotes-app",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://supernotes.app/",
+  "confidence": "high",
+  "note": "'The best collaborative note-taking app.'"
+ },
+ {
+  "id": "tana--tana-inc",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://outliner.tana.inc/",
+  "confidence": "high",
+  "note": "'Tana Outliner, a knowledge-management outliner built on Supertags and nodes', separate from Tana's meeting platform."
+ },
+ {
+  "id": "tencent-ima-copilot--ima-qq-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://ima.qq.com",
+  "confidence": "high",
+  "note": "'ima - 腾讯AI知识管家' (Tencent AI knowledge assistant) with web login and a desktop client download for end users."
+ },
+ {
+  "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+  "confidence": "high",
+  "note": "'AgentCore Memory is a fully managed service that gives your AI agents the ability to remember past interactions.'"
+ },
+ {
+  "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+  "confidence": "high",
+  "note": "AWS service with APIs/SDKs for developers building agents."
+ },
+ {
+  "id": "anthropic-claude-memory--platform-claude-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "confidence": "medium",
+  "note": "The memory tool is a developer API tool ('your application runs' the file operations); Claude apps also ship a consumer Memory feature (claude.com/resources/articles/memory)."
+ },
+ {
+  "id": "anthropic-managed-agents-memory--platform-claude-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://platform.claude.com/docs/en/managed-agents/overview",
+  "confidence": "medium",
+  "note": "'Pre-built, configurable agent harness that runs in managed infrastructure'; self-hosted sandboxes are optional but memory stores are Anthropic-hosted."
+ },
+ {
+  "id": "anthropic-managed-agents-memory--platform-claude-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://platform.claude.com/docs/en/managed-agents/overview",
+  "confidence": "high",
+  "note": "Claude Managed Agents is an API platform providing 'the harness and infrastructure' for developers."
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://blog.cloudflare.com/introducing-agent-memory/",
+  "confidence": "high",
+  "note": "'Agent Memory, a managed service that extracts information from agent conversations' (private beta)."
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://blog.cloudflare.com/introducing-agent-memory/",
+  "confidence": "high",
+  "note": "Managed memory service for developers building agents on Cloudflare."
+ },
+ {
+  "id": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+  "confidence": "high",
+  "note": "Release notes: Memory Bank compute is metered on the Agent Platform compute SKU (Google Cloud managed service)."
+ },
+ {
+  "id": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+  "confidence": "high",
+  "note": "Agent Platform Memory Bank with API and ADK quickstarts for developers."
+ },
+ {
+  "id": "google-gemini-memory--blog-google",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/",
+  "confidence": "medium",
+  "note": "The Gemini app 'can now reference your past chats'; memory is part of Google's hosted Gemini app."
+ },
+ {
+  "id": "google-gemini-memory--blog-google",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/",
+  "confidence": "high",
+  "note": "Consumer Gemini app feature: 'The Gemini app is getting more personalized.'"
+ },
+ {
+  "id": "linkedin-cognitive-memory-agent--linkedin-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.linkedin.com/blog/engineering/ai/the-linkedin-generative-ai-application-tech-stack-personalization-with-cognitive-memory-agent",
+  "confidence": "medium",
+  "note": "'A horizontal memory platform to build stateful and context-aware AI agents at scale', used internally; not sold externally."
+ },
+ {
+  "id": "meta-ai-memory--meta-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/",
+  "confidence": "medium",
+  "note": "Meta AI remembers details shared in 1:1 chats on WhatsApp and Messenger, Meta-hosted services."
+ },
+ {
+  "id": "meta-ai-memory--meta-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://about.fb.com/news/2025/01/building-toward-a-smarter-more-personalized-assistant/",
+  "confidence": "high",
+  "note": "Consumer assistant feature: 'lets Meta AI remember certain details that you share with it'."
+ },
+ {
+  "id": "microsoft-copilot-memory--learn-microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-personalization-memory",
+  "confidence": "medium",
+  "note": "Copilot memory is managed per tenant in Microsoft 365 and encrypted at rest in Microsoft's service."
+ },
+ {
+  "id": "microsoft-copilot-memory--learn-microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-personalization-memory",
+  "confidence": "medium",
+  "note": "Feature of the Microsoft 365 Copilot application, on by default for end users; admins can turn it off."
+ },
+ {
+  "id": "microsoft-foundry-agent-service-memory--devblogs-microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://devblogs.microsoft.com/foundry/introducing-memory-in-foundry-agent-service/",
+  "confidence": "high",
+  "note": "'A fully managed, long-term memory store natively integrated with our agent service.'"
+ },
+ {
+  "id": "microsoft-foundry-agent-service-memory--devblogs-microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://devblogs.microsoft.com/foundry/introducing-memory-in-foundry-agent-service/",
+  "confidence": "high",
+  "note": "Memory for developers building agents in Foundry Agent Service, via a unified API."
+ },
+ {
+  "id": "mistral-agents-api--docs-mistral-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.mistral.ai/studio/agents/introduction",
+  "confidence": "medium",
+  "note": "Agents and Conversations API served from Mistral Studio (la Plateforme); conversation state kept server-side."
+ },
+ {
+  "id": "mistral-agents-api--docs-mistral-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.mistral.ai/studio/agents/introduction",
+  "confidence": "high",
+  "note": "'Our Agents and Conversations API allows developers to build such agents.'"
+ },
+ {
+  "id": "mistral-le-chat-memories--help-mistral-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://help.mistral.ai/en/articles/396497-how-do-you-handle-my-data-when-using-the-memories-feature",
+  "confidence": "medium",
+  "note": "Memories are stored by Mistral for the hosted Vibe assistant (formerly Le Chat)."
+ },
+ {
+  "id": "mistral-le-chat-memories--help-mistral-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://help.mistral.ai/en/articles/396497-how-do-you-handle-my-data-when-using-the-memories-feature",
+  "confidence": "high",
+  "note": "'Memories is an optional feature that lets Vibe reliably remember key details about you.'"
+ },
+ {
+  "id": "perplexity-brain--perplexity-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.perplexity.ai/help-center/en/articles/10968016-memory",
+  "confidence": "medium",
+  "note": "Brain is maintained by Perplexity's hosted Computer agent from sessions and project files."
+ },
+ {
+  "id": "perplexity-brain--perplexity-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.perplexity.ai/help-center/en/articles/10968016-memory",
+  "confidence": "high",
+  "note": "'In Computer, Max subscribers also get Brain, a self-improving memory system.'"
+ },
+ {
+  "id": "perplexity-memory--perplexity-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.perplexity.ai/help-center/en/articles/10968016-memory",
+  "confidence": "medium",
+  "note": "Memory is a feature of the hosted Perplexity service, managed in account settings."
+ },
+ {
+  "id": "perplexity-memory--perplexity-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.perplexity.ai/help-center/en/articles/10968016-memory",
+  "confidence": "high",
+  "note": "'Memory is a feature that allows Perplexity to remember details between your conversations.'"
+ },
+ {
+  "id": "vertex-ai-memory-bank--docs-cloud-google-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+  "confidence": "high",
+  "note": "Agent Platform Memory Bank is a Google Cloud managed service, access controlled with IAM."
+ },
+ {
+  "id": "vertex-ai-memory-bank--docs-cloud-google-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+  "confidence": "high",
+  "note": "Developer service with API and ADK quickstarts."
+ },
+ {
+  "id": "adaptive-rag--gh-starsuzi-adaptive-rag",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/starsuzi/Adaptive-RAG/main/README.md",
+  "confidence": "medium",
+  "note": "Official research code repository you run yourself."
+ },
+ {
+  "id": "adaptive-rag--gh-starsuzi-adaptive-rag",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/starsuzi/Adaptive-RAG/main/README.md",
+  "confidence": "medium",
+  "note": "Research code released for builders; integrated into LlamaIndex and LangChain."
+ },
+ {
+  "id": "atlas--arxiv-2208-03299",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/facebookresearch/atlas/main/README.md",
+  "confidence": "medium",
+  "note": "Repo provides pre-trained models, indices and code to run yourself; 'REPO NO LONGER MAINTAINED, RESEARCH CODE PROVIDED AS IT IS'."
+ },
+ {
+  "id": "atlas--arxiv-2208-03299",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/facebookresearch/atlas/main/README.md",
+  "confidence": "medium",
+  "note": "Research models and code released for builders and researchers."
+ },
+ {
+  "id": "autorag--arxiv-2410-20878",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Marker-Inc-Korea/AutoRAG/main/README.md",
+  "confidence": "high",
+  "note": "Original AutoRAG remains installable via 'pip install AutoRAG'; repo now ships AutoRAG 2.0 as a desktop app."
+ },
+ {
+  "id": "autorag--arxiv-2410-20878",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Marker-Inc-Korea/AutoRAG/main/README.md",
+  "confidence": "medium",
+  "note": "The paper's AutoRAG is a RAG AutoML Python tool for builders (now in legacy/, maintenance mode); 2.0 pivots to an end-user desktop librarian."
+ },
+ {
+  "id": "bge-m3--arxiv-2402-03216",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://huggingface.co/BAAI/bge-m3",
+  "confidence": "medium",
+  "note": "Open MIT-licensed model weights on Hugging Face, run with FlagEmbedding or sentence-transformers."
+ },
+ {
+  "id": "bge-m3--arxiv-2402-03216",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://huggingface.co/BAAI/bge-m3",
+  "confidence": "medium",
+  "note": "Embedding model released for developers building retrieval systems."
+ },
+ {
+  "id": "beyond-rag-for-agent-memory--arxiv-2602-02007",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/HU-xiaobai/xMemory/main/README.md",
+  "confidence": "medium",
+  "note": "Code (xMemory) accompanies the NeurIPS 2026 paper; run yourself."
+ },
+ {
+  "id": "beyond-rag-for-agent-memory--arxiv-2602-02007",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/HU-xiaobai/xMemory/main/README.md",
+  "confidence": "medium",
+  "note": "Research code released for builders."
+ },
+ {
+  "id": "cag-cache-augmented-generation--arxiv-2412-15605",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/hhhuang/CAG/main/README.md",
+  "confidence": "medium",
+  "note": "Official research code repository you run yourself."
+ },
+ {
+  "id": "cag-cache-augmented-generation--arxiv-2412-15605",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/hhhuang/CAG/main/README.md",
+  "confidence": "medium",
+  "note": "Research code released for builders."
+ },
+ {
+  "id": "crag--arxiv-2401-15884",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/HuskyInSalt/CRAG/main/README.md",
+  "confidence": "medium",
+  "note": "'This repository releases the source code for the paper'; run yourself."
+ },
+ {
+  "id": "crag--arxiv-2401-15884",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/HuskyInSalt/CRAG/main/README.md",
+  "confidence": "medium",
+  "note": "Research code released for builders."
+ },
+ {
+  "id": "chunkrag--arxiv-2410-19572",
+  "cell": "architecture-deployment-locus",
+  "value": "not applicable — research paper with no released software",
+  "status": "not-applicable",
+  "note": "arXiv abstract page lists no code repository."
+ },
+ {
+  "id": "chunkrag--arxiv-2410-19572",
+  "cell": "positioning-platform-vs-product",
+  "value": "not applicable — research paper with no released software",
+  "status": "not-applicable",
+  "note": "arXiv abstract page lists no code repository."
+ }
+]

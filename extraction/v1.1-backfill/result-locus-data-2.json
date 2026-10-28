@@ -1,0 +1,488 @@
+[
+ {
+  "id": "neo4j--neo4j-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://neo4j.com/deployment-center/",
+  "confidence": "high",
+  "note": "Products menu lists fully-managed AuraDB and self-managed Graph Database (downloadable Community/Enterprise)."
+ },
+ {
+  "id": "neo4j--neo4j-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://neo4j.com/",
+  "confidence": "high",
+  "note": "Positioned as a graph database/graph intelligence platform for developers to store and query connected data."
+ },
+ {
+  "id": "ontotext-graphdb-graphwise--graphwise-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://graphwise.ai/components/graphdb/",
+  "confidence": "high",
+  "note": "GraphDB is downloadable for on-premise use and the EE 12-core cluster is also available as SaaS on AWS and Azure Marketplace."
+ },
+ {
+  "id": "ontotext-graphdb-graphwise--graphwise-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://graphwise.ai/components/graphdb/",
+  "confidence": "high",
+  "note": "GraphDB is an enterprise RDF/SPARQL graph database serving as the storage engine of the Graphwise AI Platform."
+ },
+ {
+  "id": "palantir-ontology--palantir-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.palantir.com/docs/foundry/ontology/overview",
+  "confidence": "medium",
+  "note": "Docs call the Ontology an operational layer on top of the Palantir platform, with Ontology SDKs and APIs for builders."
+ },
+ {
+  "id": "stardog--stardog-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.stardog.com/pricing/",
+  "confidence": "high",
+  "note": "Pricing page lists Stardog Free, Stardog Enterprise for on-prem, Stardog Cloud and cloud marketplace offerings."
+ },
+ {
+  "id": "stardog--stardog-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.stardog.com/pricing/",
+  "confidence": "high",
+  "note": "Stardog offers an all-in-one Enterprise Knowledge Graph platform, available on-premises or in the cloud."
+ },
+ {
+  "id": "tigergraph--tigergraph-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.tigergraph.com/pricing/",
+  "confidence": "high",
+  "note": "Pricing lists Fully Managed (Savanna, free trial) and Self-Managed (TigerGraph Community free download) plans."
+ },
+ {
+  "id": "tigergraph--tigergraph-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.tigergraph.com/",
+  "confidence": "high",
+  "note": "Graph database infrastructure integrated via APIs, SDKs and GraphQL, deployable across clouds and on-premise."
+ },
+ {
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.topquadrant.com/",
+  "confidence": "medium",
+  "note": "Context governance platform that enterprise architects and knowledge engineers build on; agents consume it over APIs and SPARQL."
+ },
+ {
+  "id": "algolia--algolia-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.algolia.com/doc/guides/get-started",
+  "confidence": "high",
+  "note": "Docs: 'Algolia is a hosted AI search and retrieval platform.'"
+ },
+ {
+  "id": "algolia--algolia-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.algolia.com/doc/guides/get-started",
+  "confidence": "high",
+  "note": "Built API-first; data is queried through the API, client libraries and UI libraries."
+ },
+ {
+  "id": "opensearch-aws--opensearch-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://opensearch.org/platform/",
+  "confidence": "medium",
+  "note": "Apache-2.0 engine you download and run on premises or in hybrid/multicloud; the foundation offers no hosted service (Amazon OpenSearch Service is a separate AWS product)."
+ },
+ {
+  "id": "opensearch-aws--opensearch-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://opensearch.org/platform/",
+  "confidence": "high",
+  "note": "Vendor-neutral open-source search and analytics engine for building enterprise-grade applications."
+ },
+ {
+  "id": "quickwit--quickwit-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://quickwit.io/",
+  "confidence": "high",
+  "note": "Deploy Quickwit in your existing environment, on-premise or on Kubernetes; no hosted offering listed (Quickwit joined Datadog)."
+ },
+ {
+  "id": "quickwit--quickwit-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/quickwit-oss/quickwit/main/README.md",
+  "confidence": "high",
+  "note": "Open-source cloud-native search engine for observability with REST API, used as a building block."
+ },
+ {
+  "id": "supabase-vector--supabase-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://supabase.com/docs/guides/self-hosting",
+  "confidence": "high",
+  "note": "Self-hosting docs: install and run your own Supabase as an alternative to the managed Supabase platform."
+ },
+ {
+  "id": "supabase-vector--supabase-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://supabase.com/docs/guides/ai",
+  "confidence": "high",
+  "note": "AI & Vectors docs cover vector columns, indexes and semantic/hybrid search for developers building on Supabase Postgres."
+ },
+ {
+  "id": "tantivy--gh-quickwit-oss-tantivy",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/quickwit-oss/tantivy/main/README.md",
+  "confidence": "high",
+  "note": "Tantivy is a full-text search engine library written in Rust, embedded in your own application."
+ },
+ {
+  "id": "tantivy--gh-quickwit-oss-tantivy",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/quickwit-oss/tantivy/main/README.md",
+  "confidence": "high",
+  "note": "README: closer to Apache Lucene, not an off-the-shelf server but a crate used to build search engines."
+ },
+ {
+  "id": "typesense--typesense-org",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://cloud.typesense.org/",
+  "confidence": "high",
+  "note": "'Typesense Cloud is the hosted SaaS version of our Open Source product', with public GitHub/email sign-up."
+ },
+ {
+  "id": "typesense--typesense-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://typesense.org/",
+  "confidence": "high",
+  "note": "Open-source, developer-friendly search engine (alternative to Algolia/Elasticsearch)."
+ },
+ {
+  "id": "vald--vald-vdaas-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vdaas/vald/main/README.md",
+  "confidence": "high",
+  "note": "Cloud-native vector search engine installed into your own Kubernetes cluster via Helm; no hosted service."
+ },
+ {
+  "id": "vald--vald-vdaas-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://vald.vdaas.org/",
+  "confidence": "high",
+  "note": "Highly scalable distributed vector search engine with SDKs and gRPC interface."
+ },
+ {
+  "id": "activeloop-deep-lake--activeloop-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/activeloopai/deeplake/main/README.md",
+  "confidence": "high",
+  "note": "pip-installable Deep Lake runs locally, in-memory or on your own cloud, with Activeloop cloud storage also supported; paid managed tiers at deeplake.ai/pricing."
+ },
+ {
+  "id": "activeloop-deep-lake--activeloop-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.activeloop.ai/",
+  "confidence": "high",
+  "note": "Deeplake is sold as a database/data engine for AI agents (infrastructure for continual learning)."
+ },
+ {
+  "id": "chroma--trychroma-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.trychroma.com/docs/overview/introduction",
+  "confidence": "high",
+  "note": "'Run it locally, self-host, or use Chroma Cloud for a managed, serverless experience.'"
+ },
+ {
+  "id": "chroma--trychroma-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.trychroma.com/",
+  "confidence": "high",
+  "note": "Open-source search infrastructure for AI used by developers via SDK."
+ },
+ {
+  "id": "databricks-vector-search--databricks-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.databricks.com/product/artificial-intelligence/ai-search",
+  "confidence": "high",
+  "note": "Now 'Databricks AI Search': a fully managed search engine built on the Databricks Data + AI Platform."
+ },
+ {
+  "id": "databricks-vector-search--databricks-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.databricks.com/product/artificial-intelligence/ai-search",
+  "confidence": "high",
+  "note": "Combines semantic, keyword and hybrid search in one API for real-time production applications."
+ },
+ {
+  "id": "elasticsearch-opensearch--elastic-co",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.elastic.co/elasticsearch",
+  "confidence": "high",
+  "note": "Deployment options: Elastic Cloud Serverless, Elastic Cloud Hosted, and self-managed Elasticsearch."
+ },
+ {
+  "id": "elasticsearch-opensearch--elastic-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.elastic.co/elasticsearch",
+  "confidence": "high",
+  "note": "Distributed search and analytics engine developers build on."
+ },
+ {
+  "id": "lancedb--lancedb-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/lancedb/lancedb/main/README.md",
+  "confidence": "high",
+  "note": "README lists 'Open Source & Local: runs locally or in your cloud' and 'Cloud and Enterprise' managed offerings."
+ },
+ {
+  "id": "lancedb--lancedb-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/lancedb/lancedb/main/README.md",
+  "confidence": "high",
+  "note": "Multimodal lakehouse/vector database with Python, JS and Rust APIs."
+ },
+ {
+  "id": "marqo--marqo-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/marqo-ai/marqo/mainline/README.md",
+  "confidence": "medium",
+  "note": "README notice: the open-source project is deprecated; Marqo now offers a hosted product search and discovery platform deployed via API or Shopify/Adobe/Salesforce integrations."
+ },
+ {
+  "id": "marqo--marqo-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.marqo.ai",
+  "confidence": "medium",
+  "note": "Now marketed as an AI ecommerce search and product discovery platform for merchants, with one-click Shopify, Adobe Commerce and Salesforce Commerce Cloud integrations."
+ },
+ {
+  "id": "milvus--milvus-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://milvus.io/",
+  "confidence": "high",
+  "note": "Milvus Lite/Standalone/Distributed self-run, plus Zilliz Cloud (fully managed Milvus) with free sign-up."
+ },
+ {
+  "id": "milvus--milvus-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/milvus-io/milvus/master/README.md",
+  "confidence": "high",
+  "note": "Open-source vector database for GenAI applications with pymilvus SDK."
+ },
+ {
+  "id": "mongodb-atlas-vector-search--mongodb-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.mongodb.com/products/platform/atlas-vector-search",
+  "confidence": "high",
+  "note": "Vector search runs on fully managed Atlas and is also available in self-managed Enterprise Advanced and Community Edition."
+ },
+ {
+  "id": "mongodb-atlas-vector-search--mongodb-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.mongodb.com/products/platform/atlas-vector-search",
+  "confidence": "high",
+  "note": "Vector search capability of MongoDB's developer data platform."
+ },
+ {
+  "id": "pinecone--pinecone-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.pinecone.io/",
+  "confidence": "high",
+  "note": "'Pinecone is a fully managed vector database built for AI'; BYOC is still Pinecone-operated in the customer's cloud account."
+ },
+ {
+  "id": "pinecone--pinecone-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.pinecone.io/",
+  "confidence": "high",
+  "note": "Developers search, upsert and rerank via API, SDKs, CLI and MCP."
+ },
+ {
+  "id": "qdrant--qdrant-tech",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://qdrant.tech/",
+  "confidence": "high",
+  "note": "Open-source engine you can run on-prem, hybrid or at the edge, plus Qdrant Cloud with a 'Start Free' tier."
+ },
+ {
+  "id": "qdrant--qdrant-tech",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://qdrant.tech/",
+  "confidence": "high",
+  "note": "High-performance vector search engine developers build AI retrieval on."
+ },
+ {
+  "id": "snowflake-cortex-search--docs-snowflake-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview",
+  "confidence": "medium",
+  "note": "Cortex Search is a service within a Snowflake account over Snowflake data, billed as AI Services consumption."
+ },
+ {
+  "id": "snowflake-cortex-search--docs-snowflake-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview",
+  "confidence": "high",
+  "note": "Retrieval engine used to build RAG applications and enterprise chatbots on Snowflake data."
+ },
+ {
+  "id": "turbopuffer--turbopuffer-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://turbopuffer.com/pricing",
+  "confidence": "high",
+  "note": "All plans are hosted (multi-tenancy, with single-tenancy or BYOC on enterprise); no self-hosted edition."
+ },
+ {
+  "id": "turbopuffer--turbopuffer-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://turbopuffer.com/",
+  "confidence": "high",
+  "note": "Vector and full-text search database built on object storage, consumed via API."
+ },
+ {
+  "id": "vespa--vespa-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vespa-engine/vespa/master/README.md",
+  "confidence": "high",
+  "note": "'Deploy your Vespa applications to the cloud service... or run your own Vespa instance.'"
+ },
+ {
+  "id": "vespa--vespa-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vespa-engine/vespa/master/README.md",
+  "confidence": "high",
+  "note": "Open-source engine for building search, recommendation and AI applications via Vespa APIs."
+ },
+ {
+  "id": "weaviate--weaviate-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.weaviate.io/deploy",
+  "confidence": "high",
+  "note": "'Weaviate is available as a hosted service, Weaviate Cloud, or as a self managed instance.'"
+ },
+ {
+  "id": "weaviate--weaviate-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://weaviate.io/",
+  "confidence": "high",
+  "note": "Open-source vector search, RAG and memory platform for building AI apps."
+ },
+ {
+  "id": "pgvector--gh-pgvector-pgvector",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+  "confidence": "high",
+  "note": "Postgres extension you compile/install yourself; the project offers no hosted service (third-party Postgres hosts bundle it)."
+ },
+ {
+  "id": "pgvector--gh-pgvector-pgvector",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+  "confidence": "high",
+  "note": "Open-source vector similarity search extension for Postgres."
+ }
+]

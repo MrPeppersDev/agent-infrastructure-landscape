@@ -1,0 +1,812 @@
+[
+ {
+  "id": "brave-leo--brave-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://brave.com/leo/",
+  "confidence": "medium",
+  "note": "Leo runs on Brave's servers by default, and the page also offers Bring Your Own Model: 'Run your own AI models, whether local or remote'."
+ },
+ {
+  "id": "brave-leo--brave-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://brave.com/leo/",
+  "confidence": "high",
+  "note": "An assistant 'built right in your browser'. It's free, with an optional Premium subscription for end users."
+ },
+ {
+  "id": "browserbase--browserbase-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.browserbase.com/",
+  "confidence": "high",
+  "note": "Sold as 'Browser-as-a-Service' that you reach with one API key. The page mentions no self-host option."
+ },
+ {
+  "id": "browserbase--browserbase-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.browserbase.com/",
+  "confidence": "high",
+  "note": "Infrastructure for agents, with an API key and SDK, aimed at developers."
+ },
+ {
+  "id": "dia-atlassian--diabrowser-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.diabrowser.com",
+  "confidence": "high",
+  "note": "A browser you download for macOS or Windows. Dia for Work adds SSO and admin tools."
+ },
+ {
+  "id": "fellou--fellou-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://fellou.ai/",
+  "confidence": "high",
+  "note": "An agentic AI browser that 'takes automated web action' and runs cross-app workflows for the user."
+ },
+ {
+  "id": "fellou--fellou-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://fellou.ai/",
+  "confidence": "high",
+  "note": "A browser app that end users download."
+ },
+ {
+  "id": "microsoft-edge-copilot-mode-journeys--blogs-windows-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/",
+  "confidence": "high",
+  "note": "Copilot in Edge and Journeys are consumer features of the Edge browser. Copilot Mode was retired on 2026-05-13."
+ },
+ {
+  "id": "opera-ai-formerly-aria--blogs-opera-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://blogs.opera.com/news/2025/02/aria-gets-memory-feature-new-ai-feature-drop/",
+  "confidence": "medium",
+  "note": "Aria is built into the Opera browser. Its memory is 'encrypted and stored in its servers', and the key stays in the browser."
+ },
+ {
+  "id": "opera-ai-formerly-aria--blogs-opera-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://blogs.opera.com/news/2025/02/aria-gets-memory-feature-new-ai-feature-drop/",
+  "confidence": "high",
+  "note": "An AI assistant inside the Opera browser, opened from the sidebar by end users."
+ },
+ {
+  "id": "perplexity-comet--perplexity-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://www.perplexity.ai/comet",
+  "confidence": "high",
+  "note": "'The AI browser that acts as a personal assistant': it automates tasks, handles email and buys products."
+ },
+ {
+  "id": "perplexity-comet--perplexity-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.perplexity.ai/comet",
+  "confidence": "high",
+  "note": "A consumer browser app for Mac, Windows, iOS and Android."
+ },
+ {
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://www.sigmabrowser.com/",
+  "confidence": "medium",
+  "note": "An 'AI-first agentic browser' whose agent 'can take actions on your behalf', such as navigating pages and filling forms."
+ },
+ {
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.sigmabrowser.com/",
+  "confidence": "high",
+  "note": "A browser app for end users, with Free, Plus and Pro tiers."
+ },
+ {
+  "id": "claude-code-auto-memory--docs-claude-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://code.claude.com/docs/en/memory",
+  "confidence": "high",
+  "note": "Auto memory is stored on the local filesystem at ~/.claude/projects/<project>/memory/. It's on by default in local sessions."
+ },
+ {
+  "id": "claude-code-auto-memory--docs-claude-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://code.claude.com/docs/en/memory",
+  "confidence": "medium",
+  "note": "A built-in feature of Claude Code, a finished coding tool that people use directly."
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "confidence": "high",
+  "note": "The README says 'Privacy-First: Local deployment'. It's a Python and PostgreSQL/pgvector server that you run yourself."
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "confidence": "medium",
+  "note": "A memory MCP server that users plug into Claude Desktop or Claude Code. There's no API or SDK for builders."
+ },
+ {
+  "id": "cognee-mcp--gh-topoteretes-cognee",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/topoteretes/cognee",
+  "confidence": "high",
+  "note": "The README offers both 'Run Cognee on my infrastructure' and 'Use a managed service: Cognee Cloud'."
+ },
+ {
+  "id": "cognee-mcp--gh-topoteretes-cognee",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/topoteretes/cognee",
+  "confidence": "high",
+  "note": "'A free open-source AI memory platform that gives AI agents persistent long-term memory', with a Python SDK and MCP."
+ },
+ {
+  "id": "graphiti-mcp-server-zep--getzep-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/product/knowledge-graph-mcp",
+  "confidence": "medium",
+  "note": "Graphiti is 'Open source' and you can 'Run it locally'. Zep's managed context-graph service is described as a separate product."
+ },
+ {
+  "id": "graphiti-mcp-server-zep--getzep-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/product/knowledge-graph-mcp",
+  "confidence": "high",
+  "note": "Aimed at developers: the page is typed as a DeveloperApplication and points to docs and GitHub."
+ },
+ {
+  "id": "hindsight-mcp--hindsight-vectorize-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://hindsight.vectorize.io/",
+  "confidence": "high",
+  "note": "Self-host on Docker, Kubernetes or bare metal, or use Hindsight Cloud, which is 'fully managed'."
+ },
+ {
+  "id": "hindsight-mcp--hindsight-vectorize-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://hindsight.vectorize.io/",
+  "confidence": "high",
+  "note": "'Long-term memory for your agents', offered through SDKs, MCP and HTTP for agent builders."
+ },
+ {
+  "id": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+  "confidence": "high",
+  "note": "'A basic implementation of persistent memory using a local knowledge graph', published on npm as @modelcontextprotocol/server-memory."
+ },
+ {
+  "id": "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+  "confidence": "medium",
+  "note": "A ready-to-run MCP server that 'lets Claude remember information about the user across chats'."
+ },
+ {
+  "id": "openmemory-mcp--mem0-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://mem0.ai/openmemory",
+  "confidence": "medium",
+  "note": "'Bring memory to your coding agent': an MCP memory layer you install as a plugin into Cursor, VS Code or Claude."
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/obra/episodic-memory",
+  "confidence": "high",
+  "note": "It indexes local conversation logs, using local Transformers.js embeddings and local SQLite search."
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/obra/episodic-memory",
+  "confidence": "medium",
+  "note": "A plugin you install into Claude Code or Codex to search your own past conversations."
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/memvid/claude-brain",
+  "confidence": "high",
+  "note": "The README says 'One file... No database. No cloud. No API keys.'"
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/memvid/claude-brain",
+  "confidence": "medium",
+  "note": "A Claude Code plugin, installed with /plugin, that gives the user's agent memory."
+ },
+ {
+  "id": "claude-mem--gh-thedotmack-claude-mem",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.claude-mem.ai/cloud-sync",
+  "confidence": "medium",
+  "note": "It runs as a local worker service, and the docs also offer hosted cmem.ai Pro cloud sync and a hosted server (beta)."
+ },
+ {
+  "id": "claude-mem--gh-thedotmack-claude-mem",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/thedotmack/claude-mem",
+  "confidence": "medium",
+  "note": "'Persistent memory compression system built for Claude Code', installed with npx claude-mem install."
+ },
+ {
+  "id": "claude-supermemory--gh-supermemoryai-claude-supermemory",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://github.com/supermemoryai/claude-supermemory",
+  "confidence": "medium",
+  "note": "The plugin uses the hosted Supermemory API and MCP endpoint, and needs an API key. Self-hosting is only an 'advanced' compatibility note."
+ },
+ {
+  "id": "claude-supermemory--gh-supermemoryai-claude-supermemory",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/supermemoryai/claude-supermemory",
+  "confidence": "medium",
+  "note": "A Claude Code plugin that gives the user's agent persistent memory."
+ },
+ {
+  "id": "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/DeusData/codebase-memory-mcp",
+  "confidence": "high",
+  "note": "'Local processing: Source analysis and graph storage run on your machine.' It ships as a native binary."
+ },
+ {
+  "id": "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/DeusData/codebase-memory-mcp",
+  "confidence": "medium",
+  "note": "An installer configures it into the user's coding agents, and it includes the CBM Lens desktop UI."
+ },
+ {
+  "id": "engram--gh-gentleman-programming-engram",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/Gentleman-Programming/engram",
+  "confidence": "high",
+  "note": "'Engram keeps memory local by default.' Engram Cloud is optional replication that you self-run with docker compose."
+ },
+ {
+  "id": "engram--gh-gentleman-programming-engram",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/Gentleman-Programming/engram",
+  "confidence": "medium",
+  "note": "A single binary the user plugs into their coding agent: 'Engram gives it a brain'."
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "confidence": "high",
+  "note": "Memory is stored in 'a single SQLite file on your machine that never leaves your computer'."
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "confidence": "medium",
+  "note": "An MCP server that users add to Claude, Cursor or Codex with one command."
+ },
+ {
+  "id": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/shaneholloman/mcp-knowledge-graph",
+  "confidence": "high",
+  "note": "'Persistent memory for AI models through a local knowledge graph', stored in .aim JSONL files."
+ },
+ {
+  "id": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/shaneholloman/mcp-knowledge-graph",
+  "confidence": "medium",
+  "note": "An MCP server that users add to Claude Code or Desktop."
+ },
+ {
+  "id": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/Puliczek/mcp-memory",
+  "confidence": "medium",
+  "note": "You deploy it to your own Cloudflare account, the user's infrastructure. There's also a public demo instance."
+ },
+ {
+  "id": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/Puliczek/mcp-memory",
+  "confidence": "medium",
+  "note": "An MCP server that gives Cursor, Claude and Windsurf users memory across conversations."
+ },
+ {
+  "id": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/doobidoo/mcp-memory-service",
+  "confidence": "high",
+  "note": "'One self-hosted service, every transport', which avoids cloud lock-in. There's no managed offering."
+ },
+ {
+  "id": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/doobidoo/mcp-memory-service",
+  "confidence": "high",
+  "note": "'Open-source memory backend for AI agents': a REST API for LangGraph, CrewAI, AutoGen and any HTTP client."
+ },
+ {
+  "id": "aider--aider-chat",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://aider.chat",
+  "confidence": "high",
+  "note": "'AI pair programming in your terminal'. You install it with pip and run it in your project directory."
+ },
+ {
+  "id": "aider--aider-chat",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://aider.chat",
+  "confidence": "medium",
+  "note": "A finished terminal coding tool that developers use directly."
+ },
+ {
+  "id": "augment-code--augmentcode-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.augmentcode.com",
+  "confidence": "medium",
+  "note": "The docs lead with the VS Code and JetBrains extensions and the Auggie CLI. Cosmos, a cloud automation platform, is newer."
+ },
+ {
+  "id": "augment-code--augmentcode-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.augmentcode.com",
+  "confidence": "medium",
+  "note": "IDE extensions, a CLI and Cosmos agents, all sold as finished coding tools."
+ },
+ {
+  "id": "beads-steve-yegge--gh-steveyegge-beads",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/steveyegge/beads",
+  "confidence": "high",
+  "note": "A CLI (bd) installed system-wide, which stores a Dolt-backed graph in your project. It supports optional dolt push and pull."
+ },
+ {
+  "id": "beads-steve-yegge--gh-steveyegge-beads",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/steveyegge/beads",
+  "confidence": "medium",
+  "note": "A finished issue-tracker CLI that coding agents use directly."
+ },
+ {
+  "id": "bolt-new-stackblitz--bolt-new",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://bolt.new",
+  "confidence": "medium",
+  "note": "A web app builder. Bolt Cloud provides hosting, databases, auth and domains, with no separate accounts needed."
+ },
+ {
+  "id": "bolt-new-stackblitz--bolt-new",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://bolt.new",
+  "confidence": "high",
+  "note": "For people who want to make apps and websites 'by chatting with AI' without writing code."
+ },
+ {
+  "id": "cursor-memories--docs-cursor-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://cursor.com/docs",
+  "confidence": "medium",
+  "note": "The old Memories URL now redirects to the docs home, which calls the product 'the AI editor and coding agent'."
+ },
+ {
+  "id": "cursor-memories--docs-cursor-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://cursor.com/docs",
+  "confidence": "medium",
+  "note": "Cursor is a finished AI editor and coding agent."
+ },
+ {
+  "id": "devin-cognition--devin-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://devin.ai",
+  "confidence": "high",
+  "note": "'Devin runs in the cloud or on your machine.' You can delegate to Devin Cloud or iterate in Desktop or CLI."
+ },
+ {
+  "id": "devin-cognition--devin-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://devin.ai",
+  "confidence": "medium",
+  "note": "Sold as an autonomous software-engineer teammate, through a web app, desktop and CLI."
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://geminicli.com/docs/tools/memory",
+  "confidence": "medium",
+  "note": "Memory lives in Markdown files, such as repo GEMINI.md and ~/.gemini/GEMINI.md, which the CLI edits directly."
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://geminicli.com/docs/tools/memory",
+  "confidence": "medium",
+  "note": "A command-line coding agent. The page notes Gemini CLI 'was replaced by Antigravity CLI on June 18th, 2026'."
+ },
+ {
+  "id": "github-copilot-memory-agentic-memory--gh-en-copilot",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.github.com/en/copilot/concepts/agents/copilot-memory",
+  "confidence": "medium",
+  "note": "Used by the Copilot cloud agent, code review, CLI and autofix. Memories are 'stored against the active billing entity'."
+ },
+ {
+  "id": "github-copilot-memory-agentic-memory--gh-en-copilot",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.github.com/en/copilot/concepts/agents/copilot-memory",
+  "confidence": "medium",
+  "note": "A feature of the GitHub Copilot subscription product."
+ },
+ {
+  "id": "letta-code--gh-letta-ai-letta-code",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/letta-ai/letta-code",
+  "confidence": "high",
+  "note": "'Letta Cloud is the default. On first launch, choose to sign in with Letta or proceed locally.'"
+ },
+ {
+  "id": "letta-code--gh-letta-ai-letta-code",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/letta-ai/letta-code",
+  "confidence": "medium",
+  "note": "A stateful agent harness, used through a local CLI, chat.letta.com and messaging integrations."
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.lovable.dev/introduction",
+  "confidence": "medium",
+  "note": "Lovable generates web apps from natural language and publishes them to a live URL on its hosted platform."
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.lovable.dev/introduction",
+  "confidence": "medium",
+  "note": "A finished AI app-building tool for individuals, teams and agencies."
+ },
+ {
+  "id": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+  "confidence": "high",
+  "note": "The local Vibe CLI stays available, and sessions can be 'teleported up to the cloud'. The Medium 3.5 weights are open and self-hostable."
+ },
+ {
+  "id": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+  "confidence": "medium",
+  "note": "Vibe and Le Chat are end-user products on Pro, Team and Enterprise plans. Medium 3.5 is sold through the API at $1.5/$7.5 per million tokens."
+ },
+ {
+  "id": "openai-codex-cloud-agent--developers-openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://learn.chatgpt.com/docs",
+  "confidence": "high",
+  "note": "Codex is available as the CLI, the IDE extension, the ChatGPT apps and Codex Cloud, with an 'On my computer' option."
+ },
+ {
+  "id": "openai-codex-cloud-agent--developers-openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://learn.chatgpt.com/docs/customization/memories?surface=app",
+  "confidence": "medium",
+  "note": "Memories are a feature of the Codex and ChatGPT apps that end users use."
+ },
+ {
+  "id": "openai-codex-memories-chronicle--developers-openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://learn.chatgpt.com/docs",
+  "confidence": "medium",
+  "note": "The host product Codex runs both locally and in Codex Cloud. Memories themselves are stored locally under ~/.codex/memories/."
+ },
+ {
+  "id": "openai-codex-memories-chronicle--developers-openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://learn.chatgpt.com/docs/customization/memories?surface=app",
+  "confidence": "medium",
+  "note": "A feature of the Codex CLI, IDE extension and ChatGPT desktop app. Chronicle isn't mentioned; the closest is 'Computer History'."
+ },
+ {
+  "id": "replit-agent--replit-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://replit.com/products/agent",
+  "confidence": "medium",
+  "note": "Build and 'launch a production-ready app from one workspace' on Replit."
+ },
+ {
+  "id": "replit-agent--replit-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://replit.com/products/agent",
+  "confidence": "high",
+  "note": "'No coding experience required', aimed at founders, PMs and designers."
+ },
+ {
+  "id": "serena-oraios--gh-oraios-serena",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/oraios/serena",
+  "confidence": "medium",
+  "note": "Installed and run locally through uv as an MCP server next to the user's agent."
+ },
+ {
+  "id": "serena-oraios--gh-oraios-serena",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/oraios/serena",
+  "confidence": "medium",
+  "note": "A finished MCP toolkit, 'The IDE for Your Coding Agent', that plugs into any client."
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.tabnine.com/main",
+  "confidence": "medium",
+  "note": "Tabnine Agent and Chat are coding tools that end users use in an IDE or CLI."
+ },
+ {
+  "id": "agentmemory-rohitg00--agent-memory-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.agent-memory.dev/",
+  "confidence": "high",
+  "note": "'Everything runs inside your machine'. 'There is no hosted tier'."
+ },
+ {
+  "id": "agentmemory-rohitg00--agent-memory-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.agent-memory.dev/",
+  "confidence": "medium",
+  "note": "A memory server that users run to give Claude Code, Cursor and Codex shared memory."
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/mksglu/context-mode",
+  "confidence": "high",
+  "note": "'Nothing leaves your machine. No telemetry, no cloud sync... all local.'"
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/mksglu/context-mode",
+  "confidence": "medium",
+  "note": "An MCP server and plugin installed into Claude Code and other coding agents."
+ },
+ {
+  "id": "memsearch-zilliz--gh-zilliztech-memsearch",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/zilliztech/memsearch",
+  "confidence": "medium",
+  "note": "The default backend is local Milvus Lite at ~/.memsearch/milvus.db. Zilliz's own fully managed Zilliz Cloud is the 'recommended' option."
+ },
+ {
+  "id": "memsearch-zilliz--gh-zilliztech-memsearch",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://github.com/zilliztech/memsearch",
+  "confidence": "high",
+  "note": "There are plugins 'For Agent Users' and a CLI and Python API 'for Agent Developers'."
+ },
+ {
+  "id": "ai-singapore-sea-lion--sea-lion-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://sea-lion.ai/models/",
+  "confidence": "medium",
+  "note": "Open weights on Hugging Face and Ollama for self-hosting, plus a hosted API through a key manager."
+ },
+ {
+  "id": "ai-singapore-sea-lion--sea-lion-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://sea-lion.ai/models/",
+  "confidence": "medium",
+  "note": "A family of open-source models with an API and docs, aimed at developers. There's also a playground and a Telegram bot."
+ },
+ {
+  "id": "aleph-alpha-phariaai-phariacatch--aleph-alpha-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://aleph-alpha.com/en/platform/",
+  "confidence": "medium",
+  "note": "'Available on-premises, air-gapped or as a sovereign SaaS.' The page no longer names PhariaAI or PhariaCatch."
+ },
+ {
+  "id": "aleph-alpha-phariaai-phariacatch--aleph-alpha-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://aleph-alpha.com/en/platform/",
+  "confidence": "high",
+  "note": "'Your sovereign foundation to securely build, scale, and optimize AI solutions.'"
+ },
+ {
+  "id": "anda-hippocampus--gh-ldclabs-anda-hippocampus",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/ldclabs/anda-brain",
+  "confidence": "high",
+  "note": "'The hosted service (brain.anda.ai) has been discontinued. Anda Brain is open source and meant to be self-hosted.'"
+ },
+ {
+  "id": "anda-hippocampus--gh-ldclabs-anda-hippocampus",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/ldclabs/anda-brain",
+  "confidence": "high",
+  "note": "'A self-hosted memory service for LLM agents' that agents call through an API."
+ }
+]
