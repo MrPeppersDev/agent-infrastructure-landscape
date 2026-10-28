@@ -266,12 +266,23 @@ def open_tracking_issue(today: dt.date, body: str, dry_run: bool) -> None:
         print(f"[dry-run] would open issue: {title}", file=sys.stderr)
         return
     try:
+        # Only the latest snapshot needs attention: note the open older ones,
+        # then close them once the new issue exists.
+        older = subprocess.run([
+            "gh", "issue", "list", "--label", "phase-2-rebaseline", "--state", "open",
+            "--json", "number", "--jq", ".[].number",
+        ], check=True, cwd=str(ROOT), capture_output=True, text=True).stdout.split()
         subprocess.run([
             "gh", "issue", "create",
             "--title", title,
             "--label", "phase-2-rebaseline",
             "--body", body,
         ], check=True, cwd=str(ROOT))
+        for n in older:
+            subprocess.run([
+                "gh", "issue", "close", n, "--reason", "not planned",
+                "--comment", f"Superseded by the {today.isoformat()} capability snapshot.",
+            ], check=False, cwd=str(ROOT))
     except subprocess.CalledProcessError as e:
         print(f"capability_rebaseline: gh issue create failed: {e}", file=sys.stderr)
 
