@@ -44,7 +44,7 @@ Flags archived, deprecated, acquired or stale AI dependencies in `package.json`,
 
 ## Use it from your agent (MCP)
 
-The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 23 read-only tools, including `ask_catalog`, `estimate_memory_cost`, `choose_memory_layer`, `choose_framework_or_store`, `check_compatibility`, `find_alternatives`, `check_stack`, `system_history`, `search_records`, `compare`, `find_related`, `find_substrate_risk` and `recent_changes`.
+The MCP server exposes the catalog to Claude Code, Claude Desktop, Cursor or any MCP client. It provides 24 read-only tools, including `ask_catalog`, `estimate_memory_cost`, `estimate_vector_store_cost`, `choose_memory_layer`, `choose_framework_or_store`, `check_compatibility`, `find_alternatives`, `check_stack`, `system_history`, `search_records`, `compare`, `find_related`, `find_substrate_risk` and `recent_changes`.
 
 ```sh
 git clone https://github.com/MrPeppersDev/agent-infrastructure-landscape

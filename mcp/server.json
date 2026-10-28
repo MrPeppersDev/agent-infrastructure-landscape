@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.MrPeppersDev/landscape",
+  "description": "Query a citation-backed catalog of ~950 AI agent memory, framework and vector-store systems.",
+  "repository": {
+    "url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape",
+    "source": "github"
+  },
+  "version": "1.0.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "landscape-mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

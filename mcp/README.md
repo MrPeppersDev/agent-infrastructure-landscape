@@ -71,6 +71,16 @@ claude mcp add landscape -- npx -y landscape-mcp@1.0.0
 }
 ```
 
+### MCP Registry
+
+`server.json` describes this server for the [official MCP Registry](https://registry.modelcontextprotocol.io) as `io.github.MrPeppersDev/landscape`. The registry checks that the npm package's `mcpName` matches, so publish in this order, keeping the versions in `package.json` and `server.json` equal:
+
+```bash
+cd mcp && npm publish                 # landscape-mcp at the version in package.json
+mcp-publisher login github            # signs in as the repo owner
+mcp-publisher publish                 # reads server.json
+```
+
 ### Versions
 
 npm version tracks the bundled `data-vX.Y.Z` tag; bump on dataset releases only. Pin to a specific version (e.g. `landscape-mcp@1.0.0`) when you care about reproducibility — otherwise `npx -y landscape-mcp` picks up whichever dataset shipped most recently.
