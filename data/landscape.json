@@ -59149,7 +59149,7 @@
       "name": "Anthropic Claude (foundation models)",
       "tier": 1,
       "url": "https://www.anthropic.com/claude",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -59291,11 +59291,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$23B+ total raised; $183B+ valuation (Series F-G 2025-26); Amazon $8B + Google $2B strategic investments",
-          "citation": "https://www.anthropic.com/claude",
+          "value": "$65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+          "citation": "https://www.anthropic.com/news/series-h",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-28"
         },
         "customers": {
           "value": "DBS Bank, Lyft, Bridgewater, Pfizer, Snowflake, AWS Bedrock customers, Slack, Zoom, Notion, Asana; Claude.ai consumer (millions of users)",
@@ -59897,7 +59897,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/series-h",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -61403,7 +61406,7 @@
       "name": "Anthropic Computer Use",
       "tier": 1,
       "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -61530,11 +61533,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "searched not found",
-          "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-          "status": "depth-floor-reached",
+          "value": "Anthropic (parent) — $65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+          "citation": "https://www.anthropic.com/news/series-h",
+          "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-28"
         },
         "customers": {
           "value": "searched not found",
@@ -62142,7 +62145,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/series-h",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -62513,7 +62519,7 @@
       "name": "Anthropic Computer Use",
       "tier": 1,
       "url": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -62640,11 +62646,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "Anthropic (parent — $13.7B Sep-2025)",
-          "citation": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
+          "value": "Anthropic (parent) — $65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+          "citation": "https://www.anthropic.com/news/series-h",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-28"
         },
         "customers": {
           "value": "API customers; broad horizontal",
@@ -63246,7 +63252,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/series-h",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -63627,7 +63636,7 @@
       "name": "Anthropic Managed Agents — Memory",
       "tier": 3,
       "url": "https://platform.claude.com/docs/en/managed-agents/overview",
-      "last_verified_at": "2026-10-22",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Platform-provider memory",
@@ -63754,11 +63763,11 @@
           "last_verified_at": "2026-05-06"
         },
         "funding": {
-          "value": "Anthropic $12.4B+ raised; $40B valuation",
-          "citation": "https://www.anthropic.com/company",
+          "value": "Anthropic (parent) — $65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+          "citation": "https://www.anthropic.com/news/series-h",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-28"
         },
         "customers": {
           "value": "Rakuten (97% fewer first-pass errors, 27% lower cost, 34% lower latency in early use)",
@@ -64360,7 +64369,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/series-h",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -152564,7 +152576,7 @@
       "name": "Claude Code (Anthropic)",
       "tier": 1,
       "url": "https://www.anthropic.com/claude-code",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -152691,11 +152703,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "Anthropic (parent) — $13.7B Series F 2025-09 $183B val",
-          "citation": "https://www.anthropic.com/claude-code",
+          "value": "Anthropic (parent) — $65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+          "citation": "https://www.anthropic.com/news/series-h",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-13"
+          "last_verified_at": "2026-10-28"
         },
         "customers": {
           "value": "Anthropic API customers (broad); preferred harness for Claude coding evals",
@@ -152740,8 +152752,8 @@
           "tier": "T2"
         },
         "volume": {
-          "value": "no scale claim",
-          "citation": "https://www.anthropic.com/claude-code",
+          "value": "Claude Code run-rate revenue over $2.5B (2026-02-12; more than doubled since the start of 2026)",
+          "citation": "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation",
           "status": "real-data",
           "tier": "T2"
         },
@@ -153306,7 +153318,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/series-h",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -153344,7 +153359,10 @@
           "verified": true
         },
         "volume": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "perf": {
@@ -155832,7 +155850,7 @@
       "name": "Claude for Chrome",
       "tier": 1,
       "url": "https://www.anthropic.com/news/claude-for-chrome",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -155959,11 +155977,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "Anthropic parent — $13.7B raised Sep-2025; ~$170B val",
-          "citation": "https://www.anthropic.com/news/claude-for-chrome",
+          "value": "Anthropic (parent) — $65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+          "citation": "https://www.anthropic.com/news/series-h",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-28"
         },
         "customers": {
           "value": "Claude Max subscribers (preview)",
@@ -156565,7 +156583,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.anthropic.com/news/series-h",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
