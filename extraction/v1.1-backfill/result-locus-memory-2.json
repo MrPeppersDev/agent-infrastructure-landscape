@@ -1,0 +1,806 @@
+[
+ {
+  "id": "autoglm-zhipu-ai--xiao9905-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://xiao9905.github.io/AutoGLM/",
+  "confidence": "high",
+  "note": "AutoGLM is a foundation agent for autonomous control of phones/PCs through GUIs."
+ },
+ {
+  "id": "autoglm-zhipu-ai--xiao9905-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://xiao9905.github.io/AutoGLM/",
+  "confidence": "medium",
+  "note": "Page offers Open-AutoGLM framework + model weights with a Python API for integration, and shows an integrated product version for phone and web."
+ },
+ {
+  "id": "backboard--github-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://backboard.io/products/api",
+  "confidence": "high",
+  "note": "Backboard says 'Pick Studio or the Stateful API'; Stateful API/SDK for builders and Studio web/mobile workspace for users."
+ },
+ {
+  "id": "byterover--byterover-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.byterover.dev/",
+  "confidence": "medium",
+  "note": "Installed app/CLI used with local coding agents; cloud is an optional sync layer ('Cloud sync option')."
+ },
+ {
+  "id": "byterover--byterover-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.byterover.dev/pricing",
+  "confidence": "medium",
+  "note": "Sold as Free/Pro/Enterprise plans of shared agent memory for teams using coding agents."
+ },
+ {
+  "id": "cipher-byterover--gh-campfirein-cipher",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/campfirein/byterover-cli",
+  "confidence": "high",
+  "note": "README: run `brv` in any project directory; interactive REPL CLI with optional cloud push/pull sync."
+ },
+ {
+  "id": "cipher-byterover--gh-campfirein-cipher",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/campfirein/byterover-cli",
+  "confidence": "medium",
+  "note": "README describes an interactive CLI/TUI that gives developers' coding agents persistent memory."
+ },
+ {
+  "id": "cognee--cognee-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.cognee.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing offers hosted Free/Standard plans and says 'Cognee is open source. Run the full memory engine locally or on your own stack'."
+ },
+ {
+  "id": "cognee--cognee-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.cognee.ai/",
+  "confidence": "high",
+  "note": "'Open-Source Agent Memory Platform'; pip install cognee SDK for agent builders."
+ },
+ {
+  "id": "hindsight-vectorize--hindsight-vectorize-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://hindsight.vectorize.io/cloud-enterprise/overview",
+  "confidence": "high",
+  "note": "'Hindsight runs three ways': self-hosted open source, managed Hindsight Cloud, Enterprise."
+ },
+ {
+  "id": "hindsight-vectorize--hindsight-vectorize-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://hindsight.vectorize.io/",
+  "confidence": "high",
+  "note": "Long-term memory engine for agents with API, Python/TS/Go clients and framework integrations."
+ },
+ {
+  "id": "honcho-plastic-labs--honcho-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://honcho.dev/docs/v3/documentation/introduction/overview",
+  "confidence": "high",
+  "note": "Docs: 'Self-host or use Honcho Cloud'."
+ },
+ {
+  "id": "honcho-plastic-labs--honcho-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://honcho.dev/docs/v3/documentation/introduction/overview",
+  "confidence": "high",
+  "note": "'an open source memory library with a managed service for building stateful agents'."
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.hyperspell.com/",
+  "confidence": "medium",
+  "note": "Hosted company brain: connect sources via OAuth, served to agents; no self-host option described."
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.hyperspell.com/",
+  "confidence": "medium",
+  "note": "Context layer any agent can read, with a 'universal API and SDK' and 50+ connectors."
+ },
+ {
+  "id": "interloom--interloom-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://interloom.com/en/security",
+  "confidence": "medium",
+  "note": "Security page describes Interloom-hosted Azure deployments, including single-tenant hosting; no self-host."
+ },
+ {
+  "id": "interloom--interloom-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://interloom.com/en/builders/",
+  "confidence": "medium",
+  "note": "Site has an Operators workspace product and a Builders track (CLI, REST API, MCP) for agent builders."
+ },
+ {
+  "id": "jamba-ai21-labs--ai21-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.ai21.com/docs/jamba-foundation-models",
+  "confidence": "high",
+  "note": "Docs: access Jamba via the AI21 Studio API or deploy privately (VPC, on-prem); weights downloadable."
+ },
+ {
+  "id": "jamba-ai21-labs--ai21-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.ai21.com/docs/jamba-foundation-models",
+  "confidence": "high",
+  "note": "Foundation model offered to developers via API/SDKs and private deployment."
+ },
+ {
+  "id": "letta-memgpt--letta-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/letta-ai/letta",
+  "confidence": "high",
+  "note": "README: 'letta server' for local or self-hosted agents, plus Letta Cloud and chat.letta.com."
+ },
+ {
+  "id": "letta-memgpt--letta-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://github.com/letta-ai/letta",
+  "confidence": "medium",
+  "note": "README lists the Letta agent app (terminal UI, chat.letta.com web/mobile) and the Letta Agent SDK for building agents."
+ },
+ {
+  "id": "m3-agent-bytedance--gh-bytedance-seed-m3-agent",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/ByteDance-Seed/m3-agent",
+  "confidence": "medium",
+  "note": "Research code (ICLR 2026) with model weights, run by the user; no hosted service."
+ },
+ {
+  "id": "m3-agent-bytedance--gh-bytedance-seed-m3-agent",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/ByteDance-Seed/m3-agent",
+  "confidence": "medium",
+  "note": "Released as a research framework and model for builders/researchers, not an end-user app."
+ },
+ {
+  "id": "mem0--mem0-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.mem0.ai/open-source/overview",
+  "confidence": "high",
+  "note": "'Mem0 Open Source is the same memory engine as the Platform, running on your own infrastructure'."
+ },
+ {
+  "id": "mem0--mem0-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://mem0.ai/",
+  "confidence": "high",
+  "note": "'Drop-in memory infrastructure for AI agents and apps' with SDK and API key."
+ },
+ {
+  "id": "memmachine--gh-memmachine-memmachine",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/MemMachine/MemMachine",
+  "confidence": "high",
+  "note": "README: 'Self-Hosted or Cloud: Run locally, in Docker, or use our managed service'."
+ },
+ {
+  "id": "memmachine--gh-memmachine-memmachine",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/MemMachine/MemMachine",
+  "confidence": "high",
+  "note": "'The open-source memory layer for AI agents' added with a few lines of code."
+ },
+ {
+  "id": "memwal-walrus--decrypt-co",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/MystenLabs/MemWal/blob/main/docs/relayer/overview.md",
+  "confidence": "medium",
+  "note": "SDK talks to a relayer that 'can be self-hosted or run in a TEE'; self-hosting offered to reduce trust in the default relayer."
+ },
+ {
+  "id": "memwal-walrus--decrypt-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/MystenLabs/MemWal",
+  "confidence": "high",
+  "note": "Walrus Memory is a TypeScript SDK (@mysten-incubation/memwal) for builders to give agents portable memory."
+ },
+ {
+  "id": "memanto-moorcheh--memanto-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.memanto.ai/getting-started/installation",
+  "confidence": "high",
+  "note": "'Memanto runs on either backend': Moorcheh Cloud (hosted) or On-Prem local server in Docker."
+ },
+ {
+  "id": "memanto-moorcheh--memanto-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://memanto.ai/",
+  "confidence": "medium",
+  "note": "Memory agent for developers' agents, shipped as CLI, REST API and Python/TS/Go SDKs."
+ },
+ {
+  "id": "memary--gh-kingjulio8238-memary",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/kingjulio8238/Memary",
+  "confidence": "medium",
+  "note": "Open-source Python library run by the user against their own graph DB and models; no hosted service."
+ },
+ {
+  "id": "memary--gh-kingjulio8238-memary",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/kingjulio8238/Memary",
+  "confidence": "medium",
+  "note": "Memory framework for developers building autonomous agents."
+ },
+ {
+  "id": "memobase--gh-memodb-io-memobase",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/memodb-io/memobase",
+  "confidence": "high",
+  "note": "README: start a Memobase server locally (fully dockerized) or use Memobase Cloud (api.memobase.dev)."
+ },
+ {
+  "id": "memobase--gh-memodb-io-memobase",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/memodb-io/memobase",
+  "confidence": "high",
+  "note": "Integrate via API and Python/Node/Go SDKs into your LLM stack."
+ },
+ {
+  "id": "memori--gh-memorilabs-memori",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/MemoriLabs/Memori",
+  "confidence": "high",
+  "note": "README offers Memori Cloud (API key) and BYODB with your own database via pip install memori."
+ },
+ {
+  "id": "memori--gh-memorilabs-memori",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/MemoriLabs/Memori",
+  "confidence": "high",
+  "note": "LLM/datastore/framework-agnostic memory layer that plugs into agent builders' architecture."
+ },
+ {
+  "id": "memori-gibsonai--gh-gibsonai-memori",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/MemoriLabs/Memori",
+  "confidence": "high",
+  "note": "README offers Memori Cloud (API key) and BYODB with your own database via pip install memori."
+ },
+ {
+  "id": "memori-gibsonai--gh-gibsonai-memori",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/MemoriLabs/Memori",
+  "confidence": "high",
+  "note": "LLM/datastore/framework-agnostic memory layer that plugs into agent builders' architecture."
+ },
+ {
+  "id": "memoria-matrixorigin--medium-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/matrixorigin/Memoria",
+  "confidence": "high",
+  "note": "README: free Memoria Cloud or Self-Hosted via Docker Compose."
+ },
+ {
+  "id": "memoria-matrixorigin--medium-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/matrixorigin/Memoria",
+  "confidence": "high",
+  "note": "'Git for AI Agent Memory' with API for agent builders."
+ },
+ {
+  "id": "memoripy--gh-caspianmoon-memoripy",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/caspianmoon/memoripy",
+  "confidence": "high",
+  "note": "'an evidence-first, local memory runtime for AI agents'; gateway is self-hosted."
+ },
+ {
+  "id": "memoripy--gh-caspianmoon-memoripy",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/caspianmoon/memoripy",
+  "confidence": "medium",
+  "note": "Library/runtime for developers adding memory to AI agents."
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://mem.store/",
+  "confidence": "medium",
+  "note": "MemStore is a hosted MCP server billed per team member; no self-host option described."
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://mem.store/",
+  "confidence": "medium",
+  "note": "Sold to teams at $150/member/month with morning rollup emails; a finished team service."
+ },
+ {
+  "id": "memorybear--memorybear-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/SuanmoSuanyangTechnology/MemoryBear",
+  "confidence": "medium",
+  "note": "Open-source, Docker-ready service you run yourself; memorybear.ai also offers a hosted trial with login and pricing."
+ },
+ {
+  "id": "memorybear--memorybear-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/SuanmoSuanyangTechnology/MemoryBear",
+  "confidence": "medium",
+  "note": "Memory system exposing Management and Service APIs for integration into agents and enterprise systems."
+ },
+ {
+  "id": "memvid--gh-memvid-memvid",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/memvid/memvid",
+  "confidence": "high",
+  "note": "'a portable, serverless memory layer' in a single file that 'works fully offline'."
+ },
+ {
+  "id": "memvid--gh-memvid-memvid",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/memvid/memvid",
+  "confidence": "high",
+  "note": "Memory layer library developers embed to give AI agents persistent memory."
+ },
+ {
+  "id": "naver-hyperclova-x-think--navercorp-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://navercorp.com/en/tech/hyperclovax",
+  "confidence": "medium",
+  "note": "HyperCLOVA X (incl. THINK) is offered through NAVER's CLOVA Studio development tool; THINK is not in the open SEED line."
+ },
+ {
+  "id": "naver-hyperclova-x-think--navercorp-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://navercorp.com/en/tech/hyperclovax",
+  "confidence": "medium",
+  "note": "'CLOVA Studio is the definitive development tool for easily creating specialized AI-powered services'."
+ },
+ {
+  "id": "nvidia-inference-context-memory-storage-platform--nvidianews-nvidia-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+  "confidence": "medium",
+  "note": "Rack-scale BlueField-4 storage tier deployed in the customer's AI data center with partner storage."
+ },
+ {
+  "id": "nvidia-inference-context-memory-storage-platform--nvidianews-nvidia-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+  "confidence": "high",
+  "note": "Infrastructure plus the DOCA Memos SDK exposing key-value APIs for KV-cache sharing."
+ },
+ {
+  "id": "neo4j-agent-memory-neo4j-labs--gh-neo4j-labs-agent-memory",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/neo4j-labs/agent-memory",
+  "confidence": "high",
+  "note": "README: hosted NAMS service or a self-hosted Neo4j (bolt) path."
+ },
+ {
+  "id": "neo4j-agent-memory-neo4j-labs--gh-neo4j-labs-agent-memory",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/neo4j-labs/agent-memory",
+  "confidence": "high",
+  "note": "Graph-native memory library (Python/TypeScript) for agent developers."
+ },
+ {
+  "id": "o-mem--gh-oppo-personalai-o-mem",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+  "confidence": "medium",
+  "note": "Research code with evaluation scripts, run by the user; no hosted service."
+ },
+ {
+  "id": "o-mem--gh-oppo-personalai-o-mem",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+  "confidence": "medium",
+  "note": "Released as a memory system/framework for agent researchers and builders."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://omegamax.co/",
+  "confidence": "high",
+  "note": "'local, token-efficient working context. No cloud memory'; local SQLite store, zero cloud dependency."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://omegamax.co/",
+  "confidence": "medium",
+  "note": "Sold as Core (free) and Pro ($19/mo) to developers to plug into Claude Code, Cursor and similar tools."
+ },
+ {
+  "id": "openmemory--gh-caviraoss-openmemory",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/CaviraOSS/LongMemory",
+  "confidence": "high",
+  "note": "'Local-first and self-hosted'; Docker image and self-hosted server."
+ },
+ {
+  "id": "openmemory--gh-caviraoss-openmemory",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/CaviraOSS/LongMemory",
+  "confidence": "medium",
+  "note": "Memory engine for AI agents with SDK clients that call a self-hosted server."
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/volcengine/OpenViking",
+  "confidence": "high",
+  "note": "Installer offers a self-hosted/local server or Volcengine OpenViking Cloud."
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/volcengine/OpenViking",
+  "confidence": "high",
+  "note": "'The Context Database for AI Agents'."
+ },
+ {
+  "id": "pieces-for-developers-ltm--pieces-app",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://pieces.app/",
+  "confidence": "high",
+  "note": "'Pieces runs in the background on your computer'; pricing lists 'Long-Term Memory, saved on-device'."
+ },
+ {
+  "id": "pieces-for-developers-ltm--pieces-app",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://pieces.app/pricing",
+  "confidence": "high",
+  "note": "Sold as a Pro ($18.99/user/month) and Enterprise app for individuals."
+ },
+ {
+  "id": "redis-agent-memory-server--gh-redis-agent-memory-server",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://github.com/redis/agent-memory-server",
+  "confidence": "medium",
+  "note": "README: 'Redis's managed memory layer' on Redis Cloud; the original OSS server is kept in V0/ as a research artifact, 'not the supported production distribution'."
+ },
+ {
+  "id": "redis-agent-memory-server--gh-redis-agent-memory-server",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/redis/agent-memory-server",
+  "confidence": "high",
+  "note": "Used through Python/TypeScript SDKs and REST API by agent builders."
+ },
+ {
+  "id": "superlocalmemory--superlocalmemory-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.superlocalmemory.com/",
+  "confidence": "high",
+  "note": "'Local-first and governed'; installed via npm/pipx and runs on your machine."
+ },
+ {
+  "id": "superlocalmemory--superlocalmemory-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.superlocalmemory.com/",
+  "confidence": "medium",
+  "note": "Installed by users to give the AI tools they already use (Claude Code, Cursor, ChatGPT) one memory."
+ },
+ {
+  "id": "supermemory--supermemory-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://supermemory.ai/pricing/",
+  "confidence": "medium",
+  "note": "Hosted plans; pricing FAQ says 'Self-hosted deployments are available on Scale and Enterprise'."
+ },
+ {
+  "id": "supermemory--supermemory-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://supermemory.ai/",
+  "confidence": "high",
+  "note": "'Available through our API, plugins, and MCP'; plans are 'for developers building with AI memory'."
+ },
+ {
+  "id": "tencentdb-agent-memory--gh-tencent-tencentdb-agent-memory",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/Tencent/TencentDB-Agent-Memory",
+  "confidence": "medium",
+  "note": "Install by cloning and deploying the Memory Hub yourself; panel at localhost:8125."
+ },
+ {
+  "id": "tencentdb-agent-memory--gh-tencent-tencentdb-agent-memory",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/Tencent/TencentDB-Agent-Memory",
+  "confidence": "medium",
+  "note": "Shared memory server that teams wire into agents (Claude Code, CodeBuddy, Hermes)."
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.trace.so/",
+  "confidence": "medium",
+  "note": "'AI orchestration layer for modern teams' that aligns agents and people across departments."
+ },
+ {
+  "id": "vektor-memory--dev-to",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://vektormemory.com/",
+  "confidence": "medium",
+  "note": "'Own the data on your machine'; desktop downloads and local Ollama."
+ },
+ {
+  "id": "vektor-memory--dev-to",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://vektormemory.com/",
+  "confidence": "medium",
+  "note": "Sells a multi-agent workspace app and the Slipstream SDK ($9/month)."
+ },
+ {
+  "id": "zep-graphiti--getzep-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/getzep/graphiti",
+  "confidence": "high",
+  "note": "README: Zep is fully managed or BYOC; Graphiti is open source and self-hosted."
+ },
+ {
+  "id": "zep-graphiti--getzep-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/",
+  "confidence": "high",
+  "note": "'The unified context layer for enterprise data' with API, SDKs and MCP server for agents."
+ },
+ {
+  "id": "gbrain-garry-tan--gh-garrytan-gbrain",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/garrytan/gbrain",
+  "confidence": "high",
+  "note": "'a memory you control'; runs on your own computer and can be exposed over Tailscale."
+ },
+ {
+  "id": "gbrain-garry-tan--gh-garrytan-gbrain",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/garrytan/gbrain",
+  "confidence": "medium",
+  "note": "'Give the agent you already use a memory you control'; installed by users into their agents."
+ },
+ {
+  "id": "memu-nevamind--gh-nevamind-ai-memu",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/NevaMind-AI/memU",
+  "confidence": "high",
+  "note": "README offers Self-hosted (local store) or memU Cloud at memu.so."
+ },
+ {
+  "id": "memu-nevamind--gh-nevamind-ai-memu",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/NevaMind-AI/memU",
+  "confidence": "medium",
+  "note": "'Personal memory, stored as Wiki'; gives users a shared LLM wiki across their agents."
+ },
+ {
+  "id": "basic-memory--gh-basicmachines-co-basic-memory",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/basicmachines-co/basic-memory",
+  "confidence": "high",
+  "note": "'Local-first. Plain text on your disk' plus paid Basic Memory Cloud."
+ },
+ {
+  "id": "basic-memory--gh-basicmachines-co-basic-memory",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/basicmachines-co/basic-memory",
+  "confidence": "medium",
+  "note": "'Your AI never forgets again'; sold to users of Claude, Codex, Cursor at $15/mo for cloud."
+ },
+ {
+  "id": "aider-conventions-md-aider-conf-yml--aider-chat",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://aider.chat/docs/usage/conventions.html",
+  "confidence": "high",
+  "note": "Host product: 'Aider is AI pair programming in your terminal'."
+ },
+ {
+  "id": "aider-conventions-md-aider-conf-yml--aider-chat",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://aider.chat/docs/usage/conventions.html",
+  "confidence": "medium",
+  "note": "Host product Aider is an end-user coding assistant; conventions loaded via --read."
+ },
+ {
+  "id": "claude-md--docs-claude-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://code.claude.com/docs/en/memory",
+  "confidence": "medium",
+  "note": "Host product Claude Code is a finished coding agent; CLAUDE.md is its memory feature."
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://cline.bot/",
+  "confidence": "medium",
+  "note": "Host product Cline ships Desktop, IDE and CLI apps plus an SDK ('npm install @cline/sdk')."
+ },
+ {
+  "id": "agents-md--agents-md",
+  "cell": "architecture-deployment-locus",
+  "value": "not applicable — open file-format convention (AGENTS.md), not deployable software",
+  "status": "not-applicable"
+ },
+ {
+  "id": "agents-md--agents-md",
+  "cell": "positioning-platform-vs-product",
+  "value": "not applicable — open file-format convention (AGENTS.md), not deployable software",
+  "status": "not-applicable"
+ }
+]

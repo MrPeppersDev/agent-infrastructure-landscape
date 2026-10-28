@@ -1,0 +1,488 @@
+[
+ {
+  "id": "bge-baai--huggingface-co",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/FlagOpen/FlagEmbedding/master/README.md",
+  "confidence": "high",
+  "note": "FlagEmbedding README distributes BGE as open models and a pip library you run yourself."
+ },
+ {
+  "id": "bge-baai--huggingface-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/FlagOpen/FlagEmbedding/master/README.md",
+  "confidence": "high",
+  "note": "Released as embedding models and a library for developers building retrieval."
+ },
+ {
+  "id": "cohere-embed--cohere-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://cohere.com/embed",
+  "confidence": "medium",
+  "note": "Embed is served by the Cohere API and is 'privately deployable' in your VPC or on-premises, or via major cloud services."
+ },
+ {
+  "id": "cohere-embed--cohere-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://cohere.com/embed",
+  "confidence": "high",
+  "note": "Embed is an embedding model offered via API for production retrieval systems."
+ },
+ {
+  "id": "gte-alibaba-nlp--huggingface-co",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://huggingface.co/thenlper/gte-large",
+  "confidence": "high",
+  "note": "Open weights on the Hugging Face model card, run locally with sentence-transformers or transformers."
+ },
+ {
+  "id": "gte-alibaba-nlp--huggingface-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://huggingface.co/thenlper/gte-large",
+  "confidence": "high",
+  "note": "Released as an open embedding model for developers."
+ },
+ {
+  "id": "hugging-face-inference-api-embeddings--huggingface-co",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://huggingface.co/docs/inference-providers/index",
+  "confidence": "medium",
+  "note": "The api-inference docs now resolve to Inference Providers, described as serverless inference on partner providers; self-hosted TEI is a separate project."
+ },
+ {
+  "id": "hugging-face-inference-api-embeddings--huggingface-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://huggingface.co/docs/inference-providers/index",
+  "confidence": "high",
+  "note": "Inference Providers give developers API and SDK access to hundreds of models."
+ },
+ {
+  "id": "jina-ai-embeddings--jina-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://jina.ai/embeddings/",
+  "confidence": "medium",
+  "note": "Hosted Jina API with free trial, plus AWS/Azure/GCP marketplace deployment in your own cloud account and Jina On-Prem containers sold by Elastic."
+ },
+ {
+  "id": "jina-ai-embeddings--jina-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://jina.ai/embeddings/",
+  "confidence": "high",
+  "note": "Embedding API and models for search and RAG systems."
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.mistral.ai/studio/knowledge-rag/embeddings",
+  "confidence": "medium",
+  "note": "Docs describe mistral-embed only through Mistral's Embeddings API."
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.mistral.ai/studio/knowledge-rag/embeddings",
+  "confidence": "high",
+  "note": "Mistral's Embeddings API provides text and code embeddings for developers."
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.mixedbread.com/",
+  "confidence": "medium",
+  "note": "Hosted platform with free tier; 'region deploy and on-premise' available, and earlier open-weight models are on Hugging Face."
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.mixedbread.com/",
+  "confidence": "high",
+  "note": "Sold to builders as search/embedding infrastructure for agents ('Ship agents with context')."
+ },
+ {
+  "id": "nomic-embed--nomic-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+  "confidence": "medium",
+  "note": "Open weights on Hugging Face run locally; nomic.ai also offers a hosted Agent API that embeds files."
+ },
+ {
+  "id": "nomic-embed--nomic-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+  "confidence": "high",
+  "note": "Released as an open embedding model with library usage examples for developers."
+ },
+ {
+  "id": "openai-embeddings--platform-openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://developers.openai.com/api/docs/guides/embeddings",
+  "confidence": "high",
+  "note": "Embeddings are obtained by sending text to the OpenAI embeddings API endpoint."
+ },
+ {
+  "id": "openai-embeddings--platform-openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://developers.openai.com/api/docs/guides/embeddings",
+  "confidence": "high",
+  "note": "An API offering for developers, billed per input token."
+ },
+ {
+  "id": "sentence-transformers--sbert-net",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/README.md",
+  "confidence": "high",
+  "note": "A Python library installed with pip that runs models locally."
+ },
+ {
+  "id": "sentence-transformers--sbert-net",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/README.md",
+  "confidence": "high",
+  "note": "An open-source framework/library for developers to compute embeddings."
+ },
+ {
+  "id": "voyage-ai-mongodb--voyageai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.voyageai.com/",
+  "confidence": "medium",
+  "note": "'SaaS and customer tenant deployment (in-VPC)' via cloud providers; on-premise and model licensing by contact."
+ },
+ {
+  "id": "voyage-ai-mongodb--voyageai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.voyageai.com/",
+  "confidence": "high",
+  "note": "Embedding/reranking models sold via pay-as-you-go API that plug into any vector DB and LLM."
+ },
+ {
+  "id": "clarivate--clarivate-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://clarivate.com/",
+  "confidence": "medium",
+  "note": "Sells end-user research tools (Web of Science, EndNote, Derwent) and also data APIs and XML feeds for integration."
+ },
+ {
+  "id": "coveo--coveo-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.coveo.com/en/platform",
+  "confidence": "high",
+  "note": "Describes 'our single SaaS platform'; no on-premises option mentioned."
+ },
+ {
+  "id": "coveo--coveo-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.coveo.com/en/platform",
+  "confidence": "high",
+  "note": "An 'API-led' relevance platform that developers integrate and extend (Headless toolkit, APIs)."
+ },
+ {
+  "id": "glean--glean-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.glean.com/platform/security",
+  "confidence": "medium",
+  "note": "Vendor-delivered service; the only alternative named is hosting Glean in the customer's own cloud tenant as an enterprise arrangement."
+ },
+ {
+  "id": "glean--glean-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://www.glean.com/",
+  "confidence": "medium",
+  "note": "Sells an end-user Work AI assistant and search alongside APIs, connectors and an agent-building platform."
+ },
+ {
+  "id": "meilisearch--meilisearch-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.meilisearch.com/pricing",
+  "confidence": "high",
+  "note": "Pricing FAQ: self-hosting is free under MIT, or use fully managed Meilisearch Cloud with a free start."
+ },
+ {
+  "id": "meilisearch--meilisearch-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.meilisearch.com/",
+  "confidence": "high",
+  "note": "A search engine with APIs and SDKs for developers."
+ },
+ {
+  "id": "mindbreeze-inspire--mindbreeze-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.mindbreeze.com/deployment-options",
+  "confidence": "high",
+  "note": "InSpire ships as an on-premises 'appliance box' and also as a SaaS deployment option."
+ },
+ {
+  "id": "mindbreeze-inspire--mindbreeze-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://www.mindbreeze.com/mindbreeze-inspire",
+  "confidence": "medium",
+  "note": "End users work through Insight Workplace in M365/Teams; developers get RESTful OpenAPI access and an OEM option."
+ },
+ {
+  "id": "searchunify--searchunify-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.searchunify.com/platform/governance/",
+  "confidence": "medium",
+  "note": "SearchUnify operates the service on AWS, with daily EBS snapshots replicated across AWS regions and a status page."
+ },
+ {
+  "id": "searchunify--searchunify-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.searchunify.com/",
+  "confidence": "medium",
+  "note": "Ready-made support agents you switch on: 'No model training. No agent building.'"
+ },
+ {
+  "id": "sinequa--sinequa-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.sinequa.com/product/security/",
+  "confidence": "high",
+  "note": "Customers can deploy Sinequa on-prem, in a private cloud tenant, or use Sinequa's managed SaaS on Azure."
+ },
+ {
+  "id": "sinequa--sinequa-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://www.sinequa.com/",
+  "confidence": "medium",
+  "note": "Offers ready AI assistants and search for employees plus an agentic AI platform with a no-code assistant builder."
+ },
+ {
+  "id": "allegrograph-franz--allegrograph-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://allegrograph.com/products/cloud/",
+  "confidence": "high",
+  "note": "AllegroGraph Cloud is a hosted service with sign-up; self-hosted editions (incl. free edition) are on the downloads page."
+ },
+ {
+  "id": "allegrograph-franz--allegrograph-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://allegrograph.com/",
+  "confidence": "high",
+  "note": "A knowledge graph database platform for developers (docs, quick start)."
+ },
+ {
+  "id": "amazon-neptune-analytics--aws-amazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html",
+  "confidence": "high",
+  "note": "An AWS graph analytics engine you create as a Neptune Analytics graph in AWS."
+ },
+ {
+  "id": "amazon-neptune-analytics--aws-amazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html",
+  "confidence": "high",
+  "note": "A memory-optimized graph database engine for analytics workloads."
+ },
+ {
+  "id": "apache-age--age-apache-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/apache/age/master/README.md",
+  "confidence": "high",
+  "note": "A PostgreSQL extension you install on your own Postgres."
+ },
+ {
+  "id": "apache-age--age-apache-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/apache/age/master/README.md",
+  "confidence": "high",
+  "note": "A graph database extension for PostgreSQL."
+ },
+ {
+  "id": "arangodb--arangodb-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/arangodb/arangodb/devel/README.md",
+  "confidence": "high",
+  "note": "'Runs on-prem, in the cloud'; managed Arango Managed Platform (free to test) or download/Docker."
+ },
+ {
+  "id": "arangodb--arangodb-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/arangodb/arangodb/devel/README.md",
+  "confidence": "high",
+  "note": "A scalable graph database system."
+ },
+ {
+  "id": "dgraph--dgraph-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/dgraph-io/dgraph/main/README.md",
+  "confidence": "medium",
+  "note": "README recommends Docker or source install; dgraph.io now redirects to docs.dgraph.io, which no longer mentions a hosted cloud."
+ },
+ {
+  "id": "dgraph--dgraph-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/dgraph-io/dgraph/main/README.md",
+  "confidence": "high",
+  "note": "A distributed GraphQL database with a graph backend."
+ },
+ {
+  "id": "diffbot--diffbot-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.diffbot.com/pricing/",
+  "confidence": "high",
+  "note": "Plans sell credits across four APIs (Extract, Crawl, NL, Knowledge Graph) plus web search."
+ },
+ {
+  "id": "falkordb--falkordb-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.falkordb.com/",
+  "confidence": "high",
+  "note": "'Fully managed on FalkorDB Cloud, or self-hosted'; open source, runs locally with Docker."
+ },
+ {
+  "id": "falkordb--falkordb-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.falkordb.com/",
+  "confidence": "high",
+  "note": "A graph database for AI agents and GraphRAG."
+ },
+ {
+  "id": "kuzu--kuzudb-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/kuzudb/kuzu/master/README.md",
+  "confidence": "high",
+  "note": "An embedded, serverless graph database integrated into applications; repo now archived."
+ },
+ {
+  "id": "kuzu--kuzudb-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/kuzudb/kuzu/master/README.md",
+  "confidence": "high",
+  "note": "An embedded graph database built for developers."
+ },
+ {
+  "id": "memgraph--memgraph-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://memgraph.com/pricing",
+  "confidence": "high",
+  "note": "Community Edition download plus fully managed Memgraph Cloud on AWS with a free trial."
+ },
+ {
+  "id": "memgraph--memgraph-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://memgraph.com/",
+  "confidence": "high",
+  "note": "A graph database with install scripts, docs and LangChain/LlamaIndex integrations."
+ },
+ {
+  "id": "nebulagraph--nebula-graph-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vesoft-inc/nebula/master/README.md",
+  "confidence": "high",
+  "note": "Apache-2.0 open source you can download and deploy, plus NebulaGraph Cloud on AWS with a 14-day free trial."
+ },
+ {
+  "id": "nebulagraph--nebula-graph-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://nebula-graph.io/",
+  "confidence": "high",
+  "note": "A distributed graph database."
+ }
+]

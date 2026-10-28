@@ -1,4 +1,4 @@
-# v1.1.0 research backfill — agents family (2026-10-28)
+# v1.1.0 research backfill (2026-10-28)
 
 Step 4 of #150 (option 1). Applied with `scripts/apply_v1_1_research.py`, which writes one cell plus its provenance, checks each value against `docs/schema/`, and leaves the row's `last_verified_at` alone.
 
@@ -67,3 +67,56 @@ Four research agents worked on batches of about 54 rows each (`input-locus-agent
   - Pydantic AI → pydantic.dev/docs/ai
   - Claude Code → claude.com/product/claude-code
   - Cognition → cognition.com
+
+## Memory (314 rows) and data (58 rows) families
+
+Six memory batches and two data batches, briefed the same way as the agents batches (`input-locus-{memory,data}-*.json` → `result-locus-{memory,data}-*.json`). That's 637 cells; values were only applied where the vendor's own page settled them.
+
+- **Rules added for these families:**
+  - A memory plugin or MCP server that end users install into their own coding agent or assistant is `product` (medium). A memory backend with an API or SDK for builders is `platform`.
+  - A self-hostable "cloud" edition you run yourself with docker is `local`.
+  - A memory feature or memory file inside a host product takes the host's values. If the host runs on several surfaces with no primary one, locus is omitted.
+  - Research papers with no deployed system are `not-applicable`. Their released code usually has its own GitHub row.
+  - Embedding vendors whose models you can run yourself (open weights, or a public cloud-marketplace listing) alongside the hosted API are `hybrid`.
+- **Running totals after this PR:**
+  - Locus on 458 rows: cloud 149, local 145, hybrid 104, ide 19, computer-use 13, not-applicable 28.
+  - Positioning on 531 rows.
+
+### More lifecycle leads (not applied; verify before writing)
+
+- **Ownership changes:**
+  - Character.ai announced a voluntary Chapter 11 sale (blog post, 2026-10-12).
+  - Meta acquired Limitless; the Pendant is no longer sold.
+  - Stack AI: the homepage says Asana acquired it.
+  - Lakera is now part of Check Point.
+  - Chroma says it is joining Replit.
+  - Quickwit says it is joining Datadog.
+  - Search.io now redirects to Algolia.
+- **Archived or no longer maintained:**
+  - Flowise (archived) and Atlas.
+  - Kuzu (repo archived).
+  - Acontext; the official Mem0 MCP (repo archived).
+  - Microsoft GraphRAG and TGI are in maintenance mode.
+  - Marqo's open-source engine is deprecated.
+  - Letta's V1 API server is archived; its source has moved to letta-code.
+- **Dead or empty sites:** Steamship, Heyday, Spirit AI and Covariant.
+- **Pivots:**
+  - Nyne → data licensing.
+  - Personal.ai → telecom.
+  - Nomic → architecture, engineering and construction agents.
+  - Backboard → inference.
+  - Redis Agent Memory Server → a managed Redis Cloud service.
+  - AutoRAG → a desktop app.
+  - Gemini CLI → Antigravity CLI.
+  - Edge Copilot Mode was retired.
+- **Renames:**
+  - MemWal → Walrus Memory
+  - Mistral Le Chat → Vibe
+  - Databricks Vector Search → AI Search
+  - TopBraid EDG → TQ Data Foundation
+  - ArangoDB → Arango
+- **Catalog fixes:**
+  - The two Google Memory Bank rows are likely duplicates.
+  - Grok Memory, Tesla FSD and CoCounsel cite secondary sources.
+  - LabGenius' URL points to an unrelated site.
+  - ByteRover's homepage says MIT, but the catalog has Elastic-2.0.

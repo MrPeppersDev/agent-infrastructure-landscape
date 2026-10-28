@@ -1,0 +1,884 @@
+[
+ {
+  "id": "cline-memory-bank--docs-cline-bot",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.cline.bot/cline-overview",
+  "confidence": "high",
+  "note": "Cline docs: 'an AI coding agent that lives in your editor and your terminal'; Memory Bank is a Cline usage pattern."
+ },
+ {
+  "id": "cline-memory-bank--docs-cline-bot",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.cline.bot/cline-overview",
+  "confidence": "medium",
+  "note": "Host product Cline is an installable coding agent application for developers (SDK also offered, but Memory Bank belongs to the app)."
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.continue.dev/",
+  "confidence": "high",
+  "note": "Continue docs: 'open source VS Code and JetBrains extensions'."
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.continue.dev/",
+  "confidence": "high",
+  "note": "Continue is an AI code assistant installed by developers as an editor extension."
+ },
+ {
+  "id": "cursor-rules--docs-cursor-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://cursor.com/docs",
+  "confidence": "medium",
+  "note": "Cursor docs present Cursor as a downloadable editor whose agent reads Rules; cloud agents are secondary."
+ },
+ {
+  "id": "cursor-rules--docs-cursor-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://cursor.com/docs",
+  "confidence": "high",
+  "note": "Cursor is a finished editor application sold to end users; Rules is a feature of it."
+ },
+ {
+  "id": "github-copilot-custom-instructions--gh-copilot-customizing-copilot",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+  "confidence": "medium",
+  "note": "GitHub Copilot is used mainly in IDEs, also on GitHub.com, CLI and a cloud agent; custom instructions apply across them."
+ },
+ {
+  "id": "github-copilot-custom-instructions--gh-copilot-customizing-copilot",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+  "confidence": "high",
+  "note": "GitHub Copilot is an AI coding assistant subscription sold to end users."
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://docs.openclaw.ai/",
+  "confidence": "medium",
+  "note": "OpenClaw docs cover install via CLI/macOS app, Docker, Kubernetes, Raspberry Pi and user-run cloud servers; no vendor-hosted service."
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.openclaw.ai/",
+  "confidence": "medium",
+  "note": "OpenClaw docs center on 'Personal assistant setup' and chat channels: an end-user personal agent."
+ },
+ {
+  "id": "replit-replit-md--docs-replit-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.replit.com/welcome",
+  "confidence": "medium",
+  "note": "Replit is used 'on the web, in the Desktop App, or in the Mobile App' against Replit-hosted workspaces; replit.md configures Replit Agent there."
+ },
+ {
+  "id": "replit-replit-md--docs-replit-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.replit.com/welcome",
+  "confidence": "high",
+  "note": "Replit: 'Turn ideas into real apps and sites. Build, iterate, and publish' - a finished end-user app."
+ },
+ {
+  "id": "sourcegraph-cody-cody-json--docs-sourcegraph-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://sourcegraph.com/docs/cody/capabilities/prompts",
+  "confidence": "medium",
+  "note": "Requires 'Cody extension installed in your IDE (VS Code, JetBrains, Visual Studio)' plus a Sourcegraph Enterprise account."
+ },
+ {
+  "id": "sourcegraph-cody-cody-json--docs-sourcegraph-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://sourcegraph.com/docs/cody/capabilities/prompts",
+  "confidence": "high",
+  "note": "Cody is an AI coding assistant offered to Sourcegraph Enterprise users."
+ },
+ {
+  "id": "windsurf-rules-memories--docs-windsurf-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.devin.ai/desktop/cascade/memories",
+  "confidence": "medium",
+  "note": "Memories & Rules are documented under 'Devin Desktop Editor' (ex-Windsurf) Cascade."
+ },
+ {
+  "id": "windsurf-rules-memories--docs-windsurf-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.devin.ai/desktop/cascade/memories",
+  "confidence": "high",
+  "note": "Devin Desktop is an end-user AI code editor; memories are a feature of it."
+ },
+ {
+  "id": "zed-rules--zed-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://zed.dev/",
+  "confidence": "high",
+  "note": "Zed: 'The world's fastest IDE. Open source. AI optional.' (rules doc page now 404s)."
+ },
+ {
+  "id": "zed-rules--zed-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://zed.dev/",
+  "confidence": "high",
+  "note": "Zed is a downloadable code editor for end users."
+ },
+ {
+  "id": "agixt-adaptive-memory--gh-josh-xt-agixt",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Josh-XT/AGiXT/main/docs/README.md",
+  "confidence": "medium",
+  "note": "README: 'pip install agixt' to self-run, and lists the hosted 'AGiXT Platform: agixt.com'."
+ },
+ {
+  "id": "agixt-adaptive-memory--gh-josh-xt-agixt",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Josh-XT/AGiXT/main/docs/README.md",
+  "confidence": "medium",
+  "note": "README calls AGiXT an 'AI automation platform' with Python and TypeScript SDKs."
+ },
+ {
+  "id": "agno-phidata-memory--docs-phidata-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.agno.com/",
+  "confidence": "medium",
+  "note": "Agno: 'Keep full control by running it in your own cloud'; the Control Plane manages agents you run."
+ },
+ {
+  "id": "agno-phidata-memory--docs-phidata-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.agno.com/",
+  "confidence": "high",
+  "note": "Agno SDK: 'Build agents for your company, product or customers' - a framework for builders."
+ },
+ {
+  "id": "autogen-memory--microsoft-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://microsoft.github.io/autogen/stable/",
+  "confidence": "medium",
+  "note": "AutoGen: 'A framework for building AI agents and applications' installed as Python packages and run by the user."
+ },
+ {
+  "id": "autogen-memory--microsoft-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://microsoft.github.io/autogen/stable/",
+  "confidence": "high",
+  "note": "AutoGen is a developer framework for building multi-agent systems."
+ },
+ {
+  "id": "botpress-llmz--botpress-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://botpress.com/",
+  "confidence": "medium",
+  "note": "Botpress is sold as a hosted platform ('Try for free', workspace plans); no self-host option is offered on the site."
+ },
+ {
+  "id": "botpress-llmz--botpress-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://botpress.com/",
+  "confidence": "medium",
+  "note": "Botpress offers builder tools (Studio, Engine 'AI infrastructure') and a finished helpdesk product (Botpress Desk)."
+ },
+ {
+  "id": "crewai-memory--crewai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.crewai.com/en/introduction",
+  "confidence": "medium",
+  "note": "CrewAI docs pair the open-source crewAI GitHub framework with a 'Start Cloud Trial' link to the hosted AMP at app.crewai.com."
+ },
+ {
+  "id": "crewai-memory--crewai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.crewai.com/en/introduction",
+  "confidence": "high",
+  "note": "CrewAI is a framework and agent-management platform for builders."
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://dspy.ai/",
+  "confidence": "high",
+  "note": "DSPy is an open-source Python library run in the user's own code; History is one of its primitives."
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://dspy.ai/",
+  "confidence": "high",
+  "note": "DSPy is a framework for programming LMs, aimed at developers."
+ },
+ {
+  "id": "google-adk-memory--google-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://adk.dev/sessions/memory/",
+  "confidence": "medium",
+  "note": "ADK memory page offers InMemoryMemoryService (runs locally) and VertexAiMemoryBankService (Google-managed Memory Bank)."
+ },
+ {
+  "id": "google-adk-memory--google-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://adk.dev/sessions/memory/",
+  "confidence": "high",
+  "note": "ADK is Google's Agent Development Kit for developers."
+ },
+ {
+  "id": "haystack-memory-deepset--haystack-deepset-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://haystack.deepset.ai/",
+  "confidence": "medium",
+  "note": "Haystack homepage: open-source 'pip install haystack-ai' plus 'Haystack Enterprise Platform ... Scalable cloud or on-prem deployment. Try ... for free'."
+ },
+ {
+  "id": "haystack-memory-deepset--haystack-deepset-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://haystack.deepset.ai/",
+  "confidence": "high",
+  "note": "'Open Source AI framework for building production-ready, LLM-powered agents and applications'."
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/README.md",
+  "confidence": "medium",
+  "note": "README: user installs and runs it via CLI/Desktop with local, Docker, SSH or user-chosen sandbox backends."
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/README.md",
+  "confidence": "medium",
+  "note": "README: 'The self-improving AI agent' reachable from Telegram, Discord, Slack, CLI - an end-user agent."
+ },
+ {
+  "id": "inngest-agentkit-network-state--agentkit-inngest-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://agentkit.inngest.com/concepts/deployment",
+  "confidence": "medium",
+  "note": "Deployment docs: deploy the AgentKit app to your own cloud (AWS, Vercel, GCP) and sync it to Inngest's hosted platform."
+ },
+ {
+  "id": "inngest-agentkit-network-state--agentkit-inngest-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://agentkit.inngest.com/",
+  "confidence": "high",
+  "note": "AgentKit is a TypeScript library for developers building agent networks."
+ },
+ {
+  "id": "langgraph-persistence--docs-langchain-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.langchain.com/langsmith/deployment",
+  "confidence": "high",
+  "note": "LangSmith Deployment: 'Deploy to Cloud, BYOC, or your own infrastructure'; LangGraph itself is open source."
+ },
+ {
+  "id": "langgraph-persistence--docs-langchain-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.langchain.com/oss/python/langgraph/persistence",
+  "confidence": "high",
+  "note": "LangGraph persistence is a developer framework feature (checkpointers, stores)."
+ },
+ {
+  "id": "langmem-langchain--langchain-ai-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://langchain-ai.github.io/langmem/",
+  "confidence": "medium",
+  "note": "'pip install -U langmem' library that runs in your app (integrates with LangGraph's store)."
+ },
+ {
+  "id": "langmem-langchain--langchain-ai-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://langchain-ai.github.io/langmem/",
+  "confidence": "high",
+  "note": "LangMem is an SDK that helps developers add long-term memory to agents."
+ },
+ {
+  "id": "langflow-memory--docs-langflow-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://docs.langflow.org/memory",
+  "confidence": "medium",
+  "note": "Memory docs describe local storage (SQLite) for Langflow Desktop and self-hosted installs; no vendor cloud mentioned."
+ },
+ {
+  "id": "langflow-memory--docs-langflow-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.langflow.org/memory",
+  "confidence": "medium",
+  "note": "Langflow is a visual builder for developers to create flows and agents."
+ },
+ {
+  "id": "lindy-ai-memory--docs-lindy-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.lindy.ai/",
+  "confidence": "medium",
+  "note": "Lindy is a SaaS assistant: 'An admin installs Lindy in Slack' with 'no API keys or IT ticket'; no self-host option."
+ },
+ {
+  "id": "lindy-ai-memory--docs-lindy-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.lindy.ai/",
+  "confidence": "high",
+  "note": "Lindy is sold to teams as a ready-to-use AI assistant (research, slide decks, Slack catch-ups)."
+ },
+ {
+  "id": "llamaindex-memory--llamaindex-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://developers.llamaindex.ai/python/framework/module_guides/deploying/agents/memory/",
+  "confidence": "medium",
+  "note": "The Memory module is part of the open-source LlamaIndex Python framework that runs in the user's own code."
+ },
+ {
+  "id": "llamaindex-memory--llamaindex-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://developers.llamaindex.ai/python/framework/module_guides/deploying/agents/memory/",
+  "confidence": "high",
+  "note": "LlamaIndex framework docs for developers building agents."
+ },
+ {
+  "id": "mastra-memory--mastra-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://mastra.ai/",
+  "confidence": "high",
+  "note": "Mastra: 'run it locally, and deploy the same app to Mastra Cloud'."
+ },
+ {
+  "id": "mastra-memory--mastra-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://mastra.ai/",
+  "confidence": "high",
+  "note": "'Mastra is an open-source TypeScript framework for building AI-powered applications and agents'."
+ },
+ {
+  "id": "openai-agents-sdk-memory--openai-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://openai.github.io/openai-agents-python/",
+  "confidence": "medium",
+  "note": "The Agents SDK is a Python library installed and run by the developer (sessions such as SQLiteSession stored locally); models are called via API."
+ },
+ {
+  "id": "openai-agents-sdk-memory--openai-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://openai.github.io/openai-agents-python/",
+  "confidence": "high",
+  "note": "'The OpenAI Agents SDK enables you to build agentic AI apps'."
+ },
+ {
+  "id": "praison-memory--gh-mervinpraison-praisonai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/MervinPraison/PraisonAI/main/README.md",
+  "confidence": "high",
+  "note": "README: 'pip install praisonai' / 'pip install praisonaiagents' and run locally."
+ },
+ {
+  "id": "praison-memory--gh-mervinpraison-praisonai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/MervinPraison/PraisonAI/main/README.md",
+  "confidence": "high",
+  "note": "README: a multi-agent framework with a core SDK for developers."
+ },
+ {
+  "id": "pydantic-ai-hindsight--hindsight-vectorize-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://hindsight.vectorize.io/",
+  "confidence": "medium",
+  "note": "Hindsight offers 'Hindsight Cloud fully managed', 'Embedded zero setup, runs locally' and 'Your own cluster'."
+ },
+ {
+  "id": "pydantic-ai-hindsight--hindsight-vectorize-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://hindsight.vectorize.io/",
+  "confidence": "high",
+  "note": "'Agent Memory That Learns ... long-term memory for your agents' - memory infrastructure for builders."
+ },
+ {
+  "id": "pydantic-ai-memorytool--pydantic-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/docs/ai/tools-toolsets/native-tools/",
+  "confidence": "medium",
+  "note": "Pydantic AI is an open-source Python agent framework run in your own code; memory tools are delegated to the model provider."
+ },
+ {
+  "id": "pydantic-ai-memorytool--pydantic-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/docs/ai/tools-toolsets/native-tools/",
+  "confidence": "high",
+  "note": "Pydantic AI framework documentation for developers."
+ },
+ {
+  "id": "relevance-ai-memory--relevanceai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://relevanceai.com/",
+  "confidence": "medium",
+  "note": "Relevance AI is a hosted SaaS for building AI agents ('Sign in', 'Talk to sales'); no self-host option."
+ },
+ {
+  "id": "relevance-ai-memory--relevanceai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://relevanceai.com/",
+  "confidence": "medium",
+  "note": "Teams use Invent to 'stand up their own AI workforces' - a builder platform."
+ },
+ {
+  "id": "retell-ai--retellai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.retellai.com/pricing",
+  "confidence": "medium",
+  "note": "'True pay as you go. Only pay for the minutes' on Retell's hosted voice platform."
+ },
+ {
+  "id": "retell-ai--retellai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.retellai.com/",
+  "confidence": "high",
+  "note": "'AI Voice Agent Platform ... Build, deploy, and manage AI voice agents' with API access."
+ },
+ {
+  "id": "rivet-memory-node-ironclad--rivet-ironcladapp-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://rivet.ironcladapp.com/",
+  "confidence": "high",
+  "note": "Rivet: teams design LLM prompt graphs 'and deploy them in their own environment'."
+ },
+ {
+  "id": "rivet-memory-node-ironclad--rivet-ironcladapp-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://rivet.ironcladapp.com/",
+  "confidence": "high",
+  "note": "Open-source visual AI programming environment for building AI agents."
+ },
+ {
+  "id": "semantic-kernel-memory--learn-microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-memory",
+  "confidence": "medium",
+  "note": "Semantic Kernel is an open-source SDK whose memory components run in the developer's application."
+ },
+ {
+  "id": "semantic-kernel-memory--learn-microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-memory",
+  "confidence": "high",
+  "note": "Semantic Kernel agent framework docs for developers."
+ },
+ {
+  "id": "spring-ai-chatmemory--docs-spring-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://docs.spring.io/spring-ai/reference/api/chat-memory.html",
+  "confidence": "high",
+  "note": "ChatMemory is a Java library API with in-memory/JDBC/Cassandra repositories run in your app."
+ },
+ {
+  "id": "spring-ai-chatmemory--docs-spring-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.spring.io/spring-ai/reference/api/chat-memory.html",
+  "confidence": "high",
+  "note": "Spring AI is a framework for Java developers."
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.stackai.com/pricing",
+  "confidence": "medium",
+  "note": "Free tier is hosted; 'On-prem deployment' and 'VPC deployment' are listed only on the Enterprise plan."
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.stackai.com/",
+  "confidence": "medium",
+  "note": "'The Enterprise AI Agent Factory - Built for IT teams to orchestrate, deploy, govern, and scale AI'."
+ },
+ {
+  "id": "strands-agents-memory-aws--docs-aws-amazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html",
+  "confidence": "medium",
+  "note": "The open-source Strands SDK you run yourself uses the AWS-managed AgentCore Memory service."
+ },
+ {
+  "id": "strands-agents-memory-aws--docs-aws-amazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://strandsagents.com/",
+  "confidence": "high",
+  "note": "'The open source toolkit for building production agents'."
+ },
+ {
+  "id": "vapi-voice-agents--vapi-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.vapi.ai/quickstart/introduction",
+  "confidence": "high",
+  "note": "'Vapi is the developer platform for building voice AI agents. We handle the complex infrastructure'."
+ },
+ {
+  "id": "vapi-voice-agents--vapi-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.vapi.ai/quickstart/introduction",
+  "confidence": "high",
+  "note": "'Vapi is the developer platform for building voice AI agents'."
+ },
+ {
+  "id": "voiceflow-memory--docs-voiceflow-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.voiceflow.com/pricing",
+  "confidence": "high",
+  "note": "'from development to staging, and then to final production. All hosted on Voiceflow.'"
+ },
+ {
+  "id": "voiceflow-memory--docs-voiceflow-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.voiceflow.com/",
+  "confidence": "medium",
+  "note": "Voiceflow is a platform for designers and engineers to build AI customer-experience agents."
+ },
+ {
+  "id": "memory-lancedb-pro-openclaw-plugin--gh-cortexreach-memory-lancedb-pro",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/CortexReach/memory-lancedb-pro/main/README.md",
+  "confidence": "high",
+  "note": "README: 'Enhanced Long-Term Memory Plugin for OpenClaw' using local LanceDB storage."
+ },
+ {
+  "id": "memory-lancedb-pro-openclaw-plugin--gh-cortexreach-memory-lancedb-pro",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/CortexReach/memory-lancedb-pro/main/README.md",
+  "confidence": "medium",
+  "note": "A memory plugin end users install into their OpenClaw agent."
+ },
+ {
+  "id": "n8n-ai-agent-memory--docs-n8n-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.n8n.io/deploy/host-n8n",
+  "confidence": "high",
+  "note": "n8n docs offer 'Use n8n Cloud' and 'You can self-host n8n on your own infrastructure, on-premises, or in a private cloud'."
+ },
+ {
+  "id": "n8n-ai-agent-memory--docs-n8n-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.n8n.io/build/integrate-ai/understand-ai-components/how-memory-works",
+  "confidence": "medium",
+  "note": "n8n is a workflow-building tool; memory is a node builders add to AI workflows."
+ },
+ {
+  "id": "smolagents-memory--huggingface-co",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://huggingface.co/docs/smolagents/tutorials/memory",
+  "confidence": "high",
+  "note": "smolagents memory is an in-process Python structure in the user's own agent code."
+ },
+ {
+  "id": "smolagents-memory--huggingface-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://huggingface.co/docs/smolagents/tutorials/memory",
+  "confidence": "high",
+  "note": "smolagents is a Python library for developers building agents."
+ },
+ {
+  "id": "acuvity-now-proofpoint--acuvity-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.proofpoint.com/us/platform/ai-security",
+  "confidence": "medium",
+  "note": "acuvity.ai now redirects to Proofpoint AI Security, an enterprise security product for governing AI and MCP use."
+ },
+ {
+  "id": "enkrypt-ai--enkryptai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.enkryptai.com/pricing",
+  "confidence": "medium",
+  "note": "Self-serve hosted tiers (Explore/Launch/Scale); 'VPC/on-prem deployment' only on the Enterprise plan."
+ },
+ {
+  "id": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.hiddenlayer.com/platform",
+  "confidence": "medium",
+  "note": "HiddenLayer sells a finished AI security platform (discovery, model scanning, red teaming, runtime security) to security teams."
+ },
+ {
+  "id": "hyperconsciousness-hc--gh-louis030195-hyperconsciousness",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/louis030195/hyperconsciousness/main/README.md",
+  "confidence": "high",
+  "note": "README: 'The node can run on your own machine or server'."
+ },
+ {
+  "id": "hyperconsciousness-hc--gh-louis030195-hyperconsciousness",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/louis030195/hyperconsciousness/main/README.md",
+  "confidence": "medium",
+  "note": "A developer-alpha knowledge store with Rust engine, CLI and MCP/HTTP server for agents."
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.lakera.ai/",
+  "confidence": "medium",
+  "note": "Docs: 'For Developers: Get up and running with our platform and APIs' (now under Check Point)."
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.mem0.ai/introduction",
+  "confidence": "high",
+  "note": "'Add persistent, self-improving memory to your AI app with Mem0 Platform or self-hosted Open Source.'"
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.mem0.ai/introduction",
+  "confidence": "high",
+  "note": "Mem0 is aimed at developers adding memory to their AI apps."
+ },
+ {
+  "id": "microsoft-agent-governance-toolkit--gh-microsoft-agent-governance-toolkit",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/microsoft/agent-governance-toolkit/main/README.md",
+  "confidence": "high",
+  "note": "README: 'One pip install, any framework' - a library/CLI run in your own environment."
+ },
+ {
+  "id": "microsoft-agent-governance-toolkit--gh-microsoft-agent-governance-toolkit",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/microsoft/agent-governance-toolkit/main/README.md",
+  "confidence": "high",
+  "note": "SDKs for 'Policy enforcement, identity, sandboxing, and SRE for autonomous AI agents'."
+ },
+ {
+  "id": "owasp-agent-memory-guard--owasp-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://owasp.org/projects/agent-memory-guard",
+  "confidence": "medium",
+  "note": "An open-source Python tool that 'sits between the agent and its memory store'."
+ },
+ {
+  "id": "owasp-agent-memory-guard--owasp-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://owasp.org/projects/agent-memory-guard",
+  "confidence": "medium",
+  "note": "Classified as a Tool (Python, Apache-2.0) that builders put into their agent stack."
+ },
+ {
+  "id": "zep-governance-posture--getzep-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/pricing/",
+  "confidence": "high",
+  "note": "Deployment options are 'Zep Cloud, Zep Cloud with your own encryption keys, or a deployment in your VPC' (BYOC via sales)."
+ },
+ {
+  "id": "zep-governance-posture--getzep-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/product/agent-memory/",
+  "confidence": "high",
+  "note": "Agent memory service for developers, powered by the open-source Graphiti framework."
+ },
+ {
+  "id": "agentops--agentops-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.agentops.ai/v2/self-hosting/overview",
+  "confidence": "medium",
+  "note": "AgentOps has a hosted dashboard and documents self-hosting AgentOps (Docker and backend setup guides)."
+ },
+ {
+  "id": "agentops--agentops-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.agentops.ai/v2/introduction",
+  "confidence": "high",
+  "note": "SDK ('pip install agentops') and platform 'for testing, debugging, and deploying AI agents'."
+ }
+]
