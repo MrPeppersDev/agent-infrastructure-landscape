@@ -43,6 +43,26 @@
     return v ? v : null;
   }
 
+  // v1.1.0 cells (#150 / #166): shown only once a backfill has filled them.
+  function v11Text(c: Cell | undefined): string | null {
+    if (!c || (c.status !== 'real-data' && c.status !== 'estimate')) return null;
+    const v = c.value?.trim();
+    if (!v) return null;
+    return c.status === 'estimate' ? `${v} (estimate)` : v;
+  }
+  function opendiggerText(c: Cell | undefined): string | null {
+    if (!c || c.status !== 'real-data') return null;
+    try {
+      const o = JSON.parse(c.value);
+      const parts = [`OpenRank ${o.openrank_current} (12-mo avg ${o.openrank_12mo})`];
+      if (o.participants != null) parts.push(`${o.participants} participants`);
+      return `${parts.join(' · ')} — ${o.as_of}`;
+    } catch {
+      return null;
+    }
+  }
+  const freshness = v11Text(record.cells['freshness-date']);
+
   const desc = cellText(record.cells.desc);
   const fallbackDesc = `${record.name}${primarySection ? ' — ' + primarySection : ''}. Tier ${record.tier} entry in the AI Agent Infrastructure Landscape: typed edges, citations, and benchmark coverage.`;
   const description = (desc ?? fallbackDesc).slice(0, 300);
@@ -68,7 +88,19 @@
       slug: 'gh'
     },
     { label: 'Pricing', value: cellText(record.cells.pricing), slug: 'pricing' },
-    { label: 'Funding', value: cellText(record.cells.funding), slug: 'funding' }
+    { label: 'Funding', value: cellText(record.cells.funding), slug: 'funding' },
+    { label: 'Freshness', value: freshness, cite: record.cells['freshness-date']?.citation ?? null, slug: 'freshness-date' },
+    { label: 'Layer', value: v11Text(record.cells['taxonomy-three-layer-rollup']), slug: 'taxonomy-three-layer-rollup' },
+    { label: 'Licensing', value: v11Text(record.cells['licensing-bucket']), slug: 'licensing-bucket' },
+    { label: 'Deployment locus', value: v11Text(record.cells['architecture-deployment-locus']), slug: 'architecture-deployment-locus' },
+    { label: 'Platform vs product', value: v11Text(record.cells['positioning-platform-vs-product']), slug: 'positioning-platform-vs-product' },
+    { label: 'Accelerator', value: v11Text(record.cells['adoption-accelerator']), slug: 'adoption-accelerator' },
+    {
+      label: 'Developer activity',
+      value: opendiggerText(record.cells['developer-activity-opendigger']),
+      cite: record.cells['developer-activity-opendigger']?.citation ?? null,
+      slug: 'developer-activity-opendigger'
+    }
   ];
 
   // Group primary taxonomy values by axis for the "at a glance" panel.
@@ -150,7 +182,9 @@
     {/if}
     <p class="lede">{desc ?? fallbackDesc}</p>
     <p class="fresh">
-      Verified <strong>{record.last_verified_at ?? 'not yet'}</strong> · {data.citedCells} cited facts
+      Verified <strong>{record.last_verified_at ?? 'not yet'}</strong>
+      {#if freshness}· fresh as of <strong>{freshness}</strong>{/if}
+      · {data.citedCells} cited facts
       {#if data.history.length}· <a href="#changes">{data.history.length} recorded change{data.history.length === 1 ? '' : 's'}</a>{/if}
       · <a href={correctionUrl(record.id)} rel="noopener">Suggest a correction</a>
     </p>

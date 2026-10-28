@@ -64,6 +64,7 @@ history:
 
 build:
 	$(PYTHON) scripts/reconcile.py      --input  data/landscape.json --output data/landscape.json
+	$(PYTHON) scripts/derive_v1_1_cells.py
 	$(PYTHON) scripts/build_edges.py
 	$(PYTHON) scripts/fetch_citations.py --offline
 	$(PYTHON) scripts/bucket_s2_citations.py --quiet

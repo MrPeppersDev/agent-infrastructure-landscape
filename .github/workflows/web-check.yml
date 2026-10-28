@@ -41,7 +41,12 @@ jobs:
 
       - name: Type-check
         # Blocking: svelte-check must report 0 errors (warnings are allowed).
+        # TypeScript infers a literal type for the ~32 MB data/landscape.json
+        # that src/lib/data.ts imports; the default Node heap runs out once
+        # the v1.1.0 cells are filled, so give it room.
         working-directory: web
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: |
           set -o pipefail
           npm run check -- --threshold error --output machine 2>&1 | tee /tmp/check.log || {

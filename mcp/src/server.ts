@@ -138,7 +138,9 @@ async function main() {
         'Free-text substring search over record id, name, description, and claims. ' +
         'Returns compact summaries — use get_record for full details. Filters: ' +
         'product (family id from list_products, e.g. "memory"), ' +
-        'section (exact match on primary section), tier (1=battle-tested → 5=theoretical).',
+        'section (exact match on primary section), tier (1=battle-tested → 5=theoretical), ' +
+        'freshWithinMonths (freshness date = latest of upstream last commit and last catalog audit), ' +
+        'layer (agent-infra | model-infra | large-models), licensing (open-source | open-core | commercial).',
       inputSchema: {
         query: z.string().describe('Search query (case-insensitive substring match).'),
         product: z
@@ -156,6 +158,21 @@ async function main() {
           .max(5)
           .optional()
           .describe('Filter to records of this tier (1-5).'),
+        freshWithinMonths: z
+          .number()
+          .int()
+          .min(1)
+          .max(120)
+          .optional()
+          .describe('Only records whose freshness date falls within this many months (e.g. 6).'),
+        layer: z
+          .enum(['agent-infra', 'model-infra', 'large-models'])
+          .optional()
+          .describe('Three-layer rollup of the primary section.'),
+        licensing: z
+          .enum(['open-source', 'open-core', 'commercial'])
+          .optional()
+          .describe('Licensing bucket derived from the license and pricing cells.'),
         limit: z
           .number()
           .int()

@@ -143,7 +143,10 @@
       conflict: new Set(f.conflict),
       license: new Set(f.license),
       deployment: new Set(f.deployment),
-      modality: new Set(f.modality)
+      modality: new Set(f.modality),
+      layer: new Set(f.layer),
+      licensing: new Set(f.licensing),
+      freshness: new Set(f.freshness)
     };
   }
 
