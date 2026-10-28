@@ -19,9 +19,9 @@ Conventions are in [`../CLAUDE.md`](../CLAUDE.md). Work top to bottom, one PR pe
 
 ## 2. Re-verify the next oldest rows
 
-The October pass covered only the 177 rows it had stalled on. Many other cells still show the "174 days" staleness warning (`make validate`, gate 6).
-- **Order:** take the oldest rows in chooser-relevant sections first (agent frameworks, vector databases, memory layers).
-- **Inputs and output:** build `todo.json` from gate 6's output. Collect a PyPI/npm snapshot first; the registries are reachable from the shell. Use the same result format and `apply_reverify.py`, with one PR per group.
+The October pass covered only the 177 rows it had stalled on. Use each row's own `last_verified_at` to pick targets. On 2026-10-28, 298 rows were last verified before 2026-07-01: 203 memory-research, 87 agents and 8 memory. Don't use gate 6 of `make validate`: it ages cells against a fixed date (2026-05-14) and reports everything as fresh.
+- **Order:** agents first, because they feed the choosers. Then memory. Research papers last; they mostly need only a lifecycle check.
+- **Inputs:** collect a PyPI/npm snapshot first; the registries are reachable from the shell. Use the same result format and `apply_reverify.py`, with one PR per group.
 - **Agents:** run 1–2 per turn and have them use WebFetch on known URLs. GitHub stars, `pushed_at` and archived status come from the GitHub MCP `search_repositories` tool, because `gh api` is blocked for other repos.
 - **Leftovers from the October pass:** these were left unverified.
   - Funding cells for most vendors.

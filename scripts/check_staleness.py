@@ -313,6 +313,26 @@ def fetch_latest_commit(
 # --- Driver ---------------------------------------------------------------
 
 
+_PAPER_HOSTS = ("arxiv.org/", "openreview.net/", "aclanthology.org/", "proceedings.neurips.cc/")
+
+
+def is_paper(record: dict[str, Any]) -> bool:
+    """A paper (method record) rather than maintained software: its URL or
+    id points at a paper host. A finished paper's repo going quiet isn't a
+    lifecycle event."""
+    url = (record.get("url") or "").lower()
+    return any(h in url for h in _PAPER_HOSTS) or "--arxiv-" in record.get("id", "")
+
+
+def known_lifecycle(record_id: str, stack_index: dict[str, Any]) -> str | None:
+    """The lifecycle status data/stack-index.json already records for a row
+    (maintenance, deprecated, archived, acquired, ...), or None when it is
+    active / unknown. A recorded status means the staleness question has
+    been answered; an issue would only be closed and reopened."""
+    status = ((stack_index.get("records") or {}).get(record_id) or {}).get("status")
+    return status if status and status != "active" else None
+
+
 def classify(
     last_commit: dt.date,
     today: dt.date,
@@ -370,11 +390,15 @@ def run(args: argparse.Namespace) -> int:
             if fam["id"] == "memory-research":
                 research_sections.update(fam["sections"])
     research_skipped = 0
+    idx_path = Path(__file__).resolve().parent.parent / "data" / "stack-index.json"
+    stack_index = json.loads(idx_path.read_text()) if idx_path.exists() else {}
 
     for rec in records:
         primary = next((s["section"] for s in rec.get("sections", []) if s.get("primary")), "")
-        if primary in research_sections or int(rec.get("tier") or 0) >= 4:
+        if primary in research_sections or int(rec.get("tier") or 0) >= 4 or is_paper(rec):
             research_skipped += 1
+            continue
+        if known_lifecycle(rec.get("id", ""), stack_index):
             continue
         if rec.get("decay_cause"):
             # Row's lifecycle is already classified (SCHEMA.md §3c). The

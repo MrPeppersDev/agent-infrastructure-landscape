@@ -14,11 +14,24 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from check_staleness import extract_repo  # noqa: E402
+from check_staleness import extract_repo, is_paper, known_lifecycle  # noqa: E402
 
 
 def _rec(citation=None, url=None, value=None):
     return {"cells": {"gh": {"citation": citation, "value": value}}, "url": url}
+
+
+def test_arxiv_records_are_papers():
+    assert is_paper({"id": "lora--arxiv-2106-09685", "url": "https://arxiv.org/abs/2106.09685"})
+    assert is_paper({"id": "x", "url": "https://openreview.net/forum?id=abc"})
+    assert not is_paper({"id": "mem0--mem0-ai", "url": "https://mem0.ai"})
+
+
+def test_recorded_lifecycle_is_skipped():
+    idx = {"records": {"a": {"status": "maintenance"}, "b": {"status": "active"}}}
+    assert known_lifecycle("a", idx) == "maintenance"
+    assert known_lifecycle("b", idx) is None
+    assert known_lifecycle("missing", idx) is None
 
 
 def test_real_repo_from_citation():
