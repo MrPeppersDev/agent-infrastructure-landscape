@@ -170,7 +170,15 @@ export type ColumnSlug =
   | 'capability-benchmark-sources'
   | 'capability-last-verified'
   | 'use-case-tags'
-  | 'use-case-anti-tags';
+  | 'use-case-anti-tags'
+  // v1.1.0 (issues #150 / #166). See SCHEMA.md §2.5.10.
+  | 'adoption-accelerator'
+  | 'architecture-deployment-locus'
+  | 'licensing-bucket'
+  | 'positioning-platform-vs-product'
+  | 'taxonomy-three-layer-rollup'
+  | 'developer-activity-opendigger'
+  | 'freshness-date';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

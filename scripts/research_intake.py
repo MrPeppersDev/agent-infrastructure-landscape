@@ -145,10 +145,20 @@ CELL_COLUMN_SLUGS += [
     "capability-code-score", "capability-agentic-score",
     "capability-longcontext-score",
 ]
+# v1.1.0 cells (issues #150 / #166, SCHEMA.md §2.5.10). Intake leaves them
+# empty; the derived and research backfills fill them later.
+V1_1_CELL_SLUGS = [
+    "adoption-accelerator", "architecture-deployment-locus",
+    "licensing-bucket", "positioning-platform-vs-product",
+    "taxonomy-three-layer-rollup", "developer-activity-opendigger",
+    "freshness-date",
+]
+CELL_COLUMN_SLUGS += V1_1_CELL_SLUGS
 # Cells that every record carries empty until a sweep fills them.
 NO_DATA_SLUGS = {
     "capability-code-score", "capability-agentic-score",
     "capability-longcontext-score",
+    *V1_1_CELL_SLUGS,
 }
 try:
     from extract import CELL_COLUMN_SLUGS as _CANONICAL_SLUGS  # noqa: E402

@@ -15,7 +15,7 @@ A citation-backed catalog of ~964 AI agent systems, published as a SvelteKit sit
 
 ```sh
 make build      # reconcile → edges → citations → render landscape.html → data/stack-index.json
-make validate   # 7 gates (~25 s). Gate 2 requires JSON == render→extract→reconcile round-trip, byte for byte
+make validate   # 8 gates (~25 s). Gate 2 requires JSON == render→extract→reconcile round-trip, byte for byte
 make lint       # contradiction lint (oss-conflict, acquired-year, truncated, bare-citation, blank-taxonomy); keep at 0
 make history    # data/history.json from git (needs full history: git fetch --unshallow)
 make action     # regenerate action/dist/stack-check.mjs from mcp/src/stack-check.ts (CI checks it's current)

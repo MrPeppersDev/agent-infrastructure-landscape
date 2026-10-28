@@ -14,6 +14,47 @@ that were on the table.
 
 ---
 
+## 2026-10-28: Schema v1.1.0 — seven new cells, one bump (#150, #166)
+
+**What.** The maintainer chose option 1 on #150: ship all six
+external-landscape cells. The `freshness-date` cell from #166 rides the
+same bump, as agreed on 2026-08-24. Slugs are kebab-case like every
+other column (#150 wrote them dotted as shorthand). `schemaVersion`
+moves from 1.0.0 to 1.1.0 in `landscape.json` and `landscape.edges.json`
+(gate 1 requires the two to match). This PR adds the cells empty; no
+values are filled.
+
+**Why.** One minor bump instead of two keeps consumers' version checks
+simple. Empty defaults (`no-data`, `T3`) follow the #95 migration, so
+nothing claims more than it knows until a backfill cites a source.
+
+**Per cell.**
+- `adoption-accelerator`: a hard signal (YC batch) with a `none` value,
+  so "no accelerator" is distinguishable from "not researched".
+- `architecture-deployment-locus`: human classification; `hybrid` covers
+  systems with more than one first-class mode (e.g. OpenHands local + cloud).
+- `licensing-bucket`: derived from `license` plus pricing, then reviewed;
+  open-core needs the business model, not just the licence string.
+- `positioning-platform-vs-product`: subjective, so research rows cite the
+  vendor page that frames the audience.
+- `taxonomy-three-layer-rollup`: never hand-set; a static lookup from the
+  primary section (`docs/schema/section-to-three-layer-rollup.json`), and
+  gate 8 checks the two agree.
+- `developer-activity-opendigger`: fetched from OpenDigger directly. The
+  antgroup CSV is not used as a source because its licence was not cleared.
+- `freshness-date`: max(upstream last commit, row `last_verified_at`), the
+  definition locked on #166.
+
+**Gate 8.** `make validate` gains an enum-domain gate. It checks only
+filled cells, so the empty migration passes, and it fails a value outside
+`docs/schema/<slug>.json`.
+
+**Reversal cost.** Low for the empty cells (drop seven slugs, revert the
+version). It rises as backfills land, since ~6,700 cells will carry
+researched values.
+
+---
+
 ## 2026-07-10: External-landscape poller runs monthly, silent on no-op (#151)
 
 **What.** `scripts/poll_external_landscapes.py`, driven by

@@ -26,7 +26,8 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 - **Rows that may need re-pointing or removal:** linq-ai (linq.ai is now an unrelated company; maybe LinqAlpha), reggie-ai (parked domain; maybe Regie.ai), toplyne (dead site), and the Coalfire AIOps and Hyperproof Trust Center product pages (404).
 - **Pachyderm:** pachyderm.com still doesn't respond; the repo isn't archived.
 - **Hume EVI:** after 2026-11-13, set lifecycle `dead` with decay cause.
-- **Blocked on decisions:** #150 / #166 need the maintainer to pick a schema option (1–4 in #150); #128 needs `ANTHROPIC_API_KEY`, and #129 / #132 wait on #128.
+- **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. The schema PR adds seven empty cells and gate 8. Still to do: the OpenDigger fetcher, the derived backfill (rollup, licensing bucket, freshness date) plus the #166 filter, and the research backfill (accelerator, deployment locus incl. #152, platform vs product).
+- **Blocked:** #128 needs `ANTHROPIC_API_KEY`, and #129 / #132 wait on #128.
 
 ## 3. Things that need the maintainer
 

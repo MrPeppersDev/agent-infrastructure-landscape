@@ -51,7 +51,7 @@ from urllib.request import Request, urlopen
 # Constants — kept in sync with docs/SCHEMA.md and scripts/build_edges.py.
 # ---------------------------------------------------------------------------
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
 DEFAULT_GENERATED_AT = "2026-05-07T00:00:00Z"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
