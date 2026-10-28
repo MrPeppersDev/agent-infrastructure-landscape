@@ -19,7 +19,8 @@ import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-
 import { compatibility, worksWith, setAliases } from './compat.js';
 import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
 import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from './costs.js';
-import { loadPricing } from './data.js';
+import { loadPricing, loadVectorPricing } from './data.js';
+import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from './vector-costs.js';
 import { checkManifest } from './stack-check.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
@@ -369,6 +370,30 @@ async function main() {
       const p = loadPricing();
       const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) };
       return jsonResult({ workload: w, pricesChecked: p.checked, estimates: estimateAll(p.vendors as VendorPricing[], w) });
+    }
+  );
+
+  server.registerTool(
+    'estimate_vector_store_cost',
+    {
+      title: 'Estimate managed vector-store cost',
+      description:
+        'Monthly cost of managed vector stores (Pinecone, Turbopuffer, Weaviate Cloud, Zilliz Cloud; Qdrant Cloud and ' +
+        'LanceDB Cloud are listed as not published) for a workload, using only published rates, with the arithmetic and ' +
+        'the pricing page. A component whose rate is not published is left out and the result is marked atLeast.',
+      inputSchema: {
+        vectors: z.number().min(0).optional().describe('Vectors stored (default 1,000,000).'),
+        dimensions: z.number().min(1).optional().describe('Embedding dimensions (default 1536).'),
+        metadataBytes: z.number().min(0).optional().describe('Metadata bytes stored per vector (default 500).'),
+        writesPerMonth: z.number().min(0).optional().describe('Vectors written per month (default 100,000).'),
+        queriesPerMonth: z.number().min(0).optional().describe('Queries per month (default 1,000,000).'),
+        batchSize: z.number().min(1).optional().describe('Vectors per write request (default 100).')
+      }
+    },
+    async (args) => {
+      const p = loadVectorPricing();
+      const w = { ...DEFAULT_VECTOR_WORKLOAD, ...Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) };
+      return jsonResult({ workload: w, pricesChecked: p.checked, estimates: vectorEstimateAll(p.vendors as VectorPricing[], w) });
     }
   );
 

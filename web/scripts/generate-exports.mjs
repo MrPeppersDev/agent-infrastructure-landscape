@@ -217,7 +217,7 @@ ${famLines}
 
 ## Tools
 
-- [MCP server](${REPO}/tree/main/mcp): ask_catalog, choose_memory_layer, choose_framework_or_store, check_stack, check_compatibility, find_alternatives, system_history, estimate_memory_cost, search_records, compare, recent_changes and more.
+- [MCP server](${REPO}/tree/main/mcp): ask_catalog, choose_memory_layer, choose_framework_or_store, check_stack, check_compatibility, find_alternatives, system_history, estimate_memory_cost, estimate_vector_store_cost, search_records, compare, recent_changes and more.
 - [CLI](${REPO}/tree/main/cli): \`landscape check package.json --fail-on-attention\` for CI.
 - [GitHub Action](${REPO}/tree/main/action): \`uses: MrPeppersDev/agent-infrastructure-landscape@main\` flags archived, acquired or stale AI dependencies on pull requests.
 - [Hosted MCP endpoint](${REPO}/tree/main/worker): remote, read-only MCP server (Streamable HTTP).

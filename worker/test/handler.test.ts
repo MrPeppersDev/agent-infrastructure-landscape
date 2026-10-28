@@ -6,7 +6,7 @@ const ROOT = new URL('../../', import.meta.url).pathname;
 const FILES: Record<string, string> = {
   'landscape.json': 'data/landscape.json', 'landscape.edges.json': 'data/landscape.edges.json', 'stack-index.json': 'data/stack-index.json',
   'families.json': 'taxonomy/families.json', 'migrations.json': 'data/migrations.json', 'history.json': 'data/history.json',
-  'system-aliases.json': 'taxonomy/system-aliases.json', 'pricing-memory.json': 'data/pricing/memory.json'
+  'system-aliases.json': 'taxonomy/system-aliases.json', 'pricing-memory.json': 'data/pricing/memory.json', 'pricing-vector.json': 'data/pricing/vector.json'
 };
 const handle = createHandler(async (f) => JSON.parse(readFileSync(ROOT + FILES[f], 'utf8')));
 let failures = 0;
@@ -21,7 +21,7 @@ const init = await post({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {
 check('initialize', init.json.result.protocolVersion === '2025-06-18' && !!init.json.result.capabilities.tools);
 check('initialized notification → 202', (await post({ jsonrpc: '2.0', method: 'notifications/initialized' })).status === 202);
 const list = await post({ jsonrpc: '2.0', id: 2, method: 'tools/list' });
-check('tools/list', list.json.result.tools.length === 8);
+check('tools/list', list.json.result.tools.length === 9);
 const ask = await callTool('ask_catalog', { query: 'self-hosted vector db with MCP, python', limit: 5 });
 check('ask_catalog', !ask.isError && ask.structuredContent.results.length > 0, JSON.stringify(ask).slice(0, 200));
 const ch = await callTool('check_stack', { manifest: '{"dependencies":{"flowise":"^3","mem0ai":"^2"}}', filename: 'package.json' });
@@ -36,6 +36,8 @@ const moved = await callTool('get_system', { id: 'qdrant-cloud--cloud-qdrant-io'
 check('merged-away id resolves to the kept record', moved.structuredContent?.id === 'qdrant--qdrant-tech');
 const cost = await callTool('estimate_memory_cost', { users: 50 });
 check('estimate_memory_cost', cost.structuredContent.estimates.length >= 5);
+const vcost = await callTool('estimate_vector_store_cost', { vectors: 10000 });
+check('estimate_vector_store_cost', vcost.structuredContent.estimates.some((e: { system: string; monthlyUsd: number | null }) => e.system === 'Pinecone' && e.monthlyUsd === 0));
 const bad = await callTool('get_system', { id: 'nope' });
 check('tool error is isError, not a crash', bad.isError === true);
 const unk = await post({ jsonrpc: '2.0', id: 3, method: 'resources/list' });

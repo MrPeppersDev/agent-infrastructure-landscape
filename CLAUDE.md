@@ -51,7 +51,7 @@ Apply them with `python3 scripts/apply_reverify.py --date YYYY-MM-DD <files> --r
 | Path | What |
 |---|---|
 | `mcp/src/stack-check.ts`, `chooser.ts`, `chooser-infra.ts`, `compat.ts`, `search.ts`, `costs.ts`, `vector-costs.ts` | Pure, dependency-free logic shared by the web, the MCP server, the CLI, the worker and the Action. Import siblings with a `.js` suffix. |
-| `mcp/src/server.ts` | stdio MCP server (23 tools). Tests: `cd mcp && npm test`, or run `tsx src/test-*.ts` directly |
+| `mcp/src/server.ts` | stdio MCP server (24 tools). Tests: `cd mcp && npm test`, or run `tsx src/test-*.ts` directly |
 | `cli/src/landscape.ts` | CLI (`check`, `choose`, `choose-stack`, `compat`, `alternatives`, …) |
 | `worker/` | Hosted MCP: stateless Streamable HTTP, Cloudflare Worker. `npx tsx worker/test/handler.test.ts` |
 | `action.yml`, `action/` | "AI stack check" GitHub Action; self-test in `.github/workflows/action-test.yml` |

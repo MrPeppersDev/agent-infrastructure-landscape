@@ -15,6 +15,7 @@ import { compatibility, worksWith, setAliases } from '../../mcp/src/compat.js';
 import { checkManifest, type StackIndex } from '../../mcp/src/stack-check.js';
 import { buildIndex, search, docText, type SearchIndex } from '../../mcp/src/search.js';
 import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from '../../mcp/src/costs.js';
+import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '../../mcp/src/vector-costs.js';
 import { alternativesFor } from '../../mcp/src/chooser.js';
 import { attentionIds } from '../../mcp/src/stack-check.js';
 
@@ -33,6 +34,7 @@ interface Data {
   migrations: Map<string, unknown>;
   history: Record<string, unknown[]>;
   pricing: { checked: string; vendors: VendorPricing[] };
+  vectorPricing: { checked: string; vendors: VectorPricing[] };
   redirects: Record<string, string>;
   search?: SearchIndex;
   replacements?: Record<string, { id: string; name: string; why: string[] }[]>;
@@ -98,6 +100,14 @@ export const TOOLS = [
       users: S.num('monthly active users'), messagesPerUser: S.num('messages written per user per month'),
       bytesPerMessage: S.num('average bytes per message'), retrievalsPerMessage: S.num('searches per message'), agentsPerUser: S.num('agents per user')
     } }
+  },
+  {
+    name: 'estimate_vector_store_cost',
+    description: 'Monthly cost of managed vector stores (Pinecone, Turbopuffer, Weaviate Cloud, Zilliz Cloud) for a workload from published rates only, with the arithmetic and pricing page; unpublished components are left out and marked atLeast.',
+    inputSchema: { type: 'object', properties: {
+      vectors: S.num('vectors stored'), dimensions: S.num('embedding dimensions'), metadataBytes: S.num('metadata bytes per vector'),
+      writesPerMonth: S.num('vectors written per month'), queriesPerMonth: S.num('queries per month'), batchSize: S.num('vectors per write request')
+    } }
   }
 ];
 
@@ -107,18 +117,19 @@ export function createHandler(load: Loader) {
   let dataP: Promise<Data> | null = null;
   const getData = () =>
     (dataP ??= (async () => {
-      const [L, E, I, F, M, H, A, P] = await Promise.all([
+      const [L, E, I, F, M, H, A, P, V] = await Promise.all([
         load('landscape.json'), load('landscape.edges.json'), load('stack-index.json'), load('families.json'),
         load('migrations.json').catch(() => ({ notes: [] })), load('history.json').catch(() => ({ records: {} })),
-        load('system-aliases.json').catch(() => ({ aliases: {} })), load('pricing-memory.json').catch(() => ({ checked: '', vendors: [] }))
-      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }];
+        load('system-aliases.json').catch(() => ({ aliases: {} })), load('pricing-memory.json').catch(() => ({ checked: '', vendors: [] })),
+        load('pricing-vector.json').catch(() => ({ checked: '', vendors: [] }))
+      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }, { checked: string; vendors: VectorPricing[] }];
       const fam = new Map<string, string>();
       for (const f of F.families) for (const s of f.sections) fam.set(s, f.id);
       setAliases(A.aliases);
       const items = L.records.map((r) => toItem(r as never, I.records[r.id] as never));
       return {
         records: L.records, edges: E.edges, index: I, famOf: (s: string) => fam.get(s) ?? 'other', items,
-        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, redirects: A.redirects ?? {}
+        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, vectorPricing: V, redirects: A.redirects ?? {}
       };
     })().catch((e) => {
       dataP = null;
@@ -176,6 +187,10 @@ export function createHandler(load: Loader) {
       case 'estimate_memory_cost': {
         const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(a).filter(([, v]) => typeof v === 'number')) };
         return { workload: w, pricesChecked: d.pricing.checked, estimates: estimateAll(d.pricing.vendors, w) };
+      }
+      case 'estimate_vector_store_cost': {
+        const w = { ...DEFAULT_VECTOR_WORKLOAD, ...Object.fromEntries(Object.entries(a).filter(([, v]) => typeof v === 'number')) };
+        return { workload: w, pricesChecked: d.vectorPricing.checked, estimates: vectorEstimateAll(d.vectorPricing.vendors, w) };
       }
     }
     throw Object.assign(new Error(`unknown tool ${name}`), { code: -32602 });
