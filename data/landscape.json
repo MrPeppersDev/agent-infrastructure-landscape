@@ -181920,7 +181920,7 @@
       "name": "Cohere Embed",
       "tier": 1,
       "url": "https://cohere.com/embed",
-      "last_verified_at": "2026-10-27",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Embedding & reranker services",
@@ -181988,8 +181988,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Cohere's hosted embedding models (embed-v3 family) — multi-lingual, image+text, compression. Reranker API (Rerank-v3). Cohere is one of three major LLM startups (alongside Anthropic, OpenAI) by revenue scale.",
-          "citation": "https://cohere.com/embed",
+          "value": "Cohere's hosted embedding models, now Embed 5 (2026-09-30; Pro and Fast tiers): text, image and fused text-plus-image inputs, 100+ languages, 128K-token context, Matryoshka output dimensions from 256 to 2048 with float, int8 and binary formats. Reranker API (Rerank 5).",
+          "citation": "https://cohere.com/blog/embed-5",
           "status": "real-data",
           "tier": "T2"
         },
@@ -182614,7 +182614,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://cohere.com/blog/embed-5",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -229394,8 +229397,8 @@
       "id": "deepspeed--gh-microsoft-deepspeed",
       "name": "DeepSpeed",
       "tier": 1,
-      "url": "https://github.com/microsoft/DeepSpeed",
-      "last_verified_at": "2026-10-27",
+      "url": "https://github.com/deepspeedai/DeepSpeed",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -466166,8 +466169,8 @@
       "id": "llama-factory--gh-hiyouga-llama-factory",
       "name": "LLaMA-Factory",
       "tier": 2,
-      "url": "https://github.com/hiyouga/LLaMA-Factory",
-      "last_verified_at": "2026-10-27",
+      "url": "https://github.com/hiyouga/LlamaFactory",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -761835,8 +761838,8 @@
       "id": "ragas--gh-explodinggradients-ragas",
       "name": "Ragas",
       "tier": 2,
-      "url": "https://github.com/explodinggradients/ragas",
-      "last_verified_at": "2026-10-27",
+      "url": "https://github.com/vibrantlabsai/ragas",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -940890,8 +940893,8 @@
       "id": "torchtune-pytorch--gh-pytorch-torchtune",
       "name": "torchtune (PyTorch)",
       "tier": 2,
-      "url": "https://github.com/pytorch/torchtune",
-      "last_verified_at": "2026-10-27",
+      "url": "https://github.com/meta-pytorch/torchtune",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -969430,8 +969433,8 @@
       "id": "verl--gh-volcengine-verl",
       "name": "Verl",
       "tier": 3,
-      "url": "https://github.com/volcengine/verl",
-      "last_verified_at": "2026-10-27",
+      "url": "https://github.com/verl-project/verl",
+      "last_verified_at": "2026-10-28",
       "sections": [
         {
           "section": "Training infrastructure",
