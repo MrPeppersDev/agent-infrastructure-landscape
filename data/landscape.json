@@ -4027,10 +4027,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://www.1x.tech/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -4370,6 +4370,13 @@
           "scrape_url": "https://www.1x.tech/order",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.1x.tech/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -8449,10 +8456,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -8461,10 +8468,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -8819,12 +8826,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://huggingface.co/docs/accelerate/main/en/basic_tutorials/install",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -33968,10 +33989,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://agilityrobotics.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -34323,6 +34344,13 @@
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://agilityrobotics.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -47190,10 +47218,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://qwenlm.github.io/blog/qwen3/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -47202,10 +47230,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://qwenlm.github.io/blog/qwen3/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -47636,10 +47664,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://qwenlm.github.io/blog/qwen3/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://qwenlm.github.io/blog/qwen3/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://qwenlm.github.io/blog/qwen3/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -54974,10 +55016,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://aws.amazon.com/nova/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -54986,10 +55028,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://aws.amazon.com/nova/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -55335,10 +55377,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://aws.amazon.com/nova/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.aboutamazon.com/news/aws/amazon-nova-foundation-models",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://aws.amazon.com/nova/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -63917,10 +63973,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://claude.com/product/overview",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -63929,10 +63985,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://claude.com/product/overview",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -64372,10 +64428,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://claude.com/product/overview",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://platform.claude.com/docs/en/about-claude/models/overview",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://claude.com/product/overview",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -70857,10 +70927,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://docs.anyscale.com/clouds",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -70869,10 +70939,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.anyscale.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -71218,10 +71288,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://docs.anyscale.com/clouds",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/ray-project/ray",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.anyscale.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -76360,10 +76444,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://apptronik.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -76702,6 +76786,13 @@
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://apptronik.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -79668,10 +79759,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -79680,10 +79771,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -80026,10 +80117,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://argilla.io/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -81842,10 +81947,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://arize.com/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -81854,10 +81959,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://arize.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -82205,10 +82310,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://arize.com/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/Arize-ai/client_python",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://arize.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -82927,10 +83046,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://arize.com/phoenix/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -82939,10 +83058,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -83376,10 +83495,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://arize.com/phoenix/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/LICENSE",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -98618,10 +98751,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://aws.amazon.com/sagemaker/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -98630,10 +98763,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://aws.amazon.com/sagemaker/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -98979,10 +99112,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://aws.amazon.com/sagemaker/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/aws/sagemaker-python-sdk",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://aws.amazon.com/sagemaker/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -99708,10 +99855,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -99720,10 +99867,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -100072,10 +100219,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/axolotl-ai-cloud/axolotl",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -100801,10 +100962,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://azure.microsoft.com/en-us/products/machine-learning",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -100813,10 +100974,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://azure.microsoft.com/en-us/products/machine-learning",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -101158,10 +101319,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://azure.microsoft.com/en-us/products/machine-learning",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://pypi.org/project/azure-ai-ml/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://azure.microsoft.com/en-us/products/machine-learning",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -107357,10 +107532,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://www.baseten.co/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -107369,10 +107544,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.baseten.co/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -107724,10 +107899,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.baseten.co/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/basetenlabs/truss",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.baseten.co/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -124283,10 +124472,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/BatsResearch/bonito/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -124295,10 +124484,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/BatsResearch/bonito/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -124641,10 +124830,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/BatsResearch/bonito/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/BatsResearch/bonito",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/BatsResearch/bonito/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -126485,10 +126688,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://www.braintrust.dev/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -126497,10 +126700,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.braintrust.dev/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -126936,10 +127139,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.braintrust.dev/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://pypi.org/project/braintrust/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.braintrust.dev/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -174349,10 +174566,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -174361,10 +174578,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -174707,12 +174924,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/vwxyzjn/cleanba",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -175436,10 +175667,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://clear.ml/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -175448,10 +175679,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://clear.ml/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -175794,12 +176025,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://clear.ml/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://clear.ml/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://clear.ml/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -194424,10 +194669,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://cohere.com/command",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -194436,10 +194681,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://cohere.com/command",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -194785,10 +195030,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://cohere.com/command",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://cohere.com/blog/cohere-releases-command-a-plus",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://cohere.com/command",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -197704,10 +197963,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://www.co.bot/proxie",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -198041,6 +198300,13 @@
           "scrape_url": "https://www.co.bot/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.co.bot/proxie",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -198759,10 +199025,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/hpcaitech/ColossalAI/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -198771,10 +199037,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/hpcaitech/ColossalAI/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -199120,10 +199386,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/hpcaitech/ColossalAI/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/hpcaitech/ColossalAI",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/hpcaitech/ColossalAI/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -199849,10 +200129,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://www.comet.com/site/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -199861,10 +200141,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.comet.com/site/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -200216,10 +200496,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.comet.com/site/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/comet-ml/opik",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.comet.com/site/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -204193,10 +204487,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/mosaicml/composer/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -204205,10 +204499,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/mosaicml/composer/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -204554,10 +204848,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/mosaicml/composer/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/mosaicml/composer",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/mosaicml/composer/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -207476,10 +207784,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://www.confident-ai.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -207488,10 +207796,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -207847,12 +208155,26 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.confident-ai.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.confident-ai.com/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -236197,10 +236519,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://dagster.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -236209,10 +236531,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://dagster.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -236555,12 +236877,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://dagster.io/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://dagster.io/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://dagster.io/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -245153,10 +245489,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -245165,10 +245501,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -245602,12 +245938,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://api-docs.deepseek.com/quick_start/pricing/?tool=deepseek",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -246324,10 +246674,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/deepspeedai/DeepSpeed/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -246336,10 +246686,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/deepspeedai/DeepSpeed/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -246685,10 +247035,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/deepspeedai/DeepSpeed/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/microsoft/DeepSpeed",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/deepspeedai/DeepSpeed/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -256696,10 +257060,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/argilla-io/distilabel/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -256708,10 +257072,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/argilla-io/distilabel/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -257057,10 +257421,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/argilla-io/distilabel/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/argilla-io/distilabel",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/argilla-io/distilabel/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -270062,10 +270440,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/iterative/dvc/main/README.rst",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -270074,10 +270452,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/iterative/dvc/main/README.rst",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -270423,10 +270801,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/iterative/dvc/main/README.rst",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://dvc.org/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/iterative/dvc/main/README.rst",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -304810,10 +305202,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://www.figure.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -305153,6 +305545,13 @@
           "scrape_url": "https://www.figure.ai/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.figure.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -310225,10 +310624,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://fireworks.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -310237,10 +310636,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://fireworks.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -310582,10 +310981,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://fireworks.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/fw-ai-external/python-sdk",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://fireworks.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -314612,10 +315025,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/flyteorg/flyte/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -314624,10 +315037,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/flyteorg/flyte/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -314970,12 +315383,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/flyteorg/flyte/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.union.ai/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/flyteorg/flyte/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -320003,10 +320430,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://docs.pytorch.org/docs/2.14/fsdp.html",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -320015,10 +320442,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://docs.pytorch.org/docs/2.14/fsdp.html",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -320361,10 +320788,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://docs.pytorch.org/docs/2.14/fsdp.html",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://pytorch.org/docs/stable/fsdp.html",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://docs.pytorch.org/docs/2.14/fsdp.html",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -323262,10 +323703,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://www.galileo.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -323274,10 +323715,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.galileo.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -323632,10 +324073,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.galileo.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/rungalileo/galileo-python",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.galileo.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -350400,10 +350855,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://deepmind.google/models/gemini-robotics/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -350412,10 +350867,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://deepmind.google/models/gemini-robotics/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -350836,12 +351291,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://deepmind.google/models/gemini-robotics/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://deepmind.google/technologies/gemini-robotics/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://deepmind.google/models/gemini-robotics/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -351573,10 +352042,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -351585,10 +352054,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -351934,10 +352403,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://ai.google.dev/gemini-api/docs/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -353851,10 +354334,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://cloud.google.com/products/gemini-enterprise-agent-platform",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -353863,10 +354346,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://cloud.google.com/products/gemini-enterprise-agent-platform",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -354212,10 +354695,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://cloud.google.com/products/gemini-enterprise-agent-platform",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/googleapis/python-aiplatform",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://cloud.google.com/products/gemini-enterprise-agent-platform",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -383067,10 +383564,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/Helicone/helicone/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -383079,10 +383576,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.helicone.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -383441,12 +383938,26 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/Helicone/helicone/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.helicone.ai/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.helicone.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -401674,10 +402185,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://huggingface.co/docs/datasets/index",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -401686,10 +402197,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://huggingface.co/docs/datasets/index",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -402032,10 +402543,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://huggingface.co/docs/datasets/index",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://huggingface.co/docs/datasets",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://huggingface.co/docs/datasets/index",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -403871,10 +404396,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -403883,10 +404408,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -404335,12 +404860,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://huggingface.co/lerobot",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -455859,10 +456398,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://humansignal.com/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -455871,10 +456410,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://humansignal.com/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -456217,10 +456756,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://humansignal.com/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://labelstud.io/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://humansignal.com/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -456946,10 +457499,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://labelbox.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -456958,10 +457511,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://labelbox.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -457307,12 +457860,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://labelbox.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/Labelbox/labelbox-python",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://labelbox.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -459123,10 +459690,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://lakefs.io/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -459135,10 +459702,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://lakefs.io/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -459487,12 +460054,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://lakefs.io/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/treeverse/lakeFS/master/LICENSE",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://lakefs.io/pricing/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -495398,10 +495979,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -495410,10 +495991,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -495778,12 +496359,26 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -499785,10 +500380,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/hiyouga/LlamaFactory/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -499797,10 +500392,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/hiyouga/LlamaFactory/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -500146,10 +500741,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/hiyouga/LlamaFactory/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/hiyouga/LLaMA-Factory",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/hiyouga/LlamaFactory/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -518368,10 +518977,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/microsoft/LoRA/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -518380,10 +518989,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/microsoft/LoRA/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -518726,10 +519335,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/microsoft/LoRA/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/microsoft/LoRA",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/microsoft/LoRA/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -548644,10 +549267,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -548656,10 +549279,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -549005,10 +549628,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/NVIDIA/Megatron-LM",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -549734,10 +550371,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -549746,10 +550383,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -550095,10 +550732,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/NVIDIA/Megatron-LM",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Megatron-LM/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -635261,10 +635912,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -635273,10 +635924,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -635622,10 +636273,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -649364,10 +650029,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://azure.microsoft.com/en-us/products/phi",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -649376,10 +650041,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://azure.microsoft.com/en-us/products/phi",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -649730,10 +650395,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://azure.microsoft.com/en-us/products/phi",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://azure.microsoft.com/en-us/blog/welcome-phi-4/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://azure.microsoft.com/en-us/products/phi",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -661458,10 +662137,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://mistral.ai/news/mistral-large-2407/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -661470,10 +662149,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://mistral.ai/news/mistral-large-2407/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -661825,10 +662504,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://mistral.ai/news/mistral-large-2407/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://ai.azure.com/catalog/models/mistral-medium-3-5",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://mistral.ai/news/mistral-large-2407/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -666056,10 +666749,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/mlflow/mlflow/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -666068,10 +666761,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/mlflow/mlflow/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -666414,10 +667107,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/mlflow/mlflow/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://mlflow.org/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/mlflow/mlflow/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -669288,10 +669995,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://modal.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -669300,10 +670007,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://modal.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -669652,10 +670359,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://modal.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/modal-labs/modal-client",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://modal.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -688034,10 +688755,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "",
@@ -688046,10 +688767,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -688381,6 +689102,20 @@
           "model_id": "claude-opus-4-7",
           "source": "llm",
           "verified": false
+        },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -702775,10 +703510,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -702787,10 +703522,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.nvidia.com/en-us/industries/robotics/isaac-groot/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -703236,10 +703971,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.nvidia.com/en-us/industries/robotics/isaac-groot/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -729228,10 +729977,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://developers.openai.com/api/docs/models/gpt-5",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -729240,10 +729989,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://cdn.openai.com/gpt-5-system-card.pdf",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -729595,10 +730344,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://developers.openai.com/api/docs/models/gpt-5",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://openai.com/blog/gpt-6-astra",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://cdn.openai.com/gpt-5-system-card.pdf",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -741963,10 +742726,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/Arize-ai/openinference/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -741975,10 +742738,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/Arize-ai/openinference/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -742327,10 +743090,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/Arize-ai/openinference/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/Arize-ai/openinference",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/Arize-ai/openinference/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -743056,10 +743833,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/traceloop/openllmetry/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -743068,10 +743845,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/traceloop/openllmetry/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -743420,10 +744197,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/traceloop/openllmetry/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/traceloop/openllmetry",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/traceloop/openllmetry/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -746379,10 +747170,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -746391,10 +747182,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -746749,12 +747540,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.openmind.org/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -747478,10 +748283,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/OpenRLHF/OpenRLHF/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -747490,10 +748295,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/OpenRLHF/OpenRLHF/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -747839,10 +748644,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/OpenRLHF/OpenRLHF/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/OpenRLHF/OpenRLHF",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/OpenRLHF/OpenRLHF/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -748568,10 +749387,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://openrouter.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "",
@@ -748580,10 +749399,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://openrouter.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -748912,6 +749731,20 @@
           "model_id": "claude-opus-4-7",
           "source": "llm",
           "verified": false
+        },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://openrouter.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://openrouter.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -757664,10 +758497,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://outerbounds.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -757676,10 +758509,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://outerbounds.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -758025,10 +758858,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://outerbounds.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/Netflix/metaflow",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://outerbounds.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -760950,10 +761797,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/pachyderm/pachyderm/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -760962,10 +761809,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/pachyderm/pachyderm/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -761312,10 +762159,24 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/pachyderm/pachyderm/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/pachyderm/pachyderm",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/pachyderm/pachyderm/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -767527,10 +768388,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/huggingface/peft/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -767539,10 +768400,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/huggingface/peft/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -767891,10 +768752,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/peft/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/huggingface/peft",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/peft/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -779078,10 +779953,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://www.pi.website/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -779090,10 +779965,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.pi.website/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -779524,10 +780399,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.pi.website/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/Physical-Intelligence/openpi",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.pi.website/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -780265,10 +781154,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://www.picklerobot.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -780612,6 +781501,13 @@
           "scrape_url": "https://www.picklerobot.com/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.picklerobot.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -792259,10 +793155,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/Portkey-AI/gateway/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -792271,10 +793167,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://portkey.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -792623,12 +793519,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/Portkey-AI/gateway/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://portkey.ai/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://portkey.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -795537,10 +796447,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://www.prefect.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -795549,10 +796459,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.prefect.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -795898,12 +796808,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.prefect.io/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.prefect.io/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.prefect.io/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -802142,10 +803066,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://www.promptlayer.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -802154,10 +803078,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.promptlayer.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -802506,10 +803430,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.promptlayer.com/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/MagnivOrg/prompt-layer-library",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.promptlayer.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -809846,10 +810784,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -809858,10 +810796,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -810201,12 +811139,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/artidoro/qlora/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -816370,10 +817322,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/vibrantlabsai/ragas/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -816382,10 +817334,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/vibrantlabsai/ragas/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -816731,10 +817683,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/vibrantlabsai/ragas/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/explodinggradients/ragas",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/vibrantlabsai/ragas/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -820780,10 +821746,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://docs.ray.io/en/latest/train/train.html",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -820792,10 +821758,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://docs.ray.io/en/latest/train/train.html",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -821135,10 +822101,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://docs.ray.io/en/latest/train/train.html",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://docs.ray.io/en/latest/train/train.html",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://docs.ray.io/en/latest/train/train.html",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -835325,10 +836305,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://docs.reka.ai/chat/run-locally",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -835337,10 +836317,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://docs.reka.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -835692,12 +836672,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://docs.reka.ai/chat/run-locally",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.reka.ai/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://docs.reka.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -840795,10 +841789,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://replicate.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -840807,10 +841801,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://replicate.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -841169,10 +842163,24 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://replicate.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/replicate/cog",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://replicate.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -861685,10 +862693,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/allenai/RL4LMs/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -861697,10 +862705,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/allenai/RL4LMs/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -862043,10 +863051,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/allenai/RL4LMs/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/allenai/RL4LMs",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/allenai/RL4LMs/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -862772,10 +863794,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/RLHFlow/RLHF-Reward-Modeling/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -862784,10 +863806,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/RLHFlow/RLHF-Reward-Modeling/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -863130,10 +864152,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/RLHFlow/RLHF-Reward-Modeling/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/RLHFlow/RLHF-Reward-Modeling",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/RLHFlow/RLHF-Reward-Modeling/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -864934,10 +865970,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://raw.githubusercontent.com/roboflow/inference/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -864946,10 +865982,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://roboflow.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -865305,10 +866341,24 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/roboflow/inference/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://pypi.org/project/roboflow/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://roboflow.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -871454,10 +872504,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -871466,10 +872516,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -871818,10 +872868,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/LICENSE",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/leggedrobotics/rsl_rl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -873643,10 +874707,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://www.runpod.io/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -873655,10 +874719,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.runpod.io/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -874010,10 +875074,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.runpod.io/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://pypi.org/project/runpod/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.runpod.io/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -884590,10 +885668,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "product",
+          "citation": "https://sanctuary.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -884932,6 +886010,13 @@
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://sanctuary.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -890378,10 +891463,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://scale.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -890736,6 +891821,13 @@
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://scale.com/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -917578,10 +918670,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/sgl-project/sglang/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -917590,10 +918682,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/sgl-project/sglang/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -917939,10 +919031,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/sgl-project/sglang/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/sgl-project/sglang",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/sgl-project/sglang/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -937088,10 +938194,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://snorkel.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -937443,6 +938549,13 @@
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://snorkel.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -952517,10 +953630,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/DLR-RM/stable-baselines3/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -952529,10 +953642,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/DLR-RM/stable-baselines3/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -952881,10 +953994,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/DLR-RM/stable-baselines3/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/DLR-RM/stable-baselines3",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/DLR-RM/stable-baselines3/master/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -974103,10 +975230,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.surgehq.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -974434,6 +975561,13 @@
           "generated_at": "2026-06-29",
           "model_id": "claude-opus-4-7",
           "source": "llm",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.surgehq.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "taxonomy-three-layer-rollup": {
@@ -988708,10 +989842,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/TensorRT-LLM/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -988720,10 +989854,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/NVIDIA/TensorRT-LLM/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -989069,10 +990203,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/TensorRT-LLM/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/NVIDIA/TensorRT-LLM",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/NVIDIA/TensorRT-LLM/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -991970,10 +993118,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -991982,10 +993130,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -992334,10 +993482,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": false
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/huggingface/text-generation-inference",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -999577,10 +1000739,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://www.together.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -999589,10 +1000751,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.together.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -999947,10 +1001109,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.together.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://pypi.org/project/together/",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.together.ai/",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1008226,10 +1009402,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/meta-pytorch/torchtune/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -1008238,10 +1009414,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/meta-pytorch/torchtune/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1008587,10 +1009763,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/meta-pytorch/torchtune/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/pytorch/torchtune",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/meta-pytorch/torchtune/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1018006,10 +1019196,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/huggingface/trl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -1018018,10 +1019208,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/huggingface/trl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1018364,10 +1019554,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/trl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/huggingface/trl/blob/main/LICENSE",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/trl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1020156,10 +1021360,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -1020168,10 +1021372,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "agent-infra",
@@ -1020520,10 +1021724,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/truera/trulens",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1026723,10 +1027941,10 @@
           "tier": "T2"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://unsloth.ai/docs",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -1026735,10 +1027953,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://unsloth.ai/docs",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1027100,10 +1028318,24 @@
           "source": "scrape",
           "verified": true
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://unsloth.ai/docs",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://unsloth.ai/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://unsloth.ai/docs",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -1038898,10 +1040130,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/verl-project/verl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -1038910,10 +1040142,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/verl-project/verl/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1039256,10 +1040488,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/verl-project/verl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/volcengine/verl",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/verl-project/verl/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1042218,10 +1043464,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "local",
+          "citation": "https://raw.githubusercontent.com/vllm-project/vllm/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-source",
@@ -1042230,10 +1043476,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://raw.githubusercontent.com/vllm-project/vllm/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1042579,10 +1043825,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://raw.githubusercontent.com/vllm-project/vllm/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/vllm-project/vllm",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://raw.githubusercontent.com/vllm-project/vllm/main/README.md",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1052160,10 +1053420,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://docs.coreweave.com/products/wandb/platform/hosting",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -1052172,10 +1053432,10 @@
           "tier": "T1"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://docs.coreweave.com/products/wandb/platform/hosting",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1052524,10 +1053784,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://docs.coreweave.com/products/wandb/platform/hosting",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://github.com/wandb/wandb",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://docs.coreweave.com/products/wandb/platform/hosting",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1059986,10 +1061260,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "cloud",
+          "citation": "https://x.ai/news/grok-4",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "commercial",
@@ -1059998,10 +1061272,10 @@
           "tier": "T2"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "both",
+          "citation": "https://x.ai/news/grok-4",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "large-models",
@@ -1060359,10 +1061633,24 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://x.ai/news/grok-4",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://huggingface.co/xai-org",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://x.ai/news/grok-4",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": true
         },
@@ -1066533,10 +1067821,10 @@
           "tier": "T3"
         },
         "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hybrid",
+          "citation": "https://www.zenml.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "licensing-bucket": {
           "value": "open-core",
@@ -1066545,10 +1067833,10 @@
           "tier": "T3"
         },
         "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "platform",
+          "citation": "https://www.zenml.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "taxonomy-three-layer-rollup": {
           "value": "model-infra",
@@ -1066891,12 +1068179,26 @@
           "source": "llm",
           "verified": false
         },
+        "architecture-deployment-locus": {
+          "scrape_url": "https://www.zenml.io/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
+        },
         "licensing-bucket": {
           "scrape_url": "https://www.zenml.io/pricing",
           "scraped_at": "2026-10-28",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "scrape_url": "https://www.zenml.io/pricing",
+          "scraped_at": "2026-10-28",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",

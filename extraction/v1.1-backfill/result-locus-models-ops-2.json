@@ -1,0 +1,515 @@
+[
+ {
+  "id": "replicate--replicate-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://replicate.com/",
+  "confidence": "high",
+  "note": "Run AI with an API; custom models packaged with Cog are deployed on Replicate's cloud cluster."
+ },
+ {
+  "id": "replicate--replicate-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://replicate.com/",
+  "confidence": "high",
+  "note": "Run and fine-tune models and deploy custom models with one line of code via API."
+ },
+ {
+  "id": "runpod--runpod-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.runpod.io/",
+  "confidence": "high",
+  "note": "The AI Developer Cloud: Pods, Serverless and Clusters across 31 global regions."
+ },
+ {
+  "id": "runpod--runpod-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.runpod.io/",
+  "confidence": "high",
+  "note": "GPU cloud for developers to train, fine-tune and deploy; 1M+ developers."
+ },
+ {
+  "id": "sglang--gh-sgl-project-sglang",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/sgl-project/sglang/main/README.md",
+  "confidence": "high",
+  "note": "Open-source inference framework installed via Docker image or pip and run on your own hardware."
+ },
+ {
+  "id": "sglang--gh-sgl-project-sglang",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/sgl-project/sglang/main/README.md",
+  "confidence": "high",
+  "note": "Open-source inference framework for large-scale serving and RL rollouts."
+ },
+ {
+  "id": "tensorrt-llm--gh-nvidia-tensorrt-llm",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/NVIDIA/TensorRT-LLM/main/README.md",
+  "confidence": "high",
+  "note": "Open-sourced library for optimizing LLM inference on your NVIDIA GPUs."
+ },
+ {
+  "id": "tensorrt-llm--gh-nvidia-tensorrt-llm",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/NVIDIA/TensorRT-LLM/main/README.md",
+  "confidence": "high",
+  "note": "TensorRT LLM is an open-sourced library for optimizing LLM and Visual Gen inference."
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+  "confidence": "medium",
+  "note": "Toolkit for deploying and serving LLMs via Docker or locally; now in maintenance mode (HF's own hosted Endpoints use it internally)."
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+  "confidence": "high",
+  "note": "TGI is a toolkit for deploying and serving Large Language Models."
+ },
+ {
+  "id": "together-ai--together-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.together.ai/",
+  "confidence": "high",
+  "note": "The AI Native Cloud: serverless, batch and dedicated inference plus GPU clusters hosted by Together."
+ },
+ {
+  "id": "together-ai--together-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.together.ai/",
+  "confidence": "high",
+  "note": "Inference APIs, fine-tuning and GPU compute sold to builders."
+ },
+ {
+  "id": "vllm--gh-vllm-project-vllm",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vllm-project/vllm/main/README.md",
+  "confidence": "high",
+  "note": "vLLM is a fast and easy-to-use open-source library for LLM inference and serving that you install and run."
+ },
+ {
+  "id": "vllm--gh-vllm-project-vllm",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vllm-project/vllm/main/README.md",
+  "confidence": "high",
+  "note": "Library for LLM inference and serving aimed at developers."
+ },
+ {
+  "id": "1x-technologies--1x-tech",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.1x.tech/",
+  "confidence": "high",
+  "note": "Site sells the NEO home robot directly to consumers (Order NEO, $200 deposit)."
+ },
+ {
+  "id": "agility-robotics--agilityrobotics-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://agilityrobotics.com/",
+  "confidence": "medium",
+  "note": "Sells the Digit humanoid plus the Arc fleet cloud as a deployed automation solution for facilities."
+ },
+ {
+  "id": "apptronik--apptronik-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://apptronik.com/",
+  "confidence": "medium",
+  "note": "Apollo humanoid robot offered as a deployable robot for logistics and manufacturing work."
+ },
+ {
+  "id": "collaborative-robotics--co-bot",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.co.bot/proxie",
+  "confidence": "high",
+  "note": "Proxie robot fleets sold to hospitals, manufacturing and logistics facilities (Reserve your Proxie fleet)."
+ },
+ {
+  "id": "figure-ai--figure-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.figure.ai/",
+  "confidence": "high",
+  "note": "Figure 03 is a general purpose humanoid robot for home help, powered by Helix."
+ },
+ {
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://deepmind.google/models/gemini-robotics/",
+  "confidence": "medium",
+  "note": "Gemini Robotics On-Device runs locally on robot hardware, while Gemini Robotics ER 2 preview is offered hosted in Google AI Studio."
+ },
+ {
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://deepmind.google/models/gemini-robotics/",
+  "confidence": "medium",
+  "note": "VLA and embodied-reasoning models offered to robotics builders via trusted testers and AI Studio."
+ },
+ {
+  "id": "hugging-face-lerobot--huggingface-co",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
+  "confidence": "high",
+  "note": "Apache-2.0 Python library installed from PyPI and run on your own machine and robots."
+ },
+ {
+  "id": "hugging-face-lerobot--huggingface-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
+  "confidence": "high",
+  "note": "Open-source robotics library (datasets, policies, training code) for builders."
+ },
+ {
+  "id": "nvidia-gr00t-isaac--developer-nvidia-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+  "confidence": "medium",
+  "note": "Download pre-trained GR00T N1.7 weights and reference code to fine-tune and run inference yourself; no hosted GR00T service described."
+ },
+ {
+  "id": "nvidia-gr00t-isaac--developer-nvidia-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.nvidia.com/en-us/industries/robotics/isaac-groot/",
+  "confidence": "high",
+  "note": "Isaac GR00T is described as foundation models and tools for humanoid robot developers."
+ },
+ {
+  "id": "openmind-om1--openmind-org",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+  "confidence": "medium",
+  "note": "OM1 binary runs locally on your machine/robot but requires an OpenMind API key and bills OMCU on OpenMind's hosted platform."
+ },
+ {
+  "id": "openmind-om1--openmind-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/OpenMind/OM1/main/README.md",
+  "confidence": "high",
+  "note": "Modular AI runtime that empowers developers to create and deploy multimodal agents on robots."
+ },
+ {
+  "id": "physical-intelligence--physicalintelligence-company",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.pi.website/",
+  "confidence": "medium",
+  "note": "Pi API beta offers cloud-hosted inference and fine-tuning; openpi repo separately releases weights you serve yourself."
+ },
+ {
+  "id": "physical-intelligence--physicalintelligence-company",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.pi.website/",
+  "confidence": "high",
+  "note": "Build with the Pi API: upload data, fine-tune models and deploy inference on your own robots."
+ },
+ {
+  "id": "pickle-robot--picklerobot-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.picklerobot.com/",
+  "confidence": "high",
+  "note": "Sells truck-unloading robots powered by the Dill Autonomy Engine for the dock door."
+ },
+ {
+  "id": "sanctuary-ai--sanctuary-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://sanctuary.ai/",
+  "confidence": "medium",
+  "note": "Deploys production-ready Physical AI automation solutions on robotic hardware for industrial customers."
+ },
+ {
+  "id": "aws-sagemaker--aws-amazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/sagemaker/",
+  "confidence": "high",
+  "note": "Build, train and deploy ML models with fully managed AWS infrastructure."
+ },
+ {
+  "id": "aws-sagemaker--aws-amazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/sagemaker/",
+  "confidence": "high",
+  "note": "Managed ML and AI development platform for builders (SageMaker AI, Unified Studio)."
+ },
+ {
+  "id": "accelerate-hugging-face--gh-huggingface-accelerate",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
+  "confidence": "high",
+  "note": "Thin PyTorch wrapper library you run in your own training loop and environment."
+ },
+ {
+  "id": "accelerate-hugging-face--gh-huggingface-accelerate",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
+  "confidence": "high",
+  "note": "Library whose whole API is one Accelerator class for developers."
+ },
+ {
+  "id": "argilla--argilla-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+  "confidence": "medium",
+  "note": "Server is deployed by the user, most easily via the free Hugging Face Spaces integration (Argilla joined Hugging Face); SDK via pip."
+ },
+ {
+  "id": "argilla--argilla-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/argilla-io/argilla/develop/README.md",
+  "confidence": "high",
+  "note": "Collaboration tool and SDK for AI engineers to build high-quality datasets."
+ },
+ {
+  "id": "axolotl--gh-axolotl-ai-cloud-axolotl",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+  "confidence": "high",
+  "note": "Open-source fine-tuning library you run yourself, with launchers for third-party clouds such as Nebius."
+ },
+ {
+  "id": "axolotl--gh-axolotl-ai-cloud-axolotl",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/axolotl-ai-cloud/axolotl/main/README.md",
+  "confidence": "high",
+  "note": "Fine-tuning library/CLI for model builders."
+ },
+ {
+  "id": "azure-machine-learning--azure-microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://azure.microsoft.com/en-us/products/machine-learning",
+  "confidence": "high",
+  "note": "Enterprise-grade Azure AI service for the end-to-end ML lifecycle, with managed endpoints."
+ },
+ {
+  "id": "azure-machine-learning--azure-microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://azure.microsoft.com/en-us/products/machine-learning",
+  "confidence": "high",
+  "note": "Azure ML service for building, training and deploying models."
+ },
+ {
+  "id": "bonito--gh-batsresearch-bonito",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/BatsResearch/bonito/main/README.md",
+  "confidence": "high",
+  "note": "Open-source model plus lightweight library on transformers/vllm, installed from PyPI and run yourself."
+ },
+ {
+  "id": "bonito--gh-batsresearch-bonito",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/BatsResearch/bonito/main/README.md",
+  "confidence": "high",
+  "note": "Library for creating synthetic instruction-tuning datasets."
+ },
+ {
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+  "confidence": "high",
+  "note": "Single-file research codebase you run yourself; repo is intended for archiving purposes."
+ },
+ {
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+  "confidence": "medium",
+  "note": "Reproducible distributed RL platform code for researchers, not an end-user app."
+ },
+ {
+  "id": "clearml--clear-ml",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://clear.ml/pricing",
+  "confidence": "high",
+  "note": "Available on ClearML's hosted servers, self-hosted, or managed VPC/on-prem; self-hosted ClearML is 100% open source."
+ },
+ {
+  "id": "clearml--clear-ml",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://clear.ml/pricing",
+  "confidence": "high",
+  "note": "AI infrastructure platform (control plane, AI Development Center) sold to AI teams."
+ },
+ {
+  "id": "colossalai--gh-hpcaitech-colossalai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/hpcaitech/ColossalAI/main/README.md",
+  "confidence": "medium",
+  "note": "Open-source library run yourself, plus a pre-configured Colossal-AI environment on the vendor's HPC-AI Cloud."
+ },
+ {
+  "id": "colossalai--gh-hpcaitech-colossalai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/hpcaitech/ColossalAI/main/README.md",
+  "confidence": "high",
+  "note": "Distributed training framework for making large models cheaper to train."
+ },
+ {
+  "id": "comet-ml--comet-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.comet.com/site/pricing/",
+  "confidence": "high",
+  "note": "Self-host the open-source Opik or use the free/Pro cloud; Enterprise adds on-prem."
+ },
+ {
+  "id": "comet-ml--comet-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.comet.com/site/pricing/",
+  "confidence": "high",
+  "note": "Observability, evaluation and experiment-management platform for AI teams."
+ },
+ {
+  "id": "composer-mosaicml--gh-mosaicml-composer",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mosaicml/composer/main/README.md",
+  "confidence": "high",
+  "note": "Open-source PyTorch training library you run on your own GPUs/clusters."
+ },
+ {
+  "id": "composer-mosaicml--gh-mosaicml-composer",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mosaicml/composer/main/README.md",
+  "confidence": "high",
+  "note": "Composer is an open-source deep learning training library by MosaicML."
+ },
+ {
+  "id": "dvc--dvc-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/iterative/dvc/main/README.rst",
+  "confidence": "high",
+  "note": "DVC is a command line tool and VS Code extension; data is stored in your own cloud storage."
+ },
+ {
+  "id": "dvc--dvc-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/iterative/dvc/main/README.rst",
+  "confidence": "high",
+  "note": "Developer tool for versioning data and models in ML projects."
+ },
+ {
+  "id": "dagster--dagster-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://dagster.io/pricing",
+  "confidence": "high",
+  "note": "Dagster+ offers vendor-run Serverless deployments and Hybrid deployments on your own ECS, Kubernetes, Docker, Azure or local infrastructure."
+ },
+ {
+  "id": "dagster--dagster-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://dagster.io/pricing",
+  "confidence": "high",
+  "note": "Data orchestration platform sold to data teams on Solo/Starter/Pro plans."
+ }
+]

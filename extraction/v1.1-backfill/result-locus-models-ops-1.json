@@ -1,0 +1,542 @@
+[
+ {
+  "id": "arize-ai--arize-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://arize.com/pricing/",
+  "confidence": "high",
+  "note": "Pricing lists Deployment: SaaS for AX Free and Pro; self-hosted only on custom-priced AX Enterprise."
+ },
+ {
+  "id": "arize-ai--arize-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://arize.com/",
+  "confidence": "high",
+  "note": "Sold to AI engineers as observability and evals infrastructure for agents."
+ },
+ {
+  "id": "arize-phoenix--phoenix-arize-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://arize.com/phoenix/",
+  "confidence": "medium",
+  "note": "Phoenix runs locally or self-hosted (Docker/Helm), and the page also offers a free cloud sign-up (Phoenix Cloud / AX)."
+ },
+ {
+  "id": "arize-phoenix--phoenix-arize-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md",
+  "confidence": "high",
+  "note": "Open-source observability and evaluation platform that developers instrument their apps against."
+ },
+ {
+  "id": "braintrust--braintrust-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.braintrust.dev/pricing",
+  "confidence": "high",
+  "note": "Hosted SaaS; on-prem or hybrid data-plane deployment is offered only on the custom-priced Enterprise plan."
+ },
+ {
+  "id": "braintrust--braintrust-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.braintrust.dev/",
+  "confidence": "high",
+  "note": "Eval and observability platform for AI teams building LLM applications."
+ },
+ {
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.confident-ai.com/",
+  "confidence": "high",
+  "note": "Says 'Self-host or use Confident AI's cloud'; the DeepEval framework runs locally (per its README)."
+ },
+ {
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md",
+  "confidence": "high",
+  "note": "DeepEval is an open-source LLM evaluation framework for developers; Confident AI is its cloud platform."
+ },
+ {
+  "id": "galileo--galileo-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.galileo.ai/",
+  "confidence": "medium",
+  "note": "Sign-up is SaaS; the 'Deploy how you want' section lists SaaS, VPC and on-premises, with no self-serve self-host shown."
+ },
+ {
+  "id": "galileo--galileo-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.galileo.ai/",
+  "confidence": "high",
+  "note": "Presented as an AI observability and evaluation platform for teams shipping agents."
+ },
+ {
+  "id": "helicone--helicone-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Helicone/helicone/main/README.md",
+  "confidence": "high",
+  "note": "README offers Helicone cloud dashboard plus open-source self-hosting via Docker Compose (Helm for enterprise)."
+ },
+ {
+  "id": "helicone--helicone-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.helicone.ai/",
+  "confidence": "high",
+  "note": "AI gateway and LLM observability used by AI companies to route, debug and analyze their apps."
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Arize-ai/openinference/main/README.md",
+  "confidence": "high",
+  "note": "A set of conventions and instrumentation plugins that run inside the user's app and export to any OTel backend."
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Arize-ai/openinference/main/README.md",
+  "confidence": "high",
+  "note": "Instrumentation libraries for ML SDKs and frameworks, aimed at developers."
+ },
+ {
+  "id": "openllmetry-traceloop--gh-traceloop-openllmetry",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/traceloop/openllmetry/main/README.md",
+  "confidence": "high",
+  "note": "Apache 2.0 OpenTelemetry extensions/SDK that run in the user's app and send to any existing observability backend."
+ },
+ {
+  "id": "openllmetry-traceloop--gh-traceloop-openllmetry",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/traceloop/openllmetry/main/README.md",
+  "confidence": "high",
+  "note": "Instrumentation SDK for developers building LLM applications."
+ },
+ {
+  "id": "promptlayer--promptlayer-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.promptlayer.com/pricing",
+  "confidence": "high",
+  "note": "Hosting is SaaS on Free, Pro and Team; self-hosted or managed single-tenant only on Enterprise."
+ },
+ {
+  "id": "promptlayer--promptlayer-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.promptlayer.com/",
+  "confidence": "high",
+  "note": "Prompt management, evaluation and observability exposed via SDK and REST API for LLM teams."
+ },
+ {
+  "id": "ragas--gh-explodinggradients-ragas",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vibrantlabsai/ragas/main/README.md",
+  "confidence": "high",
+  "note": "Installed with pip install ragas and run in the user's own environment; no hosted service described."
+ },
+ {
+  "id": "ragas--gh-explodinggradients-ragas",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/vibrantlabsai/ragas/main/README.md",
+  "confidence": "high",
+  "note": "A toolkit for evaluating and optimizing LLM applications, aimed at developers."
+ },
+ {
+  "id": "trulens--gh-truera-trulens",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+  "confidence": "high",
+  "note": "Open-source pip package (pip install trulens) instrumented into the user's app."
+ },
+ {
+  "id": "trulens--gh-truera-trulens",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+  "confidence": "high",
+  "note": "Open-source, OpenTelemetry-native evaluation library for developers' agents and RAG apps."
+ },
+ {
+  "id": "alibaba-qwen-3-family--qwenlm-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://qwenlm.github.io/blog/qwen3/",
+  "confidence": "high",
+  "note": "Apache 2.0 weights on Hugging Face/ModelScope for self-deployment with SGLang/vLLM/Ollama, plus Alibaba Model Studio (DashScope) endpoint."
+ },
+ {
+  "id": "alibaba-qwen-3-family--qwenlm-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://qwenlm.github.io/blog/qwen3/",
+  "confidence": "medium",
+  "note": "Released as open weights and API models for developers, and also offered to end users in the Qwen Chat web and mobile app."
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/nova/",
+  "confidence": "high",
+  "note": "Nova is a proprietary model family made available to AWS customers as Nova models and services."
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/nova/",
+  "confidence": "high",
+  "note": "Foundation models and services (Nova Forge, Nova Act) sold to AWS customers to build with."
+ },
+ {
+  "id": "anthropic-claude-foundation-models--anthropic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://claude.com/product/overview",
+  "confidence": "medium",
+  "note": "Claude is accessed through a Claude account or a cloud provider (Amazon Bedrock, Google, Microsoft Foundry); no downloadable weights are offered."
+ },
+ {
+  "id": "anthropic-claude-foundation-models--anthropic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://claude.com/product/overview",
+  "confidence": "high",
+  "note": "Consumer Claude apps on web, desktop and mobile alongside the Claude Platform for developers."
+ },
+ {
+  "id": "cohere-command-r-command-a--cohere-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://cohere.com/command",
+  "confidence": "medium",
+  "note": "Command is served via Cohere's API/playground and can be deployed through private deployments or in a hyperscaler VPC."
+ },
+ {
+  "id": "cohere-command-r-command-a--cohere-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://cohere.com/command",
+  "confidence": "medium",
+  "note": "Command models are offered to enterprises and developers via the Tool Use API; North is a separate product built on them."
+ },
+ {
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
+  "confidence": "high",
+  "note": "Weights downloadable from Hugging Face for local running, plus an OpenAI-compatible API at platform.deepseek.com."
+ },
+ {
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
+  "confidence": "high",
+  "note": "README offers the chat website chat.deepseek.com and the API platform; deepseek.com also lists the app."
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+  "confidence": "medium",
+  "note": "Gemini 3 is available across Google products: the Gemini app, AI Studio and Vertex AI; no weights are mentioned."
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+  "confidence": "high",
+  "note": "Offered to end users in the Gemini app and to developers via AI Studio and Vertex AI."
+ },
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+  "confidence": "medium",
+  "note": "Weights downloadable from llama.com and Hugging Face, with availability across major cloud and data platforms via partners."
+ },
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+  "confidence": "high",
+  "note": "Released openly so everyone can build new experiences; Meta AI is a separately branded consumer assistant."
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://azure.microsoft.com/en-us/products/phi",
+  "confidence": "high",
+  "note": "Says 'Deploy locally' and also offers Phi through model-as-a-service pay-as-you-go inference APIs in Foundry."
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://azure.microsoft.com/en-us/products/phi",
+  "confidence": "high",
+  "note": "Open small language models for developers building generative AI applications."
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://mistral.ai/news/mistral-large-2407/",
+  "confidence": "high",
+  "note": "Large 2 is served on la Plateforme with weights on Hugging Face; Apache Mixtral models stay deployable via mistral-inference."
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://mistral.ai/news/mistral-large-2407/",
+  "confidence": "medium",
+  "note": "Offered on la Plateforme and cloud partners to build AI applications; Le Chat is mentioned only as a place to test it."
+ },
+ {
+  "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://developers.openai.com/api/docs/models/gpt-5",
+  "confidence": "medium",
+  "note": "GPT-5 is offered as a hosted model through the OpenAI API (and ChatGPT); no weights are offered for this family."
+ },
+ {
+  "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://cdn.openai.com/gpt-5-system-card.pdf",
+  "confidence": "high",
+  "note": "System card describes GPT-5 access both in ChatGPT and for developers in the API."
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.reka.ai/chat/run-locally",
+  "confidence": "high",
+  "note": "Reka API runs models on Reka-operated infrastructure, and Reka Edge weights are published on Hugging Face to run locally."
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.reka.ai/",
+  "confidence": "high",
+  "note": "An OpenAI-compatible API serving Reka models to developers."
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://x.ai/news/grok-4",
+  "confidence": "high",
+  "note": "Grok 4 is available to SuperGrok/Premium+ subscribers and through the xAI API; coming to hyperscaler partners."
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://x.ai/news/grok-4",
+  "confidence": "high",
+  "note": "Sold to consumers via SuperGrok subscriptions and to developers via the Grok 4 API."
+ },
+ {
+  "id": "anyscale--anyscale-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://docs.anyscale.com/clouds",
+  "confidence": "medium",
+  "note": "Anyscale clouds deploy Ray clusters in the customer's AWS, Google Cloud or Kubernetes, and Anyscale-hosted clouds are also offered."
+ },
+ {
+  "id": "anyscale--anyscale-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.anyscale.com/",
+  "confidence": "high",
+  "note": "AI compute platform powered by Ray for data, training and serving workloads, with free sign-up for builders."
+ },
+ {
+  "id": "baseten--baseten-co",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.baseten.co/",
+  "confidence": "medium",
+  "note": "Fully managed Baseten Cloud; single-tenant and self-hosted deployments offered as an added-security option, not self-serve."
+ },
+ {
+  "id": "baseten--baseten-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.baseten.co/",
+  "confidence": "high",
+  "note": "Inference platform to deploy open-source, custom and fine-tuned models in production."
+ },
+ {
+  "id": "fireworks-ai--fireworks-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://fireworks.ai/",
+  "confidence": "medium",
+  "note": "Serverless and reserved inference on Fireworks; 'Your cloud or ours' is offered, but no self-serve self-host is shown."
+ },
+ {
+  "id": "fireworks-ai--fireworks-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://fireworks.ai/",
+  "confidence": "high",
+  "note": "Inference, training and ensembling platform with an API for building on open models."
+ },
+ {
+  "id": "litellm--gh-berriai-litellm",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+  "confidence": "medium",
+  "note": "'Open Source AI Gateway... Self-hosted'; a hosted proxy exists only under the enterprise docs."
+ },
+ {
+  "id": "litellm--gh-berriai-litellm",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+  "confidence": "high",
+  "note": "Python SDK and proxy server to call 100+ LLMs in OpenAI format, aimed at developers."
+ },
+ {
+  "id": "modal--modal-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://modal.com/",
+  "confidence": "high",
+  "note": "Cloud infrastructure for training and serving AI applications on Modal's multi-cloud capacity pool."
+ },
+ {
+  "id": "modal--modal-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://modal.com/",
+  "confidence": "high",
+  "note": "'The platform for production AI' for teams that develop, train and serve AI applications."
+ },
+ {
+  "id": "openrouter--openrouter-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://openrouter.ai/",
+  "confidence": "high",
+  "note": "Hosted unified API that routes requests to 500+ models on 80+ providers over its distributed infrastructure."
+ },
+ {
+  "id": "openrouter--openrouter-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://openrouter.ai/",
+  "confidence": "high",
+  "note": "'The Unified Interface For Every Model', with API keys for developers."
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Portkey-AI/gateway/main/README.md",
+  "confidence": "high",
+  "note": "Gateway runs locally via npx/Docker, or on Portkey Cloud, which the README recommends."
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://portkey.ai/",
+  "confidence": "high",
+  "note": "Production stack for Gen AI builders: AI gateway, observability, guardrails and prompt management."
+ }
+]

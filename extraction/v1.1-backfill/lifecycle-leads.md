@@ -1,0 +1,129 @@
+# Lifecycle leads from the v1.1.0 research agents (verify on primary sources, then apply_reverify)
+- Continue.dev: continue.dev says "Continue was acquired by Cursor"; repo read-only, final 2.0.0.
+- Roo Code: roocode.com 301 → roomote.dev (separate cloud agent); catalog shutdown 2026-05-15.
+- Gitpod → Ona: gitpod.io redirects to ona.com; row url needs updating.
+- Windsurf → devin.ai/desktop; cognition.ai → cognition.com.
+- Amazon Q Developer: IDE plugin support ends 2027-04-30, points to Kiro.
+- Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code.
+- Magic.dev: no released product on site.
+- Lutra AI: lutra.ai says "we have discontinued support for Lutra".
+- Project Mariner: URL redirects to deepmind.google homepage (catalog shutdown note 2026-05-04).
+- Magnitude: now an open-source local inference engine + desktop app, no longer a browser agent (section may be wrong).
+- Highlight AI: repositioned to meeting/work-context follow-ups; arm64 Mac only.
+- Archived repos: GPT Engineer (2026-04-22), Bytebot (2026-03-07), InstructLab (2026-04-23; instructlab.ai TLS expired, 503).
+- Semantic Kernel README: succeeded by Microsoft Agent Framework 1.0. Swarm: replaced by OpenAI Agents SDK.
+- Redirects: sdk.vercel.ai → ai-sdk.dev; ai.pydantic.dev → pydantic.dev/docs/ai; Claude for Chrome → claude.com/blog/claude-for-chrome (now Pro/Team/Enterprise); crewai.com/enterprise 404 → crewai.com/amp.
+- Steamship: steamship.com 404, www.steamship.com no connect — looks dead.
+- MultiOn → AGI, Inc. (theagi.company): on-device phone action agent, Android app + OEM platform.
+- Reflection AI: now open-weight model lab (Beam 501B + API); coding-agent framing outdated.
+- LawDroid: pivoted to LawDroid Assist for legal aid/courts; no "Copilot".
+- Hugo.legal: human lawyer consultation (39 EUR/30 min) — wrong section?
+- Linq AI: linq.ai now higher-ed company (already flagged).
+- GitHub Copilot Autofix: GA note on blog post.
+- Reggie.ai parked/for sale; heypluto.ai doesn't resolve; toplyne.io 404 — probably dead.
+- SnapAttack → Splunk ES; Protect AI → Prisma AIRS; Robust Intelligence site down (Cisco).
+- OpenAI deep-research API models shut down 2026-07-23 → gpt-5.6-sol.
+- Speechmatics Flow docs → "Agent STT" (SaaS only); Flow gone from main site.
+- You.com /research → sign-in; company now "search and inference APIs".
+- Pincites row url → Filevine LOIS page (no Pincites mention).
+- Tonkean LegalWorks use-case URL 404; Coupa banner.
+- ElevenLabs product now "ElevenAgents"; Perplexity Sonar Chat Completions ended 2026-09-27.
+- Mem0 MCP (official): repo archived; README points to Mem0 cloud-hosted MCP.
+- Acontext (memodb): "no longer maintained"; team moved to alook.ai.
+- Gemini CLI: geminicli.com says replaced by Antigravity CLI on 2026-06-18.
+- Cursor Memories: docs page redirects to cursor.com/docs with no Memories mention — feature may be removed.
+- OpenAI Codex memories docs → learn.chatgpt.com; no "Chronicle"; closest "Computer History".
+- Aleph Alpha: site no longer names PhariaAI/PhariaCatch.
+- Anda Brain: hosted brain.anda.ai discontinued; self-host only.
+- Beads: install script under gastownhall/beads.
+- Edge Copilot Mode retired 2026-05-13.
+- Augment Code now leads with "Cosmos" agent platform.
+- Anthropic Auto Dream: only third-party source (claudefa.st); not in Claude Code docs.
+- Krutrim Kruti: Krutrim page no longer mentions Kruti (catalog: shut down Apr 2026).
+- MemoraX: memorax.ai is a different entity (for sale).
+- Nyne: pivoted to "The data factory for AI" (data licensing); no memory product.
+- Backboard: now "AI compute efficiency lab"; memory = Stateful API.
+- Letta: letta.com research-lab page; source moved to letta-ai/letta-code; V1 API server retired to archive branch.
+- Redis Agent Memory Server: now managed on Redis Cloud (Redis Iris); OSS moved to V0/ research artifact.
+- MemWal → "Walrus Memory"; memwal.ai → memory.walrus.xyz.
+- Claude Code memory docs → code.claude.com/docs/en/memory.
+- ByteRover license: homepage says MIT; catalog Elastic-2.0 — re-check.
+- Cline: Desktop, Cloud, IDE, CLI, SDK now.
+- Neo4j Agent Memory: hosted NAMS service added.
+- Flowise: README says "Flowise has been archived".
+- Roo Code: README says extension shut down May 15th (confirms catalog).
+- Stack AI: homepage says acquired by Asana.
+- Lakera: docs say Lakera is now Check Point; lakera-guard redirects to "AI Agent Security".
+- Acuvity → Proofpoint AI Security page (already noted acquisition).
+- Google ADK docs moved to adk.dev; zed.dev/docs/ai/rules 404.
+- Heyday (heyday.xyz) redirects to empty /lander — likely dead.
+- AutoRAG repo now "AutoRAG 2.0" desktop file-search app; AutoML library in legacy/ maintenance.
+- Atlas README: "REPO NO LONGER MAINTAINED".
+- Personal.ai: now telco "stack for agents on the carrier network".
+- Mistral Le Chat → "Vibe"; Agents docs /studio-api/ → /studio/.
+- Cloudflare Agent Memory: catalog url is InfoQ (secondary) → primary blog.cloudflare.com/introducing-agent-memory/.
+- Microsoft Recall url → PC shop; cite support article.
+- Possible duplicate: vertex-ai-memory-bank vs gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex.
+- Grok Memory row cites maginative.com (secondary) — needs primary.
+- Character.ai: blog 2026-10-12 announces voluntary Chapter 11 process to sell the company; app still running.
+- Microsoft GraphRAG: README "largely in maintenance mode" (bug fixes/CVEs only).
+- FutureHouse: now non-profit fellowship/research; platform.futurehouse.org → platform.edisonscientific.com.
+- BenevolentAI: homepage only "Qor, powered by BenevolentAI".
+- CoCounsel row url is secondary (legaltechnology.com) → Thomson Reuters product page.
+- Elicit: API + MCP server launched 2026-07-15.
+- Limitless: acquired by Meta; Pendant no longer sold (2025-12-05); Rewind/desktop recording shutting down; service ended in EU/UK.
+- Spirit AI Character Engine: site 502, defunct.
+- LabGenius: catalog url labgenius.app is an unrelated app; real company labgenius.com.
+- Tesla FSD row cites secondary blog (thinkautonomous.ai).
+- Era Computer: era.world waitlist only.
+- Luminance press-release url 404.
+- Bee: site © Amazon. Inworld: pivoted to voice/inference APIs. Sandbar Stream preorder-only. Soul Machines site up despite receivership.
+- Kuzu: repo archived; README "Kuzu is working on something new".
+- Dgraph: dgraph.io → docs.dgraph.io; no hosted cloud mentioned (Hypermode Cloud hint stale).
+- Nomic: nomic.ai/embed 404; pivoted to AEC agents; embed models on HF.
+- Mixedbread: leads with search platform (Silo, Wholembed V3).
+- Jina On-Prem self-host licence sold by Elastic as SKU since 2026-08-10.
+- Sinequa now "Sinequa by ChapsVision" (confirms).
+- ArangoDB → "Arango" (docs.arango.ai, Arango Managed Platform).
+- Sajari/Search.io: search.io redirects to algolia.com (absorbed by Algolia; no primary deal source).
+- Chroma: homepage banner "Chroma is joining Replit".
+- Quickwit: "Quickwit joins Datadog"; self-hosted only.
+- Databricks Vector Search renamed Databricks AI Search.
+- Activeloop: "Continual Learning Infrastructure" (Deeplake, Hivemind, Refinery); pricing at deeplake.ai.
+- TopBraid EDG renamed TQ Data Foundation.
+- Ontotext GraphDB 11: every edition needs a license file (Free = no-cost emailed license).
+- Supabase /vector 404.
+- Pinecone: pg_pinecone OSS Postgres extension announced.
+- Weaviate Cloud GraphQL API off 2027-05-01.
+- Milvus 3.0 announced.
+- Marqo: OSS engine deprecated; now ecommerce search product.
+- Palantir ontology url 404.
+- Covariant: covariant.ai shows only copyright line; /covariant-brain/ 404 — effectively dead.
+- Dagster: dagster.io/pricing banner "Dagster is now part of Prefect".
+- DVC: dvc.org leads with lakeFS; DVC "Git Extension for small projects".
+- Argilla: "joining Hugging Face" banner.
+- TGI: README confirms maintenance mode. Cleanba: README "intended for archiving purposes".
+- Physical Intelligence: domain → pi.website; Pi API beta (Oct 2026).
+- OpenMind: openmind.org → openmind.com. GR00T N1.7 GA; developer.nvidia.com/isaac/gr00t moved.
+- Gemini Robotics 2 / ER 2 / On-Device 2.
+- Figure 03 positioned for home help. Sanctuary: "Physical AI on existing robotic hardware".
+- TRI LBM url 404 → tri.global/our-work/robotics.
+- Humanloop: joined Anthropic, platform sunset (confirms).
+- TruEra: "has agreed to join Snowflake", redirects to Snowflake.
+- OctoAI: octo.ai → NVIDIA homepage.
+- Vellum: Personal Assistant Platform shutting down 2026-11-02 (confirms).
+- Patronus AI: now "a behavioral research lab for AI"; eval platform not offered.
+- 01.AI: enterprise AI transformation products; Yi not featured.
+- Galileo pricing → Splunk (confirms).
+- Portkey: banner "Portkey is now PRISMA AIRS AI Gateway" (Palo Alto?).
+- Helicone: "no longer part of Mintlify".
+- xAI Grok 4 page title "SpaceXSI".
+- Meta: llama.com → dev.meta.ai, leads with "Muse" models + "Meta Model API".
+- Row urls 404: Mistral Large 2, Gemini 3, Phi-4, Amazon Nova. anthropic.com/claude → claude.com/product/overview.
+- Reka: "physical AI" research lab.
+- Outerbounds: "Outerbounds is joining Anaconda"; pricing → anaconda.com.
+- Vertex AI: url → gemini-enterprise-agent-platform ("Gemini platform") — rebrand.
+- W&B: pricing → coreweave.com/forge-pricing; docs → docs.coreweave.com/products/wandb (CoreWeave Forge).
+- Labelbox: pivot to agents (Recursion) + RL envs (Horizon); $100M+ Series E.
+- Pachyderm: README badge "license-Pachyderm" vs catalog Apache-2.0; site 502.
+- Snorkel: now expert datasets/RL envs/custom agents; /data-development-platform 404.
