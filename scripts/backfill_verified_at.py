@@ -76,6 +76,7 @@ VOLATILE_CELL_CLASSES = {
     "commit-trajectory",
     "citation-trajectory",
     "download-trajectory",
+    "developer-activity-opendigger",
     # T1-1 observability columns (issue #39)
     "obs-langsmith",
     "obs-opentelemetry",

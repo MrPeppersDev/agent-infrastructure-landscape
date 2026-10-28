@@ -43,6 +43,13 @@ Gates (all run; non-zero exit on any failure):
   4. Cache integrity
      - Every extraction/s2-cache/*.json file is well-formed JSON.
 
+  5–7. Claim tiers + freshness, cell staleness (soft), Phase 2 provenance.
+
+  8. v1.1.0 enum domains (issues #150 / #166)
+     - Every record carries the seven v1.1.0 cells.
+     - Filled cells stay inside the enum or pattern in docs/schema/<slug>.json;
+       taxonomy-three-layer-rollup must match the primary section's mapping.
+
 Usage:
   python3 scripts/validate.py            # run all gates
   python3 scripts/validate.py --gate 1   # run only gate N
@@ -965,6 +972,14 @@ PHASE_2_CELL_SLUGS: tuple[str, ...] = (
     "capability-longcontext-score",
     "use-case-tags",
     "use-case-anti-tags",
+    # v1.1.0 (issues #150 / #166).
+    "adoption-accelerator",
+    "architecture-deployment-locus",
+    "licensing-bucket",
+    "positioning-platform-vs-product",
+    "taxonomy-three-layer-rollup",
+    "developer-activity-opendigger",
+    "freshness-date",
 )
 
 # Valid provenance source enum. `legacy` is reserved for pre-Phase-2
@@ -1087,6 +1102,75 @@ def gate_phase_2_provenance() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Gate 8: v1.1.0 enum domains (issues #150 / #166).
+# ---------------------------------------------------------------------------
+
+SCHEMA_DIR = ROOT / "docs" / "schema"
+# Cells with an enum / pattern spec in docs/schema/<slug>.json. Only
+# filled cells (status real-data or estimate) are checked; empty cells
+# are the v1.1.0 default until the backfills run.
+V1_1_ENUM_SLUGS: tuple[str, ...] = (
+    "adoption-accelerator",
+    "architecture-deployment-locus",
+    "licensing-bucket",
+    "positioning-platform-vs-product",
+    "taxonomy-three-layer-rollup",
+    "freshness-date",
+    "developer-activity-opendigger",
+)
+
+
+def gate_enum_domains() -> None:
+    gate_header(8, "v1.1.0 enum domains (docs/schema/*.json, issues #150 / #166)")
+    landscape = json.loads(LANDSCAPE_JSON.read_text())
+    specs = {s: json.loads((SCHEMA_DIR / f"{s}.json").read_text()) for s in V1_1_ENUM_SLUGS}
+    rollup = json.loads((SCHEMA_DIR / "section-to-three-layer-rollup.json").read_text())["mapping"]
+    errors: list[str] = []
+    filled = 0
+    for rec in landscape["records"]:
+        rid = rec.get("id", "<unknown>")
+        cells = rec.get("cells", {})
+        for slug in V1_1_ENUM_SLUGS:
+            cell = cells.get(slug)
+            if cell is None:
+                errors.append(f"{rid}: missing v1.1.0 cell {slug}")
+                continue
+            if cell.get("status") not in ("real-data", "estimate"):
+                continue
+            filled += 1
+            value = str(cell.get("value") or "").strip()
+            spec = specs[slug]
+            if "required_keys" in spec:
+                try:
+                    obj = json.loads(value)
+                except json.JSONDecodeError:
+                    errors.append(f"{rid}: {slug} is not JSON")
+                    continue
+                missing = [k for k in spec["required_keys"] if k not in obj]
+                if missing:
+                    errors.append(f"{rid}: {slug} missing keys {missing}")
+                continue
+            ok = value in spec.get("values", []) or (
+                "pattern" in spec and re.match(spec["pattern"], value) is not None
+            )
+            if not ok:
+                errors.append(f"{rid}: {slug}={value!r} outside the enum domain")
+            if slug == "taxonomy-three-layer-rollup" and ok:
+                primary = next((x["section"] for x in rec.get("sections", []) if x.get("primary")), None)
+                want = rollup.get(primary or "")
+                if want and value != want:
+                    errors.append(f"{rid}: {slug}={value!r} but section {primary!r} maps to {want!r}")
+    info(f"  filled v1.1.0 enum cells checked: {filled}")
+    if errors:
+        for e in errors[:20]:
+            info(f"  - {e}")
+        if len(errors) > 20:
+            info(f"  ... and {len(errors) - 20} more")
+        gate_fail(f"{len(errors)} v1.1.0 enum-domain error(s)")
+    gate_pass("every filled v1.1.0 cell is inside its enum domain")
+
+
+# ---------------------------------------------------------------------------
 # Driver.
 # ---------------------------------------------------------------------------
 
@@ -1099,6 +1183,7 @@ GATES = {
     5: ("claim-tiers", gate_claim_tiers),
     6: ("cell-rot", gate_cell_rot),
     7: ("phase-2-provenance", gate_phase_2_provenance),
+    8: ("enum-domains", gate_enum_domains),
 }
 
 
@@ -1108,7 +1193,7 @@ def main() -> int:
         "--gate",
         type=int,
         choices=sorted(GATES),
-        help="run only one gate by number (1–7)",
+        help="run only one gate by number (1–8)",
     )
     args = ap.parse_args()
 

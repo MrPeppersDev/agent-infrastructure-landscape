@@ -770,6 +770,32 @@ Two cells covering the constraint-matching axis (PHASE_2_SPEC §3.3):
 Growth thresholds (PHASE_2_SPEC §3.3): monitor at 10% catalog
 membership, promote-to-hierarchy at 20%.
 
+### 2.5.10 v1.1.0 columns (issues #150 / #166)
+
+Schema **v1.1.0** adds seven optional cells (a SemVer minor bump, so
+consumers that ignore them keep working). Every record carries them;
+`scripts/v1_1_migrate_schema.py` added them empty (`status: no-data`,
+tier `T3`). The derived and research backfills fill them later. Enum
+domains live in [`docs/schema/`](schema/), one JSON file per cell, and
+gate 8 of `make validate` rejects a filled cell outside its domain.
+
+| # | Column slug                        | Meaning                                                                                                   | Filled by |
+|---|------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------|
+| 100 | `adoption-accelerator`           | Accelerator batch as a lowercase code (`yc-w24`; seasons `w`/`s`/`f`/`x`), or `none`.                      | research, YC company page |
+| 101 | `architecture-deployment-locus`  | `local` \| `cloud` \| `ide` \| `computer-use` \| `hybrid`: where the system runs.                         | research |
+| 102 | `licensing-bucket`               | `open-source` \| `open-core` \| `commercial`.                                                              | derived from `license` + pricing, reviewed |
+| 103 | `positioning-platform-vs-product`| `platform` (sold to builders) \| `product` (sold to end users) \| `both`.                                  | research |
+| 104 | `taxonomy-three-layer-rollup`    | `agent-infra` \| `model-infra` \| `large-models`, from the primary section via `schema/section-to-three-layer-rollup.json`. | derived |
+| 105 | `developer-activity-opendigger`  | JSON object `{openrank_current, openrank_12mo, activity, participants, as_of}` from the OpenDigger API.    | `scripts/fetch_opendigger.py` |
+| 106 | `freshness-date`                 | `YYYY-MM-DD` = max(upstream last commit, row `last_verified_at`) (#166).                                  | derived |
+
+Values are the bare enum token, with no explanation appended, so the
+site, API and MCP server can filter on them. Cells that cannot apply
+(a research paper has no accelerator) use `not-applicable` as usual.
+`developer-activity-opendigger` is volatile (§3b) and carries its own
+`last_verified_at`. OpenRank comes from OpenDigger directly, never from
+third-party CSV snapshots (licence audit; see DECISIONS.md 2026-10-28).
+
 ---
 
 ## 3. The `status` enum — exact semantics
@@ -1463,7 +1489,7 @@ file claiming to conform to the schema.
 ### 7.1 `landscape.json` validation
 
 1. Top-level keys exactly: `schemaVersion`, `generatedAt`, `sourceHtml`, `records`. Extras are an error.
-2. `schemaVersion` is a semver string starting with the major-version this doc describes (currently `1`).
+2. `schemaVersion` is a semver string starting with the major-version this doc describes (currently `1`; the catalog is at `1.1.0`).
 3. `records` is an array of ≥1 objects.
 4. Every record has the required keys from §2.
 5. **`id` uniqueness:** the multiset of `record.id` over `records` is a set (no duplicates).

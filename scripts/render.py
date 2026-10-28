@@ -162,8 +162,16 @@ CELL_COLUMN_SLUGS: list[str] = [
     # Phase 2 / Gate 1 (issue #95) — use-case suitability. See docs/SCHEMA.md §2.5.9.
     "use-case-tags",
     "use-case-anti-tags",
+    # v1.1.0 (issues #150 / #166). See docs/SCHEMA.md §2.5.10.
+    "adoption-accelerator",
+    "architecture-deployment-locus",
+    "licensing-bucket",
+    "positioning-platform-vs-product",
+    "taxonomy-three-layer-rollup",
+    "developer-activity-opendigger",
+    "freshness-date",
 ]
-assert len(CELL_COLUMN_SLUGS) == 99
+assert len(CELL_COLUMN_SLUGS) == 106
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -197,6 +205,7 @@ VOLATILE_CELL_SLUGS = {
     "commit-trajectory",
     "citation-trajectory",
     "download-trajectory",
+    "developer-activity-opendigger",
     "obs-langsmith",
     "obs-opentelemetry",
     "obs-datadog",
@@ -590,11 +599,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="107" '
+            f'  <tr class="group-row"><td colspan="114" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="107">'
+        f'  <tr class="group-row"><td colspan="114">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -603,7 +612,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="107">'
+        '  <tr class="section-explainer"><td colspan="114">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 
