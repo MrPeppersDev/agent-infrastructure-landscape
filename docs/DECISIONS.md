@@ -14,6 +14,39 @@ that were on the table.
 
 ---
 
+## 2026-10-28: OpenDigger fetcher — cache, cadence, source (#150)
+
+**What.** `scripts/fetch_opendigger.py` fills `developer-activity-opendigger`
+from the OpenDigger API (`oss.open-digger.cn/github/<owner>/<repo>/{openrank,
+activity,participants}.json`). The cell holds compact, key-sorted JSON:
+`as_of` (latest month), `openrank_current`, `openrank_12mo` (mean monthly
+OpenRank over the last 12 months), `activity` and `participants` for `as_of`.
+Repos OpenDigger doesn't index get `depth-floor-reached`.
+
+**Cache.** One file per repo in `extraction/opendigger-cache/`, monthly
+series only (quarterly and yearly keys dropped), committed like the commit
+and download caches. The cache is also the checkpoint: reruns skip cached
+repos unless `--refresh`. Five repos are frozen separately in
+`extraction/opendigger-fixtures/`; `scripts/test_fetch_opendigger.py`
+reproduces `expected.json` from them in CI, so a refresh can't break it.
+
+**Cadence.** On demand (`make refresh-opendigger`), not cron. OpenDigger
+publishes monthly, so a monthly manual refresh matches the source; a cron
+can come later once the request cost is known (three requests per repo,
+~380 repos).
+
+**Source.** OpenRank comes from OpenDigger directly. The antgroup landscape
+CSV also carries OpenRank, but its licence was not cleared, so it is not
+used for any cell.
+
+**Why sequential.** The session proxy drops parallel connections to
+OpenDigger, and the API is a static file host; sequential requests with a
+0.3 s pause and exponential-backoff retries finish a full run in minutes.
+
+**Reversal cost.** Low: one script and a cache directory.
+
+---
+
 ## 2026-10-28: Schema v1.1.0 — seven new cells, one bump (#150, #166)
 
 **What.** The maintainer chose option 1 on #150: ship all six

@@ -12,7 +12,7 @@
 PYTHON ?= python3
 ROOT   := $(CURDIR)
 
-.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories bucket-citations render install-hooks stale-check help history action
+.PHONY: lint all build build-path-a validate refresh-citations refresh-commit-trajectories refresh-download-trajectories refresh-opendigger bucket-citations render install-hooks stale-check help history action
 
 help:
 	@echo "Targets:"
@@ -24,6 +24,7 @@ help:
 	@echo "  make refresh-citations  — re-run fetch_citations.py against live S2 (slow, ~15min, network)"
 	@echo "  make refresh-commit-trajectories — fetch GitHub commit history (slow, network, requires GITHUB_TOKEN)"
 	@echo "  make refresh-download-trajectories — fetch NPM + PyPI download history (slow, network)"
+	@echo "  make refresh-opendigger — fetch OpenDigger OpenRank/activity for GitHub rows (slow, network)"
 	@echo "  make bucket-citations   — bucket S2 cache into citation-trajectory cells (offline, fast)"
 	@echo "  make render             — re-render landscape.html from data/landscape.json"
 	@echo "  make stale-check        — offline staleness scan against landscape.json (no network)"
@@ -153,6 +154,18 @@ refresh-download-trajectories:
 	@echo "Cached responses live in extraction/download-cache/ and are committed to git."
 	@echo "Progress lives in extraction/download-trajectory-progress.json; reruns resume."
 	$(PYTHON) scripts/fetch_download_trajectories.py
+
+# Slow / network-dependent. NOT run as part of `build` or CI.
+# Fetches OpenRank, activity and participants from the OpenDigger API for
+# every row with a GitHub repo (~380 repos) and writes the
+# developer-activity-opendigger cell (schema v1.1.0, issue #150). Cached
+# responses live in extraction/opendigger-cache/ and are committed; a rerun
+# skips cached repos, so pass ARGS=--refresh for a full refresh.
+# See docs/SCHEMA.md §2.5.10 and scripts/fetch_opendigger.py.
+refresh-opendigger:
+	@echo "Fetching OpenDigger metrics — sequential, ~10 min for a full run."
+	$(PYTHON) scripts/fetch_opendigger.py $(ARGS)
+	$(PYTHON) -c "import sys; sys.path.insert(0,'scripts'); import apply_reverify; apply_reverify.canonicalize()"
 
 # Re-render only — useful when iterating on render.py output without rebuilding
 # the JSON. Writes to landscape.html (which is the existing template; render.py
