@@ -17,7 +17,7 @@
     "start": "node dist/server.js",
     "test": "node dist/test-tools.js && node dist/test-recommender.js && node dist/test-composite.js && node dist/test-stack-check.js && node dist/test-chooser.js && node dist/test-infra.js && node dist/test-vector-costs.js",
     "prepare": "tsc",
-    "prepack": "tsc && mkdir -p data && cp ../data/landscape.json ../data/landscape.edges.json ../data/stack-index.json ../data/migrations.json ../data/history.json data/ && cp ../data/pricing/memory.json data/pricing-memory.json && cp ../taxonomy/families.json ../taxonomy/system-aliases.json data/"
+    "prepack": "tsc && mkdir -p data && cp ../data/landscape.json ../data/landscape.edges.json ../data/stack-index.json ../data/migrations.json ../data/history.json data/ && cp ../data/pricing/memory.json data/pricing-memory.json && cp ../data/pricing/vector.json data/pricing-vector.json && cp ../taxonomy/families.json ../taxonomy/system-aliases.json data/"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
