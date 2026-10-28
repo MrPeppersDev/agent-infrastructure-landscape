@@ -1,0 +1,824 @@
+[
+ {
+  "id": "litera-ai--litera-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The old Litera AI product page (litera.com/products/litera-ai/) returns 404 as of 2026-10-28; Litera now markets its legal AI agent as Lito (lito.app), with an active litera.com site.",
+  "lifecycle_citation": "https://www.lito.app/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Lito supports MCP connectors that are governed centrally and enabled firm-wide (lito.app)",
+    "citation": "https://www.lito.app/",
+    "confidence": "medium"
+   }
+  ],
+  "record": {
+   "url": "https://www.lito.app/"
+  }
+ },
+ {
+  "id": "logicgate-risk-cloud--logicgate-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "LogicGate is operating at logicgate.ai (logicgate.com redirects there) and shipped its Summer 2026 release with GRC agents.",
+  "lifecycle_citation": "https://www.logicgate.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Quote-based: pay for Applications (30+ GRC use cases) plus Power User licenses; Standard and External user licenses included at no extra cost",
+    "citation": "https://www.logicgate.ai/platform/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "not applicable — wrong section",
+    "new": "Managed-only — Risk Cloud SaaS",
+    "citation": "https://www.logicgate.ai/platform/pricing/",
+    "confidence": "medium"
+   }
+  ],
+  "record": {
+   "url": "https://www.logicgate.ai/"
+  }
+ },
+ {
+  "id": "mindgard--mindgard-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Mindgard site is live in 2026; its about page lists a 2024 seed round and 2025 leadership hires (CEO James Brear).",
+  "lifecycle_citation": "https://mindgard.ai/about",
+  "updates": []
+ },
+ {
+  "id": "new-relic-ai--newrelic-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "New Relic AI page live 2026-10-28; New Relic now also offers an MCP server and SRE Agent.",
+  "lifecycle_citation": "https://newrelic.com/platform/new-relic-ai",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Usage-based: 100 GB/month free ingest, then $0.40/GB (Data Plus $0.60/GB) on Standard/Pro; user fees vary by edition (basic users free); Enterprise via sales",
+    "citation": "https://newrelic.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — New Relic MCP server lets MCP clients query and act on New Relic data (enabled via feature control manager)",
+    "citation": "https://docs.newrelic.com/docs/agentic-ai/mcp/overview/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "numerai-signals--signals-numer-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Numerai Signals is running; on 2026-10-16 Numerai announced the Unity dataset and that Numerai and Numerai Signals will merge into one tournament with one Meta Model on 2027-01-01.",
+  "lifecycle_citation": "https://blog.numer.ai/unifying-numerai-and-signals/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "Numerai: $11M Series A 2017 (USV + Coatue); NMR token issuance",
+    "new": "Numerai: $30M Series C Nov-2025 ($500M val; led by university endowments; USV, Shine Capital, Paul Tudor Jones participated)",
+    "citation": "https://blog.numer.ai/numerai-raises-30m-series-c-at-500m-valuation/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Numerai API and MCP for agentic research pipelines (API keys with scopes)",
+    "citation": "https://docs.numer.ai/numerai-tournament/api",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "onspring-ai--onspring-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Onspring site live 2026-10-28 promoting agentic GRC with Onspring AI.",
+  "lifecycle_citation": "https://onspring.com/platform/artificial-intelligence-ai/",
+  "updates": []
+ },
+ {
+  "id": "openai-deep-research--openai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Deep research continues inside ChatGPT, but the API models o3-deep-research and o4-mini-deep-research were scheduled for shutdown on 2026-07-23 with gpt-5.6-sol as replacement; ChatGPT plan pages were not fetchable (403).",
+  "lifecycle_citation": "https://developers.openai.com/api/docs/deprecations",
+  "updates": []
+ },
+ {
+  "id": "openbb--openbb-co",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "On 2026-08-25 founder Didier Lopes wrote that OpenBB could not find sustainable product-market fit and would open-source its whole suite; an 2026-10-01 edit says the non-profit OpenBQ (led by BrightQuery's Jose Plehn) is taking over OpenBB assets, with the repo now at openbq-org/OpenBB and Workspace code to be stewarded by FINOS.",
+  "lifecycle_citation": "https://openbb.co/",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "AGPLv3 + commercial",
+    "new": "Apache-2.0",
+    "citation": "https://github.com/openbq-org/OpenBB",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/OpenBB-finance/OpenBB (~30k stars)",
+    "new": "openbq-org/OpenBB — ~74.8k stars, last commit 2026-10",
+    "citation": "https://github.com/openbq-org/OpenBB",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — wrong section",
+    "new": "openbb 5.0.0 (2026-09-29)",
+    "citation": "https://pypi.org/project/openbb/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Open Data Platform exposes data to AI agents via MCP servers; Workspace MCP launched 2026-05-26",
+    "citation": "https://github.com/openbq-org/OpenBB",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$11M seed 2022 (OSS Capital + YC)",
+    "new": "$11M seed 2022 (OSS Capital + YC); assets acquired by OpenBQ, a non-profit (announced 2026-10-01)",
+    "citation": "https://openbb.co/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "opsramp-ai--opsramp-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "opsramp.com now 301-redirects to HPE's OpsRamp Software product page (HPE acquired OpsRamp in 2023); OpsRamp continues only as an HPE product.",
+  "lifecycle_citation": "https://www.hpe.com/us/en/products/software/opsramp-software.html",
+  "updates": []
+ },
+ {
+  "id": "outreach-ai--outreach-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Outreach now operates at outreach.ai (outreach.io redirects) as an agentic AI platform for revenue teams; the old /product/platform/ai page returns 404.",
+  "lifecycle_citation": "https://www.outreach.ai/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — MCP Client (connects Outreach agents to external systems) and MCP Server (exposes Outreach insights and actions to external AI tools)",
+    "citation": "https://www.outreach.ai/why-outreach/agentic-ecosystem",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.outreach.ai/ai-agents"
+  }
+ },
+ {
+  "id": "pagerduty-aiops--pagerduty-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "PagerDuty AIOps page and pricing live 2026-10-28.",
+  "lifecycle_citation": "https://www.pagerduty.com/platform/aiops/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "AIOps add-on starting at $799/month billed monthly ($699/month billed yearly), usage-based",
+    "citation": "https://www.pagerduty.com/pricing/aiops/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — hosted PagerDuty Remote MCP Server (the earlier local pagerduty-mcp-server repo is deprecated and read-only)",
+    "citation": "https://github.com/PagerDuty/pagerduty-mcp-server",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pentera--pentera-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Pentera site live 2026-10-28; about page lists investors incl. Evolution Equity, Insight Partners, K1, AWZ, Blackstone and Farallon.",
+  "lifecycle_citation": "https://pentera.io/about-us/",
+  "updates": []
+ },
+ {
+  "id": "people-ai--people-ai",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "People.ai now operates as Backstory (People.ai, Inc. d/b/a Backstory); people.ai redirects to backstory.ai and the site FAQ states 'People.ai is now Backstory', with Backstory-branded news dated 2026-10-19.",
+  "lifecycle_citation": "https://www.backstory.ai/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Backstory MCP Server delivers deal context into Claude, ChatGPT, Gemini and other LLM clients",
+    "citation": "https://www.backstory.ai/platform/mcp",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "People.ai (now Backstory)",
+   "url": "https://www.backstory.ai/"
+  }
+ },
+ {
+  "id": "perplexity-deep-research--perplexity-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Perplexity's Deep Research launch post (2025-02-14) is still published; Pro gets a high volume of queries and non-subscribers a limited daily number.",
+  "lifecycle_citation": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research",
+  "updates": []
+ },
+ {
+  "id": "pillar-security--pillar-security",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Pillar Security site live 2026-10-28; named a 2026 Gartner Cool Vendor in AI software security.",
+  "lifecycle_citation": "https://www.pillar.security/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "SaaS + self-hosted",
+    "new": "Both (self-hosted + managed cloud) — cloud, self-hosted and hybrid options",
+    "citation": "https://www.pillar.security/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pincites--pincites-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Filevine announced on 2026-01-14 that it acquired Pincites, whose Word-native drafting and redlining became LOIS for Word; pincites.com now redirects to Filevine.",
+  "lifecycle_citation": "https://www.filevine.com/news/filevine-announces-lois-for-word-as-it-acquires-pincites/",
+  "updates": [],
+  "record": {
+   "url": "https://www.filevine.com/platform/lois-for-word/"
+  }
+ },
+ {
+  "id": "pluto-ai--heypluto-ai",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "heypluto.ai could not be reached from this session (proxy connect rejected), so the status was not checked.",
+  "lifecycle_citation": "https://www.heypluto.ai/",
+  "updates": []
+ },
+ {
+  "id": "promptfoo--promptfoo-dev",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "On 2026-03-09 Promptfoo announced it agreed to be acquired by OpenAI; the MIT open-source project continues and is still actively developed (npm 0.125.1 on 2026-10-25).",
+  "lifecycle_citation": "https://www.promptfoo.dev/blog/promptfoo-joining-openai/",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/promptfoo/promptfoo (~8k stars)",
+    "new": "promptfoo/promptfoo — ~26.5k stars, last commit 2026-10",
+    "citation": "https://github.com/promptfoo/promptfoo",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — wrong section",
+    "new": "0.125.1 (2026-10-25)",
+    "citation": "https://www.npmjs.com/package/promptfoo",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$5M seed Mar-2024 (Andreessen Horowitz)",
+    "new": "Acquired by OpenAI (agreement announced Mar-2026); previously VC-backed incl. $5M seed Mar-2024 (Andreessen Horowitz)",
+    "citation": "https://www.promptfoo.dev/blog/promptfoo-joining-openai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Community: free (open source, incl. 10k red-team probes/month); Enterprise: custom (managed cloud); On-Premise: custom",
+    "citation": "https://www.promptfoo.dev/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "not applicable — wrong section",
+    "new": "Both (self-hosted + managed cloud) — OSS CLI runs locally; Enterprise managed cloud or on-premise",
+    "citation": "https://www.promptfoo.dev/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — MCP Proxy product for securing MCP traffic, plus MCP testing integrations",
+    "citation": "https://www.promptfoo.dev/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "protectai.com now redirects to Palo Alto Networks' Prisma AIRS page, confirming Protect AI was absorbed into Palo Alto Networks after the 2025 acquisition.",
+  "lifecycle_citation": "https://www.paloaltonetworks.com/ai-security/prisma-airs",
+  "updates": [],
+  "record": {
+   "url": "https://www.paloaltonetworks.com/ai-security/prisma-airs"
+  }
+ },
+ {
+  "id": "reggie-ai--reggie-ai",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "On 2026-10-28 www.reggie.ai redirects to a GoDaddy domain-for-sale page; no primary shutdown or acquisition notice found (the row may be confused with Regie.ai).",
+  "lifecycle_citation": "https://www.reggie.ai/",
+  "updates": []
+ },
+ {
+  "id": "resolve-ai--resolve-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Resolve AI site live 2026-10-28; it states a $1.5B valuation and more than $190M raised (founded Oct-2024).",
+  "lifecycle_citation": "https://resolve.ai/about-us",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$35M seed Aug-2024 (Greylock + Unusual)",
+    "new": "$190M+ total raised; $1.5B valuation (investors incl. Greylock, Lightspeed, DST Global, Unusual Ventures)",
+    "citation": "https://resolve.ai/about-us",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — plugs into existing tooling via MCP, API and Skills",
+    "citation": "https://resolve.ai/about-us",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Quote-based (Get Pricing / demo); no list prices published",
+    "citation": "https://resolve.ai/pricing",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "verified": false,
+  "lifecycle": "acquired",
+  "lifecycle_note": "robustintelligence.com was unreachable (connection reset / 503) on 2026-10-28, so Cisco's acquisition could not be re-checked from a primary page this session.",
+  "lifecycle_citation": "https://www.robustintelligence.com/",
+  "updates": []
+ },
+ {
+  "id": "rogo--rogo-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Rogo now operates at rogo.com (rogo.ai redirects) and announced a $160M Series D on 2026-04-29.",
+  "lifecycle_citation": "https://rogo.com/blog/series-d",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$50M Series B Mar-2025 ($350M val; Khosla + Thrive + Tiger)",
+    "new": "$160M Series D Apr-2026 (led by Kleiner Perkins; Sequoia, Thrive, Khosla, J.P. Morgan Growth Equity Partners participated); prior $75M Series C",
+    "citation": "https://rogo.com/blog/series-d",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — SaaS platform",
+    "citation": "https://rogo.com/",
+    "confidence": "medium"
+   }
+  ],
+  "record": {
+   "url": "https://rogo.com/"
+  }
+ },
+ {
+  "id": "runwhen--runwhen-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "RunWhen site live; codecollection repo pushed 2026-10-27.",
+  "lifecycle_citation": "https://www.runwhen.com/",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/runwhen-contrib (multiple repos)",
+    "new": "runwhen-contrib/rw-cli-codecollection — ~26 stars, last commit 2026-10 (plus other runwhen-contrib repos)",
+    "citation": "https://github.com/runwhen-contrib/rw-cli-codecollection",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "$30k one-time 30-day sprint (3 agents/30 skills); self-hosted license $25k/yr (5,000 tickets), $45k/yr (10,000 tickets+chats), $115k/yr (30,000); outcome-based enterprise contracts; BYO LLM endpoint",
+    "citation": "https://www.runwhen.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sakana-ai-scientist--sakana-ai",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "SakanaAI/AI-Scientist and AI-Scientist-v2 are not archived but were last pushed 2025-12-19; the AI Scientist paper was published in Nature (Sakana blog, 2026-03-26).",
+  "lifecycle_citation": "https://github.com/SakanaAI/AI-Scientist",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "MIT (Code OSS)",
+    "new": "The AI Scientist Source Code License v1.0 (based on Responsible AI Source Code License; not OSI-approved)",
+    "citation": "https://github.com/SakanaAI/AI-Scientist/blob/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "github.com/SakanaAI/AI-Scientist (12k+ stars)",
+    "new": "SakanaAI/AI-Scientist — ~14.8k stars, last commit 2025-12 (v2: SakanaAI/AI-Scientist-v2 ~7.4k stars)",
+    "citation": "https://github.com/SakanaAI/AI-Scientist",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "OSS self-host",
+    "new": "Self-hosted only — research code",
+    "citation": "https://github.com/SakanaAI/AI-Scientist",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "**Sakana AI: $214M Series A Sep-2024 ($1.5B val; NEA + Khosla + Lux Capital)**",
+    "new": "Sakana AI: ¥32B (~$200M) Series B Nov-2025 (MUFG, Khosla Ventures and others); $214M Series A Sep-2024",
+    "citation": "https://sakana.ai/series-b/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "salesforce-agentforce--salesforce-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Agentforce product and pricing pages live 2026-10-28.",
+  "lifecycle_citation": "https://www.salesforce.com/agentforce/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Foundations free; Flex Credits $500 per 100k credits (pay per action); Agentforce User License $5/user/mo; Agentforce Coworker $50/user/mo; editions with Agentforce from $550/user/mo",
+    "citation": "https://www.salesforce.com/agentforce/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Agentforce MCP Support connects agents to verified MCP servers from AgentExchange partners",
+    "citation": "https://www.salesforce.com/agentforce/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "scite-ai--scite-ai-2",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Scite site live 2026-10-28 and states it is now part of Research Solutions.",
+  "lifecycle_citation": "https://scite.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Basic $12/mo billed yearly (250 MCP credits/mo); Pro $40/mo billed yearly (API access, 2,500 MCP credits/mo); org plans by quote",
+    "citation": "https://scite.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Scite MCP server connects AI agents to Scite (credit-metered by plan)",
+    "citation": "https://scite.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "secureframe-ai--secureframe-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Secureframe newsroom has posts through 2026-10-09; Comply AI features live.",
+  "lifecycle_citation": "https://secureframe.com/newsroom",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Fundamentals package starting at $7,500/year; other packages by quote",
+    "citation": "https://secureframe.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "semgrep-assistant--semgrep-dev",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "semgrep.dev/products/assistant now 404s and the Semgrep Assistant docs 308-redirect to 'Semgrep Multimodal' (AI triage/remediation on Semgrep's rule engine), so the product is now branded Semgrep Multimodal.",
+  "lifecycle_citation": "https://docs.semgrep.dev/semgrep-multimodal/overview",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "Semgrep parent: $59.5M Series C Nov-2022 (Felicis; $530M val)",
+    "new": "Semgrep parent: $100M Series D led by Menlo Ventures",
+    "citation": "https://semgrep.dev/about/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Free tier (up to 10 contributors, 60 AI credits); Teams from $30/month per contributor (20 AI credits per developer/month); Enterprise quote",
+    "citation": "https://semgrep.dev/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Semgrep MCP server now ships in the main semgrep binary (standalone semgrep/mcp repo deprecated)",
+    "citation": "https://github.com/semgrep/mcp",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "Semgrep Assistant (now Semgrep Multimodal)",
+   "url": "https://semgrep.dev/products/semgrep-multimodal/"
+  }
+ },
+ {
+  "id": "snapattack--snapattack-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "snapattack.com now meta-refreshes to Splunk Enterprise Security, so SnapAttack has been absorbed into Splunk (Cisco).",
+  "lifecycle_citation": "https://www.snapattack.com/",
+  "updates": []
+ },
+ {
+  "id": "snyk-deepcode-ai--snyk-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Snyk DeepCode AI page live 2026-10-28 alongside Snyk's Evo agentic-security products.",
+  "lifecycle_citation": "https://snyk.io/platform/deepcode-ai/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Snyk MCP server built into the Snyk CLI (snyk mcp) exposes Snyk scans to MCP clients",
+    "citation": "https://github.com/snyk/studio-mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "specter-ops-bloodhound-enterprise--specterops-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "BloodHound Enterprise page live; BloodHound CE v9.9.0 was released 2026-10-26.",
+  "lifecycle_citation": "https://specterops.io/platform/bloodhound-enterprise/",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/SpecterOps/BloodHound (~12k stars)",
+    "new": "SpecterOps/BloodHound — ~3.5k stars, last commit 2026-10",
+    "citation": "https://github.com/SpecterOps/BloodHound",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — wrong section",
+    "new": "BloodHound CE v9.9.0 (2026-10-26)",
+    "citation": "https://github.com/SpecterOps/BloodHound/releases",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://specterops.io/platform/bloodhound-enterprise/"
+  }
+ },
+ {
+  "id": "stanford-storm--storm-genie-stanford-edu",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "stanford-oval/storm is not archived but has had no push since 2025-09-30 (last PyPI knowledge-storm 1.1.1 on 2025-09-29); the demo site still responds.",
+  "lifecycle_citation": "https://github.com/stanford-oval/storm",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/stanford-oval/storm (~25k stars)",
+    "new": "stanford-oval/storm — ~31.7k stars, last commit 2025-09",
+    "citation": "https://github.com/stanford-oval/storm",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — wrong section",
+    "new": "knowledge-storm 1.1.1 (2025-09-29)",
+    "citation": "https://pypi.org/project/knowledge-storm/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sysdig-sage--sysdig-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "Sysdig's product page (sysdig.com/sysdig-sage/ redirects) now calls it the 'Sysdig GenAI Assistant (formerly Sysdig Sage)'.",
+  "lifecycle_citation": "https://www.sysdig.com/products/genai-assistant",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — official Sysdig MCP Server (sysdiglabs/sysdig-mcp-server)",
+    "citation": "https://github.com/sysdiglabs/sysdig-mcp-server",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "Sysdig Sage (now Sysdig GenAI Assistant)",
+   "url": "https://www.sysdig.com/products/genai-assistant"
+  }
+ },
+ {
+  "id": "tines--tines-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Tines site live 2026-10-28, positioned as a secure environment for AI agents, apps and automation.",
+  "lifecycle_citation": "https://www.tines.com/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — MCP and AI client management through the Tines AI gateway",
+    "citation": "https://www.tines.com/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "tonkean-legalworks--tonkean-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Coupa announced on 2026-05-21 that it acquired Tonkean for agentic intake and orchestration; tonkean.com carries the 'Coupa Acquires Tonkean' banner and the LegalWorks use-case page now returns 404.",
+  "lifecycle_citation": "https://www.coupa.com/newsroom/coupa-acquires-tonkean-to-accelerate-agentic-intake-and-orchestration-for-global-trade/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$50M Series C Sep-2022 (Insight + Lightspeed + Accel)",
+    "new": "Acquired by Coupa May-2026; previously $50M Series C Sep-2022 (Insight + Lightspeed + Accel)",
+    "citation": "https://www.tonkean.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "On 2026-10-28 toplyne.io and www.toplyne.io return a Wix 'ConnectYourDomain' 404 error page; no primary shutdown or acquisition notice was found.",
+  "lifecycle_citation": "https://www.toplyne.io/",
+  "updates": []
+ },
+ {
+  "id": "torq-hypersoc--torq-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The Torq HyperSOC URL now 301-redirects to the Torq AI SOC Platform page; Torq announced a $140M Series D at a $1.2B valuation on 2026-01-12.",
+  "lifecycle_citation": "https://torq.io/news/torq-seriesd/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$70M Series C Apr-2024 (Evolution + Bessemer + Notable; >$300M total)",
+    "new": "$140M Series D Jan-2026 ($1.2B val; led by Merlin Ventures; $332M total raised)",
+    "citation": "https://torq.io/news/torq-seriesd/",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://torq.io/ai-soc-platform/"
+  }
+ },
+ {
+  "id": "trade-ideas-holly-ai--trade-ideas-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Trade Ideas pricing page live 2026-10-28 with Holly AI signals in the Premium plan.",
+  "lifecycle_citation": "https://www.trade-ideas.com/pricing/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "$120-180/month",
+    "new": "Standard $89/mo billed annually ($1,068/yr; ~$127 month-to-month); Premium with AI signals $178/mo billed annually ($2,136/yr; ~$254 month-to-month)",
+    "citation": "https://www.trade-ideas.com/pricing/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "trustcloud--trustcloud-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "TrustCloud site live 2026-10-28, positioned as an AI-native GRC and cyber-risk assurance platform.",
+  "lifecycle_citation": "https://www.trustcloud.ai/",
+  "updates": []
+ },
+ {
+  "id": "vanta--vanta-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Vanta site, pricing and press pages live 2026-10-28.",
+  "lifecycle_citation": "https://www.vanta.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Starter $8k+/year; Enterprise quote",
+    "new": "Quote-based tiers (Essentials, Plus, Professional, Enterprise); no list prices published",
+    "citation": "https://www.vanta.com/pricing",
+    "confidence": "medium"
+   },
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — SaaS",
+    "citation": "https://www.vanta.com/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Vanta hosted MCP server (the earlier OSS VantaInc/vanta-mcp-server is archived) plus an official Claude Code plugin",
+    "citation": "https://github.com/VantaInc/vanta-mcp-server",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "xbow--xbow-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "XBOW raised a $120M Series C on 2026-03-18 at a valuation above $1B and is active (Chrome full-chain research Oct-2026).",
+  "lifecycle_citation": "https://xbow.com/news/xbow-raises-120m-to-scale",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$20M seed + $75M Series B Jun-2025 (Sequoia)",
+    "new": "$120M Series C Mar-2026 (over $1B val; led by DFJ Growth + Northzone)",
+    "citation": "https://xbow.com/news/xbow-raises-120m-to-scale",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Usage-based, scoped to environment (request a quote); available via AWS, Google, Oracle and Microsoft marketplaces",
+    "citation": "https://xbow.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "you-com-research--you-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "You.com has repositioned as 'search and inference for AI' APIs; research is sold as the Research API, and you.com/research now redirects to sign-in.",
+  "lifecycle_citation": "https://you.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Research API usage-based: Lite $12, Standard $50, Deep $100, Exhaustive $450 per 1k calls (plus a Frontier tier)",
+    "citation": "https://you.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — You.com MCP server (live search via MCP; up to 100 free queries/day without an API key)",
+    "citation": "https://you.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ }
+]

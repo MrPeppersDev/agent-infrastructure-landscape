@@ -1,0 +1,791 @@
+[
+ {
+  "id": "11x-ai--11x-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "11x blog posts continue through 2026-10-21 (incl. a 2026-10-14 relaunch post); current agents are Alice (outbound) and Julian (inbound/voice).",
+  "lifecycle_citation": "https://www.11x.ai/blog",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — hosted SaaS AI sales agents",
+    "citation": "https://www.11x.ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "6sense--6sense-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "6sense homepage (privacy policy updated 2026-08-25) markets AI Email Agents, RevvyAI and a new MCP Server.",
+  "lifecycle_citation": "https://6sense.com/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — 6sense MCP Server (listed as New); intelligence can be activated via APIs and MCP",
+    "citation": "https://6sense.com/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "AlphaSense is operating in 2026, launching the SuperAnalyst always-on AI agent and hosting AlphaSummit 2026.",
+  "lifecycle_citation": "https://www.alpha-sense.com/newsroom/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — SaaS; enterprise deployment to AWS/GCP also offered",
+    "citation": "https://developer.alpha-sense.com/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — MCP tools exposed through the AlphaSense Agent API (alongside GenSearch, ThinkLonger, DeepResearch)",
+    "citation": "https://developer.alpha-sense.com/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "anvilogic-forge--anvilogic-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Anvilogic announced GA of Blueprints and Federated Search on 2026-07-28; the product is now marketed as the Agentic SecOps Platform and the Forge name no longer appears on the site.",
+  "lifecycle_citation": "https://www.anvilogic.com/news-and-press",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — platform exposes an Anvilogic MCP and connects to third-party MCP servers (per platform architecture diagram)",
+    "citation": "https://www.anvilogic.com/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "apex-security--apex-security",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Tenable announced its intent to acquire Apex Security on 2025-05-29 to fold it into Tenable One; apex.security no longer resolves (checked 2026-10-28).",
+  "lifecycle_citation": "https://www.tenable.com/press-releases/tenable-announces-intent-to-acquire-apex-security-to-expand-exposure-management-across-the-ai-attack-surface",
+  "updates": []
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Apollo markets itself as an AI GTM system in 2026; its MCP docs were updated 2026-10-05.",
+  "lifecycle_citation": "https://www.apollo.io/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — hosted remote MCP server at https://mcp.apollo.io/mcp (Streamable HTTP, OAuth 2.0 or master API key)",
+    "citation": "https://docs.apollo.io/docs/apollo-mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "auditboard--auditboard-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "AuditBoard rebranded as Optro on 2026-03-09 (announced at IIA Great Audit Minds); auditboard.com now redirects to optro.ai.",
+  "lifecycle_citation": "https://tools.prnewswire.com/en-us/live/20823/release/20260309EN03678",
+  "updates": [],
+  "record": {
+   "name": "AuditBoard (now Optro)",
+   "url": "https://optro.ai/"
+  }
+ },
+ {
+  "id": "calypso-ai--calypsoai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "F5 announced the acquisition of CalypsoAI on 2025-09-11 ($180M purchase consideration, expected close by 2025-09-30); calypsoai.com now redirects to the F5 AI Guardrails product page.",
+  "lifecycle_citation": "https://www.f5.com/company/news/press-releases/f5-to-acquire-calypsoai-to-bring-advanced-ai-guardrails-to-large-enterprises",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$23M Series A-1 Aug-2024 (Paladin + Lockheed; >$38M total)",
+    "new": "Raised over $40M in venture funding; acquired by F5 for $180M purchase consideration (announced 2025-09-11)",
+    "citation": "https://www.f5.com/company/news/press-releases/f5-to-acquire-calypsoai-to-bring-advanced-ai-guardrails-to-large-enterprises",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "Calypso AI (now F5 AI Guardrails)",
+   "url": "https://www.f5.com/products/ai-guardrails"
+  }
+ },
+ {
+  "id": "causaly--causaly-com-2",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Causaly markets an agentic AI platform for life sciences in 2026, with capabilities exposed via MCP, A2A and APIs.",
+  "lifecycle_citation": "https://www.causaly.com/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$60M Series B 2023 (Index + ICONIQ)",
+    "new": "$93M total raised (per Causaly about page)",
+    "citation": "https://www.causaly.com/about",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Causaly scientific capabilities (literature, knowledge graph, workflows) callable via MCP, A2A and APIs",
+    "citation": "https://www.causaly.com/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "clay--clay-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Clay announced a $115M Series D on 2026-09-09 and continues shipping (Clay MCP, global agent).",
+  "lifecycle_citation": "https://www.clay.com/blog/series-d",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$46M Series B Jan-2024 (Sequoia + Boldstart + Box Group); $3B val talks Q1-2025",
+    "new": "$115M Series D Sep-2026 ($7.1B val; led by Wellington, with Sequoia, CapitalG, Meritech, DST and others)",
+    "citation": "https://www.clay.com/blog/series-d",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Free (500 actions/mo); Launch from $167/mo; Growth from $446/mo (monthly billing; annual saves 10%)",
+    "citation": "https://www.clay.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Clay MCP brings Clay search, enrichment and Functions into Claude, ChatGPT and Codex",
+    "citation": "https://www.clay.com/mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cleric--cleric-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Cleric moved to cleric.ai (cleric.io 301-redirects) and continues publishing through 2026-09-25.",
+  "lifecycle_citation": "https://cleric.ai/blog",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$10M seed Apr-2024 (Greylock + Innovation Endeavors)",
+    "new": "$4.3M seed Mar-2024 (led by Zetta Venture Partners)",
+    "citation": "https://cleric.ai/blog/introducing-cleric",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Team $700/month (1,400 credits); Pro $1,500/month (3,000 credits); ~$1 to verify a change, $5 to triage an alert; free trial with 1,000 credits",
+    "citation": "https://cleric.ai/pricing",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://cleric.ai/"
+  }
+ },
+ {
+  "id": "coalfire-ai-operations--coalfire-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "The AI Operations service page (coalfire.com/services/managed-services/aiops) returns 404 as of 2026-10-28; Coalfire itself is active and now lists AI threat hunting via DivisionHex instead.",
+  "lifecycle_citation": "https://coalfire.com/",
+  "updates": []
+ },
+ {
+  "id": "common-room--commonroom-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Common Room CEO Linda Lian's 2026-09-16 post states 'Zoom acquired Common Room'; the site now sells Common Room + Zoom Revenue Accelerator together.",
+  "lifecycle_citation": "https://www.commonroom.io/blog/revenue-os/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Essential $2,500/mo billed annually (5 seats); Advanced and Enterprise custom",
+    "citation": "https://www.commonroom.io/pricing/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Common Room MCP Server for MCP-compatible assistants plus a CLI for headless access",
+    "citation": "https://www.commonroom.io/product/mcp-cli/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "composer--composer-trade",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Composer CEO Benjamin Rollert posted 'Composer joins SoFi' on 2026-06-23; the product is now branded Composer by SoFi.",
+  "lifecycle_citation": "https://www.composer.trade/blog/composer-joins-sofi",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Starter $0; Advanced $10/mo; Pro $32/mo billed yearly ($384/yr); Business custom; zero commissions",
+    "citation": "https://www.composer.trade/pricing",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "Composer (now Composer by SoFi)"
+  }
+ },
+ {
+  "id": "crogl--crogl-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Crogl site is live in 2026 with a free tier and Enterprise plan and a critical-infrastructure focus.",
+  "lifecycle_citation": "https://www.crogl.com/company",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$25M Series A Jan-2025 (Menlo + Tola + Pelion)",
+    "new": "$30M total raised (Menlo Ventures, Tola Capital, S3 Ventures)",
+    "citation": "https://www.crogl.com/company",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Free single-user workstation install ($0, 30-day full-feature trial); Enterprise custom",
+    "citation": "https://www.crogl.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "datadog-bits-ai--datadoghq-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Bits AI is now a family of agents (Bits Chat, Bits Investigation, Bits Code, Bits Security Analyst, Bits Agent Builder); the 2023 launch blog URL now 404s.",
+  "lifecycle_citation": "https://www.datadoghq.com/product/ai/bits-ai-agents/",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — part of Datadog SaaS",
+    "citation": "https://www.datadoghq.com/product/ai/bits-ai-agents/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Datadog remote MCP Server (under active development) gives AI clients access to Datadog data",
+    "citation": "https://docs.datadoghq.com/mcp_server/",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.datadoghq.com/product/ai/bits-ai-agents/"
+  }
+ },
+ {
+  "id": "demandbase--demandbase-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Demandbase site is live in 2026, marketing Demandbase AI and the Mojo B2B marketing agent.",
+  "lifecycle_citation": "https://www.demandbase.com/",
+  "updates": []
+ },
+ {
+  "id": "docusign-iam--docusign-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Docusign still markets Intelligent Agreement Management (IAM) in 2026 alongside Iris, Agents and MCP Connectors; the old IAM product URL now 404s.",
+  "lifecycle_citation": "https://www.docusign.com/products/platform",
+  "updates": [
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — Docusign cloud",
+    "citation": "https://www.docusign.com/products/platform",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Docusign MCP Connectors bring agreement drafting, clause extraction and signing into AI assistants",
+    "citation": "https://www.docusign.com/products/mcp",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.docusign.com/products/platform"
+  }
+ },
+ {
+  "id": "draftwise--draftwise-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Draftwise launched the Ontonomi legal ontology on 2026-09-29 and announced a Jones Day partnership on 2026-10-26.",
+  "lifecycle_citation": "https://www.draftwise.com/blog",
+  "updates": []
+ },
+ {
+  "id": "drata--drata-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Drata pricing page is live in 2026 with Compliance, Trust Center and TPRM offerings.",
+  "lifecycle_citation": "https://drata.com/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Starter $7.5k+/year; Premium custom",
+    "new": "Quote-based; Compliance tiers Foundation, Advanced and Enterprise (no list prices published)",
+    "citation": "https://drata.com/pricing",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "dropzone-ai--dropzone-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Dropzone AI raised a $37M Series B in Jul-2025 and posted press releases into 2026; AI Threat Intel Analyst is listed for Fall 2026.",
+  "lifecycle_citation": "https://www.dropzone.ai/newsroom",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$16.85M Series A Aug-2024 (Theory + Decibel)",
+    "new": "$37M Series B Jul-2025 (led by Theory Ventures; Madrona, Decibel, Pioneer Square Labs, IQT); $57.4M total",
+    "citation": "https://www.dropzone.ai/press-release/dropzone-ai-37m-series-b-funding-ai-soc-agents",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "dx-engineering-intelligence--getdx-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Atlassian announced a definitive agreement to acquire DX on 2025-09-18; DX now presents itself as 'Atlassian (DX)' (2026-05-07 news item).",
+  "lifecycle_citation": "https://www.atlassian.com/blog/announcements/atlassian-acquires-dx",
+  "updates": []
+ },
+ {
+  "id": "dynatrace-davis-copilot--dynatrace-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "Dynatrace renamed Davis CoPilot to Dynatrace Assist with the launch of Dynatrace Intelligence (post 2026-01-28); the old blog URL 404s.",
+  "lifecycle_citation": "https://www.dynatrace.com/news/blog/dynatrace-assist-ask-analyze-and-act-with-dynatrace-intelligence/",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Dynatrace MCP Server; Assist uses the same tools hosted on it",
+    "citation": "https://www.dynatrace.com/news/blog/dynatrace-assist-ask-analyze-and-act-with-dynatrace-intelligence/",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "name": "Dynatrace Davis CoPilot (now Dynatrace Assist)",
+   "url": "https://www.dynatrace.com/news/blog/dynatrace-assist-ask-analyze-and-act-with-dynatrace-intelligence/"
+  }
+ },
+ {
+  "id": "endor-labs--endorlabs-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Endor Labs blog posts continue through 2026-10-28; product now marketed as an agentic application security platform incl. AURI.",
+  "lifecycle_citation": "https://www.endorlabs.com/blog",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — local stdio MCP server launched via npx or endorctl (Cursor, Claude Code, Codex, VS Code, etc.)",
+    "citation": "https://docs.endorlabs.com/setup-deployment/mcp",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "garak--gh-nvidia-garak",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "NVIDIA/garak is not archived, last push 2026-10-27, and v0.17.1 shipped to PyPI on 2026-10-16.",
+  "lifecycle_citation": "https://github.com/NVIDIA/garak",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "github.com/NVIDIA/garak (~5k stars)",
+    "new": "NVIDIA/garak — ~9.7k stars, last commit 2026-10",
+    "citation": "https://github.com/NVIDIA/garak",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — wrong section",
+    "new": "v0.17.1 (2026-10-16)",
+    "citation": "https://pypi.org/project/garak/",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "not applicable — wrong section",
+    "new": "Self-hosted only — pip-installed Python CLI",
+    "citation": "https://pypi.org/project/garak/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "genie-ai--genieai-co",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Genie AI's own timeline shows it still independent (Series A 2023, rebrand Jan-2026, Legal Workflow planned May-2026) with no mention of a Robin AI acquisition.",
+  "lifecycle_citation": "https://www.genieai.co/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "London-based legal AI for non-lawyer founders — templates, drafting, AI review. Acquired by Robin AI Sep-2024 (Robin = legal AI, separate funded entity). Distinct from Hugo (research) and not to be confused with Google's Genie.",
+    "new": "London-based legal AI for businesses — contract drafting, review and AI legal agents (first agents Jan-2024). $17.8M Series A Jun-2023 led by GV and Khosla Ventures; rebranded as 'The Global Legal Brain' Jan-2026. Distinct from Hugo (research) and not to be confused with Google's Genie.",
+    "citation": "https://www.genieai.co/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$17.7M total (Khosla + Founders Fund); acquired by Robin AI Sep-2024",
+    "new": "$17.8M Series A Jun-2023 (led by GV + Khosla Ventures); earlier £1.2M seed 2018",
+    "citation": "https://www.genieai.co/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Free $0; Pro $59/mo billed annually or $75/mo monthly (1 user); Business $259/mo annually or $320/mo (5 users); Enterprise quote",
+    "citation": "https://www.genieai.co/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — MCP connectors to email, CRM, storage and eSign tools; API and MCP integrations on Enterprise",
+    "citation": "https://www.genieai.co/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "github-copilot-autofix--github-blog",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Copilot Autofix ships as part of GitHub Code Security (Team and Enterprise), and is free for public repositories.",
+  "lifecycle_citation": "https://github.com/security/plans",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "GHAS tier ($49/user/month component)",
+    "new": "Included in GitHub Code Security at $30 per active committer/month (Team and Enterprise); free on public repositories",
+    "citation": "https://github.com/security/plans",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "gong--gong-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Gong issued press releases on 2026-09-30 (Mission Callisto) and 2026-10-16 (Gartner MQ Leader).",
+  "lifecycle_citation": "https://www.gong.io/press/",
+  "updates": []
+ },
+ {
+  "id": "hackerone-hai--hackerone-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "HackerOne still lists Hai, now described as an agentic AI orchestrator across the H1 platform; hackerone.com/ai redirects to /solutions/ai.",
+  "lifecycle_citation": "https://www.hackerone.com/solutions/ai",
+  "updates": [],
+  "record": {
+   "url": "https://www.hackerone.com/solutions/ai"
+  }
+ },
+ {
+  "id": "hebbia--hebbia-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Hebbia launched Max (2026-07-30), Matrix 2.0 (2026-08-26) and Headless Hebbia API + MCP server (2026-10-01).",
+  "lifecycle_citation": "https://www.hebbia.com/blog",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Headless Hebbia MCP server lets assistants such as Claude and ChatGPT call Hebbia retrieval and analysis",
+    "citation": "https://www.hebbia.com/blog/introducing-headless-hebbia",
+    "confidence": "high"
+   },
+   {
+    "cell": "api-surface",
+    "old": "not applicable — wrong section",
+    "new": "Headless Hebbia API + MCP server (launched 2026-10-01)",
+    "citation": "https://www.hebbia.com/blog/introducing-headless-hebbia",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "horizon3-nodezero--horizon3-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Horizon3 announced a $250M Series E on 2026-08-03 and offers a NodeZero MCP Server.",
+  "lifecycle_citation": "https://horizon3.ai/news/press-release/horizon3-raises-250m-series-e-at-2b-valuation-to-lead-the-ai-vs-ai-cybersecurity-era/",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$100M Series D Mar-2024 ($750M val; NEA + Craft)",
+    "new": "$250M Series E Aug-2026 (over $2B val; co-led by NightDragon + NEA)",
+    "citation": "https://horizon3.ai/news/press-release/horizon3-raises-250m-series-e-at-2b-valuation-to-lead-the-ai-vs-ai-cybersecurity-era/",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — NodeZero MCP Server built into the SaaS platform (exploit paths, credentials, on-demand pentests)",
+    "citation": "https://horizon3.ai/mcp-server/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "hubspot-breeze-ai-agents--hubspot-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "HubSpot now markets its agents under Agent Hub (Breeze Assistant remains the entry point) with Content, Prospecting, Customer, Data and other agents.",
+  "lifecycle_citation": "https://www.hubspot.com/products/artificial-intelligence",
+  "updates": [
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — HubSpot remote MCP server for CRM read/write plus a developer-platform MCP server",
+    "citation": "https://developers.hubspot.com/mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Agent Hub included in Starter, Professional and Enterprise editions; custom agents consume HubSpot Credits (prepaid packs or pay-as-you-go)",
+    "citation": "https://www.hubspot.com/products/artificial-intelligence",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "hugo-hugo-legal--hugo-legal",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "hugo.legal is live in 2026 as an Estonian online legal-help service connecting clients with lawyers; the homepage describes no AI research product.",
+  "lifecycle_citation": "https://hugo.legal/en/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Estonian-founded legal AI startup; legal research and case analysis with EU multilingual focus. Bootstrapped; small angel rounds. Note: distinct from Hugo Health and from the unrelated 'huggo.legal' typo.",
+    "new": "Estonian online legal-help service that connects clients with lawyers by web or phone (Estonian, English, Russian). As of Oct-2026 the homepage describes no AI legal-research features. Note: distinct from Hugo Health and from the unrelated 'huggo.legal' typo.",
+    "citation": "https://hugo.legal/en/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Lawyer consultation from €39/30 min (from €79/hour); HUGO+ membership €119/year",
+    "citation": "https://hugo.legal/en/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Hyperproof is live in 2026 and markets Hyperproof AI agents (Navigator, Inspector, Co-Pilot, Operator) through an early-access program.",
+  "lifecycle_citation": "https://hyperproof.io/product/hyperproof-ai/",
+  "updates": []
+ },
+ {
+  "id": "hyperproof-ai-trust-center--hyperproof-io",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "The dedicated trust-center page (hyperproof.io/trust-center/) returns 404 as of 2026-10-28; Hyperproof now describes trust-center and questionnaire automation as a Trust module of its platform.",
+  "lifecycle_citation": "https://hyperproof.io/",
+  "updates": []
+ },
+ {
+  "id": "incident-io-ai--incident-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "incident.io/ai now redirects to Investigations (powered by Nexus, GA); changelog reports MCP and the macOS app in GA (Jul-2026).",
+  "lifecycle_citation": "https://incident.io/changelog",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Basic free; Team $19/user/mo ($15 annual); Pro $25/user/mo; Enterprise custom; on-call add-on $10–20/user/mo",
+    "citation": "https://incident.io/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — hosted incident.io MCP server for assistants such as Claude and Cursor (Team, Pro, Enterprise)",
+    "citation": "https://incident.io/changelog",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://incident.io/investigations"
+  }
+ },
+ {
+  "id": "iris-ai--iris-ai-2",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Iris.ai site is live in 2026 with Axion, Neuralith and RSpace products and a 'ten years later' retrospective post.",
+  "lifecycle_citation": "https://iris.ai/",
+  "updates": []
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Ironclad announced passing $200M ARR on 2026-02-12 and markets Ironclad Agent; OpenAI partnership covered Oct-2026.",
+  "lifecycle_citation": "https://ironcladapp.com/news",
+  "updates": []
+ },
+ {
+  "id": "lasso-security--lasso-security",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Lasso announced a $30M round and CPU-based guardrails on 2026-09-03.",
+  "lifecycle_citation": "https://www.lasso.security/resources/lasso-security-announces-future-of-ai-security-with-cpu-based-guardrails",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$6M seed Nov-2023 (Entrée + Samsung Next)",
+    "new": "$30M round Sep-2026 (led by ClearSky; Entrée Capital, iAngels, Singtel Innov8, Mindset, Swish Data)",
+    "citation": "https://www.lasso.security/resources/lasso-security-announces-future-of-ai-security-with-cpu-based-guardrails",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lavender--lavender-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Lavender site is live, now selling Ora (AI sales agent) alongside the Email Coach.",
+  "lifecycle_citation": "https://lavender.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Ora AI sales agent $500 per agent/month; Email Coach free to install",
+    "citation": "https://lavender.ai/ora",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lawdroid-copilot--lawdroid-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "lawdroid.com now redirects to lawdroid.ai, which is live; the page content is script-rendered so product details could not be read.",
+  "lifecycle_citation": "https://lawdroid.ai/",
+  "updates": [],
+  "record": {
+   "url": "https://lawdroid.ai/"
+  }
+ },
+ {
+  "id": "legora--legora-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Legora announced a $550M Series E at an $8.8B valuation on 2026-10-21.",
+  "lifecycle_citation": "https://legora.com/newsroom/legora-raises-550-million-series-e-at-8.8-billion-valuation-to-accelerate-growth",
+  "updates": [
+   {
+    "cell": "funding",
+    "old": "$35M Series B Nov-2024 (Iconiq + Redpoint; $675M val)",
+    "new": "$550M Series E Oct-2026 ($8.8B post-money; led by Atreides Management)",
+    "citation": "https://legora.com/newsroom/legora-raises-550-million-series-e-at-8.8-billion-valuation-to-accelerate-growth",
+    "confidence": "high"
+   },
+   {
+    "cell": "deployment",
+    "old": "SaaS",
+    "new": "Managed-only — SaaS",
+    "citation": "https://legora.com/",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Legora aOS takes MCP connectors as agent context sources (client side)",
+    "citation": "https://legora.com/product/aos",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "liner--liner-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Liner is live in 2026 with Liner search, Scholar and Write agents, Search/Scholar/Actions MCPs and an AX enterprise division; liner.com/ai now 404s.",
+  "lifecycle_citation": "https://liner.com/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "not applicable — wrong section",
+    "new": "Free $0; Pro $17.99/mo ($14.99 billed annually); Max $35.99/mo ($29.99 billed annually)",
+    "citation": "https://liner.com/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$40M Series B Jul-2023 ($350M val; Salesforce Ventures)",
+    "new": "$36.1M Series C (per Liner newsroom; date not shown)",
+    "citation": "https://liner.com/news",
+    "confidence": "medium"
+   },
+   {
+    "cell": "mcp-support",
+    "old": "not applicable — wrong section",
+    "new": "yes — Liner Search MCP, Scholar MCP and Actions MCP (1,100+ apps)",
+    "citation": "https://liner.com/",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://liner.com/"
+  }
+ },
+ {
+  "id": "linq-ai--linq-ai",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "linq.ai now hosts LINQ, a higher-education technology company, as of 2026-10-28; the financial-analyst agent this row describes could not be found at this URL.",
+  "lifecycle_citation": "https://www.linq.ai/",
+  "updates": []
+ }
+]

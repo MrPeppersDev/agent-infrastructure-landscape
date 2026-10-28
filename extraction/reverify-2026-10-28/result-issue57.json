@@ -1,0 +1,41 @@
+[
+ {
+  "id": "hume-evi--hume-ai",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Hume is sunsetting the EVI and TTS APIs; access ends 2026-11-13 and account data is deleted after that date. No replacement product is named.",
+  "lifecycle_citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "EVI 2 (2024-09)",
+    "new": "EVI 3 and EVI 4-mini; the EVI API shuts down on 2026-11-13",
+    "citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "desc",
+    "old": "Hume's Empathic Voice Interface (EVI) — voice agent platform with vocal-affect understanding. Hume raised $50M Series B Mar-2024 (EQT). Distinguished from pure LLM voice agents by emotion/prosody modelling; uses Hume's proprietary speech-prosody models.",
+    "new": "Hume's Empathic Voice Interface (EVI) — voice agent platform with vocal-affect understanding, using Hume's proprietary speech-prosody models. Hume will shut down the EVI and TTS APIs on 2026-11-13 (announced in its docs). Hume raised $50M Series B Mar-2024 (EQT).",
+    "citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "jina-ai-embeddings--jina-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Model catalog lists new releases through 2026-07.",
+  "lifecycle_citation": "https://jina.ai/models/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "jina-embeddings-v5-omni (nano and small; 2026-05-07); reranker jina-reranker-v3.5 (2026-07-27)",
+    "citation": "https://jina.ai/models/",
+    "confidence": "high"
+   }
+  ]
+ }
+]
