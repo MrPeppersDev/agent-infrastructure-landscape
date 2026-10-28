@@ -48,6 +48,11 @@ export interface RecordSummary {
    * of this record's claims. See docs/SCHEMA.md §3b. Issue #54.
    */
   lastVerifiedAt: string;
+  /**
+   * v1.1.0 freshness date (#166): max(upstream last commit, lastVerifiedAt),
+   * or null before the derived backfill has run for this record.
+   */
+  freshnessDate: string | null;
 }
 
 export interface SearchResult {
@@ -181,8 +186,23 @@ function toSummary(record: LandscapeRecord): RecordSummary {
     primarySection: primarySection(record),
     primarySubsection: primarySubsection(record),
     description: desc.length > 200 ? desc.slice(0, 197) + '...' : desc,
-    lastVerifiedAt: record.last_verified_at
+    lastVerifiedAt: record.last_verified_at,
+    freshnessDate: v11Value(record, 'freshness-date' as ColumnSlug)
   };
+}
+
+/** Value of a filled v1.1.0 cell, else null. */
+function v11Value(record: LandscapeRecord, slug: ColumnSlug): string | null {
+  const cell = record.cells[slug];
+  return cell && (cell.status === 'real-data' || cell.status === 'estimate') && cell.value ? cell.value : null;
+}
+
+/** True when an ISO date is within `months` months of `now`. */
+export function isFreshWithin(date: string | null, months: number, now: Date = new Date()): boolean {
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return false;
+  const cutoff = new Date(now);
+  cutoff.setUTCMonth(cutoff.getUTCMonth() - months);
+  return date >= cutoff.toISOString().slice(0, 10);
 }
 
 // ===========================================================================
@@ -198,6 +218,12 @@ export interface SearchArgs {
   tier?: number;
   /** Filter to a product family id (see list_products), e.g. "memory". */
   product?: string;
+  /** Only records whose freshness date is within this many months (#166). */
+  freshWithinMonths?: number;
+  /** v1.1.0 taxonomy-three-layer-rollup: agent-infra | model-infra | large-models. */
+  layer?: string;
+  /** v1.1.0 licensing-bucket: open-source | open-core | commercial. */
+  licensing?: string;
   /** Cap result count. Default 25, max 200. */
   limit?: number;
 }
@@ -229,6 +255,10 @@ export function searchRecords(
       continue;
     if (args.product !== undefined && familyIdForSection(primarySection(record)) !== args.product)
       continue;
+    if (args.freshWithinMonths !== undefined && !isFreshWithin(v11Value(record, 'freshness-date' as ColumnSlug), args.freshWithinMonths))
+      continue;
+    if (args.layer !== undefined && v11Value(record, 'taxonomy-three-layer-rollup' as ColumnSlug) !== args.layer) continue;
+    if (args.licensing !== undefined && v11Value(record, 'licensing-bucket' as ColumnSlug) !== args.licensing) continue;
 
     const haystack = [
       record.id,

@@ -1,6 +1,6 @@
 {
   "cell": "architecture-deployment-locus",
-  "description": "Where the agent or system runs. local: on the user's machine. cloud: hosted by the vendor. ide: inside an editor. computer-use: drives a desktop or browser UI. hybrid: more than one of these as first-class modes.",
+  "description": "Where the system runs, relative to the vendor. local: on the user's own machine or infrastructure (library, CLI, desktop app, self-hosted server). cloud: only as a vendor-hosted service. ide: inside a code editor as its primary surface. computer-use: operates a desktop or browser UI as its primary mode. hybrid: both user-run and vendor-hosted are first-class options.",
   "values": [
     "local",
     "cloud",

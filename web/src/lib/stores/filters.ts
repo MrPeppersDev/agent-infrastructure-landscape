@@ -20,6 +20,10 @@
 //   {storage…conflict}  → record.taxonomy[axis].find(v => v.primary).value
 //   license / deployment / modality → canonicalised bucket of
 //     record.cells.{license|deployment|modalities}.value
+//   layer / licensing → the v1.1.0 enum cells taxonomy-three-layer-rollup
+//     and licensing-bucket (already canonical; see docs/schema/)
+//   freshness → age bucket of the v1.1.0 freshness-date cell (#166):
+//     max(upstream last commit, last catalog audit)
 //
 // Canonicalisation: see docs/DECISIONS.md (2026-05-07 entry). Anything
 // that isn't real-data becomes the bucket "NA"; anything that fails all
@@ -43,7 +47,7 @@ export type TaxonomyFacet =
   | 'governance'
   | 'conflict';
 
-export type CellFacet = 'license' | 'deployment' | 'modality';
+export type CellFacet = 'license' | 'deployment' | 'modality' | 'layer' | 'licensing' | 'freshness';
 
 export type FacetName =
   | 'product'
@@ -67,6 +71,9 @@ export interface FilterState {
   license: Set<string>;
   deployment: Set<string>;
   modality: Set<string>;
+  layer: Set<string>;
+  licensing: Set<string>;
+  freshness: Set<string>;
 }
 
 export const TAXONOMY_FACETS: TaxonomyFacet[] = [
@@ -86,7 +93,10 @@ export const FACET_ORDER: FacetName[] = [
   ...TAXONOMY_FACETS,
   'license',
   'deployment',
-  'modality'
+  'modality',
+  'layer',
+  'licensing',
+  'freshness'
 ];
 
 export const FACET_LABEL: Record<FacetName, string> = {
@@ -102,7 +112,10 @@ export const FACET_LABEL: Record<FacetName, string> = {
   conflict: 'Conflict',
   license: 'License',
   deployment: 'Deployment',
-  modality: 'Modality'
+  modality: 'Modality',
+  layer: 'Layer',
+  licensing: 'Licensing',
+  freshness: 'Freshness'
 };
 
 export function emptyState(): FilterState {
@@ -119,7 +132,10 @@ export function emptyState(): FilterState {
     conflict: new Set<string>(),
     license: new Set<string>(),
     deployment: new Set<string>(),
-    modality: new Set<string>()
+    modality: new Set<string>(),
+    layer: new Set<string>(),
+    licensing: new Set<string>(),
+    freshness: new Set<string>()
   };
 }
 
@@ -188,6 +204,30 @@ export function canonicaliseModality(raw: string, status: string): string {
   return 'other';
 }
 
+/** Freshness buckets in display order; a row lands in exactly one. */
+export const FRESHNESS_BUCKETS = ['≤3 months', '3–6 months', '6–12 months', '>12 months', 'NA'] as const;
+
+/**
+ * Age bucket for a YYYY-MM-DD freshness date. Ticking the first two
+ * buckets reads as "fresh within 6 months". `today` defaults to now, so
+ * the prerendered counts settle on hydration.
+ */
+export function freshnessBucket(date: string, today: Date = new Date()): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if (!m) return 'NA';
+  const then = Date.UTC(+m[1], +m[2] - 1, +m[3]);
+  const months = (today.getTime() - then) / (30.44 * 24 * 3600 * 1000);
+  if (months <= 3) return '≤3 months';
+  if (months <= 6) return '3–6 months';
+  if (months <= 12) return '6–12 months';
+  return '>12 months';
+}
+
+function enumCell(r: LandscapeRecord, slug: 'taxonomy-three-layer-rollup' | 'licensing-bucket'): string {
+  const cell = r.cells[slug];
+  return cell && (cell.status === 'real-data' || cell.status === 'estimate') && cell.value ? cell.value : 'NA';
+}
+
 // --- Facet value extraction --------------------------------------------
 
 function primarySection(r: LandscapeRecord): string {
@@ -224,6 +264,12 @@ export function recordFacetValue(
   if (facet === 'modality') {
     const cell = r.cells.modalities;
     return canonicaliseModality(cell?.value ?? '', cell?.status ?? 'no-data');
+  }
+  if (facet === 'layer') return enumCell(r, 'taxonomy-three-layer-rollup');
+  if (facet === 'licensing') return enumCell(r, 'licensing-bucket');
+  if (facet === 'freshness') {
+    const cell = r.cells['freshness-date'];
+    return cell?.status === 'real-data' ? freshnessBucket(cell.value) : 'NA';
   }
   return primaryTaxonomy(r, facet as TaxonomyFacet);
 }
@@ -288,6 +334,9 @@ export function facetCounts(
   const entries = [...counts.entries()];
   if (facet === 'tier') {
     entries.sort((a, b) => (a[0] as number) - (b[0] as number));
+  } else if (facet === 'freshness') {
+    const rank = (v: string | number) => FRESHNESS_BUCKETS.indexOf(String(v) as (typeof FRESHNESS_BUCKETS)[number]);
+    entries.sort((a, b) => rank(a[0]) - rank(b[0]));
   } else {
     entries.sort((a, b) => {
       if (b[1] !== a[1]) return b[1] - a[1];

@@ -14,6 +14,57 @@ that were on the table.
 
 ---
 
+## 2026-10-28: Derived v1.1.0 cells and the freshness filter (#150, #166)
+
+**What.** `scripts/derive_v1_1_cells.py` runs in `make build` (after
+reconcile, before render) and fills three cells from data already in each
+record:
+- `taxonomy-three-layer-rollup` for all 952 rows: 808 agent-infra, 116
+  model-infra, 28 large-models.
+- `freshness-date` for all 952 rows: max(gh last-commit month, row
+  `last_verified_at`). A commit month counts as its first day, so the date
+  never overstates freshness. The citation is the GitHub repo when the
+  commit wins, otherwise the system's page on the site.
+- `licensing-bucket` for 927 rows: 369 commercial, 265 open-source,
+  106 open-core (estimate), 187 research papers not-applicable. 25 are left
+  empty because their license is unknown.
+
+The OpenDigger cell was filled in the same pass: 343 repos with data,
+86 that OpenDigger doesn't index.
+
+**Why in the build.** Rollup and freshness depend on fields that change
+(section, `last_verified_at`, `gh`). Deriving them in the build keeps them
+current without a separate sweep. Licensing is only rewritten while the
+cell is empty or was last written by the script, so a reviewed value
+survives. Provenance is rewritten only when a value changes, so rebuilding
+on a later day doesn't churn the file.
+
+**Open-core is an estimate.** An OSI licence plus a paid plan in the pricing
+cell reads as open-core, but the heuristic can't tell a paid add-on product
+from a paid tier of the same product. Paying a model provider for tokens is
+excluded. Those 106 cells carry status `estimate` until reviewed.
+
+**Freshness right now.** The October re-verification touched nearly every
+row, so 939 of 952 rows are fresh within 3 months today. The locked
+definition (#166) counts our own audit, so the filter will only
+discriminate as rows age; the system page shows the verified date and the
+freshness date side by side, and the gh cell keeps the last-commit month.
+
+**UI and MCP.** The catalog rail gains Layer, Licensing and Freshness
+facets (freshness buckets ≤3 / 3–6 / 6–12 / >12 months, so ticking the
+first two means "fresh within 6 months"); the system page shows the filled
+v1.1.0 cells. `search_records` takes `freshWithinMonths`, `layer` and
+`licensing`, and its results carry `freshnessDate`.
+
+**svelte-check heap.** `web/src/lib/data.ts` imports the ~32 MB
+`landscape.json`, and TypeScript's inferred type for it no longer fits the
+default Node heap. The Type-check step now sets
+`NODE_OPTIONS=--max-old-space-size=6144`.
+
+**Reversal cost.** Low: drop the build step and clear the three cells.
+
+---
+
 ## 2026-10-28: OpenDigger fetcher — cache, cadence, source (#150)
 
 **What.** `scripts/fetch_opendigger.py` fills `developer-activity-opendigger`

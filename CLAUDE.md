@@ -14,7 +14,7 @@ A citation-backed catalog of ~964 AI agent systems, published as a SvelteKit sit
 `data/landscape.json` is the source of truth. Everything else is derived from it.
 
 ```sh
-make build      # reconcile → edges → citations → render landscape.html → data/stack-index.json
+make build      # reconcile → derive v1.1.0 cells → edges → citations → render landscape.html → data/stack-index.json
 make validate   # 8 gates (~25 s). Gate 2 requires JSON == render→extract→reconcile round-trip, byte for byte
 make lint       # contradiction lint (oss-conflict, acquired-year, truncated, bare-citation, blank-taxonomy); keep at 0
 make history    # data/history.json from git (needs full history: git fetch --unshallow)
@@ -69,3 +69,4 @@ Apply them with `python3 scripts/apply_reverify.py --date YYYY-MM-DD <files> --r
 - The Actions logs, artifacts, secrets and dispatch APIs are blocked. Read failures from check-run annotations: `gh api repos/.../check-runs/<id>/annotations`. Workflows surface errors as `::error` annotations for this reason.
 - The npm and PyPI registries and `*.github.io` may be unreachable from the shell. Global `tsc` (6.0.3) and `tsx` are available, and CI does the full web build. Local clones can be shallow, so run `git fetch --unshallow` before `make history`.
 - Don't run `git stash -u` while background agents are writing untracked files.
+- `svelte-check` runs out of heap on the ~32 MB `landscape.json`; run it with `NODE_OPTIONS=--max-old-space-size=6144` (CI does).

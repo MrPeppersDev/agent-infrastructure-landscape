@@ -1,8 +1,8 @@
 {
   "cell": "adoption-accelerator",
-  "description": "Accelerator batch the company went through, as a lowercase code, or none. Y Combinator batches are yc- plus season letter (w winter, s summer, f fall, x spring) and two-digit year, e.g. yc-w24.",
+  "description": "Accelerator batch the company went through, as a lowercase code, or none. Y Combinator batches use YC's own code from the company page: yc- plus season letter and two-digit year (w winter, s summer, f fall; spring is x for 2025 and p from 2026), e.g. yc-w24, yc-p26.",
   "values": [
     "none"
   ],
-  "pattern": "^yc-[wsfx]\\d{2}$"
+  "pattern": "^yc-[wsfxp]\\d{2}$"
 }

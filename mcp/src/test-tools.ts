@@ -13,6 +13,7 @@
 import { loadRecords, loadEdges, getMeta } from './data.js';
 import {
   searchRecords,
+  isFreshWithin,
   getRecord,
   findRelated,
   coverageSummary,
@@ -66,6 +67,21 @@ function main() {
   console.log(`  returned:       ${search.results.length}`);
   console.log(`  first hit:      ${search.results[0]?.name} (${search.results[0]?.id})`);
   if (search.results.length === 0) throw new Error('search_records returned no hits');
+
+  // v1.1.0 filters (#150 / #166).
+  banner('1b. search_records with layer / licensing / freshWithinMonths');
+  const models = searchRecords(records, { query: 'a', layer: 'large-models', limit: 200 });
+  if (models.totalMatches === 0) throw new Error('layer=large-models matched nothing');
+  const oss = searchRecords(records, { query: 'a', licensing: 'open-source', limit: 200 });
+  if (oss.totalMatches === 0) throw new Error('licensing=open-source matched nothing');
+  const all = searchRecords(records, { query: 'a', limit: 200 });
+  const fresh = searchRecords(records, { query: 'a', freshWithinMonths: 120, limit: 200 });
+  if (fresh.totalMatches === 0 || fresh.totalMatches > all.totalMatches) throw new Error('freshWithinMonths mis-filtered');
+  if (!fresh.results.every((r) => r.freshnessDate)) throw new Error('fresh results lack freshnessDate');
+  const now = new Date('2026-10-28T00:00:00Z');
+  if (!isFreshWithin('2026-05-01', 6, now) || isFreshWithin('2026-04-01', 6, now) || isFreshWithin(null, 6, now))
+    throw new Error('isFreshWithin boundary wrong');
+  console.log(`  large-models: ${models.totalMatches} · open-source: ${oss.totalMatches} · fresh≤120mo: ${fresh.totalMatches}/${all.totalMatches}`);
 
   // -----------------------------------------------------------------
   // 2. get_record

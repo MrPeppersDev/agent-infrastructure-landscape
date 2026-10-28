@@ -26,7 +26,7 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 - **Rows that may need re-pointing or removal:** linq-ai (linq.ai is now an unrelated company; maybe LinqAlpha), reggie-ai (parked domain; maybe Regie.ai), toplyne (dead site), and the Coalfire AIOps and Hyperproof Trust Center product pages (404).
 - **Pachyderm:** pachyderm.com still doesn't respond; the repo isn't archived.
 - **Hume EVI:** after 2026-11-13, set lifecycle `dead` with decay cause.
-- **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. The schema PR adds seven empty cells and gate 8. Still to do: the OpenDigger fetcher, the derived backfill (rollup, licensing bucket, freshness date) plus the #166 filter, and the research backfill (accelerator, deployment locus incl. #152, platform vs product).
+- **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. Done: schema + gate 8, the OpenDigger fetcher, and the derived backfill (rollup, licensing bucket, freshness date, OpenDigger) with the #166 facets and MCP filters. Still to do: the research backfill for `adoption-accelerator`, `architecture-deployment-locus` (incl. #152) and `positioning-platform-vs-product`, plus a review of the 106 open-core estimates. Locally, svelte-check needs `NODE_OPTIONS=--max-old-space-size=6144`.
 - **Blocked:** #128 needs `ANTHROPIC_API_KEY`, and #129 / #132 wait on #128.
 
 ## 3. Things that need the maintainer
