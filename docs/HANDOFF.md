@@ -26,7 +26,7 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 - **Rows that may need re-pointing or removal:** linq-ai (linq.ai is now an unrelated company; maybe LinqAlpha), reggie-ai (parked domain; maybe Regie.ai), toplyne (dead site), and the Coalfire AIOps and Hyperproof Trust Center product pages (404).
 - **Pachyderm:** pachyderm.com still doesn't respond; the repo isn't archived.
 - **Hume EVI:** after 2026-11-13, set lifecycle `dead` with decay cause.
-- **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. Done: schema + gate 8, the OpenDigger fetcher, and the derived backfill (rollup, licensing bucket, freshness date, OpenDigger) with the #166 facets and MCP filters. Still to do: the research backfill for `adoption-accelerator`, `architecture-deployment-locus` (incl. #152) and `positioning-platform-vs-product`, plus a review of the 106 open-core estimates. Locally, svelte-check needs `NODE_OPTIONS=--max-old-space-size=6144`.
+- **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. Done: schema + gate 8, OpenDigger fetcher, derived backfill with the #166 facets and MCP filters, YC accelerator (60 rows) and locus/positioning for the agents family (`extraction/v1.1-backfill/REPORT.md`). Still to do: locus/positioning for memory (314 rows), data (58) and models-ops (109) in batches of ~54 with `scripts/apply_v1_1_research.py`; locus for #152's rows is now filled where vendors state it. Then review the 106 open-core estimates, and verify the lifecycle leads listed in that REPORT. Locally, svelte-check needs `NODE_OPTIONS=--max-old-space-size=6144`.
 - **Blocked:** #128 needs `ANTHROPIC_API_KEY`, and #129 / #132 wait on #128.
 
 ## 3. Things that need the maintainer

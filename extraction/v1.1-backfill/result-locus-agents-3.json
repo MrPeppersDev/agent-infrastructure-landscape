@@ -1,0 +1,677 @@
+[
+ {
+  "id": "microsoft-autogen-studio--microsoft-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+  "confidence": "high",
+  "note": "User guide says to follow the installation instructions to install AutoGen Studio (PyPI) and run it locally; it is \"not meant to be a production-ready app\"."
+ },
+ {
+  "id": "microsoft-autogen-studio--microsoft-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+  "confidence": "medium",
+  "note": "Described as a low-code interface for developers to prototype agents, built on the AutoGen AgentChat API; developers are told to build their own apps on the framework."
+ },
+ {
+  "id": "multion--multion-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://theagi.company/",
+  "confidence": "high",
+  "note": "multion.ai now redirects to AGI, Inc., whose agent \"sees the screen and acts across any app\" on the device."
+ },
+ {
+  "id": "multion--multion-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://theagi.company/",
+  "confidence": "medium",
+  "note": "Site links a consumer Android app on Google Play and also offers \"Build on our Platform\" for device makers (\"You ship the hardware. We ship the intelligence\")."
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://reflection.ai/",
+  "confidence": "high",
+  "note": "Offers open weights to \"deploy on your terms\" (pull from Hugging Face) and a hosted API Platform with API keys."
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://reflection.ai/",
+  "confidence": "high",
+  "note": "Builds open models \"for everyone to access, use, and build on\", sold via an API Platform and developer docs."
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/Sema4AI",
+  "confidence": "medium",
+  "note": "Official GitHub org publishes an open-source AI Actions framework, a VS Code extension for agent/action development, and self-hosted deployment assets for builders."
+ },
+ {
+  "id": "11x-ai--11x-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.11x.ai/",
+  "confidence": "high",
+  "note": "Homepage: AI agents that run your pipeline, \"Fully managed, CRM-native, live in days.\""
+ },
+ {
+  "id": "11x-ai--11x-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.11x.ai/",
+  "confidence": "high",
+  "note": "Sells finished revenue agents for outbound, inbound and expansion to GTM teams."
+ },
+ {
+  "id": "6sense--6sense-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://6sense.com/",
+  "confidence": "medium",
+  "note": "Homepage offers Login and \"Get Started for Free\" for its hosted revenue apps; no self-hosting mentioned."
+ },
+ {
+  "id": "6sense--6sense-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://6sense.com/",
+  "confidence": "medium",
+  "note": "Sells revenue-team applications (Revenue Marketing, Sales Intelligence, RevvyAI); Data APIs and an MCP server are add-on access paths."
+ },
+ {
+  "id": "agent-qa--vostride-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://vostride.com/docs/agent-qa",
+  "confidence": "high",
+  "note": "Docs: install agent-qa as a dev dependency via npm, run its CLI, local dashboard and daemon on your machine."
+ },
+ {
+  "id": "agent-qa--vostride-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://vostride.com/docs/agent-qa",
+  "confidence": "high",
+  "note": "Docs: \"Built for developers and coding agents\"; CLI, MCP server and skills for test automation."
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.alpha-sense.com/",
+  "confidence": "high",
+  "note": "Market intelligence and search platform for research teams with the SuperAnalyst agent and Office add-ins."
+ },
+ {
+  "id": "anvilogic-forge--anvilogic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.anvilogic.com/",
+  "confidence": "medium",
+  "note": "Hosted Agentic SecOps Platform with a vendor login (login.anvilogic.com) that runs over customer data without migration."
+ },
+ {
+  "id": "anvilogic-forge--anvilogic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.anvilogic.com/",
+  "confidence": "medium",
+  "note": "Sold to SOC teams as \"The Agentic SecOps Platform\" with ready Detect/Investigate agents."
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.apollo.io/",
+  "confidence": "medium",
+  "note": "Hosted web app at app.apollo.io plus Chrome extension; no self-hosting mentioned."
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.apollo.io/",
+  "confidence": "high",
+  "note": "\"The AI GTM System for Go-to-Market Teams\" sold to sales reps, leaders and RevOps."
+ },
+ {
+  "id": "auditboard--auditboard-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://optro.ai/",
+  "confidence": "high",
+  "note": "auditboard row now resolves to Optro, \"the GRC Intelligence Platform\" sold to risk and audit teams."
+ },
+ {
+  "id": "calypso-ai--calypsoai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.f5.com/products/ai-guardrails",
+  "confidence": "medium",
+  "note": "F5 AI Guardrails is runtime security infrastructure that protects generative AI applications and agents in deployment."
+ },
+ {
+  "id": "causaly--causaly-com-2",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.causaly.com/",
+  "confidence": "high",
+  "note": "\"The Agentic AI Platform For Life Sciences\" with a generative AI copilot purpose-built for scientists."
+ },
+ {
+  "id": "clay--clay-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.clay.com/",
+  "confidence": "medium",
+  "note": "Hosted app at app.clay.com with free-trial signup; no self-hosting mentioned."
+ },
+ {
+  "id": "clay--clay-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.clay.com/",
+  "confidence": "medium",
+  "note": "Sold to GTM teams to get data, run agentic workflows and launch GTM plays; API/CLI is an extra access path."
+ },
+ {
+  "id": "cleric--cleric-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://cleric.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing FAQ: \"You choose a US or EU hosting region during setup\"; usage-billed hosted service."
+ },
+ {
+  "id": "cleric--cleric-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://cleric.ai/pricing",
+  "confidence": "high",
+  "note": "Sold as an AI SRE teammate that verifies changes and investigates alerts, priced per credit."
+ },
+ {
+  "id": "common-room--commonroom-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.commonroom.io/",
+  "confidence": "medium",
+  "note": "Hosted app at app.commonroom.io surfacing in Salesforce, Slack and browser extensions; no self-hosting mentioned."
+ },
+ {
+  "id": "common-room--commonroom-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.commonroom.io/",
+  "confidence": "high",
+  "note": "Buyer-intelligence application with AI agents sold to sales and marketing teams."
+ },
+ {
+  "id": "composer--composer-trade",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.composer.trade/",
+  "confidence": "medium",
+  "note": "Hosted trading app with login/registration at app.composer.trade."
+ },
+ {
+  "id": "composer--composer-trade",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.composer.trade/",
+  "confidence": "high",
+  "note": "\"Composer by SoFi, the automated trading platform and investment app\" for retail investors."
+ },
+ {
+  "id": "crogl--crogl-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://crogl.com/",
+  "confidence": "high",
+  "note": "\"Deploy on-premises, in your private cloud, or fully air-gapped. Crogl runs inside your infrastructure.\""
+ },
+ {
+  "id": "crogl--crogl-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://crogl.com/",
+  "confidence": "high",
+  "note": "Sold as autonomous AI agents that investigate every SOC alert for security teams."
+ },
+ {
+  "id": "dx-engineering-intelligence--getdx-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://getdx.com/",
+  "confidence": "medium",
+  "note": "Hosted app with sign-in at app.getdx.com; no self-hosting mentioned."
+ },
+ {
+  "id": "dx-engineering-intelligence--getdx-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://getdx.com/",
+  "confidence": "high",
+  "note": "\"Developer Intelligence Platform\" sold to engineering organizations to measure productivity."
+ },
+ {
+  "id": "datadog-bits-ai--datadoghq-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.datadoghq.com/product/ai/bits-ai-agents/",
+  "confidence": "medium",
+  "note": "Bits AI is a built-in feature of the hosted Datadog platform alongside Bits Chat and Bits Agent Builder."
+ },
+ {
+  "id": "datadog-bits-ai--datadoghq-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.datadoghq.com/product/ai/bits-ai-agents/",
+  "confidence": "medium",
+  "note": "Positioned as AI agents for Datadog users (Bits AI SRE, Dev, Security Analyst) inside the Datadog product."
+ },
+ {
+  "id": "demandbase--demandbase-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.demandbase.com/",
+  "confidence": "medium",
+  "note": "Hosted app login at web.demandbase.com; no self-hosting mentioned."
+ },
+ {
+  "id": "demandbase--demandbase-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.demandbase.com/",
+  "confidence": "high",
+  "note": "\"ABM Platform for B2B Sales & Marketing\" with agent-led automation for GTM teams."
+ },
+ {
+  "id": "docusign-iam--docusign-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.docusign.com/products/platform",
+  "confidence": "medium",
+  "note": "Docusign platform services with \"Start for Free\" and hosted apps at apps.docusign.com; no self-hosting mentioned."
+ },
+ {
+  "id": "docusign-iam--docusign-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://www.docusign.com/products/platform",
+  "confidence": "medium",
+  "note": "Sells no-code agreement apps (Maestro, Navigator, Agents) to businesses and also APIs, App Center and a Developer Center for builders."
+ },
+ {
+  "id": "draftwise--draftwise-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.draftwise.com/",
+  "confidence": "high",
+  "note": "Sold to law firms for precedent-backed drafting and negotiation (customers such as Orrick, Jones Day)."
+ },
+ {
+  "id": "drata--drata-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://drata.com/",
+  "confidence": "high",
+  "note": "\"The Agentic Trust Management Platform\": compliance automation, GRC and trust center for compliance teams."
+ },
+ {
+  "id": "dropzone-ai--dropzone-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.dropzone.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing: Enterprise plan is a \"dedicated single-tenant environment\" hosted by Dropzone; MSSPs get a multi-tenant platform."
+ },
+ {
+  "id": "dropzone-ai--dropzone-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.dropzone.ai/pricing",
+  "confidence": "high",
+  "note": "Sold as AI SOC Analyst, Threat Hunter and Threat Intel Analyst agents with investigation-capacity pricing."
+ },
+ {
+  "id": "dynatrace-davis-copilot--dynatrace-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.dynatrace.com/news/blog/dynatrace-assist-ask-analyze-and-act-with-dynatrace-intelligence/",
+  "confidence": "medium",
+  "note": "Dynatrace Assist \"lives where you work\" inside the Dynatrace platform, helping users ask, analyze and act."
+ },
+ {
+  "id": "endor-labs--endorlabs-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.endorlabs.com/",
+  "confidence": "medium",
+  "note": "\"Agentic Application Security Platform\" sold to security and engineering teams; CLI/MCP access is part of the product."
+ },
+ {
+  "id": "garak--gh-nvidia-garak",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/NVIDIA/garak",
+  "confidence": "high",
+  "note": "README: install with pip (python -m pip install -U garak) and run as \"a command-line tool\"."
+ },
+ {
+  "id": "garak--gh-nvidia-garak",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/NVIDIA/garak",
+  "confidence": "medium",
+  "note": "Released as an open-source scanner and extensible framework; developers write plugins by subclassing base probes."
+ },
+ {
+  "id": "genie-ai--genieai-co",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.genieai.co/",
+  "confidence": "medium",
+  "note": "Hosted web app with login/signup at app.genieai.co."
+ },
+ {
+  "id": "genie-ai--genieai-co",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.genieai.co/",
+  "confidence": "high",
+  "note": "\"AI Legal Assistant for Contracts & Documents\" sold to businesses (200,000+)."
+ },
+ {
+  "id": "github-copilot-autofix--github-blog",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.blog/2024-03-20-found-means-fixed-introducing-code-scanning-autofix-powered-by-github-copilot-and-codeql/",
+  "confidence": "medium",
+  "note": "Blog: code scanning autofix is a feature for GitHub Advanced Security customers, now generally available as Copilot Autofix."
+ },
+ {
+  "id": "gong--gong-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.gong.io/",
+  "confidence": "medium",
+  "note": "Hosted app at app.gong.io; no self-hosting mentioned."
+ },
+ {
+  "id": "gong--gong-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.gong.io/",
+  "confidence": "high",
+  "note": "\"Revenue AI OS\" with specialized AI agents and purpose-built applications for GTM teams."
+ },
+ {
+  "id": "hackerone-hai--hackerone-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.hackerone.com/solutions/ai",
+  "confidence": "medium",
+  "note": "Hai is described as \"HackerOne's AI security agent\" and the agentic orchestrator within the H1 Platform."
+ },
+ {
+  "id": "hebbia--hebbia-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.hebbia.com/",
+  "confidence": "high",
+  "note": "\"Purpose-built AI trusted by leading investors, bankers, lawyers\"; Matrix and Max sold to finance professionals; no developer API mentioned."
+ },
+ {
+  "id": "horizon3-nodezero--horizon3-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.horizon3.ai/",
+  "confidence": "high",
+  "note": "NodeZero is an autonomous pentesting platform sold to ITOps, SecOps and pentesters."
+ },
+ {
+  "id": "hubspot-breeze-ai-agents--hubspot-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.hubspot.com/products/artificial-intelligence",
+  "confidence": "medium",
+  "note": "Agent Hub is included in HubSpot Starter/Professional/Enterprise editions and runs on the HubSpot CRM."
+ },
+ {
+  "id": "hubspot-breeze-ai-agents--hubspot-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.hubspot.com/products/artificial-intelligence",
+  "confidence": "high",
+  "note": "Agent Hub is the home for agents across HubSpot marketing, sales and service; Agent Builder needs \"No coding required\"."
+ },
+ {
+  "id": "hugo-hugo-legal--hugo-legal",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://hugo.legal/",
+  "confidence": "medium",
+  "note": "Online legal-help service with booking/login at app.hugo.legal."
+ },
+ {
+  "id": "hugo-hugo-legal--hugo-legal",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://hugo.legal/",
+  "confidence": "high",
+  "note": "Sells consultations with a lawyer online or by phone from 39 EUR / 30 min and a HUGO+ annual plan."
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://hyperproof.io/",
+  "confidence": "high",
+  "note": "\"The GRC Platform That Makes Compliance Easy\" sold to compliance teams."
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://ironcladapp.com/",
+  "confidence": "high",
+  "note": "\"AI Contract Lifecycle Management Software\" with Ironclad AI and Ironclad Agent for legal, procurement and sales teams."
+ },
+ {
+  "id": "lasso-security--lasso-security",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.lasso.security/",
+  "confidence": "medium",
+  "note": "\"AI Security Platform\" sold to enterprises to protect AI agents they build and deploy."
+ },
+ {
+  "id": "lavender--lavender-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.lavender.ai/",
+  "confidence": "medium",
+  "note": "Chrome extension email coach backed by a hosted dashboard (dashboard.lavender.ai)."
+ },
+ {
+  "id": "lavender--lavender-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.lavender.ai/",
+  "confidence": "high",
+  "note": "\"Your Magical AI Email Coach\" and Ora sales agent sold to sellers and sales leaders."
+ },
+ {
+  "id": "lawdroid-copilot--lawdroid-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://lawdroid.ai/",
+  "confidence": "medium",
+  "note": "Site now sells LawDroid Assist (research, drafting, matters) to legal aid groups, courts and lawyers; Copilot is not named."
+ },
+ {
+  "id": "legora--legora-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://legora.com/",
+  "confidence": "medium",
+  "note": "Hosted app with Log in plus Word/Outlook add-ins and a mobile app; no self-hosting mentioned."
+ },
+ {
+  "id": "legora--legora-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://legora.com/",
+  "confidence": "high",
+  "note": "\"Collaborative AI for exceptional lawyers\" for review, research and drafting."
+ },
+ {
+  "id": "liner--liner-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://liner.com/",
+  "confidence": "medium",
+  "note": "Hosted web/mobile app with Get started and Pricing; APIs are hosted too."
+ },
+ {
+  "id": "liner--liner-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://liner.com/",
+  "confidence": "high",
+  "note": "Sells end-user apps (Liner, Liner Scholar, Liner Write) and a separate API/MCP line (Liner API, Router API, Actions API, Search MCP) with API pricing."
+ },
+ {
+  "id": "litera-ai--litera-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.lito.app/",
+  "confidence": "high",
+  "note": "\"Lito is Litera's legal AI agent\" for law firms, delivered in Word and Outlook add-ins and a desktop app."
+ },
+ {
+  "id": "logicgate-risk-cloud--logicgate-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.logicgate.ai/",
+  "confidence": "high",
+  "note": "\"AI-powered GRC platform with 30+ applications\" for risk and compliance teams."
+ },
+ {
+  "id": "mindgard--mindgard-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://mindgard.ai/",
+  "confidence": "medium",
+  "note": "AI red-teaming and AI security solution sold to security teams, deployable via API, CI/CD or Burp Suite."
+ },
+ {
+  "id": "new-relic-ai--newrelic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://newrelic.com/platform/new-relic-ai",
+  "confidence": "medium",
+  "note": "Feature of the hosted New Relic platform with \"Get Started Free\" signup."
+ },
+ {
+  "id": "new-relic-ai--newrelic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://newrelic.com/platform/new-relic-ai",
+  "confidence": "medium",
+  "note": "Natural-language assistant integrated into New Relic platform experiences for engineers."
+ },
+ {
+  "id": "numerai-signals--signals-numer-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://signals.numer.ai/",
+  "confidence": "medium",
+  "note": "Users sign up and submit signals to Numerai's hosted tournament, which scores and pays out in NMR."
+ }
+]

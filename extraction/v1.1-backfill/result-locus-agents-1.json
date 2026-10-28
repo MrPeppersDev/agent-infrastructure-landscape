@@ -1,0 +1,872 @@
+[
+ {
+  "id": "anchor-anchor-browser--anchorbrowser-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://anchorbrowser.io/",
+  "confidence": "medium",
+  "note": "Describes a fully managed cloud fleet of browsers; BYOC and on-prem appear only as Enterprise-tier features."
+ },
+ {
+  "id": "anchor-anchor-browser--anchorbrowser-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://anchorbrowser.io/",
+  "confidence": "high",
+  "note": "Sold to developers building AI agents via SDK, MCP or automation platforms, priced by credits and concurrent browsers."
+ },
+ {
+  "id": "browserless-io--browserless-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.browserless.io/",
+  "confidence": "high",
+  "note": "Offers a managed cloud browser automation platform plus self-hosted and dedicated deployment options (Docker)."
+ },
+ {
+  "id": "browserless-io--browserless-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.browserless.io/",
+  "confidence": "high",
+  "note": "Developers connect Puppeteer/Playwright/Selenium code to managed headless browsers over WebSocket."
+ },
+ {
+  "id": "codesandbox-ai--codesandbox-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://codesandbox.io/",
+  "confidence": "high",
+  "note": "Titled 'Instant Cloud Development Environments'; 'a Together AI company'."
+ },
+ {
+  "id": "codesandbox-ai--codesandbox-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://codesandbox.io/",
+  "confidence": "medium",
+  "note": "Offers the sign-in sandbox product and the CodeSandbox SDK/APIs to 'create isolated development environments'."
+ },
+ {
+  "id": "coder-com--coder-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://coder.com/",
+  "confidence": "high",
+  "note": "Runs AI and self-hosted environments 'on your own infrastructure'."
+ },
+ {
+  "id": "coder-com--coder-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://coder.com/",
+  "confidence": "high",
+  "note": "Enterprise platform giving governance and control while developers 'use any model or agent'."
+ },
+ {
+  "id": "daytona--daytona-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.daytona.io/",
+  "confidence": "medium",
+  "note": "Hosted at app.daytona.io with pay-as-you-go pricing; customer-managed compute still uses Daytona's control plane."
+ },
+ {
+  "id": "daytona--daytona-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.daytona.io/",
+  "confidence": "high",
+  "note": "Sandbox infrastructure used via SDKs ('pip install daytona') and a REST API for coding agents."
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://ona.com/pricing",
+  "confidence": "high",
+  "note": "Gitpod is now Ona: 'Run Ona in our cloud or your VPC, whatever your compliance requires.'"
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://ona.com/",
+  "confidence": "medium",
+  "note": "Ona presents itself as an enterprise platform ('The Enterprise software factory') for running background coding agents."
+ },
+ {
+  "id": "modal-sandboxes--modal-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://modal.com/",
+  "confidence": "high",
+  "note": "'Cloud infrastructure for teams that develop, train, and serve AI applications'; Modal manages the infrastructure."
+ },
+ {
+  "id": "modal-sandboxes--modal-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://modal.com/docs/guide/sandbox",
+  "confidence": "high",
+  "note": "Sandboxes are created by developers via Sandbox.create in the Python, JavaScript and Go SDKs."
+ },
+ {
+  "id": "sandbase-harness--gh-sandbaseai-sandbase-harness",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/sandbaseai/sandbase-harness",
+  "confidence": "high",
+  "note": "'Local-first, self-hosted AI agent runtime' with 'no required hosted control plane'."
+ },
+ {
+  "id": "sandbase-harness--gh-sandbaseai-sandbase-harness",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/sandbaseai/sandbase-harness",
+  "confidence": "high",
+  "note": "A runtime layer for builders with a /v1 API, CLI and TypeScript SDK."
+ },
+ {
+  "id": "stackblitz-webcontainers--webcontainers-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://webcontainers.io/",
+  "confidence": "medium",
+  "note": "Runs in the user's browser and 'only requires the compute power of your local CPU and browser'."
+ },
+ {
+  "id": "stackblitz-webcontainers--webcontainers-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://webcontainers.io/",
+  "confidence": "high",
+  "note": "An API (@webcontainer/api) developers embed in their own web apps."
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.workato.com/ai",
+  "confidence": "medium",
+  "note": "Region-specific vendor login instances imply a vendor-run service; no self-hosted option is mentioned."
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.workato.com/ai",
+  "confidence": "high",
+  "note": "'Neutral control & execution platform for Enterprise AI' with Agent Studio to build your own agents."
+ },
+ {
+  "id": "e2b--e2b-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://e2b.dev/",
+  "confidence": "high",
+  "note": "E2B Cloud is managed across regions, and E2B Embed is an Apache-2.0 self-hostable package (plus BYOC)."
+ },
+ {
+  "id": "e2b--e2b-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://e2b.dev/",
+  "confidence": "high",
+  "note": "'Applications create and control sandboxes through the Python or JavaScript SDK.'"
+ },
+ {
+  "id": "aider-harness--aider-chat",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://aider.chat",
+  "confidence": "high",
+  "note": "Installed with pip (aider-install) and run as 'aider' from the terminal in your project folder."
+ },
+ {
+  "id": "aider-harness--aider-chat",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://aider.chat",
+  "confidence": "medium",
+  "note": "Presented as a ready-to-use tool to 'pair program with LLMs' in your codebase."
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/q/developer/",
+  "confidence": "medium",
+  "note": "Main surface is IDE plugins (JetBrains, VS Code, Visual Studio, Eclipse), plus CLI and console; IDE plugins end support 2027-04-30 in favor of Kiro."
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/q/developer/",
+  "confidence": "high",
+  "note": "'The most capable generative AI-powered assistant for software development' with a free tier."
+ },
+ {
+  "id": "anthropic-computer-use--docs-anthropic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://platform.claude.com/docs/en/docs/agents-and-tools/computer-use",
+  "confidence": "high",
+  "note": "Tool that 'provides screenshot capabilities and mouse/keyboard control for autonomous desktop interaction'."
+ },
+ {
+  "id": "anthropic-computer-use--docs-anthropic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://platform.claude.com/docs/en/docs/agents-and-tools/computer-use",
+  "confidence": "high",
+  "note": "A Messages API tool developers add to requests; their application executes the actions."
+ },
+ {
+  "id": "bedrock-agentcore-aws--aws-amazon-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/bedrock/agentcore/",
+  "confidence": "medium",
+  "note": "An AWS service that 'handles the heavy lifting' of agent infrastructure; no self-hosted option is described."
+ },
+ {
+  "id": "bedrock-agentcore-aws--aws-amazon-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/bedrock/agentcore/",
+  "confidence": "high",
+  "note": "'The platform for production AI agents', aimed at developers with a CLI and docs."
+ },
+ {
+  "id": "bolt-new-stackblitz-harness--bolt-new",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://bolt.new",
+  "confidence": "medium",
+  "note": "Sign-in service with 'Bolt Cloud' hosting; no local or self-hosted option is mentioned."
+ },
+ {
+  "id": "bolt-new-stackblitz-harness--bolt-new",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://bolt.new",
+  "confidence": "high",
+  "note": "'Create stunning apps & websites by chatting with AI', aimed at entrepreneurs and small businesses."
+ },
+ {
+  "id": "charm-crush--gh-charmbracelet-crush",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/charmbracelet/crush",
+  "confidence": "high",
+  "note": "Installed via brew/npm/go and runs 'in your favourite terminal'."
+ },
+ {
+  "id": "charm-crush--gh-charmbracelet-crush",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/charmbracelet/crush",
+  "confidence": "high",
+  "note": "A ready-to-use coding agent: 'Glamourous agentic coding for all'."
+ },
+ {
+  "id": "chatgpt-codex-cloud-agent--chatgpt-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://learn.chatgpt.com/docs/cloud",
+  "confidence": "high",
+  "note": "Codex Cloud runs coding tasks 'in the cloud' and 'can keep working while your computer is asleep'."
+ },
+ {
+  "id": "chatgpt-codex-cloud-agent--chatgpt-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://learn.chatgpt.com/docs/cloud",
+  "confidence": "medium",
+  "note": "Documented as a ChatGPT feature for running coding tasks, not as an API."
+ },
+ {
+  "id": "claude-code-anthropic--anthropic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://claude.com/product/claude-code",
+  "confidence": "medium",
+  "note": "Runs locally on macOS/Linux/Windows in terminal, IDE and desktop, and also on the web."
+ },
+ {
+  "id": "claude-code-anthropic--anthropic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://claude.com/product/claude-code",
+  "confidence": "medium",
+  "note": "Product page for developers; API/cloud-provider deployment is linked as a separate path."
+ },
+ {
+  "id": "cline-harness--cline-bot",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://cline.bot",
+  "confidence": "medium",
+  "note": "Leads with 'Install the Cline extension in your editor of choice'; also offers a CLI and desktop app."
+ },
+ {
+  "id": "cline-harness--cline-bot",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://cline.bot",
+  "confidence": "medium",
+  "note": "Ships the end-user agent and an SDK (@cline/sdk) to embed 'the agent runtime that powers Cline'."
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.devin.ai/",
+  "confidence": "high",
+  "note": "'The AI software engineer, built to help ambitious engineering teams crush their backlogs.'"
+ },
+ {
+  "id": "cursor-ide--cursor-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://cursor.com",
+  "confidence": "high",
+  "note": "Cursor's IDE is the core surface, alongside CLI and cloud agents."
+ },
+ {
+  "id": "cursor-ide--cursor-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://cursor.com",
+  "confidence": "medium",
+  "note": "Sold as 'your coding agent for building ambitious software'; an Agent SDK is only a changelog entry."
+ },
+ {
+  "id": "github-copilot-agent-mode--gh-features-copilot",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://github.com/features/copilot",
+  "confidence": "medium",
+  "note": "Most prominent surface is 'Copilot in your editor'; also GitHub.com, CLI, desktop and cloud agents."
+ },
+ {
+  "id": "github-copilot-agent-mode--gh-features-copilot",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/features/copilot",
+  "confidence": "high",
+  "note": "'Your AI coding agent' for developers; no SDK described."
+ },
+ {
+  "id": "goose-block--block-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://goose-docs.ai/",
+  "confidence": "high",
+  "note": "goose 'runs on your machine' as a native desktop app and a CLI."
+ },
+ {
+  "id": "goose-block--block-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://goose-docs.ai/",
+  "confidence": "medium",
+  "note": "Pitched as a ready-to-use agent for research, writing and automation, with an embeddable API as secondary."
+ },
+ {
+  "id": "jetbrains-ai-assistant--jetbrains-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html",
+  "confidence": "high",
+  "note": "'A collection of AI-powered features and coding agents integrated into JetBrains IDEs.'"
+ },
+ {
+  "id": "jetbrains-ai-assistant--jetbrains-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.jetbrains.com/help/ai-assistant/about-ai-assistant.html",
+  "confidence": "high",
+  "note": "In-IDE chat, code generation and agents for developers using IntelliJ, PyCharm and others."
+ },
+ {
+  "id": "jetbrains-junie--jetbrains-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://junie.jetbrains.com/",
+  "confidence": "high",
+  "note": "'The most cost efficient coding agent', runnable from terminal, JetBrains IDEs, GitHub and GitLab."
+ },
+ {
+  "id": "kiro--kiro-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://kiro.dev",
+  "confidence": "high",
+  "note": "Kiro IDE is built on Code OSS for 'active, local development with real-time agent collaboration'; a CLI also exists."
+ },
+ {
+  "id": "kiro--kiro-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://kiro.dev",
+  "confidence": "high",
+  "note": "Agentic IDE and CLI for 'developers and teams'."
+ },
+ {
+  "id": "lovable-dev-harness--lovable-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.lovable.dev/introduction",
+  "confidence": "medium",
+  "note": "Hosted, browser-based builder that publishes projects to a live URL."
+ },
+ {
+  "id": "lovable-dev-harness--lovable-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.lovable.dev/introduction",
+  "confidence": "medium",
+  "note": "'Full-stack AI development platform' for technical and non-technical users; no general public API, only an MCP server."
+ },
+ {
+  "id": "manus-ai--manus-im",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://manus.im",
+  "confidence": "medium",
+  "note": "Web, mobile and desktop apps with a 'What can I do for you?' prompt; API docs are a secondary Business resource."
+ },
+ {
+  "id": "metagpt-harness--gh-foundationagents-metagpt",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/FoundationAgents/MetaGPT",
+  "confidence": "high",
+  "note": "Installed with 'pip install metagpt' and run as a CLI or Python library."
+ },
+ {
+  "id": "metagpt-harness--gh-foundationagents-metagpt",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/FoundationAgents/MetaGPT",
+  "confidence": "high",
+  "note": "A framework with tutorials for building your own agents and multi-agent systems."
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/openai/codex",
+  "confidence": "high",
+  "note": "'A coding agent from OpenAI that runs locally on your computer.'"
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/openai/codex",
+  "confidence": "high",
+  "note": "'Lightweight coding agent that runs in your terminal.'"
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/OpenHands/OpenHands",
+  "confidence": "high",
+  "note": "Runs locally (npm or Docker) or 'Inside OpenHands Cloud (our commercial offering)'."
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://www.openhands.dev/",
+  "confidence": "high",
+  "note": "Offers the GUI/CLI agent app and an SDK to 'embed agentic development in your own tools and products'."
+ },
+ {
+  "id": "opencode-sst--opencode-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://opencode.ai",
+  "confidence": "medium",
+  "note": "Offered as 'a terminal interface, desktop app, and IDE extension' that can use local models."
+ },
+ {
+  "id": "opencode-sst--opencode-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://opencode.ai",
+  "confidence": "medium",
+  "note": "A ready-to-use coding agent; Zen is an optional model-access service."
+ },
+ {
+  "id": "replit-agent-v3--replit-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://replit.com/",
+  "confidence": "medium",
+  "note": "'Built-in services with zero setup: Authentication, Database, Hosting'; no self-hosted option mentioned."
+ },
+ {
+  "id": "replit-agent-v3--replit-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://docs.replit.com/replitai/agent",
+  "confidence": "high",
+  "note": "Agent requires 'No code or technical knowledge'; users 'just start chatting'."
+ },
+ {
+  "id": "sourcegraph-cody-agent--sourcegraph-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://sourcegraph.com/cody",
+  "confidence": "medium",
+  "note": "'Available on VS Code, JetBrains, Visual Studio, and the Web app', plus a CLI."
+ },
+ {
+  "id": "sourcegraph-cody-agent--sourcegraph-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://sourcegraph.com/cody",
+  "confidence": "high",
+  "note": "Coding assistant installed into editors, with a Cody Enterprise tier."
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://devin.ai/desktop",
+  "confidence": "high",
+  "note": "windsurf.com redirects to Devin Desktop, which builds 'on the IDE foundation of Windsurf'."
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://devin.ai/desktop",
+  "confidence": "high",
+  "note": "Desktop IDE app for macOS with completion, linting and an agent command center."
+ },
+ {
+  "id": "zed-agentic-editing--zed-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://zed.dev",
+  "confidence": "high",
+  "note": "'The world's fastest IDE. Open source. AI optional.'"
+ },
+ {
+  "id": "zed-agentic-editing--zed-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://zed.dev",
+  "confidence": "high",
+  "note": "Sold to developers as a finished code editor."
+ },
+ {
+  "id": "smol-developer--gh-smol-ai-developer",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/smol-ai/developer",
+  "confidence": "high",
+  "note": "Run locally via 'python main.py' or 'pip install smol_dev'."
+ },
+ {
+  "id": "smol-developer--gh-smol-ai-developer",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/smol-ai/developer",
+  "confidence": "high",
+  "note": "'The first library to let you embed a developer agent in your own app!'"
+ },
+ {
+  "id": "v0-vercel--v0-app",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://v0.app",
+  "confidence": "medium",
+  "note": "Web-based builder with real-time preview and one-click deploy to Vercel infrastructure."
+ },
+ {
+  "id": "v0-vercel--v0-app",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://v0.app/docs/api/platform",
+  "confidence": "medium",
+  "note": "v0 app for anyone plus the v0 API, giving 'programmatic access to all of v0's capabilities' via v0-sdk."
+ },
+ {
+  "id": "agntcy-internet-of-agents--agntcy-org",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://agntcy.org/",
+  "confidence": "medium",
+  "note": "'An open-source stack', with client libraries for Directory, SLIM and OASF; no hosted service is mentioned."
+ },
+ {
+  "id": "agntcy-internet-of-agents--agntcy-org",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://agntcy.org/",
+  "confidence": "high",
+  "note": "Open-source infrastructure and client libraries for builders so agents can collaborate across vendors."
+ },
+ {
+  "id": "agency-swarm--gh-vrsen-agency-swarm",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/VRSEN/agency-swarm",
+  "confidence": "high",
+  "note": "'pip install -U agency-swarm'; no hosted runtime is described."
+ },
+ {
+  "id": "agency-swarm--gh-vrsen-agency-swarm",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/VRSEN/agency-swarm",
+  "confidence": "high",
+  "note": "'A framework for building multi-agent applications.'"
+ },
+ {
+  "id": "agent2agent-protocol-a2a--google-github-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://a2a-protocol.org/latest/",
+  "confidence": "medium",
+  "note": "'An open standard for seamless communication' between agents, with official SDKs for developers; now a Linux Foundation project."
+ },
+ {
+  "id": "anthropic-computer-use--anthropic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+  "confidence": "high",
+  "note": "Lets developers have Claude use computers like people do: view a screen, move a cursor, click and type."
+ },
+ {
+  "id": "anthropic-computer-use--anthropic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+  "confidence": "high",
+  "note": "A capability in public beta 'available through the API' for developers."
+ },
+ {
+  "id": "arcade-dev--arcade-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.arcade.dev/",
+  "confidence": "high",
+  "note": "Cloud deployment, or the runtime 'in your own cloud environment, a virtual private cloud, on-premises, or... air-gapped'."
+ },
+ {
+  "id": "arcade-dev--arcade-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.arcade.dev/",
+  "confidence": "high",
+  "note": "SDKs, quickstarts and the open-source Arcade framework for developers building agent tools."
+ },
+ {
+  "id": "autogpt--gh-significant-gravitas-autogpt",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+  "confidence": "high",
+  "note": "'Use the hosted Platform' or 'Run AutoGPT on your own infrastructure'."
+ },
+ {
+  "id": "autogpt--gh-significant-gravitas-autogpt",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/Significant-Gravitas/AutoGPT",
+  "confidence": "medium",
+  "note": "A platform for building and deploying agents (visual builder, API and MCP server), framed as AI 'Experts'."
+ },
+ {
+  "id": "autogen-ag2--gh-ag2ai-ag2",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/ag2ai/ag2",
+  "confidence": "high",
+  "note": "Available as 'ag2' on PyPI, installed with pip."
+ },
+ {
+  "id": "autogen-ag2--gh-ag2ai-ag2",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/ag2ai/ag2",
+  "confidence": "high",
+  "note": "'An open-source programming framework for building AI agents.'"
+ },
+ {
+  "id": "babyagi--gh-yoheinakajima-babyagi",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/yoheinakajima/babyagi",
+  "confidence": "high",
+  "note": "'pip install babyagi' with a local dashboard at localhost:8080."
+ },
+ {
+  "id": "babyagi--gh-yoheinakajima-babyagi",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/yoheinakajima/babyagi",
+  "confidence": "high",
+  "note": "An 'experimental framework for a self-building autonomous agent' for developers; 'Not meant for production use'."
+ },
+ {
+  "id": "beeai-framework--gh-i-am-bee-beeai-framework",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/i-am-bee/beeai-framework",
+  "confidence": "high",
+  "note": "'pip install beeai-framework' / 'npm install beeai-framework'; agents are served on servers you control."
+ },
+ {
+  "id": "beeai-framework--gh-i-am-bee-beeai-framework",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/i-am-bee/beeai-framework",
+  "confidence": "high",
+  "note": "A Python/TypeScript library for building agents."
+ },
+ {
+  "id": "burr-dagworks--gh-dagworks-inc-burr",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/apache/burr",
+  "confidence": "high",
+  "note": "pip-installed library with a local telemetry UI; 'execute on your own infrastructure'."
+ },
+ {
+  "id": "burr-dagworks--gh-dagworks-inc-burr",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/apache/burr",
+  "confidence": "high",
+  "note": "A Python library for building state-machine applications, now 'Apache Burr (incubating)'."
+ },
+ {
+  "id": "camel--gh-camel-ai-camel",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/camel-ai/camel",
+  "confidence": "high",
+  "note": "'pip install camel-ai', used from Python."
+ },
+ {
+  "id": "camel--gh-camel-ai-camel",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/camel-ai/camel",
+  "confidence": "high",
+  "note": "A multi-agent framework for developers (from camel.agents import ChatAgent)."
+ },
+ {
+  "id": "agent2agent-protocol-a2a--google-github-io",
+  "cell": "architecture-deployment-locus",
+  "value": "not applicable — open protocol specification, not a deployable software product",
+  "status": "not-applicable"
+ }
+]
