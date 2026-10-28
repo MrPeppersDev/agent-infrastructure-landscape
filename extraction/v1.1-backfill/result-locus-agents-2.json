@@ -1,0 +1,878 @@
+[
+ {
+  "id": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/anthropics/claude-agent-sdk-python",
+  "confidence": "high",
+  "note": "Python SDK installed with pip install claude-agent-sdk; bundles the Claude Code CLI and runs in the developer's own program."
+ },
+ {
+  "id": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/anthropics/claude-agent-sdk-python",
+  "confidence": "high",
+  "note": "Python SDK installed with pip install claude-agent-sdk; bundles the Claude Code CLI and runs in the developer's own program."
+ },
+ {
+  "id": "cline-framework--cline-bot",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.cline.bot/introduction/overview",
+  "confidence": "medium",
+  "note": "Cline 'lives in your editor and your terminal' (VS Code extension, CLI, desktop app) and also ships an SDK, 'Cline's agent core', for building custom agents."
+ },
+ {
+  "id": "cline-framework--cline-bot",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://docs.cline.bot/introduction/overview",
+  "confidence": "medium",
+  "note": "Cline 'lives in your editor and your terminal' (VS Code extension, CLI, desktop app) and also ships an SDK, 'Cline's agent core', for building custom agents."
+ },
+ {
+  "id": "composio--composio-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.composio.dev/docs/self-hosting",
+  "confidence": "medium",
+  "note": "Docs: Composio Cloud is the default deployment; self-hosting only as an 'Enterprise arrangement, with Helm deployment support'."
+ },
+ {
+  "id": "composio--composio-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://composio.dev/",
+  "confidence": "medium",
+  "note": "Site offers the Composio Platform 'designed for developers' plus 'Composio For You' for non-developers connecting their own AI assistant."
+ },
+ {
+  "id": "crewai--crewai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://docs.crewai.com/en/introduction",
+  "confidence": "high",
+  "note": "Docs call CrewAI 'the leading open-source framework for orchestrating autonomous AI agents', installed in your development environment."
+ },
+ {
+  "id": "crewai--crewai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://docs.crewai.com/en/introduction",
+  "confidence": "high",
+  "note": "Docs call CrewAI 'the leading open-source framework for orchestrating autonomous AI agents', installed in your development environment."
+ },
+ {
+  "id": "dspy--gh-stanfordnlp-dspy",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/stanfordnlp/dspy",
+  "confidence": "high",
+  "note": "'DSPy is the framework for programming—rather than prompting—language models'; installed with pip install dspy."
+ },
+ {
+  "id": "dspy--gh-stanfordnlp-dspy",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/stanfordnlp/dspy",
+  "confidence": "high",
+  "note": "'DSPy is the framework for programming—rather than prompting—language models'; installed with pip install dspy."
+ },
+ {
+  "id": "dify--gh-langgenius-dify",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/langgenius/dify",
+  "confidence": "high",
+  "note": "'Dify is an open-source LLM app development platform'; offered both as hosted Dify Cloud and self-hosted via Docker Compose."
+ },
+ {
+  "id": "dify--gh-langgenius-dify",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/langgenius/dify",
+  "confidence": "high",
+  "note": "'Dify is an open-source LLM app development platform'; offered both as hosted Dify Cloud and self-hosted via Docker Compose."
+ },
+ {
+  "id": "eliza-ai16z--gh-elizaos-eliza",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/elizaOS/eliza",
+  "confidence": "medium",
+  "note": "README: open-source TypeScript framework whose local runtime 'remain[s] first-class', with optional hosted Eliza Cloud for deployment."
+ },
+ {
+  "id": "eliza-ai16z--gh-elizaos-eliza",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/elizaOS/eliza",
+  "confidence": "medium",
+  "note": "README: open-source TypeScript framework whose local runtime 'remain[s] first-class', with optional hosted Eliza Cloud for deployment."
+ },
+ {
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/AntonOsika/gpt-engineer",
+  "confidence": "high",
+  "note": "CLI installed with pip install gpt-engineer and run as gpte <project_dir>; repo archived Apr 22, 2026."
+ },
+ {
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/AntonOsika/gpt-engineer",
+  "confidence": "medium",
+  "note": "CLI installed with pip install gpt-engineer and run as gpte <project_dir>; repo archived Apr 22, 2026."
+ },
+ {
+  "id": "genkit--gh-firebase-genkit",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/firebase/genkit",
+  "confidence": "medium",
+  "note": "'Open-source framework for building full-stack AI-powered applications', deployable to Firebase, Cloud Run or any environment the developer chooses."
+ },
+ {
+  "id": "genkit--gh-firebase-genkit",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/firebase/genkit",
+  "confidence": "high",
+  "note": "'Open-source framework for building full-stack AI-powered applications', deployable to Firebase, Cloud Run or any environment the developer chooses."
+ },
+ {
+  "id": "google-agent-development-kit-adk--gh-google-adk-python",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/google/adk-python",
+  "confidence": "high",
+  "note": "'Open-source, code-first Python toolkit for building, evaluating, and deploying AI agents'; pip install google-adk."
+ },
+ {
+  "id": "google-agent-development-kit-adk--gh-google-adk-python",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/google/adk-python",
+  "confidence": "high",
+  "note": "'Open-source, code-first Python toolkit for building, evaluating, and deploying AI agents'; pip install google-adk."
+ },
+ {
+  "id": "haystack-framework--haystack-deepset-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://haystack.deepset.ai/",
+  "confidence": "high",
+  "note": "'Open Source AI framework for building production-ready, LLM-powered agents and applications'; pip install haystack-ai."
+ },
+ {
+  "id": "haystack-framework--haystack-deepset-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://haystack.deepset.ai/",
+  "confidence": "high",
+  "note": "'Open Source AI framework for building production-ready, LLM-powered agents and applications'; pip install haystack-ai."
+ },
+ {
+  "id": "inngest--inngest-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.inngest.com/docs/self-hosting",
+  "confidence": "high",
+  "note": "Docs: hosted Inngest platform is the default and 'self-hosting support for Inngest is supported as of the 1.0 release'; used via SDKs."
+ },
+ {
+  "id": "inngest--inngest-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.inngest.com/docs/self-hosting",
+  "confidence": "high",
+  "note": "Docs: hosted Inngest platform is the default and 'self-hosting support for Inngest is supported as of the 1.0 release'; used via SDKs."
+ },
+ {
+  "id": "langchain-framework--langchain-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/langchain-ai/langchain",
+  "confidence": "high",
+  "note": "'LangChain is a framework for building agents and LLM-powered applications', added as a package (uv add langchain)."
+ },
+ {
+  "id": "langchain-framework--langchain-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/langchain-ai/langchain",
+  "confidence": "high",
+  "note": "'LangChain is a framework for building agents and LLM-powered applications', added as a package (uv add langchain)."
+ },
+ {
+  "id": "langgraph-orchestration--langchain-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.langchain.com/langgraph",
+  "confidence": "high",
+  "note": "'LangGraph is an MIT-licensed open-source library and is free to use'; a low-level orchestration framework for developers."
+ },
+ {
+  "id": "langgraph-orchestration--langchain-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.langchain.com/langgraph",
+  "confidence": "high",
+  "note": "'LangGraph is an MIT-licensed open-source library and is free to use'; a low-level orchestration framework for developers."
+ },
+ {
+  "id": "langflow--gh-langflow-ai-langflow",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/langflow-ai/langflow",
+  "confidence": "high",
+  "note": "Runs via uv pip install langflow, Docker or Langflow Desktop; 'a powerful platform for building and deploying AI-powered agents and workflows'."
+ },
+ {
+  "id": "langflow--gh-langflow-ai-langflow",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/langflow-ai/langflow",
+  "confidence": "high",
+  "note": "Runs via uv pip install langflow, Docker or Langflow Desktop; 'a powerful platform for building and deploying AI-powered agents and workflows'."
+ },
+ {
+  "id": "llamaindex-framework--llamaindex-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/run-llama/llama_index",
+  "confidence": "high",
+  "note": "'LlamaIndex Framework is an open-source framework to build agentic applications', installed as the llama-index Python package."
+ },
+ {
+  "id": "llamaindex-framework--llamaindex-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/run-llama/llama_index",
+  "confidence": "high",
+  "note": "'LlamaIndex Framework is an open-source framework to build agentic applications', installed as the llama-index Python package."
+ },
+ {
+  "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/modelcontextprotocol/servers",
+  "confidence": "high",
+  "note": "Reference implementations 'to demonstrate MCP features and SDK usage', run locally with npx, uvx or pip."
+ },
+ {
+  "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/modelcontextprotocol/servers",
+  "confidence": "medium",
+  "note": "Reference implementations 'to demonstrate MCP features and SDK usage', run locally with npx, uvx or pip."
+ },
+ {
+  "id": "magnetic-one--microsoft-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
+  "confidence": "medium",
+  "note": "Microsoft Research released 'an open-source implementation of Magentic-One on Microsoft AutoGen' for 'researchers and developers'."
+ },
+ {
+  "id": "magnetic-one--microsoft-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
+  "confidence": "medium",
+  "note": "Microsoft Research released 'an open-source implementation of Magentic-One on Microsoft AutoGen' for 'researchers and developers'."
+ },
+ {
+  "id": "marvin--askmarvin-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/PrefectHQ/marvin",
+  "confidence": "high",
+  "note": "'Marvin is a Python library for extracting structured data and running tasks with language models'; install with uv add marvin."
+ },
+ {
+  "id": "marvin--askmarvin-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/PrefectHQ/marvin",
+  "confidence": "high",
+  "note": "'Marvin is a Python library for extracting structured data and running tasks with language models'; install with uv add marvin."
+ },
+ {
+  "id": "mastra--mastra-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://mastra.ai/",
+  "confidence": "medium",
+  "note": "'Mastra is an open-source TypeScript framework for agents and workflows'; 'deploy on your own infrastructure or Mastra Platform'."
+ },
+ {
+  "id": "mastra--mastra-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://mastra.ai/",
+  "confidence": "high",
+  "note": "'Mastra is an open-source TypeScript framework for agents and workflows'; 'deploy on your own infrastructure or Mastra Platform'."
+ },
+ {
+  "id": "metagpt--gh-geekan-metagpt",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/geekan/MetaGPT",
+  "confidence": "high",
+  "note": "Multi-agent framework installed with pip install metagpt; the hosted MGX product is a separate launch."
+ },
+ {
+  "id": "metagpt--gh-geekan-metagpt",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/geekan/MetaGPT",
+  "confidence": "high",
+  "note": "Multi-agent framework installed with pip install metagpt; the hosted MGX product is a separate launch."
+ },
+ {
+  "id": "microsoft-agent-framework--gh-microsoft-agent-framework",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/microsoft/agent-framework",
+  "confidence": "high",
+  "note": "'An open, multi-language framework for building production-grade AI agents' in .NET and Python; pip install agent-framework / NuGet."
+ },
+ {
+  "id": "microsoft-agent-framework--gh-microsoft-agent-framework",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/microsoft/agent-framework",
+  "confidence": "high",
+  "note": "'An open, multi-language framework for building production-grade AI agents' in .NET and Python; pip install agent-framework / NuGet."
+ },
+ {
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/microsoft/semantic-kernel",
+  "confidence": "high",
+  "note": "'A model-agnostic SDK that empowers developers to build, orchestrate, and deploy AI agents'; pip/NuGet; README says it is succeeded by Microsoft Agent Framework."
+ },
+ {
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/microsoft/semantic-kernel",
+  "confidence": "high",
+  "note": "'A model-agnostic SDK that empowers developers to build, orchestrate, and deploy AI agents'; pip/NuGet; README says it is succeeded by Microsoft Agent Framework."
+ },
+ {
+  "id": "openai-agents-sdk--gh-openai-openai-agents-python",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/openai/openai-agents-python",
+  "confidence": "high",
+  "note": "'A lightweight yet powerful framework for building multi-agent workflows'; pip install openai-agents."
+ },
+ {
+  "id": "openai-agents-sdk--gh-openai-openai-agents-python",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/openai/openai-agents-python",
+  "confidence": "high",
+  "note": "'A lightweight yet powerful framework for building multi-agent workflows'; pip install openai-agents."
+ },
+ {
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/openai/swarm",
+  "confidence": "high",
+  "note": "'Educational framework exploring ergonomic, lightweight multi-agent orchestration', pip-installed from GitHub; replaced by the OpenAI Agents SDK."
+ },
+ {
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/openai/swarm",
+  "confidence": "high",
+  "note": "'Educational framework exploring ergonomic, lightweight multi-agent orchestration', pip-installed from GitHub; replaced by the OpenAI Agents SDK."
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/All-Hands-AI/OpenHands",
+  "confidence": "high",
+  "note": "README: self-hosted Agent Canvas runs on your machine by default, OpenHands Cloud is the commercial hosted offering, and a Python SDK/Agent Server is published for builders."
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://github.com/All-Hands-AI/OpenHands",
+  "confidence": "medium",
+  "note": "README: self-hosted Agent Canvas runs on your machine by default, OpenHands Cloud is the commercial hosted offering, and a Python SDK/Agent Server is published for builders."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.agno.com/",
+  "confidence": "high",
+  "note": "Agno is 'a self-driving agent platform that runs in your cloud'; developers build agents in Python and run them on the AgentOS runtime in their own infrastructure."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.agno.com/",
+  "confidence": "high",
+  "note": "Agno is 'a self-driving agent platform that runs in your cloud'; developers build agents in Python and run them on the AgentOS runtime in their own infrastructure."
+ },
+ {
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/docs/ai/overview/",
+  "confidence": "high",
+  "note": "'The Python AI SDK: a typed, extensible agent loop'; pip install pydantic-ai."
+ },
+ {
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/docs/ai/overview/",
+  "confidence": "high",
+  "note": "'The Python AI SDK: a typed, extensible agent loop'; pip install pydantic-ai."
+ },
+ {
+  "id": "restate--restate-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://restate.dev/",
+  "confidence": "high",
+  "note": "Runtime 'ships as a single self-contained binary' to self-host, or use Restate Cloud, 'the fully managed service'; SDKs in seven languages."
+ },
+ {
+  "id": "restate--restate-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://restate.dev/",
+  "confidence": "medium",
+  "note": "Runtime 'ships as a single self-contained binary' to self-host, or use Restate Cloud, 'the fully managed service'; SDKs in seven languages."
+ },
+ {
+  "id": "strands-agents-aws--strandsagents-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://strandsagents.com/",
+  "confidence": "medium",
+  "note": "'The open source toolkit for production AI agents', deployed by the user to Lambda, Fargate, EKS, EC2, Docker, Kubernetes or Bedrock AgentCore."
+ },
+ {
+  "id": "strands-agents-aws--strandsagents-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://strandsagents.com/",
+  "confidence": "high",
+  "note": "'The open source toolkit for production AI agents', deployed by the user to Lambda, Fargate, EKS, EC2, Docker, Kubernetes or Bedrock AgentCore."
+ },
+ {
+  "id": "temporal--temporal-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://temporal.io/",
+  "confidence": "high",
+  "note": "'Temporal is an open-source project that you are free to use and host in your own environment', or 'let us host it for you with Temporal Cloud'; native SDKs for developers."
+ },
+ {
+  "id": "temporal--temporal-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://temporal.io/",
+  "confidence": "high",
+  "note": "'Temporal is an open-source project that you are free to use and host in your own environment', or 'let us host it for you with Temporal Cloud'; native SDKs for developers."
+ },
+ {
+  "id": "trigger-dev--trigger-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://trigger.dev/",
+  "confidence": "high",
+  "note": "Managed cloud ('We deploy your tasks and handle scaling for you') and 'Trigger.dev is open source and self-hostable'; aimed at developers."
+ },
+ {
+  "id": "trigger-dev--trigger-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://trigger.dev/",
+  "confidence": "high",
+  "note": "Managed cloud ('We deploy your tasks and handle scaling for you') and 'Trigger.dev is open source and self-hostable'; aimed at developers."
+ },
+ {
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://ai-sdk.dev/",
+  "confidence": "medium",
+  "note": "'The TypeScript toolkit for building AI applications and agents', aimed at JavaScript and TypeScript developers."
+ },
+ {
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://ai-sdk.dev/",
+  "confidence": "high",
+  "note": "'The TypeScript toolkit for building AI applications and agents', aimed at JavaScript and TypeScript developers."
+ },
+ {
+  "id": "n8n-ai-agent-flows--n8n-io",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://n8n.io/",
+  "confidence": "high",
+  "note": "'Deploy on-prem or with Docker to keep your data in your own environment, or use the hosted version'; visual workflow builder with code for technical teams."
+ },
+ {
+  "id": "n8n-ai-agent-flows--n8n-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://n8n.io/",
+  "confidence": "medium",
+  "note": "'Deploy on-prem or with Docker to keep your data in your own environment, or use the hosted version'; visual workflow builder with code for technical teams."
+ },
+ {
+  "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/huggingface/smolagents",
+  "confidence": "high",
+  "note": "'A barebones library for agents that think in code'; pip install smolagents."
+ },
+ {
+  "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/huggingface/smolagents",
+  "confidence": "high",
+  "note": "'A barebones library for agents that think in code'; pip install smolagents."
+ },
+ {
+  "id": "browser-use--browser-use-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://browser-use.com/",
+  "confidence": "medium",
+  "note": "'The open-source browser agent. MIT licensed', plus 'the simple cloud browser for your own agents' and hosted web agents for developers."
+ },
+ {
+  "id": "browser-use--browser-use-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://browser-use.com/",
+  "confidence": "high",
+  "note": "'The open-source browser agent. MIT licensed', plus 'the simple cloud browser for your own agents' and hosted web agents for developers."
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://github.com/bytebot-ai/bytebot",
+  "confidence": "high",
+  "note": "'A self-hosted AI desktop agent that automates computer tasks through natural language commands' in a containerized Linux desktop; repo archived Mar 7, 2026."
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/bytebot-ai/bytebot",
+  "confidence": "medium",
+  "note": "'A self-hosted AI desktop agent that automates computer tasks through natural language commands' in a containerized Linux desktop; repo archived Mar 7, 2026."
+ },
+ {
+  "id": "claude-for-chrome--anthropic-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://claude.com/blog/claude-for-chrome",
+  "confidence": "high",
+  "note": "Chrome extension where users 'instruct Claude to take actions on their behalf within the browser'; available to Pro, Team and Enterprise plans."
+ },
+ {
+  "id": "claude-for-chrome--anthropic-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://claude.com/blog/claude-for-chrome",
+  "confidence": "high",
+  "note": "Chrome extension where users 'instruct Claude to take actions on their behalf within the browser'; available to Pro, Team and Enterprise plans."
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://highlightai.com/",
+  "confidence": "medium",
+  "note": "Downloadable desktop app that 'captures what matters and drafts follow-ups in the tools where your work happens'; no developer SDK offered."
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://highlightai.com/",
+  "confidence": "high",
+  "note": "Downloadable desktop app that 'captures what matters and drafts follow-ups in the tools where your work happens'; no developer SDK offered."
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.hyperbrowser.ai/",
+  "confidence": "medium",
+  "note": "'AI agents' gateway to the internet': connect Playwright or Puppeteer 'to a cloud-hosted Chrome session' via APIs and SDKs; no self-host option mentioned."
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.hyperbrowser.ai/",
+  "confidence": "high",
+  "note": "'AI agents' gateway to the internet': connect Playwright or Puppeteer 'to a cloud-hosted Chrome session' via APIs and SDKs; no self-host option mentioned."
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://magnitude.dev/",
+  "confidence": "high",
+  "note": "Now 'an open source inference engine' shipped as a desktop app that runs open models on your own machine; 'nothing leaves your machine'."
+ },
+ {
+  "id": "skyvern--skyvern-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://www.skyvern.com/",
+  "confidence": "medium",
+  "note": "Open-source browser agent that can 'run entirely on-premise with our Docker containers' or with a hosted trial; offers Python/TypeScript SDKs plus no-code Copilot and Visual Builder."
+ },
+ {
+  "id": "skyvern--skyvern-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://www.skyvern.com/",
+  "confidence": "medium",
+  "note": "Open-source browser agent that can 'run entirely on-premise with our Docker containers' or with a hosted trial; offers Python/TypeScript SDKs plus no-code Copilot and Visual Builder."
+ },
+ {
+  "id": "stagehand--stagehand-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://www.stagehand.dev/",
+  "confidence": "medium",
+  "note": "'Stagehand is the SDK for browser agents'; runs next to a local browser or deploys to Browserbase."
+ },
+ {
+  "id": "stagehand--stagehand-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.stagehand.dev/",
+  "confidence": "high",
+  "note": "'Stagehand is the SDK for browser agents'; runs next to a local browser or deploys to Browserbase."
+ },
+ {
+  "id": "steel-dev--steel-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://steel.dev/",
+  "confidence": "high",
+  "note": "'Steel Browser is the open-source server on GitHub that you can host yourself', alongside managed Steel Cloud; an API with SDKs for agent developers."
+ },
+ {
+  "id": "steel-dev--steel-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://steel.dev/",
+  "confidence": "high",
+  "note": "'Steel Browser is the open-source server on GitHub that you can host yourself', alongside managed Steel Cloud; an API with SDKs for agent developers."
+ },
+ {
+  "id": "ui-tars--gh-bytedance-ui-tars",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://github.com/bytedance/UI-TARS",
+  "confidence": "high",
+  "note": "'An open-source multimodal agent built upon a powerful vision-language model' for desktop/browser/mobile GUIs; weights on Hugging Face, plus UI-TARS-desktop 'which can operate on your local personal device'."
+ },
+ {
+  "id": "ui-tars--gh-bytedance-ui-tars",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/bytedance/UI-TARS",
+  "confidence": "medium",
+  "note": "'An open-source multimodal agent built upon a powerful vision-language model' for desktop/browser/mobile GUIs; weights on Hugging Face, plus UI-TARS-desktop 'which can operate on your local personal device'."
+ },
+ {
+  "id": "crewai-enterprise--crewai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://www.crewai.com/amp",
+  "confidence": "high",
+  "note": "CrewAI AMP lists deployment on CrewAI cloud, self-hosted, on-prem, VPC or your own infrastructure; a platform to build, deploy and govern agents."
+ },
+ {
+  "id": "crewai-enterprise--crewai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.crewai.com/amp",
+  "confidence": "high",
+  "note": "CrewAI AMP lists deployment on CrewAI cloud, self-hosted, on-prem, VPC or your own infrastructure; a platform to build, deploy and govern agents."
+ },
+ {
+  "id": "imbue-formerly-generally-intelligent--imbue-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://imbue.com/",
+  "confidence": "medium",
+  "note": "Site lists end-user tools such as Studio ('Your personal AI operating system') and Bouncer ('Filter (and heal) your X feed')."
+ },
+ {
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://github.com/instructlab/instructlab",
+  "confidence": "medium",
+  "note": "The ilab CLI is used 'to chat with a model and execute the InstructLab workflow'; repo archived Apr 23, 2026."
+ },
+ {
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://github.com/instructlab/instructlab",
+  "confidence": "medium",
+  "note": "The ilab CLI is used 'to chat with a model and execute the InstructLab workflow'; repo archived Apr 23, 2026."
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.lindy.ai/",
+  "confidence": "medium",
+  "note": "'Lindy is the AI employee that plugs into your tools'; delivered via web app, Slack, iMessage and a Chrome extension, set up 'with no API keys or IT ticket'."
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.lindy.ai/",
+  "confidence": "high",
+  "note": "'Lindy is the AI employee that plugs into your tools'; delivered via web app, Slack, iMessage and a Chrome extension, set up 'with no API keys or IT ticket'."
+ },
+ {
+  "id": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+  "cell": "architecture-deployment-locus",
+  "value": "not applicable — MCP is an open protocol specification, not deployable software",
+  "status": "not-applicable"
+ },
+ {
+  "id": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+  "cell": "positioning-platform-vs-product",
+  "value": "not applicable — MCP is an open protocol specification, not a product or platform",
+  "status": "not-applicable"
+ }
+]
