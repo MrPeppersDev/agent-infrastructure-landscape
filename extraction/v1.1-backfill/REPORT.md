@@ -120,3 +120,25 @@ Six memory batches and two data batches, briefed the same way as the agents batc
   - Grok Memory, Tesla FSD and CoCounsel cite secondary sources.
   - LabGenius' URL points to an unrelated site.
   - ByteRover's homepage says MIT, but the catalog has Elastic-2.0.
+
+## Models-ops family (109 rows) — research backfill complete
+
+Three batches (`input-locus-models-ops-*.json` → `result-locus-models-ops-*.json`), 186 cells.
+
+- **Rules added for this family:**
+  - A model family that's sold both as a chat app and as an API under the same name is `both`: Claude, GPT, Gemini, Grok, DeepSeek and Qwen. Mistral and Llama are `platform`, because Le Chat and Meta AI carry different brands.
+  - Open weights plus a public API makes a row `hybrid`.
+  - Physical robots installed at a customer site get positioning only; locus is left empty.
+  - Labelling and data services (Scale, Snorkel, Surge) get positioning only.
+
+## Final coverage of the researched cells (695 non-paper rows)
+
+| Cell | Rows filled | Breakdown |
+|---|---|---|
+| `architecture-deployment-locus` | 546 | local 182, cloud 170, hybrid 134, ide 19, computer-use 13, not-applicable 28 |
+| `positioning-platform-vs-product` | 629 | platform 331, product 230, both 41, not-applicable 27 |
+| `adoption-accelerator` | 60 | all Y Combinator; no `none` values written |
+
+Rows still empty are those where the vendor's own page didn't settle the question: pages that block automated access, sites that render only with JavaScript, enterprise SaaS sites that don't say where they're hosted, and dead products.
+
+All lifecycle leads from every batch are collected in `lifecycle-leads.md` for a re-verification pass. None has been applied, and each needs a primary-source check first.
