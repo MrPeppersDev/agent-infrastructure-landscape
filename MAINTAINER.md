@@ -195,7 +195,8 @@ Review can result in:
   crosses.
 
 Per the intake template, every submission is verified before it lands in
-`data/landscape.json` — no auto-merge.
+`data/landscape.json`. The intake workflow never merges its own output (see
+"Merge policy" below).
 
 If a submission is time-sensitive (e.g., disclosure of incorrect or
 outdated information about a vendor), apply the **`urgent`** label and
@@ -290,8 +291,34 @@ contributors know what to expect from the review queue.
 GitHub Actions workflows generate signal without human action. Daily
 crons are staggered across the 12:00–16:00 UTC window so jobs don't
 pile up. **Every workflow produces issues or PRs, never direct writes
-to `data/landscape.json`** — maintainer review remains the gate for
-catalog-state changes. Daily runs move signal, not state.
+to `data/landscape.json`**, and no workflow merges its own PR. Daily runs
+move signal, not state.
+
+### Merge policy
+
+Every change lands as a pull request. Nobody, human or agent, pushes to
+`main` directly. A PR is mergeable when CI is green:
+
+- `validate`: the eight gates of `scripts/validate.py`, including the
+  byte-for-byte JSON → HTML → JSON round-trip and the enum domains.
+- The contradiction lint, which is kept at 0.
+- Type-checking of the site, the MCP server and the CLI.
+- The full site build, with link and JSON-LD validation.
+- The per-page JS budget (`web/scripts/check-route-weight.mjs`).
+- The browser smoke test.
+- The MCP server, hosted worker and GitHub Action tests.
+
+Who merges:
+
+- **The maintainer's agent sessions** (Claude Code, instructed by
+  `CLAUDE.md`) merge their own PRs once CI is green, without waiting for a
+  review. The maintainer reviews after the fact, and PR descriptions carry
+  the sources and checks for that.
+- **Bot output** (draft PRs or branches from the section audit, intake and
+  correction workflows) is never merged by the workflow that made it. A
+  maintainer, or one of the agent sessions above, checks it against its
+  cited sources and merges it.
+- **Outside contributions** are reviewed by the maintainer before merging.
 
 - **`.github/workflows/staleness.yml`** — daily 12:00 UTC. Walks every
   row with a GitHub URL; opens `stale-row` issues for repos that
