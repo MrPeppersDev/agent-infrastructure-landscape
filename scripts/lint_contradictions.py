@@ -16,6 +16,8 @@ Checks (each finding names the record, the cells involved and why):
                     homepage is a fine citation and is not flagged.
   blank-taxonomy    an Agent Memory / Memory Research record whose seven
                     taxonomy axes are all n/a.
+  edge-midword      an edge whose evidence excerpt starts in the middle of a
+                    word of the cell it was cut from (#327).
   stars-in-prose    a claims / desc / pros cell quoting a GitHub star count
                     while the gh cell carries the live one, so the page shows
                     two different numbers (#326).
@@ -38,6 +40,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE = ROOT / "data" / "landscape.json"
+EDGES = ROOT / "data" / "landscape.edges.json"
 FAMILIES = ROOT / "taxonomy" / "families.json"
 
 OSI = re.compile(r"\b(MIT|Apache[- ]?2(\.0)?|BSD|MPL|LGPL|AGPL|GPL|ISC|Unlicense|CC-BY)\b", re.I)
@@ -140,6 +143,30 @@ def lint(rec: dict, fam: str) -> list[dict]:
     return out
 
 
+def lint_edges(recs: list[dict]) -> list[dict]:
+    """edge-midword: an excerpt found inside one of its endpoints' cells
+    right after a letter or digit was cut mid-word."""
+    if not EDGES.exists():
+        return []
+    by_id = {r["id"]: r for r in recs}
+    out = []
+    for e in json.loads(EDGES.read_text()).get("edges", []):
+        ev = re.sub(r"^[\w-]+ cell: ", "", e.get("evidence") or "").lstrip("…").rstrip(".…").strip()[:40]
+        if len(ev) < 8:
+            continue
+        for rid in (e["source"], e["target"]):
+            r = by_id.get(rid)
+            hit = r and any(
+                (i := str(c.get("value") or "").find(ev)) > 0 and str(c.get("value") or "")[i - 1].isalnum()
+                for c in r.get("cells", {}).values()
+            )
+            if hit:
+                out.append({"id": e["source"], "name": by_id.get(e["source"], {}).get("name", e["source"]), "family": "edges",
+                            "check": "edge-midword", "cells": [], "why": f"{e['type']} -> {e['target']}: '{ev[:30]}'"})
+                break
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", default=None)
@@ -156,6 +183,8 @@ def main() -> int:
             continue
         for f in lint(r, fam):
             findings.append({"id": r["id"], "name": r["name"], "family": fam, **f})
+
+    findings += lint_edges(recs)
 
     by = collections.Counter(f["check"] for f in findings)
     print(f"lint_contradictions: {len(findings)} findings across "
