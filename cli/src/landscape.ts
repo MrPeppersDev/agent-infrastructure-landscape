@@ -37,7 +37,7 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
@@ -289,7 +289,10 @@ program
       pin: o.pin ? Object.fromEntries(list(o.pin)!.map((kv) => kv.split('=')).map(([k, v]) => [k, moved[v] ?? v])) : undefined
     };
     setAliases(loadSystemAliases());
-    const plan = planStack({ items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never }, a);
+    const plan = planStack({
+      items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never,
+      pricing: { stack: loadStackPricing() as never, memory: loadPricing() as never, vector: loadVectorPricing() as never }
+    }, a);
     if (o.out) writeFileSync(o.out, plan.stackYaml);
     if (globalOpts(cmd).json) return emit(JSON.stringify(slimPlan(plan), null, 2));
     const lines: string[] = [`${plan.product} — risk ${plan.risk.level} (${plan.risk.score})`, ''];
@@ -305,6 +308,11 @@ program
     lines.push('', `Security (OWASP LLM Top 10, ${plan.security.source}):`);
     for (const s of plan.security.items) lines.push(`  ${s.id} ${s.risk}: ${s.status}${s.by.length ? ' — ' + s.by.join(', ') : ''}${s.status !== 'addressed' ? ' — ' + s.note : ''}`);
     if (plan.evals.benchmarks.length) lines.push('', `Benchmarks to run: ${plan.evals.benchmarks.map((b) => b.name).join(', ')}`);
+    if (plan.cost) {
+      const c = plan.cost;
+      lines.push('', `Monthly cost from published list prices: ${c.lowerBound ? 'at least ' : ''}$${Math.round(c.knownMonthlyUsd).toLocaleString('en-US')} (prices checked ${c.checked}; ${c.workload.runsPerDay} runs/day)`);
+      for (const l of c.lines) lines.push(`  ${l.name}: ${typeof l.monthlyUsd === 'number' ? '$' + Math.round(l.monthlyUsd).toLocaleString('en-US') : l.monthlyUsd === null ? 'contact sales' : 'no published price'}${l.plan ? ' — ' + l.plan : ''}`);
+    }
     lines.push('', o.out ? `stack.yml written to ${o.out}` : plan.stackYaml);
     emit(lines.join('\n'));
   });

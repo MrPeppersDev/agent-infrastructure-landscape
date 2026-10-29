@@ -18,6 +18,9 @@
 import { brand, POOLS, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting, type RecordLike } from './chooser.js';
 import { scoreInfraDetailed, FW_SECTIONS, NOT_A_FRAMEWORK, type Language, type InfraAnswers, type Exclusion } from './chooser-infra.js';
 import { compatibility, type CompatEdge, type CompatEvidence } from './compat.js';
+import { stackCost, DEFAULT_STACK_WORKLOAD, type StackCost, type StackPricing, type StackWorkload } from './stack-costs.js';
+import type { VendorPricing } from './costs.js';
+import type { VectorPricing } from './vector-costs.js';
 
 // ---------------------------------------------------------------------------
 // Layers and product presets
@@ -106,6 +109,8 @@ export interface StackAnswers {
   pin?: Partial<Record<LayerId, string>>;
   /** Never pick these record ids. */
   avoid?: string[];
+  /** Workload for the cost estimate (defaults: DEFAULT_STACK_WORKLOAD). */
+  workload?: Partial<StackWorkload>;
   /** Attestations every hosted service in the stack must publish, as codes
    * from docs/schema/compliance-certifications.json (e.g. soc2-type2, hipaa).
    * Libraries you run yourself are exempt. */
@@ -180,6 +185,9 @@ export interface StackPlan {
   risk: { score: number; level: 'low' | 'medium' | 'high'; factors: RiskFactor[] };
   security: { source: string; items: SecurityItem[] };
   evals: { observability: { id: string; name: string } | null; benchmarks: { id: string; name: string; url: string | null }[] };
+  /** Monthly cost from published list prices; present when the context
+   * carries pricing. */
+  cost: StackCost | null;
   stackYaml: string;
 }
 
@@ -188,6 +196,8 @@ export interface ComposerContext {
   records: RecordLike[];
   edges: CompatEdge[];
   migrations?: Map<string, { summary: string; sources: string[] }>;
+  /** Published prices (data/pricing/*.json) for the cost estimate. */
+  pricing?: { stack: StackPricing; memory: { checked: string; vendors: VendorPricing[] }; vector: { checked: string; vendors: VectorPricing[] } };
 }
 
 // ---------------------------------------------------------------------------
@@ -368,6 +378,13 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
     risk: riskOf(results, pairs, recById, wanted),
     security: securityOf(results),
     evals: evalsOf(ctx, results, preset),
+    cost: ctx.pricing
+      ? stackCost(
+          results.filter((l) => l.pick).map((l) => ({ layer: l.layer, id: l.pick!.item.id, name: l.pick!.item.name })),
+          ctx.pricing,
+          { ...DEFAULT_STACK_WORKLOAD, ...(a.workload ?? {}) }
+        )
+      : null,
     stackYaml: toStackYaml(a, results)
   };
 }
@@ -586,6 +603,7 @@ export function slimPlan(p: StackPlan, page?: (id: string) => string) {
     risk: p.risk,
     security: p.security,
     evals: p.evals,
+    cost: p.cost,
     stackYaml: p.stackYaml
   };
 }

@@ -11,8 +11,9 @@
   import type { ChooserItem, RecordLike } from '$lib/chooser';
   import { planStack, PRODUCTS, LAYERS, DEFAULT_STACK, type StackAnswers, type LayerId, type ProductType } from '../../../../mcp/src/composer';
   import type { CompatEdge } from '../../../../mcp/src/compat';
+  import { DEFAULT_STACK_WORKLOAD, type StackWorkload } from '../../../../mcp/src/stack-costs';
 
-  let { data }: { data: { items: ChooserItem[]; records: RecordLike[]; edges: CompatEdge[]; migrations: { id: string; summary: string; sources: string[] }[] } } = $props();
+  let { data }: { data: { items: ChooserItem[]; records: RecordLike[]; edges: CompatEdge[]; migrations: { id: string; summary: string; sources: string[] }[]; pricing: unknown } } = $props();
 
   const OPTIONAL: LayerId[] = ['voice', 'browser', 'sandbox', 'graph', 'orchestration', 'tools', 'memory'];
   const COMPLIANCE: [string, string][] = [['soc2-type2', 'SOC 2 Type II'], ['iso27001', 'ISO 27001'], ['hipaa', 'HIPAA'], ['gdpr', 'GDPR'], ['iso42001', 'ISO 42001'], ['fedramp', 'FedRAMP']];
@@ -50,8 +51,15 @@
   }
 
   let answers = $state<StackAnswers>(browser ? fromParams(new URLSearchParams(window.location.search)) : { ...DEFAULT_STACK });
-  const ctx = $derived({ items: data.items, records: data.records, edges: data.edges, migrations: new Map(data.migrations.map((m) => [m.id, m])) });
-  const plan = $derived(planStack(ctx, { ...answers, add: answers.add?.filter((l) => !PRODUCTS[answers.product].layers.includes(l)) }));
+  let workload = $state<StackWorkload>({ ...DEFAULT_STACK_WORKLOAD });
+  const ctx = $derived({ items: data.items, records: data.records, edges: data.edges, migrations: new Map(data.migrations.map((m) => [m.id, m])), pricing: data.pricing as never });
+  const plan = $derived(planStack(ctx, { ...answers, workload, add: answers.add?.filter((l) => !PRODUCTS[answers.product].layers.includes(l)) }));
+  const WORKLOAD_FIELDS: [keyof StackWorkload, string][] = [
+    ['runsPerDay', 'Agent runs / day'], ['llmCallsPerRun', 'Model calls / run'], ['inputTokensPerCall', 'Input tokens / call'],
+    ['outputTokensPerCall', 'Output tokens / call'], ['toolCallsPerRun', 'Tool calls / run'], ['users', 'Monthly users'],
+    ['sandboxMinutesPerRun', 'Sandbox min / run'], ['browserMinutesPerRun', 'Browser min / run'], ['voiceMinutesPerRun', 'Voice min / run'], ['vectors', 'Vectors stored']
+  ];
+  const money = (n: number) => `$${n >= 100 ? Math.round(n).toLocaleString('en-US') : n.toFixed(2)}`;
 
   $effect(() => {
     if (!browser) return;
@@ -254,6 +262,33 @@
     </div>
   </section>
 
+  {#if plan.cost}
+    <section>
+      <h2>Monthly cost: {plan.cost.lowerBound ? 'at least ' : ''}{money(plan.cost.knownMonthlyUsd)}</h2>
+      <p class="muted">From published list prices only (checked {plan.cost.checked || '—'}); usage beyond the largest published plan is "contact sales", never extrapolated. Components with no published price (often self-hosted open source) cost your own infrastructure.</p>
+      <div class="workload">
+        {#each WORKLOAD_FIELDS as [k, label] (k)}
+          <label>{label}<input type="number" min="0" bind:value={workload[k]} /></label>
+        {/each}
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>System</th><th>Monthly</th><th>Plan / working</th></tr></thead>
+          <tbody>
+            {#each plan.cost.lines as c (c.layer + c.id)}
+              <tr>
+                <td>{LAYERS.find((x) => x.id === c.layer)?.label ?? c.layer}</td>
+                <td>{c.name}{#if c.source} <a class="cite" href={c.source} target="_blank" rel="noopener noreferrer">↗</a>{/if}</td>
+                <td>{typeof c.monthlyUsd === 'number' ? money(c.monthlyUsd) : c.monthlyUsd === null ? 'contact sales' : '—'}</td>
+                <td class="note">{c.plan}{#if c.working.length}<br />{c.working.join(' · ')}{/if}{#if c.caveat}<br /><em>{c.caveat}</em>{/if}</td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  {/if}
+
   <section>
     <h2>Evaluation plan</h2>
     <p>
@@ -327,5 +362,8 @@
   .yaml { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px; font-size: 12px; overflow-x: auto; color: #c9d1d9; }
   .actions { display: flex; gap: 10px; align-items: center; }
   .actions button, .dl { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; border-radius: 6px; padding: 5px 12px; font: inherit; font-size: 13px; cursor: pointer; text-decoration: none; }
+  .workload { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin: 0 0 12px; }
+  .workload label { display: grid; gap: 4px; font-size: 12px; color: #8b949e; }
+  .workload input { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; padding: 4px 8px; font: inherit; font-size: 13px; width: 100%; box-sizing: border-box; }
   code { background: #161b22; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
 </style>
