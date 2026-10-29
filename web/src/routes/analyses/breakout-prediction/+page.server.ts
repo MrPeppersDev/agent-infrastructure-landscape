@@ -11,7 +11,7 @@
 // randomness; bootstrap RNG is seeded from each record's id) so the
 // validate-pipeline determinism gate stays clean.
 
-import { getRecords } from '$lib/data';
+import { slimRecords } from '$lib/slim';
 import {
   fitCitationCurves,
   fieldConstant
@@ -19,8 +19,11 @@ import {
 
 export const prerender = true;
 
+// Only the cells this page reads (#324). The list is every cell slug the page
+// and the modules it imports name; add a slug here before reading a new one.
+
 export const load = () => {
-  const records = getRecords();
+  const records = slimRecords(['citation-trajectory', 'citations', 'created']);
   const fits = fitCitationCurves(records);
   const m = fieldConstant(records);
   return { records, fits, fieldConstantM: m };

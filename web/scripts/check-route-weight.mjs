@@ -15,9 +15,7 @@ const BUILD = new URL('../build/', import.meta.url).pathname;
 // Pages still known to ship the full dataset to the browser, being slimmed
 // one route at a time (#324). Any other page over budget fails; a page in
 // this list that comes in under budget fails too, so the list only shrinks.
-const KNOWN_HEAVY = [
-  'analyses/', 'recommend/'
-];
+const KNOWN_HEAVY = [];
 const known = (page) => KNOWN_HEAVY.some((k) => (k.endsWith('/') ? page.startsWith(k) : page === k));
 const args = process.argv.slice(2);
 const budgetMb = Number(args[args.indexOf('--budget-mb') + 1]) || 3;
