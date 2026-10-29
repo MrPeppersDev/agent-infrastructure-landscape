@@ -5,6 +5,9 @@ branding:
   icon: 'layers'
   color: 'blue'
 inputs:
+  links-url:
+    description: 'Integration links for the upgrade advisor (replacements that work with the rest of your stack rank first). Default: the published /api/integration-links.json.'
+    required: false
   manifests:
     description: 'Comma- or newline-separated manifest paths. Default: every package.json, requirements*.txt, pyproject.toml, MCP config (.mcp.json, mcp.json, claude_desktop_config.json) and stack.yml (from the stack composer) in the repo, skipping node_modules, dist and virtualenvs.'
     required: false
