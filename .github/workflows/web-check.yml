@@ -96,3 +96,5 @@ jobs:
         run: npx -y tsx worker/test/handler.test.ts
       - name: Test web leaderboard parsers
         run: npx -y tsx web/scripts/test-leaderboards.ts
+      - name: Test best-of pages stay in their product family
+        run: npx -y tsx web/scripts/test-best-of.ts
