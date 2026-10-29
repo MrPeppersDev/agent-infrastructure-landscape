@@ -71,3 +71,28 @@
 
 ## Effect
 `plan_stack` for a customer-support agent now documents 17 of its 36 component pairs, up from 5. The picks follow the evidence: Mem0, Milvus, Composio and Arize Phoenix replace picks that had no recorded links.
+
+## `2026-10-29-hubs-c.json`: 156 edges (workflow builders, durable execution, inference hosts)
+
+These use the same method and checks as above. All 143 distinct citation URLs returned HTTP 200.
+
+| Hub | Source pages | Matched |
+|---|---|---|
+| Langflow | docs.langflow.org `bundles-*` and `integrations-*` | 33 |
+| n8n | docs.n8n.io AI cluster nodes; n8n AI Agent Memory (Zep node) | 24 |
+| Temporal | docs.temporal.io/integrations and per-integration pages | 17 |
+| Fireworks AI | agent-framework, MLOps/observability, gateway and coding-harness docs | 17 |
+| Together AI | third-party and agent integration docs | 14 |
+| Dify | monitoring integration pages; self-host `VECTOR_STORE` list | 12 |
+| Cohere | Embed vector-database guides; Command LangChain and SageMaker guides | 12 |
+| Inngest | AgentKit integrations (Browserbase, Daytona, E2B, Mem0, model adapters, MCP) | 9 |
+| Restate | docs.restate.dev/ai | 8 |
+| Trigger.dev | AI observability, Claude Agent SDK guide, example projects | 6 |
+| Supabase | `guides/ai`: pgvector, OpenAI, Hugging Face | 3 |
+| Flowise | Zep memory node (the catalog's only Flowise row is Flowise Memory) | 1 |
+
+- Dropped: 16 edges from the Hugging Face Inference Providers docs. The only catalog row is "Hugging Face Inference API (Embeddings)", and those integrations are about chat inference, not embeddings.
+- Kept: 47 edges that are the reverse of an existing pair. Each one is documented on the other system's own page.
+- Weaker citations:
+  - Three Trigger.dev edges (Mastra, Cursor, OpenAI Agents SDK) cite example projects.
+  - Four Temporal edges (Braintrust, Langfuse, Mastra, Pydantic AI) cite the partner's page, which Temporal's integrations catalog links to.

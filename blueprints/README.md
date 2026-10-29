@@ -6,9 +6,9 @@ Regenerate with `make blueprints` after catalog changes. Evidence lives in `data
 
 | Blueprint | Risk | Production write-ups |
 |---|---|---|
-| [Customer-support agent](support-agent/README.md) | low | 3 |
-| [Coding agent](coding-agent/README.md) | low | 4 |
-| [Research agent](research-agent/README.md) | low | 3 |
-| [Voice agent](voice-agent/README.md) | low | 4 |
-| [Multi-agent workflow](multi-agent-workflow/README.md) | low | 4 |
-| [RAG copilot](rag-copilot/README.md) | low | 4 |
+| [Customer-support agent](support-agent/README.md) | low | 8 |
+| [Coding agent](coding-agent/README.md) | low | 8 |
+| [Research agent](research-agent/README.md) | low | 5 |
+| [Voice agent](voice-agent/README.md) | low | 6 |
+| [Multi-agent workflow](multi-agent-workflow/README.md) | low | 8 |
+| [RAG copilot](rag-copilot/README.md) | low | 9 |

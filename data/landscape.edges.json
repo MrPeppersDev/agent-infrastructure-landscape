@@ -1925,10 +1925,94 @@
     },
     {
       "source": "cohere-command-r-command-a--cohere-com",
+      "target": "aws-sagemaker--aws-amazon-com",
+      "type": "integrates-with",
+      "evidence": "Cohere docs: \"An Amazon SageMaker Setup Guide\" for Cohere models.",
+      "citation": "https://docs.cohere.com/docs/amazon-sagemaker-setup-guide"
+    },
+    {
+      "source": "cohere-command-r-command-a--cohere-com",
       "target": "cohere-embed--cohere-com",
       "type": "runtime-dependency",
       "evidence": "adjacent-infrastructure cell: Cohere Embed v4; Cohere Rerank v3; Oracle Cloud Infrastructure deep integration",
       "citation": "https://cohere.com/command"
+    },
+    {
+      "source": "cohere-command-r-command-a--cohere-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Cohere docs: \"Cohere Chat on LangChain (Integration Guide)\".",
+      "citation": "https://docs.cohere.com/docs/chat-on-langchain"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "chroma--trychroma-com",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Chroma and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/chroma-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "elasticsearch-opensearch--elastic-co",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Elasticsearch and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/elasticsearch-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "haystack-framework--haystack-deepset-ai",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Haystack and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/haystack-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": LangChain (Cohere Embed on LangChain) and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/embed-on-langchain"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "milvus--milvus-io",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Milvus and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/milvus-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "mongodb-atlas-vector-search--mongodb-com",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": MongoDB and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/mongodb-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "pinecone--pinecone-io",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Pinecone and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/pinecone-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "qdrant--qdrant-tech",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Qdrant and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/qdrant-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "vespa--vespa-ai",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Vespa and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/vespa-and-cohere"
+    },
+    {
+      "source": "cohere-embed--cohere-com",
+      "target": "weaviate--weaviate-io",
+      "type": "integrates-with",
+      "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Weaviate and Cohere guide.",
+      "citation": "https://docs.cohere.com/docs/weaviate-and-cohere"
     },
     {
       "source": "cola--arxiv-2503-09263",
@@ -2898,6 +2982,90 @@
       "citation": "https://www.diffbot.com/"
     },
     {
+      "source": "dify--gh-langgenius-dify",
+      "target": "arize-ai--arize-com",
+      "type": "integrates-with",
+      "evidence": "Dify monitoring integration: \"Integrate with Arize\" (tracing).",
+      "citation": "https://docs.dify.ai/en/self-host/use-dify/monitor/integrations/integrate-arize"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "arize-phoenix--phoenix-arize-com",
+      "type": "integrates-with",
+      "evidence": "Dify monitoring integration: \"Integrate with Phoenix\" (tracing).",
+      "citation": "https://docs.dify.ai/en/self-host/use-dify/monitor/integrations/integrate-phoenix"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "chroma--trychroma-com",
+      "type": "integrates-with",
+      "evidence": "Dify self-host VECTOR_STORE supports `chroma` as the knowledge-base vector store.",
+      "citation": "https://docs.dify.ai/en/self-host/deploy/configuration/environments"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "comet-ml--comet-com",
+      "type": "integrates-with",
+      "evidence": "Dify monitoring integration: \"Integrate with Opik\" (tracing).",
+      "citation": "https://docs.dify.ai/en/self-host/use-dify/monitor/integrations/integrate-opik"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "elasticsearch-opensearch--elastic-co",
+      "type": "integrates-with",
+      "evidence": "Dify self-host VECTOR_STORE supports `elasticsearch` as the knowledge-base vector store.",
+      "citation": "https://docs.dify.ai/en/self-host/deploy/configuration/environments"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "langfuse--langfuse-com",
+      "type": "integrates-with",
+      "evidence": "Dify monitoring integration: \"Integrate with Langfuse\" (tracing).",
+      "citation": "https://docs.dify.ai/en/self-host/use-dify/monitor/integrations/integrate-langfuse"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "langsmith--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Dify monitoring integration: \"Integrate with LangSmith\" (tracing).",
+      "citation": "https://docs.dify.ai/en/self-host/use-dify/monitor/integrations/integrate-langsmith"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "milvus--milvus-io",
+      "type": "integrates-with",
+      "evidence": "Dify self-host VECTOR_STORE supports `milvus` as the knowledge-base vector store.",
+      "citation": "https://docs.dify.ai/en/self-host/deploy/configuration/environments"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "integrates-with",
+      "evidence": "Dify self-host VECTOR_STORE supports `pgvector` as the knowledge-base vector store.",
+      "citation": "https://docs.dify.ai/en/self-host/deploy/configuration/environments"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "qdrant--qdrant-tech",
+      "type": "integrates-with",
+      "evidence": "Dify self-host VECTOR_STORE supports `qdrant` as the knowledge-base vector store.",
+      "citation": "https://docs.dify.ai/en/self-host/deploy/configuration/environments"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "weaviate--weaviate-io",
+      "type": "integrates-with",
+      "evidence": "Dify self-host VECTOR_STORE supports `weaviate` as the knowledge-base vector store.",
+      "citation": "https://docs.dify.ai/en/self-host/deploy/configuration/environments"
+    },
+    {
+      "source": "dify--gh-langgenius-dify",
+      "target": "weights-biases--wandb-ai",
+      "type": "integrates-with",
+      "evidence": "Dify monitoring integration: \"Integrate with W&B Weave\" (tracing).",
+      "citation": "https://docs.dify.ai/en/self-host/use-dify/monitor/integrations/integrate-weave"
+    },
+    {
       "source": "dspy--gh-stanfordnlp-dspy",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "integrates-with",
@@ -3249,6 +3417,125 @@
       "isInfluential": true
     },
     {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: AWS AgentCore.",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/agentcore"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Claude Agent SDK (Nexus harness, preview).",
+      "citation": "https://docs.fireworks.ai/nexus/harnesses/claude-code"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "claude-code-anthropic--anthropic-com",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Claude Code (Nexus coding harness).",
+      "citation": "https://docs.fireworks.ai/nexus/harnesses/claude-code"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "crewai--crewai-com",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: CrewAI.",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/agent-frameworks"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "cursor-ide--cursor-com",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Cursor IDE (Nexus harness, preview).",
+      "citation": "https://docs.fireworks.ai/nexus/harnesses/cursor"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "helicone--helicone-ai",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Helicone (LLM Gateways).",
+      "citation": "https://docs.fireworks.ai/nexus/llm-gateways"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: LangChain.",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/agent-frameworks"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "litellm--gh-berriai-litellm",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: LiteLLM (LLM Gateways; native fireworks_ai provider).",
+      "citation": "https://docs.fireworks.ai/nexus/llm-gateways"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "llamaindex-framework--llamaindex-ai",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: LlamaIndex.",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/agent-frameworks"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "mlflow--mlflow-org",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: MLflow tracing (MLOps & Observability).",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/mlops-observability"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "openai-codex-cli--gh-openai-codex",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Codex (Nexus harness).",
+      "citation": "https://docs.fireworks.ai/nexus/harnesses/codex"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "opencode-sst--opencode-ai",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: OpenCode (Nexus harness).",
+      "citation": "https://docs.fireworks.ai/nexus/harnesses/opencode"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "openrouter--openrouter-ai",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: OpenRouter (upstream provider, LLM Gateways).",
+      "citation": "https://docs.fireworks.ai/nexus/llm-gateways"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "portkey-ai--portkey-ai",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Portkey (LLM Gateways).",
+      "citation": "https://docs.fireworks.ai/nexus/llm-gateways"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "pydantic-ai--ai-pydantic-dev",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: PydanticAI.",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/agent-frameworks"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "strands-agents-aws--strandsagents-com",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Strands Agents.",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/agent-frameworks"
+    },
+    {
+      "source": "fireworks-ai--fireworks-ai",
+      "target": "weights-biases--wandb-ai",
+      "type": "integrates-with",
+      "evidence": "Fireworks AI docs integration: Weights & Biases (MLOps & Observability).",
+      "citation": "https://docs.fireworks.ai/ecosystem/integrations/wandb"
+    },
+    {
       "source": "flex--arxiv-2511-06449",
       "target": "reflexion--arxiv-2303-11366",
       "type": "cites",
@@ -3269,6 +3556,13 @@
       "type": "runtime-dependency",
       "evidence": "08-31. Was a visual LangChain canvas with LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary B",
       "citation": "https://flowiseai.com/sunset"
+    },
+    {
+      "source": "flowise-memory--docs-flowiseai-com",
+      "target": "zep-graphiti--getzep-com",
+      "type": "integrates-with",
+      "evidence": "Flowise LangChain Memory nodes include Zep Memory.",
+      "citation": "https://docs.flowiseai.com/integrations/langchain/memory/zep-memory"
     },
     {
       "source": "forever--arxiv-2601-03938",
@@ -4352,6 +4646,69 @@
       "isInfluential": true
     },
     {
+      "source": "inngest--inngest-com",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: AgentKit Anthropic model adapter (reference).",
+      "citation": "https://agentkit.inngest.com/reference/model-anthropic"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "browserbase--browserbase-com",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: \"Using AgentKit with Browserbase\" integration guide.",
+      "citation": "https://agentkit.inngest.com/integrations/browserbase"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "daytona--daytona-io",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: \"Using AgentKit with Daytona\" integration guide.",
+      "citation": "https://agentkit.inngest.com/integrations/daytona"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "e2b--e2b-dev",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: \"Using AgentKit with E2B\" integration guide.",
+      "citation": "https://agentkit.inngest.com/integrations/e2b"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: AgentKit Gemini model adapter (reference).",
+      "citation": "https://agentkit.inngest.com/reference/model-gemini"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: AgentKit Memory concept page: long-term memory by integrating Mem0.",
+      "citation": "https://agentkit.inngest.com/concepts/memory"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: AgentKit \"MCP as tools\" guide.",
+      "citation": "https://agentkit.inngest.com/advanced-patterns/mcp"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: AgentKit OpenAI model adapter (reference).",
+      "citation": "https://agentkit.inngest.com/reference/model-openai"
+    },
+    {
+      "source": "inngest--inngest-com",
+      "target": "xai-grok-4--x-ai",
+      "type": "integrates-with",
+      "evidence": "Inngest AgentKit docs: AgentKit Grok model adapter (reference).",
+      "citation": "https://agentkit.inngest.com/reference/model-grok"
+    },
+    {
       "source": "inworld-ai--inworld-ai",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
@@ -4956,6 +5313,237 @@
       "type": "integrates-with",
       "evidence": "LangChain docs have a XAI integration provider page (xAI's Grok models for conversational AI).",
       "citation": "https://docs.langchain.com/oss/python/integrations/providers/xai"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Anthropic (Claude) model component.",
+      "citation": "https://docs.langflow.org/bundles-anthropic"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "arize-ai--arize-com",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: Arize AX tracing.",
+      "citation": "https://docs.langflow.org/integrations-arize"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "arize-phoenix--phoenix-arize-com",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: Arize Phoenix tracing.",
+      "citation": "https://docs.langflow.org/integrations-arize"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "cohere-command-r-command-a--cohere-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Cohere language model component.",
+      "citation": "https://docs.langflow.org/bundles-cohere"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "cohere-embed--cohere-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Cohere Embeddings component.",
+      "citation": "https://docs.langflow.org/bundles-cohere"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "comet-ml--comet-com",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: Opik tracing.",
+      "citation": "https://docs.langflow.org/integrations-opik"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "composio--composio-dev",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Composio tools components.",
+      "citation": "https://docs.langflow.org/bundles-composio"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "deepseek-r1-v3-family--deepseek-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: DeepSeek language model component.",
+      "citation": "https://docs.langflow.org/bundles-deepseek"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "elasticsearch-opensearch--elastic-co",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Elasticsearch vector store component.",
+      "citation": "https://docs.langflow.org/bundles-elastic"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "glean--glean-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Glean Search API component.",
+      "citation": "https://docs.langflow.org/bundles-glean"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Google Generative AI (Gemini) components.",
+      "citation": "https://docs.langflow.org/bundles-google"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "hugging-face-inference-api-embeddings--huggingface-co",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Hugging Face API / embeddings inference components.",
+      "citation": "https://docs.langflow.org/bundles-huggingface"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: LangChain bundle components.",
+      "citation": "https://docs.langflow.org/bundles-langchain"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "langfuse--langfuse-com",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: Langfuse tracing.",
+      "citation": "https://docs.langflow.org/integrations-langfuse"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "langsmith--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: LangSmith tracing.",
+      "citation": "https://docs.langflow.org/integrations-langsmith"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "litellm--gh-berriai-litellm",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: LiteLLM component.",
+      "citation": "https://docs.langflow.org/bundles-lite-llm"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "mem0--mem0-ai",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Mem0 chat memory component.",
+      "citation": "https://docs.langflow.org/bundles-mem0"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "milvus--milvus-io",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Milvus vector store component.",
+      "citation": "https://docs.langflow.org/bundles-milvus"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "mistral-embed--mistral-ai",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: MistralAI embeddings component.",
+      "citation": "https://docs.langflow.org/bundles-mistralai"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "mistral-large-2-mixtral-family--mistral-ai",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: MistralAI language model component.",
+      "citation": "https://docs.langflow.org/bundles-mistralai"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: MCP client and server.",
+      "citation": "https://docs.langflow.org/mcp-client"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "mongodb-atlas-vector-search--mongodb-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: MongoDB Atlas vector store component.",
+      "citation": "https://docs.langflow.org/bundles-mongodb"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "openai-embeddings--platform-openai-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: OpenAI embeddings component.",
+      "citation": "https://docs.langflow.org/bundles-openai"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: OpenAI language model component.",
+      "citation": "https://docs.langflow.org/bundles-openai"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "openllmetry-traceloop--gh-traceloop-openllmetry",
+      "type": "integrates-with",
+      "evidence": "Langflow integration page: Instana/Traceloop (OpenLLMetry) tracing.",
+      "citation": "https://docs.langflow.org/integrations-instana-traceloop"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "openrouter--openrouter-ai",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: OpenRouter component.",
+      "citation": "https://docs.langflow.org/bundles-openrouter"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: PGVector vector store component.",
+      "citation": "https://docs.langflow.org/bundles-pgvector"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "pinecone--pinecone-io",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Pinecone vector store component.",
+      "citation": "https://docs.langflow.org/bundles-pinecone"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "qdrant--qdrant-tech",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Qdrant vector store component.",
+      "citation": "https://docs.langflow.org/bundles-qdrant"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "supabase-vector--supabase-com",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Supabase vector store component.",
+      "citation": "https://docs.langflow.org/bundles-supabase"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "vllm--gh-vllm-project-vllm",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: vLLM language model component.",
+      "citation": "https://docs.langflow.org/bundles-vllm"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "weaviate--weaviate-io",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: Weaviate vector store component.",
+      "citation": "https://docs.langflow.org/bundles-weaviate"
+    },
+    {
+      "source": "langflow--gh-langflow-ai-langflow",
+      "target": "xai-grok-4--x-ai",
+      "type": "integrates-with",
+      "evidence": "Langflow components bundle: xAI (Grok) language model component.",
+      "citation": "https://docs.langflow.org/bundles-xai"
     },
     {
       "source": "langflow-memory--docs-langflow-org",
@@ -9146,6 +9734,167 @@
       "citation": "https://www.multion.ai/"
     },
     {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Anthropic Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "chroma--trychroma-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Chroma Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "cohere-command-r-command-a--cohere-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Cohere Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatcohere"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "cohere-embed--cohere-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Embeddings Cohere node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "deepseek-r1-v3-family--deepseek-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: DeepSeek Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatdeepseek"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Google Gemini Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "hugging-face-inference-api-embeddings--huggingface-co",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Embeddings Hugging Face Inference node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "n8n docs: n8n's advanced-AI nodes are its implementation of LangChain.",
+      "citation": "https://docs.n8n.io/advanced-ai/langchain/overview/"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "milvus--milvus-io",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Milvus Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremilvus"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "mistral-embed--mistral-ai",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Embeddings Mistral Cloud node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "mistral-large-2-mixtral-family--mistral-ai",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Mistral Cloud Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: MCP Client Tool node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "mongodb-atlas-vector-search--mongodb-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: MongoDB Atlas Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "openai-embeddings--platform-openai-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Embeddings OpenAI node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: OpenAI Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "openrouter--openrouter-ai",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: OpenRouter Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenrouter"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: PGVector Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorepgvector"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "pinecone--pinecone-io",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Pinecone Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorepinecone"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "qdrant--qdrant-tech",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Qdrant Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreqdrant"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "supabase-vector--supabase-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Supabase Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoresupabase"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "weaviate--weaviate-io",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Weaviate Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "xai-grok-4--x-ai",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: xAI Grok Chat Model node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok"
+    },
+    {
+      "source": "n8n-ai-agent-flows--n8n-io",
+      "target": "zep-graphiti--getzep-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in AI cluster node: Zep Vector Store node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorezep"
+    },
+    {
       "source": "n8n-ai-agent-memory--docs-n8n-io",
       "target": "mongodb-atlas-vector-search--mongodb-com",
       "type": "integrates-with",
@@ -9165,6 +9914,13 @@
       "type": "integrates-with",
       "evidence": "vector store nodes (Qdrant, Pinecone, MongoDB Atlas) for semantic recall",
       "citation": "https://docs.n8n.io/advanced-ai/examples/understand-memory/"
+    },
+    {
+      "source": "n8n-ai-agent-memory--docs-n8n-io",
+      "target": "zep-graphiti--getzep-com",
+      "type": "integrates-with",
+      "evidence": "n8n built-in memory sub-node: Zep memory node.",
+      "citation": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep"
     },
     {
       "source": "namms--arxiv-2410-13166",
@@ -11942,6 +12698,62 @@
       "citation": "https://replit.com/ai"
     },
     {
+      "source": "restate--restate-dev",
+      "target": "arize-phoenix--phoenix-arize-com",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Arize Phoenix ecosystem integration.",
+      "citation": "https://docs.restate.dev/ai/ecosystem-integrations/arize-phoenix"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "google-agent-development-kit-adk--gh-google-adk-python",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Restate & Google ADK.",
+      "citation": "https://docs.restate.dev/ai/sdk-integrations/google-adk"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Restate & LangChain.",
+      "citation": "https://docs.restate.dev/ai/sdk-integrations/langchain"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "langfuse--langfuse-com",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Langfuse ecosystem integration (trace Restate agents).",
+      "citation": "https://docs.restate.dev/ai/ecosystem-integrations/langfuse"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "litellm--gh-berriai-litellm",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Restate & LiteLLM.",
+      "citation": "https://docs.restate.dev/ai/sdk-integrations/litellm"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Restate & OpenAI Agents SDK.",
+      "citation": "https://docs.restate.dev/ai/sdk-integrations/openai-agents-sdk"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "pydantic-ai--ai-pydantic-dev",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Restate & Pydantic AI.",
+      "citation": "https://docs.restate.dev/ai/sdk-integrations/pydantic-ai"
+    },
+    {
+      "source": "restate--restate-dev",
+      "target": "vercel-ai-sdk--sdk-vercel-ai",
+      "type": "integrates-with",
+      "evidence": "Restate AI docs integration page: Restate & Vercel AI SDK.",
+      "citation": "https://docs.restate.dev/ai/sdk-integrations/vercel-ai-sdk"
+    },
+    {
       "source": "retell-ai--retellai-com-2",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
@@ -12527,6 +13339,13 @@
     },
     {
       "source": "supabase-vector--supabase-com",
+      "target": "hugging-face-inference-api-embeddings--huggingface-co",
+      "type": "integrates-with",
+      "evidence": "Supabase AI integrations: Hugging Face models via Inference API.",
+      "citation": "https://supabase.com/docs/guides/ai/hugging-face"
+    },
+    {
+      "source": "supabase-vector--supabase-com",
       "target": "langchain-framework--langchain-com",
       "type": "integrates-with",
       "evidence": "Supabase's AI & Vectors docs have a LangChain (framework) integration page.",
@@ -12538,6 +13357,20 @@
       "type": "integrates-with",
       "evidence": "Supabase's AI & Vectors docs have a LlamaIndex (framework) integration page.",
       "citation": "https://supabase.com/docs/guides/ai/integrations/llamaindex"
+    },
+    {
+      "source": "supabase-vector--supabase-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "integrates-with",
+      "evidence": "Supabase AI integrations: OpenAI completions from Edge Functions.",
+      "citation": "https://supabase.com/docs/guides/ai/examples/openai"
+    },
+    {
+      "source": "supabase-vector--supabase-com",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "integrates-with",
+      "evidence": "Supabase AI & Vectors: vector store and embeddings support using Postgres and pgvector.",
+      "citation": "https://supabase.com/docs/guides/ai/vector-columns"
     },
     {
       "source": "supabase-vector--supabase-com",
@@ -12598,6 +13431,125 @@
       "citation": "https://synthflow.ai/"
     },
     {
+      "source": "temporal--temporal-io",
+      "target": "baseten--baseten-co",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Baseten model-provider integration (OpenAI Agents SDK agents on Baseten-served models).",
+      "citation": "https://docs.temporal.io/develop/python/integrations/baseten"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "bedrock-agentcore-aws--aws-amazon-com",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Serverless Workers on Amazon Bedrock AgentCore Runtime.",
+      "citation": "https://docs.temporal.io/serverless-workers/agentcore"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "braintrust--braintrust-dev",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Braintrust agent-observability integration (Go, Python, TypeScript).",
+      "citation": "https://www.braintrust.dev/docs/integrations/sdk-integrations/temporal"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "fireworks-ai--fireworks-ai",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Fireworks AI model-provider integration.",
+      "citation": "https://docs.temporal.io/develop/python/integrations/fireworks-ai"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "google-agent-development-kit-adk--gh-google-adk-python",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Google ADK agents as durable Temporal Workflows (Python, Go, TypeScript).",
+      "citation": "https://docs.temporal.io/develop/python/integrations/google-adk"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "google-gemini-3-family--blog-google",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Google GenAI integration: call Gemini models durably from Workflows.",
+      "citation": "https://docs.temporal.io/develop/python/integrations/google-genai"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "langfuse--langfuse-com",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Langfuse agent-observability integration.",
+      "citation": "https://langfuse.com/integrations/frameworks/temporal"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "langgraph-orchestration--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists LangGraph graphs as durable Temporal Workflows.",
+      "citation": "https://docs.temporal.io/develop/python/integrations/langgraph"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "langsmith--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists LangSmith tracing integration (Python, TypeScript).",
+      "citation": "https://docs.temporal.io/develop/python/integrations/langsmith"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "mastra--mastra-ai",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Mastra agent-framework integration.",
+      "citation": "https://mastra.ai/integrations/deploy/temporal"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists MCP integration: call MCP tools, prompts and resources as durable Activities.",
+      "citation": "https://docs.temporal.io/develop/python/integrations/mcp"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists OpenAI Agents SDK integration (Python, TypeScript).",
+      "citation": "https://docs.temporal.io/develop/python/integrations/openai-agents"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "openrouter--openrouter-ai",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists OpenRouter model-gateway integration.",
+      "citation": "https://docs.temporal.io/develop/python/integrations/openrouter"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "pydantic-ai--ai-pydantic-dev",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Pydantic AI durable-execution integration.",
+      "citation": "https://pydantic.dev/docs/ai/capabilities/durable_execution/temporal/"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "strands-agents-aws--strandsagents-com",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Strands Agents integration (Python, TypeScript).",
+      "citation": "https://docs.temporal.io/develop/python/integrations/strands-agents"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "together-ai--together-ai",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists Together AI model-provider integration.",
+      "citation": "https://docs.temporal.io/develop/python/integrations/together-ai"
+    },
+    {
+      "source": "temporal--temporal-io",
+      "target": "vercel-ai-sdk--sdk-vercel-ai",
+      "type": "integrates-with",
+      "evidence": "Temporal integrations catalog lists AI SDK by Vercel (TypeScript agent-framework integration).",
+      "citation": "https://docs.temporal.io/develop/typescript/integrations/ai-sdk"
+    },
+    {
       "source": "test-time-training-ttt--arxiv-2407-04620",
       "target": "cartesia-sonic--cartesia-ai",
       "type": "cites",
@@ -12654,6 +13606,104 @@
       "isInfluential": true
     },
     {
+      "source": "together-ai--together-ai",
+      "target": "autogen-ag2--gh-ag2ai-ag2",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: AutoGen (AG2).",
+      "citation": "https://docs.together.ai/docs/autogen"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "composio--composio-dev",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: Composio.",
+      "citation": "https://docs.together.ai/docs/composio"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "crewai--crewai-com",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: CrewAI.",
+      "citation": "https://docs.together.ai/docs/crewai"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "dspy--gh-stanfordnlp-dspy",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: DSPy.",
+      "citation": "https://docs.together.ai/docs/dspy"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "helicone--helicone-ai",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: Helicone gateway/observability.",
+      "citation": "https://docs.together.ai/docs/inference/sdk-integrations"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "hugging-face-inference-api-embeddings--huggingface-co",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: Hugging Face Inference integration guide.",
+      "citation": "https://docs.together.ai/docs/quickstart-using-hugging-face-inference"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "langchain-framework--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: LangChain (langchain-together package).",
+      "citation": "https://docs.together.ai/docs/inference/sdk-integrations"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "langgraph-orchestration--langchain-com",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: LangGraph.",
+      "citation": "https://docs.together.ai/docs/langgraph"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "litellm--gh-berriai-litellm",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: LiteLLM (incl. Claude Code on Together via LiteLLM proxy).",
+      "citation": "https://docs.together.ai/docs/using-together-with-litellm"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "llamaindex-framework--llamaindex-ai",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: LlamaIndex.",
+      "citation": "https://docs.together.ai/docs/inference/sdk-integrations"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "mastra--mastra-ai",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: Mastra quickstart.",
+      "citation": "https://docs.together.ai/docs/using-together-with-mastra"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "phidata-now-agno--agno-com",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: Agno.",
+      "citation": "https://docs.together.ai/docs/agno"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "pydantic-ai--ai-pydantic-dev",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: PydanticAI.",
+      "citation": "https://docs.together.ai/docs/pydanticai"
+    },
+    {
+      "source": "together-ai--together-ai",
+      "target": "vercel-ai-sdk--sdk-vercel-ai",
+      "type": "integrates-with",
+      "evidence": "Together AI docs third-party/agent integrations: Vercel AI SDK quickstart.",
+      "citation": "https://docs.together.ai/docs/using-together-with-vercels-ai-sdk"
+    },
+    {
       "source": "toolformer--arxiv-2302-04761",
       "target": "atlas--arxiv-2208-03299",
       "type": "cites",
@@ -12699,6 +13749,48 @@
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2404.09173",
       "isInfluential": true
+    },
+    {
+      "source": "trigger-dev--trigger-dev",
+      "target": "anthropic-claude-foundation-models--anthropic-com",
+      "type": "integrates-with",
+      "evidence": "Trigger.dev docs: Prompt caching guide for chat agents using Anthropic prompt caching.",
+      "citation": "https://trigger.dev/docs/ai-chat/prompt-caching"
+    },
+    {
+      "source": "trigger-dev--trigger-dev",
+      "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+      "type": "integrates-with",
+      "evidence": "Trigger.dev docs: Claude Agent SDK setup guide.",
+      "citation": "https://trigger.dev/docs/guides/ai-agents/claude-code-trigger"
+    },
+    {
+      "source": "trigger-dev--trigger-dev",
+      "target": "cursor-ide--cursor-com",
+      "type": "integrates-with",
+      "evidence": "Trigger.dev docs: Background Cursor agent using the Cursor CLI (example project).",
+      "citation": "https://trigger.dev/docs/guides/example-projects/cursor-background-agent"
+    },
+    {
+      "source": "trigger-dev--trigger-dev",
+      "target": "mastra--mastra-ai",
+      "type": "integrates-with",
+      "evidence": "Trigger.dev docs: Mastra agents with memory sharing + Trigger.dev orchestration (example project).",
+      "citation": "https://trigger.dev/docs/guides/example-projects/mastra-agents-with-memory"
+    },
+    {
+      "source": "trigger-dev--trigger-dev",
+      "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+      "type": "integrates-with",
+      "evidence": "Trigger.dev docs: OpenAI Agents SDK (TypeScript) playground and Python guardrails example projects.",
+      "citation": "https://trigger.dev/docs/guides/example-projects/openai-agents-sdk-typescript-playground"
+    },
+    {
+      "source": "trigger-dev--trigger-dev",
+      "target": "vercel-ai-sdk--sdk-vercel-ai",
+      "type": "integrates-with",
+      "evidence": "Trigger.dev docs: LLM observability captures Vercel AI SDK calls as run spans; chat.agent is built on AI SDK.",
+      "citation": "https://trigger.dev/docs/ai/observability"
     },
     {
       "source": "v-jepa-2--arxiv-2506-09985",
