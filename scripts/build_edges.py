@@ -621,14 +621,33 @@ def trim_target(text: str) -> str:
     return text.strip()
 
 
+_CLAUSE_END = re.compile(r"[.;!?](?=\s)|\n")
+
+
+def _word_cut(text: str, max_len: int) -> str:
+    """`text` cut to at most max_len characters at a word boundary, with a
+    trailing ellipsis when anything was dropped."""
+    if len(text) <= max_len:
+        return text
+    cut = text[:max_len].rsplit(" ", 1)[0].rstrip(" ,;:-—")
+    return cut + "…"
+
+
 def evidence_window(text: str, match: re.Match, max_len: int = 200) -> str:
-    """Pull a tidy ~200-char window around the matched phrase."""
-    start = max(0, match.start() - 20)
-    end = min(len(text), match.end() + 60)
-    snippet = text[start:end].strip()
-    if len(snippet) > max_len:
-        snippet = snippet[:max_len].rstrip() + "..."
-    return snippet
+    """The sentence (or clause) containing the matched phrase, never starting
+    mid-word (#327). A long sentence is cut at a word boundary after the
+    match; if the match itself sits deep in it, the window starts at the
+    word ~40 characters before the match, marked with a leading ellipsis."""
+    start = 0
+    for m in _CLAUSE_END.finditer(text, 0, match.start()):
+        start = m.end()
+    nxt = _CLAUSE_END.search(text, match.end())
+    end = nxt.end() if nxt else len(text)
+    lead = ""
+    if match.end() - start > max_len - 20:
+        b = text.rfind(" ", start, max(start, match.start() - 40))
+        start, lead = (b + 1 if b >= 0 else start), "…"
+    return lead + _word_cut(text[start:end].strip().rstrip(";"), max_len)
 
 
 def mine_cells(records: list[dict], resolver: Resolver) -> tuple[list[dict], list[dict]]:
@@ -920,10 +939,9 @@ def mine_runtime_dependencies(
                 # Evidence: the (truncated) cell text, prefixed with the
                 # cell name so a reader can see why this counts as a
                 # dependency without needing the schema docs.
-                snippet = text if len(text) <= 200 else text[:200].rstrip() + "..."
+                snippet = _word_cut(text, 200)
                 evidence = f"{cell_key} cell: {snippet}"
-                if len(evidence) > 480:  # SCHEMA §7.2.10 soft cap is 500
-                    evidence = evidence[:480].rstrip() + "..."
+                evidence = _word_cut(evidence, 480)  # SCHEMA §7.2.10 soft cap is 500
                 _add_edge_if_new(
                     edges_by_key,
                     source_id,
@@ -986,7 +1004,7 @@ def mine_cross_refs(resolver: Resolver) -> tuple[list[dict], list[dict]]:
             citation = src_record.get("url") or resolver.by_id[tgt_id].get("url") or ""
 
             key = (src_id, tgt_id, edge_type)
-            ev = evidence[:300] if evidence else f"cross-references CSV: {rel_raw}"
+            ev = _word_cut(evidence, 300) if evidence else f"cross-references CSV: {rel_raw}"
             if key in edges_by_key:
                 existing = edges_by_key[key]
                 if len(ev) > len(existing["evidence"]):

@@ -22,6 +22,23 @@ export const prerender = true;
 export type RelatedPair = { slug: string; otherId: string; otherName: string };
 export type SimilarSystem = { id: string; name: string; tier: 1 | 2 | 3 | 4 | 5; desc: string | null };
 
+/** One row per related system: edges between the same pair that differ only
+ * by type collapse into one, listing every type and keeping the longest
+ * evidence (#327). */
+export type PairEdge = Edge & { types: Edge['type'][] };
+function byPair(list: Edge[], other: (e: Edge) => string): PairEdge[] {
+  const rows = new Map<string, PairEdge>();
+  for (const e of list) {
+    const row = rows.get(other(e));
+    if (!row) rows.set(other(e), { ...e, types: [e.type] });
+    else {
+      if (!row.types.includes(e.type)) row.types.push(e.type);
+      if ((e.evidence ?? '').length > (row.evidence ?? '').length) Object.assign(row, { evidence: e.evidence, citation: e.citation });
+    }
+  }
+  return [...rows.values()];
+}
+
 export function entries(): { slug: string }[] {
   // Merged-away ids keep a page that redirects to the kept record.
   return [...getRecords().map((r) => r.id), ...Object.keys(getRedirects())].map((slug) => ({ slug }));
@@ -29,8 +46,8 @@ export function entries(): { slug: string }[] {
 
 export function load({ params }: { params: { slug: string } }): {
   record: LandscapeRecord;
-  outgoing: Edge[];
-  incoming: Edge[];
+  outgoing: PairEdge[];
+  incoming: PairEdge[];
   relatedNames: Record<string, string>;
   relatedPairs: RelatedPair[];
   similar: SimilarSystem[];
@@ -45,8 +62,8 @@ export function load({ params }: { params: { slug: string } }): {
   if (!record) throw error(404, `System "${params.slug}" not found`);
 
   const edges = getEdges();
-  const outgoing = edges.filter((e) => e.source === params.slug);
-  const incoming = edges.filter((e) => e.target === params.slug);
+  const outgoing = byPair(edges.filter((e) => e.source === params.slug), (e) => e.target);
+  const incoming = byPair(edges.filter((e) => e.target === params.slug), (e) => e.source);
 
   const relatedIds = new Set<string>();
   for (const e of outgoing) relatedIds.add(e.target);

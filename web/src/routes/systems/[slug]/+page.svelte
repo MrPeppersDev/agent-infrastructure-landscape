@@ -21,8 +21,8 @@
   }: {
     data: {
       record: LandscapeRecord;
-      outgoing: Edge[];
-      incoming: Edge[];
+      outgoing: (Edge & { types: Edge['type'][] })[];
+      incoming: (Edge & { types: Edge['type'][] })[];
       relatedNames: Record<string, string>;
       relatedPairs: RelatedPair[];
       similar: SimilarSystem[];
@@ -375,7 +375,7 @@
           {#each data.outgoing as e}
             <li>
               <a href={relUrl(e.target)}>{data.relatedNames[e.target] ?? e.target}</a>
-              <span class="rel">{edgeLabel[e.type] ?? e.type}</span>
+              <span class="rel">{e.types.map((t) => edgeLabel[t] ?? t).join(' · ')}</span>
               {#if e.evidence}<span class="ev">— {e.evidence}</span>{/if}
             </li>
           {/each}
@@ -387,7 +387,7 @@
           {#each data.incoming as e}
             <li>
               <a href={relUrl(e.source)}>{data.relatedNames[e.source] ?? e.source}</a>
-              <span class="rel">{edgeLabel[e.type] ?? e.type}</span>
+              <span class="rel">{e.types.map((t) => edgeLabel[t] ?? t).join(' · ')}</span>
               {#if e.evidence}<span class="ev">— {e.evidence}</span>{/if}
             </li>
           {/each}

@@ -147,7 +147,7 @@
       "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "wered control plane giving agents one OpenAI-compatible API for every model and one router for MCP tools, with prov",
+      "evidence": "Open-source, Envoy-powered control plane giving agents one OpenAI-compatible API for every model and one router for MCP tools, with provider credentials, failover and token limits.",
       "citation": "https://theagentrouter.ai/"
     },
     {
@@ -606,14 +606,14 @@
       "source": "aider-harness--aider-chat",
       "target": "litellm--gh-berriai-litellm",
       "type": "runtime-dependency",
-      "evidence": "po-map for context; uses any LiteLLM-compatible model. Memory via CONVENTIONS.md and .aider.conf.yml — author-edited mark",
+      "evidence": "uses any LiteLLM-compatible model. Memory via CONVENTIONS.md and .aider.conf.yml — author-edited markdown.",
       "citation": "https://aider.chat"
     },
     {
       "source": "alita--arxiv-2505-20286",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "imal self-evolution via MCP generation. Headline: 75.15% pass@1 and 87.27% pass@3 on GAIA validation; 74.00%",
+      "evidence": "Generalist agent with minimal predefinition and maximal self-evolution via MCP generation. Headline: 75.15% pass@1 and 87.27% pass@3 on GAIA validation",
       "citation": "https://arxiv.org/abs/2505.20286"
     },
     {
@@ -628,7 +628,7 @@
       "source": "alita-g--arxiv-2510-23601",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "st to domain expert via MCP synthesis, abstraction, and curation into MCP Box. Headline: 83.03% p",
+      "evidence": "Self-evolution from generalist to domain expert via MCP synthesis, abstraction, and curation into MCP Box.",
       "citation": "https://arxiv.org/abs/2510.23601"
     },
     {
@@ -649,7 +649,7 @@
       "source": "amazon-neptune-analytics--aws-amazon-com",
       "target": "mem0--mem0-ai",
       "type": "runtime-dependency",
-      "evidence": "aph nodes queryable via openCypher. Mem0 integration GA 2025; Cognee integration for agentic RAG. Combines semantic",
+      "evidence": "Vector index on graph nodes queryable via openCypher. Mem0 integration GA 2025",
       "citation": "https://aws.amazon.com/neptune/"
     },
     {
@@ -1442,7 +1442,7 @@
       "source": "bedrock-agentcore-aws--aws-amazon-com",
       "target": "strands-agents-aws--strandsagents-com",
       "type": "integrates-with",
-      "evidence": "framework-agnostic; integrates with Strands Agents, Mem0 as memory provider.",
+      "evidence": "integrates with Strands Agents, Mem0 as memory provider.",
       "citation": "https://aws.amazon.com/bedrock/agentcore/"
     },
     {
@@ -1584,7 +1584,7 @@
       "source": "bifrost-maxim-ai--getmaxim-ai",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "gateway from Maxim AI with one OpenAI-compatible API for many models, failover, load balancing, semantic cac",
+      "evidence": "Open-source Go AI gateway from Maxim AI with one OpenAI-compatible API for many models, failover, load balancing, semantic caching, virtual keys and budgets, and a built-in MCP gateway for agents.",
       "citation": "https://www.getmaxim.ai/bifrost"
     },
     {
@@ -2088,7 +2088,7 @@
       "source": "burr-dagworks--gh-dagworks-inc-burr",
       "target": "langgraph-persistence--docs-langchain-com",
       "type": "competes-with",
-      "evidence": "itions; lightweight alternative to LangGraph. Created by DAGWorks and donated to the Apache Software Fou",
+      "evidence": "lightweight alternative to LangGraph.",
       "citation": "https://raw.githubusercontent.com/apache/burr/main/README.md"
     },
     {
@@ -2151,7 +2151,7 @@
       "source": "chatgpt-codex-cloud-agent--chatgpt-com",
       "target": "github-copilot-agent-mode--gh-features-copilot",
       "type": "integrates-with",
-      "evidence": "cloud environments; integrates with GitHub. Cross-listing — the coding-agent-memory row remains canoni",
+      "evidence": "integrates with GitHub.",
       "citation": "https://chatgpt.com/codex"
     },
     {
@@ -2327,7 +2327,7 @@
       "source": "cipher-byterover--gh-campfirein-cipher",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "aude Code, Roo Code via MCP. Maintains a coding-context memory across sessions and across IDEs.",
+      "evidence": "Opensource memory layer focused on programming agents — works with Cursor, Windsurf, Claude Code, Roo Code via MCP. Maintains a coding-context memory across sessions and across IDEs.",
       "citation": "https://github.com/campfirein/byterover-cli"
     },
     {
@@ -2378,8 +2378,8 @@
       "source": "claude-code-anthropic--anthropic-com",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
-      "evidence": "and Slack. Context via CLAUDE.md, skills, hooks, subagents and MCP servers.",
-      "citation": "https://claude.com/product/claude-code"
+      "evidence": "adjacent-infrastructure cell: Anthropic API; MCP server ecosystem",
+      "citation": "https://www.anthropic.com/claude-code"
     },
     {
       "source": "claude-code-anthropic--anthropic-com",
@@ -2434,7 +2434,7 @@
       "source": "claude-mem--gh-thedotmack-claude-mem",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
-      "evidence": "-token observations via Claude's agent SDK. SQLite + FTS5 with optional Chroma vector. \"En",
+      "evidence": "adjacent-infrastructure cell: requires Claude Code or MCP client; BYO storage",
       "citation": "https://github.com/thedotmack/claude-mem"
     },
     {
@@ -2476,7 +2476,7 @@
       "source": "cline-harness--cline-bot",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "VS Code extensions; multi-model via standard OpenAI-compatible APIs.",
+      "evidence": "adjacent-infrastructure cell: OpenAI-compatible API; MCP",
       "citation": "https://cline.bot"
     },
     {
@@ -2560,7 +2560,7 @@
       "source": "cloudflare-ai-gateway--developers-cloudflare-com",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "front of 20+ model providers with an OpenAI-compatible unified API, caching, rate and spend limits, dynamic routin",
+      "evidence": "Gateway in front of 20+ model providers with an OpenAI-compatible unified API, caching, rate and spend limits, dynamic routing, guardrails, DLP and BYOK, plus logging and analytics.",
       "citation": "https://developers.cloudflare.com/ai-gateway/"
     },
     {
@@ -2630,21 +2630,21 @@
       "source": "coalfire-ai-operations--coalfire-com",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "ive compliance data via MCP and open APIs; AI agent services for security operations (LegionAI) now s",
+      "evidence": "On 2026-05-05 Coalfire launched Audit AI in its Compliance Essentials platform, letting customers' AI agents work on live compliance data via MCP and open APIs",
       "citation": "https://coalfire.com/insights/news-and-events/press-releases/coalfire-launches-audit-ai-for-compliance-essentials-to-deliver-agentic-compliance-at-enterprise-scale"
     },
     {
       "source": "cocounsel-legal-thomson-reuters--legaltechnology-com",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
-      "evidence": "release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep",
+      "evidence": "Next-gen release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep firm documents and precedents as context across matters and teams, plus Brief Builder…",
       "citation": "https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals"
     },
     {
       "source": "cocounsel-legal-thomson-reuters--legaltechnology-com",
       "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
       "type": "built-on",
-      "evidence": "release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep",
+      "evidence": "Next-gen release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep firm documents and precedents as context across matters and teams, plus Brief Builder…",
       "citation": "https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals"
     },
     {
@@ -3238,7 +3238,7 @@
       "source": "context-mode--gh-mksglu-context-mode",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "across 17 platforms via MCP + hooks.",
+      "evidence": "Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
       "citation": "https://github.com/mksglu/context-mode"
     },
     {
@@ -3259,7 +3259,7 @@
       "source": "continue-dev-memory-mcp--hub-continue-dev",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "Memory is injected via MCP rather than native to the Continue core. Scope depends on MCP server deploymen",
+      "evidence": "Memory is injected via MCP rather than native to the Continue core.",
       "citation": "https://thenewstack.io/cursor-acquires-continue-coding/"
     },
     {
@@ -3273,7 +3273,7 @@
       "source": "coveo--coveo-com",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "for AWS (Dec 2025) via hosted MCP server grounding Amazon Bedrock agents in enterprise knowledge. Passage retr",
+      "evidence": "RAG-as-a-Service for AWS (Dec 2025) via hosted MCP server grounding Amazon Bedrock agents in enterprise knowledge.",
       "citation": "https://www.coveo.com/"
     },
     {
@@ -3421,7 +3421,7 @@
       "source": "crewai--crewai-com",
       "target": "mem0--mem0-ai",
       "type": "runtime-dependency",
-      "evidence": "e. Memory available via Mem0 / Letta adapters (CrewAI Memory cross-listed).",
+      "evidence": "Memory available via Mem0 / Letta adapters (CrewAI Memory cross-listed).",
       "citation": "https://www.crewai.com/"
     },
     {
@@ -3554,8 +3554,8 @@
       "source": "crewai-memory--crewai-com",
       "target": "chroma--trychroma-com",
       "type": "runtime-dependency",
-      "evidence": ". Short-term memory backed by ChromaDB + RAG; long-term + entity memory layers built in. Mature mu",
-      "citation": "https://www.insightpartners.com/ideas/crewai-scaleup-ai-story/"
+      "evidence": "backend-storage cell: pluggable (ChromaDB default)",
+      "citation": "https://docs.crewai.com/concepts/memory"
     },
     {
       "source": "crewai-memory--crewai-com",
@@ -4004,7 +4004,7 @@
       "source": "diffbot--diffbot-com",
       "target": "meta-llama-4-family--ai-meta-com",
       "type": "runtime-dependency",
-      "evidence": "AG-fine-tuned model based on open-source Llama 3.3.",
+      "evidence": "GraphRAG-fine-tuned model based on open-source Llama 3.3.",
       "citation": "https://www.diffbot.com/"
     },
     {
@@ -4459,14 +4459,14 @@
       "source": "falkordb--falkordb-com",
       "target": "mem0--mem0-ai",
       "type": "built-on",
-      "evidence": "G SDK. Graph-memory backend for Mem0; MCP server via Graphiti integration; context graphs for lo",
+      "evidence": "Native GraphRAG SDK. Graph-memory backend for Mem0",
       "citation": "https://www.falkordb.com/"
     },
     {
       "source": "falkordb--falkordb-com",
       "target": "mem0--mem0-ai",
       "type": "runtime-dependency",
-      "evidence": "G SDK. Graph-memory backend for Mem0; MCP server via Graphiti integration; context graphs for lo",
+      "evidence": "Graph-memory backend for Mem0",
       "citation": "https://www.falkordb.com/"
     },
     {
@@ -4480,7 +4480,7 @@
       "source": "falkordb--falkordb-com",
       "target": "zep-graphiti--getzep-com",
       "type": "runtime-dependency",
-      "evidence": "or Mem0; MCP server via Graphiti integration; context graphs for long-term agent memory.",
+      "evidence": "MCP server via Graphiti integration",
       "citation": "https://www.falkordb.com/"
     },
     {
@@ -4643,7 +4643,7 @@
       "source": "flowise-memory--docs-flowiseai-com",
       "target": "langchain-framework--langchain-com",
       "type": "runtime-dependency",
-      "evidence": "08-31. Was a visual LangChain canvas with LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary B",
+      "evidence": "Was a visual LangChain canvas with LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary Buffer) backed by an internal chat_message DB table",
       "citation": "https://flowiseai.com/sunset"
     },
     {
@@ -4864,7 +4864,7 @@
       "source": "github-copilot-workspace--githubnext-com",
       "target": "azure-machine-learning--azure-microsoft-com",
       "type": "runtime-dependency",
-      "evidence": "25 with broader GA. Backed by Microsoft Azure OpenAI + Anthropic Claude (added 2024). Companion to in-editor Cop",
+      "evidence": "adjacent-infrastructure cell: Azure OpenAI + Anthropic Claude (GitHub-hosted models)",
       "citation": "https://githubnext.com/projects/copilot-workspace"
     },
     {
@@ -5088,7 +5088,7 @@
       "source": "google-deepmind-gemini-robotics--deepmind-google",
       "target": "google-gemini-3-family--blog-google",
       "type": "runtime-dependency",
-      "evidence": "ar-2025. VLA models built on Gemini 2.0 backbone. Reference platform: Apptronik Apollo. The DeepMind line of robotics-F",
+      "evidence": "adjacent-infrastructure cell: Gemini 2.0; Google Cloud; Apptronik Apollo; Vertex AI",
       "citation": "https://deepmind.google/technologies/gemini-robotics/"
     },
     {
@@ -6362,7 +6362,7 @@
       "source": "inworld-ai--inworld-ai",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": ", speech-to-speech) and OpenAI-compatible open-model inference. Character/NPC memory is no longer the",
+      "evidence": "now sells realtime voice models (TTS-2, STT-1, speech-to-speech) and OpenAI-compatible open-model inference.",
       "citation": "https://inworld.ai"
     },
     {
@@ -8729,7 +8729,7 @@
       "source": "litellm--gh-berriai-litellm",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "100+ LLM providers behind OpenAI-compatible API; widely used as proxy/gateway.",
+      "evidence": "100+ LLM providers behind OpenAI-compatible API",
       "citation": "https://github.com/BerriAI/litellm"
     },
     {
@@ -10096,7 +10096,7 @@
       "source": "meilisearch--meilisearch-com",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "eneration + caching via OpenAI / HuggingFace / Ollama. Multi-modal (text + images); hybrid",
+      "evidence": "Automatic embedding generation + caching via OpenAI / HuggingFace / Ollama.",
       "citation": "https://www.meilisearch.com/"
     },
     {
@@ -10498,7 +10498,7 @@
       "source": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "hat brings the Mem0 layer into any MCP-compatible agent — including Claude Code — without rewriting code.",
+      "evidence": "MCP server that brings the Mem0 layer into any MCP-compatible agent — including Claude Code — without rewriting code.",
       "citation": "https://github.com/mem0ai/mem0-mcp"
     },
     {
@@ -10512,7 +10512,7 @@
       "source": "mem0-security-openmemory--mem0-ai",
       "target": "pgvector--gh-pgvector-pgvector",
       "type": "runtime-dependency",
-      "evidence": "EST API + dashboard via Docker Compose with pgvector Postgres, admin setup wizard, per-user API keys, request au",
+      "evidence": "For privacy-first deployments the self-hosted path is now the Mem0 open-source server (REST API + dashboard via Docker Compose with pgvector Postgres, admin setup wizard, per-user API keys, request…",
       "citation": "https://docs.mem0.ai/open-source/setup"
     },
     {
@@ -10964,7 +10964,7 @@
       "source": "memobase--gh-memodb-io-memobase",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "r Claude / Cursor / MCP-compatible agents.",
+      "evidence": "Cross-tool memory passport for Claude / Cursor / MCP-compatible agents.",
       "citation": "https://github.com/memodb-io/memobase"
     },
     {
@@ -11121,7 +11121,7 @@
       "source": "memsearch-zilliz--gh-zilliztech-memsearch",
       "target": "milvus--milvus-io",
       "type": "runtime-dependency",
-      "evidence": "Code, Codex, DSH), backed by Markdown and Milvus.",
+      "evidence": "Claude Code, Codex, DSH), backed by Markdown and Milvus.",
       "citation": "https://github.com/zilliztech/memsearch"
     },
     {
@@ -11263,7 +11263,7 @@
       "source": "microsoft-agent-framework--gh-microsoft-agent-framework",
       "target": "semantic-kernel-memory--learn-microsoft-com",
       "type": "succeeds",
-      "evidence": "Python and.NET; the successor to Semantic Kernel and AutoGen.",
+      "evidence": "the successor to Semantic Kernel and AutoGen.",
       "citation": "https://github.com/microsoft/agent-framework"
     },
     {
@@ -11602,7 +11602,7 @@
       "source": "mistral-embed--mistral-ai",
       "target": "mistral-large-2-mixtral-family--mistral-ai",
       "type": "runtime-dependency",
-      "evidence": "al-embed; available via Mistral La Plateforme and Azure AI.",
+      "evidence": "available via Mistral La Plateforme and Azure AI.",
       "citation": "https://mistral.ai/news/mistral-embed"
     },
     {
@@ -12235,7 +12235,7 @@
       "source": "neo4j-agent-memory-neo4j-labs--gh-neo4j-labs-agent-memory",
       "target": "neo4j--neo4j-com",
       "type": "runtime-dependency",
-      "evidence": "own reasoning — all backed by Neo4j.",
+      "evidence": "Store conversations, build knowledge graphs, and let your agents learn from their own reasoning — all backed by Neo4j.",
       "citation": "https://github.com/neo4j-labs/agent-memory"
     },
     {
@@ -12480,7 +12480,7 @@
       "source": "openai-agents-sdk--gh-openai-openai-agents-python",
       "target": "openai-swarm-deprecated--gh-openai-swarm",
       "type": "succeeds",
-      "evidence": ", tracing built in. Successor to OpenAI Swarm (experimental); officially supported.",
+      "evidence": "Successor to OpenAI Swarm (experimental)",
       "citation": "https://github.com/openai/openai-agents-python"
     },
     {
@@ -12564,7 +12564,7 @@
       "source": "opencode-sst--opencode-ai",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "cript, multi-model, MCP-native. Released 2025; explicitly positioned as a permissively-lic",
+      "evidence": "SST team's open-source terminal coding agent — TypeScript, multi-model, MCP-native.",
       "citation": "https://opencode.ai"
     },
     {
@@ -13271,7 +13271,7 @@
       "source": "opensearch-aws--opensearch-org",
       "target": "elasticsearch-opensearch--elastic-co",
       "type": "forks",
-      "evidence": "AWS-led fork of Elasticsearch 7 — Apache-licensed; k-NN plugin, OpenSearch ML, neural-searc",
+      "evidence": "AWS-led fork of Elasticsearch 7 — Apache-licensed",
       "citation": "https://opensearch.org/"
     },
     {
@@ -13336,7 +13336,7 @@
       "source": "pgvector--gh-pgvector-pgvector",
       "target": "langchain-framework--langchain-com",
       "type": "runtime-dependency",
-      "evidence": "conversation memory via LangChain + MCP. Foundation of Supabase AI and many self-hosted RAG s",
+      "evidence": "Used as agent conversation memory via LangChain + MCP.",
       "citation": "https://github.com/pgvector/pgvector"
     },
     {
@@ -13672,7 +13672,7 @@
       "source": "pieces-for-developers-ltm--pieces-app",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "on-device, exposes via MCP for any IDE/agent.",
+      "evidence": "Long-term memory engine for developers — captures everything the user does (browser, IDE, terminal) on-device, exposes via MCP for any IDE/agent.",
       "citation": "https://pieces.app/"
     },
     {
@@ -14499,7 +14499,7 @@
       "source": "project-mariner--deepmind-google",
       "target": "google-gemini-3-family--blog-google",
       "type": "runtime-dependency",
-      "evidence": "ental browser agent built on Gemini 2.0, a Chrome extension that took actions on the user's behalf.",
+      "evidence": "Google DeepMind's experimental browser agent built on Gemini 2.0, a Chrome extension that took actions on the user's behalf.",
       "citation": "https://labs.google.com/mariner/"
     },
     {
@@ -15253,7 +15253,7 @@
       "source": "r2i--arxiv-2403-04253",
       "target": "dreamerv3--arxiv-2301-04104",
       "type": "built-on",
-      "evidence": "odel-based RL agent built on DreamerV3. Modifies S4 to handle long temporal dependencies. Keeps Dr",
+      "evidence": "Memory-enhanced model-based RL agent built on DreamerV3.",
       "citation": "https://arxiv.org/abs/2403.04253"
     },
     {
@@ -15323,7 +15323,7 @@
       "source": "repairagent--arxiv-2403-17134",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "~$0.14 USD) per bug using GPT-3.5 pricing",
+      "evidence": "average ~270,000 tokens (~$0.14 USD) per bug using GPT-3.5 pricing",
       "citation": "https://arxiv.org/abs/2403.17134"
     },
     {
@@ -15407,7 +15407,7 @@
       "source": "retell-ai--retellai-com-2",
       "target": "vapi--vapi-ai",
       "type": "competes-with",
-      "evidence": "er founders. Direct competitor to Vapi with proprietary-model focus.",
+      "evidence": "Direct competitor to Vapi with proprietary-model focus.",
       "citation": "https://www.retellai.com/"
     },
     {
@@ -15483,7 +15483,7 @@
       "source": "ruler--arxiv-2404-06654",
       "target": "niah-needle-in-a-haystack--gh-gkamradt-llmtest-needleinahaystack",
       "type": "extends",
-      "evidence": "NVIDIA. Extends NIAH with multi-needle retrieval, multi-hop entity tracing, aggr",
+      "evidence": "Extends NIAH with multi-needle retrieval, multi-hop entity tracing, aggregation, QA — configurable for arbitrary length / difficulty.",
       "citation": "https://arxiv.org/abs/2404.06654"
     },
     {
@@ -15529,7 +15529,7 @@
       "source": "sglang--gh-sgl-project-sglang",
       "target": "vllm--gh-vllm-project-vllm",
       "type": "competes-with",
-      "evidence": "LMSYS-affiliated; competitor to vLLM for OSS inference engines; Apache-2.0.",
+      "evidence": "competitor to vLLM for OSS inference engines",
       "citation": "https://github.com/sgl-project/sglang"
     },
     {
@@ -15686,7 +15686,7 @@
       "source": "speak--speak-com",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "tightly integrated; OpenAI-backed.",
+      "evidence": "OpenAI-backed.",
       "citation": "https://www.speak.com/"
     },
     {
@@ -15800,8 +15800,8 @@
       "source": "strands-agents-aws--strandsagents-com",
       "target": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
       "type": "integrates-with",
-      "evidence": "d 2025; Apache-2.0; integrates with AWS Bedrock; used internally before OSS release.",
-      "citation": "https://strandsagents.com/"
+      "evidence": "Strands Agents docs have an AgentCore Memory session manager integration page.",
+      "citation": "https://strandsagents.com/docs/integrations/session-managers/agentcore-memory/"
     },
     {
       "source": "strands-agents-aws--strandsagents-com",
@@ -15933,7 +15933,7 @@
       "source": "strands-agents-memory-aws--docs-aws-amazon-com",
       "target": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
       "type": "integrates-with",
-      "evidence": "ource SDK from AWS; integrates with Amazon Bedrock AgentCore Memory (SEMANTIC, SUMMARIZATION, USER_PREFERENCE strategies); used",
+      "evidence": "integrates with Amazon Bedrock AgentCore Memory (SEMANTIC, SUMMARIZATION, USER_PREFERENCE strategies)",
       "citation": "https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/"
     },
     {
@@ -15954,7 +15954,7 @@
       "source": "strands-agents-memory-aws--docs-aws-amazon-com",
       "target": "mem0--mem0-ai",
       "type": "runtime-dependency",
-      "evidence": "ni, OpenAI). Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics) or Bedrock Age",
+      "evidence": "Memory via Mem0 integration (ElastiCache for Valkey + Neptune Analytics) or Bedrock AgentCore Memory.",
       "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/strands-sdk-memory.html"
     },
     {
@@ -16061,7 +16061,7 @@
       "source": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "s search/show tools via MCP. Distributed via obra/superpowers-marketplace ; install with /plugin install episodic-memory@superpowers-",
+      "evidence": "Claude Code plugin that indexes prior conversations at session end and exposes search/show tools via MCP. Distributed via obra/superpowers-marketplace ",
       "citation": "https://github.com/obra/episodic-memory"
     },
     {
@@ -16387,7 +16387,7 @@
       "source": "topquadrant-topbraid-edg--topquadrant-com",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
-      "evidence": "d context to agents via MCP, a Python SDK and REST.",
+      "evidence": "serves governed context to agents via MCP, a Python SDK and REST.",
       "citation": "https://www.topquadrant.com/tq-data-foundation"
     },
     {
@@ -17113,7 +17113,7 @@
       "source": "vercel-ai-gateway--vercel-com",
       "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
       "type": "runtime-dependency",
-      "evidence": "ders, used from the AI SDK and OpenAI-compatible clients.",
+      "evidence": "Vercel's unified endpoint for text, image, video and speech models across providers, used from the AI SDK and OpenAI-compatible clients.",
       "citation": "https://vercel.com/docs/ai-gateway"
     },
     {
