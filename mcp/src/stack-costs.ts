@@ -36,6 +36,8 @@ export interface StackWorkload {
   voiceMinutesPerRun: number;
   /** Vectors kept in the vector store. */
   vectors: number;
+  /** Tokens sent to the embedding model per run (queries plus new content). */
+  embeddingTokensPerRun: number;
 }
 
 export const DEFAULT_STACK_WORKLOAD: StackWorkload = {
@@ -48,7 +50,8 @@ export const DEFAULT_STACK_WORKLOAD: StackWorkload = {
   sandboxMinutesPerRun: 0,
   browserMinutesPerRun: 0,
   voiceMinutesPerRun: 0,
-  vectors: 1_000_000
+  vectors: 1_000_000,
+  embeddingTokensPerRun: 1000
 };
 
 /** Per-token list price for one model in a family row. */
@@ -75,7 +78,33 @@ export interface MeteredPricing {
   plans: { name: string; usd: number; included: number; overage?: { per: number; usd: number } | null }[];
   /** Published overage beyond a plan's included units. */
   overage?: { per: number; usd: number } | null;
+  /** Graduated per-unit rates over the month's total units, where the
+   * vendor publishes them; used instead of the flat overage. The last
+   * tier has `upTo: null`. */
+  tiers?: { upTo: number | null; usdPerUnit: number }[];
   beyond: string;
+  notes?: string;
+}
+
+/** A gateway that charges a percentage of the model spend routed through it. */
+export interface GatewayFee {
+  id: string;
+  system: string;
+  feePct: number;
+  /** What the vendor says about bring-your-own-key usage. */
+  byok?: string;
+  source: string;
+  notes?: string;
+}
+
+/** Per-token list price for one embedding model. */
+export interface EmbeddingPrice {
+  id: string;
+  system: string;
+  model: string;
+  perMtok: number;
+  dims?: number;
+  source: string;
   notes?: string;
 }
 
@@ -83,6 +112,8 @@ export interface StackPricing {
   checked: string;
   models: ModelPrice[];
   metered: MeteredPricing[];
+  gatewayFees?: GatewayFee[];
+  embeddings?: EmbeddingPrice[];
 }
 
 export interface CostLine {
@@ -142,7 +173,10 @@ export function estimateMetered(p: MeteredPricing, w: StackWorkload): Omit<CostL
   const options: { usd: number; plan: string; how: string }[] = [];
   for (const pl of p.plans) {
     if (units <= pl.included) options.push({ usd: pl.usd, plan: pl.name, how: `${pl.name}: ${usd(pl.usd)} includes ${num(pl.included)}` });
-    else {
+    else if (p.tiers && pl.overage !== null) {
+      const extra = tiered(p.tiers, pl.included, units);
+      options.push({ usd: pl.usd + extra, plan: pl.name, how: `${pl.name}: ${usd(pl.usd)} + ${num(units - pl.included)} over at the published graduated rates = ${usd(pl.usd + extra)}` });
+    } else {
       const ov = pl.overage !== undefined ? pl.overage : p.overage;
       if (!ov) continue;
       const extra = Math.ceil((units - pl.included) / ov.per) * ov.usd;
@@ -152,6 +186,36 @@ export function estimateMetered(p: MeteredPricing, w: StackWorkload): Omit<CostL
   if (!options.length) return { ...base, status: 'contact-sales', monthlyUsd: null, plan: p.beyond, working, caveat: 'Usage is beyond the largest published plan; the vendor quotes this privately.' };
   options.sort((a, b) => a.usd - b.usd);
   return { ...base, status: 'priced', monthlyUsd: cents(options[0].usd), plan: options[0].plan, working: [...working, options[0].how], caveat: p.notes ?? null };
+}
+
+/** Cost of the units between `included` and `units` at graduated rates. */
+function tiered(tiers: { upTo: number | null; usdPerUnit: number }[], included: number, units: number): number {
+  let total = 0;
+  let from = 0;
+  for (const t of tiers) {
+    const to = t.upTo ?? Infinity;
+    const lo = Math.max(from, included);
+    const hi = Math.min(to, units);
+    if (hi > lo) total += (hi - lo) * t.usdPerUnit;
+    from = to;
+    if (from >= units) break;
+  }
+  return total;
+}
+
+export function estimateEmbedding(e: EmbeddingPrice, w: StackWorkload): Omit<CostLine, 'layer'> {
+  const mtok = (w.runsPerDay * DAYS * w.embeddingTokensPerRun) / 1e6;
+  const total = mtok * e.perMtok;
+  return {
+    id: e.id,
+    name: `${e.system} (${e.model})`,
+    status: 'priced',
+    monthlyUsd: cents(total),
+    plan: `${e.model} list price`,
+    working: [`${mtok.toFixed(1)}M tokens embedded a month × ${usd(e.perMtok)}/M = ${usd(total)}`],
+    caveat: 'Ongoing embedding only; embedding an existing corpus once is extra.' + (e.notes ? ' ' + e.notes : ''),
+    source: e.source
+  };
 }
 
 export function estimateModel(m: ModelPrice, w: StackWorkload): Omit<CostLine, 'layer'> {
@@ -184,9 +248,27 @@ export function stackCost(
   w: StackWorkload = DEFAULT_STACK_WORKLOAD
 ): StackCost {
   const lines: CostLine[] = [];
+  const fees: { at: number; fee: GatewayFee; layer: string }[] = [];
   for (const c of components) {
     const model = pricing.stack.models.find((m) => m.id === c.id);
     const metered = pricing.stack.metered.find((m) => m.id === c.id);
+    const fee = pricing.stack.gatewayFees?.find((f) => f.id === c.id);
+    const embedding = pricing.stack.embeddings?.find((e) => e.id === c.id);
+    if (fee) {
+      // Priced once the model spend is known, below.
+      fees.push({ at: lines.length, fee, layer: c.layer });
+      lines.push({ layer: c.layer, id: c.id, name: fee.system, status: 'unpriced', monthlyUsd: null, plan: '', working: [], caveat: null, source: fee.source });
+      continue;
+    }
+    if (embedding) {
+      // The first entry is the vendor's default model; others are shown as alternatives.
+      const line = estimateEmbedding(embedding, w);
+      for (const alt of pricing.stack.embeddings!.filter((e) => e.id === c.id && e !== embedding)) {
+        line.working.push(`With ${alt.model} instead: ${usd(estimateEmbedding(alt, w).monthlyUsd ?? 0)} a month`);
+      }
+      lines.push({ layer: c.layer, ...line });
+      continue;
+    }
     if (model) {
       // The first entry for a family is its flagship; show the others
       // (e.g. the cheapest current model) as alternatives in the working.
@@ -219,6 +301,18 @@ export function stackCost(
       }
     }
     lines.push({ layer: c.layer, id: c.id, name: c.name, status: 'unpriced', monthlyUsd: null, plan: '', working: [], caveat: 'No published price in the catalog; self-hosted open source costs your own infrastructure.', source: null });
+  }
+  const modelSpend = lines.filter((l) => pricing.stack.models.some((m) => m.id === l.id)).reduce((s, l) => s + (l.monthlyUsd ?? 0), 0);
+  for (const { at, fee } of fees) {
+    const amount = (modelSpend * fee.feePct) / 100;
+    lines[at] = {
+      ...lines[at],
+      status: modelSpend > 0 ? 'priced' : 'unpriced',
+      monthlyUsd: modelSpend > 0 ? cents(amount) : null,
+      plan: `${fee.feePct}% platform fee`,
+      working: modelSpend > 0 ? [`${fee.feePct}% of ${usd(modelSpend)} model spend = ${usd(amount)}`] : [],
+      caveat: [modelSpend > 0 ? null : 'The fee is a share of model spend, and no model in this stack has a published price.', fee.byok ? `Bring your own key: ${fee.byok}.` : null, fee.notes ?? null].filter(Boolean).join(' ') || null
+    };
   }
   const known = lines.reduce((s, l) => s + (typeof l.monthlyUsd === 'number' ? l.monthlyUsd : 0), 0);
   return {

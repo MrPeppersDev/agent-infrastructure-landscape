@@ -58,7 +58,7 @@
   const WORKLOAD_FIELDS: [keyof StackWorkload, string][] = [
     ['runsPerDay', 'Agent runs / day'], ['llmCallsPerRun', 'Model calls / run'], ['inputTokensPerCall', 'Input tokens / call'],
     ['outputTokensPerCall', 'Output tokens / call'], ['toolCallsPerRun', 'Tool calls / run'], ['users', 'Monthly users'],
-    ['sandboxMinutesPerRun', 'Sandbox min / run'], ['browserMinutesPerRun', 'Browser min / run'], ['voiceMinutesPerRun', 'Voice min / run'], ['vectors', 'Vectors stored']
+    ['sandboxMinutesPerRun', 'Sandbox min / run'], ['browserMinutesPerRun', 'Browser min / run'], ['voiceMinutesPerRun', 'Voice min / run'], ['vectors', 'Vectors stored'], ['embeddingTokensPerRun', 'Embedding tokens / run']
   ];
   const money = (n: number) => `$${n >= 100 ? Math.round(n).toLocaleString('en-US') : n.toFixed(2)}`;
 

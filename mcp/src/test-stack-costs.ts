@@ -1,7 +1,7 @@
 // Tests for stack-costs.ts with fixed fixture prices (not the live price
 // file), so the arithmetic is checked exactly.
 // Run: npm run build && node dist/test-stack-costs.js
-import { estimateMetered, estimateModel, monthlyUnits, stackCost, DEFAULT_STACK_WORKLOAD, type MeteredPricing, type StackPricing } from './stack-costs.js';
+import { estimateEmbedding, estimateMetered, estimateModel, monthlyUnits, stackCost, DEFAULT_STACK_WORKLOAD, type MeteredPricing, type StackPricing } from './stack-costs.js';
 
 let failures = 0;
 function ok(cond: unknown, msg: string): void {
@@ -59,6 +59,30 @@ ok(c.lines.length === 3, 'one line per component');
 ok(c.knownMonthlyUsd === 202.5 + 10, `total sums priced lines (got ${c.knownMonthlyUsd})`);
 ok(c.lowerBound === true && c.lines[2].status === 'unpriced', 'an unpriced component makes the total a lower bound');
 ok(c.checked === '2026-10-27', 'checked date is the oldest price file date');
+
+// graduated tiers: 15,000 requests on a plan including 10k; tiers 0–10k free, 10k–12k $0.01, then $0.001
+const tieredObs: MeteredPricing = {
+  id: 't', system: 'Tiered', unit: 'llm-requests', source: 'https://t/pricing',
+  plans: [{ name: 'Hobby', usd: 0, included: 10000, overage: null }, { name: 'Pro', usd: 20, included: 10000 }],
+  overage: null, tiers: [{ upTo: 10000, usdPerUnit: 0 }, { upTo: 12000, usdPerUnit: 0.01 }, { upTo: null, usdPerUnit: 0.001 }], beyond: 'Enterprise'
+};
+const t1 = estimateMetered(tieredObs, w);
+ok(t1.monthlyUsd === 20 + 2000 * 0.01 + 3000 * 0.001 && t1.plan === 'Pro', `graduated tiers on the uncapped plan (got ${t1.monthlyUsd} ${t1.plan})`);
+
+// embeddings: 3,000 runs × 1,000 tokens = 3M tokens × $0.02
+const emb = estimateEmbedding({ id: 'e', system: 'E', model: 'small', perMtok: 0.02, source: 'https://e' }, { ...w, embeddingTokensPerRun: 1000 });
+ok(emb.monthlyUsd === 0.06, `embedding cost = 3M × $0.02 (got ${emb.monthlyUsd})`);
+
+// gateway fee: a share of the stack's priced model spend, wherever the gateway sits
+const withFee = stackCost([
+  { layer: 'gateway', id: 'gw', name: 'GW' },
+  { layer: 'model', id: 'model-a', name: 'V' },
+  { layer: 'embeddings', id: 'e', name: 'E' }
+], { ...pricing, stack: { ...pricing.stack, gatewayFees: [{ id: 'gw', system: 'GW', feePct: 5, source: 'https://gw' }], embeddings: [{ id: 'e', system: 'E', model: 'small', perMtok: 0.02, source: 'https://e' }] } }, { ...w, embeddingTokensPerRun: 1000 });
+ok(withFee.lines[0].monthlyUsd === 10.13 && withFee.lines[0].status === 'priced', `gateway fee = 5% of $202.50 (got ${withFee.lines[0].monthlyUsd})`);
+ok(withFee.lines[2].monthlyUsd === 0.06, 'embedding line priced');
+const feeOnly = stackCost([{ layer: 'gateway', id: 'gw', name: 'GW' }], { ...pricing, stack: { ...pricing.stack, gatewayFees: [{ id: 'gw', system: 'GW', feePct: 5, source: 'https://gw' }] } }, w);
+ok(feeOnly.lines[0].status === 'unpriced' && feeOnly.lowerBound, 'a fee with no priced model spend stays unpriced');
 
 if (failures) {
   console.error(`${failures} stack-cost test(s) failed`);

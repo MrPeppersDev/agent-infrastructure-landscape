@@ -160,6 +160,38 @@
       "inputPerMtok": 0.1,
       "outputPerMtok": 0.1,
       "source": "https://developer.reka.ai/models"
+    },
+    {
+      "id": "together-ai--together-ai",
+      "system": "Together AI",
+      "model": "GLM-5.3",
+      "inputPerMtok": 1.4,
+      "outputPerMtok": 4.4,
+      "source": "https://www.together.ai/pricing"
+    },
+    {
+      "id": "together-ai--together-ai",
+      "system": "Together AI",
+      "model": "Qwen3.5 9B",
+      "inputPerMtok": 0.17,
+      "outputPerMtok": 0.25,
+      "source": "https://www.together.ai/pricing"
+    },
+    {
+      "id": "fireworks-ai--fireworks-ai",
+      "system": "Fireworks AI",
+      "model": "GLM 5.3",
+      "inputPerMtok": 1.4,
+      "outputPerMtok": 4.4,
+      "source": "https://docs.fireworks.ai/serverless/pricing"
+    },
+    {
+      "id": "fireworks-ai--fireworks-ai",
+      "system": "Fireworks AI",
+      "model": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
+      "inputPerMtok": 0.05,
+      "outputPerMtok": 0.2,
+      "source": "https://docs.fireworks.ai/serverless/pricing"
     }
   ],
   "metered": [
@@ -712,6 +744,119 @@
       },
       "beyond": "Enterprise volume (contact sales)",
       "notes": "agent-1x profile (0.5 vCPU, 1 GB, \"best for voice agents\") active-minute rate; providers (LLM/STT/TTS) billed by them and telephony extra."
+    },
+    {
+      "id": "helicone--helicone-ai",
+      "system": "Helicone",
+      "unit": "llm-requests",
+      "source": "https://www.helicone.ai/pricing",
+      "plans": [
+        {
+          "name": "Hobby",
+          "usd": 0,
+          "included": 10000,
+          "overage": null
+        },
+        {
+          "name": "Pro",
+          "usd": 79,
+          "included": 10000
+        },
+        {
+          "name": "Team",
+          "usd": 799,
+          "included": 10000
+        }
+      ],
+      "overage": null,
+      "beyond": "Enterprise (contact sales; bulk cloud discounts)",
+      "notes": "Request pricing is graduated (from the calculator's 'How is this calculated?' panel): first 10k free, then $0.0007 a request up to 30k, $0.00035 to 90k, $0.000175 to 250k, $0.0000875 to 800k, $0.00004375 to 2.5M, $0.00002 above. Storage is billed separately (1 GB free, then from $3.25/GB). Hobby keeps logging past 10k but needs an upgrade to view the requests, so it is treated as capped.",
+      "tiers": [
+        {
+          "upTo": 10000,
+          "usdPerUnit": 0
+        },
+        {
+          "upTo": 30000,
+          "usdPerUnit": 0.0007
+        },
+        {
+          "upTo": 90000,
+          "usdPerUnit": 0.00035
+        },
+        {
+          "upTo": 250000,
+          "usdPerUnit": 0.000175
+        },
+        {
+          "upTo": 800000,
+          "usdPerUnit": 8.75e-05
+        },
+        {
+          "upTo": 2500000,
+          "usdPerUnit": 4.375e-05
+        },
+        {
+          "upTo": null,
+          "usdPerUnit": 2e-05
+        }
+      ]
+    }
+  ],
+  "gatewayFees": [
+    {
+      "id": "openrouter--openrouter-ai",
+      "system": "OpenRouter",
+      "feePct": 5.5,
+      "byok": "the first $25,000 of list-price inference a month carries no fee, then 5%",
+      "source": "https://openrouter.ai/pricing",
+      "notes": "Charged when credits are bought: 5.5% on pay-as-you-go, 8% on Business; Enterprise fees are negotiated."
+    }
+  ],
+  "embeddings": [
+    {
+      "id": "openai-embeddings--platform-openai-com",
+      "system": "OpenAI",
+      "model": "text-embedding-3-small",
+      "perMtok": 0.02,
+      "dims": 1536,
+      "source": "https://developers.openai.com/api/docs/pricing",
+      "notes": "text-embedding-3-large is $0.13 per 1M tokens (3,072 dimensions)."
+    },
+    {
+      "id": "voyage-ai-mongodb--voyageai-com",
+      "system": "Voyage AI",
+      "model": "voyage-4",
+      "perMtok": 0.06,
+      "dims": 1024,
+      "source": "https://docs.voyageai.com/docs/pricing",
+      "notes": "The first 200M tokens are free."
+    },
+    {
+      "id": "voyage-ai-mongodb--voyageai-com",
+      "system": "Voyage AI",
+      "model": "voyage-4-lite",
+      "perMtok": 0.02,
+      "dims": 1024,
+      "source": "https://docs.voyageai.com/docs/pricing",
+      "notes": "The first 200M tokens are free."
+    },
+    {
+      "id": "jina-ai-embeddings--jina-ai",
+      "system": "Jina AI",
+      "model": "jina-embeddings-v5-text-small",
+      "perMtok": 0.05,
+      "dims": 1024,
+      "source": "https://jina.ai/embeddings/",
+      "notes": "Sold as prepaid token packages shared across Jina's APIs: $50 for 1B tokens, or $500 for 11B ($0.045 per 1M)."
+    },
+    {
+      "id": "mistral-embed--mistral-ai",
+      "system": "Mistral AI",
+      "model": "Mistral Embed",
+      "perMtok": 0.1,
+      "source": "https://docs.mistral.ai/inference/pricing",
+      "notes": "Codestral Embed is $0.15 per 1M tokens."
     }
   ]
 }
