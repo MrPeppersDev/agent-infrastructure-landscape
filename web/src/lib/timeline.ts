@@ -206,3 +206,18 @@ export const TIER_LABELS: Record<Tier, string> = {
 };
 
 export const TIERS: Tier[] = [1, 2, 3, 4, 5];
+
+/**
+ * Index of the first bucket where the running total passes `frac` of all
+ * charted records. A few rows carry a company founding year (1984, 1995…),
+ * which would otherwise open the chart on decades of empty quarters.
+ */
+export function denseStart(buckets: BucketRow[], frac = 0.02): number {
+  const total = buckets.reduce((n, b) => n + b.records.length, 0);
+  let run = 0;
+  for (let i = 0; i < buckets.length; i++) {
+    run += buckets[i].records.length;
+    if (run > total * frac) return i;
+  }
+  return 0;
+}

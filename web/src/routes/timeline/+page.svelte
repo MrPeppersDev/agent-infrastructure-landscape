@@ -16,6 +16,7 @@
   import type { LandscapeRecord, Tier } from '$lib/types';
   import {
     bucketRecords,
+    denseStart,
     primarySection,
     parseCreatedDate,
     TIERS,
@@ -44,9 +45,15 @@
 
   let selectedSection = $state<string>(''); // '' === all
 
-  const buckets = $derived<BucketRow[]>(
+  const allBuckets = $derived<BucketRow[]>(
     bucketRecords(data.records, selectedSection || null)
   );
+  // Open on the dense part of the distribution (#325); "show all" restores
+  // the early outliers (rows dated by a company's founding year).
+  let showAll = $state(false);
+  const start = $derived(showAll ? 0 : denseStart(allBuckets));
+  const buckets = $derived(allBuckets.slice(start));
+  const hidden = $derived(allBuckets.slice(0, start).reduce((n, b) => n + b.records.length, 0));
 
   // Total parseable / unparseable for the subtitle. Recomputed lazily — at
   // 523 records this is microseconds.
@@ -180,6 +187,12 @@
       across {buckets.length} quarters · stacked by tier
       {#if stats.unparseable > 0}
         · {stats.unparseable} unparseable
+      {/if}
+      {#if hidden > 0}
+        · from {buckets[0]?.key}; {hidden} earlier
+        <button type="button" class="linkish" onclick={() => (showAll = true)}>show all</button>
+      {:else if showAll && denseStart(allBuckets) > 0}
+        <button type="button" class="linkish" onclick={() => (showAll = false)}>start at {allBuckets[denseStart(allBuckets)]?.key}</button>
       {/if}
       <a class="back" href="{base}/">← back to table</a>
     </p>
@@ -361,6 +374,15 @@
 </div>
 
 <style>
+  .linkish {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+  }
   .wrap {
     display: flex;
     flex-direction: column;
