@@ -24,6 +24,7 @@
 // fewer than ~15 systems; sparse landing pages dilute crawl signal.
 
 import type { LandscapeRecord } from '$lib/types';
+import { familyIdOf } from '../families';
 
 export interface BestOfPredicate {
   slug: string;
@@ -31,7 +32,11 @@ export interface BestOfPredicate {
   title: string;
   /** 1-2 sentences. Used as meta description and on-page lede. */
   description: string;
-  /** Filter: returns true if the record belongs on this page. */
+  /** Product family (taxonomy/families.json) the page is about. Required:
+   * a page titled "agent memory" must only list memory-family rows. */
+  family: string;
+  /** Filter: returns true if the record belongs on this page. Always
+   * includes the family scope (see inFamily). */
   match: (r: LandscapeRecord) => boolean;
   /**
    * Optional secondary sort key — applied after tier asc. Smaller is
@@ -106,92 +111,121 @@ function isSelfHostable(r: LandscapeRecord): boolean {
   return /self-?host|on-?prem|hybrid|\bboth\b/i.test(v);
 }
 
-export const PREDICATES: BestOfPredicate[] = [
+/** `test` limited to records whose primary section is in `family`. */
+function inFamily(family: string, test: (r: LandscapeRecord) => boolean): (r: LandscapeRecord) => boolean {
+  return (r) => familyIdOf(r) === family && test(r);
+}
+
+/** A compliance attestation, from the structured compliance-certifications
+ * cell (tokens such as soc2-type2) or the older free-text compliance cell. */
+function hasCert(r: LandscapeRecord, token: RegExp, text: RegExp): boolean {
+  const c = r.cells['compliance-certifications' as keyof typeof r.cells];
+  if (c && c.status === 'real-data' && c.value.split(',').some((t) => token.test(t.trim()))) return true;
+  return cellHas(r, 'compliance', text);
+}
+
+type BestOfDef = Omit<BestOfPredicate, 'match'> & { test: (r: LandscapeRecord) => boolean };
+
+const DEFS: BestOfDef[] = [
   {
     slug: 'agent-memory-with-mcp',
     title: 'Agent memory systems with MCP support',
     description:
       'Agent memory systems that integrate with the Model Context Protocol (MCP) — first-party MCP servers, official adapters, and native MCP clients. Ranked by maturity tier.',
-    match: (r) => cellPositive(r, 'mcp-support')
+    family: 'memory',
+    test: (r) => cellPositive(r, 'mcp-support')
   },
   {
     slug: 'agent-memory-with-a2a',
     title: 'Agent memory systems with A2A protocol support',
     description:
       'Agent memory systems that support the Agent2Agent (A2A) protocol for cross-agent communication. Ranked by maturity tier.',
-    match: (r) => cellPositive(r, 'a2a-support')
+    family: 'memory',
+    test: (r) => cellPositive(r, 'a2a-support')
   },
   {
     slug: 'open-source-agent-memory',
     title: 'Open-source agent memory systems',
     description:
       'Agent memory systems published under an OSI-approved open-source license (Apache, MIT, BSD, GPL family, MPL). Ranked by maturity tier — production-grade entries first.',
-    match: isOpenSource
+    family: 'memory',
+    test: isOpenSource
   },
   {
     slug: 'self-hostable-agent-memory',
     title: 'Self-hostable agent memory systems',
     description:
       'Agent memory systems that can be deployed on-prem or in your own cloud account — no managed-SaaS lock-in. Ranked by maturity tier.',
-    match: isSelfHostable
+    family: 'memory',
+    test: isSelfHostable
   },
   {
     slug: 'soc2-compliant-agent-memory',
     title: 'SOC 2 compliant agent memory systems',
     description:
       'Agent memory systems that hold a SOC 2 Type I or Type II attestation. Ranked by maturity tier.',
-    match: (r) => cellHas(r, 'compliance', /\bSOC ?2\b/i)
+    family: 'memory',
+    test: (r) => hasCert(r, /^soc2-/, /\bSOC ?2\b/i)
   },
   {
     slug: 'hipaa-compliant-agent-memory',
     title: 'HIPAA compliant agent memory systems',
     description:
       'Agent memory systems suitable for protected health information workloads — HIPAA-aware vendors that sign BAAs. Ranked by maturity tier.',
-    match: (r) => cellHas(r, 'compliance', /\bHIPAA\b/i)
+    family: 'memory',
+    test: (r) => hasCert(r, /^hipaa$/, /\bHIPAA\b/i)
   },
   {
     slug: 'gdpr-compliant-agent-memory',
     title: 'GDPR compliant agent memory systems',
     description:
       'Agent memory systems that document GDPR compliance for EU and EEA data subjects. Ranked by maturity tier.',
-    match: (r) => cellHas(r, 'compliance', /\bGDPR\b/i)
+    family: 'memory',
+    test: (r) => hasCert(r, /^gdpr$/, /\bGDPR\b/i)
   },
   {
     slug: 'iso-27001-agent-memory',
     title: 'ISO 27001 certified agent memory systems',
     description:
       'Agent memory systems with an ISO/IEC 27001 information security certification. Ranked by maturity tier.',
-    match: (r) => cellHas(r, 'compliance', /\bISO ?27001\b/i)
+    family: 'memory',
+    test: (r) => hasCert(r, /^iso27001$/, /\bISO ?27001\b/i)
   },
   {
     slug: 'agent-memory-with-opentelemetry',
     title: 'Agent memory systems with OpenTelemetry support',
     description:
       'Agent memory systems that emit OpenTelemetry traces and spans — open-standard observability that plugs into Tempo, Jaeger, Honeycomb, or any OTel backend. Ranked by maturity tier.',
-    match: (r) => cellPositive(r, 'obs-opentelemetry')
+    family: 'memory',
+    test: (r) => cellPositive(r, 'obs-opentelemetry')
   },
   {
     slug: 'agent-memory-with-langsmith',
     title: 'Agent memory systems with LangSmith integration',
     description:
       'Agent memory systems with first-class LangSmith trace export for agent observability. Ranked by maturity tier.',
-    match: (r) => cellPositive(r, 'obs-langsmith')
+    family: 'memory',
+    test: (r) => cellPositive(r, 'obs-langsmith')
   },
   {
     slug: 'agent-memory-with-datadog',
     title: 'Agent memory systems with Datadog integration',
     description:
       'Agent memory systems with native Datadog integration for production observability. Ranked by maturity tier.',
-    match: (r) => cellPositive(r, 'obs-datadog')
+    family: 'memory',
+    test: (r) => cellPositive(r, 'obs-datadog')
   },
   {
     slug: 'agent-memory-with-langfuse',
     title: 'Agent memory systems with Langfuse integration',
     description:
       'Agent memory systems with Langfuse trace and prompt-management integration. Ranked by maturity tier.',
-    match: (r) => cellPositive(r, 'obs-langfuse')
+    family: 'memory',
+    test: (r) => cellPositive(r, 'obs-langfuse')
   }
 ];
+
+export const PREDICATES: BestOfPredicate[] = DEFS.map(({ test, ...p }) => ({ ...p, match: inFamily(p.family, test) }));
 
 const BY_SLUG = new Map(PREDICATES.map((p) => [p.slug, p]));
 
