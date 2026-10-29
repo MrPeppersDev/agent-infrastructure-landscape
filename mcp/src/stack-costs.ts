@@ -65,13 +65,14 @@ export interface ModelPrice {
 export type MeterUnit = 'traces' | 'spans' | 'llm-requests' | 'tool-calls' | 'sandbox-minutes' | 'browser-minutes' | 'voice-minutes' | 'users';
 
 /** A service billed by one metered unit. Plans are monthly; `included` is
- * the units the plan covers. */
+ * the units the plan covers. A plan's own `overage` overrides the
+ * service-wide one; `overage: null` on a plan means it is hard-capped. */
 export interface MeteredPricing {
   id: string;
   system: string;
   unit: MeterUnit;
   source: string;
-  plans: { name: string; usd: number; included: number }[];
+  plans: { name: string; usd: number; included: number; overage?: { per: number; usd: number } | null }[];
   /** Published overage beyond a plan's included units. */
   overage?: { per: number; usd: number } | null;
   beyond: string;
@@ -88,8 +89,10 @@ export interface CostLine {
   layer: string;
   id: string;
   name: string;
-  /** null = contact sales / beyond published plans; undefined = no catalogued price. */
-  monthlyUsd: number | null | undefined;
+  /** priced: monthlyUsd is set; contact-sales: beyond published plans;
+   * unpriced: the catalog has no published price for it. */
+  status: 'priced' | 'contact-sales' | 'unpriced';
+  monthlyUsd: number | null;
   plan: string;
   working: string[];
   caveat: string | null;
@@ -139,14 +142,16 @@ export function estimateMetered(p: MeteredPricing, w: StackWorkload): Omit<CostL
   const options: { usd: number; plan: string; how: string }[] = [];
   for (const pl of p.plans) {
     if (units <= pl.included) options.push({ usd: pl.usd, plan: pl.name, how: `${pl.name}: ${usd(pl.usd)} includes ${num(pl.included)}` });
-    else if (p.overage) {
-      const extra = Math.ceil((units - pl.included) / p.overage.per) * p.overage.usd;
-      options.push({ usd: pl.usd + extra, plan: pl.name, how: `${pl.name}: ${usd(pl.usd)} + ${num(units - pl.included)} over × ${usd(p.overage.usd)} per ${num(p.overage.per)} = ${usd(pl.usd + extra)}` });
+    else {
+      const ov = pl.overage !== undefined ? pl.overage : p.overage;
+      if (!ov) continue;
+      const extra = Math.ceil((units - pl.included) / ov.per) * ov.usd;
+      options.push({ usd: pl.usd + extra, plan: pl.name, how: `${pl.name}: ${usd(pl.usd)} + ${num(units - pl.included)} over × ${usd(ov.usd)} per ${num(ov.per)} = ${usd(pl.usd + extra)}` });
     }
   }
-  if (!options.length) return { ...base, monthlyUsd: null, plan: p.beyond, working, caveat: 'Usage is beyond the largest published plan; the vendor quotes this privately.' };
+  if (!options.length) return { ...base, status: 'contact-sales', monthlyUsd: null, plan: p.beyond, working, caveat: 'Usage is beyond the largest published plan; the vendor quotes this privately.' };
   options.sort((a, b) => a.usd - b.usd);
-  return { ...base, monthlyUsd: cents(options[0].usd), plan: options[0].plan, working: [...working, options[0].how], caveat: p.notes ?? null };
+  return { ...base, status: 'priced', monthlyUsd: cents(options[0].usd), plan: options[0].plan, working: [...working, options[0].how], caveat: p.notes ?? null };
 }
 
 export function estimateModel(m: ModelPrice, w: StackWorkload): Omit<CostLine, 'layer'> {
@@ -157,6 +162,7 @@ export function estimateModel(m: ModelPrice, w: StackWorkload): Omit<CostLine, '
   return {
     id: m.id,
     name: `${m.system} (${m.model})`,
+    status: 'priced',
     monthlyUsd: cents(total),
     plan: `${m.model} list price`,
     working: [
@@ -182,7 +188,14 @@ export function stackCost(
     const model = pricing.stack.models.find((m) => m.id === c.id);
     const metered = pricing.stack.metered.find((m) => m.id === c.id);
     if (model) {
-      lines.push({ layer: c.layer, ...estimateModel(model, w) });
+      // The first entry for a family is its flagship; show the others
+      // (e.g. the cheapest current model) as alternatives in the working.
+      const line = estimateModel(model, w);
+      for (const alt of pricing.stack.models.filter((m) => m.id === c.id && m !== model)) {
+        const e = estimateModel(alt, w);
+        line.working.push(`With ${alt.model} instead: ${usd(e.monthlyUsd ?? 0)} a month`);
+      }
+      lines.push({ layer: c.layer, ...line });
       continue;
     }
     if (metered) {
@@ -193,7 +206,7 @@ export function stackCost(
       const v = pricing.memory.vendors.find((x) => key(x.system) === key(c.name));
       if (v) {
         const e = memoryEstimate(v, { users: w.users, messagesPerUser: Math.round((w.runsPerDay * DAYS) / Math.max(1, w.users)) * 2, bytesPerMessage: 600, retrievalsPerMessage: 1, agentsPerUser: 1 });
-        lines.push({ layer: c.layer, id: c.id, name: c.name, monthlyUsd: e.monthlyUsd, plan: e.plan, working: e.working, caveat: e.caveat, source: e.source });
+        lines.push({ layer: c.layer, id: c.id, name: c.name, status: e.monthlyUsd === null ? 'contact-sales' : 'priced', monthlyUsd: e.monthlyUsd, plan: e.plan, working: e.working, caveat: e.caveat, source: e.source });
         continue;
       }
     }
@@ -201,18 +214,18 @@ export function stackCost(
       const v = pricing.vector.vendors.find((x) => key(x.system) === key(c.name));
       if (v) {
         const e = vectorEstimate(v, { ...DEFAULT_VECTOR_WORKLOAD, vectors: w.vectors, queriesPerMonth: w.runsPerDay * DAYS * Math.max(1, w.llmCallsPerRun / 2) });
-        lines.push({ layer: c.layer, id: c.id, name: c.name, monthlyUsd: e.monthlyUsd, plan: e.plan, working: e.working, caveat: e.caveat ?? (e.atLeast ? 'Some cost components have no published rate.' : null), source: e.source });
+        lines.push({ layer: c.layer, id: c.id, name: c.name, status: e.monthlyUsd === null ? 'contact-sales' : 'priced', monthlyUsd: e.monthlyUsd, plan: e.plan, working: e.working, caveat: e.caveat ?? (e.atLeast ? 'Some cost components have no published rate.' : null), source: e.source });
         continue;
       }
     }
-    lines.push({ layer: c.layer, id: c.id, name: c.name, monthlyUsd: undefined, plan: '', working: [], caveat: 'No published price in the catalog; self-hosted open source costs your own infrastructure.', source: null });
+    lines.push({ layer: c.layer, id: c.id, name: c.name, status: 'unpriced', monthlyUsd: null, plan: '', working: [], caveat: 'No published price in the catalog; self-hosted open source costs your own infrastructure.', source: null });
   }
   const known = lines.reduce((s, l) => s + (typeof l.monthlyUsd === 'number' ? l.monthlyUsd : 0), 0);
   return {
     workload: w,
     lines,
     knownMonthlyUsd: cents(known),
-    lowerBound: lines.some((l) => typeof l.monthlyUsd !== 'number'),
+    lowerBound: lines.some((l) => l.status !== 'priced'),
     checked: [pricing.stack.checked, pricing.memory.checked, pricing.vector.checked].filter(Boolean).sort()[0] ?? ''
   };
 }

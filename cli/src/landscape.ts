@@ -313,7 +313,7 @@ program
     if (plan.cost) {
       const c = plan.cost;
       lines.push('', `Monthly cost from published list prices: ${c.lowerBound ? 'at least ' : ''}$${Math.round(c.knownMonthlyUsd).toLocaleString('en-US')} (prices checked ${c.checked}; ${c.workload.runsPerDay} runs/day)`);
-      for (const l of c.lines) lines.push(`  ${l.name}: ${typeof l.monthlyUsd === 'number' ? '$' + Math.round(l.monthlyUsd).toLocaleString('en-US') : l.monthlyUsd === null ? 'contact sales' : 'no published price'}${l.plan ? ' — ' + l.plan : ''}`);
+      for (const l of c.lines) lines.push(`  ${l.name}: ${l.status === 'priced' ? '$' + Math.round(l.monthlyUsd ?? 0).toLocaleString('en-US') : l.status === 'contact-sales' ? 'contact sales' : 'no published price'}${l.plan ? ' — ' + l.plan : ''}`);
     }
     lines.push('', o.out ? `stack.yml written to ${o.out}` : plan.stackYaml);
     emit(lines.join('\n'));

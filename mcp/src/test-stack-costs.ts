@@ -38,6 +38,12 @@ ok(e2.monthlyUsd === 50 && e2.plan === 'Pro', 'without overage the smallest cove
 const e3 = estimateMetered({ ...obs, overage: null }, { ...w, runsPerDay: 10_000 }); // 300k traces, beyond Pro
 ok(e3.monthlyUsd === null && e3.plan === 'Enterprise', 'beyond the largest plan with no overage is contact sales, never extrapolated');
 
+// per-plan overage: a hard-capped free plan can't take overage; a plan's own rate wins
+const capped = estimateMetered({ ...obs, plans: [{ name: 'Free', usd: 0, included: 1000, overage: null }, { name: 'Pro', usd: 50, included: 10000 }] }, w);
+ok(capped.monthlyUsd === 50 && capped.plan === 'Pro', `a hard-capped free plan is skipped (got ${capped.monthlyUsd} ${capped.plan})`);
+const own = estimateMetered({ ...obs, plans: [{ name: 'Free', usd: 0, included: 1000, overage: { per: 1000, usd: 1 } }, { name: 'Pro', usd: 50, included: 10000 }] }, w);
+ok(own.monthlyUsd === 2 && own.plan === 'Free', `a plan's own overage rate is used (got ${own.monthlyUsd})`);
+
 // stackCost: priced, unpriced, lower bound
 const pricing: { stack: StackPricing; memory: { checked: string; vendors: never[] }; vector: { checked: string; vendors: never[] } } = {
   stack: { checked: '2026-10-29', models: [{ id: 'model-a', system: 'V', model: 'M', inputPerMtok: 3, outputPerMtok: 15, source: 'https://v' }], metered: [obs] },
@@ -51,7 +57,7 @@ const c = stackCost([
 ], pricing, w);
 ok(c.lines.length === 3, 'one line per component');
 ok(c.knownMonthlyUsd === 202.5 + 10, `total sums priced lines (got ${c.knownMonthlyUsd})`);
-ok(c.lowerBound === true && c.lines[2].monthlyUsd === undefined, 'an unpriced component makes the total a lower bound');
+ok(c.lowerBound === true && c.lines[2].status === 'unpriced', 'an unpriced component makes the total a lower bound');
 ok(c.checked === '2026-10-27', 'checked date is the oldest price file date');
 
 if (failures) {

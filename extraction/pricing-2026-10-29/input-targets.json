@@ -1,0 +1,634 @@
+[
+ {
+  "layer": "model",
+  "id": "01-ai-yi-family--01-ai",
+  "name": "01.AI Yi family",
+  "url": "https://www.01.ai/",
+  "pricing": "API: Yi-Lightning $0.14 per 1M tokens (vendor-claimed lowest among frontier-tier); Yi-34B weights free under Apache 2.0 (international API at platform.01.ai suspended; API access now only via platform",
+  "pricingSource": "https://platform.01.ai/"
+ },
+ {
+  "layer": "model",
+  "id": "alibaba-qwen-3-family--qwenlm-github-io",
+  "name": "Alibaba Qwen 3 family",
+  "url": "https://qwenlm.github.io/blog/qwen3/",
+  "pricing": "Free open-weights (Apache 2.0); Alibaba Cloud API pay-per-token ($0.10-$2 per 1M depending on tier); Together / Fireworks hosted",
+  "pricingSource": "https://qwenlm.github.io/blog/qwen3/"
+ },
+ {
+  "layer": "model",
+  "id": "amazon-nova-family--aboutamazon-com",
+  "name": "Amazon Nova family",
+  "url": "https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws",
+  "pricing": "AWS Bedrock pay-per-token: Nova Micro $0.035/$0.14 per 1M; Lite $0.06/$0.24; Pro $0.80/$3.20; Premier $2.50/$12.50",
+  "pricingSource": "https://www.aboutamazon.com/news/aws/amazon-nova-foundation-models"
+ },
+ {
+  "layer": "model",
+  "id": "anthropic-claude-foundation-models--anthropic-com",
+  "name": "Anthropic Claude (foundation models)",
+  "url": "https://www.anthropic.com/claude",
+  "pricing": "API per 1M in/out: Fable 5.1 $10/$50; Opus 5.5 $4/$20; Sonnet 5.5 $2/$10; Haiku 5.5 from $0.10/$0.50",
+  "pricingSource": "https://platform.claude.com/docs/en/about-claude/models/overview"
+ },
+ {
+  "layer": "model",
+  "id": "cohere-command-r-command-a--cohere-com",
+  "name": "Cohere Command R+ / Command A",
+  "url": "https://cohere.com/command",
+  "pricing": "API: Command A $2.50/$10 per 1M; Command R+ $2.50/$10; Command R7B $0.0375/$0.15; Embed + Rerank separately priced",
+  "pricingSource": "https://cohere.com/command"
+ },
+ {
+  "layer": "model",
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "name": "DeepSeek R1 / V3 family",
+  "url": "https://www.deepseek.com/",
+  "pricing": "API per 1M in (cache miss)/out, peak: V4-Pro $1.32/$3.96, V4.1-Flash $0.30/$1.20; off-peak 50% lower; weights free",
+  "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/?tool=deepseek"
+ },
+ {
+  "layer": "model",
+  "id": "google-gemini-3-family--blog-google",
+  "name": "Google Gemini 3 family",
+  "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+  "pricing": "Paid per 1M in/out: Gemini 4 Argon $2/$10 intro to 2026-11-30, then $4/$20 (no free tier); Gemini 3.8 Flash $0.75/$3.75 (free tier available)",
+  "pricingSource": "https://ai.google.dev/gemini-api/docs/pricing"
+ },
+ {
+  "layer": "model",
+  "id": "meta-llama-4-family--ai-meta-com",
+  "name": "Meta Llama 4 family",
+  "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+  "pricing": "Free for self-hosting (Llama community license, <700M MAU); hosted via Together $0.20-$3/M (Maverick); AWS Bedrock + Azure AI consumption",
+  "pricingSource": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+ },
+ {
+  "layer": "model",
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "name": "Microsoft Phi-4 family",
+  "url": "https://azure.microsoft.com/en-us/products/phi",
+  "pricing": "Free open-weights (MIT); Azure AI pay-per-token if hosted",
+  "pricingSource": "https://azure.microsoft.com/en-us/blog/welcome-phi-4/"
+ },
+ {
+  "layer": "model",
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "name": "Mistral Large 2 / Mixtral family",
+  "url": "https://mistral.ai/news/mistral-large-2407/",
+  "pricing": "API: Mistral Medium 3.5 $1.50 in / $7.50 out per 1M; Mistral Large 3 $0.50 / $1.50; batch 50% off; open weights free",
+  "pricingSource": "https://developer.puter.com/tutorials/mistral-api-pricing/"
+ },
+ {
+  "layer": "model",
+  "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+  "name": "OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4)",
+  "url": "https://openai.com/index/introducing-gpt-5/",
+  "pricing": "API flagship GPT-6 Astra $10 input / $50 output per 1M tokens (Fast mode 2x price); ChatGPT Free / Go / Plus / Pro / Business / Enterprise plans",
+  "pricingSource": "https://openai.com/blog/gpt-6-astra"
+ },
+ {
+  "layer": "model",
+  "id": "reka-core-flash-edge--reka-ai",
+  "name": "Reka Core / Flash / Edge",
+  "url": "https://www.reka.ai/",
+  "pricing": "Reka API pay-per-token, per-model rates (e.g. Reka Edge 2603 $0.10 in / $0.10 out per 1M)",
+  "pricingSource": "https://llmgateway.io/models/reka-edge-2603"
+ },
+ {
+  "layer": "model",
+  "id": "xai-grok-4--x-ai",
+  "name": "xAI Grok 4",
+  "url": "https://x.ai/news/grok-4",
+  "pricing": "API: Grok 4.7 $2 in / $6 out per 1M (prompts ‹200k tokens; $4 / $12 above); consumer via X / SuperGrok subscriptions",
+  "pricingSource": "https://mer.vin/news/grok-4-7-arrives-with-the-same-price-and-a-hidden-pricing-tier/"
+ },
+ {
+  "layer": "gateway",
+  "id": "litellm--gh-berriai-litellm",
+  "name": "LiteLLM",
+  "url": "https://github.com/BerriAI/litellm",
+  "pricing": "OSS free; Enterprise custom pricing (30-day self-hosted trial key)",
+  "pricingSource": "https://www.litellm.ai/enterprise"
+ },
+ {
+  "layer": "gateway",
+  "id": "openrouter--openrouter-ai",
+  "name": "OpenRouter",
+  "url": "https://openrouter.ai/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "gateway",
+  "id": "portkey-ai--portkey-ai",
+  "name": "Portkey AI",
+  "url": "https://portkey.ai/",
+  "pricing": "Open-source gateway free (self-host); Developer free (10K logs/mo); Production $49/mo (100K logs, $9 per extra 100K up to 3M); Enterprise custom",
+  "pricingSource": "https://portkey.ai/pricing"
+ },
+ {
+  "layer": "tools",
+  "id": "composio--composio-dev",
+  "name": "Composio",
+  "url": "https://composio.dev/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "tools",
+  "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+  "name": "MCP Servers (Reference)",
+  "url": "https://github.com/modelcontextprotocol/servers",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "sandbox",
+  "id": "browserless-io--browserless-io",
+  "name": "Browserless.io",
+  "url": "https://www.browserless.io/",
+  "pricing": "Hobby ($50/mo) + Startup ($200/mo) + Business + Enterprise (quote); per-session pricing model",
+  "pricingSource": "https://www.browserless.io/"
+ },
+ {
+  "layer": "sandbox",
+  "id": "coder-com--coder-com",
+  "name": "Coder.com",
+  "url": "https://coder.com/",
+  "pricing": "Community free (OSS); Premium billed per user/year (quote); AI Premium custom",
+  "pricingSource": "https://coder.com/pricing"
+ },
+ {
+  "layer": "sandbox",
+  "id": "codesandbox-ai--codesandbox-io",
+  "name": "CodeSandbox AI",
+  "url": "https://codesandbox.io/ai",
+  "pricing": "Free + Pro ($12/mo) + Team + Enterprise; commercial CodeSandbox SDK for agent integration",
+  "pricingSource": "https://codesandbox.io/ai"
+ },
+ {
+  "layer": "sandbox",
+  "id": "daytona--daytona-io",
+  "name": "Daytona",
+  "url": "https://www.daytona.io/",
+  "pricing": "Pay-as-you-go per-second billing (vCPU $0.0504/h, memory $0.0162/GiB-h, storage $0.000108/GiB-h, first 5 GiB free); $200 free compute; startup credits up to $50k; preemptible GPUs from $0.57/h; Enterp",
+  "pricingSource": "https://www.daytona.io/pricing"
+ },
+ {
+  "layer": "sandbox",
+  "id": "e2b--e2b-dev",
+  "name": "e2b",
+  "url": "https://e2b.dev/",
+  "pricing": "Hobby $0 (one-time $100 credit, 20 concurrent sandboxes); Pro $150/mo + usage (100 concurrent; Pro+ $650, Pro++ $1,150); Enterprise custom ($3,000/mo minimum, BYOC); per-second usage vCPU $0.000014/s,",
+  "pricingSource": "https://e2b.dev/pricing"
+ },
+ {
+  "layer": "sandbox",
+  "id": "modal-sandboxes--modal-com",
+  "name": "Modal Sandboxes",
+  "url": "https://modal.com/docs/guide/sandbox",
+  "pricing": "Pay-per-second compute (CPU + GPU); free tier (~$30/mo credit); team + enterprise tiers",
+  "pricingSource": "https://modal.com/docs/guide/sandbox"
+ },
+ {
+  "layer": "sandbox",
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "name": "Workato AI (Workflow Bot Builder)",
+  "url": "https://www.workato.com/ai",
+  "pricing": "Enterprise (quote-only); per-recipe + per-task pricing",
+  "pricingSource": "https://www.workato.com/ai"
+ },
+ {
+  "layer": "browser",
+  "id": "browser-use--browser-use-com",
+  "name": "Browser Use",
+  "url": "https://browser-use.com/",
+  "pricing": "OSS library free; Cloud pay-as-you-go: $1 free credit, $5 min top-up, browsers $0.02/hr, agents = model price +20%; on-prem via sales",
+  "pricingSource": "https://browser-use.com/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "browserbase--browserbase-com",
+  "name": "Browserbase",
+  "url": "https://www.browserbase.com/",
+  "pricing": "Free $0; Developer $20/mo; Startup $99/mo; Scale custom",
+  "pricingSource": "https://pricingsaas.com/companies/browserbase/diffs/2026W43"
+ },
+ {
+  "layer": "browser",
+  "id": "claude-for-chrome--anthropic-com",
+  "name": "Claude for Chrome",
+  "url": "https://claude.com/resources/articles/claude-for-chrome",
+  "pricing": "Not on Free; included in Pro ($20/mo, $17 annual), Max (from $100/mo), Team and Enterprise",
+  "pricingSource": "https://claude.com/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "dia-atlassian--diabrowser-com",
+  "name": "Dia (Atlassian)",
+  "url": "https://www.diabrowser.com",
+  "pricing": "Free (no AI); paid AI tiers 'Better Answers' $20/mo (page also shows $10) and 'Better Days' $100/mo",
+  "pricingSource": "https://www.diabrowser.com/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "fellou--fellou-ai",
+  "name": "Fellou",
+  "url": "https://fellou.ai/",
+  "pricing": "Free (1,000-Spark bonus); Plus $19/mo; Pro $39.90/mo; Ultra $199.90/mo (annual ~20% off)",
+  "pricingSource": "https://fellou.ai/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "highlight-ai--highlightai-com",
+  "name": "Highlight AI",
+  "url": "https://highlightai.com/",
+  "pricing": "Free $0/mo (14-day Pro trial); Pro $35/mo; Max $200/mo",
+  "pricingSource": "https://highlightai.com/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "name": "Hyperbrowser",
+  "url": "https://www.hyperbrowser.ai/",
+  "pricing": "Per-session-minute + free tier",
+  "pricingSource": "https://www.hyperbrowser.ai/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "microsoft-edge-copilot-mode-journeys--blogs-windows-com",
+  "name": "Microsoft Edge Copilot Mode + Journeys (now Copilot in Edge)",
+  "url": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/",
+  "pricing": "Free in Edge (Journeys free on desktop in English markets); Browse with Copilot requires Microsoft 365 Premium (US); M365 Personal/Family/Premium get extended usage",
+  "pricingSource": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/"
+ },
+ {
+  "layer": "browser",
+  "id": "perplexity-comet--perplexity-ai",
+  "name": "Perplexity Comet",
+  "url": "https://www.perplexity.ai/comet",
+  "pricing": "Free (since Oct 2025); optional Comet Plus $5/mo; Perplexity Pro $20/mo / Max $200/mo",
+  "pricingSource": "https://www.tomsguide.com/ai/perplexity/perplexitys-ai-browser-comet-is-now-free-for-everyone-heres-how-to-download-it"
+ },
+ {
+  "layer": "browser",
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "name": "Sigma (Private AI Browser)",
+  "url": "https://www.sigmabrowser.com/",
+  "pricing": "Free $0; Plus $10/mo ($8 annual); Pro $75/mo ($60 annual)",
+  "pricingSource": "https://www.sigmabrowser.com/plans"
+ },
+ {
+  "layer": "browser",
+  "id": "skyvern--skyvern-com",
+  "name": "Skyvern",
+  "url": "https://www.skyvern.com/",
+  "pricing": "Cloud usage tiers + self-host (free OSS)",
+  "pricingSource": "https://www.skyvern.com/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "stagehand--stagehand-dev",
+  "name": "Stagehand",
+  "url": "https://www.stagehand.dev/",
+  "pricing": "OSS free; Browserbase Cloud handles runtime",
+  "pricingSource": "https://github.com/browserbase/stagehand"
+ },
+ {
+  "layer": "browser",
+  "id": "steel-dev--steel-dev",
+  "name": "Steel.dev",
+  "url": "https://steel.dev/",
+  "pricing": "OSS free; Cloud per-session-hour tiers",
+  "pricingSource": "https://steel.dev/pricing"
+ },
+ {
+  "layer": "browser",
+  "id": "ui-tars--gh-bytedance-ui-tars",
+  "name": "UI-TARS",
+  "url": "https://github.com/bytedance/UI-TARS",
+  "pricing": "OSS weights free",
+  "pricingSource": "https://github.com/bytedance/UI-TARS"
+ },
+ {
+  "layer": "voice",
+  "id": "bland-ai--bland-ai",
+  "name": "Bland AI",
+  "url": "https://www.bland.ai/",
+  "pricing": "Start: $0 platform fee + $0.14/connected min; Build: $299/mo + $0.12/min; Enterprise custom",
+  "pricingSource": "https://bland.ai/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "name": "CallRail Conversation Intelligence",
+  "url": "https://www.callrail.com/conversation-intelligence",
+  "pricing": "No free tier; plans from $50/mo (Lead Tracking); Premium Conversation Intelligence included in Lead Conversion ($150/mo) and Lead Conversion Complete ($195/mo)",
+  "pricingSource": "https://www.callrail.com/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "cartesia-sonic--cartesia-ai",
+  "name": "Cartesia Sonic",
+  "url": "https://cartesia.ai/sonic",
+  "pricing": "Free (20K credits/mo); Pro $5/mo; Startup $49/mo; Scale $299/mo; Enterprise custom; managed voice agents $0.06/min",
+  "pricingSource": "https://cartesia.ai/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "elevenlabs-conversational-ai--elevenlabs-io",
+  "name": "ElevenLabs Conversational AI (now ElevenAgents)",
+  "url": "https://elevenlabs.io/conversational-ai",
+  "pricing": "Per-minute usage (Conv AI tier); free + Pro + Enterprise",
+  "pricingSource": "https://elevenlabs.io/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "livekit-agents--docs-livekit-io",
+  "name": "LiveKit Agents",
+  "url": "https://docs.livekit.io/agents/",
+  "pricing": "OSS free; LiveKit Cloud tiered ($50/mo+ + usage)",
+  "pricingSource": "https://livekit.io/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "openai-realtime-api--platform-openai-com",
+  "name": "OpenAI Realtime API",
+  "url": "https://platform.openai.com/docs/guides/realtime",
+  "pricing": "Audio token-based: $40/$80 per 1M input/output audio tokens (Oct-2024 launch)",
+  "pricingSource": "https://openai.com/api/pricing/"
+ },
+ {
+  "layer": "voice",
+  "id": "pipecat-daily--pipecat-ai",
+  "name": "Pipecat (Daily)",
+  "url": "https://www.pipecat.ai/",
+  "pricing": "OSS free; runs on Daily.co Cloud or self-host",
+  "pricingSource": "https://github.com/pipecat-ai/pipecat"
+ },
+ {
+  "layer": "voice",
+  "id": "retell-ai--retellai-com-2",
+  "name": "Retell AI",
+  "url": "https://www.retellai.com/",
+  "pricing": "Pay-as-you-go $0.07-$0.31/min for voice agents (Retell voice infra $0.055/min plus TTS and LLM components), $10 free credits, 20 concurrent calls included; Enterprise custom",
+  "pricingSource": "https://www.retellai.com/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "synthflow--synthflow-ai",
+  "name": "Synthflow",
+  "url": "https://synthflow.ai/",
+  "pricing": "Enterprise contracts from $30,000/yr, scoped by call volume, concurrency, telephony and integrations",
+  "pricingSource": "https://synthflow.ai/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "vapi--vapi-ai",
+  "name": "Vapi",
+  "url": "https://vapi.ai/",
+  "pricing": "Per-minute usage ($0.05/min base + provider passthrough)",
+  "pricingSource": "https://vapi.ai/pricing"
+ },
+ {
+  "layer": "voice",
+  "id": "vonage-ai-studio--vonage-com",
+  "name": "Vonage AI Studio",
+  "url": "https://www.vonage.com/communications-apis/ai-studio/",
+  "pricing": "Tiered + per-minute / per-message",
+  "pricingSource": "https://www.vonage.com/communications-apis/ai-studio/pricing/"
+ },
+ {
+  "layer": "observability",
+  "id": "agentops--agentops-ai",
+  "name": "AgentOps",
+  "url": "https://www.agentops.ai/",
+  "pricing": "free tier; Pro/Enterprise pricing not publicly listed; contact sales",
+  "pricingSource": "https://www.agentops.ai/"
+ },
+ {
+  "layer": "observability",
+  "id": "arize-ai--arize-com",
+  "name": "Arize AI",
+  "url": "https://arize.com/",
+  "pricing": "AX Free $0/mo (25k spans/mo); AX Pro $50/mo (50k spans/mo); AX Enterprise custom (SaaS or self-hosted); Phoenix OSS free",
+  "pricingSource": "https://arize.com/pricing/"
+ },
+ {
+  "layer": "observability",
+  "id": "arize-phoenix--phoenix-arize-com",
+  "name": "Arize Phoenix",
+  "url": "https://phoenix.arize.com/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "observability",
+  "id": "braintrust--braintrust-dev",
+  "name": "Braintrust",
+  "url": "https://www.braintrust.dev/",
+  "pricing": "Starter $0/mo; Pro $249/mo; Enterprise custom",
+  "pricingSource": "https://www.braintrust.dev/pricing"
+ },
+ {
+  "layer": "observability",
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "name": "Confident AI / DeepEval",
+  "url": "https://www.confident-ai.com/",
+  "pricing": "Free $0; Starter $200/mo; Team $2,000/mo; Enterprise custom",
+  "pricingSource": "https://www.confident-ai.com/pricing"
+ },
+ {
+  "layer": "observability",
+  "id": "galileo--galileo-ai",
+  "name": "Galileo",
+  "url": "https://www.galileo.ai/",
+  "pricing": "Splunk Agent Observability from $100/mo per 1.2M spans billed annually (includes 500M Luna tokens); free edition available",
+  "pricingSource": "https://www.splunk.com/en_us/products/pricing.html"
+ },
+ {
+  "layer": "observability",
+  "id": "galileo-galileo-ai--galileo-ai",
+  "name": "Galileo (galileo.ai) (now Splunk Agent Observability)",
+  "url": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html",
+  "pricing": "Standalone pricing retired — galileo.ai/pricing now redirects to Splunk pricing; sold as Splunk Agent Observability",
+  "pricingSource": "https://www.splunk.com/en_us/about-splunk/acquisitions/galileo.html"
+ },
+ {
+  "layer": "observability",
+  "id": "helicone--helicone-ai",
+  "name": "Helicone",
+  "url": "https://www.helicone.ai/",
+  "pricing": "Hobby free (10k requests); Pro $79/mo; Team $799/mo; Enterprise custom; plus usage-based pricing",
+  "pricingSource": "https://www.helicone.ai/pricing"
+ },
+ {
+  "layer": "observability",
+  "id": "langfuse--langfuse-com",
+  "name": "Langfuse",
+  "url": "https://langfuse.com/",
+  "pricing": "free: 50K observations/mo; Pro: $59/mo; Team: $199/mo; Enterprise: custom",
+  "pricingSource": "https://www.langchain.com/pricing"
+ },
+ {
+  "layer": "observability",
+  "id": "langsmith--langchain-com",
+  "name": "LangSmith",
+  "url": "https://www.langchain.com/langsmith",
+  "pricing": "Developer: free (5K traces/mo); Plus: $39/seat/mo (10K traces); Enterprise: custom (SSO/SAML; dedicated support)",
+  "pricingSource": "https://www.langchain.com/pricing"
+ },
+ {
+  "layer": "observability",
+  "id": "openinference--gh-arize-ai-openinference",
+  "name": "OpenInference",
+  "url": "https://github.com/Arize-ai/openinference",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "observability",
+  "id": "openllmetry-traceloop--gh-traceloop-openllmetry",
+  "name": "OpenLLMetry (Traceloop)",
+  "url": "https://github.com/traceloop/openllmetry",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "observability",
+  "id": "ragas--gh-explodinggradients-ragas",
+  "name": "Ragas",
+  "url": "https://github.com/vibrantlabsai/ragas",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "observability",
+  "id": "ratine--gh-goweft-ratine",
+  "name": "Ratine",
+  "url": "https://github.com/goweft/ratine",
+  "pricing": "free / open source (MIT); no paid tier",
+  "pricingSource": "https://github.com/goweft/ratine"
+ },
+ {
+  "layer": "observability",
+  "id": "truera--truera-com",
+  "name": "TruEra",
+  "url": "https://truera.com/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "observability",
+  "id": "trulens--gh-truera-trulens",
+  "name": "TruLens",
+  "url": "https://github.com/truera/trulens",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "guardrails",
+  "id": "apex-security--apex-security",
+  "name": "Apex Security",
+  "url": "https://www.apex.security/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "guardrails",
+  "id": "calypso-ai--calypsoai-com",
+  "name": "Calypso AI (now F5 AI Guardrails)",
+  "url": "https://www.f5.com/products/ai-guardrails",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "guardrails",
+  "id": "enkrypt-ai--enkryptai-com",
+  "name": "Enkrypt AI",
+  "url": "https://www.enkryptai.com/",
+  "pricing": "Explore free; Launch $149/mo ($134/mo annual); Scale $1,499/mo ($1,349/mo annual); Enterprise custom",
+  "pricingSource": "https://enkryptai.com/platform/pricing"
+ },
+ {
+  "layer": "guardrails",
+  "id": "github-copilot-autofix--github-blog",
+  "name": "GitHub Copilot Autofix",
+  "url": "https://github.blog/2024-03-20-found-means-fixed-introducing-code-scanning-autofix-powered-by-github-copilot-and-codeql/",
+  "pricing": "Included in GitHub Code Security at $30 per active committer/month (Team and Enterprise); free on public repositories",
+  "pricingSource": "https://github.com/security/plans"
+ },
+ {
+  "layer": "guardrails",
+  "id": "hackerone-hai--hackerone-com",
+  "name": "HackerOne Hai",
+  "url": "https://www.hackerone.com/solutions/ai",
+  "pricing": "Pay-per-finding + retainer service tiers",
+  "pricingSource": "https://www.hackerone.com/ai"
+ },
+ {
+  "layer": "guardrails",
+  "id": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+  "name": "HiddenLayer AISec Platform 2.0",
+  "url": "https://www.hiddenlayer.com/platform",
+  "pricing": "enterprise pricing; contact sales; no public pricing",
+  "pricingSource": "https://www.hiddenlayer.com/platform"
+ },
+ {
+  "layer": "guardrails",
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "name": "Lakera Guard / Lakera Red",
+  "url": "https://www.lakera.ai/ai-agent-security",
+  "pricing": "Developer: free (10K API calls/mo); Pro: contact sales (higher volume + advanced detection)",
+  "pricingSource": "https://platform.lakera.ai/pricing"
+ },
+ {
+  "layer": "guardrails",
+  "id": "lasso-security--lasso-security",
+  "name": "Lasso Security",
+  "url": "https://www.lasso.security/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "guardrails",
+  "id": "mindgard--mindgard-ai",
+  "name": "Mindgard",
+  "url": "https://mindgard.ai/",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "guardrails",
+  "id": "pillar-security--pillar-security",
+  "name": "Pillar Security",
+  "url": "https://www.pillar.security/",
+  "pricing": "Enterprise quote",
+  "pricingSource": "https://www.pillar.security/"
+ },
+ {
+  "layer": "guardrails",
+  "id": "promptfoo--promptfoo-dev",
+  "name": "Promptfoo",
+  "url": "https://www.promptfoo.dev/",
+  "pricing": "Community: free (open source, incl. 10k red-team probes/month); Enterprise: custom (managed cloud); On-Premise: custom",
+  "pricingSource": "https://www.promptfoo.dev/pricing/"
+ },
+ {
+  "layer": "guardrails",
+  "id": "protect-ai--protectai-com",
+  "name": "Protect AI",
+  "url": "https://www.paloaltonetworks.com/ai-security/prisma-airs",
+  "pricing": "",
+  "pricingSource": null
+ },
+ {
+  "layer": "guardrails",
+  "id": "snyk-deepcode-ai--snyk-io",
+  "name": "Snyk DeepCode AI",
+  "url": "https://snyk.io/platform/deepcode-ai/",
+  "pricing": "",
+  "pricingSource": null
+ }
+]
