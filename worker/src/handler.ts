@@ -17,7 +17,7 @@ import { buildIndex, search, docText, type SearchIndex } from '../../mcp/src/sea
 import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from '../../mcp/src/costs.js';
 import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '../../mcp/src/vector-costs.js';
 import { alternativesFor } from '../../mcp/src/chooser.js';
-import { attentionIds } from '../../mcp/src/stack-check.js';
+import { attentionIds, linksFromEdges, type Links } from '../../mcp/src/stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers } from '../../mcp/src/composer.js';
 import type { StackPricing } from '../../mcp/src/stack-costs.js';
 
@@ -41,6 +41,7 @@ interface Data {
   redirects: Record<string, string>;
   search?: SearchIndex;
   replacements?: Record<string, { id: string; name: string; why: string[] }[]>;
+  links?: Links;
 }
 
 const S = {
@@ -183,9 +184,10 @@ export function createHandler(load: Loader) {
       }
       case 'check_stack': {
         d.replacements ??= Object.fromEntries(
-          Object.entries(alternativesFor(d.records as never, attentionIds(d.index), d.famOf, d.index.records as never, 3)).map(([id, l]) => [id, l.map(({ id, name, why }) => ({ id, name, why }))])
+          Object.entries(alternativesFor(d.records as never, attentionIds(d.index), d.famOf, d.index.records as never, 6)).map(([id, l]) => [id, l.map(({ id, name, why }) => ({ id, name, why }))])
         );
-        return checkManifest(String(a.manifest ?? ''), d.index, { filename: a.filename ? String(a.filename) : undefined, replacements: d.replacements });
+        d.links ??= linksFromEdges(d.edges as never);
+        return checkManifest(String(a.manifest ?? ''), d.index, { filename: a.filename ? String(a.filename) : undefined, replacements: d.replacements, links: d.links });
       }
       case 'find_alternatives': {
         const t = d.items.find((i) => i.id === a.id);
