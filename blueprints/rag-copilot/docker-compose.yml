@@ -33,4 +33,4 @@ services:
 #   Embeddings / reranker: Sentence Transformers — library or hosted-only; no container
 #   Memory layer: Mem0 — No published server image: docker-compose builds from server/dev.Dockerfile (API 8888->8000, dashboard 3000). README: 'at minimum set POSTGRES_PASSWORD and OPENAI_API_KEY'.
 #   Evals & observability: Langfuse — needs docker.langfuse.com/langfuse/langfuse-worker:4, postgres:17, clickhouse/clickhouse-server, redis:7, minio (S3); use the project's compose file: https://github.com/langfuse/langfuse/blob/main/docker-compose.yml
-#   Guardrails & security: Promptfoo — library or hosted-only; no container
+#   Guardrails & security: NVIDIA NeMo Guardrails — library or hosted-only; no container

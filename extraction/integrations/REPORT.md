@@ -96,3 +96,37 @@ These use the same method and checks as above. All 143 distinct citation URLs re
 - Weaker citations:
   - Three Trigger.dev edges (Mastra, Cursor, OpenAI Agents SDK) cite example projects.
   - Four Temporal edges (Braintrust, Langfuse, Mastra, Pydantic AI) cite the partner's page, which Temporal's integrations catalog links to.
+
+## `2026-10-29-hubs-d.json`: 445 edges (the stack-layers intake rows)
+
+This file covers the official integration pages of the 49 non-benchmark rows added in the `2026-10-stack-layers` intake (guardrails, identity/auth, MCP gateways, durable execution, AI gateways, evals). It also adds 20 framework → hub edges taken from the frameworks' own pages: LiteLLM, LlamaIndex, OpenAI Agents SDK, Pydantic AI, CrewAI and Vercel AI SDK.
+
+**Checks.**
+- All 385 distinct citation URLs load.
+- 378 return HTTP 200 with a page title that matches the integration.
+- 7 are GitHub repo pages, checked in a headless browser.
+
+**Biggest hubs**
+
+| Hub | Edges |
+|---|---|
+| TrueFoundry AI Gateway | 55 |
+| agentgateway | 36 |
+| Pydantic Logfire | 32 |
+| Bifrost | 31 |
+| HoneyHive | 25 |
+| Laminar | 24 |
+| Vercel AI Gateway | 22 |
+| Inspect AI | 19 |
+| Cloudflare AI Gateway | 17 |
+| Kong AI Gateway | 17 |
+| Datadog LLM Observability | 16 |
+| IBM ContextForge | 16 |
+| NeMo Guardrails | 12 |
+
+**Dropped and judgment calls**
+
+- Dropped: 4 edges from Cloudflare AI Gateway, Inspect AI, agentgateway and Kong to the "Hugging Face Inference API (Embeddings)" row. Their pages cover Hugging Face chat inference providers, not the embeddings API, so this follows the same rule as hubs C.
+- Dropped: 8 Dapr Agents → framework edges. They cite docs.dapr.io/developing-ai/agent-integrations/, which documents Dapr's durable execution in general, not the Dapr Agents framework.
+- Okta XAA as a target: the "Okta Cross App Access (XAA)" row is the target for documented XAA / ID-JAG protocol support (agentgateway, Descope, Auth0, Stytch, WorkOS).
+- Model-family mapping: newer model names map to the existing family rows (for example Gemini 4 → the Gemini family row).

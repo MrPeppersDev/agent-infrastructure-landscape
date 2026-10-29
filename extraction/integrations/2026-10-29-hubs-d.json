@@ -1,0 +1,3117 @@
+[
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists Anthropic (native and on GCP Vertex AI / AWS Bedrock).",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists Cohere (compatibility API).",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists DeepSeek.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists Google Gemini on AI Studio.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists Mistral.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "together-ai--together-ai",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists Together AI.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "vllm--gh-vllm-project-vllm",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists self-hosted vLLM.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "Agent Router supported-providers page lists xAI Grok.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/llm-integrations/supported-providers/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Agent Router docs have an MCP gateway capability page.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/mcp/"
+  },
+  {
+    "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+    "target": "agent2agent-protocol-a2a--google-github-io",
+    "type": "integrates-with",
+    "evidence": "Agent Router docs have an Agent2Agent (A2A) traffic capability page.",
+    "citation": "https://theagentrouter.ai/docs/capabilities/a2a/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "amazon-bedrock-guardrails--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have an AWS Bedrock Guardrails prompt-guard page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/llm/prompt-guards/bedrock-guardrails/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have an Azure AI Content Safety prompt-guard page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/llm/prompt-guards/azure-content-safety/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "google-cloud-model-armor--cloud-google-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have a Google Model Armor prompt-guard page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/llm/prompt-guards/google-model-armor/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "bedrock-agentcore-aws--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have a \"Connect to AWS Bedrock AgentCore\" agent-runtime routing page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/agent/agentcore/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "agent2agent-protocol-a2a--google-github-io",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have an A2A agent proxying page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/agent/a2a/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have an Anthropic Messages API route type page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/llm/api-types/messages/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have a native Gemini API route type page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/llm/api-types/gemini/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "github-copilot-agent-mode--gh-features-copilot",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have a GitHub Copilot backend-authentication page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/backend-authn/providers/copilot/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have a \"Migrate from LiteLLM\" config-import page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/import/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "okta-cross-app-access-xaa--okta-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway standalone docs have a Cross App Access (ID-JAG) token-exchange backend-auth page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/documentation/configuration/security/backend-authn/token-exchange/cross-app-access/"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for Anthropic.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/anthropic"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for Cohere.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/cohere"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for DeepSeek.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/deepseek"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "fireworks-ai--fireworks-ai",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for Fireworks.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/fireworks"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for Google Gemini.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/gemini"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for Mistral.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/mistral"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for OpenRouter.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/openrouter"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "replicate--replicate-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for Replicate.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/replicate"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "sglang--gh-sgl-project-sglang",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for SGLang.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/sgl"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "vllm--gh-vllm-project-vllm",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for vLLM.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/vllm"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "Bifrost supported-providers docs have a provider page for xAI.",
+    "citation": "https://docs.getbifrost.ai/providers/supported-providers/xai"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "presidio--presidio-dataprivacystack-org",
+    "type": "integrates-with",
+    "evidence": "Bifrost guardrails integrations include Microsoft Presidio.",
+    "citation": "https://docs.getbifrost.ai/integrations/guardrails/presidio"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "amazon-bedrock-guardrails--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost guardrails integrations include AWS Bedrock Guardrails.",
+    "citation": "https://docs.getbifrost.ai/integrations/guardrails/aws-bedrock"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost guardrails integrations include Azure Content Safety.",
+    "citation": "https://docs.getbifrost.ai/integrations/guardrails/azure-content-safety"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "google-cloud-model-armor--cloud-google-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost guardrails integrations include Google Model Armor.",
+    "citation": "https://docs.getbifrost.ai/integrations/guardrails/google-model-armor"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "crowdstrike-falcon-guardian-formerly-pangea-ai-guard--crowdstrike-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost guardrails integrations include CrowdStrike AIDR.",
+    "citation": "https://docs.getbifrost.ai/integrations/guardrails/crowdstrike-aidr"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "patronus-ai--patronus-ai",
+    "type": "integrates-with",
+    "evidence": "Bifrost guardrails integrations include Patronus AI.",
+    "citation": "https://docs.getbifrost.ai/integrations/guardrails/patronus-ai"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for Cursor.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/cursor"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for Claude Code.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/claude-code"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "github-copilot-agent-mode--gh-features-copilot",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for GitHub Copilot.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/github-copilot"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for Codex CLI.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/codex-cli"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for OpenCode.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/opencode"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "zed-agentic-editing--zed-dev",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for Zed Editor.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/zed-editor"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "roo-code--roocode-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a CLI-agent integration page for Roo Code.",
+    "citation": "https://docs.getbifrost.ai/cli-agents/roo-code"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Bifrost SDK integrations include a drop-in proxy page for the LiteLLM SDK.",
+    "citation": "https://docs.getbifrost.ai/integrations/litellm-sdk"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost SDK integrations include a drop-in proxy page for the LangChain SDK.",
+    "citation": "https://docs.getbifrost.ai/integrations/langchain-sdk"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Bifrost SDK integrations include a drop-in proxy page for Pydantic AI.",
+    "citation": "https://docs.getbifrost.ai/integrations/pydanticai-sdk"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a native Datadog integration page (APM traces, LLM Observability, metrics).",
+    "citation": "https://docs.getbifrost.ai/features/observability/datadog"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "weaviate--weaviate-io",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a Weaviate vector-database integration page for semantic caching.",
+    "citation": "https://docs.getbifrost.ai/integrations/vector-databases/weaviate"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "qdrant--qdrant-tech",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a Qdrant vector-database integration page for semantic caching.",
+    "citation": "https://docs.getbifrost.ai/integrations/vector-databases/qdrant"
+  },
+  {
+    "source": "bifrost-maxim-ai--getmaxim-ai",
+    "target": "pinecone--pinecone-io",
+    "type": "integrates-with",
+    "evidence": "Bifrost docs have a Pinecone vector-database integration page for semantic caching.",
+    "citation": "https://docs.getbifrost.ai/integrations/vector-databases/pinecone"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "strands-agents-aws--strandsagents-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a AWS Strands Agents tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/strands"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Claude Agent SDK tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/claude-agent-sdk"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "crewai--crewai-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a CrewAI tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/crewai"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "dspy--gh-stanfordnlp-dspy",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a DSPy tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/dspy"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "google-agent-development-kit-adk--gh-google-adk-python",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Google ADK tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/google-adk"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a LangChain tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/langchain"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a LangGraph tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/langgraph"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a LlamaIndex tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/llamaindex"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "autogen-ag2--gh-ag2ai-ag2",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Microsoft AutoGen tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/autogen"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Semantic Kernel tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/semantic-kernel"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "n8n-ai-agent-flows--n8n-io",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a n8n tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/n8n"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a OpenAI Agents SDK tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/openai-agents"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Pydantic AI tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/pydantic-ai"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "salesforce-agentforce--salesforce-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Salesforce Agentforce tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/salesforce-agentforce"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Anthropic tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/anthropic"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Gemini tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/gemini"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a OpenAI tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/openai"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Cloudflare AI Gateway tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/cloudflare-ai-gateway"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a LiteLLM tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/litellm"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "portkey-ai--portkey-ai",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Portkey tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/portkey"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "truefoundry-ai-gateway--truefoundry-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a TrueFoundry tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/truefoundry"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "vercel-ai-gateway--vercel-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Vercel AI Gateway tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/vercel-ai-gateway"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Claude Code tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/claude-code"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a OpenAI Codex CLI tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/codex-cli"
+  },
+  {
+    "source": "honeyhive--honeyhive-ai",
+    "target": "devin-cognition--devin-ai",
+    "type": "integrates-with",
+    "evidence": "HoneyHive integrations docs have a Devin tracing/integration page.",
+    "citation": "https://docs.honeyhive.ai/v2/integrations/devin"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Anthropic observability page.",
+    "citation": "https://laminar.sh/docs/integrations/anthropic"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a OpenAI observability page.",
+    "citation": "https://laminar.sh/docs/integrations/openai"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Gemini observability page.",
+    "citation": "https://laminar.sh/docs/integrations/gemini"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Cohere observability page.",
+    "citation": "https://laminar.sh/docs/integrations/cohere"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a LiteLLM observability page.",
+    "citation": "https://laminar.sh/docs/integrations/litellm"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a OpenRouter observability page.",
+    "citation": "https://laminar.sh/docs/integrations/openrouter"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Vercel AI SDK observability page.",
+    "citation": "https://laminar.sh/docs/integrations/vercel-ai-sdk"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a LangChain and LangGraph observability page.",
+    "citation": "https://laminar.sh/docs/integrations/langchain"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "mastra--mastra-ai",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Mastra observability page.",
+    "citation": "https://laminar.sh/docs/integrations/mastra"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Pydantic AI observability page.",
+    "citation": "https://laminar.sh/docs/integrations/pydantic-ai"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "microsoft-agent-framework--gh-microsoft-agent-framework",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Microsoft Agent Framework observability page.",
+    "citation": "https://laminar.sh/docs/integrations/microsoft-agent-framework"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a OpenAI Agents SDK observability page.",
+    "citation": "https://laminar.sh/docs/integrations/openai-agents-sdk"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "google-agent-development-kit-adk--gh-google-adk-python",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Google ADK observability page.",
+    "citation": "https://laminar.sh/docs/integrations/google-adk"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "openhands-all-hands-ai--all-hands-dev",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a OpenHands SDK observability page.",
+    "citation": "https://laminar.sh/docs/integrations/openhands-sdk"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "temporal--temporal-io",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Temporal observability page.",
+    "citation": "https://laminar.sh/docs/integrations/temporal"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Claude Code observability page.",
+    "citation": "https://laminar.sh/docs/integrations/claude-code"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Codex observability page.",
+    "citation": "https://laminar.sh/docs/integrations/codex"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Claude Agent SDK observability page.",
+    "citation": "https://laminar.sh/docs/integrations/claude-agent-sdk"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a OpenCode observability page.",
+    "citation": "https://laminar.sh/docs/integrations/opencode"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "browser-use--browser-use-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Browser Use observability page.",
+    "citation": "https://laminar.sh/docs/integrations/browser-use"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "stagehand--stagehand-dev",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Stagehand observability page.",
+    "citation": "https://laminar.sh/docs/integrations/stagehand"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "skyvern--skyvern-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Skyvern observability page.",
+    "citation": "https://laminar.sh/docs/integrations/skyvern"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "langfuse--langfuse-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a Langfuse observability page.",
+    "citation": "https://laminar.sh/docs/integrations/langfuse"
+  },
+  {
+    "source": "laminar--laminar-sh",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Laminar integrations docs have a LangChain and LangGraph observability page.",
+    "citation": "https://laminar.sh/docs/integrations/langchain"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "jamba-ai21-labs--ai21-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a AI21 model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/ai21"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a Anthropic model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/anthropic"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "aws-sagemaker--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a AWS SageMaker model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/aws-sagemaker"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "cartesia-sonic--cartesia-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a Cartesia model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/cartesia"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a Cohere model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/cohere"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a Google Gemini model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/google-gemini"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a Mistral AI model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/mistral"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a OpenAI model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/openai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a OpenRouter model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/openrouter"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "together-ai--together-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a Together AI model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/together-ai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway docs have a xAI model-provider page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/xai"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have a \"Connect coding agents\" guide putting Keycard between Claude Code and its tools.",
+    "citation": "https://docs.keycard.ai/guides/connect-coding-agents"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have a \"Connect coding agents\" guide covering Cursor.",
+    "citation": "https://docs.keycard.ai/guides/connect-coding-agents"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have a \"Configure Anthropic\" credential-brokering page.",
+    "citation": "https://docs.keycard.ai/admin/configure-provider-apis/anthropic"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have a \"Configure OpenAI\" credential-brokering page.",
+    "citation": "https://docs.keycard.ai/admin/configure-provider-apis/openai"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have an MCP SDK page (OAuth for MCP servers).",
+    "citation": "https://docs.keycard.ai/sdk/mcp"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "agent2agent-protocol-a2a--google-github-io",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have an Agent-to-Agent SDK page using the A2A protocol.",
+    "citation": "https://docs.keycard.ai/sdk/agent-to-agent"
+  },
+  {
+    "source": "keycard--keycard-ai",
+    "target": "temporal--temporal-io",
+    "type": "integrates-with",
+    "evidence": "Keycard docs have a Temporal SDK page (per-execution tokens for Temporal Python workers).",
+    "citation": "https://docs.keycard.ai/sdk/temporal"
+  },
+  {
+    "source": "paragon-actionkit--useparagon-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Paragon ActionKit overview says capabilities are exposed to AI agents via its API or MCP (Paragon MCP Server).",
+    "citation": "https://docs.useparagon.com/actionkit/overview"
+  },
+  {
+    "source": "pipedream-connect--pipedream-com",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Pipedream Connect docs have a \"Pipedream MCP with Vercel's AI SDK\" page.",
+    "citation": "https://pipedream.com/docs/connect/mcp/ai-frameworks/vercel-ai-sdk"
+  },
+  {
+    "source": "pipedream-connect--pipedream-com",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Pipedream Connect docs have an OpenAI integration page for Pipedream MCP.",
+    "citation": "https://pipedream.com/docs/connect/mcp/ai-frameworks/openai"
+  },
+  {
+    "source": "pipedream-connect--pipedream-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Pipedream Connect docs have a \"Pipedream MCP with Anthropic\" page.",
+    "citation": "https://pipedream.com/docs/connect/mcp/ai-frameworks/anthropic"
+  },
+  {
+    "source": "pipedream-connect--pipedream-com",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Pipedream Connect docs have a \"Pipedream MCP with Gemini\" page.",
+    "citation": "https://pipedream.com/docs/connect/mcp/ai-frameworks/gemini"
+  },
+  {
+    "source": "pipedream-connect--pipedream-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Pipedream Connect docs have an MCP Servers page (Pipedream MCP for AI frameworks and LLMs).",
+    "citation": "https://pipedream.com/docs/connect/mcp"
+  },
+  {
+    "source": "smithery--smithery-ai",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Smithery docs have a \"Vercel AI SDK Integration\" page for using Smithery MCP servers with the AI SDK.",
+    "citation": "https://smithery.ai/docs/integrations/vercel_ai_sdk"
+  },
+  {
+    "source": "smithery--smithery-ai",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Smithery docs \"What is MCP?\" concept page: Smithery is a registry and host for MCP servers.",
+    "citation": "https://smithery.ai/docs/concepts/what_is_mcp"
+  },
+  {
+    "source": "nango--nango-dev",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Nango \"MCP Auth\" guide lets users connect to MCP servers through Nango.",
+    "citation": "https://nango.dev/docs/guides/auth/mcp-auth"
+  },
+  {
+    "source": "descope-agentic-identity-hub--descope-com",
+    "target": "portkey-ai--portkey-ai",
+    "type": "integrates-with",
+    "evidence": "Descope docs have a Portkey MCP-gateway integration page.",
+    "citation": "https://docs.descope.com/mcp/gateways/integrations/portkey"
+  },
+  {
+    "source": "descope-agentic-identity-hub--descope-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Descope docs have a Model Context Protocol section (MCP SDKs, auth for MCP servers).",
+    "citation": "https://docs.descope.com/mcp"
+  },
+  {
+    "source": "descope-agentic-identity-hub--descope-com",
+    "target": "okta-cross-app-access-xaa--okta-com",
+    "type": "integrates-with",
+    "evidence": "Descope docs have an enterprise-managed authorization section on issuing and accepting Cross App Access (XAA / ID-JAG) tokens.",
+    "citation": "https://docs.descope.com/agentic-identity-hub/enterprise-managed-authorization/how-xaa-works"
+  },
+  {
+    "source": "descope-agentic-identity-hub--descope-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Descope docs have a guide to issuing XAA ID-JAG tokens for Claude.",
+    "citation": "https://docs.descope.com/agentic-identity-hub/enterprise-managed-authorization/issue-id-jags/claude"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Anthropic provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/anthropic/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "baseten--baseten-co",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Baseten provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/baseten/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "cartesia-sonic--cartesia-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Cartesia provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/cartesia/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Cohere provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/cohere/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a DeepSeek provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/deepseek/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Google AI Studio (Gemini) provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/google-ai-studio/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a xAI (Grok) provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/grok/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Mistral AI provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/mistral/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a OpenRouter provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/openrouter/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "replicate--replicate-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway docs have a Replicate provider page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/usage/providers/replicate/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway integrations docs have a Vercel AI SDK page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/integrations/vercel-ai-sdk/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway integrations docs have a Claude Code page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway integrations docs have a Cursor page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/cursor/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "github-copilot-agent-mode--gh-features-copilot",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway integrations docs have a GitHub Copilot CLI page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/github-copilot-cli/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway integrations docs have a OpenAI Codex page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/openai-codex/"
+  },
+  {
+    "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare AI Gateway integrations docs have a OpenCode page.",
+    "citation": "https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/opencode/"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "google-agent-development-kit-adk--gh-google-adk-python",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a Google ADK (durable execution for ADK agents) page.",
+    "citation": "https://docs.dbos.dev/integrations/google-adk"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a LlamaIndex (Workflows) page.",
+    "citation": "https://docs.dbos.dev/integrations/llamaindex"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "pydantic-logfire--pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a Pydantic Logfire page.",
+    "citation": "https://docs.dbos.dev/integrations/logfire"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a OpenAI Agents SDK (durable agents) page.",
+    "citation": "https://docs.dbos.dev/integrations/openai-agents"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a Pydantic AI page.",
+    "citation": "https://docs.dbos.dev/integrations/pydantic-ai"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a Vercel AI SDK (durable agents) page.",
+    "citation": "https://docs.dbos.dev/integrations/vercel-ai"
+  },
+  {
+    "source": "dbos--dbos-dev",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "DBOS integrations docs have a DBOS MCP Server page.",
+    "citation": "https://docs.dbos.dev/integrations/mcp"
+  },
+  {
+    "source": "hatchet--hatchet-run",
+    "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+    "type": "integrates-with",
+    "evidence": "Hatchet cookbooks include a Claude Agent SDK cookbook.",
+    "citation": "https://docs.hatchet.run/cookbooks/hatchet-claude-agent-sdk-trusted-env"
+  },
+  {
+    "source": "hatchet--hatchet-run",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "Hatchet cookbooks include an OpenAI Agents SDK cookbook.",
+    "citation": "https://docs.hatchet.run/cookbooks/hatchet-openai-agents-sdk-trusted-env"
+  },
+  {
+    "source": "hatchet--hatchet-run",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Hatchet \"Hatchet Agent Tools\" cookbook exposes Hatchet tasks as MCP tools.",
+    "citation": "https://docs.hatchet.run/cookbooks/hatchet-and-mcp"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Codex page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/codex/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "dify--gh-langgenius-dify",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Dify page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/no-code/dify/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "flowise-memory--docs-flowiseai-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Flowise page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/no-code/flowise/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "goose-block--block-github-io",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Goose page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/no-code/goose/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "langflow--gh-langflow-ai-langflow",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Langflow page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/no-code/langflow/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "n8n-ai-agent-flows--n8n-io",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a n8n page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/no-code/n8n/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Pydantic AI page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/pydanticai/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a OpenAI page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/openai/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a OpenRouter Broadcast page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/openrouter/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Google Gen AI (Gemini) page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/google-genai/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Anthropic page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/anthropic/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a LangChain page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/langchain/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a LiteLLM page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/litellm/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "dspy--gh-stanfordnlp-dspy",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a DSPy page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/dspy/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a MCP page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/mcp/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a LlamaIndex page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/llamaindex/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "phidata-now-agno--agno-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Agno page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/agno/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "autogen-ag2--gh-ag2ai-ag2",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a AutoGen page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/autogen/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Claude Agent SDK page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/claude-agent-sdk/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "crewai--crewai-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a CrewAI page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/crewai/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "google-agent-development-kit-adk--gh-google-adk-python",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Google ADK page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/google-adk/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "haystack-framework--haystack-deepset-ai",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Haystack page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/haystack/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a LangGraph page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/langgraph/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "letta-memgpt--letta-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Letta page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/letta/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Semantic Kernel page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/semantic-kernel/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "smolagents-hugging-face--gh-huggingface-smolagents",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a smolagents page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/smolagents/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "strands-agents-aws--strandsagents-com",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Strands Agents page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/llms/strands/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "mastra--mastra-ai",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Mastra page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/agent-frameworks/mastra/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a OpenAI Agents SDK (TypeScript) page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/agent-frameworks/openai-agents-js/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Vercel AI SDK page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/agent-frameworks/vercel-ai-sdk/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "genkit--gh-firebase-genkit",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Genkit (Go) page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/agent-frameworks/genkit-go/"
+  },
+  {
+    "source": "pydantic-logfire--pydantic-dev",
+    "target": "microsoft-agent-framework--gh-microsoft-agent-framework",
+    "type": "integrates-with",
+    "evidence": "Pydantic Logfire integrations docs have a Microsoft Agent Framework (.NET) page.",
+    "citation": "https://pydantic.dev/docs/logfire/integrations/agent-frameworks/agent-framework-dotnet/"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a Anthropic provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#anthropic"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "aws-sagemaker--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a AWS SageMaker provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#aws-sagemaker"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a DeepSeek provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#deepseek"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "fireworks-ai--fireworks-ai",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a Fireworks AI provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#fireworks-ai"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a Google Gemini provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#gemini"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a LiteLLM Proxy provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#litellm-proxy"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a Mistral provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#mistral"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a OpenAI provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#openai"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a OpenRouter provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#openrouter"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "sglang--gh-sgl-project-sglang",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a SGLang provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#sglang"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "together-ai--together-ai",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a Together AI provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#together-ai"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "vllm--gh-vllm-project-vllm",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a vLLM provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#vllm"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "Inspect AI model-providers page documents a Grok (xAI) provider.",
+    "citation": "https://inspect.aisi.org.uk/providers.html#grok"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Anthropic LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Claude Agent SDK LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "crewai--crewai-com",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a CrewAI LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "google-agent-development-kit-adk--gh-google-adk-python",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Google ADK LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Google GenAI LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a LangChain LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a LangGraph LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a LiteLLM LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a MCP LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a MistralAI LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a OpenAI LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a OpenAI Agents LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Pydantic AI LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "strands-agents-aws--strandsagents-com",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Strands Agents LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a Vercel AI SDK LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "target": "vllm--gh-vllm-project-vllm",
+    "type": "integrates-with",
+    "evidence": "Datadog LLM Observability auto-instrumentation page lists a vLLM LLM integration.",
+    "citation": "https://docs.datadoghq.com/llm_observability/instrument/auto_instrumentation/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "baseten--baseten-co",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Baseten provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/baseten/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Cohere provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/cohere/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a DeepSeek provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/deepseek/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "fireworks-ai--fireworks-ai",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Fireworks AI provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/fireworks/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Mistral AI provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/mistral/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a OpenAI provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/openai/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "openrouter--openrouter-ai",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a OpenRouter provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/openrouter/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "together-ai--together-ai",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Together AI provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/togetherai/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a xAI provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/xai/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "meta-llama-4-family--ai-meta-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Meta (Llama API) provider page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/providers/meta/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Claude Code client page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/clients/claude-code/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Codex client page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/clients/codex/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "continue-dev-harness--continue-dev",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a VS Code Continue client page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/clients/continue/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Cursor client page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/clients/cursor/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a OpenCode client page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/clients/opencode/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "goose-block--block-github-io",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Goose web UI page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/web-uis/goose/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "arize-ai--arize-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Arize AX observability page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/observability/arize/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "arize-phoenix--phoenix-arize-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Arize Phoenix observability page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/observability/phoenix/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "braintrust--braintrust-dev",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Braintrust observability page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/observability/braintrust/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Datadog observability page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/observability/datadog/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "langfuse--langfuse-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Langfuse observability page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/observability/langfuse/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "langsmith--langchain-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a LangSmith observability page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/llm/observability/langsmith/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "auth0-for-ai-agents--auth0-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Auth0 auth page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/auth/auth0/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "descope-agentic-identity-hub--descope-com",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a Descope auth page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/auth/descope/"
+  },
+  {
+    "source": "agentgateway--agentgateway-dev",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "agentgateway integrations docs have a MCP page.",
+    "citation": "https://agentgateway.dev/docs/standalone/latest/integrations/mcp/"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "phidata-now-agno--agno-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Agno integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/agno"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "arize-ai--arize-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Arize integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/arize"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "arthur-engine--gh-arthur-ai-arthur-engine",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Arthur AI guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/arthur-ai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Azure Content Safety guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/azure-content-safety"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "amazon-bedrock-guardrails--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a AWS Bedrock Guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/bedrock-guardrails"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "braintrust--braintrust-dev",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Braintrust integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/braintrust"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "browserbase--browserbase-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Browserbase MCP server integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/mcp/browserbase-mcp-server"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "calypso-ai--calypsoai-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a F5 CalypsoAI guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/f5-calypsoai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "cline-harness--cline-bot",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Cline integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/cline"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "comet-ml--comet-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Comet Opik integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/comet-opik"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "confident-ai-deepeval--confident-ai-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Confident AI integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/confident-ai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "crewai--crewai-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a CrewAI integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/crewai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "crowdstrike-falcon-guardian-formerly-pangea-ai-guard--crowdstrike-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a CrowdStrike guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/crowdstrike"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Cursor integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/cursor"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "dify--gh-langgenius-dify",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Dify integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/dify"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "dspy--gh-stanfordnlp-dspy",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a DSPy integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/dspy"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "fireworks-ai--fireworks-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Fireworks integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/fireworks"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "flowise-memory--docs-flowiseai-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Flowise integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/flowise"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "github-copilot-agent-mode--gh-features-copilot",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a GitHub Copilot integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/github-copilot"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "google-cloud-model-armor--cloud-google-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Google Model Armor integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/google-model-armor"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "goose-block--block-github-io",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Goose integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/goose"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "guardrails-ai--guardrailsai-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Guardrails AI integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/guardrails-ai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "honeyhive--honeyhive-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a HoneyHive integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/honeyhive"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "laminar--laminar-sh",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Laminar integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/laminar"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a LangChain integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/langchain"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "langflow--gh-langflow-ai-langflow",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Langflow integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/langflow"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "langfuse--langfuse-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Langfuse integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/langfuse"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "langsmith--langchain-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a LangSmith integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/langsmith"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "livekit-agents--docs-livekit-io",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a LiveKit integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/livekit"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "n8n-ai-agent-flows--n8n-io",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a n8n integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/n8n"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "neo4j--neo4j-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Neo4j MCP server integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/mcp/neo4j-mcp-server"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a NVIDIA NeMo Guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/nvidia-nemo"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a OpenAI Agents SDK integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/openai-agents-sdk"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a OpenAI Codex CLI integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/openai-codex-cli"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a OpenCode integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/opencode"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Traceloop integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/traceloop"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "patronus-ai--patronus-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Patronus integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/patronus"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "promptlayer--promptlayer-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a PromptLayer integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/promptlayer"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Pydantic AI integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/pydantic-ai"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "pydantic-logfire--pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Pydantic Logfire integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/pydantic-logfire"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "roo-code--roocode-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Roo Code integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/roo-code"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "strands-agents-aws--strandsagents-com",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a Strands Agents integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/strands"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "weights-biases--wandb-ai",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a CoreWeave W&B Weave guardrails integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/coreweave-weave-guardrails"
+  },
+  {
+    "source": "truefoundry-ai-gateway--truefoundry-com",
+    "target": "openai-swarm-deprecated--gh-openai-swarm",
+    "type": "integrates-with",
+    "evidence": "TrueFoundry AI Gateway ecosystem lists a OpenAI Swarm integration page.",
+    "citation": "https://www.truefoundry.com/docs/ai-gateway/openai-swarm"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a LangChain framework integration page.",
+    "citation": "https://vercel.com/docs/ai-gateway/ecosystem/framework-integrations/langchain"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "langfuse--langfuse-com",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Langfuse framework integration page.",
+    "citation": "https://vercel.com/docs/ai-gateway/ecosystem/framework-integrations/langfuse"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a LiteLLM framework integration page.",
+    "citation": "https://vercel.com/docs/ai-gateway/ecosystem/framework-integrations/litellm"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a LlamaIndex framework integration page.",
+    "citation": "https://vercel.com/docs/ai-gateway/ecosystem/framework-integrations/llamaindex"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "mastra--mastra-ai",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Mastra framework integration page.",
+    "citation": "https://vercel.com/docs/ai-gateway/ecosystem/framework-integrations/mastra"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Pydantic AI framework integration page.",
+    "citation": "https://vercel.com/docs/ai-gateway/ecosystem/framework-integrations/pydantic-ai"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a AI SDK page page.",
+    "citation": "https://vercel.com/docs/ai-gateway/sdks-and-apis/ai-sdk"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "aider--aider-chat",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Aider coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/aider"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Claude Code coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/claude-code"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "cline-harness--cline-bot",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Cline coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/cline"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "continue-dev-harness--continue-dev",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Continue CLI coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/continue"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Cursor coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/cursor"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "github-copilot-agent-mode--gh-features-copilot",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a GitHub Copilot CLI coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/copilot"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "goose-block--block-github-io",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Goose coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/goose"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a OpenAI Codex coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/openai-codex"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a OpenCode coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/opencode"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "openhands-all-hands-ai--all-hands-dev",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a OpenHands coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/openhands"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "roo-code--roocode-com",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Roo Code coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/roo-code"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "zed-agentic-editing--zed-dev",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway docs have a Zed coding-agent page.",
+    "citation": "https://vercel.com/docs/ai-gateway/coding-agents/zed"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway model directory has a Mistral Large 4 model page.",
+    "citation": "https://vercel.com/ai-gateway/models/mistral-large-4"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway model directory has a DeepSeek V4.1 Flash model page.",
+    "citation": "https://vercel.com/ai-gateway/models/deepseek-v4.1-flash-1017"
+  },
+  {
+    "source": "vercel-ai-gateway--vercel-com",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Vercel AI Gateway model directory has a Gemini model page.",
+    "citation": "https://vercel.com/ai-gateway/models/gemini-4-argon"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "Inspect AI \"Agent Bridge\" page documents bridging OpenAI Agents SDK agents into Inspect evaluations.",
+    "citation": "https://inspect.aisi.org.uk/agent-bridge.html"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "pydantic-ai--ai-pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Inspect AI \"Agent Bridge\" page documents bridging Pydantic AI agents into Inspect evaluations.",
+    "citation": "https://inspect.aisi.org.uk/agent-bridge.html"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Inspect AI \"Agent Bridge\" page documents bridging LangChain agents into Inspect evaluations.",
+    "citation": "https://inspect.aisi.org.uk/agent-bridge.html"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Inspect AI \"Agent Bridge\" page documents bridging Claude Code agents into Inspect evaluations.",
+    "citation": "https://inspect.aisi.org.uk/agent-bridge.html"
+  },
+  {
+    "source": "inspect-ai--inspect-aisi-org-uk",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Inspect AI \"Agent Bridge\" page documents bridging Codex CLI agents into Inspect evaluations.",
+    "citation": "https://inspect.aisi.org.uk/agent-bridge.html"
+  },
+  {
+    "source": "auth0-for-ai-agents--auth0-com",
+    "target": "genkit--gh-firebase-genkit",
+    "type": "integrates-with",
+    "evidence": "Auth0 for AI Agents docs have a Genkit SDK page.",
+    "citation": "https://auth0.com/ai/docs/sdks/genkit-sdk"
+  },
+  {
+    "source": "auth0-for-ai-agents--auth0-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Auth0 for AI Agents docs have a LangChain SDK page.",
+    "citation": "https://auth0.com/ai/docs/sdks/langchain-sdk"
+  },
+  {
+    "source": "auth0-for-ai-agents--auth0-com",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "Auth0 for AI Agents docs have a LlamaIndex SDK page.",
+    "citation": "https://auth0.com/ai/docs/sdks/llamaindex-sdk"
+  },
+  {
+    "source": "auth0-for-ai-agents--auth0-com",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Auth0 for AI Agents docs have a Vercel AI SDK page.",
+    "citation": "https://auth0.com/ai/docs/sdks/vercel-ai-sdk"
+  },
+  {
+    "source": "auth0-for-ai-agents--auth0-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Auth0 for AI Agents docs have an \"AI Agents & MCP\" section (auth for MCP servers).",
+    "citation": "https://auth0.com/docs/ai-agents-mcp"
+  },
+  {
+    "source": "auth0-for-ai-agents--auth0-com",
+    "target": "okta-cross-app-access-xaa--okta-com",
+    "type": "integrates-with",
+    "evidence": "Auth0 for AI Agents docs have a Cross App Access (XAA) page.",
+    "citation": "https://auth0.com/docs/ai-agents-mcp/cross-app-access"
+  },
+  {
+    "source": "paragon-actionkit--useparagon-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Paragon \"ActionKit for Tool Calling\" page has a LangGraph / LangChain section.",
+    "citation": "https://docs.useparagon.com/actionkit/actionkit-for-tool-calling"
+  },
+  {
+    "source": "paragon-actionkit--useparagon-com",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Paragon \"ActionKit for Tool Calling\" page has a LangGraph / LangChain section.",
+    "citation": "https://docs.useparagon.com/actionkit/actionkit-for-tool-calling"
+  },
+  {
+    "source": "paragon-actionkit--useparagon-com",
+    "target": "vercel-ai-sdk--sdk-vercel-ai",
+    "type": "integrates-with",
+    "evidence": "Paragon \"ActionKit for Tool Calling\" page has a Vercel AI SDK section.",
+    "citation": "https://docs.useparagon.com/actionkit/actionkit-for-tool-calling"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Claude Code.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#claude-code"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Claude Desktop.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#claude-desktop"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Codex.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#codex"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "continue-dev-harness--continue-dev",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Continue.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#continue"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Cursor.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#cursor"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "goose-block--block-github-io",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Goose.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#goose"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for OpenCode.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#opencode"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "zed-agentic-editing--zed-dev",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit get-started page has connect-client instructions for Zed.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#zed"
+  },
+  {
+    "source": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Docker MCP Toolkit page: management interface to run containerized MCP servers and connect them to MCP clients.",
+    "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/toolkit/"
+  },
+  {
+    "source": "dapr-agents--docs-dapr-io",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Dapr Agents integrations: \"Use Anthropic Claude models with Dapr Agents\" provider page.",
+    "citation": "https://docs.dapr.io/developing-ai/dapr-agents/integrations/providers/anthropic/"
+  },
+  {
+    "source": "dapr-agents--docs-dapr-io",
+    "target": "chroma--trychroma-com",
+    "type": "integrates-with",
+    "evidence": "Dapr Agents vector-stores integrations include a Chroma vector store.",
+    "citation": "https://docs.dapr.io/developing-ai/dapr-agents/integrations/vector-stores/chroma/"
+  },
+  {
+    "source": "dapr-agents--docs-dapr-io",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Dapr Agents tools integrations include MCP Toolbox for Databases.",
+    "citation": "https://docs.dapr.io/developing-ai/dapr-agents/integrations/tools/mcp-toolbox/"
+  },
+  {
+    "source": "openai-evals--gh-openai-evals",
+    "target": "weights-biases--wandb-ai",
+    "type": "integrates-with",
+    "evidence": "OpenAI Evals README says evals can also be run and created using Weights & Biases.",
+    "citation": "https://github.com/openai/evals"
+  },
+  {
+    "source": "microsoft-mcp-gateway--gh-microsoft-mcp-gateway",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Microsoft MCP Gateway README: reverse proxy and management layer for Model Context Protocol servers.",
+    "citation": "https://github.com/microsoft/mcp-gateway"
+  },
+  {
+    "source": "arthur-engine--gh-arthur-ai-arthur-engine",
+    "target": "openinference--gh-arize-ai-openinference",
+    "type": "integrates-with",
+    "evidence": "Arthur Engine README: collects and analyzes OpenInference OpenTelemetry traces from agentic workflows.",
+    "citation": "https://github.com/arthur-ai/arthur-engine"
+  },
+  {
+    "source": "golem--golem-cloud",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Golem docs have an MCP invocation page (expose agents as MCP servers).",
+    "citation": "https://learn.golem.cloud/v1.6/invoke/mcp"
+  },
+  {
+    "source": "arthur-engine--gh-arthur-ai-arthur-engine",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Arthur Engine repo has an integrations/claude-code-observability integration.",
+    "citation": "https://github.com/arthur-ai/arthur-engine/tree/dev/integrations/claude-code-observability"
+  },
+  {
+    "source": "arthur-engine--gh-arthur-ai-arthur-engine",
+    "target": "openai-codex-cli--gh-openai-codex",
+    "type": "integrates-with",
+    "evidence": "Arthur Engine repo has an integrations/codex-observability integration.",
+    "citation": "https://github.com/arthur-ai/arthur-engine/tree/dev/integrations/codex-observability"
+  },
+  {
+    "source": "arthur-engine--gh-arthur-ai-arthur-engine",
+    "target": "truefoundry-ai-gateway--truefoundry-com",
+    "type": "integrates-with",
+    "evidence": "Arthur Engine repo has an integrations/truefoundry integration.",
+    "citation": "https://github.com/arthur-ai/arthur-engine/tree/dev/integrations/truefoundry"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a OpenAI (Chat Completions/Responses) integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#-openai-integration"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a Anthropic (Messages API) integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#-anthropic-integration"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a Gemini (generateContent) integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#-gemini-integration"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "openai-swarm-deprecated--gh-openai-swarm",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a OpenAI Swarm integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#-openai-swarm-integration"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a LiteLLM integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#-litellm-integration"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "autogen-ag2--gh-ag2ai-ag2",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a Microsoft AutoGen integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#-microsoft-autogen-integration"
+  },
+  {
+    "source": "invariant-guardrails--invariantlabs-ai",
+    "target": "openhands-all-hands-ai--all-hands-dev",
+    "type": "integrates-with",
+    "evidence": "Invariant Gateway README has a OpenHands integration section.",
+    "citation": "https://github.com/invariantlabs-ai/invariant-gateway#openhands-integration"
+  },
+  {
+    "source": "golem--golem-cloud",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Golem \"Adding LLM and AI Capabilities (TypeScript)\" guide shows the official OpenAI SDK working in Golem agents.",
+    "citation": "https://learn.golem.cloud/v1.6/how-to-guides/ts/golem-add-llm-ts#openai"
+  },
+  {
+    "source": "golem--golem-cloud",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Golem \"Adding LLM and AI Capabilities (TypeScript)\" guide shows the official @anthropic-ai/sdk package working in Golem agents.",
+    "citation": "https://learn.golem.cloud/v1.6/how-to-guides/ts/golem-add-llm-ts#anthropic"
+  },
+  {
+    "source": "guardrails-ai--guardrailsai-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Guardrails AI docs have a LangChain integration page.",
+    "citation": "https://guardrailsai.com/guardrails/docs/integrations/langchain"
+  },
+  {
+    "source": "guardrails-ai--guardrailsai-com",
+    "target": "langsmith--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Guardrails AI docs have a LangSmith integration section on its LangChain page.",
+    "citation": "https://guardrailsai.com/guardrails/docs/integrations/langchain#langsmith-integration"
+  },
+  {
+    "source": "guardrails-ai--guardrailsai-com",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "Guardrails AI docs have a LlamaIndex integration page.",
+    "citation": "https://guardrailsai.com/guardrails/docs/integrations/llamaindex"
+  },
+  {
+    "source": "guardrails-ai--guardrailsai-com",
+    "target": "mlflow--mlflow-org",
+    "type": "integrates-with",
+    "evidence": "Guardrails AI docs have an MLflow GenAI integration page.",
+    "citation": "https://guardrailsai.com/guardrails/docs/integrations/mlflow-genai"
+  },
+  {
+    "source": "merge-agent-handler--merge-dev",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Merge Agent Handler page says it is installed as a remote MCP server and lists MCP connectors.",
+    "citation": "https://www.merge.dev/merge-agent-handler"
+  },
+  {
+    "source": "merge-agent-handler--merge-dev",
+    "target": "cursor-ide--cursor-com",
+    "type": "integrates-with",
+    "evidence": "Merge Agent Handler page says Agent Handler can be installed as an MCP server for Cursor.",
+    "citation": "https://www.merge.dev/merge-agent-handler"
+  },
+  {
+    "source": "merge-agent-handler--merge-dev",
+    "target": "claude-code-anthropic--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Merge Agent Handler page says it connects tools like Claude Code to company systems.",
+    "citation": "https://www.merge.dev/merge-agent-handler"
+  },
+  {
+    "source": "merge-agent-handler--merge-dev",
+    "target": "arize-ai--arize-com",
+    "type": "integrates-with",
+    "evidence": "Merge Agent Handler connector directory has an Arize connector.",
+    "citation": "https://www.merge.dev/connectors/arize"
+  },
+  {
+    "source": "okta-cross-app-access-xaa--okta-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Okta Cross App Access page says XAA is the recommended way to connect to MCP servers in the enterprise.",
+    "citation": "https://www.okta.com/solutions/cross-app-access/"
+  },
+  {
+    "source": "workos-authkit-for-mcp--workos-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "WorkOS AuthKit MCP docs: authorization for MCP servers.",
+    "citation": "https://workos.com/docs/authkit/mcp"
+  },
+  {
+    "source": "lunar-dev-mcpx--lunar-dev",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Lunar.dev MCPX product page: MCP gateway.",
+    "citation": "https://www.lunar.dev/product/mcp"
+  },
+  {
+    "source": "official-mcp-registry--registry-modelcontextprotocol-io",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Official MCP Registry: registry of Model Context Protocol servers run by the MCP project.",
+    "citation": "https://registry.modelcontextprotocol.io/"
+  },
+  {
+    "source": "glama-mcp--glama-ai",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Glama MCP directory of Model Context Protocol servers.",
+    "citation": "https://glama.ai/mcp"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "crowdstrike-falcon-guardian-formerly-pangea-ai-guard--crowdstrike-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a CrowdStrike AIDR third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/crowdstrike-aidr"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "guardrails-ai--guardrailsai-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Guardrails AI third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/guardrails-ai"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "meta-llama-protections-llama-guard-prompt-guard-llamafirewall--dev-meta-ai",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Llama Guard third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/llama-guard"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "patronus-ai--patronus-ai",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Patronus Lynx third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/patronus-lynx"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "presidio--presidio-dataprivacystack-org",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Presidio third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/presidio"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "prompt-security-sentinelone--sentinelone-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Prompt Security third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/prompt-security"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "calypso-ai--calypsoai-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a F5 AI Guardrails third-party guardrail page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/f5-ai-guardrails"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a LangChain integration page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/integration-with-third-party-libraries/langchain"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a LangGraph integration page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/integration-with-third-party-libraries/langchain/langgraph-integration"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "cohere-embed--cohere-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Cohere embeddings provider page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/guardrails-python-sdk/nemoguardrails/embeddings/providers/cohere"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "openai-embeddings--platform-openai-com",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a OpenAI embeddings provider page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/guardrails-python-sdk/nemoguardrails/embeddings/providers/openai"
+  },
+  {
+    "source": "nvidia-nemo-guardrails--docs-nvidia-com",
+    "target": "sentence-transformers--sbert-net",
+    "type": "integrates-with",
+    "evidence": "NeMo Guardrails docs have a Sentence Transformers embeddings provider page.",
+    "citation": "https://docs.nvidia.com/nemo/guardrails/guardrails-python-sdk/nemoguardrails/embeddings/providers/sentence_transformers"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "agent2agent-protocol-a2a--google-github-io",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a A2A (Agent-to-Agent) integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/a2a/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "autogen-ag2--gh-ag2ai-ag2",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a AutoGen integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/autogen/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "beeai-framework--gh-i-am-bee-beeai-framework",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a BeeAI Framework integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/beeai/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "crewai--crewai-com",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a CrewAI integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/crewai/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a LangChain integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/langchain/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "langgraph-orchestration--langchain-com",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a LangGraph integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/langgraph/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "llamaindex-framework--llamaindex-ai",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a LlamaIndex integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/llamaindex/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a OpenAI Agents SDK integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/openai-sdk/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a Semantic Kernel integration page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/agents/semantic-kernel/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a Claude Desktop client page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/clients/claude-desktop/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "cline-harness--cline-bot",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a Cline client page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/clients/cline/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "continue-dev-harness--continue-dev",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a Continue client page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/clients/continue/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "github-copilot-agent-mode--gh-features-copilot",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a GitHub Copilot client page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/using/clients/copilot/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "langfuse--langfuse-com",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a Langfuse observability page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/manage/observability/langfuse/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "arize-phoenix--phoenix-arize-com",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs have a Phoenix observability page.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/manage/observability/phoenix/"
+  },
+  {
+    "source": "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "IBM ContextForge docs: MCP gateway and registry federating Model Context Protocol servers.",
+    "citation": "https://ibm.github.io/mcp-context-forge/latest/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a Anthropic AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/anthropic/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "cohere-command-r-command-a--cohere-com",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a Cohere AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/cohere/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "alibaba-qwen-3-family--qwenlm-github-io",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a DashScope (Qwen) AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/dashscope/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "deepseek-r1-v3-family--deepseek-com",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a DeepSeek AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/deepseek/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "google-gemini-3-family--blog-google",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a Gemini AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/gemini/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "mistral-large-2-mixtral-family--mistral-ai",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a Mistral AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/mistral/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a OpenAI AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/openai/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "aws-sagemaker--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a SageMaker AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/sagemaker/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "vercel-ai-gateway--vercel-com",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a Vercel (AI Gateway) AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/vercel/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "vllm--gh-vllm-project-vllm",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a vLLM AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/vllm/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "xai-grok-4--x-ai",
+    "type": "integrates-with",
+    "evidence": "Kong AI Gateway docs have a xAI AI-provider reference page.",
+    "citation": "https://developer.konghq.com/ai-gateway/ai-providers/xai/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "amazon-bedrock-guardrails--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "Kong has an AI AWS Guardrails plugin.",
+    "citation": "https://developer.konghq.com/plugins/ai-aws-guardrails/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+    "type": "integrates-with",
+    "evidence": "Kong has an AI Azure Content Safety plugin.",
+    "citation": "https://developer.konghq.com/plugins/ai-azure-content-safety/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "google-cloud-model-armor--cloud-google-com",
+    "type": "integrates-with",
+    "evidence": "Kong has an AI GCP Model Armor plugin.",
+    "citation": "https://developer.konghq.com/plugins/ai-gcp-model-armor/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "lakera-guard-lakera-red--lakera-ai",
+    "type": "integrates-with",
+    "evidence": "Kong has an AI Lakera Guard plugin.",
+    "citation": "https://developer.konghq.com/plugins/ai-lakera-guard/"
+  },
+  {
+    "source": "kong-ai-gateway--konghq-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Kong has an AI MCP Proxy plugin.",
+    "citation": "https://developer.konghq.com/plugins/ai-mcp-proxy/"
+  },
+  {
+    "source": "google-cloud-model-armor--cloud-google-com",
+    "target": "langchain-framework--langchain-com",
+    "type": "integrates-with",
+    "evidence": "Google Cloud Model Armor docs have an \"Integrate with LangChain\" page.",
+    "citation": "https://docs.cloud.google.com/model-armor/model-armor-langchain-integration"
+  },
+  {
+    "source": "google-cloud-model-armor--cloud-google-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Model Armor docs have an integration page for Google and Google Cloud MCP servers.",
+    "citation": "https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration"
+  },
+  {
+    "source": "crowdstrike-falcon-guardian-formerly-pangea-ai-guard--crowdstrike-com",
+    "target": "portkey-ai--portkey-ai",
+    "type": "integrates-with",
+    "evidence": "Pangea AI Guard integration options include a Portkey API-gateway integration page.",
+    "citation": "https://pangea.cloud/docs/integration-options/api-gateways/portkey"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "prompt-security-sentinelone--sentinelone-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Prompt Security guardrail page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/prompt_security"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Azure Content Safety guardrail page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/azure_content_guardrail"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "amazon-bedrock-guardrails--aws-amazon-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Bedrock Guardrails page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/bedrock"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "crowdstrike-falcon-guardian-formerly-pangea-ai-guard--crowdstrike-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a CrowdStrike AIDR guardrail page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/crowdstrike_aidr"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "guardrails-ai--guardrailsai-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Guardrails AI guardrail page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/guardrails_ai"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "google-cloud-model-armor--cloud-google-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Google Cloud Model Armor guardrail page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/model_armor"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "presidio--presidio-dataprivacystack-org",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Presidio PII/PHI masking guardrail page.",
+    "citation": "https://docs.litellm.ai/docs/proxy/guardrails/pii_masking_v2"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Datadog observability page.",
+    "citation": "https://docs.litellm.ai/docs/observability/datadog"
+  },
+  {
+    "source": "litellm--gh-berriai-litellm",
+    "target": "pydantic-logfire--pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "LiteLLM docs have a Logfire observability page.",
+    "citation": "https://docs.litellm.ai/docs/observability/logfire_integration"
+  },
+  {
+    "source": "presidio--presidio-dataprivacystack-org",
+    "target": "litellm--gh-berriai-litellm",
+    "type": "integrates-with",
+    "evidence": "Presidio samples include \"PII Masking LLM calls using LiteLLM\".",
+    "citation": "https://presidio.dataprivacystack.org/samples/docker/litellm/"
+  },
+  {
+    "source": "presidio--presidio-dataprivacystack-org",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "Presidio samples include synthetic data generation with OpenAI.",
+    "citation": "https://presidio.dataprivacystack.org/samples/python/synth_data_with_openai/"
+  },
+  {
+    "source": "obot--obot-ai",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Obot docs describe its MCP gateway concept.",
+    "citation": "https://docs.obot.ai/concepts/mcp-gateway/"
+  },
+  {
+    "source": "cloudflare-mcp-server-portals--developers-cloudflare-com",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare MCP server portals docs: the portal page gives per-client connection instructions for Claude Desktop.",
+    "citation": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/"
+  },
+  {
+    "source": "cloudflare-mcp-server-portals--developers-cloudflare-com",
+    "target": "opencode-sst--opencode-ai",
+    "type": "integrates-with",
+    "evidence": "Cloudflare MCP server portals docs: the portal page gives per-client connection instructions for OpenCode.",
+    "citation": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/"
+  },
+  {
+    "source": "cloudflare-mcp-server-portals--developers-cloudflare-com",
+    "target": "windsurf-codeium-openai--windsurf-com",
+    "type": "integrates-with",
+    "evidence": "Cloudflare MCP server portals docs: the portal page gives per-client connection instructions for Windsurf.",
+    "citation": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/"
+  },
+  {
+    "source": "cloudflare-mcp-server-portals--developers-cloudflare-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Cloudflare MCP server portals docs: a portal exposes multiple MCP servers behind one MCP endpoint.",
+    "citation": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/"
+  },
+  {
+    "source": "stytch-connected-apps--stytch-com",
+    "target": "okta-cross-app-access-xaa--okta-com",
+    "type": "integrates-with",
+    "evidence": "Stytch Connected Apps docs have a Cross App Access (XAA) guide.",
+    "citation": "https://stytch.com/docs/connected-apps/guides/cross-app-access"
+  },
+  {
+    "source": "stytch-connected-apps--stytch-com",
+    "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+    "type": "integrates-with",
+    "evidence": "Stytch Connected Apps docs have an MCP authorization overview guide.",
+    "citation": "https://stytch.com/docs/connected-apps/guides/mcp-auth-overview"
+  },
+  {
+    "source": "vercel-ai-sdk--sdk-vercel-ai",
+    "target": "vercel-ai-gateway--vercel-com",
+    "type": "integrates-with",
+    "evidence": "AI SDK providers docs have a Vercel AI Gateway provider page.",
+    "citation": "https://ai-sdk.dev/providers/ai-sdk-providers/ai-gateway"
+  },
+  {
+    "source": "pydantic-ai--ai-pydantic-dev",
+    "target": "dbos--dbos-dev",
+    "type": "integrates-with",
+    "evidence": "Pydantic AI durable-execution docs have a DBOS page.",
+    "citation": "https://pydantic.dev/docs/ai/capabilities/durable_execution/dbos/"
+  },
+  {
+    "source": "pydantic-ai--ai-pydantic-dev",
+    "target": "pydantic-logfire--pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "Pydantic AI docs have a Logfire integration page for instrumentation.",
+    "citation": "https://pydantic.dev/docs/ai/integrations/logfire/"
+  },
+  {
+    "source": "llamaindex-framework--llamaindex-ai",
+    "target": "dbos--dbos-dev",
+    "type": "integrates-with",
+    "evidence": "LlamaIndex Workflows docs have a DBOS Durable Execution page.",
+    "citation": "https://developers.llamaindex.ai/python/llamaagents/workflows/dbos/"
+  },
+  {
+    "source": "llamaindex-framework--llamaindex-ai",
+    "target": "honeyhive--honeyhive-ai",
+    "type": "integrates-with",
+    "evidence": "LlamaIndex observability module guide has a HoneyHive section.",
+    "citation": "https://developers.llamaindex.ai/python/framework/module_guides/observability/#honeyhive"
+  },
+  {
+    "source": "llamaindex-framework--llamaindex-ai",
+    "target": "vercel-ai-gateway--vercel-com",
+    "type": "integrates-with",
+    "evidence": "LlamaIndex has a Vercel AI Gateway LLM integration page.",
+    "citation": "https://developers.llamaindex.ai/python/framework/integrations/llm/vercel-ai-gateway/"
+  },
+  {
+    "source": "crewai--crewai-com",
+    "target": "truefoundry-ai-gateway--truefoundry-com",
+    "type": "integrates-with",
+    "evidence": "CrewAI observability docs have a TrueFoundry integration page.",
+    "citation": "https://docs.crewai.com/en/observability/truefoundry"
+  },
+  {
+    "source": "crewai--crewai-com",
+    "target": "datadog-agent-observability-llm-observability--datadoghq-com",
+    "type": "integrates-with",
+    "evidence": "CrewAI observability docs have a Datadog integration page.",
+    "citation": "https://docs.crewai.com/en/observability/datadog"
+  },
+  {
+    "source": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "target": "honeyhive--honeyhive-ai",
+    "type": "integrates-with",
+    "evidence": "OpenAI Agents SDK tracing docs list HoneyHive among external tracing processors.",
+    "citation": "https://openai.github.io/openai-agents-python/tracing/"
+  },
+  {
+    "source": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "target": "laminar--laminar-sh",
+    "type": "integrates-with",
+    "evidence": "OpenAI Agents SDK tracing docs list Laminar among external tracing processors.",
+    "citation": "https://openai.github.io/openai-agents-python/tracing/"
+  },
+  {
+    "source": "openai-agents-sdk--gh-openai-openai-agents-python",
+    "target": "pydantic-logfire--pydantic-dev",
+    "type": "integrates-with",
+    "evidence": "OpenAI Agents SDK tracing docs list Pydantic Logfire among external tracing processors.",
+    "citation": "https://openai.github.io/openai-agents-python/tracing/"
+  },
+  {
+    "source": "workos-authkit-for-mcp--workos-com",
+    "target": "okta-cross-app-access-xaa--okta-com",
+    "type": "integrates-with",
+    "evidence": "WorkOS AuthKit MCP docs have a Cross App Access section.",
+    "citation": "https://workos.com/docs/authkit/mcp#cross-app-access"
+  },
+  {
+    "source": "pyrit--microsoft-github-io",
+    "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "type": "integrates-with",
+    "evidence": "PyRIT Prompt Targets docs have OpenAI Chat, Responses, Image, Video and TTS targets.",
+    "citation": "https://microsoft.github.io/PyRIT/1.1.0/code/targets/prompt-targets/"
+  },
+  {
+    "source": "pyrit--microsoft-github-io",
+    "target": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+    "type": "integrates-with",
+    "evidence": "PyRIT Prompt Targets docs include a Prompt Shield Target.",
+    "citation": "https://microsoft.github.io/PyRIT/1.1.0/code/targets/prompt-targets/"
+  },
+  {
+    "source": "pyrit--microsoft-github-io",
+    "target": "anthropic-claude-foundation-models--anthropic-com",
+    "type": "integrates-with",
+    "evidence": "PyRIT framework overview says targets connect to OpenAI, Azure, Anthropic, HuggingFace and HTTP endpoints.",
+    "citation": "https://microsoft.github.io/PyRIT/1.1.0/code/framework/"
+  },
+  {
+    "source": "pyrit--microsoft-github-io",
+    "target": "garak--gh-nvidia-garak",
+    "type": "integrates-with",
+    "evidence": "PyRIT Scanner docs have a Garak Scenarios page.",
+    "citation": "https://microsoft.github.io/PyRIT/1.1.0/scanner/garak"
+  }
+]
