@@ -1,0 +1,49 @@
+{
+ "date": "2026-10-29",
+ "merges": [
+  {
+   "kept_id": "vertex-ai-memory-bank--docs-cloud-google-com",
+   "name": "Vertex AI Memory Bank (now Agent Platform Memory Bank)",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+     "name": "Gemini Enterprise Agent Platform Memory Bank (rebrand of Vertex AI Memory Bank)",
+     "cells_filled": [
+      "perf",
+      "versioning",
+      "tombstoning",
+      "forgetting",
+      "orchestration",
+      "obs-langsmith",
+      "obs-opentelemetry",
+      "obs-datadog",
+      "obs-helicone",
+      "obs-weave",
+      "obs-langfuse",
+      "obs-arize",
+      "obs-custom",
+      "cost-token-budget",
+      "cost-prompt-caching",
+      "cost-semantic-caching",
+      "cost-batching",
+      "cost-model-routing",
+      "cost-streaming-only",
+      "cost-observability-cost-attribution",
+      "eval-langsmith-evals",
+      "eval-braintrust",
+      "eval-weights-and-biases-agent",
+      "eval-helicone-evals",
+      "eval-custom-test-harness",
+      "eval-human-loop",
+      "eval-production-traffic-replay",
+      "cost-pricing-model",
+      "cost-last-verified"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Same Google Cloud product: Vertex AI Memory Bank was renamed Agent Platform Memory Bank when Vertex AI became Gemini Enterprise Agent Platform (Cloud Next, 2026-04-22). The kept row cites the product's own doc page; the dropped row cited the release notes."
+  }
+ ]
+}

@@ -1,0 +1,802 @@
+[
+ {
+  "id": "tonkean-legalworks--tonkean-com",
+  "name": "Tonkean LegalWorks",
+  "url": "https://tonkean.com/use-cases/legalworks/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Tonkean (Coupa) — Tonkean LegalWorks use-case URL 404; Coupa banner."
+  ],
+  "cells": {
+   "desc": "Tonkean is a workflow-orchestration platform; LegalWorks is the legal-ops vertical with AI agents for intake triage, contract routing, and SLA management. Tonkean: $50M Series C Sep-2022 (Insight + Lightspeed + Accel; $500M+ val).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Acquired by Coupa May-2026; previously $50M Series C Sep-2022 (Insight + Lightspeed + Accel)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "name": "Toplyne",
+  "url": "https://www.toplyne.io/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Toplyne dead — Reggie.ai parked/for sale; heypluto.ai doesn't resolve; toplyne.io 404 — probably dead."
+  ],
+  "cells": {
+   "desc": "Founded 2021; PLG-revenue intelligence — predicts which free users will convert, sales-ready signals. $17.5M Series A May-2023 (Tiger Global + Sequoia + Together Fund). Pivoted to AI-agent positioning 2024.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$17.5M Series A May-2023 (Tiger + Sequoia + Together)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "name": "Vercel AI SDK",
+  "url": "https://sdk.vercel.ai/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Vercel AI SDK moved — Redirects: sdk.vercel.ai → ai-sdk.dev; ai.pydantic.dev → pydantic.dev/docs/ai; Claude for Chrome → claude.com/blog/claude-for-chrome (now Pro/Team/Enterprise); crewai.com/enterprise 404 → crewai.com/amp."
+  ],
+  "cells": {
+   "desc": "Vercel's TypeScript LLM SDK — streaming, tool calls, structured outputs, agents. Dominant framework for Next.js LLM apps.",
+   "gh": "vercel/ai — ~28k stars, last commit 2026-10",
+   "license": "Apache-2.0",
+   "funding": "Part of Vercel — Vercel raised $250M Series E 2024-05 ($3.25B valuation; Accel led).",
+   "latest-release": "v7.0.154 (2026-10-26)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "name": "Windsurf (now Devin Desktop)",
+  "url": "https://windsurf.com",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Windsurf/Cognition domains — Windsurf → devin.ai/desktop; cognition.ai → cognition.com."
+  ],
+  "cells": {
+   "desc": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Codeium $150M Series C (2024); ~$3B reported OpenAI offer; ultimately $2.4B Google reverse-acqui-hire (2025-07)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom"
+  }
+ },
+ {
+  "id": "you-com-research--you-com",
+  "name": "You.com Research",
+  "url": "https://you.com/research",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "You.com research — You.com /research → sign-in; company now \"search and inference APIs\"."
+  ],
+  "cells": {
+   "desc": "You.com's research-agent mode — multi-step web research + synthesis. You.com parent: $99M Series B Aug-2024 ($700M val; Georgian + NEA + Salesforce Ventures). Founded by Richard Socher (ex-Salesforce Chief Scientist).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$99M Series B Aug-2024 ($700M val; Georgian + NEA + Salesforce Ventures)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "Research API usage-based: Lite $12, Standard $50, Deep $100, Exhaustive $450 per 1k calls (plus a Frontier tier)"
+  }
+ },
+ {
+  "id": "0-5-physical-intelligence--pi-website",
+  "name": "π0.5 (Physical Intelligence)",
+  "url": "https://www.pi.website/blog/pi05",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Physical Intelligence domain — Physical Intelligence: domain → pi.website; Pi API beta (Oct 2026)."
+  ],
+  "cells": {
+   "desc": "Extends π0 with MEM layer giving the policy short-term (within-task) + long-term (cross-task, >10-min horizon) memory. Co-trained on robot teleoperation + human video + text. Hierarchical inference: VLA predicts subtasks as text tokens, then executes as action chunks.",
+   "gh": "Physical-Intelligence/openpi — ~13.3k stars, last commit not confirmed (π0.5 base, DROID and LIBERO checkpoints released)",
+   "license": "Apache-2.0 (openpi repo; repo also ships a LICENSE_GEMMA.txt for Gemma-derived terms)",
+   "funding": "total ~$1.07B (Series B $600M at $5.6B led by CapitalG, 2025-11); ~$1B at ~$11B reported in talks Mar 2026, not confirmed closed",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "acontext-memodb--gh-memodb-io-acontext",
+  "name": "Acontext (memodb)",
+  "url": "https://github.com/memodb-io/Acontext",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Acontext unmaintained — Acontext (memodb): \"no longer maintained\"; team moved to alook.ai."
+  ],
+  "cells": {
+   "desc": "'Agent Skills as a Memory Layer': an open-source skill-memory layer that stores what agents learn as agent skill files. Built by the Memobase team. Traction: ~3.7k stars",
+   "gh": "https://github.com/memodb-io/Acontext (3696★)",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "last commit 2026-04-21",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "aleph-alpha-phariaai-phariacatch--aleph-alpha-com",
+  "name": "Aleph Alpha PhariaAI / PhariaCatch",
+  "url": "https://aleph-alpha.com/phariaai/",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Aleph Alpha PhariaAI — Aleph Alpha: site no longer names PhariaAI/PhariaCatch."
+  ],
+  "cells": {
+   "desc": "German enterprise stack. PhariaCatch captures + preserves organisational knowledge through structured human-machine collaboration; PhariaAssistant queries via semantic search. Combines sovereign deployment constraints with explainability tooling.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$532M total Series B · 2023-11",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only (PhariaAI is an enterprise stack; no public pricing)"
+  }
+ },
+ {
+  "id": "anda-hippocampus--gh-ldclabs-anda-hippocampus",
+  "name": "Anda Hippocampus (now Anda Brain)",
+  "url": "https://github.com/ldclabs/anda-brain",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": "renamed",
+  "decay_cause": null,
+  "leads": [
+   "Anda Brain self-host only — Anda Brain: hosted brain.anda.ai discontinued; self-host only."
+  ],
+  "cells": {
+   "desc": "Renamed Anda Brain (repo now ldclabs/anda-brain). Native graph-based memory for autonomous AI agents. Bio-inspired sleep-based memory consolidation.",
+   "gh": "ldclabs/anda-brain (renamed from anda-hippocampus) — ~80 stars, last release 2026-10",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "v0.13.5 (2026-10-17)",
+   "pricing": "OSS (Apache-2.0 + MIT); free — no commercial pricing"
+  }
+ },
+ {
+  "id": "anthropic-auto-dream--claudefa-st",
+  "name": "Anthropic Auto Dream",
+  "url": "https://claudefa.st/blog/guide/mechanics/auto-dream",
+  "section": "Claude Code memory mechanisms",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Anthropic Auto Dream secondary — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Unconfirmed / experimental — described only by third-party reports, not Anthropic docs: a background Claude Code sub-agent that periodically scans ~/.claude/projects/‹project›/memory/ plus recent transcripts, prunes stale notes, deduplicates, resolves contradictions, converts relative dates to absol",
+   "gh": "not applicable — no GitHub repo (Claude Code closed source)",
+   "license": "not applicable — not OSS",
+   "funding": "Anthropic total ~$133B raised (Series H $65B at $965B valuation, 2026-05-28)",
+   "latest-release": "not applicable — not OSS (server-side feature flag)",
+   "pricing": "bundled with Claude Code (no separate fee)"
+  }
+ },
+ {
+  "id": "atlas--arxiv-2208-03299",
+  "name": "Atlas",
+  "url": "https://arxiv.org/abs/2208.03299",
+  "section": "Retrieval-as-memory hybrids",
+  "family": "memory",
+  "current_status": "research-code",
+  "decay_cause": "research-complete",
+  "leads": [
+   "Atlas unmaintained — Atlas README: \"REPO NO LONGER MAINTAINED\"."
+  ],
+  "cells": {
+   "desc": "Meta AI. Jointly fine-tunes retriever + LM for few-shot tasks.",
+   "gh": "facebookresearch/atlas — ~560 stars, unmaintained",
+   "license": "CC-BY-NC 4.0",
+   "funding": "not applicable — not commercial",
+   "latest-release": "n/a",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "augment-code--augmentcode-com",
+  "name": "Augment Code",
+  "url": "https://www.augmentcode.com",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Augment Cosmos — Augment Code now leads with \"Cosmos\" agent platform."
+  ],
+  "cells": {
+   "desc": "Real-time knowledge graph indexed from connected repos + commit history + CI/CD + tickets + docs. Separate Agent Memory layer (Sept 2025) captures session decisions/corrections/goals as discrete items with developer review/approval UI. MCP endpoint exposes the graph.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$252M total $977M val Series B · 2024-04",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Standard $20/mo (incl. $20 usage, up to 50 seats); Business $100/mo (incl. $100 usage); Enterprise custom"
+  }
+ },
+ {
+  "id": "autorag--arxiv-2410-20878",
+  "name": "AutoRAG",
+  "url": "https://arxiv.org/abs/2410.20878",
+  "section": "Retrieval-as-memory hybrids",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "AutoRAG 2.0 — AutoRAG repo now \"AutoRAG 2.0\" desktop file-search app; AutoML library in legacy/ maintenance."
+  ],
+  "cells": {
+   "desc": "Applies AutoML to RAG: greedy algorithm evaluates and selects best-performing module at each pipeline stage (query expansion, retrieval, reranking, generation). Validated on ARAGOG (423 papers, 107 QAs).",
+   "gh": "Marker-Inc-Korea/AutoRAG — ~5.1k stars, last commit n/a (PyPI release 2026-10)",
+   "license": "MIT (AutoRAG 2.0); Apache-2.0 (legacy/ package)",
+   "funding": "not applicable — not commercial",
+   "latest-release": "v0.3.27 (2026-10-04)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "backboard--github-com",
+  "name": "Backboard",
+  "url": "https://github.com/Backboard-io",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Backboard pivot — Backboard: now \"AI compute efficiency lab\"; memory = Stateful API."
+  ],
+  "cells": {
+   "desc": "Stateful AI API combining persistent memory, RAG, web search and routing across many LLMs behind one interface, with SDKs for Python and npm; benchmarks its memory on LoCoMo and LongMemEval.",
+   "gh": "Backboard-io/Backboard-Locomo-Benchmark — ~18 stars (org's largest repo is Backboard-R-CLI, ~54 stars)",
+   "license": "Unlicensed",
+   "funding": "undisclosed pre-seed (2026-01), led by Mistral Venture Partners + N49P; Garage Capital, DevCap participated. The $3M figure could not be confirmed: BetaKit and the company press release give no amount",
+   "latest-release": "no releases",
+   "pricing": "Free $0; Education $5; Developer $20; Scale $400 (billing period not stated on page)"
+  }
+ },
+ {
+  "id": "beads-steve-yegge--gh-steveyegge-beads",
+  "name": "Beads (Steve Yegge)",
+  "url": "https://github.com/steveyegge/beads",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Beads moved — Beads: install script under gastownhall/beads."
+  ],
+  "cells": {
+   "desc": "Dolt-backed, dependency-aware graph issue tracker that acts as persistent structured memory for coding agents, replacing markdown plans; `bd remember` stores durable facts and `bd prime` re-injects them. Traction: ~28k GitHub stars",
+   "gh": "https://github.com/steveyegge/beads (28104★)",
+   "license": "MIT",
+   "funding": "searched not found",
+   "latest-release": "last commit 2026-10-22",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "bee--bee-computer",
+  "name": "Bee",
+  "url": "https://bee.computer",
+  "section": "Voice-first / wearable AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Bee (Amazon) — Amazon Q Developer: IDE plugin support ends 2027-04-30, points to Kiro."
+  ],
+  "cells": {
+   "desc": "Acquired by Amazon (Jul 2025); bee.computer is now © Amazon and sells the Bee Frontier wearable ($74.99), with a Bee Eclipse device marked coming soon. Small wearable (pendant / clip / bracelet). Continuous capture; converts speech to text immediately; never stores raw audio . Daily summaries, perso",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "total $7M (seed, 2024-07); acquired by Amazon (announced 2025-07, terms undisclosed)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Bee Frontier bracelet $74.99 (sold via Amazon, launched 2026-10-15); Bee Pro subscription $11.99/mo (free tier keeps 14 days of memory); Bee Eclipse ($100) coming soon"
+  }
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "name": "BenevolentAI",
+  "url": "https://www.benevolent.com/",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "BenevolentAI — BenevolentAI: homepage only \"Qor, powered by BenevolentAI\"."
+  ],
+  "cells": {
+   "desc": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream pred",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$550M total raised (pre-merger); merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only"
+  }
+ },
+ {
+  "id": "byterover--byterover-dev",
+  "name": "ByteRover",
+  "url": "https://www.byterover.dev/",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": "archived",
+  "decay_cause": null,
+  "leads": [
+   "ByteRover license — ByteRover license: homepage says MIT; catalog Elastic-2.0 — re-check."
+  ],
+  "cells": {
+   "desc": "Agent-memory product. LLM-curated hierarchical context.",
+   "gh": "campfirein/byterover-cli — ~5k stars, archived 2026-09-27",
+   "license": "Elastic-2.0 (CLI repo, now archived)",
+   "funding": "searched not found",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free $0; Pro $14.90/mo; Team $149/mo (third-party listing checked 2026-08-26)"
+  }
+ },
+ {
+  "id": "character-ai--character-ai",
+  "name": "Character.ai",
+  "url": "https://character.ai",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Character.ai Chapter 11 — Character.ai: blog 2026-10-12 announces voluntary Chapter 11 process to sell the company; app still running."
+  ],
+  "cells": {
+   "desc": "Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention. Latest chat models PipSqueak 3 and ShortSqueak (Sep 2026). On 2026-10-12 the company announced a voluntary Chapter 11 process for a court-supervised sale of all or substantially all assets",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "In voluntary Chapter 11 (announced 2026-10-12; notice of commencement 2026-10-15) to sell all or substantially all assets; previously $2.7B Google licensing deal (2024-08)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free + paid"
+  }
+ },
+ {
+  "id": "cipher-byterover--gh-campfirein-cipher",
+  "name": "Cipher (byterover) (now ByteRover CLI)",
+  "url": "https://github.com/campfirein/byterover-cli",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "ByteRover license — ByteRover license: homepage says MIT; catalog Elastic-2.0 — re-check."
+  ],
+  "cells": {
+   "desc": "Renamed ByteRover CLI (brv); repo campfirein/byterover-cli archived read-only 2026-09-27, license changed to Elastic License 2.0. Opensource memory layer focused on programming agents — works with Cursor, Windsurf, Claude Code, Roo Code via MCP. Maintains a coding-context memory across sessions and ",
+   "gh": "campfirein/byterover-cli (formerly cipher) — ~5.0k stars, archived 2026-09",
+   "license": "Elastic-2.0",
+   "funding": "searched not found",
+   "latest-release": "v3.16.1 (2026-05-27)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "name": "Cloudflare Agent Memory",
+  "url": "https://www.infoq.com/news/2026/04/cloudflare-agent-memory-beta/",
+  "section": "Platform-provider memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Cloudflare Agent Memory secondary url — Cloudflare Agent Memory: catalog url is InfoQ (secondary) → primary blog.cloudflare.com/introducing-agent-memory/."
+  ],
+  "cells": {
+   "desc": "Managed persistent memory service for AI agents on Cloudflare's edge. Beta-launched April 2026. Sits alongside Workers AI / Vectorize as the memory tier of the Cloudflare agent stack.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Cloudflare public (NET); market cap ~$45B",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free during private beta (not billed; Cloudflare promises 30 days' notice before charging)"
+  }
+ },
+ {
+  "id": "cocounsel-legal-thomson-reuters--legaltechnology-com",
+  "name": "CoCounsel Legal (Thomson Reuters)",
+  "url": "https://legaltechnology.com/2025/08/05/thomson-reuters-launches-cocounsel-legal-with-agentic-ai-and-deep-research-capabilities/",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "CoCounsel secondary url — CoCounsel row url is secondary (legaltechnology.com) → Thomson Reuters product page."
+  ],
+  "cells": {
+   "desc": "Next-gen release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep firm documents and precedents as context across matters and teams, plus Brief Builder, a Word drafting agent and Deep Research Verify.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Public company (Thomson Reuters)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "name": "Continue.dev .continue/rules",
+  "url": "https://docs.continue.dev/customize/deep-dives/rules",
+  "section": "File-backed / editor paradigms",
+  "family": "memory",
+  "current_status": "dead",
+  "decay_cause": null,
+  "leads": [
+   "Continue acquired by Cursor — Continue.dev: continue.dev says \"Continue was acquired by Cursor\"; repo read-only, final 2.0.0."
+  ],
+  "cells": {
+   "desc": ".continue/rules/*.md at workspace root, loaded lexicographically; YAML frontmatter name, globs, regex, description, alwaysApply. Continue was acquired by Cursor in June 2026 and the extension is no longer maintained.",
+   "gh": "continuedev/continue — ~35.7k stars, last commit 2026-06 (read-only, unmaintained)",
+   "license": "Apache-2.0",
+   "funding": "not applicable — feature of Continue; Continue acquired by Cursor (2026-06, terms undisclosed) and discontinued",
+   "latest-release": "v2.0.0-vscode (2026-06-19) — final release",
+   "pricing": "not applicable — not commercial"
+  }
+ },
+ {
+  "id": "continue-dev-memory-mcp--hub-continue-dev",
+  "name": "Continue.dev Memory MCP",
+  "url": "https://hub.continue.dev/continuedev/memory-mcp",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": "archived",
+  "leads": [
+   "Continue acquired by Cursor — Continue.dev: continue.dev says \"Continue was acquired by Cursor\"; repo read-only, final 2.0.0."
+  ],
+  "cells": {
+   "desc": "Discontinued: Continue was bought by Cursor (announced ~2026-06-16); the product is discontinued and the continuedev/continue repo is read-only. Official Memory MCP (Mar 2025) backed by a knowledge graph. Memory is injected via MCP rather than native to the Continue core. Scope depends on MCP server",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$5.6M total raised: $2.1M (YCS23) + $3M SAFE led by Heavybit; acquired by Cursor (2026-06, terms undisclosed)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free (OSS core); paid Continue Hub plans for teams (pricing on website)"
+  }
+ },
+ {
+  "id": "cursor-memories--docs-cursor-com",
+  "name": "Cursor Memories",
+  "url": "https://docs.cursor.com/context/memories",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Cursor Memories removed? — Continue.dev: continue.dev says \"Continue was acquired by Cursor\"; repo read-only, final 2.0.0."
+  ],
+  "cells": {
+   "desc": "Project-scoped memories in Cursor, created either by a background 'sidecar' model watching chats or by the agent via tool calls, and managed as auto-generated rules in settings. Traction: First-party feature of one of the most widely used AI IDEs",
+   "gh": "not applicable — no GitHub repo",
+   "license": "proprietary",
+   "funding": "searched not found",
+   "latest-release": "searched not found",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "devin-cognition--devin-ai",
+  "name": "Devin (Cognition)",
+  "url": "https://devin.ai",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Windsurf/Cognition domains — Windsurf → devin.ai/desktop; cognition.ai → cognition.com."
+  ],
+  "cells": {
+   "desc": "Structured Knowledge items stored server-side. Three-tier scope: repo-pinned (always injected), global (recall by relevance), org/enterprise (visible to org members). Auto-generates Repo Knowledge from repo structure each session; reads past session trajectories for self-improvement; writes notes fo",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Series E ›$2B at $48B post-money (a16z/Accel, Sep 2026); prior Series D ›$1B at $26B (May 2026)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo; Enterprise custom"
+  }
+ },
+ {
+  "id": "era-computer--techcrunch-com",
+  "name": "Era Computer",
+  "url": "https://techcrunch.com/2026/04/23/era-computer-raises-11m-to-build-a-software-platform-for-ai-gadgets/",
+  "section": "Voice-first / wearable AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Era Computer — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Software platform / OS layer for AI wearables (glasses, rings, pendants, speakers) that abstracts hardware from AI orchestration. Memory and model providers are pluggable and user-controlled rather than cloud-locked; supports 130+ LLMs from 14+ providers. Founded 2025 by ex-Humane team.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$11M total Seed · 2026-04",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "not applicable — not commercial"
+  }
+ },
+ {
+  "id": "flowise-memory--docs-flowiseai-com",
+  "name": "Flowise Memory",
+  "url": "https://docs.flowiseai.com/integrations/langchain/memory",
+  "section": "Framework-embedded memory",
+  "family": "memory",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "Flowise archived — Flowise: README says \"Flowise has been archived\"."
+  ],
+  "cells": {
+   "desc": "Discontinued: Flowise (acquired by Workday, Aug 2025) was sunset in 2026 — code freeze 2026-07-29, GitHub repo archived 2026-08-13, end of life 2026-08-31. Was a visual LangChain canvas with LangChain-native memory nodes (Buffer, Buffer Window, Conversation Summary Buffer) backed by an internal chat",
+   "gh": "FlowiseAI/Flowise — ~55.4k stars, archived 2026-08-13 (sunset plan had targeted 2026-08-10)",
+   "license": "Apache-2.0",
+   "funding": "total $500K (Seed, YC, 2023-01); acquired by Workday (announced 2025-08-14, terms undisclosed)",
+   "latest-release": "flowise@3.1.4 (2026-07-29) — final",
+   "pricing": "discontinued — product sunset (EOL 2026-08-31); OSS code remains forkable under Apache-2.0"
+  }
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "name": "FutureHouse",
+  "url": "https://www.futurehouse.org/",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "FutureHouse -> Edison — FutureHouse: now non-profit fellowship/research; platform.futurehouse.org → platform.edisonscientific.com."
+  ],
+  "cells": {
+   "desc": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Philanthropically funded (Eric Schmidt) + Edison spinout raised $70M seed at $250M valuation",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only"
+  }
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "name": "Gemini CLI memory (save_memory / GEMINI.md)",
+  "url": "https://geminicli.com/docs/tools/memory",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Gemini CLI replaced by Antigravity CLI — Gemini CLI: geminicli.com says replaced by Antigravity CLI on 2026-06-18."
+  ],
+  "cells": {
+   "desc": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal co",
+   "gh": "https://github.com/google-gemini/gemini-cli (107516★)",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "last commit 2026-10-21",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+  "name": "Gemini Enterprise Agent Platform Memory Bank (rebrand of Vertex AI Memory Bank)",
+  "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+  "section": "Platform-provider memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Memory Bank duplicate — Nyne: pivoted to \"The data factory for AI\" (data licensing); no memory product."
+  ],
+  "cells": {
+   "desc": "GA at Google Cloud Next 2026 (2026-04-22). Vertex AI rebranded as Gemini Enterprise Agent Platform; Memory Bank now \"Agent Platform Memory Bank\" with new continuous event-streaming + automated memory generation triggered by configurable criteria (event count or idle time). Backed by Agent Runtime th",
+   "gh": "not applicable — no GitHub repo (managed cloud service)",
+   "license": "not applicable — not OSS",
+   "funding": "Google/Alphabet public (GOOGL); ~$2T+ market cap",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Pay-per-use; Memory Bank compute metered on the Agent Platform compute SKU from 2026-09-01, plus embedding-model SKUs"
+  }
+ },
+ {
+  "id": "graphrag-microsoft--microsoft-com",
+  "name": "GraphRAG (Microsoft)",
+  "url": "https://www.microsoft.com/en-us/research/project/graphrag/",
+  "section": "Retrieval-as-memory hybrids",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "GraphRAG maintenance — Microsoft GraphRAG: README \"largely in maintenance mode\" (bug fixes/CVEs only)."
+  ],
+  "cells": {
+   "desc": "Modular graph-based RAG. Leiden community detection over knowledge graph; community summaries at multiple levels. DRIFT Search hybrid (Oct 2024).",
+   "gh": "microsoft/graphrag — ~35.1k stars, last commit n/a (PyPI release 2026-10)",
+   "license": "MIT",
+   "funding": "not applicable — not commercial",
+   "latest-release": "v3.3.0 (2026-10-08)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "name": "Grok Memory (xAI)",
+  "url": "https://www.maginative.com/article/xai-upgrades-grok-with-personalized-memory-and-custom-workspaces/",
+  "section": "Platform-provider memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Grok Memory secondary — Grok Memory row cites maginative.com (secondary) — needs primary."
+  ],
+  "cells": {
+   "desc": "Extracts and persists facts from past conversations; applies them to future responses. Per-memory deletion UI; user can also clear all.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "xAI raised $20B Series E (Jan 2026; Valor, StepStone, Fidelity, QIA, Nvidia, Cisco), ~$230B valuation; merged into SpaceX (announced 2026-02-02, combined ~$1T)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free; SuperGrok ~$30/mo (higher limits, multi-agent)"
+  }
+ },
+ {
+  "id": "heyday--heyday-xyz",
+  "name": "Heyday",
+  "url": "https://www.heyday.xyz/",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Heyday dead — Heyday (heyday.xyz) redirects to empty /lander — likely dead."
+  ],
+  "cells": {
+   "desc": "AI assistant that builds a searchable memory from meetings (Zoom app), emails, documents, notes and web reading; answers questions, prepares client context and drafts content. Now marketed mainly to coaches and knowledge workers.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "total $6.5M (Seed led by Spark Capital, Jun 2022)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "$19/mo (monthly) or $179/yr (annual) — browser extension AI research assistant"
+  }
+ },
+ {
+  "id": "inworld-ai--inworld-ai",
+  "name": "Inworld AI",
+  "url": "https://inworld.ai",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Inworld pivot — Bee: site © Amazon. Inworld: pivoted to voice/inference APIs. Sandbar Stream preorder-only. Soul Machines site up despite receivership."
+  ],
+  "cells": {
+   "desc": "Formerly an NPC character engine with named Long-Term Memory; now sells realtime voice models (TTS-2, STT-1, speech-to-speech) and OpenAI-compatible open-model inference. Character/NPC memory is no longer the headline product.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$50M total $500M val Series A · 2023-08",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Usage-based: TTS-2 $25/1M chars on demand ($10 Enterprise); TTS-2 Flash $15/1M; STT-1 $0.10/audio-hour; open LLMs from $0.07/1M input tokens"
+  }
+ },
+ {
+  "id": "krutrim-kruti-ola--ai-labs-olakrutrim-com",
+  "name": "Krutrim Kruti (Ola)",
+  "url": "https://ai-labs.olakrutrim.com/",
+  "section": "Dedicated memory layers",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": "archived",
+  "leads": [
+   "Krutrim Kruti — Krutrim Kruti: Krutrim page no longer mentions Kruti (catalog: shut down Apr 2026)."
+  ],
+  "cells": {
+   "desc": "Shut down: Kruti was taken offline in Apr 2026 (pulled from app stores and the Ola platform, no official explanation). Was Ola Krutrim's agentic multimodal assistant (beta Jun 2025; booking, food ordering, bill pay; MCP/A2A for enterprises).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Product shut down Apr 2026 (parent Krutrim still operating). $50M Series A at $1B valuation (unicorn); Matrix Partners India; Bhavish Aggarwal committed ₹2000Cr + ₹10000Cr more",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "n/a — service offline since Apr 2026 (was free beta)"
+  }
+ },
+ {
+  "id": "labgenius--labgenius-app",
+  "name": "LabGenius",
+  "url": "https://www.labgenius.app/",
+  "section": "Vertical / domain-specific AI memory",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "LabGenius wrong url — LabGenius: catalog url labgenius.app is an unrelated app; real company labgenius.com."
+  ],
+  "cells": {
+   "desc": "Therapeutic-antibody discovery in a closed Design-Build-Test-Learn loop. EVA accumulates structured outcome data from each robotic experiment cycle and feeds it back to generative ML models directing the next design round. Genuine experiment-memory-as-training-signal.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Series B £35M led by M Ventures / Octopus Ventures / LG Corp May 2024",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only"
+  }
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "name": "Lakera Guard / Lakera Red",
+  "url": "https://www.lakera.ai/lakera-guard",
+  "section": "Memory governance, privacy & safety",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Lakera -> Check Point — Lakera: docs say Lakera is now Check Point; lakera-guard redirects to \"AI Agent Security\"."
+  ],
+  "cells": {
+   "desc": "Acquired by Check Point Software (completed by 2025-11-11); being folded into Check Point's AI security platform. Screens every prompt, response, and retrieved document for indirect prompt injection — primary vector for memory poisoning. Treats memory as untrusted: anything written to or read from m",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "acquired by Check Point Software (completed 2025-11; terms undisclosed officially, ~$300M reported)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Developer: free (10K API calls/mo); Pro: contact sales (higher volume + advanced detection)"
+  }
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "name": "LazyGraphRAG",
+  "url": "https://github.com/microsoft/graphrag/discussions/1490",
+  "section": "Retrieval-as-memory hybrids",
+  "family": "memory",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "GraphRAG maintenance — Microsoft GraphRAG: README \"largely in maintenance mode\" (bug fixes/CVEs only)."
+  ],
+  "cells": {
+   "desc": "Performs minimal up-front indexing; defers LLM use until query time. Being integrated into the main GraphRAG library.",
+   "gh": "microsoft/graphrag — ~35.1k stars, last commit 2026-08",
+   "license": "MIT",
+   "funding": "not applicable — not commercial",
+   "latest-release": "v3.1.2 (2026-08-21)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "letta-code--gh-letta-ai-letta-code",
+  "name": "Letta Code",
+  "url": "https://github.com/letta-ai/letta-code",
+  "section": "Coding-agent memory",
+  "family": "memory",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Letta repo moved / V1 archived — Letta: letta.com research-lab page; source moved to letta-ai/letta-code; V1 API server retired to archive branch."
+  ],
+  "cells": {
+   "desc": "Letta's stateful coding-agent harness: agents rewrite their own memory blocks and skills, version context in git via MemFS (syncable to GitHub) and reflect via a periodic /sleeptime 'dreaming' process. Traction: ~3.5k stars; from Letta (MemGPT) team",
+   "gh": "https://github.com/letta-ai/letta-code (3683★)",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "last commit 2026-10-22",
+   "pricing": "searched not found"
+  }
+ }
+]

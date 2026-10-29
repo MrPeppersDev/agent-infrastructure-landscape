@@ -1,0 +1,502 @@
+[
+ {
+  "id": "supabase-vector--supabase-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "supabase.com/vector returns 404 (2026-10-29); the Supabase Vector product page now lives at supabase.com/modules/vector and still offers pgvector-based vector storage.",
+  "lifecycle_citation": "https://supabase.com/modules/vector",
+  "record": {
+   "url": "https://supabase.com/modules/vector"
+  },
+  "updates": []
+ },
+ {
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "topquadrant.com (checked 2026-10-29) markets its platform only as TQ Data Foundation and no longer mentions TopBraid EDG; no explicit 'formerly EDG' statement found on the site.",
+  "lifecycle_citation": "https://www.topquadrant.com/tq-data-foundation",
+  "record": {
+   "name": "TopQuadrant TopBraid EDG (now TQ Data Foundation)"
+  },
+  "updates": []
+ },
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "01.ai (checked 2026-10-29) now leads with enterprise AI products (Boss AI, TopSales AI, WorldWise Enterprise LLM Platform released 2025-03); its milestones list Yi-Lightning (2024-10) as the latest Yi model. No discontinuation statement for Yi.",
+  "lifecycle_citation": "https://www.01.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen.",
+    "new": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen. By 2026 01.AI's site leads with enterprise AI products (WorldWise Enterprise LLM Platform, 2025-03; Boss AI; TopSales AI) and lists Yi-Lightning (2024-10) as its latest Yi model.",
+    "citation": "https://www.01.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Row url 404s (confirmed 2026-10-29); Amazon's Nova launch post now lives at aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws, and aws.amazon.com/nova is live.",
+  "lifecycle_citation": "https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws",
+  "record": {
+   "url": "https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws"
+  },
+  "updates": []
+ },
+ {
+  "id": "argilla--argilla-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "argilla.io banner and blog post 'Argilla is joining Hugging Face' (2024-06-13) describe the acquisition by Hugging Face; matches existing desc and funding.",
+  "lifecycle_citation": "https://argilla.io/blog/argilla-joins-hugggingface/",
+  "updates": []
+ },
+ {
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "README warns 'This repo is intended for archiving purposes', with future maintenance planned in CleanRL; repo not GitHub-archived, last push 2024-08-22.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Distributed PPO/IMPALA reference implementations from CleanRL author — research-friendly, reproducible.",
+    "new": "Distributed PPO/IMPALA reference implementations from CleanRL author — research-friendly, reproducible. README states the repo is intended for archiving purposes, with future maintenance in CleanRL; last push 2024-08.",
+    "citation": "https://raw.githubusercontent.com/vwxyzjn/cleanba/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "covariant--covariant-ai",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "covariant.ai (2026-10-29) renders only a '©2026 Covariant. All rights reserved.' line and /blog/ is 404; there is no primary shutdown statement and the domain is not parked, so death is unconfirmed.",
+  "lifecycle_citation": "https://covariant.ai/",
+  "updates": []
+ },
+ {
+  "id": "dagster--dagster-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "dagster.io/prefect: 'Dagster is now part of Prefect' letter dated 2026-07-13. Prefect is acquiring Dagster Labs; Dagster continues as a supported product under its own name and OSS license, and the combined company operates under the Prefect name from August 2026.",
+  "lifecycle_citation": "https://dagster.io/prefect",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Data orchestrator with first-class ML pipeline support — software-defined assets model; competes with Airflow/Prefect for ML pipelines.",
+    "new": "Data orchestrator with first-class ML pipeline support — software-defined assets model; competes with Airflow/Prefect for ML pipelines. Acquired by Prefect (announced 2026-07-13); Dagster continues as a supported product under its own name and open-source license.",
+    "citation": "https://dagster.io/prefect",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$47M total raised through Series B 2022-05 ($33M, Sapphire Ventures led).",
+    "new": "Acquired by Prefect (announced 2026-07-13; terms not disclosed); previously $47M total raised through Series B 2022-05 ($33M, Sapphire Ventures led).",
+    "citation": "https://dagster.io/prefect",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "dvc--dvc-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "dvc.org (2026-10-29) leads with lakeFS for AI/ML data infrastructure and keeps DVC as the free open-source 'Git Extension for Small Data Science Projects'; matches the existing desc (acquired by lakeFS/Treeverse).",
+  "lifecycle_citation": "https://dvc.org/",
+  "updates": []
+ },
+ {
+  "id": "figure-ai--figure-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "figure.ai positions Figure 03 for home help; 'Introducing Figure 03' is dated 2025-10-09 and the 'F.02 Decommission' post is dated 2026-09-30.",
+  "lifecycle_citation": "https://www.figure.ai/news",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Figure AI — humanoid robot maker founded 2022 by Brett Adcock (ex-Archer Aviation). Figure 02 (Aug 2024) + Helix VLA model (Feb 2025) for full-body / hand control. Raised $675M Series B Feb-2024 (Microsoft / OpenAI / Bezos / Intel; $2.6B val); reported new round at $39.5B val Q2 2025. Partnered with BMW for manufacturing pilots.",
+    "new": "Figure AI — humanoid robot maker founded 2022 by Brett Adcock (ex-Archer Aviation). Figure 02 (Aug 2024) + Helix VLA model (Feb 2025) for full-body / hand control. Raised $675M Series B Feb-2024 (Microsoft / OpenAI / Bezos / Intel; $2.6B val); reported new round at $39.5B val Q2 2025. Partnered with BMW for manufacturing pilots. Figure 03 (introduced 2025-10-09) is now marketed as a general-purpose home-help humanoid running Helix; Figure 02 was decommissioned (2026-09-30).",
+    "citation": "https://www.figure.ai/news",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Row url redirects to deepmind.google/models/gemini-robotics/, which now presents Gemini Robotics 2 alongside Gemini Robotics ER 2 and Gemini Robotics On-Device 2 (release date not shown on the page).",
+  "lifecycle_citation": "https://deepmind.google/models/gemini-robotics/",
+  "record": {
+   "url": "https://deepmind.google/models/gemini-robotics/"
+  },
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "Gemini Robotics 1.5 (2025)",
+    "new": "Gemini Robotics 2 (with Gemini Robotics ER 2 and On-Device 2; date not stated on the model page)",
+    "citation": "https://deepmind.google/models/gemini-robotics/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Row url 404s (2026-10-29); the Gemini 3 launch post is now at blog.google/products-and-platforms/products/gemini/gemini-3/. Google Cloud now also promotes Gemini 4 Argon.",
+  "lifecycle_citation": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+  "record": {
+   "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/"
+  },
+  "updates": []
+ },
+ {
+  "id": "google-vertex-ai-training--cloud-google-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "cloud.google.com/vertex-ai now redirects to the 'Gemini platform' page (Gemini Enterprise Agent Platform), which still offers custom training, and the training docs are now titled 'Serverless training overview | Gemini Enterprise Agent Platform'. The pages no longer mention 'Vertex AI'.",
+  "lifecycle_citation": "https://cloud.google.com/products/gemini-enterprise-agent-platform",
+  "record": {
+   "name": "Google Vertex AI Training (now Gemini Enterprise Agent Platform training)",
+   "url": "https://cloud.google.com/products/gemini-enterprise-agent-platform"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Google Cloud's managed training service — TPU and GPU clusters, hyperparameter tuning, model registry. Part of Vertex AI umbrella.",
+    "new": "Google Cloud's managed training service — TPU and GPU clusters, hyperparameter tuning, model registry. Part of Vertex AI umbrella. Vertex AI is now branded Gemini Enterprise Agent Platform (Gemini platform), and training is documented there as serverless and custom training (checked 2026-10-29).",
+    "citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "helicone--helicone-ai",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "helicone.ai banner (2026-10-29): 'Helicone is no longer part of Mintlify. Details to come soon.' The product is still offered, but the newest changelog entry is 2025-11-26, which fits the maintenance-mode desc.",
+  "lifecycle_citation": "https://www.helicone.ai/changelog",
+  "updates": []
+ },
+ {
+  "id": "humanloop--humanloop-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "humanloop.com now shows only 'Humanloop joins Anthropic': the team is joining Anthropic and 'we sunset the Humanloop platform', plus a migration guide. Matches the existing desc (platform shut down 2025-09-08).",
+  "lifecycle_citation": "https://humanloop.com/",
+  "updates": []
+ },
+ {
+  "id": "labelbox--labelbox-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Labelbox blog (2026-10-14): more than $100M Series E (equity plus a credit facility) at a $1.25B pre-money valuation, led by Infinitum Partners. The company now sells Horizon RL environments for frontier labs and Recursion managed agents for enterprises.",
+  "lifecycle_citation": "https://labelbox.com/blog/labelbox-series-e/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Enterprise data-labelling platform — annotation tools + 'Frontier' offering (expert RLHF labelers + Boost compute). Pivoting toward frontier-lab data services.",
+    "new": "Originally an enterprise data-labelling platform (annotation tools plus expert RLHF data for frontier labs). By 2026-10 it sells Horizon reinforcement-learning environments (WorldSim) to frontier AI labs and Recursion managed agents to enterprises.",
+    "citation": "https://labelbox.com/blog/labelbox-series-e/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$188.9M total raised (Series D $110M, 2022-01; led by SoftBank Vision Fund 2).",
+    "new": "$100M+ Series E 2026-10-14 (equity plus credit facility; $1.25B pre-money; Infinitum Partners led, with Wipro Ventures, a16z, B Capital); previously $188.9M total raised (Series D $110M, 2022-01; led by SoftBank Vision Fund 2).",
+    "citation": "https://labelbox.com/blog/labelbox-series-e/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The Llama 4 blog (2025-04-05) still loads; it returned 400 to a browser UA but 200 to curl. llama.com now redirects to dev.meta.ai, which leads with Muse models but still hosts the Llama 4 page (dev.meta.ai/llama/models/llama-4). No deprecation statement for Llama 4. The lead's Limitless text belongs to another row.",
+  "lifecycle_citation": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+  "updates": []
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The row's azure.microsoft.com 'welcome-phi-4' blog url 404s (2026-10-29). Microsoft's Phi product page azure.microsoft.com/en-us/products/phi is live and links the 'Introducing Phi-4' post (Tech Community, 2024-12-12).",
+  "lifecycle_citation": "https://azure.microsoft.com/en-us/products/phi",
+  "record": {
+   "url": "https://azure.microsoft.com/en-us/products/phi"
+  },
+  "updates": []
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "mistral.ai/news/mistral-large-2/ 404s; Mistral's 'Large Enough' Mistral Large 2 post (2024-07-24) is at mistral.ai/news/mistral-large-2407.",
+  "lifecycle_citation": "https://mistral.ai/news/mistral-large-2407/",
+  "record": {
+   "url": "https://mistral.ai/news/mistral-large-2407/"
+  },
+  "updates": []
+ },
+ {
+  "id": "nvidia-gr00t-isaac--developer-nvidia-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "developer.nvidia.com/isaac/gr00t redirects to nvidia.com/en-us/industries/robotics/isaac-groot/, which calls GR00T 1.7 'the latest open VLA model in the GR00T family'.",
+  "lifecycle_citation": "https://www.nvidia.com/en-us/industries/robotics/isaac-groot/",
+  "record": {
+   "url": "https://www.nvidia.com/en-us/industries/robotics/isaac-groot/"
+  },
+  "updates": []
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "octo.ai redirects to the NVIDIA homepage (nvidia.com/en-us/#referrer=octoai), which fits the NVIDIA acquisition already recorded in desc and funding. No OctoAI product page remains.",
+  "lifecycle_citation": "https://octo.ai/",
+  "updates": []
+ },
+ {
+  "id": "openmind-om1--openmind-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "openmind.org redirects to openmind.com ('OpenMind: The Deployment Layer for Agentic Robotics ... the operating system for robots that work with people').",
+  "lifecycle_citation": "https://openmind.com/",
+  "record": {
+   "url": "https://openmind.com/"
+  },
+  "updates": []
+ },
+ {
+  "id": "outerbounds--outerbounds-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "outerbounds.com banner: 'Outerbounds is joining Anaconda'. Anaconda's blog 'Anaconda Acquires Outerbounds' (2026-04-29) announces the acquisition; matches existing desc and funding.",
+  "lifecycle_citation": "https://www.anaconda.com/blog/anaconda-acquires-outerbounds",
+  "updates": []
+ },
+ {
+  "id": "pachyderm-hpe--pachyderm-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "pachyderm.com is unreachable through the proxy (502), so this was not checked. Lead refuted: the repo LICENSE file is Apache License 2.0 ('Copyright 2023 Hewlett Packard Enterprise'); the README badge only reads 'license-Pachyderm'. Repo is not archived, last push 2025-02-03.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/pachyderm/pachyderm/master/LICENSE",
+  "updates": []
+ },
+ {
+  "id": "patronus-ai--patronus-ai",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "docs.patronus.ai (2026-10-29): 'The LLM evaluation platform documented on this site is retired and no longer offered. Its evaluation API, SDKs, evaluators, Lynx, GLIDER and Percival are all retired.' patronus.ai now calls itself 'a behavioral research lab for AI'. No retirement date is given.",
+  "lifecycle_citation": "https://docs.patronus.ai/docs",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Enterprise eval and guardrails platform — Lynx hallucination detector (open weights), Glider judge model, Polyglot benchmark. Built by ex-Meta researchers.",
+    "new": "Enterprise eval and guardrails platform — Lynx hallucination detector (open weights), Glider judge model, Polyglot benchmark. Built by ex-Meta researchers. The evaluation platform (API, SDKs, evaluators, Lynx, GLIDER, Percival) has been discontinued per its docs (checked 2026-10-29); Patronus AI now operates as a behavioral research lab building training data and simulated environments for agents.",
+    "citation": "https://docs.patronus.ai/docs",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "physical-intelligence--physicalintelligence-company",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "physicalintelligence.company redirects to pi.website. The site announces the Pi API beta (2026-10-13: fine-tune and cloud-hosted inference) and π0.7 (2026-04-16).",
+  "lifecycle_citation": "https://www.pi.website/",
+  "record": {
+   "url": "https://www.pi.website/"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2024 by Sergey Levine (UC Berkeley) and Karol Hausman + others (ex-Google Brain Robotics). Building general-purpose robot foundation models (π0 released Oct-2024; π0.5 in 2025) trained on cross-embodiment robot trajectories. Raised $400M Series A (Nov-2024; Jeff Bezos, OpenAI, Thrive, Lux) at $2.4B val.",
+    "new": "Founded 2024 by Sergey Levine (UC Berkeley) and Karol Hausman + others (ex-Google Brain Robotics). Building general-purpose robot foundation models (π0 released Oct-2024; π0.5 in 2025) trained on cross-embodiment robot trajectories. Raised $400M Series A (Nov-2024; Jeff Bezos, OpenAI, Thrive, Lux) at $2.4B val. Released π0.7 (2026-04-16) and opened its models through the Pi API beta (2026-10-13).",
+    "citation": "https://www.pi.website/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "portkey.ai banner: 'Portkey is now PRISMA AIRS AI Gateway'. The Palo Alto Networks blog (2026-07-16) announcing Prisma AIRS AI Gateway GA cites 'the Portkey acquisition', GA 'just six weeks after closing', so the deal closed around early June 2026.",
+  "lifecycle_citation": "https://www.paloaltonetworks.com/blog/2026/07/announcing-general-availability-of-prisma-airs-ai-gateway/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI gateway + observability — load balancing across 200+ LLMs, retries, caching, eval, prompts. Open-source Gateway + commercial Portkey Cloud.",
+    "new": "AI gateway + observability — load balancing across 200+ LLMs, retries, caching, eval, prompts. Open-source Gateway + commercial Portkey Cloud. Acquired by Palo Alto Networks (closed about 2026-06); now sold as Prisma AIRS AI Gateway (GA 2026-07-16).",
+    "citation": "https://www.paloaltonetworks.com/blog/2026/07/announcing-general-availability-of-prisma-airs-ai-gateway/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$3M seed 2024 (Lightspeed India + Y Combinator); OSS + Cloud gateway/observability.",
+    "new": "Acquired by Palo Alto Networks (closed about 2026-06; terms not disclosed in the GA post); previously $3M seed 2024 (Lightspeed India + Y Combinator).",
+    "citation": "https://www.paloaltonetworks.com/blog/2026/07/announcing-general-availability-of-prisma-airs-ai-gateway/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "reka.ai calls itself an 'AI research lab' building models and infrastructure for the physical AI era. Reka still operates independently under CEO Dani Yogatama and announced a merger with the Moonvalley research team (2026-06-09). The existing desc's 'Acquired by Snowflake' claim contradicts the funding cell and the vendor's own site.",
+  "lifecycle_citation": "https://reka.ai/news/reka-and-moonvalley-join-forces-to-advance-models-and-infrastructure-for-physical-ai",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "SF / Singapore foundation-model startup founded by ex-DeepMind / Meta / Google researchers (Dani Yogatama, Yi Tay, Qi Liu). Native multimodal models — Reka Core (~67B, frontier candidate), Flash (~21B), Edge (~7B). Apr-2024: claimed Core matched GPT-4 / Gemini Ultra on MMMU. Acquired by Snowflake announced May-2025 (~$2B reported). Distinct from frontier-tier in mindshare but important as multimodal-native open-weights option.",
+    "new": "SF / Singapore foundation-model startup founded by ex-DeepMind / Meta / Google researchers (Dani Yogatama, Yi Tay, Qi Liu). Native multimodal models: Reka Core (~67B, frontier candidate), Flash (~21B), Edge (~7B). Apr-2024: claimed Core matched GPT-4 / Gemini Ultra on MMMU. Remains independent (a reported 2025 Snowflake deal did not happen). In 2026 it repositioned as a physical AI research lab (omni and world models, Reka Edge, Reka Cloud) and merged in a Moonvalley research team (2026-06-09).",
+    "citation": "https://reka.ai/news/reka-and-moonvalley-join-forces-to-advance-models-and-infrastructure-for-physical-ai",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "sanctuary-ai--sanctuary-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "sanctuary.ai: 'Sanctuary AI deploys Physical AI with production-ready performance on existing and future robotic hardware', with robotic hands in development. Matches the existing desc.",
+  "lifecycle_citation": "https://sanctuary.ai/",
+  "updates": []
+ },
+ {
+  "id": "snorkel-ai--snorkel-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "snorkel.ai is now titled 'Expert data development for frontier AI' (datasets, environments, specialized agents, benchmarks). Matches the existing desc.",
+  "lifecycle_citation": "https://snorkel.ai/",
+  "updates": []
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "README CAUTION: 'text-generation-inference is now in maintenance mode', recommending vLLM, SGLang, llama.cpp and MLX. GitHub repo metadata shows archived=true, last push 2026-03-21. Matches the existing desc.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/huggingface/text-generation-inference/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "torchtune-pytorch--gh-pytorch-torchtune",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "README: 'Torchtune is no longer actively maintained: torchtune development wound down in 2025' (links issue #2883). Repo not GitHub-archived, last push 2026-09-09. Matches the existing desc.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/meta-pytorch/torchtune/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "toyota-research-institute-lbm--tri-global",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "tri.global/research/robotics 404s; TRI's robotics page is now at tri.global/our-work/robotics (loaded 2026-10-29). The lead text (Continue.dev) belonged to another row.",
+  "lifecycle_citation": "https://www.tri.global/our-work/robotics",
+  "record": {
+   "url": "https://www.tri.global/our-work/robotics"
+  },
+  "updates": []
+ },
+ {
+  "id": "truera--truera-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "truera.com: 'TruEra has agreed to join Snowflake! ... You will be automatically redirected to Snowflake shortly.' Matches the existing desc and funding.",
+  "lifecycle_citation": "https://truera.com/",
+  "updates": []
+ },
+ {
+  "id": "trulens--gh-truera-trulens",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "truera/trulens is not archived (last push 2026-10-28) and the README cites Snowflake engineering benchmarks. Lead (TruEra joining Snowflake) is already reflected in the desc.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/truera/trulens/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "vellum-ai--vellum-ai",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "vellum.ai shutdown notice: 'Vellum is shutting down its Personal Assistant platform on November 2nd, 2026'. Hosted assistants stop and data is deleted; Vellum will no longer actively maintain the open-source repo, and a founding engineer maintains a rebranded fork. Shutdown takes effect 2026-11-02, four days after this check. Kept as maintenance until the 2026-11-02 shutdown date.",
+  "lifecycle_citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud), and Vellum announced its hosted Personal Assistant Platform shuts down 2026-11-02.",
+    "new": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud). Vellum announced its hosted Personal Assistant Platform will be shut down on 2026-11-02 and that it will no longer actively maintain the open-source repo.",
+    "citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "weights-biases--wandb-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "wandb.ai now redirects to forge.coreweave.com/wandb; pricing redirects to coreweave.com/forge-pricing and docs are at docs.coreweave.com/products/wandb ('Get Started with Weights & Biases - CoreWeave Docs'). Matches the existing desc (part of CoreWeave Forge).",
+  "lifecycle_citation": "https://docs.coreweave.com/products/wandb",
+  "record": {
+   "url": "https://forge.coreweave.com/wandb"
+  },
+  "updates": []
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The x.ai Grok 4 news page (2025-07-09) still loads, but its title now reads 'Grok 4 | SpaceXSI'. Other x.ai pages were Cloudflare-blocked, so no primary rename announcement was found. The funding cell already records the merger into SpaceX.",
+  "lifecycle_citation": "https://x.ai/news/grok-4",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Elon Musk's xAI frontier model — Grok 4 launched 2025-07. Trained on Colossus (100k+ GPU supercluster in Memphis). Deeply integrated with X/Twitter (real-time tweet data access). Grok 4 Heavy variant for premium tier. No frontier-tier open-weights — Grok 1 (314B MoE) is the only weight release.",
+    "new": "Elon Musk's xAI frontier model — Grok 4 launched 2025-07. Trained on Colossus (100k+ GPU supercluster in Memphis). Deeply integrated with X/Twitter (real-time tweet data access). Grok 4 Heavy variant for premium tier. No frontier-tier open-weights — Grok 1 (314B MoE) is the only weight release. The x.ai site now brands itself SpaceXSI (page title, checked 2026-10-29).",
+    "citation": "https://x.ai/news/grok-4",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "atlas--arxiv-2505-23735",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Lead refuted for this row: 'REPO NO LONGER MAINTAINED' is in facebookresearch/atlas, a different system (Few-shot Learning with Retrieval Augmented Language Models). This row is the 2025-05-29 ATLAS test-time memory paper (Behrouz et al.), which is on arXiv and has no official repo.",
+  "lifecycle_citation": "https://arxiv.org/abs/2505.23735",
+  "updates": []
+ },
+ {
+  "id": "sleep-time-compute-letta--letta-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "letta-ai/letta README: 'Letta (f.k.a. MemGPT) is actively developed. The current source code lives in letta-ai/letta-code'. The 'archive' branch holds the retired Letta V1 API server. The sleep-time compute blog (2025-04-21) still loads at www.letta.com.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Agents use idle time to reorganize and pre-reason over stored context ('learned context'). Letta ships this as sleep-time agents (v0.7.0+), where a background agent manages the primary agent's core memory. Traction: Shipped in Letta 0.7.0 and Letta Code (/sleeptime); arXiv 2504.13171",
+    "new": "Agents use idle time to reorganize and pre-reason over stored context ('learned context'). Letta ships this as sleep-time agents (v0.7.0+), where a background agent manages the primary agent's core memory. Traction: Shipped in Letta 0.7.0 and Letta Code (/sleeptime); arXiv 2504.13171. Letta's current source moved to letta-ai/letta-code; the V1 API server (where sleep-time agents first shipped) is retired to the letta-ai/letta archive branch.",
+    "citation": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "https://github.com/letta-ai/letta (25229★)",
+    "new": "https://github.com/letta-ai/letta (25276★; current source moved to letta-ai/letta-code, V1 server on archive branch)",
+    "citation": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ }
+]
