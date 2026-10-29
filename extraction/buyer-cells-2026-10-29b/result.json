@@ -1,0 +1,1253 @@
+[
+ {
+  "id": "agentbench--gh-thudm-agentbench",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/THUDM/AgentBench",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "agentbench--gh-thudm-agentbench",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/THUDM/AgentBench/main/README.md",
+  "confidence": "high",
+  "note": "Official harness is a Python repo installed from requirements.txt (README Python version note)."
+ },
+ {
+  "id": "bench-tau-bench-bench--taubench-com",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/sierra-research/tau2-bench",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "bench-tau-bench-bench--taubench-com",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/README.md",
+  "confidence": "high",
+  "note": "Official tau2-bench harness is a Python package (pyproject.toml)."
+ },
+ {
+  "id": "berkeley-function-calling-leaderboard-bfcl--gorilla-cs-berkeley-edu",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "berkeley-function-calling-leaderboard-bfcl--gorilla-cs-berkeley-edu",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/bfcl-eval/",
+  "confidence": "high",
+  "note": "Official harness published on PyPI as bfcl-eval by the Berkeley Sky Computing Lab."
+ },
+ {
+  "id": "browsecomp--openai-com",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/openai/simple-evals",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "browsecomp--openai-com",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
+  "confidence": "medium",
+  "note": "BrowseComp ships in OpenAI simple-evals, a Python harness installed with pip."
+ },
+ {
+  "id": "gaia--huggingface-co",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://huggingface.co/gaia-benchmark",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "mind2web--osu-nlp-group-github-io",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/OSU-NLP-Group/Mind2Web",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "mind2web--osu-nlp-group-github-io",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/OSU-NLP-Group/Mind2Web/main/README.md",
+  "confidence": "high",
+  "note": "Official repo is Python (requirements.txt, Python training/eval scripts)."
+ },
+ {
+  "id": "swe-bench--swebench-com",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/SWE-bench/SWE-bench",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "swe-bench--swebench-com",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/swebench/",
+  "confidence": "high",
+  "note": "PyPI swebench is \"the official SWE-bench package\" by the SWE-bench team."
+ },
+ {
+  "id": "terminal-bench--tbench-ai",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/laude-institute/terminal-bench",
+  "confidence": "high",
+  "note": "Benchmark dataset/leaderboard, not a hosted service."
+ },
+ {
+  "id": "terminal-bench--tbench-ai",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/laude-institute/terminal-bench/main/README.md",
+  "confidence": "high",
+  "note": "Official harness is a Python package (pyproject.toml; terminal-bench on PyPI)."
+ },
+ {
+  "id": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md",
+  "confidence": "high",
+  "note": "Apache-2.0 open-source control plane (Agentic AI Foundation project); no vendor-hosted service."
+ },
+ {
+  "id": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+  "cell": "sdk-languages",
+  "value": "go,rest",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md",
+  "confidence": "medium",
+  "note": "Go module github.com/envoyproxy/ai-gateway; exposes a documented OpenAI-compatible HTTP API at /v1."
+ },
+ {
+  "id": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server,openai-compatible,opentelemetry",
+  "status": "real-data",
+  "citation": "https://theagentrouter.ai/",
+  "confidence": "high",
+  "note": "One OpenAI-compatible API for every model and one router for many MCP servers; traces follow OpenTelemetry GenAI conventions."
+ },
+ {
+  "id": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://theagentrouter.ai/",
+  "confidence": "medium",
+  "note": "Docs are versioned 1.0, 1.1 and 1.2 (stable ≥1.0 releases)."
+ },
+ {
+  "id": "agentgateway--agentgateway-dev",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md",
+  "confidence": "high",
+  "note": "Open-source proxy project; no vendor-hosted service."
+ },
+ {
+  "id": "agentgateway--agentgateway-dev",
+  "cell": "sdk-languages",
+  "value": "rust",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/Cargo.toml",
+  "confidence": "medium",
+  "note": "The proxy is a Rust workspace (Cargo.toml); no separate client SDK."
+ },
+ {
+  "id": "agentgateway--agentgateway-dev",
+  "cell": "protocol-support",
+  "value": "a2a,mcp-client,mcp-server,openai-compatible,opentelemetry",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md",
+  "confidence": "high",
+  "note": "README: MCP gateway with tool federation, A2A gateway, unified OpenAI-compatible API, OpenTelemetry metrics/logs/tracing."
+ },
+ {
+  "id": "arthur-engine--gh-arthur-ai-arthur-engine",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/arthur-observability-sdk/",
+  "confidence": "medium",
+  "note": "Arthur AI publishes the Python arthur-observability-sdk on PyPI."
+ },
+ {
+  "id": "arthur-engine--gh-arthur-ai-arthur-engine",
+  "cell": "protocol-support",
+  "value": "opentelemetry",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/arthur-ai/arthur-engine/main/README.md",
+  "confidence": "high",
+  "note": "README: collects and analyzes OpenInference OpenTelemetry (OTEL) traces."
+ },
+ {
+  "id": "dapr-agents--docs-dapr-io",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://raw.githubusercontent.com/dapr/dapr-agents/main/README.md",
+  "confidence": "high",
+  "note": "Open-source Python framework (CNCF Dapr); no hosted service."
+ },
+ {
+  "id": "dapr-agents--docs-dapr-io",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/dapr-agents/",
+  "confidence": "high",
+  "note": "Published on PyPI as dapr-agents by the Dapr Authors."
+ },
+ {
+  "id": "dapr-agents--docs-dapr-io",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/dapr/dapr-agents/main/README.md",
+  "confidence": "high",
+  "note": "README: zero-config MCP integration; agents discover MCPServer tools via DaprMCPClient."
+ },
+ {
+  "id": "dapr-agents--docs-dapr-io",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://docs.dapr.io/developing-ai/dapr-agents/",
+  "confidence": "high",
+  "note": "Docs: \"Dapr Agents v1.0 — Generally Available ... production ready\"."
+ },
+ {
+  "id": "ibm-contextforge-mcp-gateway--ibm-github-io",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/README.md",
+  "confidence": "high",
+  "note": "Open-source gateway deployed via PyPI or Docker; no hosted service."
+ },
+ {
+  "id": "ibm-contextforge-mcp-gateway--ibm-github-io",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/mcp-context-forge-gateway/",
+  "confidence": "high",
+  "note": "Published on PyPI as mcp-contextforge-gateway (Python)."
+ },
+ {
+  "id": "ibm-contextforge-mcp-gateway--ibm-github-io",
+  "cell": "protocol-support",
+  "value": "a2a,mcp-client,mcp-server,openai-compatible,opentelemetry",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/README.md",
+  "confidence": "high",
+  "note": "README: federates MCP, A2A and REST; runs as a compliant MCP server; OpenAI-compatible agent routing; OpenTelemetry tracing."
+ },
+ {
+  "id": "inspect-ai--inspect-aisi-org-uk",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://inspect.aisi.org.uk/",
+  "confidence": "high",
+  "note": "Open-source evaluation framework from UK AISI; no hosted service."
+ },
+ {
+  "id": "inspect-ai--inspect-aisi-org-uk",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/inspect-ai/",
+  "confidence": "high",
+  "note": "Published on PyPI as inspect-ai by the UK AI Security Institute."
+ },
+ {
+  "id": "inspect-ai--inspect-aisi-org-uk",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://inspect.aisi.org.uk/tools-mcp.html",
+  "confidence": "high",
+  "note": "Docs page on using MCP servers as tools for evaluated models."
+ },
+ {
+  "id": "inspect-ai--inspect-aisi-org-uk",
+  "cell": "maturity",
+  "value": "beta",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/inspect-ai/",
+  "confidence": "medium",
+  "note": "PyPI metadata classifies the package as \"Development Status :: 4 - Beta\" (0.3.x)."
+ },
+ {
+  "id": "invariant-guardrails--invariantlabs-ai",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/README.md",
+  "confidence": "medium",
+  "note": "Open-source guardrailing library/proxy (Apache-2.0)."
+ },
+ {
+  "id": "invariant-guardrails--invariantlabs-ai",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/invariant-ai/",
+  "confidence": "high",
+  "note": "Published on PyPI as invariant-ai (\"Invariant Guardrails\")."
+ },
+ {
+  "id": "invariant-guardrails--invariantlabs-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/README.md",
+  "confidence": "medium",
+  "note": "README: deployed between the app and its MCP servers, integrating transparently as an MCP proxy."
+ },
+ {
+  "id": "meta-llama-protections-llama-guard-prompt-guard-llamafirewall--dev-meta-ai",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/README.md",
+  "confidence": "high",
+  "note": "Open models and MIT libraries (PurpleLlama); no hosted service."
+ },
+ {
+  "id": "meta-llama-protections-llama-guard-prompt-guard-llamafirewall--dev-meta-ai",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/llamafirewall/",
+  "confidence": "high",
+  "note": "LlamaFirewall is published on PyPI by the Meta LlamaFirewall team."
+ },
+ {
+  "id": "microsoft-mcp-gateway--gh-microsoft-mcp-gateway",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/microsoft/mcp-gateway",
+  "confidence": "high",
+  "note": "Self-hosted Kubernetes reverse proxy; no hosted service."
+ },
+ {
+  "id": "microsoft-mcp-gateway--gh-microsoft-mcp-gateway",
+  "cell": "sdk-languages",
+  "value": "csharp",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/README.md",
+  "confidence": "medium",
+  "note": "README dev setup requires the .NET 8 SDK; project is a .NET service."
+ },
+ {
+  "id": "microsoft-mcp-gateway--gh-microsoft-mcp-gateway",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/README.md",
+  "confidence": "medium",
+  "note": "Reverse proxy and management layer that routes MCP requests from clients to MCP server instances."
+ },
+ {
+  "id": "nvidia-nemo-guardrails--docs-nvidia-com",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+  "confidence": "high",
+  "note": "Open-source library (Apache-2.0); no hosted service."
+ },
+ {
+  "id": "nvidia-nemo-guardrails--docs-nvidia-com",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/nemoguardrails/",
+  "confidence": "high",
+  "note": "Published on PyPI as nemoguardrails by NVIDIA."
+ },
+ {
+  "id": "nvidia-nemo-guardrails--docs-nvidia-com",
+  "cell": "protocol-support",
+  "value": "openai-compatible,opentelemetry",
+  "status": "real-data",
+  "citation": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+  "confidence": "high",
+  "note": "Guardrails server offers an HTTP endpoint compatible with OpenAI-style chat completions; docs have OpenTelemetry tracing/metrics."
+ },
+ {
+  "id": "nvidia-nemo-guardrails--docs-nvidia-com",
+  "cell": "maturity",
+  "value": "beta",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/nemoguardrails/",
+  "confidence": "medium",
+  "note": "PyPI metadata: \"Development Status :: 4 - Beta\" (0.24.x)."
+ },
+ {
+  "id": "openai-evals--gh-openai-evals",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/openai/evals",
+  "confidence": "high",
+  "note": "Open-source eval framework; no hosted service."
+ },
+ {
+  "id": "openai-evals--gh-openai-evals",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/openai/evals/main/README.md",
+  "confidence": "high",
+  "note": "Python package (pyproject.toml), installed with pip."
+ },
+ {
+  "id": "presidio--presidio-dataprivacystack-org",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://presidio.dataprivacystack.org/",
+  "confidence": "high",
+  "note": "Open-source PII SDK; no hosted service."
+ },
+ {
+  "id": "presidio--presidio-dataprivacystack-org",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/presidio-analyzer/",
+  "confidence": "high",
+  "note": "Published on PyPI (presidio-analyzer); docs provide Python API reference."
+ },
+ {
+  "id": "pyrit--microsoft-github-io",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://microsoft.github.io/PyRIT/",
+  "confidence": "high",
+  "note": "Open-source red-teaming library; no hosted service."
+ },
+ {
+  "id": "pyrit--microsoft-github-io",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/pyrit/",
+  "confidence": "high",
+  "note": "Published on PyPI as pyrit by the Microsoft AI Red Team."
+ },
+ {
+  "id": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,iso27001,iso27701,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.docker.com/trust/compliance/",
+  "confidence": "medium",
+  "note": "Docker has achieved SOC 2 Type 2, ISO 27001 and ISO 27701; trust page states GDPR compliance (company-level, MCP Toolkit runs in Docker Desktop)."
+ },
+ {
+  "id": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+  "cell": "sdk-languages",
+  "value": "go",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/docker/mcp-gateway/main/go.mod",
+  "confidence": "medium",
+  "note": "The docker-mcp CLI plugin / MCP Gateway is a Go module."
+ },
+ {
+  "id": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/docker/mcp-gateway/main/README.md",
+  "confidence": "high",
+  "note": "Toolkit lets clients configure and consume MCP servers from the catalog through the MCP Gateway."
+ },
+ {
+  "id": "docker-mcp-catalog-toolkit-gateway--docs-docker-com",
+  "cell": "maturity",
+  "value": "beta",
+  "status": "real-data",
+  "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/",
+  "confidence": "high",
+  "note": "Docs page states \"Availability: Beta\"."
+ },
+ {
+  "id": "lunar-dev-mcpx--lunar-dev",
+  "cell": "compliance-certifications",
+  "value": "soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.lunar.dev/security",
+  "confidence": "high",
+  "note": "\"Lunar itself is SOC 2 Type II certified.\""
+ },
+ {
+  "id": "lunar-dev-mcpx--lunar-dev",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/TheLunarCompany/lunar/main/mcpx/README.md",
+  "confidence": "high",
+  "note": "\"Lunar MCPX is an MCP server which serves as an aggregator for other MCP servers.\""
+ },
+ {
+  "id": "obot--obot-ai",
+  "cell": "sdk-languages",
+  "value": "go",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/obot-platform/obot/main/go.mod",
+  "confidence": "medium",
+  "note": "Obot server is a Go module."
+ },
+ {
+  "id": "obot--obot-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/obot-platform/obot/main/README.md",
+  "confidence": "high",
+  "note": "README: MCP gateway as a single governed entry point to MCP servers, plus hosted MCP servers."
+ },
+ {
+  "id": "official-mcp-registry--registry-modelcontextprotocol-io",
+  "cell": "sdk-languages",
+  "value": "go,rest",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/README.md",
+  "confidence": "medium",
+  "note": "Registry is a Go service (go.mod) exposing a documented live REST API for MCP clients."
+ },
+ {
+  "id": "official-mcp-registry--registry-modelcontextprotocol-io",
+  "cell": "maturity",
+  "value": "preview",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/README.md",
+  "confidence": "high",
+  "note": "\"This is still a preview release and breaking changes or data resets may occur.\""
+ },
+ {
+  "id": "kong-ai-gateway--konghq-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,csa-star,gdpr,iso27001,pci-dss,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.konghq.com/",
+  "confidence": "high",
+  "note": "Kong Trust Center lists ISO 27001:2022, SOC 2 Type II report, GDPR, PCI DSS 4.0.1, CSA STAR Level 1 and CCPA."
+ },
+ {
+  "id": "kong-ai-gateway--konghq-com",
+  "cell": "protocol-support",
+  "value": "a2a,mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://developer.konghq.com/ai-gateway/",
+  "confidence": "high",
+  "note": "AI Gateway exposes tool servers over MCP, routes A2A traffic, and emits Gen AI OTLP spans/metrics via OpenTelemetry."
+ },
+ {
+  "id": "smithery--smithery-ai",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://www.npmjs.com/package/@smithery/api",
+  "confidence": "medium",
+  "note": "Official @smithery/sdk and @smithery/api TypeScript packages (the latter for the Smithery REST API) and the smithery Python SDK on PyPI."
+ },
+ {
+  "id": "cloudflare-mcp-server-portals--developers-cloudflare-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,gdpr,iso27001,iso27017,iso27018,iso27701,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+  "confidence": "medium",
+  "note": "Cloudflare compliance page lists ISO 27001/27701/27018/27017, SOC 2 Type II, CSA STAR and GDPR (EU Cloud CoC); company-wide, scope-dependent programs (FedRAMP, PCI, HIPAA) omitted."
+ },
+ {
+  "id": "cloudflare-mcp-server-portals--developers-cloudflare-com",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/",
+  "confidence": "medium",
+  "note": "A portal aggregates multiple MCP servers behind a single MCP endpoint for clients."
+ },
+ {
+  "id": "bifrost-maxim-ai--getmaxim-ai",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,iso27001",
+  "status": "real-data",
+  "citation": "https://trust.getmaxim.ai/",
+  "confidence": "medium",
+  "note": "Maxim (H3 Labs) trust center lists ISO 27001, HIPAA and GDPR compliant (SOC 2 listed without type, omitted)."
+ },
+ {
+  "id": "bifrost-maxim-ai--getmaxim-ai",
+  "cell": "sdk-languages",
+  "value": "go,rest",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+  "confidence": "high",
+  "note": "README offers HTTP API deployment and a Go SDK for direct integration."
+ },
+ {
+  "id": "bifrost-maxim-ai--getmaxim-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client,openai-compatible",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+  "confidence": "high",
+  "note": "Single OpenAI-compatible API; MCP support lets models use external tools from MCP servers."
+ },
+ {
+  "id": "bifrost-maxim-ai--getmaxim-ai",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+  "confidence": "medium",
+  "note": "README: \"Go from zero to production-ready AI gateway in under a minute.\""
+ },
+ {
+  "id": "cloudflare-ai-gateway--developers-cloudflare-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,gdpr,iso27001,iso27017,iso27018,iso27701,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+  "confidence": "medium",
+  "note": "Cloudflare compliance page lists ISO 27001/27701/27018/27017, SOC 2 Type II, CSA STAR and GDPR (EU Cloud CoC); scope-dependent programs omitted."
+ },
+ {
+  "id": "cloudflare-ai-gateway--developers-cloudflare-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+  "confidence": "high",
+  "note": "Documented HTTP endpoints (OpenAI-compatible /compat/chat/completions)."
+ },
+ {
+  "id": "cloudflare-ai-gateway--developers-cloudflare-com",
+  "cell": "protocol-support",
+  "value": "openai-compatible,opentelemetry",
+  "status": "real-data",
+  "citation": "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+  "confidence": "high",
+  "note": "Docs: OpenAI-compatible chat completions endpoint; OpenTelemetry integration listed in AI Gateway docs."
+ },
+ {
+  "id": "cloudflare-ai-gateway--developers-cloudflare-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://blog.cloudflare.com/ai-gateway-is-generally-available/",
+  "confidence": "high",
+  "note": "Cloudflare blog: \"AI Gateway is generally available\"."
+ },
+ {
+  "id": "truefoundry-ai-gateway--truefoundry-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa",
+  "status": "real-data",
+  "citation": "https://www.truefoundry.com/ai-gateway",
+  "confidence": "medium",
+  "note": "AI Gateway page: SOC 2, HIPAA and GDPR standards (SOC 2 type not stated, omitted)."
+ },
+ {
+  "id": "truefoundry-ai-gateway--truefoundry-com",
+  "cell": "protocol-support",
+  "value": "a2a,mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://www.truefoundry.com/ai-gateway",
+  "confidence": "medium",
+  "note": "Gateway registers MCP servers (incl. Virtual MCP Server) and extends to agents via the A2A protocol."
+ },
+ {
+  "id": "vercel-ai-gateway--vercel-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,iso27001,pci-dss,soc2-type2",
+  "status": "real-data",
+  "citation": "https://vercel.com/security",
+  "confidence": "high",
+  "note": "Vercel security page: SOC 2 Type 2 attestation, ISO 27001:2022, PCI DSS, HIPAA (enterprise) and GDPR."
+ },
+ {
+  "id": "vercel-ai-gateway--vercel-com",
+  "cell": "sdk-languages",
+  "value": "rest,typescript",
+  "status": "real-data",
+  "citation": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+  "confidence": "high",
+  "note": "Official @ai-sdk/gateway TypeScript provider plus documented OpenAI-compatible HTTP API."
+ },
+ {
+  "id": "vercel-ai-gateway--vercel-com",
+  "cell": "protocol-support",
+  "value": "openai-compatible",
+  "status": "real-data",
+  "citation": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+  "confidence": "high",
+  "note": "Docs page for the OpenAI-compatible Chat Completions API."
+ },
+ {
+  "id": "vercel-ai-gateway--vercel-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://vercel.com/blog/ai-gateway-is-now-generally-available",
+  "confidence": "high",
+  "note": "Vercel blog (21 Aug 2025): \"AI Gateway, now generally available\"."
+ },
+ {
+  "id": "cloudflare-workflows--developers-cloudflare-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,gdpr,iso27001,iso27017,iso27018,iso27701,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+  "confidence": "medium",
+  "note": "Cloudflare compliance page lists ISO 27001/27701/27018/27017, SOC 2 Type II, CSA STAR and GDPR; scope-dependent programs omitted."
+ },
+ {
+  "id": "cloudflare-workflows--developers-cloudflare-com",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://developers.cloudflare.com/workflows/python/",
+  "confidence": "high",
+  "note": "Workflows are written in TypeScript on Workers, and Cloudflare documents a Python Workflows SDK."
+ },
+ {
+  "id": "cloudflare-workflows--developers-cloudflare-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://blog.cloudflare.com/workflows-ga-production-ready-durable-execution/",
+  "confidence": "high",
+  "note": "\"Cloudflare Workflows is now GA: production-ready durable execution\"."
+ },
+ {
+  "id": "dbos--dbos-dev",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.dbos.dev/",
+  "confidence": "high",
+  "note": "Homepage: \"DBOS is SOC 2 Type 2, GDPR and CCPA compliant.\""
+ },
+ {
+  "id": "dbos--dbos-dev",
+  "cell": "sdk-languages",
+  "value": "go,java,python,rust,typescript",
+  "status": "real-data",
+  "citation": "https://docs.dbos.dev/",
+  "confidence": "high",
+  "note": "Docs: Develop with Python, TypeScript, Go, Java; homepage also lists the dbos-transact-rust library."
+ },
+ {
+  "id": "dbos--dbos-dev",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/dbos/",
+  "confidence": "medium",
+  "note": "PyPI dbos 3.x classified \"Development Status :: 5 - Production/Stable\"."
+ },
+ {
+  "id": "golem--golem-cloud",
+  "cell": "sdk-languages",
+  "value": "rust,typescript",
+  "status": "real-data",
+  "citation": "https://learn.golem.cloud/",
+  "confidence": "high",
+  "note": "Docs have agent guides for Rust and TypeScript SDKs (also Scala, not a token)."
+ },
+ {
+  "id": "golem--golem-cloud",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://golem.cloud/",
+  "confidence": "high",
+  "note": "Agent methods become MCP tools, agents call MCP servers via generated clients, and every deployment emits OpenTelemetry traces and metrics."
+ },
+ {
+  "id": "golem--golem-cloud",
+  "cell": "maturity",
+  "value": "preview",
+  "status": "real-data",
+  "citation": "https://golem.cloud/cloud/",
+  "confidence": "high",
+  "note": "Golem Cloud managed hosting is in a free Developer Preview; paid availability not announced."
+ },
+ {
+  "id": "hatchet--hatchet-run",
+  "cell": "sdk-languages",
+  "value": "go,python,ruby,typescript",
+  "status": "real-data",
+  "citation": "https://docs.hatchet.run/v1",
+  "confidence": "high",
+  "note": "Docs: supports applications written in Python, TypeScript, Go and Ruby."
+ },
+ {
+  "id": "hatchet--hatchet-run",
+  "cell": "protocol-support",
+  "value": "opentelemetry",
+  "status": "real-data",
+  "citation": "https://hatchet.run/",
+  "confidence": "high",
+  "note": "Built-in OpenTelemetry collector; forward OTel traces to your observability stack."
+ },
+ {
+  "id": "hatchet--hatchet-run",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/hatchet-sdk/",
+  "confidence": "medium",
+  "note": "Official SDKs are on stable 1.x releases (hatchet-sdk 1.43)."
+ },
+ {
+  "id": "datadog-agent-observability-llm-observability--datadoghq-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,csa-star,fedramp,gdpr,hipaa,iso27001,iso27017,iso27018,iso27701,iso42001,pci-dss,soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.datadoghq.com/",
+  "confidence": "medium",
+  "note": "Datadog trust center lists these attestations for the Datadog platform (same values already recorded for Datadog Bits AI)."
+ },
+ {
+  "id": "datadog-agent-observability-llm-observability--datadoghq-com",
+  "cell": "sdk-languages",
+  "value": "go,java,python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://docs.datadoghq.com/llm_observability/instrument/sdk/",
+  "confidence": "high",
+  "note": "LLM Observability SDK supports Python, Node.js (dd-trace-js, typed), Java and an experimental Go SDK; HTTP API documented."
+ },
+ {
+  "id": "datadog-agent-observability-llm-observability--datadoghq-com",
+  "cell": "protocol-support",
+  "value": "opentelemetry",
+  "status": "real-data",
+  "citation": "https://docs.datadoghq.com/llm_observability/instrument/otel_instrumentation/",
+  "confidence": "high",
+  "note": "LLM Observability accepts OpenTelemetry instrumentation."
+ },
+ {
+  "id": "datadog-agent-observability-llm-observability--datadoghq-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://www.datadoghq.com/about/latest-news/press-releases/datadog-llm-observability-is-now-generally-available-to-help-businesses-monitor-improve-and-secure-generative-ai-applications/",
+  "confidence": "high",
+  "note": "Press release announcing general availability of LLM Observability."
+ },
+ {
+  "id": "honeyhive--honeyhive-ai",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.honeyhive.ai/",
+  "confidence": "high",
+  "note": "\"Audited to SOC 2 Type II. GDPR-compliant with EU data residency. HIPAA BAA available.\""
+ },
+ {
+  "id": "honeyhive--honeyhive-ai",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://docs.honeyhive.ai/introduction/what-is-hhai",
+  "confidence": "high",
+  "note": "Docs: complete REST API plus Python and TypeScript SDKs."
+ },
+ {
+  "id": "honeyhive--honeyhive-ai",
+  "cell": "protocol-support",
+  "value": "opentelemetry",
+  "status": "real-data",
+  "citation": "https://www.honeyhive.ai/",
+  "confidence": "high",
+  "note": "\"OpenTelemetry-native and fully vendor-agnostic\"; exports via OTLP."
+ },
+ {
+  "id": "laminar--laminar-sh",
+  "cell": "compliance-certifications",
+  "value": "hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://laminar.sh/",
+  "confidence": "high",
+  "note": "Homepage: \"HIPAA & SOC 2 Type II Compliant\"."
+ },
+ {
+  "id": "laminar--laminar-sh",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/lmnr/",
+  "confidence": "high",
+  "note": "Official lmnr Python SDK (PyPI) and @lmnr-ai/lmnr TypeScript SDK (npm)."
+ },
+ {
+  "id": "laminar--laminar-sh",
+  "cell": "protocol-support",
+  "value": "mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/lmnr-ai/lmnr/main/README.md",
+  "confidence": "high",
+  "note": "README: OpenTelemetry-native tracing SDK; docs list a Laminar Agent MCP Server."
+ },
+ {
+  "id": "pydantic-logfire--pydantic-dev",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/docs/logfire/deploy/compliance/",
+  "confidence": "high",
+  "note": "\"Logfire is SOC2 Type II certified\", HIPAA compliant with BAA, Pydantic is GDPR compliant."
+ },
+ {
+  "id": "pydantic-logfire--pydantic-dev",
+  "cell": "sdk-languages",
+  "value": "python,rust,typescript",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/logfire",
+  "confidence": "high",
+  "note": "\"SDKs for Python, JavaScript/TypeScript and Rust, and OpenTelemetry for everything else.\""
+ },
+ {
+  "id": "pydantic-logfire--pydantic-dev",
+  "cell": "protocol-support",
+  "value": "mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://pydantic.dev/logfire",
+  "confidence": "high",
+  "note": "Built on OpenTelemetry; coding agents use the Logfire MCP server."
+ },
+ {
+  "id": "pydantic-logfire--pydantic-dev",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/logfire/",
+  "confidence": "medium",
+  "note": "PyPI logfire 5.x classified \"Development Status :: 5 - Production/Stable\"."
+ },
+ {
+  "id": "amazon-bedrock-guardrails--aws-amazon-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,fedramp,gdpr,hipaa",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/bedrock/security-compliance/",
+  "confidence": "high",
+  "note": "Bedrock is in scope for ISO, SOC, CSA STAR Level 2, is HIPAA eligible, GDPR-usable, and FedRAMP High in GovCloud (US-West)."
+ },
+ {
+  "id": "amazon-bedrock-guardrails--aws-amazon-com",
+  "cell": "sdk-languages",
+  "value": "csharp,go,java,kotlin,php,python,rest,ruby,rust,swift,typescript",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/bedrock/latest/userguide/sdk-general-information-section.html",
+  "confidence": "high",
+  "note": "Bedrock lists AWS SDKs for Go, Java, JavaScript (typed v3), Kotlin, .NET, PHP, Python, Ruby, Rust, Swift (and C++/CLI)."
+ },
+ {
+  "id": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+  "cell": "compliance-certifications",
+  "value": "fedramp",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
+  "confidence": "medium",
+  "note": "Azure audit-scope page marks Foundry: Azure AI Content Safety as FedRAMP High authorized."
+ },
+ {
+  "id": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/quickstart-jailbreak",
+  "confidence": "high",
+  "note": "Prompt Shields quickstart calls the documented text:shieldPrompt REST API."
+ },
+ {
+  "id": "azure-ai-content-safety-prompt-shields--learn-microsoft-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview",
+  "confidence": "medium",
+  "note": "Overview feature table marks other features \"(preview)\" but not Prompt Shields."
+ },
+ {
+  "id": "crowdstrike-falcon-guardian-formerly-pangea-ai-guard--crowdstrike-com",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/crowdstrike-aidr/",
+  "confidence": "medium",
+  "note": "CrowdStrike publishes crowdstrike-aidr (Python, PyPI) and @crowdstrike/aidr (TypeScript, npm)."
+ },
+ {
+  "id": "google-cloud-model-armor--cloud-google-com",
+  "cell": "compliance-certifications",
+  "value": "iso27001,iso27017,iso27018,pci-dss,soc3",
+  "status": "real-data",
+  "citation": "https://cloud.google.com/security/compliance/services-in-scope",
+  "confidence": "high",
+  "note": "Model Armor is marked in scope for ISO 27001/27017/27018, SOC 1/2/3 reports and PCI DSS (SOC 2 type not stated)."
+ },
+ {
+  "id": "google-cloud-model-armor--cloud-google-com",
+  "cell": "sdk-languages",
+  "value": "csharp,go,java,php,python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://docs.cloud.google.com/model-armor/reference/libraries",
+  "confidence": "high",
+  "note": "Client libraries for C#, Go, Java, Node.js (typed), PHP and Python, plus REST reference."
+ },
+ {
+  "id": "guardrails-ai--guardrailsai-com",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md",
+  "confidence": "medium",
+  "note": "Python guardrails-ai package; the org also publishes @guardrails-ai/core, a typed JS wrapper."
+ },
+ {
+  "id": "guardrails-ai--guardrailsai-com",
+  "cell": "protocol-support",
+  "value": "openai-compatible",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md",
+  "confidence": "high",
+  "note": "README: point the OpenAI SDK base_url at the Guardrails server guard endpoint."
+ },
+ {
+  "id": "auth0-for-ai-agents--auth0-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,gdpr,hipaa,iso27001,iso27017,iso27018,pci-dss,soc2-type2",
+  "status": "real-data",
+  "citation": "https://auth0.com/docs/secure/data-privacy-and-compliance",
+  "confidence": "medium",
+  "note": "Auth0 docs: SOC 2 Type 2, ISO 27001/27017/27018, CSA STAR, HIPAA, PCI DSS environment, GDPR (platform-level)."
+ },
+ {
+  "id": "auth0-for-ai-agents--auth0-com",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://auth0.com/ai/docs/overview",
+  "confidence": "high",
+  "note": "Auth0 for AI Agents docs list JavaScript (@auth0/ai, typed) and Python SDKs."
+ },
+ {
+  "id": "auth0-for-ai-agents--auth0-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://auth0.com/blog/auth0-for-ai-agents-generally-available/",
+  "confidence": "high",
+  "note": "\"Auth0 for AI Agents is Now Generally Available (GA)\"."
+ },
+ {
+  "id": "descope-agentic-identity-hub--descope-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,fedramp,gdpr,hipaa,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.descope.com/security-compliance",
+  "confidence": "high",
+  "note": "SOC 2 Type 2, ISO 27001, FedRAMP High, GDPR, HIPAA and CSA STAR Level 2."
+ },
+ {
+  "id": "descope-agentic-identity-hub--descope-com",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/descope/",
+  "confidence": "medium",
+  "note": "Official descope Python SDK (PyPI) and @descope/node-sdk (typed, npm)."
+ },
+ {
+  "id": "keycard--keycard-ai",
+  "cell": "compliance-certifications",
+  "value": "soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.keycard.ai/",
+  "confidence": "high",
+  "note": "Homepage security section: \"SOC 2 Type II\"."
+ },
+ {
+  "id": "keycard--keycard-ai",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/keycardai-mcp/",
+  "confidence": "medium",
+  "note": "Keycard publishes keycardai-* Python packages and @keycardai/* TypeScript packages."
+ },
+ {
+  "id": "merge-agent-handler--merge-dev",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,hipaa,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.merge.dev/security",
+  "confidence": "high",
+  "note": "\"SOC 2 Type II, ISO 27001, HIPAA, GDPR, and CCPA\"."
+ },
+ {
+  "id": "merge-agent-handler--merge-dev",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://www.merge.dev/merge-agent-handler",
+  "confidence": "high",
+  "note": "Agent Handler is installed as a remote MCP server in Claude, Cursor, ChatGPT."
+ },
+ {
+  "id": "nango--nango-dev",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://nango.dev/docs/guides/platform/security",
+  "confidence": "high",
+  "note": "\"Nango is SOC 2 Type II certified, GDPR compliant, and HIPAA compliant.\""
+ },
+ {
+  "id": "nango--nango-dev",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://nango.dev/docs/getting-started/intro-to-nango",
+  "confidence": "high",
+  "note": "Docs: HTTP API, Node (typed @nangohq/node) and Python backend SDKs, JS frontend SDK."
+ },
+ {
+  "id": "nango--nango-dev",
+  "cell": "protocol-support",
+  "value": "mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://nango.dev/docs/getting-started/intro-to-nango",
+  "confidence": "high",
+  "note": "Functions consumed via API, SDKs or MCP server; logs exportable via OpenTelemetry."
+ },
+ {
+  "id": "paragon-actionkit--useparagon-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.useparagon.com/security",
+  "confidence": "high",
+  "note": "\"The platform is SOC 2 Type II, HIPAA, and GDPR compliant\" (ISO 27001 coming soon)."
+ },
+ {
+  "id": "paragon-actionkit--useparagon-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.useparagon.com/actionkit/overview",
+  "confidence": "high",
+  "note": "ActionKit is documented as an HTTP API (List Tools, Run Tool)."
+ },
+ {
+  "id": "pipedream-connect--pipedream-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,soc2-type2",
+  "status": "real-data",
+  "citation": "https://pipedream.com/docs/privacy-and-security",
+  "confidence": "high",
+  "note": "Pipedream can provide a SOC 2 Type 2 report; GDPR DPA offered."
+ },
+ {
+  "id": "pipedream-connect--pipedream-com",
+  "cell": "sdk-languages",
+  "value": "java,python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://pipedream.com/docs/connect/api-reference/sdks",
+  "confidence": "high",
+  "note": "Official TypeScript, Python and Java SDKs plus OpenAPI-specified Connect API."
+ },
+ {
+  "id": "pipedream-connect--pipedream-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://pipedream.com/docs/connect",
+  "confidence": "high",
+  "note": "Pipedream MCP server gives agents 10,000+ tools from 3,000+ APIs."
+ },
+ {
+  "id": "stytch-connected-apps--stytch-com",
+  "cell": "compliance-certifications",
+  "value": "iso27001,pci-dss",
+  "status": "real-data",
+  "citation": "https://stytch.com/docs/resources/policies/security-and-trust/compliance/overview.md",
+  "confidence": "medium",
+  "note": "Docs: SOC 2 report, ISO 27001 certification and PCI-DSS documents in the Twilio Trust Center (SOC 2 type not stated)."
+ },
+ {
+  "id": "stytch-connected-apps--stytch-com",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/stytch/",
+  "confidence": "medium",
+  "note": "Official stytch Python client (PyPI) and typed stytch Node package (npm)."
+ },
+ {
+  "id": "workos-authkit-for-mcp--workos-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://workos.com/security",
+  "confidence": "high",
+  "note": "\"SOC 2 Type 2 certified, GDPR & CCPA compliant\"; WorkOS signs HIPAA BAAs."
+ },
+ {
+  "id": "workos-authkit-for-mcp--workos-com",
+  "cell": "sdk-languages",
+  "value": "csharp,elixir,go,java,kotlin,php,python,rest,ruby,rust,typescript",
+  "status": "real-data",
+  "citation": "https://workos.com/docs/sdks",
+  "confidence": "high",
+  "note": "Official SDKs: .NET, Elixir, Go, Java (workos-kotlin), PHP, Node.js, Python, Ruby, Rust, AuthKit JS; plus API reference."
+ }
+]
