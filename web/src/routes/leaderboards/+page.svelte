@@ -22,6 +22,8 @@
     isResearchTier,
     ALL_TIERS,
     CUSTOM_COLUMNS,
+    formatUsd,
+    onePerCompany,
     type CustomColumn,
     type Ranked
   } from '$lib/leaderboards';
@@ -47,7 +49,7 @@
   const mostStarred = $derived(topBy(data.records, cellExtractor('gh'), 10));
 
   // 3. Best-funded commercial.
-  const bestFunded = $derived(topBy(data.records, cellExtractor('funding'), 10));
+  const bestFunded = $derived(onePerCompany(topBy(data.records, cellExtractor('funding'), data.records.length), 10));
 
   // 4. Highest inbound citations within the catalog.
   const mostInboundCites = $derived(
@@ -140,7 +142,7 @@
   </header>
 
   <section class="grid">
-    {#each [{ title: 'Most-cited research (T3 / T4)', desc: 'Papers ranked by Semantic Scholar citation count parsed from the citations cell.', rows: mostCited, valueHeader: 'Citations' }, { title: 'Most-starred OSS', desc: 'GitHub repos ranked by leading star count in the gh cell ("18.8k★ / 1.4k forks" → 18 800).', rows: mostStarred, valueHeader: 'Stars' }, { title: 'Best-funded commercial', desc: 'Records ranked by the leading dollar figure in the funding cell. "Total raised" wins over "valuation" because the headline number leads.', rows: bestFunded, valueHeader: 'Funding' }, { title: 'Highest inbound citations (in-catalog)', desc: 'How many other records in the catalog cite this one. Pure graph metric — no external lookup.', rows: mostInboundCites, valueHeader: 'Inbound cites' }, { title: 'Most-integrated (built-on + integrates-with)', desc: 'How many other records depend on or integrate this one. Mem0 should top this list.', rows: mostIntegrated, valueHeader: 'Inbound' }] as board (board.title)}
+    {#each [{ title: 'Most-cited research (T3 / T4)', desc: 'Papers ranked by Semantic Scholar citation count parsed from the citations cell.', rows: mostCited, valueHeader: 'Citations' }, { title: 'Most-starred OSS', desc: 'GitHub repos ranked by leading star count in the gh cell ("18.8k★ / 1.4k forks" → 18 800).', rows: mostStarred, valueHeader: 'Stars' }, { title: 'Best-funded commercial', desc: 'Private companies ranked by total funding raised, from the funding cell: a stated total wins, otherwise the largest round. Valuations are never counted, and public companies are left out because their figures are market value, not funding.', rows: bestFunded, valueHeader: 'Raised', money: true }, { title: 'Highest inbound citations (in-catalog)', desc: 'How many other records in the catalog cite this one. Pure graph metric — no external lookup.', rows: mostInboundCites, valueHeader: 'Inbound cites' }, { title: 'Most-integrated (built-on + integrates-with)', desc: 'How many other records depend on or integrate this one. Mem0 should top this list.', rows: mostIntegrated, valueHeader: 'Inbound' }] as board (board.title)}
       <article class="card">
         <h2>{board.title}</h2>
         <p class="card-desc">{board.desc}</p>
@@ -164,8 +166,11 @@
                       {row.record.name}
                     </a>
                     <span class="tier-pill">T{row.record.tier}</span>
+                    {#if 'also' in row && row.also.length}
+                      <span class="also" title={row.also.join(', ')}>+{row.also.length} more from the same company</span>
+                    {/if}
                   </td>
-                  <td class="num" title={row.display}>{fmt(row.value)}</td>
+                  <td class="num" title={row.display}>{board.money ? formatUsd(row.value) : fmt(row.value)}</td>
                 </tr>
               {/each}
             </tbody>
@@ -256,7 +261,7 @@
                 <span class="tier-pill">T{row.record.tier}</span>
               </td>
               <td>{primarySection(row.record)}</td>
-              <td class="num">{fmt(row.value)}</td>
+              <td class="num">{customCol === 'funding' ? formatUsd(row.value) : fmt(row.value)}</td>
               <td class="raw">{row.display}</td>
             </tr>
           {/each}
@@ -275,6 +280,11 @@
 </main>
 
 <style>
+  .also {
+    margin-left: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--text-muted, #888);
+  }
   .lb-page {
     max-width: 1400px;
     margin: 0 auto;

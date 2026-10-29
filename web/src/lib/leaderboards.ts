@@ -73,6 +73,49 @@ export function extractNumber(raw: string | null | undefined): number | null {
   return null;
 }
 
+/**
+ * Total funding raised, in USD, from a free-text `funding` cell — or null
+ * when the cell states no raise. Unlike extractNumber() it never takes a
+ * figure that isn't money raised:
+ *   - Public companies are skipped outright (market cap, "public (TICK)",
+ *     a ticker in parentheses, NASDAQ/NYSE): their figures are market
+ *     value, not funding.
+ *   - Within each clause (split on ";", "·", "|"), a dollar figure counts
+ *     only when the clause names a raise (raised, series, seed, round,
+ *     total, funding); valuations ("$2B val", "at $1B valuation") don't.
+ *   - A figure tagged "total" wins; otherwise the largest round named.
+ * Non-dollar amounts (€, £) are ignored rather than converted.
+ */
+export function extractFunding(raw: string | null | undefined): number | null {
+  if (!raw) return null;
+  if (/market cap|mkt cap|public company|\bpublic\b[^;]*\(|\b(nasdaq|nyse)\b/i.test(raw) || /\((?:[A-Z]+:\s*)?[A-Z]{2,5}\)/.test(raw)) return null;
+  let total: number | null = null;
+  let best: number | null = null;
+  for (const clause of raw.split(/[;·|]/)) {
+    if (!/raised|series|seed|round|total|funding/i.test(clause)) continue;
+    for (const m of clause.matchAll(/\$\s*([\d.,]+)\s*(k|m|b|t|bn|million|billion)?\b\+?/gi)) {
+      const before = clause.slice(0, m.index);
+      const after = clause.slice((m.index ?? 0) + m[0].length);
+      if (/^\s*(val|valuation|post|pre-money)/i.test(after) || /\b(at|valued at|valuation of|valuation)\s*~?\s*$/i.test(before)) continue;
+      const n = parseFloat(m[1].replace(/,/g, ''));
+      if (Number.isNaN(n)) continue;
+      const suffix = (m[2] ?? '').toLowerCase();
+      const v = applyMultiplier(n, suffix === 'bn' || suffix === 'billion' ? 'b' : suffix === 'million' ? 'm' : suffix);
+      if (total === null && (/^\s*(total|in total)/i.test(after) || /total( raised)?( of)?\s*~?\s*$/i.test(before))) total = v;
+      if (best === null || v > best) best = v;
+    }
+  }
+  return total ?? best;
+}
+
+/** USD for display: $3.0B, $150M, $500K. */
+export function formatUsd(n: number): string {
+  if (n >= 1e9) return `$${(n / 1e9).toFixed(1)}B`;
+  if (n >= 1e6) return `$${n >= 1e7 ? Math.round(n / 1e6) : (n / 1e6).toFixed(1)}M`;
+  if (n >= 1e3) return `$${Math.round(n / 1e3)}K`;
+  return `$${Math.round(n)}`;
+}
+
 function applyMultiplier(n: number, suffix: string | undefined): number {
   if (!suffix) return n;
   switch (suffix.toLowerCase()) {
@@ -117,6 +160,38 @@ export function topBy(
   return out.slice(0, n);
 }
 
+/** Company a record belongs to, from its id's source part: the GitHub org
+ * for "gh-<org>-<repo>", else the first domain label ("anthropic-com",
+ * "docs-anthropic-com" → anthropic). Rough, but products of one vendor
+ * share it far more often than not. */
+export function companyKey(id: string): string {
+  const src = id.split('--')[1] ?? id;
+  const parts = src.split('-');
+  if (parts[0] === 'gh') return parts[1] ?? src;
+  const labels = parts.filter((p) => !['www', 'docs', 'developers', 'platform', 'blog', 'github', 'io', 'com', 'ai', 'dev', 'org', 'co', 'app', 'net', 'sh', 'tech'].includes(p));
+  const k = labels[labels.length - 1] ?? src;
+  return COMPANY_ALIASES[k] ?? k;
+}
+const COMPANY_ALIASES: Record<string, string> = { chatgpt: 'openai', claude: 'anthropic', gemini: 'google', deepmind: 'google' };
+
+/**
+ * One row per company for the funding board: products of a company carry
+ * its funding (every Claude product cites Anthropic's round), so the board
+ * keeps each company's best-ranked row and lists the rest in `also`.
+ * Cells describing a parent's or sponsor's funding are dropped first.
+ */
+export function onePerCompany(rows: Ranked[], n: number): (Ranked & { also: string[] })[] {
+  const out: (Ranked & { also: string[]; key: string })[] = [];
+  for (const r of rows) {
+    if (/\b(parent|sponsored by|subsidiary)\b/i.test(r.display)) continue;
+    const key = companyKey(r.record.id);
+    const same = out.find((o) => o.key === key || o.value === r.value);
+    if (same) same.also.push(r.record.name);
+    else if (out.length < n) out.push({ ...r, also: [], key });
+  }
+  return out.map(({ key: _key, ...r }) => r);
+}
+
 // --- Curated extractors ------------------------------------------------
 
 export function cellExtractor(slug: 'citations' | 'gh' | 'funding' | 'mindshare') {
@@ -125,7 +200,7 @@ export function cellExtractor(slug: 'citations' | 'gh' | 'funding' | 'mindshare'
     if (!cell || cell.status !== 'real-data') {
       return { value: null, display: cell?.value ?? '' };
     }
-    return { value: extractNumber(cell.value), display: cell.value };
+    return { value: slug === 'funding' ? extractFunding(cell.value) : extractNumber(cell.value), display: cell.value };
   };
 }
 
