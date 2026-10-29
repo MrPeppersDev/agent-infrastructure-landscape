@@ -1,0 +1,371 @@
+[
+ {
+  "id": "jetbrains-junie--jetbrains-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://junie.jetbrains.com/",
+  "confidence": "medium",
+  "note": "Junie installs as a CLI via curl install script and also runs inside JetBrains IDEs and GitHub/GitLab CI, executing on the user's machine or CI with BYOK or JetBrains cloud credits."
+ },
+ {
+  "id": "k-health--khealth-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://khealth.com/product",
+  "confidence": "medium",
+  "note": "PatientGPT is offered to health systems as an intelligent layer integrated into their website, portal and EHR with vendor-provided sandbox access; no self-hosted option is mentioned."
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://platform.lakera.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing table lists Hosting: SaaS for the Community plan and 'SaaS or Self-hosted' only for the sales-led Enterprise plan."
+ },
+ {
+  "id": "lawdroid-copilot--lawdroid-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://lawdroid.ai/",
+  "confidence": "medium",
+  "note": "LawDroid sells Answer, Intake and Assist as hosted assistants with a web login across web, phone and text channels; no self-host option is mentioned."
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.limitless.ai/privacy",
+  "confidence": "medium",
+  "note": "Privacy page says Pendant data is encrypted in transit and stored by Limitless using HSMs, with user download/delete controls in the app."
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.limitless.ai/",
+  "confidence": "high",
+  "note": "Limitless sold the Pendant wearable and subscriptions to consumers; after the Meta acquisition existing Pendant customers are supported for at least a year but no new sales."
+ },
+ {
+  "id": "linkedin-cognitive-memory-agent--linkedin-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.linkedin.com/blog/engineering/ai/the-linkedin-generative-ai-application-tech-stack-personalization-with-cognitive-memory-agent",
+  "confidence": "medium",
+  "note": "CMA is described as LinkedIn's internal horizontal memory platform powering its hosted Hiring Assistant; it is not distributed for self-hosting."
+ },
+ {
+  "id": "litera-ai--litera-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.lito.app/",
+  "confidence": "medium",
+  "note": "Lito is delivered as an AI agent via Word/Outlook add-ins, web app and iOS with ISO 27001/SOC 2 hosted-service controls; only the separate Litera desktop comparison tool is pitched for firms that cannot move to the cloud."
+ },
+ {
+  "id": "logicgate-risk-cloud--logicgate-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.logicgate.ai/platform/",
+  "confidence": "high",
+  "note": "Platform page describes Risk Cloud as '30+ Purpose-Built Applications, One Modern Cloud Platform'."
+ },
+ {
+  "id": "luminance-institutional-memory--luminance-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.luminance.com/security",
+  "confidence": "high",
+  "note": "Security page says Luminance encrypts data with AWS KMS 'for data hosted in AWS'."
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://magnitude.dev/",
+  "confidence": "medium",
+  "note": "Magnitude is an open-source local inference engine that serves open models to coding agents (Pi, OpenCode, Codex) rather than a finished end-user app."
+ },
+ {
+  "id": "manus-ai--manus-im",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://manus.im/docs/introduction/welcome",
+  "confidence": "high",
+  "note": "Docs say Manus operates in a complete sandbox environment, a virtual computer with internet access and persistent file system, accessed via web, desktop and mobile apps."
+ },
+ {
+  "id": "mindgard--mindgard-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://mindgard.ai/",
+  "confidence": "medium",
+  "note": "Mindgard is a demo-led AI red-teaming platform connected via APIs, CI/CD, Burp Suite or a single click; no self-hosted deployment is mentioned."
+ },
+ {
+  "id": "mymind--access-mymind-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://mymind.com/",
+  "confidence": "medium",
+  "note": "mymind is a sign-up service with iPhone/Android apps and browser extensions saving everything to 'one single, private place' with article backup on paid plans; no local/self-host option."
+ },
+ {
+  "id": "openai-chatgpt-memory--openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+  "confidence": "medium",
+  "note": "Memory is a feature of the hosted ChatGPT service, referencing saved memories and past chats across Free, Plus, Pro, Team and Enterprise accounts."
+ },
+ {
+  "id": "openai-chatgpt-memory--openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+  "confidence": "high",
+  "note": "Memory is a consumer/business feature of the ChatGPT app controlled by users in Settings."
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "computer-use",
+  "status": "real-data",
+  "citation": "https://openai.com/index/introducing-operator/",
+  "confidence": "high",
+  "note": "Operator is an agent that uses its own browser, typing, clicking and scrolling to perform tasks for the user; since July 2025 it is integrated into ChatGPT as agent mode."
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://openai.com/index/introducing-operator/",
+  "confidence": "high",
+  "note": "Operator was released to ChatGPT Pro users at operator.chatgpt.com and is now ChatGPT agent mode."
+ },
+ {
+  "id": "openmemory-mcp--mem0-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.mem0.ai/platform/mem0-mcp",
+  "confidence": "high",
+  "note": "The OpenMemory page's 'Set Up MCP' links to Mem0 MCP docs, which say 'Nothing runs on your machine: the server is hosted by Mem0' and memories live in the Mem0 account."
+ },
+ {
+  "id": "palantir-ontology--palantir-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.palantir.com/platforms/apollo/",
+  "confidence": "medium",
+  "note": "Palantir platforms are sales-led; Apollo deploys them across multi-cloud, hybrid-cloud, Private SaaS, air-gapped and edge environments as enterprise arrangements rather than public self-serve self-hosting."
+ },
+ {
+  "id": "pincites--pincites-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.filevine.com/security/",
+  "confidence": "high",
+  "note": "Filevine security page says its products run on AWS, GCP and Azure cloud environments with AWS-hosted backups; LOIS for Word is a Word add-in to this platform."
+ },
+ {
+  "id": "plaud-notepin--plaud-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.plaud.ai/",
+  "confidence": "medium",
+  "note": "Plaud recordings are transcribed and summarized by the Plaud app/service with data 'encrypted in transit and at rest'; no local-only processing is offered."
+ },
+ {
+  "id": "quizlet-ai-study-tools-magic-notes--quizlet-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://help.quizlet.com/hc/en-us",
+  "confidence": "medium",
+  "note": "Help center describes account-based use via the website and official iOS/Android apps, with AI study guides saved to the user's library."
+ },
+ {
+  "id": "quizlet-ai-study-tools-magic-notes--quizlet-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://help.quizlet.com/hc/en-us",
+  "confidence": "high",
+  "note": "Quizlet is a study app sold to students and teachers (Quizlet Plus subscriptions)."
+ },
+ {
+  "id": "remnote-ai--remnote-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.remnote.com/pricing",
+  "confidence": "medium",
+  "note": "Pricing lists unlimited synced devices and daily cloud backups behind an account; local knowledge bases are only a Pro add-on feature."
+ },
+ {
+  "id": "rogo--rogo-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://rogo.com/security",
+  "confidence": "medium",
+  "note": "Security page says Rogo uses 'modern cloud infrastructure' with SOC 2/ISO 27001 audits; no self-hosted option is mentioned."
+ },
+ {
+  "id": "sandbar-stream--sandbar-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.sandbar.com/security",
+  "confidence": "high",
+  "note": "Security page says data between the Stream app and Sandbar's servers is TLS-encrypted and 'Cloud data is encrypted with AES-256'."
+ },
+ {
+  "id": "scrintal--scrintal-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://scrintal.com/",
+  "confidence": "medium",
+  "note": "Scrintal is an account-based web app (login/get started) with macOS and Windows desktop clients; no self-host or local-only mode is mentioned."
+ },
+ {
+  "id": "semgrep-assistant--semgrep-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.semgrep.dev/semgrep-multimodal/overview",
+  "confidence": "medium",
+  "note": "Docs say Semgrep Multimodal 'Requires the Semgrep AppSec Platform', the hosted platform that posts LLM-generated triage and remediation to PRs."
+ },
+ {
+  "id": "snyk-deepcode-ai--snyk-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://snyk.io/platform/deployment-options/",
+  "confidence": "high",
+  "note": "Deployment options page describes Snyk as cloud-first: recommended multi-tenant SaaS, plus limited-availability Private Cloud on AWS."
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://github.com/sweepai/sweep",
+  "confidence": "high",
+  "note": "README says the team is now building an AI coding assistant for JetBrains, available as a JetBrains Marketplace plugin."
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://github.com/sweepai/sweep",
+  "confidence": "high",
+  "note": "Sweep is now an AI coding assistant plugin for JetBrains IDEs aimed at developers as end users."
+ },
+ {
+  "id": "synthesis-tutor--synthesis-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.synthesis.com/tutor",
+  "confidence": "medium",
+  "note": "Synthesis Tutor is an account-based subscription app (log in / try it free) on iPad, Android and the web; no offline/self-host option."
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "cell": "architecture-deployment-locus",
+  "value": "ide",
+  "status": "real-data",
+  "citation": "https://docs.tabnine.com/main/getting-started/install",
+  "confidence": "high",
+  "note": "Install guide says to install and activate the Tabnine plugin in your IDE (VS Code, JetBrains, etc.), backed by Tabnine SaaS or a private installation."
+ },
+ {
+  "id": "tana--tana-inc",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://outliner.tana.inc/pricing",
+  "confidence": "medium",
+  "note": "Tana Outliner is sign-up based with workspace storage quotas and AI credits per plan, plus desktop/mobile clients; no self-host option."
+ },
+ {
+  "id": "tencent-ima-copilot--ima-qq-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://ima.qq.com/",
+  "confidence": "medium",
+  "note": "ima runs as a web app with a downloadable desktop version and asks users to log in to sync conversation history (登录以同步历史会话)."
+ },
+ {
+  "id": "tonkean-legalworks--tonkean-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.tonkean.com/solutions/legal-works",
+  "confidence": "medium",
+  "note": "LegalWorks page lists 'Flexible deployment options: public cloud, private cloud, and on-premises', all through a demo-led enterprise sale with SaaS as the default."
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.trace.so/",
+  "confidence": "medium",
+  "note": "Trace is a beta SaaS orchestration layer connecting Slack, HubSpot and Google Drive, with access by contacting the team; no self-host option is mentioned."
+ },
+ {
+  "id": "trade-ideas-holly-ai--trade-ideas-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.trade-ideas.com/pricing/",
+  "confidence": "medium",
+  "note": "Holly AI signals are part of a Trade Ideas subscription delivered through its Web Dashboard and the downloadable TI Pro client."
+ },
+ {
+  "id": "trustcloud--trustcloud-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.trustcloud.ai/",
+  "confidence": "medium",
+  "note": "Homepage says TrustCloud is ServiceNow-native, delivered as a continuous-monitoring service; no self-hosted option."
+ },
+ {
+  "id": "vonage-ai-studio--vonage-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.vonage.com/communications-apis/ai-studio/",
+  "confidence": "medium",
+  "note": "AI Studio runs on Vonage's communications APIs, either 'fully managed deployment by AI experts' or built in its low-code flow builder; no self-host option."
+ }
+]

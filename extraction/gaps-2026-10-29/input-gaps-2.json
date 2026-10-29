@@ -1,0 +1,843 @@
+[
+ {
+  "id": "jetbrains-junie--jetbrains-com",
+  "name": "JetBrains Junie",
+  "url": "https://www.jetbrains.com/junie/",
+  "section": "Agent IDEs & coding harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "JetBrains' answer to Cursor Agent Mode / Devin — an autonomous in-IDE coding agent. Public beta 2024-Q4; runs alongside AI Assistant inside IntelliJ-platform IDEs. Plans, edits, runs tests; multi-model.",
+  "deployment": "IDE plugin (cloud LLM)",
+  "pricing": "Junie Lite free; AI Pro $8.33/user/mo (10 AI credits per 30 days); AI Ultimate $25/user/mo (35 AI credits per 30 days); top-ups available"
+ },
+ {
+  "id": "k-health--khealth-com",
+  "name": "K Health",
+  "url": "https://khealth.com/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Primary care / virtual physician intake. Two-agent pipeline: one extracts the relevant EMR subset, second answers grounded to that filtered history. Architecture explicitly diverges by patient condition (diabetic vs heart-failure get different responses to same intake).",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "k-scale-labs--kscale-dev",
+  "name": "K-Scale Labs",
+  "url": "https://www.kscale.dev/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Open-source humanoid robot maker — K-Scale OS (Kos), Stompy and KBot humanoids. YC W24. Pitched as the 'open-source humanoid' alternative to Figure / Tesla — full hardware + software OSS.",
+  "deployment": "Hardware ships; OS self-host",
+  "pricing": "Hardware kits ($8-16k range); OS free"
+ },
+ {
+  "id": "labgenius--labgenius-app",
+  "name": "LabGenius",
+  "url": "https://labgeniustx.com/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Therapeutic-antibody discovery in a closed Design-Build-Test-Learn loop. EVA accumulates structured outcome data from each robotic experiment cycle and feeds it back to generative ML models directing the next design round. Genuine experiment-memory-as-training-signal.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "name": "Lakera Guard / Lakera Red",
+  "url": "https://www.lakera.ai/ai-agent-security",
+  "section": "Memory governance, privacy & safety",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Acquired by Check Point Software (completed by 2025-11-11); being folded into Check Point's AI security platform. Screens every prompt, response, and retrieved document for indirect prompt injection — primary vector for memory poisoning. Treats memory as untrusted: anything written to or read from m",
+  "deployment": "REST API (SaaS cloud) or self-hosted Enterprise deployment",
+  "pricing": "Developer: free (10K API calls/mo); Pro: contact sales (higher volume + advanced detection)"
+ },
+ {
+  "id": "lasso-security--lasso-security",
+  "name": "Lasso Security",
+  "url": "https://www.lasso.security/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Tel-Aviv-founded LLM security platform — adversarial testing, prompt-injection defence, data-leakage prevention. $6M seed Nov-2023 (Entrée Capital + Samsung Next).",
+  "deployment": "SaaS + on-prem",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "lawdroid-copilot--lawdroid-com",
+  "name": "LawDroid Copilot",
+  "url": "https://lawdroid.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2017 by Tom Martin (lawyer + technologist); LawDroid Copilot serves solo and small-firm lawyers — drafting, research, client intake automation. Bootstrapped + small angel rounds. Marketed against the 'enterprise BigLaw' positioning of Harvey/Casetext. As of 2026-10 lawdroid.ai no longer list",
+  "deployment": "not applicable — wrong section",
+  "pricing": "$60–$200/month per seat"
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "name": "LazyGraphRAG",
+  "url": "https://github.com/microsoft/graphrag/discussions/1490",
+  "section": "Retrieval-as-memory hybrids",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Performs minimal up-front indexing; defers LLM use until query time. Announced (Nov 2024) for integration into the main GraphRAG library, but no implementation has shipped there, and the GraphRAG repo is now largely in maintenance mode with no new features.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "name": "Limitless",
+  "url": "https://www.limitless.ai/",
+  "section": "Voice-first / wearable AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Former Rewind/Limitless lifelog (Pendant wearable + screen/audio capture with timeline search). Acquired by Meta (2025-12); Pendant no longer sold as of 2025-12-05, service withdrawn from the EU, UK, Brazil, China, Israel, South Korea and Turkey on 2025-12-05, desktop/web recording ended and Rewind ",
+  "deployment": "Managed-only",
+  "pricing": "Discontinued — no new sales since 2025-12-05; existing Pendant owners get Unlimited plan free"
+ },
+ {
+  "id": "linkedin-cognitive-memory-agent--linkedin-com",
+  "name": "LinkedIn Cognitive Memory Agent",
+  "url": "https://www.linkedin.com/blog/engineering/ai/the-linkedin-generative-ai-application-tech-stack-personalization-with-cognitive-memory-agent",
+  "section": "Platform-provider memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Production memory infrastructure powering LinkedIn's Hiring Assistant and other GenAI apps. Three-layer (episodic/semantic/procedural) shared memory substrate across multi-agent systems; recent-context retrieval + semantic search + summarisation-based compaction. April 2026.",
+  "deployment": "Managed-only (internal LinkedIn production infrastructure)",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "linq-ai--linq-ai",
+  "name": "Linq AI",
+  "url": "https://www.linq.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2023; AI-agent platform for financial analysts — multi-step research, data cleansing, model-building. Small seed round; competes in the AlphaSense / Hebbia / Rogo broader space at lower price point. As of 2026-10-29 linq.ai belongs to an unrelated higher-education company, so this product's ",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "litera-ai--litera-com",
+  "name": "Litera AI",
+  "url": "https://www.lito.app/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Litera (Hg-backed; 50%+ of AmLaw 200 customers) added a Litera AI overlay 2024 — drafting, redlining, document analytics. Litera parent has been a private-equity rollup of legal-tech (Microsystems, Workshare, Kira Systems acquired 2021).",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "logicgate-risk-cloud--logicgate-com",
+  "name": "LogicGate Risk Cloud",
+  "url": "https://www.logicgate.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2015; GRC platform (Risk Cloud) — flexible policy engine + workflow + risk register. $113M Series C Dec-2021 (PSG + Silversmith). AI features (auto-policy mapping, issue triage) added 2024.",
+  "deployment": "Managed-only — Risk Cloud SaaS",
+  "pricing": "Quote-based: pay for Applications (30+ GRC use cases) plus Power User licenses; Standard and External user licenses included at no extra cost"
+ },
+ {
+  "id": "lucidworks-conversational-q-a-ai-agent--lucidworks-com",
+  "name": "Lucidworks Conversational Q&A AI Agent",
+  "url": "https://lucidworks.com/platform/ai-agents/ai-powered-conversational-qa-agent-built-for-enterprises",
+  "section": "Enterprise-search adjacencies",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Enterprise Q&A agent powered by Luci patent-pending ultra-precise RAG. Embeds on product detail pages; consumes technical PDFs, spec sheets, images, tables, charts, graphs and product manuals. Maintains session history for multi-turn follow-ups; refuses out-of-scope queries via prompt-injection guar",
+  "deployment": "Both (self-hosted + managed cloud) — Lucidworks Platform SaaS; self-hosted Fusion",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "luminance-institutional-memory--luminance-com",
+  "name": "Luminance Institutional Memory",
+  "url": "https://www.luminance.com/press-releases/luminance-launches-new-legal-ai-with-institutional-memory-addressing-enterprise-amnesia-and-giving-legal-teams-30-of-their-time-back",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Jan 2026 platform relaunch. Persists negotiation history, prior decisions, accepted risk positions across all contracts; new terms align with what the org has already agreed. Branded as the antidote to \"enterprise amnesia.\"",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "magic-dev--magic-dev",
+  "name": "Magic.dev",
+  "url": "https://magic.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "AI-coding startup focused on extremely long-context models (claimed 100M tokens) and a frontier coding agent. Raised $320M Series B from Eric Schmidt, CapitalG, Atlassian Aug 2024. Lower public-product surface than peers — mostly known for the model claims and the funding round. As of 2026-10 magic.",
+  "deployment": "Cloud (private beta)",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "name": "Magnitude",
+  "url": "https://magnitude.dev/",
+  "section": "Computer-use & desktop agents",
+  "need": [
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Formerly an OSS AI browser-agent / natural-language E2E testing framework (YC 2025). The magnitudedev/magnitude repo now hosts an OSS local inference engine + desktop app that serves open models to agents.",
+  "deployment": "Self-hosted only — local library/desktop app",
+  "pricing": "OSS free; cloud / enterprise on roadmap"
+ },
+ {
+  "id": "manus-ai--manus-im",
+  "name": "Manus AI",
+  "url": "https://manus.im",
+  "section": "Agent IDEs & coding harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Chinese-origin general-purpose autonomous agent launched March 2025 by Butterfly Effect. Operates in a cloud sandbox — browser, file system, shell. Went viral on launch with invite-only access; positioned as a Devin/AutoGPT competitor for non-coding tasks (research, ops, data analysis).",
+  "deployment": "Cloud (browser app)",
+  "pricing": "$39/$199/mo tier reportedly post-beta"
+ },
+ {
+  "id": "memorax-ai--eu-36kr-com",
+  "name": "MemoraX AI",
+  "url": "https://eu.36kr.com/en/p/3785834045583875",
+  "section": "Dedicated memory layers",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Shenzhen. Argues attaching external vector stores is architecturally flawed; trains memory as an intrinsic capability via Agentic RL. Plans B2B enterprise KM and C2C personalisation in 12 months. Founded by Tianjin University AI professor.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "microsoft-edge-copilot-mode-journeys--blogs-windows-com",
+  "name": "Microsoft Edge Copilot Mode + Journeys (now Copilot in Edge)",
+  "url": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/",
+  "section": "Browser-agent memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Copilot Mode retired 2026-05-13; its features now ship as Copilot in Edge. Journeys clusters browsing history into topic cards on the new tab page (desktop, and US mobile); Copilot long-term memory can reference past chats and browsing history with user controls; agentic 'Browse with Copilot' (forme",
+  "deployment": "Managed-only (Edge browser with Microsoft account)",
+  "pricing": "Free in Edge (Journeys free on desktop in English markets); Browse with Copilot requires Microsoft 365 Premium (US); M365 Personal/Family/Premium get extended u"
+ },
+ {
+  "id": "mindgard--mindgard-ai",
+  "name": "Mindgard",
+  "url": "https://mindgard.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Lancaster-University spinout; continuous automated AI red-teaming SaaS. $8M seed/A Jun-2024 (.406 Ventures + Atlantic Bridge). Founded by Prof. Peter Garraghan.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "mymind--access-mymind-com",
+  "name": "Mymind",
+  "url": "https://access.mymind.com/pricing",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "No tags, no folders, no manual organisation. Automatic image tagging, OCR search inside screenshots/memes, smart auto-grouping (Smart Spaces), semantic search. Privacy-first.",
+  "deployment": "Managed-only",
+  "pricing": "Bookmarker $4.99/mo; Student of Life $7.99/mo or $79/yr; Mastermind $12.99/mo or $129/yr; Newton $299/yr (not yet available)"
+ },
+ {
+  "id": "neocognition--prnewswire-com",
+  "name": "NeoCognition",
+  "url": "https://www.prnewswire.com/news-releases/neocognition-emerges-from-stealth-with-40-million-seed-round-to-advance-specialized-intelligence-and-expert-agents-302749108.html",
+  "section": "Dedicated memory layers",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Builds agents that learn from experience by constructing a \"world model\" of the micro-environment they operate in. Specialise over time through Agentic RL loop rather than relying on static prompt context. Targets the ~50% task-completion failure rate in current agents.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "numerai-signals--signals-numer-ai",
+  "name": "Numerai Signals",
+  "url": "https://signals.numer.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Numerai is a crowdsourced AI hedge fund — data scientists submit predictive signals + are paid in NMR (cryptocurrency) based on signal performance. Numerai Signals is the global-equities tournament. Founded 2015 by Richard Craib. ~$200M AUM reported.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "nyne--nyne-ai",
+  "name": "Nyne",
+  "url": "https://nyne.ai",
+  "section": "Dedicated memory layers",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Now positioned as 'The data factory for AI': connects AI labs with licensed data and an expert network, built on an identity graph of ~2.2B people and 380M businesses; people-data APIs (identity resolution, enrichment, search) for applications and agents remain available by request.",
+  "deployment": "Cloud API (agents deployed across web to build people graph; no self-hosted option found)",
+  "pricing": "Not public — API access by request"
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "name": "OctoAI (now NVIDIA)",
+  "url": "https://octo.ai/",
+  "section": "Inference platforms & gateways",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Inference cloud spun out of OctoML — acquired by NVIDIA in 2024. Originally TVM-compiler heritage; offered API for OSS LLM/diffusion serving.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "openai-chatgpt-memory--openai-com",
+  "name": "OpenAI ChatGPT Memory",
+  "url": "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+  "section": "Platform-provider memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "First-party ChatGPT memory combining saved memories, reference to past chats, custom instructions and connected apps; 'improved memory' keeps an evolving summary (legacy list-style saved memories still selectable), with review/correct/delete controls and temporary chats.",
+  "deployment": "Managed-only",
+  "pricing": "Free + paid"
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "name": "OpenAI Operator",
+  "url": "https://openai.com/index/introducing-operator/",
+  "section": "Computer-use & desktop agents",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "OpenAI's general-purpose browser agent — research preview launched January 2025 (US Pro tier). Built on the Computer-Using Agent (CUA) model that processes screenshots and emits mouse / keyboard actions; runs inside an OpenAI-hosted browser sandbox. Operator is the consumer product; the underlying C",
+  "deployment": "Cloud (OpenAI-hosted browser sandbox) — no self-host",
+  "pricing": "Bundled with ChatGPT Pro $200/mo"
+ },
+ {
+  "id": "openmemory-mcp--mem0-ai",
+  "name": "OpenMemory MCP",
+  "url": "https://mem0.ai/openmemory",
+  "section": "Claude Code memory mechanisms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Mem0's MCP memory layer for coding agents (Claude, Cursor, VS Code etc.). Ships both as a hosted service (API key + npx installer) and a local Docker-based self-hosted server where data stays on-machine.",
+  "deployment": "not applicable — not a deployable product",
+  "pricing": "not applicable — not commercial"
+ },
+ {
+  "id": "palantir-ontology--palantir-com",
+  "name": "Palantir Ontology",
+  "url": "https://www.palantir.com/docs/foundry/ontology/overview",
+  "section": "Knowledge-graph platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Proprietary operational ontology — semantic objects + kinetic actions wired to microservices. Not open-standards KG; closed platform.",
+  "deployment": "Both",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "pickle-robot--picklerobot-com",
+  "name": "Pickle Robot",
+  "url": "https://www.picklerobot.com/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "MIT spinout focused on truck-unloading robots — autonomously empties truck trailers. Raised $50M Series B (Mar 2024, Tiger Global + others). Narrow focus but production deployments at major logistics customers.",
+  "deployment": "Truck-dock installation; RaaS",
+  "pricing": "RaaS / capex"
+ },
+ {
+  "id": "pincites--pincites-com",
+  "name": "Pincites (now Filevine LOIS for Word)",
+  "url": "https://www.filevine.com/platform/lois-for-word/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "YC-W24 contract-review AI; auto-redlines vendor contracts based on the in-house playbook. $3.6M seed 2024 (Y Combinator + Liquid 2). Targets in-house legal at SaaS companies. Acquired by Filevine (2025-12; announced 2026-01-14); the product became LOIS for Word, part of Filevine's Legal Operating In",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "plaud-notepin--plaud-ai",
+  "name": "Plaud NotePin",
+  "url": "https://www.plaud.ai",
+  "section": "Voice-first / wearable AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Magnetic clip-on wearable. Records in-person conversations and calls; AI summaries, action items, searchable transcripts. AES-256 + TLS 1.2 in transit; doesn't retain audio after transcription. Also sells Note (card-form recorder) and Note Pro.",
+  "deployment": "Managed-only",
+  "pricing": "NotePin $159 / NotePin S $179 / Note Pro $189; Starter plan free (300 min/mo); Pro $17.99/mo or $99.99/yr (1,200 min); Unlimited $29.99/mo or $239.99/yr"
+ },
+ {
+  "id": "pluto-ai--heypluto-ai",
+  "name": "Pluto AI",
+  "url": "https://www.heypluto.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2024; AI personal-finance assistant — analyses spending, suggests savings, manages budgets via chat. Consumer-tier; small seed funding. Distinct from Pluto Money (different product; same space).",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "name": "Protect AI",
+  "url": "https://www.paloaltonetworks.com/ai-security/prisma-airs",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2022 by Ian Swanson + Daryan Dehghanpisheh (ex-AWS); AI/ML supply-chain + GenAI security. Acquired by Palo Alto Networks (2025-07-22; announced Apr-2025, reported $700M); its capabilities now ship in Prisma AIRS. Products: Recon (red-team), ModelScan (model artifact scanner), Sightline (vuln",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "quizlet-ai-study-tools-magic-notes--quizlet-com",
+  "name": "Quizlet — AI Study Tools / Magic Notes",
+  "url": "https://quizlet.com/features/ai-study-tools",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Tracks per-card answer history within a study set; computes a Memory Score for SRS scheduling. Magic Notes converts uploaded content (notes, PDFs, URLs) into flashcard sets automatically. Q-Chat, the conversational AI layer, was discontinued June 2025. Personalization is scoped to individual study s",
+  "deployment": "iOS + Android + Web",
+  "pricing": "Free; Quizlet Plus $19.99/yr"
+ },
+ {
+  "id": "remnote-ai--remnote-com",
+  "name": "RemNote AI",
+  "url": "https://www.remnote.com/",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Hierarchical outline + bidirectional links + spaced-repetition flashcards. AI auto-generates flashcards/quizzes from notes; AI summaries; fill-gap questions.",
+  "deployment": "Managed-only",
+  "pricing": "Free; Pro $8/mo ($96/yr); Pro with AI $18/mo ($216/yr); lifetime option"
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "name": "Robust Intelligence",
+  "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2019 by Yaron Singer (Harvard); ML risk management — model testing, validation, runtime detection. Acquired by Cisco (2024-10); now foundational to Cisco AI Defense and Cisco Foundation AI. Note: Harrison Chase (LangChain CEO) was an early Robust Intelligence ML lead.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "rogo--rogo-ai",
+  "name": "Rogo",
+  "url": "https://rogo.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2022 by Gabriel Stengel (ex-Lazard + Stanford); AI agent purpose-built for investment-banking workflows — comps, precedent transactions, IC memo drafting. $50M Series B Mar-2025 ($350M val; Khosla + Thrive Capital + Tiger Global). Customer base: 25+ IBs including Lazard, Tiger Global, Hellma",
+  "deployment": "Managed-only — SaaS platform",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "sajari-now-search-io--search-io",
+  "name": "Sajari (now Search.io)",
+  "url": "https://www.search.io/",
+  "section": "Search platforms (non-memory)",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Site-search platform (formerly Sajari) with the Neuralsearch vector engine. Acquired by Algolia in September 2022 and folded into Algolia's hybrid search; search.io now redirects to algolia.com.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "sakana-ai-scientist--sakana-ai",
+  "name": "Sakana AI Scientist",
+  "url": "https://sakana.ai/ai-scientist/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Tokyo-based Sakana AI's autonomous research agent — generates ideas, runs experiments, writes papers, peer-reviews. v1 paper Aug-2024 (arXiv 2408.06292); v2 update 2025. **Sakana parent: $214M Series A Sep-2024 ($1.5B val; NEA + Khosla)**.",
+  "deployment": "Self-hosted only — research code",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "sanctuary-ai--sanctuary-ai",
+  "name": "Sanctuary AI",
+  "url": "https://sanctuary.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Vancouver-based Physical AI company, founded 2018; originally built the Phoenix humanoid, and since 2026-06 deploys hardware-agnostic Physical AI on existing commercial industrial robots (Tier 1 automotive proof-of-concept), with hydraulic hands in development.",
+  "deployment": "Direct customer pilot",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "sanctuary-ai-carbon-phoenix-gen-7-8--sanctuary-ai",
+  "name": "Sanctuary AI Carbon (Phoenix Gen 7/8)",
+  "url": "https://www.sanctuary.ai/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Carbon control system originally built for the Phoenix humanoid; company now sells it as hardware-agnostic Physical AI for existing industrial robots plus in-development hydraulic hands, with the Phoenix humanoid no longer featured.",
+  "deployment": "Hardware deployment at customer sites",
+  "pricing": "Est. starting ~$65000 USD (configuration-dependent)"
+ },
+ {
+  "id": "sandbar-stream--sandbar-com",
+  "name": "Sandbar Stream",
+  "url": "https://www.sandbar.com",
+  "section": "Voice-first / wearable AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Smart ring with voice-activated capture (tap to record, not always-on). Personal knowledge graph with companies, people, meetings; pulls context from past meetings and shared interests. Ex-Meta engineering team.",
+  "deployment": "Managed-only; still listed as preorder on site as of Oct 2026",
+  "pricing": "Ring preorder $249 (silver) / $299 (gold); Pro subscription $10/mo (free 3mo for preorders)"
+ },
+ {
+  "id": "scale-ai--scale-com",
+  "name": "Scale AI",
+  "url": "https://scale.com/",
+  "section": "Training infrastructure",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Data-labeling powerhouse for AI training — RLHF data, fine-tuning corpora, frontier-lab partnerships. Meta made a strategic investment in 2025-06 for a minority stake (Scale's own post gives a valuation above $29B, not the amount); founder Alexandr Wang joined Meta and stays on Scale's board.",
+  "deployment": "searched not found",
+  "pricing": "No public pricing — contact sales"
+ },
+ {
+  "id": "scrintal--scrintal-com",
+  "name": "Scrintal",
+  "url": "https://scrintal.com/",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Infinite whiteboard + bidirectional-linked cards (spatial + networked hybrid). AI assistant for brainstorming, summarisation, rewriting selected cards.",
+  "deployment": "Managed-only",
+  "pricing": "Free; Pro $9/mo (annual) — from product claims row"
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "name": "Sema4.ai",
+  "url": "https://sema4.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Sema4.ai is the AI-agent rebrand of Robocorp (RPA / Python automation OSS). Funded by Benchmark, Canvas Ventures, Slow Ventures. Founded 2019 (as Robocorp); rebranded 2024. Positioned as enterprise Python-based agent runtime with strong RPA heritage and governance focus. OSS Robocorp framework remai",
+  "deployment": "OSS framework + managed cloud + on-prem enterprise",
+  "pricing": "OSS (Robocorp framework) + Sema4.ai Studio + Enterprise cloud (quote)"
+ },
+ {
+  "id": "semgrep-assistant--semgrep-dev",
+  "name": "Semgrep Assistant (now Semgrep Multimodal)",
+  "url": "https://semgrep.dev/products/semgrep-multimodal/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Semgrep's AI layer (Assistant) on top of its OSS rules-based SAST engine — triages findings, suppresses false positives, drafts fixes via PR. Semgrep parent: $59.5M Series C Nov-2022 ($530M val); >100M scans/year reported.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "Free tier (up to 10 contributors, 60 AI credits); Teams from $30/month per contributor (20 AI credits per developer/month); Enterprise quote"
+ },
+ {
+  "id": "skild-brain--skild-ai",
+  "name": "Skild Brain",
+  "url": "https://www.skild.ai/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Real-time simultaneous inference + data collection — dynamically updates in-context representation as the robot encounters new situations. Lets the system adapt to novel embodiments / unseen environments without explicit fine-tuning. Pre-trained on internet human video + physics sim.",
+  "deployment": "Cloud inference + on-robot edge deployment",
+  "pricing": "No public pricing; $4k–$15k target hardware cost enabled by Skild Brain"
+ },
+ {
+  "id": "snapattack--snapattack-com",
+  "name": "SnapAttack",
+  "url": "https://www.splunk.com/en_us/products/enterprise-security.html",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2021 inside Booz Allen Hamilton; spun out 2022. Detection-as-code platform — threat emulation + auto-generated detections. Adds GenAI threat-content layer 2024. Acquired by Cisco (2025-01-31; announced 2024-12-16) to extend Splunk Enterprise Security; snapattack.com now redirects to Splunk E",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "snorkel-ai--snorkel-ai",
+  "name": "Snorkel AI",
+  "url": "https://snorkel.ai/",
+  "section": "Training infrastructure",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "AI data company spun out of Stanford Snorkel weak-supervision research; now sells expert-built training datasets, RL environments, benchmarks and evals to frontier AI labs (Snorkel Data Series, custom data development).",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "snyk-deepcode-ai--snyk-io",
+  "name": "Snyk DeepCode AI",
+  "url": "https://snyk.io/platform/deepcode-ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Snyk's AI-assisted code-fix product built on the 2020-acquired DeepCode AI engine. Combines symbolic analysis + multiple AI models for fix generation. Snyk parent: $530M raised; $7.4B val Dec-2022; reported $300M+ ARR.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "surge-ai--surgehq-ai",
+  "name": "Surge AI",
+  "url": "https://www.surgehq.ai/",
+  "section": "Training infrastructure",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Premium human-labelling company specialised in RLHF data and difficult expert tasks — Surge prides itself on bootstrapped, no-VC; major frontier-lab supplier.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "name": "Sweep AI",
+  "url": "https://sweep.dev",
+  "section": "Coding-agent memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Superseded: the sweepai/sweep README says the team now builds an AI coding assistant for JetBrains; the GitHub-app product described here is no longer the focus (repo not archived). No dedicated persistent memory layer. Operates as a GitHub App — reads issue + codebase fresh on each trigger. Some co",
+  "deployment": "Both (GitHub App managed + JetBrains plugin local)",
+  "pricing": "Free (community); Pro and Team tiers; LLM cost + 5% markup model for agent usage"
+ },
+ {
+  "id": "synthesis-tutor--synthesis-com",
+  "name": "Synthesis Tutor",
+  "url": "https://www.synthesis.com/tutor",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Embeds micro-assessments into every lesson to track understanding in real time, adjusting difficulty and teaching approach within session. Combines AI personalization with human-curated content. No publicly disclosed mechanism for a durable cross-session learner profile beyond progress tracking with",
+  "deployment": "iPad + Android tablet + Web/desktop (incl. Chromebook)",
+  "pricing": "7-day free trial; family ~$29/mo or $119/yr; individual $45/mo or ~$300/yr; lifetime $999–$1,499 (page figures inconsistent)"
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "name": "Tabnine",
+  "url": "https://docs.tabnine.com/main/getting-started/context-engine",
+  "section": "Coding-agent memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level. Individual completions stay session-scoped. Tabnine Agents (Nov 2025) adds team-shared agent context.",
+  "deployment": "Both",
+  "pricing": "No free tier; Code Assistant $39/user/mo, Agentic Platform $59/user/mo (annual); Headless Agents add-on $1.2k–5k/mo"
+ },
+ {
+  "id": "tana--tana-inc",
+  "name": "Tana (now Tana Outliner)",
+  "url": "https://outliner.tana.inc/",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Tana split in Mar 2026: the supertag-based outliner/PKM is now 'Tana Outliner' at outliner.tana.inc, while tana.inc is a separate agentic meeting platform sharing a knowledge graph. Outliner keeps Tana AI on nodes (chat with notes, summaries, automations).",
+  "deployment": "Managed-only",
+  "pricing": "Tana Outliner: Free (500 AI credits); Plus $8/mo; Pro $14/mo (yearly saves 22%). Meetings product: Free; Pro ~$20–30; Business from $35/user/mo"
+ },
+ {
+  "id": "tencent-ima-copilot--ima-qq-com",
+  "name": "Tencent ima.copilot",
+  "url": "https://ima.qq.com",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Tencent's knowledge-management productivity AI, powered by Hunyuan. Copilot mode adds a four-module persistent memory architecture: Soul (agent persona), User (profile), Memory (long-term declarative), Agent (learned skills/task experience). Memory persists across devices and sessions; context aware",
+  "deployment": "Managed-only",
+  "pricing": "Free"
+ },
+ {
+  "id": "tesla-fsd-v13-occupancy-4d-world--thinkautonomous-ai",
+  "name": "Tesla FSD V13 — Occupancy + 4D World (now FSD v14)",
+  "url": "https://www.thinkautonomous.ai/blog/occupancy-networks/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Single end-to-end neural network ingesting multi-camera video + navigation + ego-motion, maintaining an evolving 3D occupancy volume as internal world state — spatial memory persisting across frames, tracking objects that temporarily leave the camera FOV. Row originally described V13; current line i",
+  "deployment": "On-device in Tesla vehicles; v14.x targets HW4/AI4",
+  "pricing": "FSD (Supervised) $99/month subscription; subscription-only path on Tesla support page; requires FSD computer 3.0+"
+ },
+ {
+  "id": "tonkean-legalworks--tonkean-com",
+  "name": "Tonkean LegalWorks",
+  "url": "https://www.tonkean.com/solutions/legal-works",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Tonkean is a workflow-orchestration platform; LegalWorks is the legal-ops vertical with AI agents for intake triage, contract routing, and SLA management. Tonkean: $50M Series C Sep-2022 (Insight + Lightspeed + Accel; $500M+ val). Acquired by Coupa (2026), per the banner on Tonkean's homepage; Legal",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "name": "Toplyne",
+  "url": "https://www.toplyne.io/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2021; PLG-revenue intelligence — predicts which free users will convert, sales-ready signals. $17.5M Series A May-2023 (Tiger Global + Sequoia + Together Fund). Pivoted to AI-agent positioning 2024.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "name": "TopQuadrant TopBraid EDG (now TQ Data Foundation)",
+  "url": "https://www.topquadrant.com/",
+  "section": "Knowledge-graph platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Ontology-native semantic governance suite (formerly TopBraid EDG, now TQ Data Foundation) built on RDF, OWL and SHACL; serves governed context to agents via MCP, a Python SDK and REST.",
+  "deployment": "Both (on-prem + Azure Marketplace SaaS)",
+  "pricing": "Enterprise only — modular packages (Metadata Mgmt, Reference Data Mgmt, Vocabulary Mgmt, Business Glossaries)"
+ },
+ {
+  "id": "toyota-research-institute-lbm--tri-global",
+  "name": "Toyota Research Institute LBM",
+  "url": "https://www.tri.global/our-work/robotics",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Toyota Research Institute's robotics group — published Large Behavior Models (LBMs) Sep-2023 + diffusion-policy / behavior-cloning at scale. Industrial-research lab with Toyota's manufacturing-data advantage. Not a startup — division of Toyota Motor Corp.",
+  "deployment": "Research-stage; Toyota internal pilots; OSS code for community",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "name": "Trace",
+  "url": "https://www.ycombinator.com/companies/trace-so",
+  "section": "Dedicated memory layers",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "YC S25 + $3M seed (Feb 2026). Workflow orchestration mapping corporate environments as a structured context graph so agents always have institutional knowledge for tasks. CTO frames differentiator as \"context engineering.\"",
+  "deployment": "Cloud (SaaS integrating Slack/Jira/Notion; no self-hosted option found)",
+  "pricing": "not public — beta with waitlist / contact"
+ },
+ {
+  "id": "trade-ideas-holly-ai--trade-ideas-com",
+  "name": "Trade Ideas Holly AI",
+  "url": "https://www.trade-ideas.com/holly/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Holly AI is the trading-idea generation agent inside the Trade Ideas platform (founded 2003). Holly back-tests millions of strategies overnight + surfaces 'tradeable ideas' for retail/prosumer traders. Bootstrapped; long-running niche product pre-LLM wave.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "Standard $89/mo billed annually ($1,068/yr; ~$127 month-to-month); Premium with AI signals $178/mo billed annually ($2,136/yr; ~$254 month-to-month)"
+ },
+ {
+  "id": "truera--truera-com",
+  "name": "TruEra",
+  "url": "https://truera.com/",
+  "section": "Evaluation & observability platforms",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "ML observability with the TruLens open-source LLM eval framework — the 'RAG Triad' (context-relevance, groundedness, answer-relevance) metrics. Acquired by Snowflake 2024-05.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "trustcloud--trustcloud-ai",
+  "name": "TrustCloud",
+  "url": "https://www.trustcloud.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2021 by Sravish Sridhar (ex-Kinvey founder); GRC automation + AI trust center. $25M Series A Jun-2023 (Felicis + Cowboy + Cota Capital). Differentiates with cyber-insurance + 'trust center' as a sales-enablement angle.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "vonage-ai-studio--vonage-com",
+  "name": "Vonage AI Studio",
+  "url": "https://www.vonage.com/communications-apis/ai-studio/",
+  "section": "Voice agent platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Vonage's AI Studio — visual conversational-agent designer that runs on Vonage CPaaS (SMS / Voice / WhatsApp). Vonage acquired by Ericsson 2022 ($6.2B); AI Studio is the conversational AI layer of the broader CPaaS. Enterprise focus.",
+  "deployment": "Cloud-managed",
+  "pricing": "Tiered + per-minute / per-message"
+ }
+]
