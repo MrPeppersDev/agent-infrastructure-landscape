@@ -44,7 +44,7 @@ import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
 import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
 import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
-import { planStack, slimPlan, PRODUCTS, LAYERS } from '../../mcp/dist/composer.js';
+import { planStack, slimPlan, toOpml, PRODUCTS, LAYERS, SITE } from '../../mcp/dist/composer.js';
 import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
 import { writeFileSync } from 'node:fs';
 import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
@@ -275,8 +275,9 @@ program
   .option('--pin <pairs>', 'layer=record-id pairs, comma-separated')
   .option('--compliance <codes>', 'attestations every hosted service must publish, e.g. soc2-type2,hipaa')
   .option('-o, --out <file>', 'also write the stack.yml to this file')
+  .option('--opml <file>', 'also write an OPML bundle of every component\'s change feed (import into a feed reader)')
   .option('--json', 'emit JSON')
-  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string }, cmd: Command) => {
+  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string; opml?: string }, cmd: Command) => {
     const p = (product ?? 'support-agent') as ProductType;
     if (!(p in PRODUCTS)) die(`product must be one of ${Object.keys(PRODUCTS).join(', ')}`);
     const list = (v?: string) => (v ? v.split(',').map((x) => x.trim()).filter(Boolean) : undefined);
@@ -294,6 +295,7 @@ program
       pricing: { stack: loadStackPricing() as never, memory: loadPricing() as never, vector: loadVectorPricing() as never }
     }, a);
     if (o.out) writeFileSync(o.out, plan.stackYaml);
+    if (o.opml) writeFileSync(o.opml, toOpml(plan.answers, plan.layers, SITE));
     if (globalOpts(cmd).json) return emit(JSON.stringify(slimPlan(plan), null, 2));
     const lines: string[] = [`${plan.product} — risk ${plan.risk.level} (${plan.risk.score})`, ''];
     for (const l of plan.layers) {

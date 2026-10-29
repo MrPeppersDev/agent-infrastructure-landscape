@@ -209,7 +209,7 @@ export function createHandler(load: Loader) {
           { items: d.items, records: d.records as never, edges: d.edges as never, migrations: d.migrations as never, pricing: { stack: d.stackPricing, memory: d.pricing, vector: d.vectorPricing } },
           a as unknown as StackAnswers
         );
-        return slimPlan(plan, (id) => `${SITE}/systems/${id}`);
+        return slimPlan(plan, SITE);
       }
       case 'estimate_memory_cost': {
         const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(a).filter(([, v]) => typeof v === 'number')) };

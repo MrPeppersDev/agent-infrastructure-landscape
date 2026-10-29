@@ -9,7 +9,8 @@
   import SeoHead from '$lib/components/SeoHead.svelte';
   import '$lib/compat';
   import type { ChooserItem, RecordLike } from '$lib/chooser';
-  import { planStack, PRODUCTS, LAYERS, DEFAULT_STACK, type StackAnswers, type LayerId, type ProductType } from '../../../../mcp/src/composer';
+  import { planStack, toOpml, PRODUCTS, LAYERS, DEFAULT_STACK, type StackAnswers, type LayerId, type ProductType } from '../../../../mcp/src/composer';
+  import { SITE_URL } from '$lib/site';
   import type { CompatEdge } from '../../../../mcp/src/compat';
   import { DEFAULT_STACK_WORKLOAD, type StackWorkload } from '../../../../mcp/src/stack-costs';
 
@@ -85,6 +86,11 @@
     }
   }
   const yamlHref = $derived(`data:text/yaml;charset=utf-8,${encodeURIComponent(plan.stackYaml)}`);
+  const opmlHref = $derived(`data:text/x-opml;charset=utf-8,${encodeURIComponent(toOpml(plan.answers, plan.layers, SITE_URL))}`);
+  const shareHref = $derived(
+    'https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/new?' +
+      new URLSearchParams({ template: 'stack-report.yml', title: `Stack report: ${PRODUCTS[answers.product].label}`, stack: plan.stackYaml }).toString()
+  );
   const triLabel = (t: string) => (t === 'yes' ? 'yes' : t === 'no' ? 'no' : 'unknown');
 </script>
 
@@ -307,6 +313,8 @@
     <p class="actions">
       <button type="button" onclick={copyYaml}>{copied ? 'Copied' : 'Copy'}</button>
       <a class="dl" href={yamlHref} download="stack.yml">Download</a>
+      <a class="dl" href={opmlHref} download="stack-feeds.opml" title="Import into a feed reader to follow every component's recorded changes">Watch (OPML feeds)</a>
+      <a class="dl" href={shareHref} target="_blank" rel="noopener noreferrer" title="Open a GitHub issue reporting the stack you run">Share: we use this stack</a>
     </p>
   </section>
 </main>

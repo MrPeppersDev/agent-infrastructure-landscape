@@ -552,13 +552,38 @@ export function toStackYaml(a: StackAnswers, layers: LayerResult[]): string {
   return lines.join('\n') + '\n';
 }
 
+/** An OPML bundle of every component's change feed (`/feeds/<id>.xml` on
+ * the site), so one import into a feed reader watches the whole stack for
+ * acquisitions, archivals, licence changes and other recorded changes. */
+export function toOpml(a: StackAnswers, layers: LayerResult[], site: string): string {
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const rows = layers
+    .filter((l) => l.pick)
+    .map((l) => `      <outline type="rss" text="${esc(`${l.label}: ${l.pick!.item.name}`)}" xmlUrl="${site}/feeds/${l.pick!.item.id}.xml" htmlUrl="${site}/systems/${l.pick!.item.id}"/>`);
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<opml version="2.0">',
+    `  <head><title>${esc(`Agent stack (${a.product}) — change feeds`)}</title></head>`,
+    '  <body>',
+    `    <outline text="${esc(`Agent stack (${a.product})`)}">`,
+    ...rows,
+    '    </outline>',
+    '  </body>',
+    '</opml>',
+    ''
+  ].join('\n');
+}
+
 // ---------------------------------------------------------------------------
 // Compact JSON for tool output (MCP server, hosted worker, CLI --json)
 // ---------------------------------------------------------------------------
 
-/** The plan without the internal item objects: names, ids, cited reasons.
- * `page` builds a link to a system's page when given. */
-export function slimPlan(p: StackPlan, page?: (id: string) => string) {
+export const SITE = 'https://mrpeppersdev.github.io/agent-infrastructure-landscape';
+
+/** The plan without the internal item objects: names, ids, cited reasons,
+ * links to each pick's page and change feed. */
+export function slimPlan(p: StackPlan, site: string = SITE) {
+  const page = (id: string) => `${site}/systems/${id}`;
   const name = new Map(p.layers.filter((l) => l.pick).map((l) => [l.pick!.item.id, l.pick!.item.name]));
   return {
     product: p.product,
@@ -571,7 +596,8 @@ export function slimPlan(p: StackPlan, page?: (id: string) => string) {
         ? {
             id: l.pick.item.id,
             name: l.pick.item.name,
-            ...(page ? { page: page(l.pick.item.id) } : {}),
+            page: page(l.pick.item.id),
+            feed: `${site}/feeds/${l.pick.item.id}.xml`,
             reasons: l.pick.reasons,
             unconfirmed: l.pick.unconfirmed,
             warning: l.pick.warning,
@@ -604,6 +630,8 @@ export function slimPlan(p: StackPlan, page?: (id: string) => string) {
     security: p.security,
     evals: p.evals,
     cost: p.cost,
-    stackYaml: p.stackYaml
+    stackYaml: p.stackYaml,
+    /** Import into a feed reader to watch every component for changes. */
+    opml: toOpml(p.answers, p.layers, site)
   };
 }
