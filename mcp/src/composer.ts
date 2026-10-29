@@ -18,6 +18,9 @@
 import { brand, POOLS, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting, type RecordLike } from './chooser.js';
 import { scoreInfraDetailed, FW_SECTIONS, NOT_A_FRAMEWORK, type Language, type InfraAnswers, type Exclusion } from './chooser-infra.js';
 import { compatibility, type CompatEdge, type CompatEvidence } from './compat.js';
+import { stackCost, DEFAULT_STACK_WORKLOAD, type StackCost, type StackPricing, type StackWorkload } from './stack-costs.js';
+import type { VendorPricing } from './costs.js';
+import type { VectorPricing } from './vector-costs.js';
 
 // ---------------------------------------------------------------------------
 // Layers and product presets
@@ -82,7 +85,7 @@ export interface ProductPreset {
 export const PRODUCTS: Record<ProductType, ProductPreset> = {
   'support-agent': { label: 'Customer-support agent', layers: ['framework', 'model', 'gateway', 'memory', 'vectors', 'embeddings', 'tools', 'observability', 'guardrails'], memory: 'app', benchmarks: /longmemeval|locomo|tau[- ]?bench|τ-bench/i },
   'coding-agent': { label: 'Coding agent', layers: ['framework', 'model', 'gateway', 'memory', 'sandbox', 'tools', 'observability', 'guardrails'], memory: 'coding', benchmarks: /swe[- ]?bench|terminal[- ]?bench|humaneval|osworld/i },
-  'research-agent': { label: 'Research agent', layers: ['framework', 'model', 'gateway', 'browser', 'vectors', 'embeddings', 'memory', 'observability', 'guardrails'], memory: 'app', benchmarks: /webarena|mind2web|\bgaia\b|browsecomp|webvoyager|osworld/i },
+  'research-agent': { label: 'Research agent', layers: ['framework', 'model', 'gateway', 'browser', 'sandbox', 'vectors', 'embeddings', 'memory', 'observability', 'guardrails'], memory: 'app', benchmarks: /webarena|mind2web|\bgaia\b|browsecomp|webvoyager|osworld/i },
   'voice-agent': { label: 'Voice agent', layers: ['voice', 'model', 'framework', 'memory', 'tools', 'observability', 'guardrails'], memory: 'app', benchmarks: /longmemeval|locomo|tau[- ]?bench|τ-bench/i },
   'multi-agent-workflow': { label: 'Multi-agent workflow', layers: ['framework', 'model', 'gateway', 'orchestration', 'memory', 'tools', 'sandbox', 'observability', 'guardrails'], memory: 'app', benchmarks: /tau[- ]?bench|τ-bench|\bgaia\b|agentbench|memoryarena|memoryagentbench/i },
   'rag-copilot': { label: 'RAG copilot', layers: ['framework', 'model', 'gateway', 'vectors', 'embeddings', 'memory', 'observability', 'guardrails'], memory: 'app', benchmarks: /longmemeval|locomo|beir|mteb|ragas/i }
@@ -106,6 +109,8 @@ export interface StackAnswers {
   pin?: Partial<Record<LayerId, string>>;
   /** Never pick these record ids. */
   avoid?: string[];
+  /** Workload for the cost estimate (defaults: DEFAULT_STACK_WORKLOAD). */
+  workload?: Partial<StackWorkload>;
   /** Attestations every hosted service in the stack must publish, as codes
    * from docs/schema/compliance-certifications.json (e.g. soc2-type2, hipaa).
    * Libraries you run yourself are exempt. */
@@ -180,6 +185,9 @@ export interface StackPlan {
   risk: { score: number; level: 'low' | 'medium' | 'high'; factors: RiskFactor[] };
   security: { source: string; items: SecurityItem[] };
   evals: { observability: { id: string; name: string } | null; benchmarks: { id: string; name: string; url: string | null }[] };
+  /** Monthly cost from published list prices; present when the context
+   * carries pricing. */
+  cost: StackCost | null;
   stackYaml: string;
 }
 
@@ -188,16 +196,24 @@ export interface ComposerContext {
   records: RecordLike[];
   edges: CompatEdge[];
   migrations?: Map<string, { summary: string; sources: string[] }>;
+  /** Published prices (data/pricing/*.json) for the cost estimate. */
+  pricing?: { stack: StackPricing; memory: { checked: string; vendors: VendorPricing[] }; vector: { checked: string; vendors: VectorPricing[] } };
 }
 
 // ---------------------------------------------------------------------------
 // Scoring
 // ---------------------------------------------------------------------------
 
+/** In the coding-memory pool, keep what you embed in your own coding agent
+ * (MCP memory servers, libraries) and drop finished coding agents and
+ * instruction-file conventions. */
+const CODING_PRODUCT = /cloud agent|cloud-hosted|coding agent|\bIDE\b|WebContainer|per-repo|convention|\.md\b|open standard|auto-memory|\bplugin\b/i;
+
 function inLayer(i: ChooserItem, l: Layer, memory: 'app' | 'coding'): boolean {
   const sections = l.id === 'memory' ? POOLS[memory] : l.sections;
   if (!sections.includes(i.section)) return false;
   const label = `${i.type} ${i.name}`;
+  if (l.id === 'memory' && memory === 'coding' && CODING_PRODUCT.test(label)) return false;
   if (l.match && !l.match.test(l.matchDesc ? `${label} ${i.desc}` : label)) return false;
   if (l.exclude && l.exclude.test(label)) return false;
   return true;
@@ -271,6 +287,7 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
 
   const picked: { layer: LayerId; item: ChooserItem }[] = [];
   const results: LayerResult[] = [];
+  const reach = ecosystem(ctx.edges);
 
   for (const lid of ORDER) {
     if (!wanted.has(lid)) continue;
@@ -296,6 +313,22 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
         else r.reasons.unshift({ text: `Compliance: ${i.facts.compliance.value}`, citation: i.facts.compliance.citation });
       }
       if (/^(alpha|preview)$/.test(i.facts.maturity?.value ?? '')) r.score = Math.round((r.score - 0.5) * 10) / 10;
+      // Model families: GitHub stars measure open-weight repos, not how
+      // widely a model is used, so they don't rank models.
+      if (lid === 'model' && i.stars) {
+        r.score = Math.round((r.score - Math.min(2.5, Math.log10(i.stars) - 2)) * 10) / 10;
+        r.reasons = r.reasons.filter((x) => !x.text.startsWith('Adoption:'));
+      }
+      // Ecosystem breadth: how many catalogued systems document an
+      // integration with it (curated integration pages).
+      const n = reach.get(i.id) ?? 0;
+      if (n) {
+        // For model families, provider support across frameworks and tools is
+        // the main signal, so it scales instead of saturating.
+        const bonus = lid === 'model' ? Math.min(5, n / 10) : Math.min(2.5, Math.log2(1 + n) * 0.5);
+        r.score = Math.round((r.score + bonus) * 10) / 10;
+        r.reasons.push({ text: `Ecosystem: ${n} catalogued system${n === 1 ? '' : 's'} document an integration with it`, citation: `${SITE}/compatibility?ids=${i.id}` });
+      }
       // Prefer what works with the layers already chosen.
       for (const p of picked) {
         if (p.item.id === i.id) continue;
@@ -368,8 +401,27 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
     risk: riskOf(results, pairs, recById, wanted),
     security: securityOf(results),
     evals: evalsOf(ctx, results, preset),
+    cost: ctx.pricing
+      ? stackCost(
+          results.filter((l) => l.pick).map((l) => ({ layer: l.layer, id: l.pick!.item.id, name: l.pick!.item.name })),
+          ctx.pricing,
+          { ...DEFAULT_STACK_WORKLOAD, ...(a.workload ?? {}) }
+        )
+      : null,
     stackYaml: toStackYaml(a, results)
   };
+}
+
+/** Distinct counterparts per system over documented integration edges. */
+function ecosystem(edges: CompatEdge[]): Map<string, number> {
+  const sets = new Map<string, Set<string>>();
+  const add = (a: string, b: string) => (sets.get(a) ?? sets.set(a, new Set()).get(a)!).add(b);
+  for (const e of edges) {
+    if (e.type !== 'integrates-with') continue;
+    add(e.source, e.target);
+    add(e.target, e.source);
+  }
+  return new Map([...sets].map(([k, v]) => [k, v.size]));
 }
 
 function whyNot(pick: Scored, ranked: Scored[], excluded: { item: ChooserItem; why: Exclusion }[]): WhyNot[] {
@@ -535,13 +587,38 @@ export function toStackYaml(a: StackAnswers, layers: LayerResult[]): string {
   return lines.join('\n') + '\n';
 }
 
+/** An OPML bundle of every component's change feed (`/feeds/<id>.xml` on
+ * the site), so one import into a feed reader watches the whole stack for
+ * acquisitions, archivals, licence changes and other recorded changes. */
+export function toOpml(a: StackAnswers, layers: LayerResult[], site: string): string {
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const rows = layers
+    .filter((l) => l.pick)
+    .map((l) => `      <outline type="rss" text="${esc(`${l.label}: ${l.pick!.item.name}`)}" xmlUrl="${site}/feeds/${l.pick!.item.id}.xml" htmlUrl="${site}/systems/${l.pick!.item.id}"/>`);
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<opml version="2.0">',
+    `  <head><title>${esc(`Agent stack (${a.product}) — change feeds`)}</title></head>`,
+    '  <body>',
+    `    <outline text="${esc(`Agent stack (${a.product})`)}">`,
+    ...rows,
+    '    </outline>',
+    '  </body>',
+    '</opml>',
+    ''
+  ].join('\n');
+}
+
 // ---------------------------------------------------------------------------
 // Compact JSON for tool output (MCP server, hosted worker, CLI --json)
 // ---------------------------------------------------------------------------
 
-/** The plan without the internal item objects: names, ids, cited reasons.
- * `page` builds a link to a system's page when given. */
-export function slimPlan(p: StackPlan, page?: (id: string) => string) {
+export const SITE = 'https://mrpeppersdev.github.io/agent-infrastructure-landscape';
+
+/** The plan without the internal item objects: names, ids, cited reasons,
+ * links to each pick's page and change feed. */
+export function slimPlan(p: StackPlan, site: string = SITE) {
+  const page = (id: string) => `${site}/systems/${id}`;
   const name = new Map(p.layers.filter((l) => l.pick).map((l) => [l.pick!.item.id, l.pick!.item.name]));
   return {
     product: p.product,
@@ -554,7 +631,8 @@ export function slimPlan(p: StackPlan, page?: (id: string) => string) {
         ? {
             id: l.pick.item.id,
             name: l.pick.item.name,
-            ...(page ? { page: page(l.pick.item.id) } : {}),
+            page: page(l.pick.item.id),
+            feed: `${site}/feeds/${l.pick.item.id}.xml`,
             reasons: l.pick.reasons,
             unconfirmed: l.pick.unconfirmed,
             warning: l.pick.warning,
@@ -586,6 +664,9 @@ export function slimPlan(p: StackPlan, page?: (id: string) => string) {
     risk: p.risk,
     security: p.security,
     evals: p.evals,
-    stackYaml: p.stackYaml
+    cost: p.cost,
+    stackYaml: p.stackYaml,
+    /** Import into a feed reader to watch every component for changes. */
+    opml: toOpml(p.answers, p.layers, site)
   };
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { page } from '$app/state';
 
   // Eval-gap analysis view (issue #40, T1-2).
   //
@@ -132,8 +133,8 @@
 
 <svelte:head>
   <SeoHead
-    title="The Evaluation Gap: Why 91% of AI Memory Products Publish No Benchmark"
-    description="Of 912 AI agent memory products in the catalog, 833 publish no peer-reviewed benchmark. The product × benchmark matrix is 119 × 25 with 169 filled cells."
+    title="The Evaluation Gap: Why Most AI Memory Products Publish No Benchmark"
+    description="How many of the {page.data.stats.records.toLocaleString('en-US')} AI agent memory products in the catalog publish a peer-reviewed benchmark, and where the product × benchmark matrix is empty."
     path="/analyses/eval-gap"
     ogType="article"
   />

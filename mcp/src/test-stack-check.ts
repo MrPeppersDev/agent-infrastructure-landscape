@@ -98,5 +98,20 @@ function check(name: string, cond: boolean, detail = '') {
   check('plain list matched 3', r.matched.length === 3, String(r.matched.length));
 }
 
+// upgrade advisor: replacements that work with the rest of the manifest rank first
+{
+  const rec = (name: string, severity: number) => ({ name, family: 'x', section: 'x', url: null, license: '', llm_lock: '', status: severity >= 2 ? 'archived' : 'active', severity, note: '', context: '', evidence: null, last_commit: null });
+  const idx = { generatedAt: 't', packages: {}, repos: {}, records: { old: rec('Old', 3), fw: rec('Framework', 0), db: rec('Store', 0) } } as unknown as StackIndex;
+  const yml = 'version: 1\ncomponents:\n  memory: old\n  framework: fw\n  vectors: db\n';
+  const replacements = { old: [{ id: 'a', name: 'A', why: ['similar'] }, { id: 'b', name: 'B', why: ['similar'] }, { id: 'c', name: 'C', why: [] }, { id: 'd', name: 'D', why: [] }] };
+  const links = { b: ['db', 'fw'], d: ['fw'] };
+  const r = checkManifest(yml, idx, { filename: 'stack.yml', replacements, links });
+  const f = r.attention.find((x) => x.recordId === 'old');
+  check('advisor ranks fitting replacements first', f?.replacements?.map((x) => x.id).join(',') === 'b,d,a', JSON.stringify(f?.replacements));
+  check('advisor names what it fits with', f?.replacements?.[0].why[0] === 'works with Framework, Store in your stack' && f?.replacements?.[0].fits?.length === 2, JSON.stringify(f?.replacements?.[0]));
+  const plain = checkManifest(yml, idx, { filename: 'stack.yml', replacements });
+  check('without links, order is unchanged and capped at 3', plain.attention[0]?.replacements?.map((x) => x.id).join(',') === 'a,b,c');
+}
+
 console.log(failures ? `\n${failures} failure(s)` : '\nall stack-check tests passed');
 process.exit(failures ? 1 : 0);

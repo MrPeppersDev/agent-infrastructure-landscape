@@ -99,6 +99,17 @@ try {
   check('system page has change log', (await page.locator('#changes li').count()) > 0);
   check('system page has correction link', (await page.locator('a[href*="template=correction.yml"]').count()) > 0);
 
+  // Pages fed by slimmed records (#324): they must still render their data.
+  await go('/leaderboards');
+  check('/leaderboards renders boards', (await page.locator('tbody tr').count()) >= 30);
+  await go('/timeline');
+  check('/timeline draws bars', (await page.locator('svg rect').count()) >= 50);
+  await go('/lineages');
+  check('/lineages lists lineages', (await page.locator('li').count()) >= 10);
+  await go('/graph');
+  await page.waitForTimeout(1500);
+  check('/graph mounts the canvas', (await page.locator('canvas').count()) >= 1);
+
   await go('/');
   await page.locator('nav.topnav summary').click();
   check('Research menu opens', await page.locator('nav.topnav .menu').isVisible());

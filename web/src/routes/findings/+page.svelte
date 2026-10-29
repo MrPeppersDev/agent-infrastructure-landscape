@@ -1,9 +1,13 @@
 <script lang="ts">
   import SeoHead from '$lib/components/SeoHead.svelte';
   import { base } from '$app/paths';
-  import { findings } from '$lib/findings';
+  import { page } from '$app/state';
 
-  // /findings — the externalizing entry point for the v6 catalog.
+  let { data } = $props();
+  const findings = $derived(data.findings);
+  const s = page.data.stats;
+
+  // /findings — the externalizing entry point for the catalog.
   //
   // Card data is sourced from $lib/findings so the per-finding article
   // pages at /findings/[slug] render from the same canonical entries.
@@ -16,8 +20,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory: 5 Key Findings from a 912-System Catalog"
-    description="Five publishable headlines from the catalog: the semantic-cache gap, the 91.3% no-benchmark finding, MCP-as-substrate, the bridge node, single-vendor FM concentration."
+    title="AI Agent Memory: 5 Key Findings from a {s.records.toLocaleString('en-US')}-System Catalog"
+    description="Five publishable headlines from the catalog: the semantic-cache gap, the no-peer-reviewed-benchmark finding, MCP-as-substrate, the bridge node, single-vendor FM concentration."
     path="/findings"
     ogType="website"
   />
@@ -26,8 +30,8 @@
 <header class="hub-header">
   <h1>Findings</h1>
   <p>
-    Five publishable headlines from the v6 catalog — 912 records × 68 columns
-    across 34 sections, 528 typed edges. Each card cites the analytical view
+    Five publishable headlines from the catalog — {s.records.toLocaleString('en-US')} records × {s.columns} columns
+    across {s.sections} sections, {s.edges.toLocaleString('en-US')} typed edges. Each card cites the analytical view
     that produced it; full derivations live in
     <a class="inline" href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/analysis.md"
       >analysis.md</a

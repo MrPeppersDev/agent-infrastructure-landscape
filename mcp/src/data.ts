@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 import type { LandscapeFile, LandscapeRecord, EdgesFile, Edge } from './types.js';
 import type { StackIndex, Replacement } from './stack-check.js';
 import { alternativesFor, toItem, type ChooserItem } from './chooser.js';
-import { attentionIds } from './stack-check.js';
+import { attentionIds, linksFromEdges, type Links } from './stack-check.js';
 
 let cachedRecords: LandscapeRecord[] | null = null;
 let cachedEdges: Edge[] | null = null;
@@ -145,9 +145,15 @@ export function loadReplacements(): Record<string, Replacement[]> {
     attentionIds(index),
     familyIdForSection,
     index.records,
-    3
+    6
   );
   return cachedReplacements;
+}
+
+let cachedLinks: Links | null = null;
+/** Integration links for the stack checker's upgrade advisor. */
+export function loadLinks(): Links {
+  return (cachedLinks ??= linksFromEdges(loadEdges()));
 }
 
 let cachedItems: ChooserItem[] | null = null;
@@ -223,6 +229,13 @@ export function loadPricing(): { checked: string; vendors: unknown[] } {
     if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8'));
   }
   return { checked: '', vendors: [] };
+}
+
+export function loadStackPricing(): { checked: string; models: unknown[]; metered: unknown[] } {
+  for (const p of [join(DATA_DIR, 'pricing-stack.json'), join(DATA_DIR, 'pricing', 'stack.json')]) {
+    if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8'));
+  }
+  return { checked: '', models: [], metered: [] };
 }
 
 export function loadVectorPricing(): { checked: string; vendors: unknown[] } {

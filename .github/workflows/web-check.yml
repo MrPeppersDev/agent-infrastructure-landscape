@@ -66,6 +66,15 @@ jobs:
             exit 1
           }
 
+      - name: Route weight budget (JS per page)
+        working-directory: web
+        run: |
+          set -o pipefail
+          node scripts/check-route-weight.mjs 2>&1 | tee /tmp/weight.log || {
+            while IFS= read -r l; do echo "::error title=route weight::$l"; done < /tmp/weight.log
+            exit 1
+          }
+
       - name: Browser smoke test (interactive pages)
         working-directory: web
         env:
@@ -94,3 +103,7 @@ jobs:
           npm test
       - name: Test hosted MCP worker handler
         run: npx -y tsx worker/test/handler.test.ts
+      - name: Test web leaderboard parsers
+        run: npx -y tsx web/scripts/test-leaderboards.ts
+      - name: Test best-of pages stay in their product family
+        run: npx -y tsx web/scripts/test-best-of.ts

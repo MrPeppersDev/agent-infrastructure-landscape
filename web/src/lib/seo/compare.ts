@@ -17,17 +17,9 @@ import type { LandscapeRecord } from '$lib/types';
 
 export type Pair = { a: string; b: string; reason: 'competes-with' | 'top-in-section'; section?: string };
 
-export function pairToSlug(a: string, b: string): string {
-  const [x, y] = [a, b].sort();
-  return `${x}--vs--${y}`;
-}
+import { pairToSlug, pairFromSlug } from './slugs';
+export { pairToSlug, pairFromSlug };
 
-export function pairFromSlug(slug: string): { a: string; b: string } | null {
-  const parts = slug.split('--vs--');
-  if (parts.length !== 2 || !parts[0] || !parts[1]) return null;
-  const [a, b] = parts.sort();
-  return { a, b };
-}
 
 let _pairs: Pair[] | null = null;
 

@@ -9,13 +9,8 @@
 
 import { getRecords } from '$lib/data';
 
-export function sectionToSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
+import { sectionToSlug } from './slugs';
+export { sectionToSlug };
 
 let _sections: { name: string; slug: string }[] | null = null;
 

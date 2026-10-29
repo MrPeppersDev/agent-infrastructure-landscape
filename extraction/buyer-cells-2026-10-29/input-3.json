@@ -1,0 +1,983 @@
+[
+ {
+  "id": "nomic-embed--nomic-ai",
+  "name": "Nomic Embed",
+  "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+  "section": "Embedding & reranker services",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "langmem-langchain--langchain-ai-github-io",
+  "name": "LangMem (LangChain)",
+  "url": "https://langchain-ai.github.io/langmem/",
+  "section": "Framework-embedded memory",
+  "license": "MIT",
+  "runtimes": "Python, Node/TypeScript",
+  "mcp": "via official adapter — LangChain MCP adapters"
+ },
+ {
+  "id": "m3-agent-bytedance--gh-bytedance-seed-m3-agent",
+  "name": "M3-Agent (ByteDance)",
+  "url": "https://github.com/ByteDance-Seed/m3-agent",
+  "section": "Dedicated memory layers",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "name": "OpenInference",
+  "url": "https://github.com/Arize-ai/openinference",
+  "section": "Evaluation & observability platforms",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+  "name": "mcp-knowledge-graph",
+  "url": "https://github.com/shaneholloman/mcp-knowledge-graph",
+  "section": "Claude Code memory mechanisms",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": "native (first-party) — fork of official memory server"
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "name": "Mistral Embed",
+  "url": "https://mistral.ai/news/mistral-embed",
+  "section": "Embedding & reranker services",
+  "license": "proprietary; SDK Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "name": "Sema4.ai",
+  "url": "https://sema4.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "license": "Apache 2.0 (Robocorp framework)",
+  "runtimes": "Python (primary)",
+  "mcp": "yes — Action Server exposes sema4ai.mcp @tool functions at an /mcp endpoint for "
+ },
+ {
+  "id": "memoria-matrixorigin--medium-com",
+  "name": "Memoria (MatrixOrigin)",
+  "url": "https://medium.com/@matrixorigin-database/benchmarking-memoria-on-longmemeval-strong-memory-retrieval-clear-reader-separation-ee6c89c75d76",
+  "section": "Dedicated memory layers",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": "yes — native MCP server (memoria mcp) for any MCP-compatible agent"
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "name": "claude-brain",
+  "url": "https://github.com/memvid/claude-brain",
+  "section": "Claude Code memory mechanisms",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": "native (first-party)"
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "name": "Superpowers episodic-memory plugin",
+  "url": "https://github.com/obra/episodic-memory",
+  "section": "Claude Code memory mechanisms",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": "native (first-party) — provides MCP tools to Claude Code"
+ },
+ {
+  "id": "omega--omegamax-co",
+  "name": "OMEGA",
+  "url": "https://omegamax.co/",
+  "section": "Dedicated memory layers",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": "yes — runs as MCP server subprocess; works with Claude Code, Cursor, Windsurf, C"
+ },
+ {
+  "id": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+  "name": "mcp-memory (Puliczek)",
+  "url": "https://github.com/Puliczek/mcp-memory",
+  "section": "Claude Code memory mechanisms",
+  "license": "Unlicensed",
+  "runtimes": "",
+  "mcp": "native (first-party)"
+ },
+ {
+  "id": "memwal-walrus--decrypt-co",
+  "name": "MemWal (now Walrus Memory)",
+  "url": "https://decrypt.co/365834/agentic-memory-walrus-takes-on-ais-next-big-bottleneck",
+  "section": "Dedicated memory layers",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "pieces-for-developers-ltm--pieces-app",
+  "name": "Pieces for Developers (LTM)",
+  "url": "https://pieces.app/",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": "native (PiecesOS MCP server)"
+ },
+ {
+  "id": "o-mem--gh-oppo-personalai-o-mem",
+  "name": "O-Mem",
+  "url": "https://github.com/OPPO-PersonalAI/O-Mem",
+  "section": "Dedicated memory layers",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "backboard--github-com",
+  "name": "Backboard",
+  "url": "https://backboard.io/products/api",
+  "section": "Dedicated memory layers",
+  "license": "Unlicensed",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "daytona--daytona-io",
+  "name": "Daytona",
+  "url": "https://www.daytona.io/",
+  "section": "AI sandbox & runtime environments",
+  "license": "Apache-2.0 (SDKs in daytona/clients; CLI under AGPL-3.0); core platform closed-s",
+  "runtimes": "TypeScript, Python, Ruby, Go, Java",
+  "mcp": "yes — Daytona MCP server (shipped with the CLI/MCP tools in daytona/clients) for"
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "name": "local-memory-mcp",
+  "url": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "section": "Claude Code memory mechanisms",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": "native (first-party)"
+ },
+ {
+  "id": "vektor-memory--dev-to",
+  "name": "VEKTOR Memory",
+  "url": "https://dev.to/vektor_memory_43f51a32376/vektor-openai-agents-sdk-production-memory-in-three-lines-59p6",
+  "section": "Dedicated memory layers",
+  "license": "proprietary (commercial licence)",
+  "runtimes": "",
+  "mcp": "yes — bundled MCP server (npx vektor mcp) with 50+ tools; Claude Code/Desktop in"
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "name": "Claude-CursorMemoryMCP",
+  "url": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "section": "Claude Code memory mechanisms",
+  "license": "Unlicensed",
+  "runtimes": "",
+  "mcp": "native (first-party)"
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "name": "Ratine",
+  "url": "https://github.com/goweft/ratine",
+  "section": "Memory observability & monitoring",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": "Yes — built for MCP tool-server ecosystem (sibling tools heddle/loom are MCP run"
+ },
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "name": "01.AI Yi family",
+  "url": "https://www.01.ai/",
+  "section": "Foundation models (substrate reference)",
+  "license": "Apache 2.0 (Yi-34B + base sizes); proprietary (Yi-Large, Yi-Lightning)",
+  "runtimes": "any (HuggingFace, vLLM, llama.cpp)",
+  "mcp": ""
+ },
+ {
+  "id": "6sense--6sense-com",
+  "name": "6sense",
+  "url": "https://6sense.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — 6sense MCP Server (listed as New); intelligence can be activated via APIs "
+ },
+ {
+  "id": "ai-singapore-sea-lion--sea-lion-ai",
+  "name": "AI Singapore SEA-LION",
+  "url": "https://sea-lion.ai/models/",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": "not supported"
+ },
+ {
+  "id": "aider-conventions-md-aider-conf-yml--aider-chat",
+  "name": "Aider CONVENTIONS.md / .aider.conf.yml",
+  "url": "https://aider.chat/docs/usage/conventions.html",
+  "section": "File-backed / editor paradigms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "name": "AlphaSense",
+  "url": "https://www.alpha-sense.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — MCP tools exposed through the AlphaSense Agent API (alongside GenSearch, T"
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "name": "Amazon Nova family",
+  "url": "https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws",
+  "section": "Foundation models (substrate reference)",
+  "license": "",
+  "runtimes": "any (HTTP via AWS Bedrock SDK)",
+  "mcp": ""
+ },
+ {
+  "id": "apex-security--apex-security",
+  "name": "Apex Security",
+  "url": "https://www.apex.security/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "name": "Apollo.io",
+  "url": "https://www.apollo.io/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — hosted remote MCP server at https://mcp.apollo.io/mcp (Streamable HTTP, OA"
+ },
+ {
+  "id": "auditboard--auditboard-com",
+  "name": "AuditBoard (now Optro)",
+  "url": "https://optro.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+  "name": "AWS Bedrock AgentCore Memory",
+  "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-integrate-lang.html",
+  "section": "Platform-provider memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "native (first-party) — AgentCore supports MCP"
+ },
+ {
+  "id": "brave-leo--brave-com",
+  "name": "Brave Leo",
+  "url": "https://brave.com/leo/",
+  "section": "Browser-agent memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "searched not found — Leo focuses on browser-local context, no MCP surfaced"
+ },
+ {
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "name": "CallRail Conversation Intelligence",
+  "url": "https://www.callrail.com/conversation-intelligence",
+  "section": "Voice agent platforms",
+  "license": "",
+  "runtimes": "",
+  "mcp": "no — not mentioned on product page"
+ },
+ {
+  "id": "calypso-ai--calypsoai-com",
+  "name": "Calypso AI (now F5 AI Guardrails)",
+  "url": "https://www.f5.com/products/ai-guardrails",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "causaly--causaly-com-2",
+  "name": "Causaly",
+  "url": "https://www.causaly.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Causaly scientific capabilities (literature, knowledge graph, workflows) c"
+ },
+ {
+  "id": "cellon-memory-inc--en-wowtale-net",
+  "name": "Cellon (Memory.inc)",
+  "url": "https://en.wowtale.net/2026/04/30/233992/",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "clay--clay-com",
+  "name": "Clay",
+  "url": "https://www.clay.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Clay MCP brings Clay search, enrichment and Functions into Claude, ChatGPT"
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "name": "Cline .clinerules",
+  "url": "https://cline.bot/blog/clinerules-version-controlled-shareable-and-ai-editable-instructions",
+  "section": "File-backed / editor paradigms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "cline-memory-bank--docs-cline-bot",
+  "name": "Cline Memory Bank",
+  "url": "https://docs.cline.bot/features/memory-bank",
+  "section": "File-backed / editor paradigms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "name": "Cloudflare Agent Memory",
+  "url": "https://blog.cloudflare.com/introducing-agent-memory/",
+  "section": "Platform-provider memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "native (first-party) — Cloudflare Agents SDK serves MCP"
+ },
+ {
+  "id": "codesandbox-ai--codesandbox-io",
+  "name": "CodeSandbox AI",
+  "url": "https://codesandbox.io/ai",
+  "section": "AI sandbox & runtime environments",
+  "license": "",
+  "runtimes": "Node.js + Linux containers (browser-rendered)",
+  "mcp": ""
+ },
+ {
+  "id": "demandbase--demandbase-com",
+  "name": "Demandbase",
+  "url": "https://www.demandbase.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "github-copilot-autofix--github-blog",
+  "name": "GitHub Copilot Autofix",
+  "url": "https://github.blog/2024-03-20-found-means-fixed-introducing-code-scanning-autofix-powered-by-github-copilot-and-codeql/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "gong--gong-io",
+  "name": "Gong",
+  "url": "https://www.gong.io/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "hackerone-hai--hackerone-com",
+  "name": "HackerOne Hai",
+  "url": "https://www.hackerone.com/solutions/ai",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "hebbia--hebbia-com",
+  "name": "Hebbia",
+  "url": "https://www.hebbia.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Headless Hebbia MCP server lets assistants such as Claude and ChatGPT call"
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "name": "Highlight AI",
+  "url": "https://highlightai.com/",
+  "section": "Computer-use & desktop agents",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "name": "Hyperbrowser",
+  "url": "https://www.hyperbrowser.ai/",
+  "section": "Computer-use & desktop agents",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — official Hyperbrowser MCP server (hyperbrowserai/mcp, MIT)"
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "name": "Hyperproof",
+  "url": "https://hyperproof.io/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "name": "Hyperspell",
+  "url": "https://www.ycombinator.com/companies/hyperspell",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": "unclear — official hyperspell-mcp repo is archived; current integration via SDKs"
+ },
+ {
+  "id": "incident-io-ai--incident-io",
+  "name": "incident.io AI",
+  "url": "https://incident.io/investigations",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — hosted incident.io MCP server for assistants such as Claude and Cursor (Te"
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "name": "Ironclad AI Assistant",
+  "url": "https://ironcladapp.com/ai/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "lasso-security--lasso-security",
+  "name": "Lasso Security",
+  "url": "https://www.lasso.security/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "legora--legora-com",
+  "name": "Legora",
+  "url": "https://legora.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Legora aOS takes MCP connectors as agent context sources (client side)"
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "name": "Lindy",
+  "url": "https://www.lindy.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "name": "Lovable",
+  "url": "https://lovable.dev",
+  "section": "Coding-agent memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — chat connectors incl. custom MCP servers on all plans; first-party Lovable"
+ },
+ {
+  "id": "memorax-ai--eu-36kr-com",
+  "name": "MemoraX AI",
+  "url": "https://www.memoraxai.com/",
+  "section": "Dedicated memory layers",
+  "license": "MIT (MemoraX Code client); hosted memory platform proprietary",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "name": "Memory Store (now MemStore)",
+  "url": "https://mem.store/",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — is an MCP server (checkin/record/recall tools) at mem.store/mcp for Claude"
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "name": "Microsoft Phi-4 family",
+  "url": "https://azure.microsoft.com/en-us/products/phi",
+  "section": "Foundation models (substrate reference)",
+  "license": "MIT",
+  "runtimes": "any (HuggingFace Transformers, ONNX Runtime, llama.cpp, MLX, Ollama, Windows ML)",
+  "mcp": ""
+ },
+ {
+  "id": "mindgard--mindgard-ai",
+  "name": "Mindgard",
+  "url": "https://mindgard.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "name": "Mixedbread AI",
+  "url": "https://www.mixedbread.com/",
+  "section": "Embedding & reranker services",
+  "license": "proprietary API; open-weight models Apache-2.0 (mxbai-embed-large-v1, mxbai-rera",
+  "runtimes": "",
+  "mcp": "yes — official Mixedbread MCP Server connecting AI assistants to Mixedbread Stor"
+ },
+ {
+  "id": "multion--multion-ai",
+  "name": "MultiOn (now AGI, Inc.)",
+  "url": "https://theagi.company/",
+  "section": "Multi-agent orchestration platforms",
+  "license": "",
+  "runtimes": "any (REST API)",
+  "mcp": "via community port"
+ },
+ {
+  "id": "new-relic-ai--newrelic-com",
+  "name": "New Relic AI",
+  "url": "https://newrelic.com/platform/new-relic-ai",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — New Relic MCP server lets MCP clients query and act on New Relic data (ena"
+ },
+ {
+  "id": "nvidia-inference-context-memory-storage-platform--nvidianews-nvidia-com",
+  "name": "NVIDIA Inference Context Memory Storage Platform (now NVIDIA CMX Context Memory Storage Platform)",
+  "url": "https://www.nvidia.com/en-us/data-center/ai-storage/cmx/",
+  "section": "Dedicated memory layers",
+  "license": "proprietary (hardware/DOCA) + Dynamo Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "nyne--nyne-ai",
+  "name": "Nyne",
+  "url": "https://nyne.ai",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "name": "OctoAI (now NVIDIA)",
+  "url": "https://octo.ai/",
+  "section": "Inference platforms & gateways",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "opera-ai-formerly-aria--blogs-opera-com",
+  "name": "Opera AI (formerly Aria)",
+  "url": "https://blogs.opera.com/news/2025/02/aria-gets-memory-feature-new-ai-feature-drop/",
+  "section": "Browser-agent memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes (Opera Neon only) — MCP Connector lets external AI clients drive the browser"
+ },
+ {
+  "id": "outreach-ai--outreach-io",
+  "name": "Outreach AI",
+  "url": "https://www.outreach.ai/ai-agents",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — MCP Client (connects Outreach agents to external systems) and MCP Server ("
+ },
+ {
+  "id": "people-ai--people-ai",
+  "name": "People.ai (now Backstory)",
+  "url": "https://www.backstory.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Backstory MCP Server delivers deal context into Claude, ChatGPT, Gemini an"
+ },
+ {
+  "id": "pillar-security--pillar-security",
+  "name": "Pillar Security",
+  "url": "https://www.pillar.security/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "name": "Protect AI",
+  "url": "https://www.paloaltonetworks.com/ai-security/prisma-airs",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "name": "Reflection AI",
+  "url": "https://reflection.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "name": "Reka Core / Flash / Edge",
+  "url": "https://www.reka.ai/",
+  "section": "Foundation models (substrate reference)",
+  "license": "Reka Flash 3 weights under Apache 2.0; Core proprietary",
+  "runtimes": "any (HTTP API)",
+  "mcp": ""
+ },
+ {
+  "id": "replit-replit-md--docs-replit-com",
+  "name": "Replit replit.md",
+  "url": "https://docs.replit.com/replitai/replit-dot-md",
+  "section": "File-backed / editor paradigms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "retell-ai--retellai-com",
+  "name": "Retell AI",
+  "url": "https://www.retellai.com/",
+  "section": "Framework-embedded memory",
+  "license": "",
+  "runtimes": "declarative cross-language",
+  "mcp": "yes — MCP Node lets agents call tools on external MCP servers mid-call"
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "name": "Robust Intelligence",
+  "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "rogo--rogo-ai",
+  "name": "Rogo",
+  "url": "https://rogo.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "runpod--runpod-io",
+  "name": "RunPod",
+  "url": "https://www.runpod.io/",
+  "section": "Inference platforms & gateways",
+  "license": "proprietary; Python SDK MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "secureframe-ai--secureframe-com",
+  "name": "Secureframe AI",
+  "url": "https://secureframe.com/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "semgrep-assistant--semgrep-dev",
+  "name": "Semgrep Assistant (now Semgrep Multimodal)",
+  "url": "https://semgrep.dev/products/semgrep-multimodal/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Semgrep MCP server now ships in the main semgrep binary (standalone semgre"
+ },
+ {
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "name": "Sigma (Private AI Browser)",
+  "url": "https://www.sigmabrowser.com/",
+  "section": "Browser-agent memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "snyk-deepcode-ai--snyk-io",
+  "name": "Snyk DeepCode AI",
+  "url": "https://snyk.io/platform/deepcode-ai/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Snyk MCP server built into the Snyk CLI (snyk mcp) exposes Snyk scans to M"
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "name": "Stack AI",
+  "url": "https://www.stackai.com/",
+  "section": "Framework-embedded memory",
+  "license": "",
+  "runtimes": "declarative cross-language",
+  "mcp": ""
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "name": "Synthflow",
+  "url": "https://synthflow.ai/",
+  "section": "Voice agent platforms",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Synthflow MCP server for managing agents, calls and knowledge bases from M"
+ },
+ {
+  "id": "sysdig-sage--sysdig-com",
+  "name": "Sysdig Sage (now Sysdig GenAI Assistant)",
+  "url": "https://www.sysdig.com/products/genai-assistant",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — official Sysdig MCP Server (sysdiglabs/sysdig-mcp-server)"
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "name": "Tabnine",
+  "url": "https://docs.tabnine.com/main/getting-started/context-engine",
+  "section": "Coding-agent memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — Tabnine Agent in IDE (VS Code/JetBrains) and Tabnine CLI connect to stdio/"
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "name": "Trace",
+  "url": "https://www.ycombinator.com/companies/trace-so",
+  "section": "Dedicated memory layers",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "truera--truera-com",
+  "name": "TruEra",
+  "url": "https://truera.com/",
+  "section": "Evaluation & observability platforms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "trustcloud--trustcloud-ai",
+  "name": "TrustCloud",
+  "url": "https://www.trustcloud.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "vapi-voice-agents--vapi-ai",
+  "name": "Vapi (voice agents)",
+  "url": "https://vapi.ai/",
+  "section": "Framework-embedded memory",
+  "license": "",
+  "runtimes": "declarative cross-language",
+  "mcp": "via official adapter — Vapi MCP tools"
+ },
+ {
+  "id": "vertex-ai-memory-bank--docs-cloud-google-com",
+  "name": "Vertex AI Memory Bank (now Agent Platform Memory Bank)",
+  "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+  "section": "Platform-provider memory",
+  "license": "",
+  "runtimes": "",
+  "mcp": "via official adapter (ADK)"
+ },
+ {
+  "id": "vonage-ai-studio--vonage-com",
+  "name": "Vonage AI Studio",
+  "url": "https://www.vonage.com/communications-apis/ai-studio/",
+  "section": "Voice agent platforms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "name": "Workato AI (Workflow Bot Builder)",
+  "url": "https://www.workato.com/ai",
+  "section": "AI sandbox & runtime environments",
+  "license": "",
+  "runtimes": "Workato proprietary runtime (Java + Ruby)",
+  "mcp": "yes — Workato Enterprise MCP (MCP gateway and registry, can proxy third-party MC"
+ },
+ {
+  "id": "you-com-research--you-com",
+  "name": "You.com Research",
+  "url": "https://you.com/research",
+  "section": "Use-case-specific agent harnesses",
+  "license": "",
+  "runtimes": "",
+  "mcp": "yes — You.com MCP server (live search via MCP; up to 100 free queries/day withou"
+ },
+ {
+  "id": "zed-rules--zed-dev",
+  "name": "Zed .rules",
+  "url": "https://zed.dev/docs/ai/rules",
+  "section": "File-backed / editor paradigms",
+  "license": "",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "name": "OpenClaw memory",
+  "url": "https://docs.openclaw.ai/concepts/memory",
+  "section": "File-backed / editor paradigms",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "name": "Hermes Agent memory (Nous Research)",
+  "url": "https://github.com/NousResearch/hermes-agent",
+  "section": "Framework-embedded memory",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "dify--gh-langgenius-dify",
+  "name": "Dify",
+  "url": "https://github.com/langgenius/dify",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "license": "Dify Open Source License (Apache-2.0 based, with additional conditions)",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "langflow--gh-langflow-ai-langflow",
+  "name": "Langflow",
+  "url": "https://github.com/langflow-ai/langflow",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "name": "Gemini CLI memory (save_memory / GEMINI.md)",
+  "url": "https://geminicli.com/docs/tools/memory",
+  "section": "Coding-agent memory",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "openbb--openbb-co",
+  "name": "OpenBB",
+  "url": "https://openbb.co/",
+  "section": "Use-case-specific agent harnesses",
+  "license": "Apache-2.0",
+  "runtimes": "",
+  "mcp": "yes — Open Data Platform exposes data to AI agents via MCP servers; Workspace MC"
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "name": "Phidata (now Agno)",
+  "url": "https://www.agno.com/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "license": "Apache-2.0",
+  "runtimes": "Python",
+  "mcp": "yes — MCPTools class connects agents to MCP servers (stdio, Streamable HTTP)"
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "name": "OpenViking (ByteDance Volcengine)",
+  "url": "https://github.com/volcengine/OpenViking",
+  "section": "Dedicated memory layers",
+  "license": "AGPL-3.0 (CLI/examples Apache-2.0)",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "lightrag--arxiv-2410-05779",
+  "name": "LightRAG",
+  "url": "https://arxiv.org/abs/2410.05779",
+  "section": "Retrieval-as-memory hybrids",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "lightrag--gh-hkuds-lightrag",
+  "name": "LightRAG",
+  "url": "https://github.com/HKUDS/LightRAG",
+  "section": "Retrieval-as-memory hybrids",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "dspy--gh-stanfordnlp-dspy",
+  "name": "DSPy",
+  "url": "https://github.com/stanfordnlp/dspy",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "name": "DSPy History",
+  "url": "https://dspy.ai/api/primitives/History/",
+  "section": "Framework-embedded memory",
+  "license": "MIT",
+  "runtimes": "Python",
+  "mcp": ""
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "name": "LazyGraphRAG",
+  "url": "https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/",
+  "section": "Retrieval-as-memory hybrids",
+  "license": "MIT",
+  "runtimes": "",
+  "mcp": ""
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "name": "context-mode",
+  "url": "https://github.com/mksglu/context-mode",
+  "section": "Coding-agent memory",
+  "license": "Elastic License 2.0",
+  "runtimes": "",
+  "mcp": ""
+ }
+]

@@ -1,0 +1,257 @@
+[
+ {
+  "id": "pgvector--gh-pgvector-pgvector",
+  "name": "pgvector (Postgres + pgvector)",
+  "image": "pgvector/pgvector:pg18",
+  "port": 5432,
+  "env": {
+   "POSTGRES_PASSWORD": "<password>"
+  },
+  "depends_on": [],
+  "source": "https://github.com/pgvector/pgvector#docker",
+  "note": "README shows pgvector/pgvector:pg18-trixie (pg18 = bookworm alias); runs like the official postgres image, which requires POSTGRES_PASSWORD."
+ },
+ {
+  "id": "qdrant--qdrant-tech",
+  "name": "Qdrant",
+  "image": "qdrant/qdrant:latest",
+  "port": 6333,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/qdrant/qdrant#quick-start",
+  "note": "README: docker run -p 6333:6333 qdrant/qdrant. gRPC is 6334."
+ },
+ {
+  "id": "weaviate--weaviate-io",
+  "name": "Weaviate",
+  "image": "cr.weaviate.io/semitechnologies/weaviate:1.36.0",
+  "port": 8080,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/weaviate/weaviate#getting-started",
+  "note": "gRPC 50051. README example adds a text2vec-model2vec inference container (optional vectorizer module)."
+ },
+ {
+  "id": "milvus--milvus-io",
+  "name": "Milvus (standalone)",
+  "image": "milvusdb/milvus:v3.0.4",
+  "port": 19530,
+  "env": {
+   "ETCD_USE_EMBED": "true",
+   "COMMON_STORAGETYPE": "local",
+   "DEPLOY_MODE": "STANDALONE"
+  },
+  "depends_on": [],
+  "source": "https://github.com/milvus-io/milvus/blob/master/scripts/standalone_embed.sh",
+  "note": "Official standalone_embed.sh runs embedded etcd + local storage (no MinIO); command 'milvus run standalone'; health on 9091. The docker-compose variant adds etcd + MinIO."
+ },
+ {
+  "id": "chroma--trychroma-com",
+  "name": "Chroma",
+  "image": "chromadb/chroma:latest",
+  "port": 8000,
+  "env": {},
+  "depends_on": [],
+  "source": "https://docs.trychroma.com/guides/deploy/docker",
+  "note": "docker run -v ./chroma-data:/data -p 8000:8000 chromadb/chroma"
+ },
+ {
+  "id": "neo4j--neo4j-com",
+  "name": "Neo4j",
+  "image": "neo4j:latest",
+  "port": 7687,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/neo4j/docker-neo4j#using-the-neo4j-docker-image",
+  "note": "Bolt 7687, Browser/HTTP 7474. NEO4J_AUTH=<user>/<password> is optional (set in the Graphiti compose example)."
+ },
+ {
+  "id": "litellm--gh-berriai-litellm",
+  "name": "LiteLLM proxy",
+  "image": "docker.litellm.ai/berriai/litellm:latest",
+  "port": 4000,
+  "env": {
+   "LITELLM_MASTER_KEY": "sk-<random>",
+   "OPENAI_API_KEY": "<provider key>"
+  },
+  "depends_on": [],
+  "source": "https://docs.litellm.ai/docs/proxy/docker_quick_start",
+  "note": "Mount config at /app/config.yaml and pass --config. Postgres optional (needed for virtual keys, spend tracking, budgets). README recommends -stable tags (also on ghcr.io/berriai/litellm)."
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "name": "Langfuse",
+  "image": "docker.langfuse.com/langfuse/langfuse:4",
+  "port": 3000,
+  "env": {},
+  "depends_on": [
+   "docker.langfuse.com/langfuse/langfuse-worker:4",
+   "postgres:17",
+   "clickhouse/clickhouse-server",
+   "redis:7",
+   "minio (S3)"
+  ],
+  "source": "https://github.com/langfuse/langfuse/blob/main/docker-compose.yml",
+  "note": "Official compose sets many env vars with CHANGEME defaults (NEXTAUTH_SECRET, SALT, ENCRYPTION_KEY, DB/ClickHouse/Redis/S3 URLs); use the compose file rather than a single container."
+ },
+ {
+  "id": "arize-phoenix--phoenix-arize-com",
+  "name": "Arize Phoenix",
+  "image": "arizephoenix/phoenix:latest",
+  "port": 6006,
+  "env": {},
+  "depends_on": [],
+  "source": "https://arize.com/docs/phoenix/self-hosting/deployment-options/docker",
+  "note": "6006 = UI + OTLP HTTP; 4317 = OTLP gRPC. Postgres optional via PHOENIX_SQL_DATABASE_URL (SQLite default). Pin a version in production."
+ },
+ {
+  "id": "vllm--gh-vllm-project-vllm",
+  "name": "vLLM (OpenAI-compatible server)",
+  "image": "vllm/vllm-openai:latest",
+  "port": 8000,
+  "env": {
+   "HF_TOKEN": "<huggingface token>"
+  },
+  "depends_on": [],
+  "source": "https://docs.vllm.ai/en/latest/deployment/docker.html",
+  "note": "Needs NVIDIA GPU (--runtime nvidia --gpus all, --ipc=host); pass --model <hf id>. HF_TOKEN needed for gated models."
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "name": "Text Generation Inference",
+  "image": "ghcr.io/huggingface/text-generation-inference:3.3.5",
+  "port": 80,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/huggingface/text-generation-inference#get-started",
+  "note": "Container listens on 80 (README maps 8080:80); GPU; --model-id <model>. HF_TOKEN only for gated/private models."
+ },
+ {
+  "id": null,
+  "name": "Ollama",
+  "image": "ollama/ollama:latest",
+  "port": 11434,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/ollama/ollama/blob/main/docs/docker.mdx",
+  "note": "Not in catalog. CPU: docker run -d -v ollama:/root/.ollama -p 11434:11434 ollama/ollama; GPU needs NVIDIA Container Toolkit."
+ },
+ {
+  "id": null,
+  "name": "Redis Stack",
+  "image": "redis/redis-stack:latest",
+  "port": 6379,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/redis-stack/redis-stack#quick-start",
+  "note": "Redis Stack itself is not in catalog (closest: redis-agent-memory-server--gh-redis-agent-memory-server). REDIS_ARGS=\"--requirepass <pw>\" recommended, not required; redis/redis-stack-server is the server-only image."
+ },
+ {
+  "id": "temporal--temporal-io",
+  "name": "Temporal",
+  "image": "temporalio/server:1.31.0",
+  "port": 7233,
+  "env": {
+   "DB": "postgres12",
+   "POSTGRES_USER": "temporal",
+   "POSTGRES_PWD": "temporal",
+   "POSTGRES_SEEDS": "postgresql"
+  },
+  "depends_on": [
+   "postgres:16",
+   "elasticsearch:7.17.27",
+   "temporalio/admin-tools:1.31.0",
+   "temporalio/ui:2.49.1"
+  ],
+  "source": "https://github.com/temporalio/samples-server/tree/main/compose",
+  "note": "temporalio/docker-compose is archived; samples-server/compose is the current official compose (UI on 8080). For local dev the docs also offer the CLI dev server (temporal server start-dev), no container."
+ },
+ {
+  "id": "restate--restate-dev",
+  "name": "Restate",
+  "image": "docker.restate.dev/restatedev/restate:latest",
+  "port": 8080,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/restatedev/restate#get-started",
+  "note": "8080 ingress, 9070 admin API/UI, 9071 node-to-node."
+ },
+ {
+  "id": "mem0--mem0-ai",
+  "name": "Mem0 (OSS server)",
+  "image": "",
+  "port": 8888,
+  "env": {
+   "OPENAI_API_KEY": "<key>",
+   "POSTGRES_PASSWORD": "<password>"
+  },
+  "depends_on": [
+   "pgvector/pgvector:pg17"
+  ],
+  "source": "https://github.com/mem0ai/mem0/tree/main/server",
+  "note": "No published server image: docker-compose builds from server/dev.Dockerfile (API 8888->8000, dashboard 3000). README: 'at minimum set POSTGRES_PASSWORD and OPENAI_API_KEY'."
+ },
+ {
+  "id": "zep-graphiti--getzep-com",
+  "name": "Graphiti server (Zep)",
+  "image": "zepai/graphiti:latest",
+  "port": 8000,
+  "env": {
+   "OPENAI_API_KEY": "<key>",
+   "NEO4J_URI": "bolt://neo4j:7687",
+   "NEO4J_USER": "<user>",
+   "NEO4J_PASSWORD": "<password>"
+  },
+  "depends_on": [
+   "neo4j:5.22.0"
+  ],
+  "source": "https://github.com/getzep/graphiti/blob/main/server/README.md",
+  "note": "Reference implementation only: README says no auth and not for production. Zep Community Edition is not offered; this is Graphiti's FastAPI server."
+ },
+ {
+  "id": "letta-memgpt--letta-com",
+  "name": "Letta server",
+  "image": "letta/letta:latest",
+  "port": 8283,
+  "env": {
+   "OPENAI_API_KEY": "<key>"
+  },
+  "depends_on": [],
+  "source": "https://docs.letta.com/guides/selfhosting",
+  "note": "Docs: 'The Docker image is no longer an actively maintained or supported Letta product surface.' Current path is letta-code (npm) 'letta server'. OPENAI_API_KEY shown as example, not strictly required."
+ },
+ {
+  "id": "browserless-io--browserless-io",
+  "name": "Browserless",
+  "image": "ghcr.io/browserless/chromium:latest",
+  "port": 3000,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/browserless/browserless#quick-start",
+  "note": "WebSocket at ws://localhost:3000; ghcr.io/browserless/firefox or /multi for other engines. TOKEN optional."
+ },
+ {
+  "id": "steel-dev--steel-dev",
+  "name": "Steel browser",
+  "image": "ghcr.io/steel-dev/steel-browser:latest",
+  "port": 3000,
+  "env": {},
+  "depends_on": [],
+  "source": "https://github.com/steel-dev/steel-browser#docker",
+  "note": "API + UI on 3000 (/ui); 9223 console debugger."
+ },
+ {
+  "id": "e2b--e2b-dev",
+  "name": "E2B self-host (E2B Embed)",
+  "image": "",
+  "port": 0,
+  "env": {},
+  "depends_on": [
+   "postgres:18.6-alpine",
+   "redis:7.4.6",
+   "clickhouse/clickhouse-server:25.8.30.16"
+  ],
+  "source": "https://github.com/e2b-dev/runtime/blob/main/embed/README.md",
+  "note": "Self-host supported (Apache-2.0) but not a single image: download compose.yaml + .env from e2b-dev/runtime/embed/compose and run 'docker compose up -d --wait' on a Linux host (Firecracker microVMs); also Terraform for GCP/AWS/Azure or Kubernetes. Image names come from the shipped .env; ports listed in docs/REFERENCE.md."
+ }
+]

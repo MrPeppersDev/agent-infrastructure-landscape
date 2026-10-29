@@ -37,14 +37,14 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
 import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
 import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
-import { planStack, slimPlan, PRODUCTS, LAYERS } from '../../mcp/dist/composer.js';
+import { planStack, slimPlan, toOpml, PRODUCTS, LAYERS, SITE } from '../../mcp/dist/composer.js';
 import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
 import { writeFileSync } from 'node:fs';
 import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
@@ -167,7 +167,8 @@ program
     const report = checkManifest(text, loadStackIndex(), {
       filename: file,
       format: opts.format as ManifestFormat | undefined,
-      replacements: loadReplacements()
+      replacements: loadReplacements(),
+      links: loadLinks()
     });
     if (globalOpts(cmd).json) {
       emit(JSON.stringify(report, null, 2));
@@ -275,8 +276,9 @@ program
   .option('--pin <pairs>', 'layer=record-id pairs, comma-separated')
   .option('--compliance <codes>', 'attestations every hosted service must publish, e.g. soc2-type2,hipaa')
   .option('-o, --out <file>', 'also write the stack.yml to this file')
+  .option('--opml <file>', 'also write an OPML bundle of every component\'s change feed (import into a feed reader)')
   .option('--json', 'emit JSON')
-  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string }, cmd: Command) => {
+  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string; opml?: string }, cmd: Command) => {
     const p = (product ?? 'support-agent') as ProductType;
     if (!(p in PRODUCTS)) die(`product must be one of ${Object.keys(PRODUCTS).join(', ')}`);
     const list = (v?: string) => (v ? v.split(',').map((x) => x.trim()).filter(Boolean) : undefined);
@@ -289,8 +291,12 @@ program
       pin: o.pin ? Object.fromEntries(list(o.pin)!.map((kv) => kv.split('=')).map(([k, v]) => [k, moved[v] ?? v])) : undefined
     };
     setAliases(loadSystemAliases());
-    const plan = planStack({ items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never }, a);
+    const plan = planStack({
+      items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never,
+      pricing: { stack: loadStackPricing() as never, memory: loadPricing() as never, vector: loadVectorPricing() as never }
+    }, a);
     if (o.out) writeFileSync(o.out, plan.stackYaml);
+    if (o.opml) writeFileSync(o.opml, toOpml(plan.answers, plan.layers, SITE));
     if (globalOpts(cmd).json) return emit(JSON.stringify(slimPlan(plan), null, 2));
     const lines: string[] = [`${plan.product} — risk ${plan.risk.level} (${plan.risk.score})`, ''];
     for (const l of plan.layers) {
@@ -305,6 +311,11 @@ program
     lines.push('', `Security (OWASP LLM Top 10, ${plan.security.source}):`);
     for (const s of plan.security.items) lines.push(`  ${s.id} ${s.risk}: ${s.status}${s.by.length ? ' — ' + s.by.join(', ') : ''}${s.status !== 'addressed' ? ' — ' + s.note : ''}`);
     if (plan.evals.benchmarks.length) lines.push('', `Benchmarks to run: ${plan.evals.benchmarks.map((b) => b.name).join(', ')}`);
+    if (plan.cost) {
+      const c = plan.cost;
+      lines.push('', `Monthly cost from published list prices: ${c.lowerBound ? 'at least ' : ''}$${Math.round(c.knownMonthlyUsd).toLocaleString('en-US')} (prices checked ${c.checked}; ${c.workload.runsPerDay} runs/day)`);
+      for (const l of c.lines) lines.push(`  ${l.name}: ${l.status === 'priced' ? '$' + Math.round(l.monthlyUsd ?? 0).toLocaleString('en-US') : l.status === 'contact-sales' ? 'contact sales' : 'no published price'}${l.plan ? ' — ' + l.plan : ''}`);
+    }
     lines.push('', o.out ? `stack.yml written to ${o.out}` : plan.stackYaml);
     emit(lines.join('\n'));
   });

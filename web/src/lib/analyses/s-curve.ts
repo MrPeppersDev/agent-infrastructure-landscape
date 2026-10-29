@@ -28,7 +28,7 @@
 // We solve (L, k, t0) by grid search — this is a low-cost fit and the
 // problem is small enough (5-100 points per record) that a grid is fine.
 // 15 × 15 × 15 = 3375 candidate triples per record; ~1ms per record on
-// modern hardware; ~1 second for all 912 records.
+// modern hardware; ~1 second for all ~950 records.
 //
 // Data sources per record (priority order):
 //   1. Research papers: cumulative citations over time, synthesised from

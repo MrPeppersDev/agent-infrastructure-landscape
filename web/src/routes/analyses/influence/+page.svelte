@@ -62,7 +62,7 @@
   // Centrality: betweenness + k-core. Computed once over the full graph
   // (the structural measures don't depend on the tier/section filter — they
   // are properties of the WHOLE graph, so re-running them on each filter
-  // toggle would lie). Brandes' algorithm runs in <100ms on the 912-node
+  // toggle would lie). Brandes' algorithm runs in <100ms on the ~950-node
   // graph at prerender time so we just take it.
   const centrality = $derived(computeCentrality(data.records, data.edges));
   const centralityLookup = $derived(centralityById(centrality.results));

@@ -14,12 +14,12 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
 import { compatibility, worksWith, setAliases } from './compat.js';
 import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
 import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from './costs.js';
-import { loadPricing, loadVectorPricing } from './data.js';
+import { loadPricing, loadVectorPricing, loadStackPricing } from './data.js';
 import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from './vector-costs.js';
 import { checkManifest } from './stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers, type LayerId, type ProductType } from './composer.js';
@@ -244,7 +244,8 @@ async function main() {
       const report = checkManifest(args.manifest, loadStackIndex(), {
         filename: args.filename,
         format: args.format,
-        replacements: loadReplacements()
+        replacements: loadReplacements(),
+        links: loadLinks()
       });
       return jsonResult(report);
     }
@@ -358,13 +359,22 @@ async function main() {
         add: z.array(z.enum(layerIds)).optional().describe('Add layers to the preset, e.g. ["voice"].'),
         pin: z.record(z.string(), z.string()).optional().describe('Fix a layer to a record id, e.g. {"vectors": "qdrant--qdrant-tech"}.'),
         avoid: z.array(z.string()).optional().describe('Record ids never to pick.'),
+        workload: z.object({
+          runsPerDay: z.number().optional(), llmCallsPerRun: z.number().optional(), inputTokensPerCall: z.number().optional(),
+          outputTokensPerCall: z.number().optional(), toolCallsPerRun: z.number().optional(), users: z.number().optional(),
+          sandboxMinutesPerRun: z.number().optional(), browserMinutesPerRun: z.number().optional(), voiceMinutesPerRun: z.number().optional(), embeddingTokensPerRun: z.number().optional(),
+          vectors: z.number().optional()
+        }).optional().describe('Workload for the monthly cost estimate from published list prices (defaults: 1,000 runs/day, 6 model calls of 3,000 in / 400 out tokens, 4 tool calls, 1,000 users, 1M vectors).'),
         compliance: z.array(z.string()).optional().describe('Attestations every hosted service must publish, e.g. ["soc2-type2","hipaa"] (codes: ccpa, csa-star, fedramp, gdpr, hipaa, hitrust, iso27001, iso27017, iso27018, iso27701, iso42001, pci-dss, soc2-type1, soc2-type2, soc3). Libraries you run yourself are exempt.')
       }
     },
     async (args) => {
       const a = Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) as Partial<StackAnswers>;
       const plan = planStack(
-        { items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never },
+        {
+          items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never,
+          pricing: { stack: loadStackPricing() as never, memory: loadPricing() as never, vector: loadVectorPricing() as never }
+        },
         a as StackAnswers
       );
       return jsonResult(slimPlan(plan));

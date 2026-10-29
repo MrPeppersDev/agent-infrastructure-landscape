@@ -1,0 +1,1640 @@
+[
+ {
+  "id": "dify--gh-langgenius-dify",
+  "cell": "sdk-languages",
+  "value": "go,java,php,rest,ruby,typescript",
+  "status": "real-data",
+  "citation": "https://github.com/langgenius/dify/blob/main/sdks/README.md",
+  "confidence": "high",
+  "note": "Dify SDKs README lists Node.js (dify-client, ships TS types) and PHP in-repo plus official Java, Go and Ruby SDK repos for the Service API."
+ },
+ {
+  "id": "dify--gh-langgenius-dify",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.dify.ai/en/cloud/use-dify/workspace/tools#mcp",
+  "confidence": "high",
+  "note": "Dify docs: connect an MCP server to import its tools, or publish your own Dify app as an MCP server."
+ },
+ {
+  "id": "langflow--gh-langflow-ai-langflow",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.langflow.org/mcp-server",
+  "confidence": "high",
+  "note": "Langflow docs: 'Langflow integrates with the Model Context Protocol (MCP) as both an MCP server and an MCP client.'"
+ },
+ {
+  "id": "langflow--gh-langflow-ai-langflow",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/langflow-ai/langflow",
+  "confidence": "medium",
+  "note": "Self-hosted open-source visual builder (MIT); no hosted service covered by this record."
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "cell": "protocol-support",
+  "value": "mcp-client,opentelemetry",
+  "status": "real-data",
+  "citation": "https://geminicli.com/docs/cli/telemetry/",
+  "confidence": "high",
+  "note": "Gemini CLI docs: 'Observability with OpenTelemetry' telemetry guide; README/docs cover configuring MCP servers in settings.json."
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://github.com/google-gemini/gemini-cli",
+  "confidence": "medium",
+  "note": "Gemini CLI is a TypeScript/Node.js project published on npm as @google/gemini-cli."
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://geminicli.com/docs/tools/memory/",
+  "confidence": "medium",
+  "note": "Local CLI memory tool writing GEMINI.md files; no hosted memory service."
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client,openai-compatible",
+  "status": "real-data",
+  "citation": "https://docs.openclaw.ai/gateway/openai-http-api",
+  "confidence": "high",
+  "note": "OpenClaw docs: the Gateway can serve an OpenAI-compatible Chat Completions surface (/v1/chat/completions); 'Connect MCP servers' docs cover MCP client use."
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://www.npmjs.com/package/openclaw",
+  "confidence": "medium",
+  "note": "OpenClaw is published on npm as 'openclaw' (pnpm TypeScript workspace, ships type declarations)."
+ },
+ {
+  "id": "openclaw-memory--docs-openclaw-ai",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://docs.openclaw.ai/concepts/memory",
+  "confidence": "high",
+  "note": "File-backed memory inside the self-hosted OpenClaw gateway; no hosted service."
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "cell": "protocol-support",
+  "value": "mcp-client,openai-compatible",
+  "status": "real-data",
+  "citation": "https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server",
+  "confidence": "high",
+  "note": "Hermes docs: 'The API server exposes hermes-agent as an OpenAI-compatible HTTP endpoint'; MCP docs: connect local stdio and remote HTTP MCP servers."
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/hermes-agent/",
+  "confidence": "medium",
+  "note": "Hermes Agent is published on PyPI as hermes-agent by Nous Research (Python)."
+ },
+ {
+  "id": "hermes-agent-memory-nous-research--gh-nousresearch-hermes-agent",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/NousResearch/hermes-agent",
+  "confidence": "high",
+  "note": "Self-hosted open-source agent (MIT); no hosted memory service."
+ },
+ {
+  "id": "auditboard--auditboard-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,csa-star,gdpr,hipaa,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.optro.ai/",
+  "confidence": "high",
+  "note": "Optro (formerly AuditBoard) Trust Center badges: SOC 2 Type II, SOC 1 Type II, CCPA, GDPR, CSA STAR, HIPAA, ISO 27001, TX-RAMP."
+ },
+ {
+  "id": "trustcloud--trustcloud-ai",
+  "cell": "compliance-certifications",
+  "value": "iso27001,iso27701,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.trustcloud.ai/home",
+  "confidence": "high",
+  "note": "TrustCloud Trust Center: SOC 2 Type II audit completed, ISO 27001:2022 and ISO 27701 Processor audits completed; ISO 42001 listed as 'actively preparing'."
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "cell": "compliance-certifications",
+  "value": "fedramp,gdpr,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.hyperproof.io/",
+  "confidence": "high",
+  "note": "Hyperproof Trust Center lists GDPR and SOC 2 (2026 SOC 2 Type II report); update notes Hyperproof Gov product is FedRAMP Moderate."
+ },
+ {
+  "id": "gong--gong-io",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,iso27001,iso27017,iso27018,iso27701,iso42001,pci-dss,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.gong.io/platform/trust",
+  "confidence": "high",
+  "note": "Gong Trust page lists SOC 2 Type 2, ISO/IEC 42001, 27001, 27017, 27018, 27701 and PCI DSS SAQ-D, and alignment with GDPR and CCPA."
+ },
+ {
+  "id": "hackerone-hai--hackerone-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,fedramp,gdpr,iso27001,iso27701,pci-dss,soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.hacker.one/",
+  "confidence": "high",
+  "note": "HackerOne Trust Center certifications: SOC 2 Type 2, ISO 27001 (and 27701 certificate), GDPR, PCI DSS, CCPA, FedRAMP; SOC 2 Type I report for AOT."
+ },
+ {
+  "id": "runpod--runpod-io",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,iso27001,soc2-type2,soc3",
+  "status": "real-data",
+  "citation": "https://www.runpod.io/legal/compliance",
+  "confidence": "high",
+  "note": "Runpod compliance page: ISO/IEC 27001:2022 certified, SOC 2 Type II and SOC 3 examinations completed, HIPAA and GDPR programs."
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "cell": "compliance-certifications",
+  "value": "gdpr,iso27001,soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.lovable.dev/",
+  "confidence": "high",
+  "note": "Lovable Trust Center compliance: SOC 2 Type II, SOC 2 Type I, ISO 27001:2022, GDPR (plus AIUC-1)."
+ },
+ {
+  "id": "legora--legora-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,iso27001,iso42001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://security.legora.com/",
+  "confidence": "high",
+  "note": "Legora Trust Center compliance: GDPR, HIPAA, SOC 2 Type II, ISO/IEC 27001:2022, ISO/IEC 42001:2023."
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "cell": "compliance-certifications",
+  "value": "iso27001,iso27701,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.mistral.ai/",
+  "confidence": "high",
+  "note": "Mistral AI Trust Center compliance: ISO 27001, ISO 27701, SOC 2 Type II (covers Studio/API where Mistral Embed is served)."
+ },
+ {
+  "id": "secureframe-ai--secureframe-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,fedramp,gdpr,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.secureframe.com/",
+  "confidence": "high",
+  "note": "Secureframe Trust Center: SOC 2 Type 2, ISO 27001:2022, FedRAMP 20x Low Authorized, CMMC Level 2, TX-RAMP, GDPR and CCPA."
+ },
+ {
+  "id": "retell-ai--retellai-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,hipaa,iso27001,soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.retellai.com/",
+  "confidence": "high",
+  "note": "Retell AI Trust Center: SOC 2 (Type 1 and Type 2 reports), HIPAA, GDPR, ISO 27001:2022, CCPA."
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "cell": "compliance-certifications",
+  "value": "soc2-type1",
+  "status": "real-data",
+  "citation": "https://trust.hyperbrowser.ai/",
+  "confidence": "high",
+  "note": "Hyperbrowser Trust Center FAQ: 'Our Trust Center currently lists a SOC 2 Type 1 report'."
+ },
+ {
+  "id": "incident-io-ai--incident-io",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.incident.io/",
+  "confidence": "high",
+  "note": "incident.io Trust Center compliance: SOC 2 Type II, SOC 2 Type I, GDPR, HIPAA."
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.stackai.com/",
+  "confidence": "high",
+  "note": "StackAI site security section lists HIPAA, GDPR, SOC 2 Type II and ISO 27001; Trust Center offers the SOC 2 Type II report and ISO 27001 certificate."
+ },
+ {
+  "id": "you-com-research--you-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr",
+  "status": "real-data",
+  "citation": "https://trust.you.com/",
+  "confidence": "medium",
+  "note": "You.com Trust Center compliance shows SOC 2 (type not stated, so not recorded) and GDPR, with a DPA available."
+ },
+ {
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,hipaa,iso42001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.callrail.com/security",
+  "confidence": "high",
+  "note": "CallRail Security and Compliance page: ISO 42001, SOC 2 (Type II), HIPAA/HITECH, GDPR, CCPA (plus PCI redaction)."
+ },
+ {
+  "id": "clay--clay-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,iso27001,iso42001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.clay.com/",
+  "confidence": "high",
+  "note": "Clay Trust Center compliance: SOC 2 Type 2, GDPR, CCPA, ISO 27001:2022, ISO 42001:2023."
+ },
+ {
+  "id": "outreach-ai--outreach-io",
+  "cell": "compliance-certifications",
+  "value": "csa-star,hipaa,iso27001,iso27701,iso42001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.outreach.ai/platform/trust",
+  "confidence": "high",
+  "note": "Outreach Trust page lists SOC 2 Type II, ISO 27001, ISO 27701, ISO 42001, HIPAA and Cloud Security Alliance STAR."
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.hyperspell.com/",
+  "confidence": "high",
+  "note": "Hyperspell Trust Center compliance: SOC 2 Type 2, GDPR, HIPAA."
+ },
+ {
+  "id": "pillar-security--pillar-security",
+  "cell": "compliance-certifications",
+  "value": "hipaa,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.pillar.security/",
+  "confidence": "high",
+  "note": "Pillar Security Trust Center compliance: SOC 2 Type II, ISO 27001:2022, HIPAA."
+ },
+ {
+  "id": "openbb--openbb-co",
+  "cell": "compliance-certifications",
+  "value": "soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.openbb.co/",
+  "confidence": "medium",
+  "note": "OpenBB Trust Center lists SOC 2 with 'SOC 2 Type I Report' and 'SOC 2 Type II' resources (hosted OpenBB Workspace)."
+ },
+ {
+  "id": "hebbia--hebbia-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,iso27001,iso42001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.hebbia.com/security/",
+  "confidence": "high",
+  "note": "Hebbia security page: ISO/IEC 42001:2023, SOC 2 Type 2, ISO 27001:2022, GDPR, CCPA."
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.sema4.ai/",
+  "confidence": "high",
+  "note": "Sema4.ai Trust Center compliance: SOC 2 (SOC2 Type 2 report), ISO 27001:2022, HIPAA, GDPR."
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,iso27001,soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.mixedbread.com/",
+  "confidence": "high",
+  "note": "Mixedbread Trust Center compliance: ISO 27001:2022, SOC 2 Type II, SOC 2 Type I, GDPR (2025 Type 1 and Type 2 reports)."
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "cell": "compliance-certifications",
+  "value": "soc2-type1,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.reka.ai/",
+  "confidence": "high",
+  "note": "Reka Trust Center: 'We are SOC 2 Type 1 and Type 2 compliant.'"
+ },
+ {
+  "id": "snyk-deepcode-ai--snyk-io",
+  "cell": "compliance-certifications",
+  "value": "fedramp,gdpr,iso27001,iso27017,pci-dss,soc2-type2",
+  "status": "real-data",
+  "citation": "https://trust.snyk.io/home",
+  "confidence": "medium",
+  "note": "Snyk Trust Center compliance: ISO 27001:2022, ISO 27017:2015, SOC 2 Type II, PCI DSS SAQ A, FedRAMP Rev. 5; states GDPR compliance."
+ },
+ {
+  "id": "rogo--rogo-ai",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,iso27001,iso42001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://rogo.com/",
+  "confidence": "high",
+  "note": "Rogo site footer 'Certified': SOC 2 Type II, ISO 27001, ISO 42001, CCPA, GDPR (links to trust.rogo.ai)."
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.alpha-sense.com/security/",
+  "confidence": "high",
+  "note": "AlphaSense security page: SOC 2 Type 2 attestation and ISO/IEC 27001:2022 certification; personal data protected per GDPR."
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr,iso27001,pci-dss,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.apollo.io/",
+  "confidence": "medium",
+  "note": "Apollo homepage: 'Enterprise-grade security and certifications, including SOC 2 Type II and ISO 27001'; badges GDPR, CCPA, PCI DSS."
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.lindy.ai/security",
+  "confidence": "high",
+  "note": "Lindy security page: HIPAA compliance, SOC 2 Type II certified, GDPR compliance (plus PIPEDA)."
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "cell": "compliance-certifications",
+  "value": "hipaa,iso27001,iso27701,iso42001,pci-dss,soc3",
+  "status": "real-data",
+  "citation": "https://www.workato.com/platform/security",
+  "confidence": "medium",
+  "note": "Workato security page: 'SOC 1/2/3, ISO 27001/27701, ISO 42001, HIPAA, PCI-DSS 4.0.1, IRAP ... certified' (SOC 2 type not stated, so not recorded)."
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,pci-dss",
+  "status": "real-data",
+  "citation": "https://synthflow.ai/",
+  "confidence": "medium",
+  "note": "Synthflow homepage: infrastructure 'certified across SOC 2, HIPAA, PCI DSS, and GDPR' (SOC 2 type not stated, so not recorded)."
+ },
+ {
+  "id": "vapi-voice-agents--vapi-ai",
+  "cell": "compliance-certifications",
+  "value": "hipaa,pci-dss",
+  "status": "real-data",
+  "citation": "https://vapi.ai/",
+  "confidence": "medium",
+  "note": "Vapi homepage: 'SOC 2, HIPAA, and PCI compliant' (SOC 2 type not stated, so not recorded)."
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "cell": "compliance-certifications",
+  "value": "soc2-type2",
+  "status": "real-data",
+  "citation": "https://highlightai.com/",
+  "confidence": "medium",
+  "note": "Highlight homepage footer badge 'SOC2 TYPE 2' next to its Trust Center link."
+ },
+ {
+  "id": "demandbase--demandbase-com",
+  "cell": "compliance-certifications",
+  "value": "iso27001",
+  "status": "real-data",
+  "citation": "https://www.demandbase.com/",
+  "confidence": "medium",
+  "note": "Demandbase homepage enterprise section shows ISO/IEC 27001 and SOC 2 badges (SOC 2 type not stated, so not recorded)."
+ },
+ {
+  "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+  "cell": "compliance-certifications",
+  "value": "csa-star,fedramp,hipaa,iso27001,iso27017,iso27018,iso27701",
+  "status": "real-data",
+  "citation": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/compliance-validation.html",
+  "confidence": "high",
+  "note": "AgentCore compliance validation: HIPAA eligible, FedRAMP, SOC 2, ISO 27001/27017/27018/27701 and CSA STAR compliant (SOC 2 type not stated; HITRUST/PCI only internal alignment)."
+ },
+ {
+  "id": "people-ai--people-ai",
+  "cell": "compliance-certifications",
+  "value": "soc2-type2",
+  "status": "real-data",
+  "citation": "https://www.backstory.ai/platform/trust-security",
+  "confidence": "medium",
+  "note": "Backstory (formerly People.ai) Trust & Security page: AI subprocessing 'covered under SOC 2 Type II scope, independently audited'."
+ },
+ {
+  "id": "vapi-voice-agents--vapi-ai",
+  "cell": "sdk-languages",
+  "value": "csharp,go,java,python,rest,ruby,typescript",
+  "status": "real-data",
+  "citation": "https://docs.vapi.ai/quickstart/web",
+  "confidence": "high",
+  "note": "Vapi docs: server-side SDKs for TypeScript, Python, Java, Ruby, C# and Go, plus the documented REST API reference."
+ },
+ {
+  "id": "runpod--runpod-io",
+  "cell": "sdk-languages",
+  "value": "go,python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://docs.runpod.io/serverless/sdks",
+  "confidence": "high",
+  "note": "Runpod docs: 'Install and configure the Serverless SDK for Python, JavaScript, or Go'; JS package runpod-sdk ships types; REST API v1/v2 documented."
+ },
+ {
+  "id": "incident-io-ai--incident-io",
+  "cell": "sdk-languages",
+  "value": "csharp,go,php,python,rest,ruby,rust,typescript",
+  "status": "real-data",
+  "citation": "https://docs.incident.io/api-reference/introduction",
+  "confidence": "high",
+  "note": "incident.io API docs: 'Official client libraries for Go, TypeScript, Python, Rust, Ruby, PHP, and .NET' generated from the public API spec."
+ },
+ {
+  "id": "incident-io-ai--incident-io",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.incident.io/ai/remote-mcp",
+  "confidence": "high",
+  "note": "incident.io docs include a 'Remote MCP server' section under AI features."
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.apollo.io/docs/apollo-mcp",
+  "confidence": "high",
+  "note": "Apollo docs: standalone Apollo MCP server at https://mcp.apollo.io/mcp (Streamable HTTP, OAuth)."
+ },
+ {
+  "id": "apollo-io--apollo-io",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.apollo.io/",
+  "confidence": "high",
+  "note": "Apollo developer docs: REST API reference with API keys and OAuth."
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://lovable.dev/mcp",
+  "confidence": "high",
+  "note": "Lovable: the Lovable MCP server lets assistants drive Lovable; chat connectors let the Lovable agent connect to external MCP servers."
+ },
+ {
+  "id": "pieces-for-developers-ltm--pieces-app",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.pieces.app/products/mcp",
+  "confidence": "high",
+  "note": "Pieces docs: PiecesOS acts as an MCP server feeding Pieces LTM context to MCP clients such as Cursor, VS Code and Claude Desktop."
+ },
+ {
+  "id": "pieces-for-developers-ltm--pieces-app",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/pieces_os_client/",
+  "confidence": "medium",
+  "note": "Official PiecesOS client SDKs: pieces_os_client on PyPI (Pieces) and @pieces.app/pieces-os-client on npm (ships types)."
+ },
+ {
+  "id": "snyk-deepcode-ai--snyk-io",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.snyk.io/agent-security",
+  "confidence": "high",
+  "note": "Snyk docs: run Snyk Code, Open Source and IaC scans directly from an agent through the local Snyk MCP Server."
+ },
+ {
+  "id": "retell-ai--retellai-com",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://docs.retellai.com/general/introduction",
+  "confidence": "high",
+  "note": "Retell docs: 'Official Node.js and Python client libraries' plus API reference; retell-sdk on npm is TypeScript."
+ },
+ {
+  "id": "retell-ai--retellai-com",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.retellai.com/general/introduction",
+  "confidence": "medium",
+  "note": "Retell docs list an MCP server for managing agents from Cursor/Claude; catalog notes the MCP Node lets agents call external MCP servers mid-call."
+ },
+ {
+  "id": "you-com-research--you-com",
+  "cell": "sdk-languages",
+  "value": "python,rest",
+  "status": "real-data",
+  "citation": "https://you.com/docs/welcome",
+  "confidence": "high",
+  "note": "You.com platform docs: typed Python SDK (youdotcom) and REST APIs with OpenAPI spec."
+ },
+ {
+  "id": "you-com-research--you-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://you.com/docs/welcome",
+  "confidence": "high",
+  "note": "You.com docs: hosted MCP server at https://api.you.com/mcp for Claude Code, Codex, Cursor and VS Code."
+ },
+ {
+  "id": "backboard--github-com",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://backboard.io/products/api",
+  "confidence": "high",
+  "note": "Backboard API page: 'pip install backboard-sdk # or: npm install backboard-sdk' (npm package ships types); REST API reference in docs."
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://www.hyperbrowser.ai/docs/home",
+  "confidence": "high",
+  "note": "Hyperbrowser docs: Python SDK, Node SDK (@hyperbrowser/sdk, TypeScript) and API reference."
+ },
+ {
+  "id": "hyperbrowser--hyperbrowser-ai",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/hyperbrowserai/mcp",
+  "confidence": "high",
+  "note": "Official repo: 'This is Hyperbrowser's Model Context Protocol (MCP) Server' (npx hyperbrowser-mcp)."
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/hyperspell/",
+  "confidence": "medium",
+  "note": "Official SDKs: 'The official Python library for the hyperspell API' (PyPI) and 'The official TypeScript library' (npm hyperspell); API reference documented."
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://www.mixedbread.com/docs",
+  "confidence": "medium",
+  "note": "Official 'mixedbread' Python library (PyPI) and @mixedbread/sdk TypeScript library (npm); documented API reference."
+ },
+ {
+  "id": "mixedbread-ai--mixedbread-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://www.mixedbread.com/docs",
+  "confidence": "high",
+  "note": "Mixedbread docs: 'Our MCP Server bridges' AI assistants and Mixedbread stores/knowledge bases."
+ },
+ {
+  "id": "mistral-embed--mistral-ai",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://docs.mistral.ai/resources/sdks",
+  "confidence": "high",
+  "note": "Mistral docs: 'We provide official SDK clients in both Python and Typescript'; REST API reference."
+ },
+ {
+  "id": "daytona--daytona-io",
+  "cell": "sdk-languages",
+  "value": "go,java,python,rest,ruby,typescript",
+  "status": "real-data",
+  "citation": "https://www.daytona.io/docs/en/",
+  "confidence": "high",
+  "note": "Daytona docs: SDKs for Python (daytona), TypeScript (@daytona/sdk), Ruby, Go and Java, plus API and CLI."
+ },
+ {
+  "id": "daytona--daytona-io",
+  "cell": "protocol-support",
+  "value": "mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://www.daytona.io/docs/en/",
+  "confidence": "high",
+  "note": "Daytona docs nav: 'MCP Server' and Observability 'OpenTelemetry Collection'."
+ },
+ {
+  "id": "vapi-voice-agents--vapi-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://docs.vapi.ai/tools/mcp",
+  "confidence": "high",
+  "note": "Vapi docs 'MCP tools': connect your assistant to dynamic tools through MCP servers."
+ },
+ {
+  "id": "sysdig-sage--sysdig-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/sysdiglabs/sysdig-mcp-server",
+  "confidence": "high",
+  "note": "Official sysdiglabs/sysdig-mcp-server repo: 'Sysdig MCP Server' (now focused on Sysdig Monitor tools)."
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.stackai.com/stackai-mcp/overview",
+  "confidence": "high",
+  "note": "StackAI docs: 'This MCP server lets an external assistant work with StackAI'."
+ },
+ {
+  "id": "stack-ai--stackai-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.stackai.com/",
+  "confidence": "high",
+  "note": "StackAI docs: StackAI API developer guide and REST API v2."
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "cell": "protocol-support",
+  "value": "mcp-server,openai-compatible",
+  "status": "real-data",
+  "citation": "https://docs.reka.ai/overview",
+  "confidence": "medium",
+  "note": "Reka API docs: models served 'through one OpenAI-compatible endpoint'; docs navigation includes an 'MCP Server' page."
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.reka.ai/overview",
+  "confidence": "high",
+  "note": "Reka API docs: documented HTTP API (Create Chat Completion, List Models, Vision APIs)."
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "cell": "protocol-support",
+  "value": "openai-compatible",
+  "status": "real-data",
+  "citation": "https://developers.reflection.ai/introduction",
+  "confidence": "high",
+  "note": "Reflection docs: call Beam over HTTPS with the Reflection API 'or the official OpenAI SDKs' via base URL https://api.reflection.ai/openai/v1."
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://developers.reflection.ai/introduction",
+  "confidence": "high",
+  "note": "Reflection developer docs: Reflection API reference (HTTPS, cURL quickstart)."
+ },
+ {
+  "id": "new-relic-ai--newrelic-com",
+  "cell": "protocol-support",
+  "value": "mcp-server,opentelemetry",
+  "status": "real-data",
+  "citation": "https://docs.newrelic.com/docs/agentic-ai/mcp/overview/",
+  "confidence": "high",
+  "note": "New Relic docs: MCP server lets AI agents call New Relic tools; separate docs cover ingesting OpenTelemetry data into New Relic."
+ },
+ {
+  "id": "lindy--lindy-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://docs.lindy.ai/",
+  "confidence": "medium",
+  "note": "Lindy docs 'Connect your tools' include an 'MCP servers' integration page; homepage: 'Supports MCP'."
+ },
+ {
+  "id": "hyperspell--ycombinator-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.hyperspell.com/core/introduction",
+  "confidence": "medium",
+  "note": "Hyperspell docs 'Connecting Agents' include setup for Claude, Cursor, ChatGPT and generic 'MCP clients'."
+ },
+ {
+  "id": "people-ai--people-ai",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://www.backstory.ai/",
+  "confidence": "high",
+  "note": "Backstory homepage: deal context reaches Claude, ChatGPT or Gemini 'Through our MCP Server'."
+ },
+ {
+  "id": "memory-store--ycombinator-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://mem.store/",
+  "confidence": "high",
+  "note": "MemStore site: 'MemStore is an MCP server with three tools' (checkin, record, recall)."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/omega-memory/omega-memory",
+  "confidence": "high",
+  "note": "OMEGA README: 'omega setup' registers the OMEGA MCP server for Claude Code/Desktop and any MCP client."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/omega-memory/",
+  "confidence": "high",
+  "note": "OMEGA is a Python 3.11+ package on PyPI (omega-memory), usable as a library or MCP server."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "maturity",
+  "value": "beta",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/omega-memory/",
+  "confidence": "medium",
+  "note": "PyPI classifiers for omega-memory 1.5.20 declare 'Development Status :: 4 - Beta'."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://omegamax.co/",
+  "confidence": "medium",
+  "note": "Local-first Apache-2.0 memory that runs as an editor subprocess; no hosted service."
+ },
+ {
+  "id": "causaly--causaly-com-2",
+  "cell": "protocol-support",
+  "value": "a2a,mcp-server",
+  "status": "real-data",
+  "citation": "https://www.causaly.com/",
+  "confidence": "medium",
+  "note": "Causaly homepage: 'Access scientific capabilities through MCP, A2A and APIs' to invoke Causaly from your own agents."
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://developer.alpha-sense.com/",
+  "confidence": "high",
+  "note": "AlphaSense Developer Portal: 'Agent API and MCP tools' to give AI agents access to AlphaSense intelligence."
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://developer.alpha-sense.com/",
+  "confidence": "medium",
+  "note": "AlphaSense Developer Portal documents the Agent API (GenSearch, ThinkLonger, DeepResearch)."
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "cell": "protocol-support",
+  "value": "a2a,mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.workato.com/en/",
+  "confidence": "medium",
+  "note": "Workato docs: build and govern AI agents and MCP servers, MCP Runtime, 'Agent-to-agent (A2A)', MCP Proxy & Gateway for third-party MCP servers."
+ },
+ {
+  "id": "workato-ai-workflow-bot-builder--workato-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.workato.com/en/",
+  "confidence": "medium",
+  "note": "Workato docs: Developer API and Headless API reference."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "protocol-support",
+  "value": "a2a,ag-ui,mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.agno.com/agent-os/interfaces/a2a/introduction",
+  "confidence": "high",
+  "note": "Agno docs: AgentOS exposes agents via A2A and AG-UI interfaces and as an MCP server; MCPTools connect agents to MCP servers."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/agno/",
+  "confidence": "high",
+  "note": "Agno is a Python framework (pip install agno)."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "maturity",
+  "value": "ga",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/agno/",
+  "confidence": "medium",
+  "note": "PyPI classifiers for agno 3.1.11 declare 'Development Status :: 5 - Production/Stable'."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://docs.agno.com/",
+  "confidence": "medium",
+  "note": "Open-source framework; AgentOS runs in the customer's own cloud."
+ },
+ {
+  "id": "openbb--openbb-co",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/OpenBB-finance/OpenBB",
+  "confidence": "high",
+  "note": "OpenBB README: serves data to Python environments, Workspace/Excel, 'MCP servers for AI agents, and REST APIs'."
+ },
+ {
+  "id": "openbb--openbb-co",
+  "cell": "sdk-languages",
+  "value": "python,rest",
+  "status": "real-data",
+  "citation": "https://github.com/OpenBB-finance/OpenBB",
+  "confidence": "high",
+  "note": "OpenBB README: 'pip install openbb' Python package and REST APIs from the Open Data Platform."
+ },
+ {
+  "id": "semgrep-assistant--semgrep-dev",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.semgrep.dev/mcp",
+  "confidence": "medium",
+  "note": "Semgrep docs MCP page describes the Semgrep MCP server and its tools/resources for MCP sessions."
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.synthflow.ai/getting-started",
+  "confidence": "medium",
+  "note": "Synthflow docs navigation: 'Aurora MCP Server' and 'MCP Connectors' for agents."
+ },
+ {
+  "id": "synthflow--synthflow-ai",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.synthflow.ai/reference/getting-started-with-your-api",
+  "confidence": "high",
+  "note": "Synthflow docs: API reference for its REST API."
+ },
+ {
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://apidocs.callrail.com/",
+  "confidence": "high",
+  "note": "CallRail API v3 docs: 'The CallRail REST API provides a method to programmatically access and modify the data'."
+ },
+ {
+  "id": "callrail-conversation-intelligence--callrail-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://apidocs.callrail.com/",
+  "confidence": "medium",
+  "note": "CallRail API docs navigation includes an 'MCP' section alongside the REST resources."
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://developer.ironcladapp.com/",
+  "confidence": "high",
+  "note": "Ironclad Developer Hub: CLM REST API reference v1."
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://github.com/Sema4AI/actions",
+  "confidence": "high",
+  "note": "Sema4.ai Actions README: build MCP tools or AI actions 'all in Python' (sema4ai-actions / sema4ai-mcp packages)."
+ },
+ {
+  "id": "sema4-ai--sema4-ai",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/Sema4AI/actions",
+  "confidence": "high",
+  "note": "Sema4.ai Action Server exposes @tool functions; 'The MCP endpoint is available at: http://localhost:8080/mcp'."
+ },
+ {
+  "id": "nomic-embed--nomic-ai",
+  "cell": "sdk-languages",
+  "value": "python,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/nomic/",
+  "confidence": "medium",
+  "note": "Official Nomic clients: 'The official Nomic python client' (PyPI nomic, includes embed API) and @nomic-ai/atlas TypeScript client for the Nomic API (npm)."
+ },
+ {
+  "id": "langmem-langchain--langchain-ai-github-io",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://langchain-ai.github.io/langmem/",
+  "confidence": "high",
+  "note": "LangMem docs/README: install with 'pip install -U langmem' (Python library integrating with LangGraph storage)."
+ },
+ {
+  "id": "langmem-langchain--langchain-ai-github-io",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://langchain-ai.github.io/langmem/",
+  "confidence": "high",
+  "note": "Open-source MIT library; no hosted service of its own."
+ },
+ {
+  "id": "m3-agent-bytedance--gh-bytedance-seed-m3-agent",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://github.com/ByteDance-Seed/m3-agent",
+  "confidence": "high",
+  "note": "Research code release (ICLR 2026) implemented in Python (99.7% of repo)."
+ },
+ {
+  "id": "m3-agent-bytedance--gh-bytedance-seed-m3-agent",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/ByteDance-Seed/m3-agent",
+  "confidence": "high",
+  "note": "Research code and open model weights; no hosted service."
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "cell": "sdk-languages",
+  "value": "go,java,python,typescript",
+  "status": "real-data",
+  "citation": "https://github.com/Arize-ai/openinference",
+  "confidence": "high",
+  "note": "README has Python, JavaScript (@arizeai/openinference-* packages ship TS types), Java and Go instrumentation libraries."
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "cell": "protocol-support",
+  "value": "opentelemetry",
+  "status": "real-data",
+  "citation": "https://github.com/Arize-ai/openinference",
+  "confidence": "high",
+  "note": "README: 'conventions and plugins that is complementary to OpenTelemetry to enable tracing of AI applications'; works with any OTel-compatible backend."
+ },
+ {
+  "id": "openinference--gh-arize-ai-openinference",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/Arize-ai/openinference",
+  "confidence": "high",
+  "note": "Open specification and instrumentation libraries; no hosted service (Arize/Phoenix are separate)."
+ },
+ {
+  "id": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/shaneholloman/mcp-knowledge-graph",
+  "confidence": "high",
+  "note": "README: 'MCP server enabling persistent memory ... Works with Claude Code/Desktop and any MCP-compatible AI platform' (npx mcp-knowledge-graph)."
+ },
+ {
+  "id": "mcp-knowledge-graph--gh-shaneholloman-mcp-knowledge-graph",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/shaneholloman/mcp-knowledge-graph",
+  "confidence": "high",
+  "note": "Local MCP server storing JSONL files; no hosted service."
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://github.com/memvid/claude-brain",
+  "confidence": "medium",
+  "note": "Claude Code plugin implemented in TypeScript/JavaScript (51.7%/48.3%), built on memvid-cli."
+ },
+ {
+  "id": "claude-brain--gh-memvid-claude-brain",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/memvid/claude-brain",
+  "confidence": "high",
+  "note": "Local Claude Code plugin storing memory in a single local file; no hosted service."
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/obra/episodic-memory",
+  "confidence": "high",
+  "note": "README: 'The plugin provides MCP server integration' and exposes MCP search/read tools to Claude Code, Codex and opencode."
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://github.com/obra/episodic-memory",
+  "confidence": "medium",
+  "note": "Repository is TypeScript (91.3%); installed via npm from GitHub."
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/obra/episodic-memory",
+  "confidence": "high",
+  "note": "Local plugin indexing conversation logs on the user's machine; no hosted service."
+ },
+ {
+  "id": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/Puliczek/mcp-memory",
+  "confidence": "high",
+  "note": "README: 'MCP Memory is a MCP Server that gives MCP Clients (Cursor, Claude, Windsurf and more) the ability to remember'."
+ },
+ {
+  "id": "mcp-memory-puliczek--gh-puliczek-mcp-memory",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://github.com/Puliczek/mcp-memory",
+  "confidence": "medium",
+  "note": "Cloudflare Workers project written in TypeScript (deployed with wrangler)."
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "confidence": "high",
+  "note": "README/npm: 'Persistent local memory for any MCP client' (@studiomeyer/local-memory-mcp MCP server)."
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "confidence": "medium",
+  "note": "Repository is TypeScript (98.8%), published on npm as @studiomeyer/local-memory-mcp."
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "confidence": "high",
+  "note": "Local SQLite-backed MCP server; no hosted service."
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "confidence": "high",
+  "note": "README: 'This memory server acts as an MCP server' for Claude Desktop and Claude Code."
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "confidence": "medium",
+  "note": "Repository is Python (87.8%), installed with uv / mcp[cli]."
+ },
+ {
+  "id": "claude-cursormemorymcp--gh-angleito-claude-cursormemorymcp",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/Angleito/Claude-CursorMemoryMCP",
+  "confidence": "high",
+  "note": "Self-hosted MCP memory server; no hosted service."
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/ratine/",
+  "confidence": "medium",
+  "note": "README: 'pip install ratine' (Python 100% of repo)."
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/goweft/ratine",
+  "confidence": "high",
+  "note": "Local open-source memory-poisoning detector; no hosted service."
+ },
+ {
+  "id": "o-mem--gh-oppo-personalai-o-mem",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+  "confidence": "high",
+  "note": "README badge Python 3.9+; repository is 100% Python research code."
+ },
+ {
+  "id": "o-mem--gh-oppo-personalai-o-mem",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/OPPO-PersonalAI/O-Mem",
+  "confidence": "high",
+  "note": "Research code release accompanying an arXiv paper; no hosted service."
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "cell": "sdk-languages",
+  "value": "go,python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://github.com/volcengine/OpenViking",
+  "confidence": "high",
+  "note": "README: 'Build your own integration with the Python, Go, or TypeScript SDK, or the HTTP API'."
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.openviking.ai/en/agent-integrations/06-mcp-clients",
+  "confidence": "high",
+  "note": "README/docs: agent integrations via hooks/plugins plus MCP, with an 'MCP clients' integration guide."
+ },
+ {
+  "id": "openviking-bytedance-volcengine--gh-volcengine-openviking",
+  "cell": "maturity",
+  "value": "alpha",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/openviking/",
+  "confidence": "medium",
+  "note": "PyPI classifiers for openviking 0.5.2.1 declare 'Development Status :: 3 - Alpha'."
+ },
+ {
+  "id": "lightrag--gh-hkuds-lightrag",
+  "cell": "sdk-languages",
+  "value": "python,rest",
+  "status": "real-data",
+  "citation": "https://github.com/HKUDS/LightRAG",
+  "confidence": "high",
+  "note": "README: Python SDK (pip install lightrag-hku) and 'the REST API provided by the LightRAG Server' (recommended)."
+ },
+ {
+  "id": "lightrag--gh-hkuds-lightrag",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/HKUDS/LightRAG",
+  "confidence": "high",
+  "note": "Self-hosted open-source RAG library/server; no hosted service."
+ },
+ {
+  "id": "lightrag--arxiv-2410-05779",
+  "cell": "sdk-languages",
+  "value": "python,rest",
+  "status": "real-data",
+  "citation": "https://github.com/HKUDS/LightRAG",
+  "confidence": "medium",
+  "note": "Paper's official implementation: Python SDK (lightrag-hku) plus LightRAG Server REST API."
+ },
+ {
+  "id": "lightrag--arxiv-2410-05779",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://arxiv.org/abs/2410.05779",
+  "confidence": "high",
+  "note": "Research paper with open-source code; no hosted service."
+ },
+ {
+  "id": "dspy--gh-stanfordnlp-dspy",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://github.com/stanfordnlp/dspy",
+  "confidence": "high",
+  "note": "README: 'pip install dspy' (Python framework)."
+ },
+ {
+  "id": "dspy--gh-stanfordnlp-dspy",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/stanfordnlp/dspy",
+  "confidence": "high",
+  "note": "Open-source Python framework; no hosted service."
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://dspy.ai/api/primitives/History/",
+  "confidence": "high",
+  "note": "dspy.History is a Python primitive in the DSPy API reference."
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://dspy.ai/api/primitives/History/",
+  "confidence": "high",
+  "note": "Primitive inside the open-source DSPy library; no hosted service."
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "cell": "sdk-languages",
+  "value": "python",
+  "status": "real-data",
+  "citation": "https://github.com/microsoft/graphrag",
+  "confidence": "high",
+  "note": "GraphRAG reference implementation is a Python package (pip install graphrag, PyPI 3.3.0)."
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/mksglu/context-mode",
+  "confidence": "high",
+  "note": "README: 'Context Mode is an MCP server' with 11 MCP tools (claude mcp add context-mode -- npx -y context-mode)."
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://www.npmjs.com/package/context-mode",
+  "confidence": "medium",
+  "note": "Published on npm as context-mode (ships type declarations)."
+ },
+ {
+  "id": "context-mode--gh-mksglu-context-mode",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://github.com/mksglu/context-mode",
+  "confidence": "high",
+  "note": "Local MCP plugin/sandbox; no hosted service."
+ },
+ {
+  "id": "memoria-matrixorigin--medium-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://github.com/matrixorigin/Memoria",
+  "confidence": "high",
+  "note": "README: 'memoria mcp' starts the Memoria MCP server; works with any MCP-compatible agent."
+ },
+ {
+  "id": "memoria-matrixorigin--medium-com",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://github.com/matrixorigin/Memoria",
+  "confidence": "medium",
+  "note": "README: 'memoria serve' starts a REST API server; some tools are available only via the REST API."
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "cell": "compliance-certifications",
+  "value": "gdpr,hipaa,soc2-type2",
+  "status": "real-data",
+  "citation": "https://ironcladapp.com/security",
+  "confidence": "high",
+  "note": "Ironclad security page: GDPR compliance program with DPA, complies with US HIPAA, SOC 1 & SOC 2 Type II reports (ISO certifications cited only for its cloud providers)."
+ },
+ {
+  "id": "sigma-private-ai-browser--sigmabrowser-com",
+  "cell": "compliance-certifications",
+  "value": "ccpa,gdpr",
+  "status": "real-data",
+  "citation": "https://www.sigmabrowser.com/",
+  "confidence": "medium",
+  "note": "Sigma homepage: 'GDPR and CCPA compliant — Sigma complies with GDPR and CCPA'."
+ },
+ {
+  "id": "trace--ycombinator-com",
+  "cell": "maturity",
+  "value": "beta",
+  "status": "real-data",
+  "citation": "https://www.trace.so/",
+  "confidence": "medium",
+  "note": "Trace homepage hero is labelled 'BETA — Introducing context-aware automation'."
+ },
+ {
+  "id": "opera-ai-formerly-aria--blogs-opera-com",
+  "cell": "maturity",
+  "value": "alpha",
+  "status": "real-data",
+  "citation": "https://blogs.opera.com/news/2025/02/aria-gets-memory-feature-new-ai-feature-drop/",
+  "confidence": "medium",
+  "note": "Opera blog: Aria Memory shipped in Opera Developer as part of the 'experimental AI Feature Drops program'."
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "cell": "maturity",
+  "value": "beta",
+  "status": "real-data",
+  "citation": "https://blog.cloudflare.com/introducing-agent-memory/",
+  "confidence": "high",
+  "note": "Cloudflare blog: 'Today we're announcing the private beta of Agent Memory, a managed service'."
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "cell": "sdk-languages",
+  "value": "rest,typescript",
+  "status": "real-data",
+  "citation": "https://blog.cloudflare.com/introducing-agent-memory/",
+  "confidence": "medium",
+  "note": "Cloudflare blog: accessed via a binding from any Cloudflare Worker (Agents SDK, TypeScript) or via a REST API for agents outside Workers."
+ },
+ {
+  "id": "vertex-ai-memory-bank--docs-cloud-google-com",
+  "cell": "sdk-languages",
+  "value": "python,rest",
+  "status": "real-data",
+  "citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+  "confidence": "medium",
+  "note": "Memory Bank docs: REST API quickstart and ADK quickstart (Python ADK VertexAiMemoryBankService)."
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "cell": "maturity",
+  "value": "preview",
+  "status": "real-data",
+  "citation": "https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/",
+  "confidence": "medium",
+  "note": "Microsoft Research blog: LazyGraphRAG is being incorporated into Azure Local services 'as part of a public preview'."
+ },
+ {
+  "id": "aider-conventions-md-aider-conf-yml--aider-chat",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://aider.chat/docs/usage/conventions.html",
+  "confidence": "medium",
+  "note": "Local convention/config files read by the open-source aider CLI; no hosted service."
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://cline.bot/blog/clinerules-version-controlled-shareable-and-ai-editable-instructions",
+  "confidence": "medium",
+  "note": ".clinerules are Markdown files in the user's repo; no hosted service."
+ },
+ {
+  "id": "cline-memory-bank--docs-cline-bot",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://docs.cline.bot/best-practices/memory-bank",
+  "confidence": "medium",
+  "note": "Memory Bank is a documentation methodology of Markdown files in the project; no hosted service."
+ },
+ {
+  "id": "zed-rules--zed-dev",
+  "cell": "compliance-certifications",
+  "value": "not applicable — no hosted service",
+  "status": "not-applicable",
+  "citation": "https://zed.dev/docs/ai/mcp",
+  "confidence": "medium",
+  "note": "Rules files live in the user's project and the local Zed editor; no hosted service."
+ },
+ {
+  "id": "cline-memory-bank--docs-cline-bot",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://docs.cline.bot/mcp/mcp-overview",
+  "confidence": "high",
+  "note": "Cline docs: 'MCP (Model Context Protocol) lets Cline use external tools and data sources through MCP servers' (local or remote)."
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://docs.cline.bot/mcp/mcp-overview",
+  "confidence": "high",
+  "note": "Cline docs: add, configure and use local or remote MCP servers in Cline."
+ },
+ {
+  "id": "zed-rules--zed-dev",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://zed.dev/docs/ai/mcp",
+  "confidence": "high",
+  "note": "Zed docs: Zed uses the Model Context Protocol to interact with context servers (supports MCP Tools and Prompts)."
+ },
+ {
+  "id": "replit-replit-md--docs-replit-com",
+  "cell": "protocol-support",
+  "value": "mcp-client,mcp-server",
+  "status": "real-data",
+  "citation": "https://docs.replit.com/features/mcp/overview",
+  "confidence": "high",
+  "note": "Replit docs: Replit Agent connects to external tools through MCP servers; docs also cover the 'Replit MCP server'."
+ },
+ {
+  "id": "langflow--gh-langflow-ai-langflow",
+  "cell": "sdk-languages",
+  "value": "python,rest",
+  "status": "real-data",
+  "citation": "https://docs.langflow.org/mcp-server",
+  "confidence": "medium",
+  "note": "Langflow installs as a Python package (uv pip install langflow) and exposes a documented API reference."
+ },
+ {
+  "id": "dify--gh-langgenius-dify",
+  "cell": "compliance-certifications",
+  "value": "iso27001,soc2-type2",
+  "status": "real-data",
+  "citation": "https://dify.ai/",
+  "confidence": "medium",
+  "note": "Dify homepage enterprise section: 'Built for procurement, security, and audit ... SOC 2 Type II + ISO 27001'."
+ },
+ {
+  "id": "clay--clay-com",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://www.clay.com/mcp",
+  "confidence": "high",
+  "note": "Clay MCP brings data from 200+ providers and Ops-managed workflows into Claude, ChatGPT, Codex, Copilot and Glean."
+ },
+ {
+  "id": "legora--legora-com",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://legora.com/product/aos",
+  "confidence": "high",
+  "note": "Legora aOS page: DMS integrations, content sources and 'MCP connectors all feed into the agent's context'."
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "cell": "protocol-support",
+  "value": "mcp-client",
+  "status": "real-data",
+  "citation": "https://docs.tabnine.com/main/getting-started/tabnine-agent",
+  "confidence": "medium",
+  "note": "Tabnine Agent docs include 'Understanding MCP Servers' for connecting the agent to MCP servers."
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://developer.hyperproof.app/",
+  "confidence": "high",
+  "note": "Hyperproof developer site: Hyperproof API, 'The external REST API for Hyperproof', plus Hypersync SDK."
+ },
+ {
+  "id": "trustcloud--trustcloud-ai",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://www.trustcloud.ai/trustcloud-api/",
+  "confidence": "medium",
+  "note": "TrustCloud API page: 'TrustCloud's API and SDK empower you to continuously test data feeds'."
+ },
+ {
+  "id": "vektor-memory--dev-to",
+  "cell": "protocol-support",
+  "value": "mcp-server",
+  "status": "real-data",
+  "citation": "https://vektormemory.com/",
+  "confidence": "medium",
+  "note": "VEKTOR site: '60+ MCP tools' and tutorial 'Building a 34-Tool MCP Server'; dev.to profile describes a local-first MCP server."
+ },
+ {
+  "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+  "cell": "sdk-languages",
+  "value": "python,rest,typescript",
+  "status": "real-data",
+  "citation": "https://pypi.org/project/bedrock-agentcore/",
+  "confidence": "medium",
+  "note": "AWS publishes bedrock-agentcore SDKs for Python (PyPI, AWS) and TypeScript (npm, aws/bedrock-agentcore-sdk-typescript), plus the AgentCore API via AWS SDKs."
+ },
+ {
+  "id": "memwal-walrus--decrypt-co",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://www.npmjs.com/package/@mysten/memwal",
+  "confidence": "medium",
+  "note": "Decrypt: 'Walrus has launched MemWal, an SDK for AI agents'; npm @mysten/memwal (Mysten Labs maintainers, ships types)."
+ },
+ {
+  "id": "codesandbox-ai--codesandbox-io",
+  "cell": "sdk-languages",
+  "value": "typescript",
+  "status": "real-data",
+  "citation": "https://www.npmjs.com/package/@codesandbox/sdk",
+  "confidence": "medium",
+  "note": "Official CodeSandbox SDK on npm (@codesandbox/sdk, repo codesandbox/codesandbox-sdk, ships types)."
+ },
+ {
+  "id": "backboard--github-com",
+  "cell": "compliance-certifications",
+  "value": "none-published",
+  "status": "real-data",
+  "citation": "https://trust.backboard.io/",
+  "confidence": "medium",
+  "note": "Backboard Trust Center lists controls and says it 'supports our SOC 2 program' but shows no completed attestation."
+ },
+ {
+  "id": "lovable--lovable-dev",
+  "cell": "sdk-languages",
+  "value": "rest",
+  "status": "real-data",
+  "citation": "https://docs.lovable.dev/introduction/welcome",
+  "confidence": "medium",
+  "note": "Lovable documentation includes an API Reference section."
+ }
+]

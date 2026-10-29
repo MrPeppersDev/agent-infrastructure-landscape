@@ -3,12 +3,12 @@
 // (honesty rules, requirements, round-trips), not specific picks, so they
 // hold as the catalog changes.
 // Run: npm run build && node dist/test-composer.js
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { toItem, type ChooserItem } from './chooser.js';
 import { setAliases } from './compat.js';
-import { planStack, PRODUCTS, LAYER_BY_ID, type ProductType, type StackAnswers } from './composer.js';
+import { planStack, slimPlan, toOpml, PRODUCTS, LAYER_BY_ID, type ProductType, type StackAnswers } from './composer.js';
 import { checkManifest, parseManifest } from './stack-check.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -107,6 +107,31 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   for (const l of p.layers) {
     const c = l.pick?.item.facts.compliance?.value ?? '';
     if (l.pick && c && !l.pick.pinned) ok(c.split(',').includes('soc2-type2'), `compliance: ${l.layer} pick ${l.pick.item.name} publishes soc2-type2 (${c})`);
+  }
+}
+
+// --- watch feed + slim output ---------------------------------------------
+{
+  const p = planStack(ctx, { product: 'rag-copilot' } as StackAnswers);
+  const opml = toOpml(p.answers, p.layers, 'https://example.org');
+  const picks = p.layers.filter((l) => l.pick);
+  ok((opml.match(/type="rss"/g) ?? []).length === picks.length, 'OPML has one feed per pick');
+  ok(picks.every((l) => opml.includes(`https://example.org/feeds/${l.pick!.item.id}.xml`)), 'OPML feed URLs point at /feeds/<id>.xml');
+  const slim = slimPlan(p);
+  ok(slim.layers.every((l) => !l.pick || (l.pick.page.includes('/systems/') && l.pick.feed.endsWith('.xml'))), 'slim plan links each pick and its feed');
+}
+
+// --- committed blueprints stay valid ---------------------------------------
+{
+  const dir = join(dirname(find('landscape.json')), '..', 'blueprints');
+  let files: string[] = [];
+  try {
+    files = readdirSync(dir).flatMap((d) => ['stack.yml', 'stack.self-hosted.yml'].map((f) => join(dir, d, f))).filter((f) => { try { readFileSync(f); return true; } catch { return false; } });
+  } catch { /* npm tarball: no blueprints/ */ }
+  for (const f of files) {
+    const r = checkManifest(readFileSync(f, 'utf-8'), INDEX, { filename: 'stack.yml' });
+    ok(r.unmatched.length === 0, `${f}: every component is a catalog record`);
+    ok(r.matched.every((m) => m.record.severity < 3), `${f}: no archived or shut-down component (run make blueprints)`);
   }
 }
 

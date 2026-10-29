@@ -1,0 +1,130 @@
+[
+ {
+  "id": "openai-deep-research--openai-com",
+  "name": "OpenAI Deep Research",
+  "url": "https://openai.com/index/introducing-deep-research/",
+  "leads": [
+   "OpenAI's docs list 2026-07-23 as the shutdown date for the o3-deep-research API model. Check what replaced it (deep research in ChatGPT / newer API model) and whether the product row needs a lifecycle change or just a desc update."
+  ],
+  "cells": {
+   "desc": "Cross-listing: OpenAI Deep Research, launched Feb-2025 inside ChatGPT, is OpenAI's flagship long-horizon research agent (o3 base model). Distinct from the OpenAI Codex / Computer Use rows because the focus is web-research + multi-step synthesis. Available to Pro / Plus / Team / Enterprise users. The separate API models o3-deep-research and o4-mini-deep-research were retired on 2026-07-23, with gpt-5.6-sol as OpenAI's recommended replacement.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "Pro $200/mo (100 queries/mo); Plus tier 10 queries/mo (post-Apr 2025)"
+  }
+ },
+ {
+  "id": "openai-codex-cloud-agent--developers-openai-com",
+  "name": "OpenAI Codex (cloud agent)",
+  "url": "https://developers.openai.com/codex/memories",
+  "leads": [
+   "developers.openai.com/codex/guides/agents-sdk reportedly says the \"codex mcp-server\" command was removed. Confirm and update desc if needed."
+  ],
+  "cells": {
+   "desc": "Memory under ~/.codex/memories/ : summaries, durable entries, recent-input logs, supporting evidence — generated in background after sessions go idle. Chronicle (opt-in macOS preview) uses screen-capture to seed memory. Off by default; opt-in via config.toml .",
+   "gh": "openai/codex — ~128k stars, last commit 2026-10",
+   "license": "Apache-2.0 (Codex CLI; cloud agent proprietary)",
+   "funding": "total n/a; latest round $122B committed at $852B post-money (2026-04)",
+   "latest-release": "0.161.0 (2026-10-07) (Codex CLI)",
+   "pricing": "Included in ChatGPT Plus/Pro/Business/Edu/Enterprise plans (memory feature)"
+  }
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "name": "OpenAI Codex CLI",
+  "url": "https://github.com/openai/codex",
+  "leads": [
+   "Same lead: \"codex mcp-server\" removed? Confirm in the official repo/docs and update desc."
+  ],
+  "cells": {
+   "desc": "OpenAI's actively developed OSS terminal coding agent (Apr 2025), now written in Rust (codex-rs replaced the original TS CLI); also IDE extension + desktop app. Separate from the Codex Web cloud agent and the retired 2021 Codex model API.",
+   "gh": "openai/codex — ~128k stars, last commit 2026-10",
+   "license": "Apache-2.0",
+   "funding": "OpenAI (parent) — $40B Series I 2025-03 $300B val",
+   "latest-release": "v0.164.0 (2026-10-23) — tag rust-v0.164.0",
+   "pricing": "CLI free (Apache-2.0); usage via ChatGPT plans (Free/Go limited, Plus $20/mo, Pro $100–200/mo, Business $25/user/mo) or API-key per-token billing"
+  }
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "name": "Gemini CLI memory (save_memory / GEMINI.md)",
+  "url": "https://geminicli.com/docs/tools/memory",
+  "leads": [
+   "Gemini CLI docs reportedly say it was replaced by Antigravity CLI for unpaid-tier users on 2026-06-18. Confirm; lifecycle (deprecated with successor?) or desc note."
+  ],
+  "cells": {
+   "desc": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents. On 2026-06-18 Google replaced Gemini CLI with Antigravity CLI for free, Google One and Google AI Pro/Ultra users; Gemini CLI stays supported for Gemini Code Assist Standard/Enterprise licenses and paid Gemini or Agent Platform API keys.",
+   "gh": "https://github.com/google-gemini/gemini-cli (107516★)",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "last commit 2026-10-21",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "name": "Tabnine",
+  "url": "https://docs.tabnine.com/main/getting-started/context-engine",
+  "leads": [
+   "tabnine.com reportedly redirects to Tricentis. Confirm acquisition by Tricentis (Tricentis's own announcement) and date."
+  ],
+  "cells": {
+   "desc": "Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level. Individual completions stay session-scoped. Tabnine Agents (Nov 2025) adds team-shared agent context.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$25M total Series B · 2023-11",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "No free tier; Code Assistant $39/user/mo, Agentic Platform $59/user/mo (annual); Headless Agents add-on $1.2k–5k/mo"
+  }
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "name": "Toplyne",
+  "url": "https://www.toplyne.io/",
+  "leads": [
+   "Site 404 / Wix not connected. Any primary shutdown statement? (Retry; was unverified before.)"
+  ],
+  "cells": {
+   "desc": "Founded 2021; PLG-revenue intelligence — predicts which free users will convert, sales-ready signals. $17.5M Series A May-2023 (Tiger Global + Sequoia + Together Fund). Pivoted to AI-agent positioning 2024.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$17.5M Series A May-2023 (Tiger + Sequoia + Together)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "coalfire-ai-operations--coalfire-com",
+  "name": "Coalfire AI Operations",
+  "url": "https://www.coalfire.com/services/managed-services/aiops",
+  "leads": [
+   "Product page 404. Is the AI Ops service still offered on coalfire.com under another URL?"
+  ],
+  "cells": {
+   "desc": "Coalfire is the largest specialist-cybersecurity-services firm in the FedRAMP/PCI/HITRUST space. Apax Partners acquired majority stake 2020. Launched AI-augmented assessment services 2024 — pentest + audit workpaper automation.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Apax majority-acquired 2020",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "name": "Windsurf (now Devin Desktop)",
+  "url": "https://devin.ai/desktop",
+  "leads": [
+   "Row says Windsurf now Devin Desktop; confirm current state from devin.ai / cognition.ai and dates."
+  ],
+  "cells": {
+   "desc": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Codeium $150M Series C (2024); ~$3B reported OpenAI offer; ultimately $2.4B Google reverse-acqui-hire (2025-07)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom"
+  }
+ }
+]

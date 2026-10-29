@@ -14,6 +14,21 @@ that were on the table.
 
 ---
 
+## 2026-10-29: Composer scoring follows ecosystem evidence; reference blueprints
+
+**What.**
+- **Ecosystem breadth.** The stack composer adds a cited signal: how many catalogued systems document an integration with a candidate, counted from `integrates-with` edges and linked to its `/compatibility` page. It is worth up to +2.5, on a log scale.
+- **Model families.** For models the signal scales linearly, up to +5. GitHub stars no longer rank models, because they measure open-weight repos, not usage.
+- **Coding-agent memory** excludes finished coding agents and instruction-file conventions. Those are products, not memory layers you embed.
+- **The research-agent preset** gains a sandbox layer.
+- **Blueprints.** `blueprints/<product>/` holds a reference stack per product type. `make blueprints` generates it from the composer plus `data/blueprints/evidence.json`: 21 public production write-ups, mostly vendor case studies, each naming the components it uses. `data/blueprints/images.json` lists official container images for the self-hosted starter compose files. Each README shows where production write-ups chose differently.
+
+**Why.** The first blueprint pass tested the composer against public production write-ups. Its picks diverged from what real systems use: DeepSeek as the model everywhere, Pipecat over LiveKit, and a coding agent as "memory". Ecosystem breadth is a cited, catalog-wide signal, and it moves the picks toward what is actually built with: OpenAI, Gemini and Claude; LiveKit; Mem0; Composio; Milvus and Qdrant.
+
+**Reversal cost.** Low. The weights are constants in `composer.ts`, and `make blueprints` regenerates the outputs.
+
+---
+
 ## 2026-10-29: Schema v1.2.0 — buyer cells
 
 **What.** Four cells, empty until the research backfill fills them:

@@ -50,6 +50,14 @@ async function loadIndex() {
   }
 }
 
+async function loadLinks() {
+  try {
+    return await fetchJson(input('links-url', `${SITE}/api/integration-links.json`));
+  } catch {
+    return undefined;
+  }
+}
+
 async function loadReplacements() {
   try {
     return await fetchJson(input('replacements-url', `${SITE}/api/replacements.json`));
@@ -96,6 +104,7 @@ async function main() {
     : findManifests(workspace);
   const { index, from } = await loadIndex();
   const replacements = await loadReplacements();
+  const links = await loadLinks();
   const failOn = input('fail-on', 'none'); // none | attention | archived
   const reports = [];
   for (const p of paths) {
@@ -105,7 +114,7 @@ async function main() {
     }
     const text = readFileSync(p, 'utf8');
     try {
-      const report = checkManifest(text, index, { filename: basename(p), replacements });
+      const report = checkManifest(text, index, { filename: basename(p), replacements, links });
       reports.push({ path: relative(workspace, p) || basename(p), text, report });
     } catch (e) {
       console.log(`::warning file=${escProp(relative(workspace, p))},title=AI stack check::Couldn't parse: ${esc(e.message)}`);
@@ -117,7 +126,7 @@ async function main() {
   const severe = findings.filter((f) => f.record.severity >= 3);
 
   for (const f of findings) {
-    const alts = (f.replacements ?? []).map((a) => a.name).join(', ');
+    const alts = (f.replacements ?? []).map((a) => (a.fits?.length ? `${a.name} (works with ${a.fits.join(', ')})` : a.name)).join(', ');
     const msg = `${f.dependency.name} → ${f.record.name}: ${STATUS_LABEL[f.record.status]}${f.record.note ? ` (${f.record.note})` : ''}.${alts ? ` Consider: ${alts}.` : ''} ${SITE}/alternatives/${f.recordId}`;
     const level = f.record.severity >= 3 ? 'error' : 'warning';
     const lvl = level === 'error' && failOn === 'none' ? 'warning' : level;
@@ -136,7 +145,7 @@ async function main() {
   if (findings.length) {
     lines.push('| Dependency | System | Status | Consider instead | File |', '|---|---|---|---|---|');
     for (const f of findings) {
-      const alts = (f.replacements ?? []).map((a) => `[${a.name}](${site}/systems/${a.id})`).join(', ') || `[see alternatives](${site}/alternatives/${f.recordId})`;
+      const alts = (f.replacements ?? []).map((a) => `[${a.name}](${site}/systems/${a.id})${a.fits?.length ? ` (works with ${a.fits.join(', ')})` : ''}`).join(', ') || `[see alternatives](${site}/alternatives/${f.recordId})`;
       const ev = f.record.evidence ? ` ([evidence](${f.record.evidence}))` : '';
       lines.push(`| \`${f.dependency.name}\` | [${f.record.name}](${site}/systems/${f.recordId}) | **${STATUS_LABEL[f.record.status]}**${f.record.note ? ` — ${f.record.note}` : ''}${ev} | ${alts} | \`${f.path}\` |`);
     }

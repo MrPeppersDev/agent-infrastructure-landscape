@@ -26,7 +26,7 @@
 
 <script lang="ts">
   import { base } from '$app/paths';
-  import { sectionToSlug } from '$lib/seo/sections';
+  import { sectionToSlug } from '$lib/seo/slugs';
 
   let { left, right }: { left: SlimRecord; right: SlimRecord } = $props();
 

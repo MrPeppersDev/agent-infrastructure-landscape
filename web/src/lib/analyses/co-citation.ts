@@ -22,7 +22,7 @@
 // All exports are pure — no DOM, no Cytoscape — so the view file stays thin
 // and the same numbers can be sanity-checked from `node -e` without Vite.
 //
-// Complexity: O(R^2) over records, but R ≈ 912 and most rows have zero
+// Complexity: O(R^2) over records, but R ≈ 950 and most rows have zero
 // citations, so the actual inner loop runs on ~250 source records and
 // terminates well under 100ms. The result is capped at 500 pairs for
 // Cytoscape rendering performance.
