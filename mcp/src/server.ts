@@ -362,7 +362,7 @@ async function main() {
         workload: z.object({
           runsPerDay: z.number().optional(), llmCallsPerRun: z.number().optional(), inputTokensPerCall: z.number().optional(),
           outputTokensPerCall: z.number().optional(), toolCallsPerRun: z.number().optional(), users: z.number().optional(),
-          sandboxMinutesPerRun: z.number().optional(), browserMinutesPerRun: z.number().optional(), voiceMinutesPerRun: z.number().optional(),
+          sandboxMinutesPerRun: z.number().optional(), browserMinutesPerRun: z.number().optional(), voiceMinutesPerRun: z.number().optional(), embeddingTokensPerRun: z.number().optional(),
           vectors: z.number().optional()
         }).optional().describe('Workload for the monthly cost estimate from published list prices (defaults: 1,000 runs/day, 6 model calls of 3,000 in / 400 out tokens, 4 tool calls, 1,000 users, 1M vectors).'),
         compliance: z.array(z.string()).optional().describe('Attestations every hosted service must publish, e.g. ["soc2-type2","hipaa"] (codes: ccpa, csa-star, fedramp, gdpr, hipaa, hitrust, iso27001, iso27017, iso27018, iso27701, iso42001, pci-dss, soc2-type1, soc2-type2, soc3). Libraries you run yourself are exempt.')

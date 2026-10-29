@@ -126,7 +126,7 @@ export const TOOLS = [
       avoid: { type: 'array', items: S.str('record id'), description: 'record ids never to pick' },
       pin: { type: 'object', additionalProperties: S.str('record id'), description: 'layer → record id' },
       compliance: { type: 'array', items: S.str('attestation code, e.g. soc2-type2, hipaa, iso27001'), description: 'attestations every hosted service must publish' },
-      workload: { type: 'object', description: 'cost-estimate workload: runsPerDay, llmCallsPerRun, inputTokensPerCall, outputTokensPerCall, toolCallsPerRun, users, sandboxMinutesPerRun, browserMinutesPerRun, voiceMinutesPerRun, vectors (all numbers, all optional)' }
+      workload: { type: 'object', description: 'cost-estimate workload: runsPerDay, llmCallsPerRun, inputTokensPerCall, outputTokensPerCall, toolCallsPerRun, users, sandboxMinutesPerRun, browserMinutesPerRun, voiceMinutesPerRun, vectors, embeddingTokensPerRun (all numbers, all optional)' }
     } }
   }
 ];
