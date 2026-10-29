@@ -14,6 +14,16 @@ that were on the table.
 
 ---
 
+## 2026-10-29: Remove out-of-scope rows outright
+
+**What.** A row whose product turns out not to be an AI system at all is deleted from `data/landscape.json`, rather than merged or kept with a decay cause. The removal is logged with its reason and citation in `extraction/<pass>/removed.json`. The first case is Hugo (Hugo Legal): hugo.legal connects clients with human lawyers and sells no AI product.
+
+**Why.** Decay causes describe AI products that ended, and merges need a surviving record to point to. Neither fits a row that never belonged in the catalog. If the row has edges or aliases, those must be dropped with it; Hugo had none.
+
+**Reversal cost.** Low. The removed record is in git history and its id is in `removed.json`.
+
+---
+
 ## 2026-10-28: Derived v1.1.0 cells and the freshness filter (#150, #166)
 
 **What.** `scripts/derive_v1_1_cells.py` runs in `make build` (after
