@@ -289,8 +289,10 @@
   :global(.row:hover) {
     background: rgba(196, 99, 60, 0.05);
   }
+  /* The name cell is sticky: keep it opaque (tint over its base colour) so
+     scrolled cells never show through it (#328). */
   :global(.row:hover td.name) {
-    background: rgba(196, 99, 60, 0.08);
+    background: linear-gradient(rgba(196, 99, 60, 0.08), rgba(196, 99, 60, 0.08)), #18191c;
   }
   /* Selected-for-compare rows are tagged by their tier-id at the
      scroll-container level — the parent +page.svelte sets a CSS variable
