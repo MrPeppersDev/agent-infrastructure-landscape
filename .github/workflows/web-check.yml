@@ -94,3 +94,5 @@ jobs:
           npm test
       - name: Test hosted MCP worker handler
         run: npx -y tsx worker/test/handler.test.ts
+      - name: Test web leaderboard parsers
+        run: npx -y tsx web/scripts/test-leaderboards.ts
