@@ -6,6 +6,9 @@
   // same helpful entry-point map as before, now inside the site layout.
   import { base } from '$app/paths';
   import { page } from '$app/state';
+
+  // The SPA fallback renders without layout data, so counts are optional here.
+  const n = $derived(page.data?.stats);
 </script>
 
 <svelte:head>
@@ -17,7 +20,7 @@
   <p class="code">{page.status} · {page.status === 404 ? 'Not found' : (page.error?.message ?? 'Error')}</p>
   <h1>That URL isn't in the catalog</h1>
   <p>
-    It may have been renamed, removed, or never existed. The catalog covers 912 AI
+    It may have been renamed, removed, or never existed. The catalog covers {n ? `${n.records.toLocaleString('en-US')} ` : ''}AI
     agent memory and infrastructure systems — try one of these entry points:
   </p>
 
@@ -25,9 +28,9 @@
   <ul>
     <li><a href="{base}/">Catalog</a> <span class="sub">— the full table view</span></li>
     <li><a href="{base}/findings">Findings</a> <span class="sub">— the five publishable headlines</span></li>
-    <li><a href="{base}/systems">Systems</a> <span class="sub">— all 912 systems by section</span></li>
-    <li><a href="{base}/category">Categories</a> <span class="sub">— 34 section landings</span></li>
-    <li><a href="{base}/compare">Comparisons</a> <span class="sub">— 265 head-to-head pages</span></li>
+    <li><a href="{base}/systems">Systems</a> <span class="sub">— every system by section</span></li>
+    <li><a href="{base}/category">Categories</a> <span class="sub">— {n ? `${n.sections} ` : ''}section landings</span></li>
+    <li><a href="{base}/compare">Comparisons</a> <span class="sub">— head-to-head pages</span></li>
     <li><a href="{base}/analyses">Analyses</a> <span class="sub">— derivation pages</span></li>
     <li><a href="{base}/about">About</a> <span class="sub">— how to read the catalog</span></li>
   </ul>

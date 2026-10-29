@@ -3,14 +3,12 @@
   import JsonLd from '$lib/components/JsonLd.svelte';
   import { faqLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
+  import { page } from '$app/state';
 
   // /about — embedded "how to read this" explainer (issue #21).
   //
-  // Single-column, ~600px max width, semantic HTML. We deliberately don't
-  // pull aggregates from the loader: the headline counts (523 / 67 / 247)
-  // are stable enough that hardcoding them avoids a data dependency on
-  // this page. A regenerated-on-build note keeps the reader honest if
-  // the catalog grows.
+  // Single-column, ~600px max width, semantic HTML. Headline counts come
+  // from the root layout's build-time stats, so they always match /data.
   //
   // Tier badge and status pill samples reuse the same CSS shape and
   // colours as TableRow.svelte so the visual mapping is obvious — but
@@ -18,13 +16,14 @@
   // owners shouldn't be forced to refactor a presentational sample for
   // an explainer page.
 
+  const s = page.data.stats;
   const ldData = [
     faqLd({
       qas: [
         {
           question: 'What is the AI Agent Infrastructure Landscape?',
           answer:
-            'A comparative catalog of 912 AI agent memory systems, frameworks, runtimes, vector stores, knowledge graphs, MCP servers, and benchmarks. Each record is scored on 68 columns and connected by 528 typed edges. The data lives in landscape.json under CC-BY-4.0.'
+            `A comparative catalog of ${s.records.toLocaleString('en-US')} AI agent memory systems, frameworks, runtimes, vector stores, knowledge graphs, MCP servers, and benchmarks. Each record is scored on ${s.columns} columns and connected by ${s.edges.toLocaleString('en-US')} typed edges. The data lives in landscape.json under CC-BY-4.0.`
         },
         {
           question: 'What do the tier badges (T1 to T5) mean?',
@@ -80,15 +79,12 @@
   <section>
     <h2>What this is</h2>
     <p>
-      <strong>523 systems</strong> across 22+ sections, scored on
-      <strong>67 columns</strong> (memory model, claims, performance, deployment,
-      governance, &hellip;), connected by <strong>247 typed edges</strong> (built-on,
-      cites, succeeds, &hellip;).
+      <strong>{s.records.toLocaleString('en-US')} systems</strong> across {s.sections} sections, scored on
+      <strong>{s.columns} columns</strong> (memory model, claims, performance, deployment,
+      governance, &hellip;), connected by <strong>{s.edges.toLocaleString('en-US')} typed edges</strong> (built-on,
+      cites, integrates-with, &hellip;).
     </p>
-    <p class="note">
-      Numbers are hardcoded from <code>landscape.json</code> at last commit; the
-      true count is whatever the table view shows on first load.
-    </p>
+    <p class="note">Counted from <code>landscape.json</code> when the site was built; data as of {s.dataAsOf}.</p>
   </section>
 
   <section>

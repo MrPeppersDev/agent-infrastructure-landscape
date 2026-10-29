@@ -1,7 +1,8 @@
 <script lang="ts">
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { page } from '$app/state';
 
-  // Force-directed graph view (issue #16). 912 nodes, 528 edges (241 cites
+  // Force-directed graph view (issue #16). ~950 nodes, ~2,000 edges (cites
   // from S2 + 212 runtime-dependency + 75 misc). Cytoscape 3.x + fcose
   // layout. See $lib/graph.ts for the pure data-shaping helpers (palette,
   // edge styles, neighbour index, hub selection) and docs/DECISIONS.md
@@ -456,7 +457,7 @@
 <svelte:head>
   <SeoHead
     title="AI Agent Memory Knowledge Graph — Citations and Influence"
-    description="Interactive graph of 912 AI agent memory systems and their 316 typed edges — citations, lineages, alternatives, inspirations. Visualises the influence network."
+    description="Interactive graph of {page.data.stats.records.toLocaleString('en-US')} AI agent memory systems and their {page.data.stats.edges.toLocaleString('en-US')} typed edges — citations, lineages, alternatives, inspirations. Visualises the influence network."
     path="/graph"
     ogType="website"
   />

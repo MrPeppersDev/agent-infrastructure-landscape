@@ -3,7 +3,7 @@
 // One prerendered page per record. Each page carries only the data it
 // needs — the system's own record, edges touching this id, and a
 // {relatedId → name} map for the in-page links. Loading the full
-// landscape into each of 912 __data.json sidecars would balloon the
+// landscape into each of ~950 __data.json sidecars would balloon the
 // build by ~5 GB; the per-page slice keeps each sidecar under ~10 kB.
 
 import { error, redirect } from '@sveltejs/kit';
@@ -59,7 +59,7 @@ export function load({ params }: { params: { slug: string } }): {
 
   // Related comparisons: every mined /compare/[pair] page that features
   // this system. Surfaces the compare graph from system pages — a single
-  // change here adds ~3 outbound links per system × 912 systems = denser
+  // change here adds ~3 outbound links per system × ~950 systems = denser
   // internal link graph for Google to crawl.
   const nameById = new Map(records.map((r) => [r.id, r.name] as const));
   const relatedPairs: RelatedPair[] = allPairs()

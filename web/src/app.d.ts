@@ -3,7 +3,10 @@ declare global {
   namespace App {
     // interface Error {}
     // interface Locals {}
-    // interface PageData {}
+    interface PageData {
+      /** From the root +layout.server.ts. */
+      stats: import('$lib/stats').CatalogStats;
+    }
     // interface PageState {}
     // interface Platform {}
   }

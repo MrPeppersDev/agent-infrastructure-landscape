@@ -92,7 +92,7 @@ const redirects = JSON.parse(readFileSync(resolve(__dirname, '..', '..', 'taxono
 for (const [from, to] of Object.entries(redirects)) {
   write(`api/systems/${from}.json`, JSON.stringify({ id: from, merged_into: to, json: `${baseUrl}/api/systems/${to}.json`, page: `${baseUrl}/systems/${to}` }));
 }
-write('api/index.json', JSON.stringify({ generatedAt: landscape.generatedAt ?? null, count: index.length, systems: index }));
+write('api/index.json', JSON.stringify({ generatedAt: landscape.generatedAt ?? null, dataAsOf: records.reduce((m, r) => ((r.last_verified_at ?? '') > m ? r.last_verified_at : m), ''), count: index.length, systems: index }));
 write('api/stack-index.json', JSON.stringify(stack));
 
 // ---- per-catalog flattened JSON + CSV --------------------------------------
@@ -184,11 +184,12 @@ write('changes.xml', feed({
 }));
 
 // ---- llms.txt ----------------------------------------------------------------
+const dataAsOf = records.reduce((m, r) => ((r.last_verified_at ?? '') > m ? r.last_verified_at : m), '');
 const famLines = catalogs.filter((c) => c.id !== 'all')
   .map((c) => `- [${c.name}](${PUBLIC}/api/catalogs/${c.id}.json) (${c.count} systems; [CSV](${PUBLIC}/api/catalogs/${c.id}.csv))`).join('\n');
 write('llms.txt', `# AI Agent Infrastructure Landscape
 
-> Open, citation-backed catalog of ${records.length} AI agent systems: memory layers, agent frameworks, vector and graph stores, models and ops tooling. Every cell links to its source and carries a verifiability tier. ${edges.length} typed edges connect the systems. Data is CC-BY-4.0.
+> Open, citation-backed catalog of ${records.length} AI agent systems: memory layers, agent frameworks, vector and graph stores, models and ops tooling. Every cell links to its source and carries a verifiability tier. ${edges.length} typed edges connect the systems. Data is CC-BY-4.0, as of ${dataAsOf}.
 
 ## Answer a builder's question
 

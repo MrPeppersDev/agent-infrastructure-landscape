@@ -1,5 +1,6 @@
 <script lang="ts">
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { page } from '$app/state';
 
   // Lineage timeline view (issue #17). Wikipedia-style "history of X"
   // diagram: X-axis is time (year-quarter), Y-axis is one row per
@@ -305,7 +306,7 @@
 <svelte:head>
   <SeoHead
     title="AI Agent Memory Lineages — System Family Trees"
-    description="Lineage trees connecting AI agent memory systems through descended-from and inspired-by edges. Traces the intellectual ancestry of 912 systems."
+    description="Lineage trees connecting AI agent memory systems through descended-from and inspired-by edges. Traces the intellectual ancestry of {page.data.stats.records.toLocaleString('en-US')} systems."
     path="/lineages"
     ogType="website"
   />

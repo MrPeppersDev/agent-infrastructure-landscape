@@ -1,10 +1,11 @@
-// Findings — the v6 catalog's five publishable headlines. Shared
+// Findings — the catalog's five publishable headlines. Shared
 // between /findings (hub) and /findings/[slug] (per-finding article).
 //
-// Mirrors docs/FINDINGS.md (commit bab1421). Each entry's body is
-// the long-form prose for the dedicated SEO page; cardSoWhat is the
-// shorter version shown on the hub card. Source line cites the
-// analysis.md section and commit so a reader can audit the claim.
+// Each entry's body is the long-form prose for the dedicated SEO page;
+// cardSoWhat is the shorter version shown on the hub card. Source line
+// cites the analysis.md section so a reader can audit the claim.
+// Finding 2 is recomputed from the data at build time: its {tokens}
+// are filled by withLiveNumbers().
 
 export type Finding = {
   /** URL slug used by /findings/[slug]. */
@@ -44,24 +45,24 @@ export const findings: Finding[] = [
       "The practical takeaway for builders: if repeated or paraphrased prompts drive your costs, look at your database or gateway vendor rather than your agent framework. Prompt caching (now broadly adopted) only deduplicates exact-prefix repeats, while semantic caching catches reformulated repeats, which is where much of the long-tail LLM cost lives."
     ],
     link: { href: '/analyses/cost-economics', label: 'See the cost-economics matrix' },
-    source: 'analysis.md §25.2 · commit f2b95c1'
+    source: 'analysis.md §25.2'
   },
   {
     slug: 'no-peer-reviewed-benchmark',
     n: 2,
-    headline: '91.3% of catalogued products publish no peer-reviewed benchmark',
+    headline: '{refusingPct} of catalogued products publish no peer-reviewed benchmark',
     metaDescription:
-      '833 of 912 AI agent memory products ship zero peer-reviewed benchmark scores. The product × benchmark matrix is empty cells, not full ones.',
-    figure: '833 of 912 products · only 2 scores on a neutral leaderboard',
+      '{refusing} of {total} AI agent memory products ship no peer-reviewed benchmark score. The product × benchmark matrix is empty cells, not full ones.',
+    figure: '{refusing} of {total} products · only {independent} scores independently verified',
     cardSoWhat:
-      'The product × benchmark matrix is 119 × 25 with 169 filled cells — the story is the empty cells. Of the 169 filled, the integrity split is 111 peer-reviewed / 2 independently-verified / 52 vendor-claimed / 4 disputed. Almost every claim is a paper or a vendor blog.',
+      'The product × benchmark matrix is {products} × {benchmarks} with {filled} filled cells — the story is the empty cells. Of the {filled} filled, the integrity split is {peer} peer-reviewed / {independent} independently-verified / {vendor} vendor-claimed / {disputed} disputed. Almost every claim is a paper or a vendor blog.',
     body: [
-      "The product × benchmark matrix in v6 is a 119 × 25 grid. The grid has 169 filled cells. Out of 119 × 25 = 2,975 possible product-benchmark cells, 94.3% are empty. Of the 169 filled cells, only 2 represent a score posted on a neutral leaderboard a third party can re-run; 111 are peer-reviewed paper claims, 52 are vendor blog/marketing numbers, and 4 are disputed (contested by a second source).",
-      "If you widen from the 119 products on the benchmark matrix to all 912 records in the catalog, 833 (91.3%) have zero benchmark cells filled at all — meaning the product has shipped without publishing a score on any of the 25 benchmarks the catalog tracks (LOCOMO, MTEB, GAIA, AgentBench, SWE-bench, BIG-bench, MMLU, and the rest).",
+      "The product × benchmark matrix is a {products} × {benchmarks} grid with {filled} filled cells. Of the {possible} possible product-benchmark cells, {emptyPct} are empty. Of the {filled} filled cells, only {independent} are independently verified (a score a third party has reproduced or posted on a neutral leaderboard); {peer} are peer-reviewed paper claims, {vendor} are vendor blog or marketing numbers, and {disputed} are disputed (contested by a second source).",
+      "If you widen from the {products} products on the benchmark matrix to all {total} records in the catalog, {refusing} ({refusingPct}) have no peer-reviewed benchmark score — meaning the product has shipped without a peer-reviewed result on any of the {benchmarks} benchmarks the catalog tracks (LoCoMo, LongMemEval, MTEB, GAIA, SWE-bench and the rest).",
       "The implication: the agent-memory field's reliability story is built almost entirely on vendor self-reporting and paper claims, with effectively no public, neutral, reproducible benchmark coverage. A vendor that posts honest leaderboard scores would have category-leading transparency-as-positioning — there is nobody to compete with for that ground."
     ],
     link: { href: '/analyses/product-benchmark-matrix', label: 'See the product × benchmark matrix' },
-    source: 'analysis.md §24.2 · commit ea70f89 (T1-5)'
+    source: 'Recomputed from the catalog at every build · method in analysis.md §24.2'
   },
   {
     slug: 'mcp-spec-third-substrate',
@@ -71,14 +72,14 @@ export const findings: Finding[] = [
       'Inbound runtime-dependency counts: Claude 62 · GPT 52 · MCP spec 34. A protocol spec ranks above every model except Claude and GPT.',
     figure: 'Inbound runtime-deps: Claude 62 · GPT 52 · MCP spec 34 · Gemini 22 · Qwen 16',
     cardSoWhat:
-      "From the T2-1 runtime-dependency graph (212 edges of 'X depends on Y at runtime'). A protocol specification ranking #3 — ahead of every foundation model except Claude and GPT — is the v6 finding that wasn't visible in citation-graph hubs. The MCP spec is becoming a substrate, not just a protocol.",
+      "From the T2-1 runtime-dependency graph (212 edges of 'X depends on Y at runtime'). A protocol specification ranking #3 — ahead of every foundation model except Claude and GPT — is the finding that wasn't visible in citation-graph hubs. The MCP spec is becoming a substrate, not just a protocol.",
     body: [
       "The T2-1 runtime-dependency graph captures 212 edges of the form 'X depends on Y at runtime' (not 'X cites Y'). Counted by inbound edges — i.e. how many catalog entries treat the target as a runtime substrate — the top five are: Claude (62), GPT (52), the Model Context Protocol specification (34), Gemini (22), Qwen (16).",
-      "A protocol specification ranking third — ahead of every foundation model except Claude and GPT — is the v6 finding that wasn't visible in the citation-graph hubs. Citations measure scholarly influence; runtime dependencies measure adoption-as-substrate. The MCP spec is being adopted as substrate, not just as a wire format.",
+      "A protocol specification ranking third — ahead of every foundation model except Claude and GPT — is the finding that wasn't visible in the citation-graph hubs. Citations measure scholarly influence; runtime dependencies measure adoption-as-substrate. The MCP spec is being adopted as substrate, not just as a wire format.",
       "This matters because it changes the competitive frame. If MCP is a substrate, then 'MCP server X' systems are not protocol-of-the-week experiments — they're load-bearing components of the agent stack with the same dependency surface as 'agent depends on GPT'. The implication is that MCP-server entries deserve substrate-grade ranking treatment (they currently rank lower than they should on adoption signal), and the spec itself is closer to a foundation-model-tier dependency than to a side feature."
     ],
     link: { href: '/graph?edges=runtime-dependency', label: 'See the runtime-dependency graph' },
-    source: 'analysis.md §23 · commit ddb26c7 (T2-1)'
+    source: 'analysis.md §23'
   },
   {
     slug: 'graphiti-mcp-bridge-node',
@@ -90,12 +91,12 @@ export const findings: Finding[] = [
     cardSoWhat:
       'Sits on the shortest path between the MCP-spec substrate cluster and the Zep / Graphiti citation-anchor pair. A high-betweenness / low-inbound node is the structural definition of an under-acknowledged-but-load-bearing connector. Top-5 bridge-surprise: Graphiti MCP Server, MAGMA, Memformers, MemEvolve, RGMem.',
     body: [
-      "Betweenness centrality measures how often a node sits on the shortest path between two other nodes. A node with high betweenness but low inbound-degree is, by definition, an under-acknowledged-but-load-bearing connector — nobody points at it, but the graph routes through it. The v6 catalog's top such node is Graphiti MCP Server: 0 inbound edges, 0.71 normalised betweenness — the highest non-trivial value in the entire graph.",
+      "Betweenness centrality measures how often a node sits on the shortest path between two other nodes. A node with high betweenness but low inbound-degree is, by definition, an under-acknowledged-but-load-bearing connector — nobody points at it, but the graph routes through it. The catalog's top such node is Graphiti MCP Server: 0 inbound edges, 0.71 normalised betweenness — the highest non-trivial value in the entire graph.",
       "Why it matters structurally: Graphiti MCP Server sits on the shortest path between the MCP-spec substrate cluster (Claude Desktop, Cursor, Windsurf, the MCP spec itself) and the Zep / Graphiti citation-anchor pair (Zep is the most-cited entry in the dedicated-memory-layer category; Graphiti is its open-source graph backend). If you removed Graphiti MCP Server from the graph, the MCP-tooling cluster and the dedicated-memory-graph cluster would disconnect from each other.",
       'The top-five bridge-surprise list is Graphiti MCP Server, MAGMA, Memformers, MemEvolve, RGMem. These are systems with high structural importance but very low explicit citation — the catalog finds them because the typed-edge graph surfaces structural roles that citation hubs miss.'
     ],
     link: { href: '/analyses/influence', label: 'See the bridge-surprises callout' },
-    source: 'analysis.md §26.2 · v6 centrality view'
+    source: 'analysis.md §26.2'
   },
   {
     slug: 'fm-three-vendor-concentration',
@@ -112,10 +113,19 @@ export const findings: Finding[] = [
       'The strategic read: a vendor positioning as the "second source" for FM-dependent agent products (multi-model routing, model-agnostic memory, vendor-neutral abstractions) is selling into a market that has 108 willing buyers whenever single-vendor-risk anxiety spikes. Today the market mostly pretends single-vendor risk isn\'t there.'
     ],
     link: { href: '/analyses/trajectory', label: 'See the substrate-dependency risk panel' },
-    source: 'analysis.md §19.5 + §21.3 · v5/v6 FM substrate mining'
+    source: 'analysis.md §19.5 + §21.3'
   }
 ];
 
 export function findingBySlug(slug: string): Finding | null {
   return findings.find((f) => f.slug === slug) ?? null;
+}
+
+/** Numbers for the {tokens} in the findings, computed from the catalog. */
+export type LiveNumbers = Record<string, string>;
+
+/** The findings with every {token} filled from `live`. */
+export function withLiveNumbers(list: Finding[], live: LiveNumbers): Finding[] {
+  const fill = (t: string) => t.replace(/\{(\w+)\}/g, (m, k: string) => live[k] ?? m);
+  return list.map((f) => ({ ...f, headline: fill(f.headline), metaDescription: fill(f.metaDescription), figure: fill(f.figure), cardSoWhat: fill(f.cardSoWhat), body: f.body.map(fill) }));
 }

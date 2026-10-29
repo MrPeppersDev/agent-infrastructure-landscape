@@ -2,7 +2,7 @@
 
 **Pick the right memory layer, framework or substrate for your AI agent, with a citation behind every claim.**
 
-An open, comparative catalog of **912 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
+An open, comparative catalog of **948 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
 
 **[Browse the catalog →](https://mrpeppersdev.github.io/agent-infrastructure-landscape/)** · [Findings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings) · [Choose a memory layer](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose) · [Check your stack](https://mrpeppersdev.github.io/agent-infrastructure-landscape/check) · [Submit a system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) · [Raw data (CC-BY-4.0)](./data/landscape.json)
 
