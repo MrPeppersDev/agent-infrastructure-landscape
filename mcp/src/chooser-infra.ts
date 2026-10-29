@@ -164,7 +164,7 @@ export function scoreInfraDetailed(item: ChooserItem, a: InfraAnswers): Scored |
   if (a.language === 'any' && item.facts.runtimes.value) reasons.push({ text: `SDKs: ${item.facts.runtimes.value}`, citation: item.facts.runtimes.citation });
   if (!a.oss && item.oss === 'yes') reasons.push({ text: `Licence: ${item.facts.license.value}`, citation: item.facts.license.citation });
   if (a.hosting === 'any' && item.facts.deployment.value) reasons.push({ text: `Deployment: ${item.facts.deployment.value}`, citation: item.facts.deployment.citation });
-  if (!a.mcp && item.mcp === 'yes') reasons.push({ text: `MCP: ${item.facts.mcp.value}`, citation: item.facts.mcp.citation });
+  if (!a.mcp && item.mcp === 'yes' && item.facts.mcp.value) reasons.push({ text: `MCP: ${item.facts.mcp.value}`, citation: item.facts.mcp.citation });
   if (item.facts.pricing.value) reasons.push({ text: `Pricing: ${item.facts.pricing.value}`, citation: item.facts.pricing.citation });
   // Thin records (no licence, deployment or repo facts) rank below
   // well-documented ones.

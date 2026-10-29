@@ -327,7 +327,7 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
         // the main signal, so it scales instead of saturating.
         const bonus = lid === 'model' ? Math.min(5, n / 10) : Math.min(2.5, Math.log2(1 + n) * 0.5);
         r.score = Math.round((r.score + bonus) * 10) / 10;
-        r.reasons.push({ text: `Ecosystem: ${n} catalogued system${n === 1 ? '' : 's'} document an integration with it`, citation: `${SITE}/compatibility?ids=${i.id}` });
+        r.reasons.push({ text: `Ecosystem: ${n} catalogued system${n === 1 ? ' documents' : 's document'} an integration with it`, citation: `${SITE}/compatibility?ids=${i.id}` });
       }
       // Prefer what works with the layers already chosen.
       for (const p of picked) {

@@ -146,9 +146,9 @@
   .tabs button { background: #161b22; color: #8b949e; border: 1px solid #30363d; border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer; }
   .tabs button.on { color: #f0f6fc; border-color: #58a6ff; background: #0d1117; }
   .w { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding: 14px; border: 1px solid #30363d; border-radius: 10px; background: #0d1117; }
-  .w label { display: grid; gap: 4px; font-size: 13px; }
+  .w label { display: grid; gap: 4px; font-size: 13px; min-width: 0; }
   .w span { color: #f0f6fc; font-weight: 600; }
-  .w input { background: #161b22; color: #f0f6fc; border: 1px solid #30363d; border-radius: 6px; padding: 6px 8px; font: inherit; font-size: 15px; font-variant-numeric: tabular-nums; }
+  .w input { width: 100%; min-width: 0; box-sizing: border-box; background: #161b22; color: #f0f6fc; border: 1px solid #30363d; border-radius: 6px; padding: 6px 8px; font: inherit; font-size: 15px; font-variant-numeric: tabular-nums; }
   .w small { color: #6e7681; font-size: 11px; }
   .res { list-style: none; padding: 0; display: grid; gap: 10px; margin-top: 16px; }
   .res > li { border: 1px solid #30363d; border-radius: 10px; padding: 10px 14px; background: #0d1117; }

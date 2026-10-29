@@ -113,6 +113,27 @@ try {
   await go('/');
   await page.locator('nav.topnav summary').click();
   check('Research menu opens', await page.locator('nav.topnav .menu').isVisible());
+  await page.evaluate(() => document.body.dispatchEvent(new MouseEvent('click', { bubbles: true })));
+  check('Research menu closes on an outside click (#328)', !(await page.locator('nav.topnav .menu').isVisible()));
+
+  // #328: layout at desktop width.
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await go('/costs');
+  const overflow = await page.evaluate(() => [...document.querySelectorAll('form.w label')].filter((l) => {
+    const i = l.querySelector('input'); return i && i.getBoundingClientRect().right > l.getBoundingClientRect().right + 1;
+  }).length);
+  check('/costs inputs stay inside their fields at 1440px', overflow === 0, `${overflow} overflowing`);
+  await go('/');
+  const sticky = await page.evaluate(() => {
+    const sc = [...document.querySelectorAll('*')].find((e) => e.scrollWidth > e.clientWidth + 50 && ['auto', 'scroll'].includes(getComputedStyle(e).overflowX));
+    if (sc) sc.scrollLeft = 700;
+    const td = document.querySelector('.row td.sticky-col');
+    return td ? getComputedStyle(td).backgroundColor : 'none';
+  });
+  await page.locator('.row td.sticky-col').first().hover();
+  const hoverBg = await page.evaluate(() => getComputedStyle(document.querySelector('.row td.sticky-col')).backgroundColor);
+  const opaque = (c) => !/rgba\([^)]*,\s*0?\.\d+\)|transparent/.test(c);
+  check('sticky name column stays opaque when scrolled and hovered', opaque(sticky) && opaque(hoverBg), `${sticky} / ${hoverBg}`);
 } finally {
   await browser.close();
   server.close();

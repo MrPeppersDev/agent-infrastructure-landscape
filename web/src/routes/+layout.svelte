@@ -7,6 +7,12 @@
 
   let { children } = $props();
   let menu: HTMLDetailsElement | undefined = $state();
+  // The Research menu is a <details>: close it on a click outside, on Escape
+  // and when the pointer leaves it, so it never sits open over the page (#328).
+  function closeMenu(e: Event) {
+    if (!menu?.open) return;
+    if (e instanceof KeyboardEvent ? e.key === 'Escape' : !menu.contains(e.target as Node)) menu.removeAttribute('open');
+  }
 
   // Site-wide entity markup. WebSite/SearchAction makes the SERP listing
   // eligible for a sitelinks search box; Organization plants the catalog
@@ -52,6 +58,8 @@
   );
 </script>
 
+<svelte:window onclick={closeMenu} onkeydown={closeMenu} />
+
 <svelte:head>
   <link
     rel="alternate"
@@ -78,7 +86,7 @@
       </li>
     {/each}
     <li class="more">
-      <details bind:this={menu}>
+      <details bind:this={menu} onmouseleave={() => menu?.removeAttribute('open')}>
         <summary class:active={research.some((r) => relPath.startsWith(r.path))}>Research ▾</summary>
         <ul class="menu">
           {#each research as r}
