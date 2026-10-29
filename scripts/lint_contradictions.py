@@ -16,6 +16,9 @@ Checks (each finding names the record, the cells involved and why):
                     homepage is a fine citation and is not flagged.
   blank-taxonomy    an Agent Memory / Memory Research record whose seven
                     taxonomy axes are all n/a.
+  stars-in-prose    a claims / desc / pros cell quoting a GitHub star count
+                    while the gh cell carries the live one, so the page shows
+                    two different numbers (#326).
 
 Visibility only: exits 0 unless --fail-on is given. `make lint` runs it;
 CI prints the summary on every PR.
@@ -47,6 +50,9 @@ BARE = re.compile(r"^https?://(www\.)?(github\.com|news\.ycombinator\.com|arxiv\
                   r"youtube\.com|crunchbase\.com|techcrunch\.com|google\.com)/?$", re.I)
 SKIP_STATUS = {"not-applicable"}
 
+
+# A star count in prose: "~51k★", "871 stars", "~2.3k GitHub stars".
+STARS = re.compile(r"\d[\d.,]*\s*[kKmM]?\+?\s*(?:★|GitHub stars|GH stars|stars\b)", re.I)
 
 def families() -> dict[str, str]:
     data = json.loads(FAMILIES.read_text())
@@ -119,6 +125,13 @@ def lint(rec: dict, fam: str) -> list[dict]:
         cit = c.get("citation") or ""
         if cit and BARE.match(cit):
             out.append({"check": "bare-citation", "cells": [k], "why": cit})
+
+    gh_cell = cells.get("gh") or {}
+    if gh_cell.get("status") == "real-data" and gh_cell.get("value"):
+        for k in ("claims", "desc", "pros"):
+            m = STARS.search(str((cells.get(k) or {}).get("value") or ""))
+            if m:
+                out.append({"check": "stars-in-prose", "cells": ["gh", k], "why": f"{k} says '{m.group(0)}'; gh={str(gh_cell['value'])[:30]}"})
 
     if fam in ("memory", "memory-research"):
         tax = rec.get("taxonomy") or {}
