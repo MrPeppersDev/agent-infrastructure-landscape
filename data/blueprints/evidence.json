@@ -1,0 +1,539 @@
+{
+ "support-agent": [
+  {
+   "company": "Klarna",
+   "title": "How Klarna's AI assistant redefined customer support at scale for 85 million active users",
+   "url": "https://www.langchain.com/blog/customers-klarna",
+   "publisher": "vendor case study",
+   "date": "2025-02",
+   "components": [
+    {
+     "layer": "orchestration",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith"
+    }
+   ],
+   "quote": "Built on LangGraph and powered by LangSmith, the AI Assistant handles tasks"
+  },
+  {
+   "company": "Snyk",
+   "title": "How Snyk turned an internal support agent into a customer feature",
+   "url": "https://www.langchain.com/blog/how-snyk-turned-an-internal-support-agent-into-a-customer-feature",
+   "publisher": "vendor case study",
+   "date": "2026-10",
+   "components": [
+    {
+     "layer": "framework",
+     "id": "langchain-framework--langchain-com",
+     "name": "LangChain"
+    },
+    {
+     "layer": "orchestration",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph"
+    },
+    {
+     "layer": "memory",
+     "id": "langgraph-persistence--docs-langchain-com",
+     "name": "LangGraph checkpointer on PostgreSQL"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith"
+    },
+    {
+     "layer": "tools",
+     "id": null,
+     "name": "LangSmith MCP server"
+    }
+   ],
+   "quote": "Snyk Assist is a conversational agent built on LangChain and LangGraph with observability managed in LangSmith."
+  },
+  {
+   "company": "Minimal",
+   "title": "How Minimal built a multi-agent customer support system with LangGraph & LangSmith",
+   "url": "https://www.langchain.com/blog/how-minimal-built-a-multi-agent-customer-support-system-with-langgraph-langsmith",
+   "publisher": "vendor case study",
+   "date": "2025-01",
+   "components": [
+    {
+     "layer": "orchestration",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith"
+    },
+    {
+     "layer": "tools",
+     "id": null,
+     "name": "Zendesk / Front / Gorgias helpdesk integrations"
+    },
+    {
+     "layer": "tools",
+     "id": null,
+     "name": "Shopify integration"
+    }
+   ],
+   "quote": "LangGraph for orchestration, LangSmith for testing, and robust e-commerce integrations"
+  }
+ ],
+ "coding-agent": [
+  {
+   "company": "Ramp",
+   "title": "How Ramp built a full context background coding agent on Modal",
+   "url": "https://modal.com/blog/how-ramp-built-a-full-context-background-coding-agent-on-modal",
+   "publisher": "vendor case study",
+   "date": "2026-02",
+   "components": [
+    {
+     "layer": "sandbox",
+     "id": "modal-sandboxes--modal-com",
+     "name": "Modal Sandboxes"
+    },
+    {
+     "layer": "framework",
+     "id": "opencode-sst--opencode-ai",
+     "name": "OpenCode (agent harness)"
+    },
+    {
+     "layer": "orchestration",
+     "id": "temporal--temporal-io",
+     "name": "Temporal (in each dev environment)"
+    },
+    {
+     "layer": "browser",
+     "id": null,
+     "name": "Chromium / VNC stack"
+    },
+    {
+     "layer": "observability",
+     "id": null,
+     "name": "Sentry, Datadog"
+    }
+   ],
+   "quote": "Postgres, Redis, Temporal, RabbitMQ, and every service an engineer would have locally."
+  },
+  {
+   "company": "Replit",
+   "title": "Replit Agent (LangChain Breakout Agents)",
+   "url": "https://www.langchain.com/breakoutagents/replit",
+   "publisher": "vendor case study",
+   "date": "",
+   "components": [
+    {
+     "layer": "framework",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith"
+    },
+    {
+     "layer": "model",
+     "id": "anthropic-claude-foundation-models--anthropic-com",
+     "name": "Claude 3.5 Sonnet"
+    }
+   ],
+   "quote": "using both the agent framework (LangGraph) and observability tool (LangSmith) together"
+  },
+  {
+   "company": "Lovable",
+   "title": "Powering AI app generation at scale (Lovable)",
+   "url": "https://modal.com/blog/lovable-case-study",
+   "publisher": "vendor case study",
+   "date": "2025-07",
+   "components": [
+    {
+     "layer": "sandbox",
+     "id": "modal-sandboxes--modal-com",
+     "name": "Modal Sandboxes"
+    }
+   ],
+   "quote": "Lovable uses Modal Sandboxes at massive scale to run LLM-generated code for thousands of apps in safe and isolated sandboxes."
+  },
+  {
+   "company": "Anything",
+   "title": "Anything: a vibe-coding platform with more than one million users",
+   "url": "https://e2b.dev/customers/anything.md",
+   "publisher": "vendor case study",
+   "date": "2026-07",
+   "components": [
+    {
+     "layer": "sandbox",
+     "id": "e2b--e2b-dev",
+     "name": "E2B (Templates, snapshots)"
+    }
+   ],
+   "quote": "Anything uses E2B Templates to give every new project a preconfigured starting environment."
+  }
+ ],
+ "research-agent": [
+  {
+   "company": "Anthropic",
+   "title": "How we built our multi-agent research system",
+   "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+   "publisher": "company engineering blog",
+   "date": "2025-06",
+   "components": [
+    {
+     "layer": "model",
+     "id": "anthropic-claude-foundation-models--anthropic-com",
+     "name": "Claude Opus 4 (lead) + Claude Sonnet 4 (subagents)"
+    },
+    {
+     "layer": "tools",
+     "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+     "name": "MCP servers (protocol; reference servers not specifically named)"
+    },
+    {
+     "layer": "tools",
+     "id": null,
+     "name": "web search, Google Workspace, Slack"
+    }
+   ],
+   "quote": "We found that a multi-agent system with Claude Opus 4 as the lead agent and Claude Sonnet 4 subagents outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval."
+  },
+  {
+   "company": "Manus",
+   "title": "Manus: virtual computers for agents that use 27 tools",
+   "url": "https://e2b.dev/customers/how-manus-uses-e2b-to-provide-agents-with-virtual-computers.md",
+   "publisher": "vendor case study",
+   "date": "2025-05",
+   "components": [
+    {
+     "layer": "sandbox",
+     "id": "e2b--e2b-dev",
+     "name": "E2B"
+    },
+    {
+     "layer": "browser",
+     "id": null,
+     "name": "Chromium inside the E2B sandbox"
+    }
+   ],
+   "quote": "Under the hood, E2B uses Firecracker microVMs—ephemeral, lightweight virtual machines originally developed by AWS."
+  },
+  {
+   "company": "Harmonic",
+   "title": "How Harmonic rebuilt Scout on Deep Agents and 4x'd retention with LangSmith",
+   "url": "https://www.langchain.com/blog/how-harmonic-rebuilt-scout-on-deep-agents-and-4xd-retention-with-langsmith",
+   "publisher": "vendor case study",
+   "date": "2026-06",
+   "components": [
+    {
+     "layer": "framework",
+     "id": null,
+     "name": "Deep Agents (LangChain harness)"
+    },
+    {
+     "layer": "framework",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph (Scout V1)"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith"
+    },
+    {
+     "layer": "orchestration",
+     "id": null,
+     "name": "LangSmith Deployment"
+    }
+   ],
+   "quote": "A single frontier model in a Deep Agents harness with access to two categories of tools."
+  }
+ ],
+ "voice-agent": [
+  {
+   "company": "Assort Health",
+   "title": "How Assort Health uses LiveKit to scale patient communication",
+   "url": "https://livekit.com/blog/how-assort-health-uses-livekit-to-scale-patient-communication",
+   "publisher": "vendor case study",
+   "date": "2025-06",
+   "components": [
+    {
+     "layer": "voice",
+     "id": "livekit-agents--docs-livekit-io",
+     "name": "LiveKit Agents + LiveKit Cloud"
+    },
+    {
+     "layer": "voice",
+     "id": "cartesia-sonic--cartesia-ai",
+     "name": "Cartesia Sonic (TTS; per Cartesia's own case study https://cartesia.ai/customers/assort-health, 2025-01)"
+    }
+   ],
+   "quote": "the LiveKit Cloud global edge network ensured low-latency, reliable media transport between agents and patients."
+  },
+  {
+   "company": "Acuity Health",
+   "title": "How Acuity Health transforms patient access with LiveKit voice agents",
+   "url": "https://livekit.com/blog/how-acuity-health-transforms-patient-access-with-livekit-voice-agents",
+   "publisher": "vendor case study",
+   "date": "2026-10",
+   "components": [
+    {
+     "layer": "voice",
+     "id": "livekit-agents--docs-livekit-io",
+     "name": "LiveKit (agents, Simulations)"
+    },
+    {
+     "layer": "serving",
+     "id": null,
+     "name": "LiveKit Inference"
+    },
+    {
+     "layer": "model",
+     "id": null,
+     "name": "Gemma 4 31B"
+    }
+   ],
+   "quote": "Acuity Health's agents typically run on LiveKit's optimized Gemma 4 31B model on LiveKit Inference"
+  },
+  {
+   "company": "Serve AI",
+   "title": "How Serve AI shipped a better voice agent with agent simulations",
+   "url": "https://livekit.com/blog/how-serve-ai-shipped-a-better-voice-agent-with-agent-simulations",
+   "publisher": "vendor case study",
+   "date": "2026-10",
+   "components": [
+    {
+     "layer": "voice",
+     "id": "livekit-agents--docs-livekit-io",
+     "name": "LiveKit"
+    },
+    {
+     "layer": "voice",
+     "id": "retell-ai--retellai-com",
+     "name": "Retell (previous platform)"
+    },
+    {
+     "layer": "model",
+     "id": "anthropic-claude-foundation-models--anthropic-com",
+     "name": "Claude (turns production calls into simulation scenarios)"
+    }
+   ],
+   "quote": "Serve originally built the agent on Retell, where behavior lives in a conversation flow graph."
+  },
+  {
+   "company": "Decagon",
+   "title": "65% latency reduction (Decagon Voice on Modal)",
+   "url": "https://modal.com/blog/decagon-case-study",
+   "publisher": "vendor case study",
+   "date": "2025-11",
+   "components": [
+    {
+     "layer": "serving",
+     "id": "modal--modal-com",
+     "name": "Modal (training, fine-tuning, real-time serving)"
+    },
+    {
+     "layer": "serving",
+     "id": null,
+     "name": "SGLang"
+    },
+    {
+     "layer": "model",
+     "id": null,
+     "name": "EAGLE3 draft models (speculative decoding)"
+    }
+   ],
+   "quote": "Modal's team forked SpecForge and built a custom training pipeline for EAGLE3 draft models"
+  }
+ ],
+ "multi-agent-workflow": [
+  {
+   "company": "Cisco Outshift",
+   "title": "How Outshift by Cisco boosted productivity 10x with their AI Platform Engineer",
+   "url": "https://www.langchain.com/blog/cisco-outshift",
+   "publisher": "vendor case study",
+   "date": "2025-05",
+   "components": [
+    {
+     "layer": "orchestration",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph / LangGraph Studio"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith + agentevals"
+    },
+    {
+     "layer": "tools",
+     "id": "agntcy-internet-of-agents--agntcy-org",
+     "name": "AGNTCY Agent Connect Protocol + Workflow Server"
+    }
+   ],
+   "quote": "JARVIS is orchestrated using LangGraph for scalable and deterministic agent workflows"
+  },
+  {
+   "company": "Emergent",
+   "title": "How Emergent runs 1 billion+ agent Actions per month on Temporal Cloud",
+   "url": "https://temporal.io/resources/case-studies/emergent",
+   "publisher": "vendor case study",
+   "date": "2026-04",
+   "components": [
+    {
+     "layer": "orchestration",
+     "id": "temporal--temporal-io",
+     "name": "Temporal Cloud (Workflows, Child Workflows)"
+    },
+    {
+     "layer": "sandbox",
+     "id": null,
+     "name": "Kubernetes pods as code-execution sandboxes"
+    }
+   ],
+   "quote": "Emergent now processes over 1 billion Temporal Actions per month on Temporal Cloud"
+  },
+  {
+   "company": "Definely",
+   "title": "Why Definely chose LangGraph for building their multi-agent AI system",
+   "url": "https://www.langchain.com/blog/customers-definely",
+   "publisher": "vendor case study",
+   "date": "2025-04",
+   "components": [
+    {
+     "layer": "orchestration",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph"
+    },
+    {
+     "layer": "framework",
+     "id": "langchain-framework--langchain-com",
+     "name": "LangChain (earlier RAG chatbot)"
+    }
+   ],
+   "quote": "Definely adopted LangGraph to build a sophisticated multi-agent system"
+  },
+  {
+   "company": "Anthropic",
+   "title": "How we built our multi-agent research system",
+   "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+   "publisher": "company engineering blog",
+   "date": "2025-06",
+   "components": [
+    {
+     "layer": "model",
+     "id": "anthropic-claude-foundation-models--anthropic-com",
+     "name": "Claude Opus 4 orchestrator + Claude Sonnet 4 subagents"
+    },
+    {
+     "layer": "tools",
+     "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+     "name": "MCP servers (protocol)"
+    }
+   ],
+   "quote": "We found that a multi-agent system with Claude Opus 4 as the lead agent and Claude Sonnet 4 subagents outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval."
+  }
+ ],
+ "rag-copilot": [
+  {
+   "company": "Vanguard",
+   "title": "Vanguard (Agent Assist) customer story",
+   "url": "https://www.pinecone.io/customers/vanguard/",
+   "publisher": "vendor case study",
+   "date": "2025-03",
+   "components": [
+    {
+     "layer": "vectors",
+     "id": "pinecone--pinecone-io",
+     "name": "Pinecone serverless (hybrid dense + BM25 sparse)"
+    },
+    {
+     "layer": "vectors",
+     "id": "pgvector--gh-pgvector-pgvector",
+     "name": "pgvector (evaluated, not chosen)"
+    }
+   ],
+   "quote": "dual dense and sparse embeddings are created, with sparse embeddings trained in-house using BM25."
+  },
+  {
+   "company": "Jeppesen (Boeing)",
+   "title": "Jeppesen (a Boeing Company) Saves ~2,000 Engineering Hours with Unified Chat Framework",
+   "url": "https://www.llamaindex.ai/customers/jeppesen-a-boeing-company-saves-2-000-engineering-hours-with-unified-chat-framework",
+   "publisher": "vendor case study",
+   "date": "",
+   "components": [
+    {
+     "layer": "framework",
+     "id": "llamaindex-framework--llamaindex-ai",
+     "name": "LlamaIndex agent workflows"
+    },
+    {
+     "layer": "vectors",
+     "id": "qdrant--qdrant-tech",
+     "name": "Qdrant"
+    },
+    {
+     "layer": "vectors",
+     "id": null,
+     "name": "Azure AI Search"
+    },
+    {
+     "layer": "graph",
+     "id": "neo4j--neo4j-com",
+     "name": "Neo4j (tool connector)"
+    },
+    {
+     "layer": "memory",
+     "id": null,
+     "name": "Azure Cosmos DB / Azure Cache for Redis (conversation memory)"
+    }
+   ],
+   "quote": "At the heart of the solution: LlamaIndex's flexible, open-source, event-driven agent workflows."
+  },
+  {
+   "company": "Notion",
+   "title": "Notion searches every page",
+   "url": "https://turbopuffer.com/customers/notion",
+   "publisher": "vendor case study",
+   "date": "",
+   "components": [
+    {
+     "layer": "vectors",
+     "id": "turbopuffer--turbopuffer-com",
+     "name": "turbopuffer"
+    }
+   ],
+   "quote": "turbopuffer powers Q&A, research, 3rd-party data search in Notion"
+  },
+  {
+   "company": "AppFolio",
+   "title": "How AppFolio transformed property management workflows with Realm-X, built using LangGraph and LangSmith",
+   "url": "https://www.langchain.com/blog/customers-appfolio",
+   "publisher": "vendor case study",
+   "date": "2024-12",
+   "components": [
+    {
+     "layer": "framework",
+     "id": "langchain-framework--langchain-com",
+     "name": "LangChain"
+    },
+    {
+     "layer": "orchestration",
+     "id": "langgraph-orchestration--langchain-com",
+     "name": "LangGraph"
+    },
+    {
+     "layer": "observability",
+     "id": "langsmith--langchain-com",
+     "name": "LangSmith"
+    }
+   ],
+   "quote": "As an early LangSmith user, AppFolio seamlessly integrated LangGraph with LangSmith's robust monitoring"
+  }
+ ]
+}

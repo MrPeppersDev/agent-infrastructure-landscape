@@ -85,7 +85,7 @@ export interface ProductPreset {
 export const PRODUCTS: Record<ProductType, ProductPreset> = {
   'support-agent': { label: 'Customer-support agent', layers: ['framework', 'model', 'gateway', 'memory', 'vectors', 'embeddings', 'tools', 'observability', 'guardrails'], memory: 'app', benchmarks: /longmemeval|locomo|tau[- ]?bench|τ-bench/i },
   'coding-agent': { label: 'Coding agent', layers: ['framework', 'model', 'gateway', 'memory', 'sandbox', 'tools', 'observability', 'guardrails'], memory: 'coding', benchmarks: /swe[- ]?bench|terminal[- ]?bench|humaneval|osworld/i },
-  'research-agent': { label: 'Research agent', layers: ['framework', 'model', 'gateway', 'browser', 'vectors', 'embeddings', 'memory', 'observability', 'guardrails'], memory: 'app', benchmarks: /webarena|mind2web|\bgaia\b|browsecomp|webvoyager|osworld/i },
+  'research-agent': { label: 'Research agent', layers: ['framework', 'model', 'gateway', 'browser', 'sandbox', 'vectors', 'embeddings', 'memory', 'observability', 'guardrails'], memory: 'app', benchmarks: /webarena|mind2web|\bgaia\b|browsecomp|webvoyager|osworld/i },
   'voice-agent': { label: 'Voice agent', layers: ['voice', 'model', 'framework', 'memory', 'tools', 'observability', 'guardrails'], memory: 'app', benchmarks: /longmemeval|locomo|tau[- ]?bench|τ-bench/i },
   'multi-agent-workflow': { label: 'Multi-agent workflow', layers: ['framework', 'model', 'gateway', 'orchestration', 'memory', 'tools', 'sandbox', 'observability', 'guardrails'], memory: 'app', benchmarks: /tau[- ]?bench|τ-bench|\bgaia\b|agentbench|memoryarena|memoryagentbench/i },
   'rag-copilot': { label: 'RAG copilot', layers: ['framework', 'model', 'gateway', 'vectors', 'embeddings', 'memory', 'observability', 'guardrails'], memory: 'app', benchmarks: /longmemeval|locomo|beir|mteb|ragas/i }
@@ -204,10 +204,16 @@ export interface ComposerContext {
 // Scoring
 // ---------------------------------------------------------------------------
 
+/** In the coding-memory pool, keep what you embed in your own coding agent
+ * (MCP memory servers, libraries) and drop finished coding agents and
+ * instruction-file conventions. */
+const CODING_PRODUCT = /cloud agent|cloud-hosted|coding agent|\bIDE\b|WebContainer|per-repo|convention|\.md\b|open standard|auto-memory|\bplugin\b/i;
+
 function inLayer(i: ChooserItem, l: Layer, memory: 'app' | 'coding'): boolean {
   const sections = l.id === 'memory' ? POOLS[memory] : l.sections;
   if (!sections.includes(i.section)) return false;
   const label = `${i.type} ${i.name}`;
+  if (l.id === 'memory' && memory === 'coding' && CODING_PRODUCT.test(label)) return false;
   if (l.match && !l.match.test(l.matchDesc ? `${label} ${i.desc}` : label)) return false;
   if (l.exclude && l.exclude.test(label)) return false;
   return true;
@@ -281,6 +287,7 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
 
   const picked: { layer: LayerId; item: ChooserItem }[] = [];
   const results: LayerResult[] = [];
+  const reach = ecosystem(ctx.edges);
 
   for (const lid of ORDER) {
     if (!wanted.has(lid)) continue;
@@ -306,6 +313,22 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
         else r.reasons.unshift({ text: `Compliance: ${i.facts.compliance.value}`, citation: i.facts.compliance.citation });
       }
       if (/^(alpha|preview)$/.test(i.facts.maturity?.value ?? '')) r.score = Math.round((r.score - 0.5) * 10) / 10;
+      // Model families: GitHub stars measure open-weight repos, not how
+      // widely a model is used, so they don't rank models.
+      if (lid === 'model' && i.stars) {
+        r.score = Math.round((r.score - Math.min(2.5, Math.log10(i.stars) - 2)) * 10) / 10;
+        r.reasons = r.reasons.filter((x) => !x.text.startsWith('Adoption:'));
+      }
+      // Ecosystem breadth: how many catalogued systems document an
+      // integration with it (curated integration pages).
+      const n = reach.get(i.id) ?? 0;
+      if (n) {
+        // For model families, provider support across frameworks and tools is
+        // the main signal, so it scales instead of saturating.
+        const bonus = lid === 'model' ? Math.min(5, n / 10) : Math.min(2.5, Math.log2(1 + n) * 0.5);
+        r.score = Math.round((r.score + bonus) * 10) / 10;
+        r.reasons.push({ text: `Ecosystem: ${n} catalogued system${n === 1 ? '' : 's'} document an integration with it`, citation: `${SITE}/compatibility?ids=${i.id}` });
+      }
       // Prefer what works with the layers already chosen.
       for (const p of picked) {
         if (p.item.id === i.id) continue;
@@ -387,6 +410,18 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       : null,
     stackYaml: toStackYaml(a, results)
   };
+}
+
+/** Distinct counterparts per system over documented integration edges. */
+function ecosystem(edges: CompatEdge[]): Map<string, number> {
+  const sets = new Map<string, Set<string>>();
+  const add = (a: string, b: string) => (sets.get(a) ?? sets.set(a, new Set()).get(a)!).add(b);
+  for (const e of edges) {
+    if (e.type !== 'integrates-with') continue;
+    add(e.source, e.target);
+    add(e.target, e.source);
+  }
+  return new Map([...sets].map(([k, v]) => [k, v.size]));
 }
 
 function whyNot(pick: Scored, ranked: Scored[], excluded: { item: ChooserItem; why: Exclusion }[]): WhyNot[] {
