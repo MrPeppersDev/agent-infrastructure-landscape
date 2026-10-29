@@ -1,7 +1,7 @@
 // Tests for chooser-infra.ts (framework / data-store chooser) and compat.ts
 // (compatibility check) against the real catalog.
 // Run: npm run build && node dist/test-infra.js
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { toItem, brand, type ChooserItem } from './chooser.js';
@@ -93,6 +93,21 @@ console.log('compat');
   const noisy = [...deg].filter(([id, n]) => n > 30 && !/Claude|GPT|Model Context Protocol|Claude Code/.test(String(name.get(id))));
   check('no system over-matched by a generic alias', noisy.length === 0, noisy.map(([id, n]) => `${name.get(id)}:${n}`).join(', '));
   check('aliases never a bare one-word brand of a multi-word name', aliasesOf({ id: 'x', name: 'Stack AI', cells: {} }).every((a) => a !== 'Stack'));
+}
+
+{
+  // Every curated integration edge (extraction/integrations/*.json) must be
+  // in the built edges file — guards against a build that drops the loader.
+  const dir = join(dirname(find('landscape.json')), '..', 'extraction', 'integrations');
+  let curated: { source: string; target: string }[] = [];
+  try {
+    curated = readdirSync(dir).filter((f) => f.endsWith('.json')).flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf-8')));
+  } catch { /* npm tarball: no extraction/ folder */ }
+  if (curated.length) {
+    const have = new Set(E.filter((e: { type: string }) => e.type === 'integrates-with').map((e: { source: string; target: string }) => `${e.source}>${e.target}`));
+    const missing = curated.filter((c) => !have.has(`${c.source}>${c.target}`));
+    check('curated integration edges are all built', missing.length === 0, `${missing.length} of ${curated.length} missing`);
+  }
 }
 
 console.log('search');

@@ -50,6 +50,8 @@ LANDSCAPE_JSON = REPO_ROOT / "data" / "landscape.json"
 CROSS_REFS_CSV = REPO_ROOT / ".agent-results" / "data-5-cross-references.csv"
 CROSS_LISTINGS_JSON = REPO_ROOT / "extraction" / "cross-listings.json"
 DISAMBIGUATION_JSON = REPO_ROOT / "extraction" / "edge-disambiguation.json"
+INTEGRATIONS_DIR = REPO_ROOT / "extraction" / "integrations"
+SYSTEM_ALIASES_JSON = REPO_ROOT / "taxonomy" / "system-aliases.json"
 OUT_PATH = REPO_ROOT / "data" / "landscape.edges.json"
 
 VALID_EDGE_TYPES = {
@@ -1036,6 +1038,34 @@ def mine_cross_listings(resolver: Resolver) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Curated integration edges (extraction/integrations/*.json).
+# ---------------------------------------------------------------------------
+
+def load_curated_integrations(resolver: Resolver) -> list[dict]:
+    """Hand-researched edges read from each system's own integrations page.
+
+    Every file in extraction/integrations/ is a JSON list of
+    {source, target, type, evidence, citation}. Ids removed by a merge are
+    followed through taxonomy/system-aliases.json redirects; any other
+    unknown id is an error, so a typo can't silently drop an edge.
+    """
+    if not INTEGRATIONS_DIR.is_dir():
+        return []
+    redirects = json.loads(SYSTEM_ALIASES_JSON.read_text(encoding="utf-8")).get("redirects", {})
+    edges: list[dict] = []
+    for path in sorted(INTEGRATIONS_DIR.glob("*.json")):
+        for i, row in enumerate(json.loads(path.read_text(encoding="utf-8"))):
+            edge = {k: row[k] for k in ("source", "target", "type", "evidence", "citation")}
+            for end in ("source", "target"):
+                edge[end] = redirects.get(edge[end], edge[end])
+                if edge[end] not in resolver.by_id:
+                    raise SystemExit(f"{path.name} row {i}: unknown {end} id {row[end]!r}")
+            if edge["source"] != edge["target"]:
+                edges.append(edge)
+    return edges
+
+
+# ---------------------------------------------------------------------------
 # Same-team-as inference from `--gh-<owner>-<repo>` ids.
 # ---------------------------------------------------------------------------
 
@@ -1204,9 +1234,11 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Cross-listings/curated: {len(listing_edges)} edges.", file=sys.stderr)
     team_edges = infer_same_team_from_gh(resolver)
     print(f"Same-team (GH org):     {len(team_edges)} edges.", file=sys.stderr)
+    curated_edges = load_curated_integrations(resolver)
+    print(f"Curated integrations:   {len(curated_edges)} edges.", file=sys.stderr)
 
     all_edges = (
-        cell_edges + rt_edges + xref_edges + listing_edges + team_edges
+        cell_edges + rt_edges + xref_edges + listing_edges + team_edges + curated_edges
     )
     all_edges = dedupe(all_edges)
     validate(all_edges, resolver)
