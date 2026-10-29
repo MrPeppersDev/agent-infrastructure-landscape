@@ -16,7 +16,7 @@ const BUILD = new URL('../build/', import.meta.url).pathname;
 // one route at a time (#324). Any other page over budget fails; a page in
 // this list that comes in under budget fails too, so the list only shrinks.
 const KNOWN_HEAVY = [
-  'analyses/', 'recommend/', 'sections.html', 'graph.html', 'lineages.html', 'leaderboards.html', 'timeline.html'
+  'analyses/', 'recommend/'
 ];
 const known = (page) => KNOWN_HEAVY.some((k) => (k.endsWith('/') ? page.startsWith(k) : page === k));
 const args = process.argv.slice(2);
