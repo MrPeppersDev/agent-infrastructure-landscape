@@ -73,6 +73,7 @@ build:
 	$(PYTHON) scripts/bucket_s2_citations.py --quiet
 	$(PYTHON) scripts/render.py         --input  data/landscape.json --output landscape.html
 	$(PYTHON) scripts/build_stack_index.py
+	$(PYTHON) scripts/sync_readme_count.py
 	@echo
 	@echo "build (Path A): reconciled JSON, rebuilt edges + citation trajectories,"
 	@echo "                and re-rendered landscape.html as the build artefact."

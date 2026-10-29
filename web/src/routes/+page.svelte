@@ -5,6 +5,7 @@
   import { onMount, untrack } from 'svelte';
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
+  import { page } from '$app/state';
   import Table from '$lib/components/Table.svelte';
   import SearchBox from '$lib/components/SearchBox.svelte';
   import FilterRail from '$lib/components/FilterRail.svelte';
@@ -254,8 +255,8 @@
 </script>
 
 <SeoHead
-  title="AI Agent Memory & Infrastructure Landscape — Catalog of 912 Systems"
-  description="Browse and compare 912 AI agent memory systems, frameworks, and research papers across 68 columns. Searchable catalog with typed edges, citations, and benchmark coverage."
+  title="AI Agent Memory & Infrastructure Landscape — Catalog of {page.data.stats.records.toLocaleString('en-US')} Systems"
+  description="Browse and compare {page.data.stats.records.toLocaleString('en-US')} AI agent memory systems, frameworks, and research papers across {page.data.stats.columns} columns. Searchable catalog with typed edges, citations, and benchmark coverage."
   path="/"
   ogType="website"
 />
@@ -270,6 +271,7 @@
       <p class="subtitle">
         {data.recordCount.toLocaleString()} systems · {data.edgeCount.toLocaleString()} edges
         · {visibleRecords.length.toLocaleString()} visible
+        · data as of {page.data.stats.dataAsOf}
         {#if $sortColumns.length}
           · sorted by {$sortColumns
             .map((s) => `${s.column} ${s.direction === 'asc' ? '↑' : '↓'}`)

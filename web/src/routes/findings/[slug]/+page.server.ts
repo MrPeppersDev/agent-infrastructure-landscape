@@ -1,8 +1,9 @@
-// Build-time loader for per-finding article pages. Refs #105.
+// Build-time (server-only) loader for per-finding article pages. Refs #105.
 // Each of the five findings becomes its own crawlable, citable page.
 
 import { error } from '@sveltejs/kit';
-import { findings, findingBySlug, type Finding } from '$lib/findings';
+import { findings, type Finding } from '$lib/findings';
+import { liveFindings } from '$lib/findings-live';
 import { getRecords } from '$lib/data';
 import { buildNameIndex, linkifyParagraph, type LinkifySegment } from '$lib/seo/linkify';
 
@@ -17,7 +18,8 @@ export function load({ params }: { params: { slug: string } }): {
   body: LinkifySegment[][];
   others: Finding[];
 } {
-  const finding = findingBySlug(params.slug);
+  const all = liveFindings();
+  const finding = all.find((f) => f.slug === params.slug);
   if (!finding) throw error(404, `Finding "${params.slug}" not found`);
 
   // Build the name index from the full catalog, then linkify each
@@ -29,7 +31,7 @@ export function load({ params }: { params: { slug: string } }): {
 
   // Sibling findings for the "more findings" footer; keeps the in-section
   // linking graph tight.
-  const others = findings.filter((f) => f.slug !== finding.slug);
+  const others = all.filter((f) => f.slug !== finding.slug);
 
   return { finding, body, others };
 }

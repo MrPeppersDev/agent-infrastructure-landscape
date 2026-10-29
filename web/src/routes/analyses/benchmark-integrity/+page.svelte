@@ -1,5 +1,6 @@
 <script lang="ts">
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { page } from '$app/state';
 
   // Benchmark integrity view (issue #33).
   //
@@ -157,7 +158,7 @@
 <svelte:head>
   <SeoHead
     title="Benchmark Integrity in AI Memory Claims"
-    description="Where AI memory benchmark claims come from: peer-reviewed vs vendor-claimed vs independently-verified vs disputed. Integrity audit across the 912-system catalog."
+    description="Where AI memory benchmark claims come from: peer-reviewed vs vendor-claimed vs independently-verified vs disputed. Integrity audit across the {page.data.stats.records.toLocaleString('en-US')}-system catalog."
     path="/analyses/benchmark-integrity"
     ogType="article"
   />

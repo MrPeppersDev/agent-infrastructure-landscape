@@ -1,5 +1,6 @@
 <script lang="ts">
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { page } from '$app/state';
 
   // Leaderboards view (issue #14). Five curated boards + a "build your own"
   // panel. Everything renders from data already bundled with the app; no
@@ -121,7 +122,7 @@
 <svelte:head>
   <SeoHead
     title="AI Agent Memory Leaderboards — Citation, Adoption, Benchmark Rankings"
-    description="Ranked leaderboards across the AI agent memory catalog: citations, GitHub stars, downloads, benchmark scores, and benchmark integrity. 912 systems compared."
+    description="Ranked leaderboards across the AI agent memory catalog: citations, GitHub stars, downloads, benchmark scores, and benchmark integrity. {page.data.stats.records.toLocaleString('en-US')} systems compared."
     path="/leaderboards"
     ogType="website"
   />

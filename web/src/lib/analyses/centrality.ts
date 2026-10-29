@@ -5,7 +5,7 @@
 //
 // Both algorithms run in pure TypeScript so the centrality computation is
 // part of the SvelteKit prerender pass — no Python pre-compute step needed.
-// On the current 912-node / 528-edge graph the full computation finishes
+// On the current ~950-node / ~2,000-edge graph the full computation finishes
 // in well under a second; even a worst-case Brandes (O(V*E)) is ~480k ops,
 // which is trivial for V8.
 //
@@ -263,7 +263,7 @@ function denseRank(scores: Map<string, number>): Map<string, number> {
  * Compute betweenness, k-core, and bridge-surprise for every record in the
  * catalog. Pure function — same input, same output, no side effects.
  *
- * Performance: O(V*E) for Brandes, O(E) for k-core. On 912 nodes / 514
+ * Performance: O(V*E) for Brandes, O(E) for k-core. On ~950 nodes / ~2,000
  * undirected edges this completes in <100ms on a modern laptop; the
  * dominant cost is the V BFS traversals in Brandes.
  */
