@@ -249,6 +249,11 @@ CANONICAL_SECTIONS = {
     "Foundation models (substrate reference)",
     "Multi-agent orchestration platforms",
     "AI sandbox & runtime environments",
+    # New sections added 2026-10-29 (stack-builder thin layers)
+    "Guardrails & AI security",
+    "Agent identity & auth",
+    "MCP gateways & registries",
+    "Durable execution & workflow engines",
 }
 
 # Status enum values.

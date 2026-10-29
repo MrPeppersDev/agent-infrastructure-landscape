@@ -91983,6 +91983,10 @@
     <td class="maturity"><span class="no-data"></span></td>
   </tr>
 
+  <tr class="group-row"><td colspan="118">Guardrails &amp; AI security</td></tr>
+
+  <tr class="section-explainer"><td colspan="118"><div class="explainer-text">Runtime screens and security tooling for LLM apps and agents: prompt-injection and jailbreak detection, PII redaction, content-safety filters, LLM firewalls and AI red-teaming kits. They sit in front of (or around) the model and the agent's tools; pair them with evals, which measure quality rather than block attacks.</div></td></tr>
+
   <tr class="group-row"><td colspan="118">Agent IDEs &amp; coding harnesses</td></tr>
 
   <tr class="section-explainer"><td colspan="118"><div class="explainer-text">User-facing agentic IDEs, terminal harnesses, and agent-runtime products — the layer where the harness <em>is</em> the agent. Distinct from 'Coding-agent memory' (which is the memory subsystem of these products, e.g. CLAUDE.md, .cursorrules, Devin Knowledge) and from 'Agent frameworks (no first-party memory layer)' (which is import-and-compose libraries). Added in the 2026-05-13 Round-11 sweep: this is the consumer-product surface — Kiro, Cursor, Windsurf, Zed, Claude Code, Codex CLI, Aider, Cline, Goose, Charm Crush, JetBrains AI / Junie, GitHub Copilot Workspace, Amazon Q Developer, etc. Coverage is broad-and-shallow on the harness layer; memory-layer rows remain canonical for the memory framing.</div></td></tr>
@@ -114061,6 +114065,10 @@
     <td class="maturity"><span class="no-data"></span></td>
   </tr>
 
+  <tr class="group-row"><td colspan="118">Durable execution &amp; workflow engines</td></tr>
+
+  <tr class="section-explainer"><td colspan="118"><div class="explainer-text">Engines that keep long-running and multi-step agent workflows alive across crashes, deploys and retries: durable functions, workflow state persisted per step, timers and human-in-the-loop waits. Temporal, Inngest, Trigger.dev and Restate are catalogued under agent frameworks; newer entrants live here.</div></td></tr>
+
   <tr class="group-row"><td colspan="118">AI sandbox &amp; runtime environments</td></tr>
 
   <tr class="section-explainer"><td colspan="118"><div class="explainer-text">Compute substrate for AI agents — code-execution sandboxes, cloud development environments, headless-browser farms, and serverless container runtimes that AI agent products use to actually run code, navigate the web, or host workspaces. Added in Round 15 (2026-05-13) to make the implicit compute substrate explicit. e2b sandboxes power Anthropic Claude Code artifacts; Modal Sandboxes power batch agent workloads; Daytona / Gitpod / Coder.com host long-running agent workspaces; Browserless and Anchor host headless Chromium for browser agents. Distinct from <em>Inference platforms &amp; gateways</em> (which serve the model) — this section serves the <em>environment</em> the agent operates in.</div></td></tr>
@@ -115395,6 +115403,14 @@
     <td class="protocol-support"><span class="no-data"></span></td>
     <td class="maturity"><span class="no-data"></span></td>
   </tr>
+
+  <tr class="group-row"><td colspan="118">Agent identity &amp; auth</td></tr>
+
+  <tr class="section-explainer"><td colspan="118"><div class="explainer-text">Identity, OAuth and credential brokering for agents that act on a user's behalf: scoped tokens per user and per tool, consent flows, token vaults and managed connectors to third-party APIs. The answer to OWASP LLM06 (excessive agency): an agent should hold only the access its user granted.</div></td></tr>
+
+  <tr class="group-row"><td colspan="118">MCP gateways &amp; registries</td></tr>
+
+  <tr class="section-explainer"><td colspan="118"><div class="explainer-text">Where MCP servers are found and how they are governed: public and private MCP registries and catalogs, and gateways that proxy, authenticate, audit and aggregate many MCP servers behind one endpoint.</div></td></tr>
   </tbody>
 </table>
 </div>

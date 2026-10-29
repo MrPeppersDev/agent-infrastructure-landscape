@@ -1,0 +1,881 @@
+[
+ {
+  "name": "NVIDIA NeMo Guardrails",
+  "url": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+  "type": "library",
+  "section": "Guardrails & AI security",
+  "description": "Open-source Python library for adding programmable guardrails to LLM-based applications and agents. It blocks, alters or validates unsafe, off-topic, malicious or policy-violating user inputs and model responses using configuration files, Colang flows and built-in rails.",
+  "license": "Apache-2.0",
+  "github_repo": "NVIDIA-NeMo/Guardrails",
+  "arxiv_url": "",
+  "sources": [
+   "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+   "https://github.com/NVIDIA-NeMo/Guardrails",
+   "https://raw.githubusercontent.com/NVIDIA-NeMo/Guardrails/main/LICENSE.md"
+  ],
+  "traction": "~7.4k GitHub stars"
+ },
+ {
+  "name": "Guardrails AI",
+  "url": "https://guardrailsai.com/",
+  "type": "framework",
+  "section": "Guardrails & AI security",
+  "description": "Open-source guardrails framework plus the Guardrails Hub of validators that detect policy violations, hallucinations and data leakage in LLM and agent outputs at runtime. Harvey announced its acquisition of Guardrails AI on Sep 8, 2026.",
+  "license": "Apache-2.0",
+  "github_repo": "guardrails-ai/guardrails",
+  "arxiv_url": "",
+  "sources": [
+   "https://guardrailsai.com/",
+   "https://guardrailsai.com/blog/guardrails-ai-joins-harvey",
+   "https://github.com/guardrails-ai/guardrails"
+  ],
+  "traction": "~7.6k GitHub stars"
+ },
+ {
+  "name": "Meta Llama Protections (Llama Guard, Prompt Guard, LlamaFirewall)",
+  "url": "https://dev.meta.ai/llama/llama-protections",
+  "type": "framework",
+  "section": "Guardrails & AI security",
+  "description": "Meta's open system-level safeguards from the Purple Llama project: Llama Guard content-moderation classifiers, Prompt Guard prompt-injection and jailbreak detectors, Code Shield insecure-code filtering, and LlamaFirewall, a scanner framework for securing multi-step agentic operations.",
+  "license": "Llama 3.2 Community License (Llama Guard / Prompt Guard models); LlamaFirewall and Code Shield MIT",
+  "github_repo": "meta-llama/PurpleLlama",
+  "arxiv_url": "",
+  "sources": [
+   "https://dev.meta.ai/llama/llama-protections",
+   "https://github.com/meta-llama/PurpleLlama",
+   "https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/LlamaFirewall/LICENSE",
+   "https://pypi.org/pypi/llamafirewall/json",
+   "https://arxiv.org/abs/2505.03574"
+  ],
+  "traction": "~4.5k GitHub stars (PurpleLlama)"
+ },
+ {
+  "name": "Presidio",
+  "url": "https://presidio.dataprivacystack.org/",
+  "type": "library",
+  "section": "Guardrails & AI security",
+  "description": "Open-source framework for detecting, redacting, masking and anonymizing PII in text, images and structured data, commonly used to scrub prompts and responses around LLMs. Originally a Microsoft project, it has transitioned to community ownership under Data Privacy Stack.",
+  "license": "MIT",
+  "github_repo": "data-privacy-stack/presidio",
+  "arxiv_url": "",
+  "sources": [
+   "https://presidio.dataprivacystack.org/",
+   "https://github.com/data-privacy-stack/presidio",
+   "https://raw.githubusercontent.com/data-privacy-stack/presidio/main/LICENSE"
+  ],
+  "traction": "~11.6k GitHub stars"
+ },
+ {
+  "name": "Azure AI Content Safety Prompt Shields",
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection",
+  "type": "platform-feature",
+  "section": "Guardrails & AI security",
+  "description": "Azure AI Content Safety API that detects user prompt attacks and indirect (document) prompt injection aimed at manipulating a model's behavior, alongside groundedness, protected-material and task-adherence checks.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Amazon Bedrock Guardrails",
+  "url": "https://aws.amazon.com/bedrock/guardrails/",
+  "type": "platform-feature",
+  "section": "Guardrails & AI security",
+  "description": "Configurable safeguards that filter harmful text and image content, redact sensitive information, block denied topics and detect hallucinations. They apply consistently across foundation models in Amazon Bedrock and self-hosted or third-party models.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://aws.amazon.com/bedrock/guardrails/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Google Cloud Model Armor",
+  "url": "https://cloud.google.com/security/products/model-armor",
+  "type": "platform-feature",
+  "section": "Guardrails & AI security",
+  "description": "Runtime security service that screens AI prompts, responses and agent interactions for prompt injection, jailbreaks, malicious URLs, sensitive-data leaks and harmful content, with adjustable confidence thresholds.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://cloud.google.com/security/products/model-armor"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "CrowdStrike Falcon Guardian (formerly Pangea AI Guard)",
+  "url": "https://www.crowdstrike.com/en-us/platform/falcon-guardian-aidr/",
+  "type": "product",
+  "section": "Guardrails & AI security",
+  "description": "AI detection and response product that discovers, governs and secures AI agents at runtime across endpoint, cloud and SaaS. It is built on Pangea, which CrowdStrike agreed to acquire in September 2025, and pangea.cloud's AI Guard page now redirects here.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.crowdstrike.com/en-us/platform/falcon-guardian-aidr/",
+   "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-to-acquire-pangea-to-secure-every-layer-of-enterprise-ai/",
+   "https://pangea.cloud/services/ai-guard/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Invariant Guardrails",
+  "url": "https://invariantlabs.ai/blog/guardrails",
+  "type": "framework",
+  "section": "Guardrails & AI security",
+  "description": "Contextual guardrailing layer for agentic and MCP applications that sits at the LLM and MCP level. It enforces deterministic rules over tool calls, data flow, secrets, PII, code and loops.",
+  "license": "Apache-2.0",
+  "github_repo": "invariantlabs-ai/invariant",
+  "arxiv_url": "",
+  "sources": [
+   "https://invariantlabs.ai/blog/guardrails",
+   "https://github.com/invariantlabs-ai/invariant",
+   "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/LICENSE"
+  ],
+  "traction": "~475 GitHub stars"
+ },
+ {
+  "name": "Prompt Security (SentinelOne)",
+  "url": "https://www.sentinelone.com/platform/securing-ai-prompt/",
+  "type": "product",
+  "section": "Guardrails & AI security",
+  "description": "AI security platform that controls employee AI tool usage, protects homegrown AI apps and autonomous agents, and redacts sensitive data and enforces policy across AI services. It is now offered by SentinelOne, and prompt.security links to SentinelOne's product page.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.sentinelone.com/platform/securing-ai-prompt/",
+   "https://prompt.security/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Arthur Engine",
+  "url": "https://github.com/arthur-ai/arthur-engine",
+  "type": "framework",
+  "section": "Guardrails & AI security",
+  "description": "Open-source service from Arthur AI for enforcing guardrails in LLM and agent workflows, with real-time detection of PII leakage, hallucination, prompt injection and toxicity. It also provides trace-based evaluation and observability for agentic applications.",
+  "license": "MIT",
+  "github_repo": "arthur-ai/arthur-engine",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/arthur-ai/arthur-engine",
+   "https://raw.githubusercontent.com/arthur-ai/arthur-engine/main/LICENSE",
+   "https://www.arthur.ai/"
+  ],
+  "traction": "~93 GitHub stars"
+ },
+ {
+  "name": "PyRIT",
+  "url": "https://microsoft.github.io/PyRIT/",
+  "type": "framework",
+  "section": "Guardrails & AI security",
+  "description": "Microsoft's Python Risk Identification Tool, an open framework for automated and human-led red teaming of generative AI systems. It runs multi-turn attack strategies such as Crescendo and TAP against any model or HTTP target.",
+  "license": "MIT",
+  "github_repo": "microsoft/PyRIT",
+  "arxiv_url": "",
+  "sources": [
+   "https://microsoft.github.io/PyRIT/",
+   "https://github.com/microsoft/PyRIT",
+   "https://raw.githubusercontent.com/microsoft/PyRIT/main/LICENSE"
+  ],
+  "traction": "~4.7k GitHub stars"
+ },
+ {
+  "name": "Auth0 for AI Agents",
+  "url": "https://auth0.com/ai/docs/overview",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Auth0's identity layer for AI agents, covering user authentication, calling first- and third-party APIs on a user's behalf through delegated authorization, asynchronous human-in-the-loop approval (CIBA), fine-grained authorization for RAG, and auth for MCP.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://auth0.com/ai/docs/overview",
+   "https://auth0.com/solutions/ship-ai-agents"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Stytch Connected Apps",
+  "url": "https://stytch.com/connected-apps",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Turns an app into an OAuth 2.0/OIDC identity provider so AI agents and MCP clients can be authorized against it. It handles token issuance, validation and revocation with user-controlled, token-based permissions.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://stytch.com/connected-apps"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "WorkOS AuthKit for MCP",
+  "url": "https://workos.com/mcp",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "WorkOS AuthKit acts as an OAuth 2.1 authorization server for MCP servers, giving AI agents scoped access to an app with PKCE, scopes and tool permissions. WorkOS Connect can provide only the MCP OAuth flows in front of an existing user system.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://workos.com/mcp"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Descope Agentic Identity Hub",
+  "url": "https://www.descope.com/use-cases/ai",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Identity provider for AI agents and MCP servers that adds auth, consent, SSO, access control and policy to AI systems. It also manages purpose-built agent credentials for downstream connections and keeps a directory of an organization's agents.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.descope.com/use-cases/ai",
+   "https://www.descope.com/blog/post/agentic-identity-hub-3"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Okta Cross App Access (XAA)",
+  "url": "https://www.okta.com/solutions/cross-app-access/",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Okta-backed protocol for secure agent-to-app and app-to-app access, letting enterprise IT admins manage and audit which agents connect to which applications instead of relying on shared credentials or embedded tokens.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.okta.com/solutions/cross-app-access/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Keycard",
+  "url": "https://www.keycard.ai/",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Runtime auth for agents that gives each agent its own identity and issues just-in-time, scoped credentials after verifying the workload, the user it acts for, and policy.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.keycard.ai/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Nango",
+  "url": "https://nango.dev/",
+  "type": "platform",
+  "section": "Agent identity & auth",
+  "description": "Code-first integration platform that connects products and AI agents to 1,000+ APIs. It handles end-user OAuth, MCP and tools, syncs, webhooks and a request proxy.",
+  "license": "Elastic-2.0",
+  "github_repo": "NangoHQ/nango",
+  "arxiv_url": "",
+  "sources": [
+   "https://nango.dev/",
+   "https://github.com/NangoHQ/nango",
+   "https://raw.githubusercontent.com/NangoHQ/nango/master/LICENSE"
+  ],
+  "traction": "~13k GitHub stars"
+ },
+ {
+  "name": "Pipedream Connect",
+  "url": "https://pipedream.com/connect",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Integration layer for AI agents with managed per-user auth and 10,000+ prebuilt tools across 3,000+ APIs. It is exposed through a remote MCP server, an SDK or a raw API proxy.",
+  "license": "proprietary; components repo under Pipedream Source Available License",
+  "github_repo": "PipedreamHQ/pipedream",
+  "arxiv_url": "",
+  "sources": [
+   "https://pipedream.com/connect",
+   "https://raw.githubusercontent.com/PipedreamHQ/pipedream/master/LICENSE"
+  ],
+  "traction": "~11.8k GitHub stars (pipedream repo)"
+ },
+ {
+  "name": "Paragon ActionKit",
+  "url": "https://www.useparagon.com/actionkit",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "One API and MCP server that gives an AI agent product 1,000+ integration actions, with Paragon's embedded UI handling end users' authentication to their external apps.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.useparagon.com/actionkit"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Merge Agent Handler",
+  "url": "https://www.merge.dev/merge-agent-handler",
+  "type": "product",
+  "section": "Agent identity & auth",
+  "description": "Production MCP connectors that link AI agents to thousands of enterprise tools, with guided user authentication, data-access controls and observability built in.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.merge.dev/merge-agent-handler"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Official MCP Registry",
+  "url": "https://registry.modelcontextprotocol.io/",
+  "type": "platform",
+  "section": "MCP gateways & registries",
+  "description": "Community-driven registry service and API run by the Model Context Protocol project, where publishers list MCP servers under namespaced, versioned entries for clients and downstream catalogs to discover.",
+  "license": "Apache-2.0 (transitioning from MIT)",
+  "github_repo": "modelcontextprotocol/registry",
+  "arxiv_url": "",
+  "sources": [
+   "https://registry.modelcontextprotocol.io/",
+   "https://github.com/modelcontextprotocol/registry",
+   "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/LICENSE"
+  ],
+  "traction": "~7.4k GitHub stars"
+ },
+ {
+  "name": "Smithery",
+  "url": "https://smithery.ai/",
+  "type": "platform",
+  "section": "MCP gateways & registries",
+  "description": "Catalog and connection layer for MCP servers that connects agents to thousands of tools and lets developers publish their own, with auth, credentials and sessions handled. Smithery's docs say it is now part of Arcade.dev, and its MCP Proxy and managed identity shut down on October 31, 2026.",
+  "license": "proprietary; CLI AGPL-3.0",
+  "github_repo": "smithery-ai/cli",
+  "arxiv_url": "",
+  "sources": [
+   "https://smithery.ai/",
+   "https://smithery.ai/docs",
+   "https://raw.githubusercontent.com/smithery-ai/cli/main/LICENSE"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Glama MCP",
+  "url": "https://glama.ai/mcp/servers",
+  "type": "platform",
+  "section": "MCP gateways & registries",
+  "description": "Searchable directory of more than 112,000 MCP servers with license, quality and maintenance grades, plus an MCP directory API and connectors for agents.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://glama.ai/mcp/servers"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Docker MCP Catalog, Toolkit & Gateway",
+  "url": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/",
+  "type": "product",
+  "section": "MCP gateways & registries",
+  "description": "Docker's catalog of containerized MCP servers with a Desktop toolkit and an open-source MCP Gateway (docker mcp CLI plugin). An enterprise gateway authenticates users, scopes servers and tools, applies per-call policy and supplies credentials.",
+  "license": "proprietary; mcp-gateway MIT",
+  "github_repo": "docker/mcp-gateway",
+  "arxiv_url": "",
+  "sources": [
+   "https://docs.docker.com/ai/mcp-catalog-and-toolkit/",
+   "https://www.docker.com/products/mcp-enterprise-gateway/",
+   "https://github.com/docker/mcp-gateway",
+   "https://raw.githubusercontent.com/docker/mcp-gateway/main/LICENSE"
+  ],
+  "traction": "~1.6k GitHub stars (mcp-gateway)"
+ },
+ {
+  "name": "IBM ContextForge MCP Gateway",
+  "url": "https://ibm.github.io/mcp-context-forge/",
+  "type": "framework",
+  "section": "MCP gateways & registries",
+  "description": "Open-source registry and proxy that federates MCP, A2A and REST/gRPC APIs behind one endpoint with centralized discovery, guardrails, governance and plugins.",
+  "license": "Apache-2.0",
+  "github_repo": "IBM/mcp-context-forge",
+  "arxiv_url": "",
+  "sources": [
+   "https://ibm.github.io/mcp-context-forge/",
+   "https://github.com/IBM/mcp-context-forge",
+   "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/LICENSE"
+  ],
+  "traction": "~4.7k GitHub stars"
+ },
+ {
+  "name": "Microsoft MCP Gateway",
+  "url": "https://github.com/microsoft/mcp-gateway",
+  "type": "framework",
+  "section": "MCP gateways & registries",
+  "description": "Reverse proxy and management layer for MCP servers on Kubernetes, providing session-aware stateful routing and lifecycle management.",
+  "license": "MIT",
+  "github_repo": "microsoft/mcp-gateway",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/microsoft/mcp-gateway",
+   "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/LICENSE"
+  ],
+  "traction": "~900 GitHub stars"
+ },
+ {
+  "name": "Kong AI Gateway",
+  "url": "https://konghq.com/products/kong-ai-gateway",
+  "type": "product",
+  "section": "MCP gateways & registries",
+  "description": "Kong's gateway for governing LLM, MCP and agent-to-agent (A2A) traffic in one place. It controls access, data leakage and token usage for LLM calls, and generates and secures MCP servers for agents.",
+  "license": "Apache-2.0 (Kong Gateway OSS); enterprise features proprietary",
+  "github_repo": "Kong/kong",
+  "arxiv_url": "",
+  "sources": [
+   "https://konghq.com/products/kong-ai-gateway",
+   "https://github.com/Kong/kong",
+   "https://raw.githubusercontent.com/Kong/kong/master/LICENSE"
+  ],
+  "traction": "~44k GitHub stars (Kong)"
+ },
+ {
+  "name": "Lunar.dev MCPX",
+  "url": "https://www.lunar.dev/",
+  "type": "product",
+  "section": "MCP gateways & registries",
+  "description": "Enterprise MCP and AI gateway (MCPX) that secures and governs AI applications and agents with policy enforcement, cost management and observability. Boomi acquired Lunar.dev in July 2026.",
+  "license": "MIT (open-source gateway); enterprise proprietary",
+  "github_repo": "TheLunarCompany/lunar",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.lunar.dev/",
+   "https://boomi.com/blog/lunar-dev-boomi-acquisition/",
+   "https://github.com/TheLunarCompany/lunar",
+   "https://raw.githubusercontent.com/TheLunarCompany/lunar/main/LICENSE"
+  ],
+  "traction": "~500 GitHub stars"
+ },
+ {
+  "name": "Obot",
+  "url": "https://obot.ai/",
+  "type": "platform",
+  "section": "MCP gateways & registries",
+  "description": "Open-source AI control plane and MCP platform that connects agents to MCP servers through one OAuth setup. It enforces policy on what agents can do and records full audit logs of tool calls and LLM requests.",
+  "license": "MIT",
+  "github_repo": "obot-platform/obot",
+  "arxiv_url": "",
+  "sources": [
+   "https://obot.ai/",
+   "https://github.com/obot-platform/obot",
+   "https://raw.githubusercontent.com/obot-platform/obot/main/LICENSE"
+  ],
+  "traction": "~1.1k GitHub stars"
+ },
+ {
+  "name": "Cloudflare MCP server portals",
+  "url": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/",
+  "type": "platform-feature",
+  "section": "MCP gateways & registries",
+  "description": "Cloudflare One feature that puts multiple MCP servers behind a single HTTP endpoint secured by Cloudflare Access, with customized tools and per-user policies for MCP clients.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "DBOS",
+  "url": "https://www.dbos.dev/",
+  "type": "framework",
+  "section": "Durable execution & workflow engines",
+  "description": "Postgres-backed durable workflow library that makes AI agents and applications resilient to failures, with durable queues, cron and human-in-the-loop. It integrates with Pydantic AI, LlamaIndex, the OpenAI Agents SDK and the Vercel AI SDK.",
+  "license": "MIT",
+  "github_repo": "dbos-inc/dbos-transact-py",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.dbos.dev/",
+   "https://github.com/dbos-inc/dbos-transact-py",
+   "https://raw.githubusercontent.com/dbos-inc/dbos-transact-py/main/LICENSE"
+  ],
+  "traction": "~1.7k GitHub stars (Python SDK)"
+ },
+ {
+  "name": "Hatchet",
+  "url": "https://hatchet.run/",
+  "type": "platform",
+  "section": "Durable execution & workflow engines",
+  "description": "Orchestration engine for AI agents, background tasks and durable workflows, available self-hosted or as a managed cloud.",
+  "license": "MIT",
+  "github_repo": "hatchet-dev/hatchet",
+  "arxiv_url": "",
+  "sources": [
+   "https://hatchet.run/",
+   "https://github.com/hatchet-dev/hatchet",
+   "https://raw.githubusercontent.com/hatchet-dev/hatchet/main/LICENSE"
+  ],
+  "traction": "~8.2k GitHub stars"
+ },
+ {
+  "name": "Cloudflare Workflows",
+  "url": "https://developers.cloudflare.com/workflows/",
+  "type": "platform-feature",
+  "section": "Durable execution & workflow engines",
+  "description": "Durable execution engine on Cloudflare Workers that runs multi-step workflows with automatic retries, sleeping and waiting for events. The docs include a guide to building a durable AI agent.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://developers.cloudflare.com/workflows/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Dapr Agents",
+  "url": "https://docs.dapr.io/developing-ai/dapr-agents/",
+  "type": "framework",
+  "section": "Durable execution & workflow engines",
+  "description": "Python framework, GA at v1.0, for building LLM agents that run durable tasks and collaborate through Dapr Workflows, using Dapr's state management, messaging and observability.",
+  "license": "Apache-2.0",
+  "github_repo": "dapr/dapr-agents",
+  "arxiv_url": "",
+  "sources": [
+   "https://docs.dapr.io/developing-ai/dapr-agents/",
+   "https://github.com/dapr/dapr-agents",
+   "https://raw.githubusercontent.com/dapr/dapr-agents/main/LICENSE"
+  ],
+  "traction": "~770 GitHub stars"
+ },
+ {
+  "name": "Golem",
+  "url": "https://golem.cloud/",
+  "type": "platform",
+  "section": "Durable execution & workflow engines",
+  "description": "Agent-native durable runtime that runs each agent in its own WebAssembly VM. After crashes, restarts or rescaling the agent resumes mid-function with memory and files intact, and tool calls execute exactly once under enforced permissions.",
+  "license": "BUSL-1.1",
+  "github_repo": "golemcloud/golem",
+  "arxiv_url": "",
+  "sources": [
+   "https://golem.cloud/",
+   "https://github.com/golemcloud/golem",
+   "https://raw.githubusercontent.com/golemcloud/golem/main/LICENSE"
+  ],
+  "traction": "~1.5k GitHub stars"
+ },
+ {
+  "name": "Cloudflare AI Gateway",
+  "url": "https://developers.cloudflare.com/ai-gateway/",
+  "type": "platform-feature",
+  "section": "Inference platforms & gateways",
+  "description": "Gateway in front of 20+ model providers with an OpenAI-compatible unified API, caching, rate and spend limits, dynamic routing, guardrails, DLP and BYOK, plus logging and analytics.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://developers.cloudflare.com/ai-gateway/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Vercel AI Gateway",
+  "url": "https://vercel.com/docs/ai-gateway",
+  "type": "platform-feature",
+  "section": "Inference platforms & gateways",
+  "description": "Vercel's unified endpoint for text, image, video and speech models across providers, used from the AI SDK and OpenAI-compatible clients.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://vercel.com/docs/ai-gateway"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "TrueFoundry AI Gateway",
+  "url": "https://www.truefoundry.com/ai-gateway",
+  "type": "product",
+  "section": "Inference platforms & gateways",
+  "description": "Enterprise AI gateway providing unified access to 1,600+ models with policy control, failover, routing, guardrails, budgets and monitoring. It can be deployed in VPC, on-prem or air-gapped environments.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.truefoundry.com/ai-gateway"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Bifrost (Maxim AI)",
+  "url": "https://www.getmaxim.ai/bifrost",
+  "type": "framework",
+  "section": "Inference platforms & gateways",
+  "description": "Open-source Go AI gateway from Maxim AI with one OpenAI-compatible API for many models, failover, load balancing, semantic caching, virtual keys and budgets, and a built-in MCP gateway for agents.",
+  "license": "Apache-2.0",
+  "github_repo": "maximhq/bifrost",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/maximhq/bifrost",
+   "https://raw.githubusercontent.com/maximhq/bifrost/main/LICENSE",
+   "https://www.getmaxim.ai/bifrost"
+  ],
+  "traction": "~9.2k GitHub stars"
+ },
+ {
+  "name": "Agent Router (formerly Envoy AI Gateway)",
+  "url": "https://theagentrouter.ai/",
+  "type": "framework",
+  "section": "Inference platforms & gateways",
+  "description": "Open-source, Envoy-powered control plane giving agents one OpenAI-compatible API for every model and one router for MCP tools, with provider credentials, failover and token limits. It was formerly Envoy AI Gateway and is now an Agentic AI Foundation project.",
+  "license": "Apache-2.0",
+  "github_repo": "theagentrouter/agent-router",
+  "arxiv_url": "",
+  "sources": [
+   "https://theagentrouter.ai/",
+   "https://github.com/theagentrouter/agent-router",
+   "https://raw.githubusercontent.com/theagentrouter/agent-router/main/LICENSE",
+   "https://aigateway.envoyproxy.io/"
+  ],
+  "traction": "~2.3k GitHub stars"
+ },
+ {
+  "name": "agentgateway",
+  "url": "https://agentgateway.dev/",
+  "type": "framework",
+  "section": "Inference platforms & gateways",
+  "description": "Open-source Rust proxy for AI agents covering LLM routing with credentials and failover, native MCP and A2A traffic, and token-usage limits. Contributors include Solo.io, Microsoft and AWS, and kgateway uses it as its AI data plane.",
+  "license": "Apache-2.0",
+  "github_repo": "agentgateway/agentgateway",
+  "arxiv_url": "",
+  "sources": [
+   "https://agentgateway.dev/",
+   "https://github.com/agentgateway/agentgateway",
+   "https://raw.githubusercontent.com/agentgateway/agentgateway/main/LICENSE",
+   "https://kgateway.dev/"
+  ],
+  "traction": "~5.8k GitHub stars"
+ },
+ {
+  "name": "Inspect AI",
+  "url": "https://inspect.aisi.org.uk/",
+  "type": "framework",
+  "section": "Evaluation & observability platforms",
+  "description": "Open-source framework for frontier LLM evaluations from the UK AI Security Institute and Meridian Labs. It has composable datasets, agents, tools and scorers, 200+ prebuilt evals including agentic tasks, and a log viewer.",
+  "license": "MIT",
+  "github_repo": "UKGovernmentBEIS/inspect_ai",
+  "arxiv_url": "",
+  "sources": [
+   "https://inspect.aisi.org.uk/",
+   "https://github.com/UKGovernmentBEIS/inspect_ai",
+   "https://raw.githubusercontent.com/UKGovernmentBEIS/inspect_ai/main/LICENSE"
+  ],
+  "traction": "~3.1k GitHub stars"
+ },
+ {
+  "name": "OpenAI Evals",
+  "url": "https://github.com/openai/evals",
+  "type": "framework",
+  "section": "Evaluation & observability platforms",
+  "description": "OpenAI's open-source framework and registry of benchmarks for evaluating LLMs and LLM systems.",
+  "license": "MIT",
+  "github_repo": "openai/evals",
+  "arxiv_url": "",
+  "sources": [
+   "https://github.com/openai/evals",
+   "https://raw.githubusercontent.com/openai/evals/main/LICENSE.md"
+  ],
+  "traction": "~19.7k GitHub stars"
+ },
+ {
+  "name": "Laminar",
+  "url": "https://laminar.sh/",
+  "type": "platform",
+  "section": "Evaluation & observability platforms",
+  "description": "Open-source agent observability platform that captures LLM calls, tool calls, sub-agents, costs and tokens. Its Signals feature clusters agent failures automatically, and it also runs evals.",
+  "license": "Apache-2.0",
+  "github_repo": "lmnr-ai/lmnr",
+  "arxiv_url": "",
+  "sources": [
+   "https://laminar.sh/",
+   "https://github.com/lmnr-ai/lmnr",
+   "https://raw.githubusercontent.com/lmnr-ai/lmnr/main/LICENSE.md"
+  ],
+  "traction": "~3.5k GitHub stars"
+ },
+ {
+  "name": "Datadog Agent Observability (LLM Observability)",
+  "url": "https://www.datadoghq.com/products/ai/agent-observability/",
+  "type": "product",
+  "section": "Evaluation & observability platforms",
+  "description": "Datadog's product for evaluating, tracing and monitoring AI agents, combining offline experiments on golden datasets with production tracing and troubleshooting. Its former LLM Observability URL now redirects here.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.datadoghq.com/products/ai/agent-observability/",
+   "https://www.datadoghq.com/product/llm-observability/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Pydantic Logfire",
+  "url": "https://pydantic.dev/logfire",
+  "type": "product",
+  "section": "Evaluation & observability platforms",
+  "description": "OpenTelemetry-based AI observability platform that traces model calls, agent steps, API requests and database queries in one view. SDKs are available for Python, JS/TS and Rust.",
+  "license": "proprietary; Python SDK MIT",
+  "github_repo": "pydantic/logfire",
+  "arxiv_url": "",
+  "sources": [
+   "https://pydantic.dev/logfire",
+   "https://github.com/pydantic/logfire",
+   "https://raw.githubusercontent.com/pydantic/logfire/main/LICENSE"
+  ],
+  "traction": "~4.5k GitHub stars (SDK)"
+ },
+ {
+  "name": "HoneyHive",
+  "url": "https://www.honeyhive.ai/",
+  "type": "product",
+  "section": "Evaluation & observability platforms",
+  "description": "Agent observability and evaluation platform for replaying traces step by step, debugging long-running multi-agent trajectories and evaluating live production traffic.",
+  "license": "proprietary",
+  "github_repo": "",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.honeyhive.ai/"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "SWE-bench",
+  "url": "https://www.swebench.com/",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Benchmark of real GitHub issues that coding agents must resolve with a patch, with official leaderboards for Verified (500 human-filtered instances), Lite, Multimodal and Multilingual.",
+  "license": "MIT",
+  "github_repo": "SWE-bench/SWE-bench",
+  "arxiv_url": "https://arxiv.org/abs/2310.06770",
+  "sources": [
+   "https://www.swebench.com/",
+   "https://github.com/SWE-bench/SWE-bench",
+   "https://arxiv.org/abs/2310.06770"
+  ],
+  "traction": "~6.1k GitHub stars"
+ },
+ {
+  "name": "τ-bench (tau-bench / τ²-bench)",
+  "url": "https://taubench.com/",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Sierra's benchmark of whether agents can converse with simulated users, call tools and follow policy in domains such as retail, airline, telecom and banking. τ²-bench adds dual-control environments, and later releases add voice and knowledge tasks.",
+  "license": "MIT",
+  "github_repo": "sierra-research/tau2-bench",
+  "arxiv_url": "https://arxiv.org/abs/2406.12045",
+  "sources": [
+   "https://taubench.com/",
+   "https://github.com/sierra-research/tau2-bench",
+   "https://github.com/sierra-research/tau-bench",
+   "https://arxiv.org/abs/2506.07982"
+  ],
+  "traction": "~2.4k GitHub stars (tau2-bench)"
+ },
+ {
+  "name": "GAIA",
+  "url": "https://huggingface.co/gaia-benchmark",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Benchmark for general AI assistants made of real-world questions that require reasoning, multimodality, web browsing and tool use, with a public leaderboard on Hugging Face.",
+  "license": "",
+  "github_repo": "",
+  "arxiv_url": "https://arxiv.org/abs/2311.12983",
+  "sources": [
+   "https://huggingface.co/gaia-benchmark",
+   "https://arxiv.org/abs/2311.12983"
+  ],
+  "traction": "~917 likes on the Hugging Face dataset"
+ },
+ {
+  "name": "Berkeley Function Calling Leaderboard (BFCL)",
+  "url": "https://gorilla.cs.berkeley.edu/leaderboard.html",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Leaderboard that measures how accurately LLMs call functions (tools). It covers single-turn, multi-turn and agentic settings including web search and memory, plus hallucination and format sensitivity.",
+  "license": "Apache-2.0",
+  "github_repo": "ShishirPatil/gorilla",
+  "arxiv_url": "",
+  "sources": [
+   "https://gorilla.cs.berkeley.edu/leaderboard.html",
+   "https://github.com/ShishirPatil/gorilla",
+   "https://raw.githubusercontent.com/ShishirPatil/gorilla/main/LICENSE"
+  ],
+  "traction": "~13.1k GitHub stars (gorilla repo)"
+ },
+ {
+  "name": "Terminal-Bench",
+  "url": "https://www.tbench.ai/",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Benchmark of agents completing hard tasks in a terminal environment, now at version 4.0, with a public leaderboard of model and agent pairs. It is hosted by Stanford, Harbor and the Laude Institute.",
+  "license": "Apache-2.0",
+  "github_repo": "harbor-framework/terminal-bench-1",
+  "arxiv_url": "",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench-1",
+   "https://openreview.net/forum?id=a7Qa4CcHak"
+  ],
+  "traction": "~2.6k GitHub stars (terminal-bench-1)"
+ },
+ {
+  "name": "BrowseComp",
+  "url": "https://openai.com/index/browsecomp/",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "OpenAI benchmark that measures whether browsing agents can find hard-to-locate information that may require visiting tens or hundreds of websites.",
+  "license": "MIT",
+  "github_repo": "openai/simple-evals",
+  "arxiv_url": "https://arxiv.org/abs/2504.12516",
+  "sources": [
+   "https://openai.com/index/browsecomp/",
+   "https://github.com/openai/simple-evals",
+   "https://arxiv.org/abs/2504.12516"
+  ],
+  "traction": ""
+ },
+ {
+  "name": "Mind2Web",
+  "url": "https://osu-nlp-group.github.io/Mind2Web/",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Dataset and benchmark for generalist web agents with 2,350 language-instruction tasks on 137 real websites across 31 domains.",
+  "license": "MIT (code); dataset CC-BY-4.0",
+  "github_repo": "OSU-NLP-Group/Mind2Web",
+  "arxiv_url": "https://arxiv.org/abs/2306.06070",
+  "sources": [
+   "https://osu-nlp-group.github.io/Mind2Web/",
+   "https://github.com/OSU-NLP-Group/Mind2Web",
+   "https://huggingface.co/datasets/osunlp/Mind2Web",
+   "https://arxiv.org/abs/2306.06070"
+  ],
+  "traction": "~1.0k GitHub stars"
+ },
+ {
+  "name": "AgentBench",
+  "url": "https://github.com/THUDM/AgentBench",
+  "type": "benchmark",
+  "section": "Memory benchmarks & evaluation",
+  "description": "Multi-environment benchmark (ICLR'24) that evaluates LLMs acting as agents in multiple interactive environments, with code and data in the official repo.",
+  "license": "Apache-2.0",
+  "github_repo": "THUDM/AgentBench",
+  "arxiv_url": "https://arxiv.org/abs/2308.03688",
+  "sources": [
+   "https://github.com/THUDM/AgentBench",
+   "https://arxiv.org/abs/2308.03688"
+  ],
+  "traction": "~3.8k GitHub stars"
+ }
+]
