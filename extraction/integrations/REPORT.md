@@ -97,7 +97,7 @@ These use the same method and checks as above. All 143 distinct citation URLs re
   - Three Trigger.dev edges (Mastra, Cursor, OpenAI Agents SDK) cite example projects.
   - Four Temporal edges (Braintrust, Langfuse, Mastra, Pydantic AI) cite the partner's page, which Temporal's integrations catalog links to.
 
-## `2026-10-29-hubs-d.json`: 449 edges (the stack-layers intake rows)
+## `2026-10-29-hubs-d.json`: 445 edges (the stack-layers intake rows)
 
 This file covers the official integration pages of the 49 non-benchmark rows added in the `2026-10-stack-layers` intake (guardrails, identity/auth, MCP gateways, durable execution, AI gateways, evals). It also adds 20 framework → hub edges taken from the frameworks' own pages: LiteLLM, LlamaIndex, OpenAI Agents SDK, Pydantic AI, CrewAI and Vercel AI SDK.
 
@@ -126,6 +126,7 @@ This file covers the official integration pages of the 49 non-benchmark rows add
 
 **Dropped and judgment calls**
 
+- Dropped: 4 edges from Cloudflare AI Gateway, Inspect AI, agentgateway and Kong to the "Hugging Face Inference API (Embeddings)" row. Their pages cover Hugging Face chat inference providers, not the embeddings API, so this follows the same rule as hubs C.
 - Dropped: 8 Dapr Agents → framework edges. They cite docs.dapr.io/developing-ai/agent-integrations/, which documents Dapr's durable execution in general, not the Dapr Agents framework.
 - Okta XAA as a target: the "Okta Cross App Access (XAA)" row is the target for documented XAA / ID-JAG protocol support (agentgateway, Descope, Auth0, Stytch, WorkOS).
 - Model-family mapping: newer model names map to the existing family rows (for example Gemini 4 → the Gemini family row).
