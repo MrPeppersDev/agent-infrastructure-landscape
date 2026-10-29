@@ -1,0 +1,17 @@
+{
+  "_doc": "Duplicate-record merges found during the v1.1.0 research (see extraction/v1.1-backfill/lifecycle-leads.md). Same format as extraction/merges-2026-10/rules.json; apply with scripts/merge_records.py.",
+  "date": "2026-10-29",
+  "rules": [
+    {
+      "keep": "vertex-ai-memory-bank--docs-cloud-google-com",
+      "drop": [
+        "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com"
+      ],
+      "aliases": [
+        "Agent Platform Memory Bank",
+        "Gemini Enterprise Agent Platform Memory Bank"
+      ],
+      "reason": "Same Google Cloud product: Vertex AI Memory Bank was renamed Agent Platform Memory Bank when Vertex AI became Gemini Enterprise Agent Platform (Cloud Next, 2026-04-22). The kept row cites the product's own doc page; the dropped row cited the release notes."
+    }
+  ]
+}
