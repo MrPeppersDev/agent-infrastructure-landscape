@@ -14,7 +14,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
 import { compatibility, worksWith, setAliases } from './compat.js';
 import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
@@ -244,7 +244,8 @@ async function main() {
       const report = checkManifest(args.manifest, loadStackIndex(), {
         filename: args.filename,
         format: args.format,
-        replacements: loadReplacements()
+        replacements: loadReplacements(),
+        links: loadLinks()
       });
       return jsonResult(report);
     }

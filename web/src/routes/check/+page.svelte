@@ -21,7 +21,7 @@
 
   const index = indexRaw as unknown as StackIndex;
 
-  let { data }: { data: { replacements: Record<string, { id: string; name: string; why: string[] }[]>; migrations: string[] } } = $props();
+  let { data }: { data: { replacements: Record<string, { id: string; name: string; why: string[] }[]>; links: Record<string, string[]>; migrations: string[] } } = $props();
   const hasMigration = $derived(new Set(data.migrations));
 
   const SAMPLES: Record<string, { label: string; filename: string; text: string }> = {
@@ -74,7 +74,7 @@
 
   function run() {
     report = text.trim()
-      ? checkManifest(text, index, { filename: filename || undefined, format: format || undefined, replacements: data.replacements })
+      ? checkManifest(text, index, { filename: filename || undefined, format: format || undefined, replacements: data.replacements, links: data.links })
       : null;
   }
 

@@ -3,10 +3,10 @@
 // replacements for every flagged dependency are precomputed here at
 // prerender time so the page doesn't ship the catalog.
 
-import { getRecords } from '$lib/data';
+import { getRecords, getEdges } from '$lib/data';
 import { familyForSection } from '$lib/families';
 import { alternativesFor } from '$lib/chooser';
-import { attentionIds, type StackIndex, type Replacement } from '../../../../mcp/src/stack-check';
+import { attentionIds, linksFromEdges, type StackIndex, type Replacement } from '../../../../mcp/src/stack-check';
 import stackIndex from '../../../../data/stack-index.json';
 import { migrationIds } from '$lib/migrations';
 
@@ -19,9 +19,9 @@ export const load = () => {
     attentionIds(index),
     (s) => familyForSection(s)?.id ?? 'other',
     index.records,
-    3
+    6
   );
   const replacements: Record<string, Replacement[]> = {};
   for (const [id, list] of Object.entries(alts)) replacements[id] = list.map(({ id, name, why }) => ({ id, name, why }));
-  return { replacements, migrations: migrationIds() };
+  return { replacements, links: linksFromEdges(getEdges()), migrations: migrationIds() };
 };

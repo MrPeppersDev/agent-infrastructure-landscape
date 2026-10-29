@@ -17,6 +17,20 @@
 //   plain list               one package per line, optional npm:/pypi: prefix
 //   stack.yml                `components:` → `layer: record-id` lines, as
 //                            written by the stack composer (composer.ts)
+const LINK_TYPES = new Set(['integrates-with', 'built-on', 'runtime-dependency', 'extends']);
+/** Build the integration-link map from catalog edges (served to the
+ * GitHub Action as /api/integration-links.json). */
+export function linksFromEdges(edges) {
+    const m = new Map();
+    const add = (a, b) => (m.get(a) ?? m.set(a, new Set()).get(a)).add(b);
+    for (const e of edges) {
+        if (!LINK_TYPES.has(e.type) || e.source === e.target)
+            continue;
+        add(e.source, e.target);
+        add(e.target, e.source);
+    }
+    return Object.fromEntries([...m].sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => [k, [...v].sort()]));
+}
 // ---------------------------------------------------------------------------
 // Normalisation
 // ---------------------------------------------------------------------------
@@ -313,13 +327,16 @@ export function checkStack(deps, index, format = 'list', opts = {}) {
         if (hit && rec) {
             const f = { dependency: d, matchedBy: hit.by, recordId: hit.id, record: rec };
             const alts = rec.severity >= 2 ? opts.replacements?.[hit.id] : undefined;
+            // Up to six candidates arrive; the advisor re-ranks them, then three are kept.
             if (alts?.length)
-                f.replacements = alts.map(({ id, name, why }) => ({ id, name, why }));
+                f.replacements = alts.slice(0, opts.links ? 6 : 3).map(({ id, name, why }) => ({ id, name, why }));
             matched.push(f);
         }
         else
             unmatched.push(d);
     }
+    if (opts.links)
+        adviseUpgrades(matched, opts.links);
     matched.sort((a, b) => b.record.severity - a.record.severity || a.record.name.localeCompare(b.record.name));
     const summary = Object.fromEntries(ALL_STATUSES.map((s) => [s, 0]));
     for (const f of matched)
@@ -333,6 +350,23 @@ export function checkStack(deps, index, format = 'list', opts = {}) {
         summary,
         indexGeneratedAt: index.generatedAt,
     };
+}
+/** Upgrade advisor: for each flagged dependency, prefer replacements with
+ * a documented integration with the other matched dependencies, say which,
+ * and keep the top three. */
+function adviseUpgrades(matched, links) {
+    for (const f of matched) {
+        if (!f.replacements?.length)
+            continue;
+        const ranked = f.replacements.map((r, i) => {
+            // In the stack's own order, each system once.
+            const linked = new Set(links[r.id] ?? []);
+            const fits = [...new Set(matched.filter((m) => m.recordId !== f.recordId && linked.has(m.recordId)).map((m) => m.record.name))];
+            return { r: fits.length ? { ...r, fits, why: [`works with ${fits.slice(0, 3).join(', ')} in your stack`, ...r.why] } : r, n: fits.length, i };
+        });
+        ranked.sort((a, b) => b.n - a.n || a.i - b.i);
+        f.replacements = ranked.slice(0, 3).map((x) => x.r);
+    }
 }
 export function checkManifest(text, index, opts = {}) {
     const { format, dependencies } = parseManifest(text, opts);

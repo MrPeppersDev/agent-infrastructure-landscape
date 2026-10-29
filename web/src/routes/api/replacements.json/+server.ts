@@ -1,4 +1,4 @@
-// /api/replacements.json — live replacements (top 3) for every system the
+// /api/replacements.json — live replacements (top 6; the checker keeps 3 after ranking by fit) for every system the
 // stack checker flags. Prerendered; used by the GitHub Action
 // (action/check.mjs) and anyone running the checker elsewhere.
 import { json } from '@sveltejs/kit';
@@ -17,7 +17,7 @@ export const GET = () => {
     attentionIds(index),
     (s) => familyForSection(s)?.id ?? 'other',
     index.records,
-    3
+    6
   );
   const out: Record<string, { id: string; name: string; why: string[] }[]> = {};
   for (const [id, list] of Object.entries(alts)) out[id] = list.map(({ id, name, why }) => ({ id, name, why }));

@@ -37,7 +37,7 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
@@ -167,7 +167,8 @@ program
     const report = checkManifest(text, loadStackIndex(), {
       filename: file,
       format: opts.format as ManifestFormat | undefined,
-      replacements: loadReplacements()
+      replacements: loadReplacements(),
+      links: loadLinks()
     });
     if (globalOpts(cmd).json) {
       emit(JSON.stringify(report, null, 2));

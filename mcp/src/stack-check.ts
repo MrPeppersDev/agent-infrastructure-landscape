@@ -67,6 +67,27 @@ export interface Replacement {
   id: string;
   name: string;
   why: string[];
+  /** Other dependencies in the same manifest it has a documented
+   * integration with (set when CheckOptions.links is given). */
+  fits?: string[];
+}
+
+/** id → ids it has a documented integration with, either direction. */
+export type Links = Record<string, string[]>;
+
+const LINK_TYPES = new Set(['integrates-with', 'built-on', 'runtime-dependency', 'extends']);
+
+/** Build the integration-link map from catalog edges (served to the
+ * GitHub Action as /api/integration-links.json). */
+export function linksFromEdges(edges: { source: string; target: string; type: string }[]): Links {
+  const m = new Map<string, Set<string>>();
+  const add = (a: string, b: string) => (m.get(a) ?? m.set(a, new Set()).get(a)!).add(b);
+  for (const e of edges) {
+    if (!LINK_TYPES.has(e.type) || e.source === e.target) continue;
+    add(e.source, e.target);
+    add(e.target, e.source);
+  }
+  return Object.fromEntries([...m].sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => [k, [...v].sort()]));
 }
 
 export interface Finding {
@@ -81,6 +102,9 @@ export interface Finding {
 export interface CheckOptions {
   /** recordId → suggested replacements (see chooser.alternativesFor). */
   replacements?: Record<string, Replacement[]>;
+  /** Integration links; when given, replacements that work with the rest
+   * of the manifest rank first (the upgrade advisor). */
+  links?: Links;
 }
 
 export interface StackReport {
@@ -375,11 +399,13 @@ export function checkStack(deps: Dependency[], index: StackIndex, format = 'list
     if (hit && rec) {
       const f: Finding = { dependency: d, matchedBy: hit.by, recordId: hit.id, record: rec };
       const alts = rec.severity >= 2 ? opts.replacements?.[hit.id] : undefined;
-      if (alts?.length) f.replacements = alts.map(({ id, name, why }) => ({ id, name, why }));
+      // Up to six candidates arrive; the advisor re-ranks them, then three are kept.
+      if (alts?.length) f.replacements = alts.slice(0, opts.links ? 6 : 3).map(({ id, name, why }) => ({ id, name, why }));
       matched.push(f);
     }
     else unmatched.push(d);
   }
+  if (opts.links) adviseUpgrades(matched, opts.links);
   matched.sort((a, b) => b.record.severity - a.record.severity || a.record.name.localeCompare(b.record.name));
   const summary = Object.fromEntries(ALL_STATUSES.map((s) => [s, 0])) as Record<StackStatus, number>;
   for (const f of matched) summary[f.record.status]++;
@@ -392,6 +418,23 @@ export function checkStack(deps: Dependency[], index: StackIndex, format = 'list
     summary,
     indexGeneratedAt: index.generatedAt,
   };
+}
+
+/** Upgrade advisor: for each flagged dependency, prefer replacements with
+ * a documented integration with the other matched dependencies, say which,
+ * and keep the top three. */
+function adviseUpgrades(matched: Finding[], links: Links): void {
+  for (const f of matched) {
+    if (!f.replacements?.length) continue;
+    const ranked = f.replacements.map((r, i) => {
+      // In the stack's own order, each system once.
+      const linked = new Set(links[r.id] ?? []);
+      const fits = [...new Set(matched.filter((m) => m.recordId !== f.recordId && linked.has(m.recordId)).map((m) => m.record.name))];
+      return { r: fits.length ? { ...r, fits, why: [`works with ${fits.slice(0, 3).join(', ')} in your stack`, ...r.why] } : r, n: fits.length, i };
+    });
+    ranked.sort((a, b) => b.n - a.n || a.i - b.i);
+    f.replacements = ranked.slice(0, 3).map((x) => x.r);
+  }
 }
 
 export function checkManifest(
