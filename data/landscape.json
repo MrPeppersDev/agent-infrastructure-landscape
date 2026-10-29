@@ -187916,8 +187916,8 @@
       "id": "coalfire-ai-operations--coalfire-com",
       "name": "Coalfire AI Operations",
       "tier": 3,
-      "url": "https://www.coalfire.com/services/managed-services/aiops",
-      "last_verified_at": "2026-10-28",
+      "url": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
+      "last_verified_at": "2026-10-29",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -187985,8 +187985,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Coalfire is the largest specialist-cybersecurity-services firm in the FedRAMP/PCI/HITRUST space. Apax Partners acquired majority stake 2020. Launched AI-augmented assessment services 2024 — pentest + audit workpaper automation.",
-          "citation": "https://www.coalfire.com/",
+          "value": "Coalfire is the largest specialist-cybersecurity-services firm in the FedRAMP/PCI/HITRUST space. Apax Partners acquired majority stake 2020. Launched AI-augmented assessment services 2024 — pentest + audit workpaper automation. On 2026-05-05 Coalfire launched Audit AI in its Compliance Essentials platform, letting customers' AI agents work on live compliance data via MCP and open APIs; AI agent services for security operations (LegionAI) now sit under Coalfire AI Security and Trust Engineering.",
+          "citation": "https://coalfire.com/insights/news-and-events/press-releases/coalfire-launches-audit-ai-for-compliance-essentials-to-deliver-agentic-compliance-at-enterprise-scale",
           "status": "real-data",
           "tier": "T2"
         },
@@ -188618,7 +188618,7 @@
         },
         "licensing-bucket": {
           "value": "commercial",
-          "citation": "https://www.coalfire.com/services/managed-services/aiops",
+          "citation": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
           "status": "real-data",
           "tier": "T2"
         },
@@ -188641,7 +188641,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-10-29",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/coalfire-ai-operations--coalfire-com",
           "status": "real-data",
           "tier": "T2"
@@ -188677,7 +188677,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://coalfire.com/insights/news-and-events/press-releases/coalfire-launches-audit-ai-for-compliance-essentials-to-deliver-agentic-compliance-at-enterprise-scale",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -188981,8 +188984,8 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.coalfire.com/services/managed-services/aiops",
-          "scraped_at": "2026-10-28",
+          "scrape_url": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
+          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -188996,7 +188999,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/coalfire-ai-operations--coalfire-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -337125,10 +337128,10 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents. On 2026-06-18 Google replaced Gemini CLI with Antigravity CLI for free, Google One and Google AI Pro/Ultra users; Gemini CLI stays supported for Gemini Code Assist Standard/Enterprise licenses and paid Gemini or Agent Platform API keys.",
-          "citation": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+          "value": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents. On 2026-06-18 Google replaced Gemini CLI with Antigravity CLI for free, Google One and Google AI Pro/Ultra users; Gemini CLI stays supported for Gemini Code Assist Standard/Enterprise licenses and paid Gemini or Agent Platform API keys. As of 2026-10 the repo README describes Gemini CLI as maintained for enterprise Gemini Code Assist workflows and not tuned for the Gemini 4 model series.",
+          "citation": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
           "status": "real-data",
-          "tier": "T2"
+          "tier": "T1"
         },
         "claims": {
           "value": "Unpaid tier and Google One users: Gemini CLI was replaced by Antigravity CLI on June 18th, 2026. To learn more, see our blog post .",
@@ -337789,7 +337792,7 @@
           "verified": false
         },
         "desc": {
-          "scrape_url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+          "scrape_url": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
           "scraped_at": "2026-10-29",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
@@ -740004,7 +740007,7 @@
       "name": "OpenAI Codex CLI",
       "tier": 1,
       "url": "https://github.com/openai/codex",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-29",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -740072,10 +740075,10 @@
           "tier": "T1"
         },
         "desc": {
-          "value": "OpenAI's actively developed OSS terminal coding agent (Apr 2025), now written in Rust (codex-rs replaced the original TS CLI); also IDE extension + desktop app. Separate from the Codex Web cloud agent and the retired 2021 Codex model API.",
-          "citation": "https://github.com/openai/codex/blob/main/README.md",
+          "value": "OpenAI's actively developed OSS terminal coding agent (Apr 2025), now written in Rust (codex-rs replaced the original TS CLI); also IDE extension + desktop app. Separate from the Codex Web cloud agent and the retired 2021 Codex model API. The codex mcp-server command (Codex as an MCP server) was deprecated on 2026-08-24 and removed in CLI 0.154.0 (2026-09-09); OpenAI points integrations to the experimental Codex app server, and codex mcp still connects Codex to external MCP servers.",
+          "citation": "https://learn.chatgpt.com/docs/mcp-server",
           "status": "real-data",
-          "tier": "T1"
+          "tier": "T2"
         },
         "claims": {
           "value": "Released 2025-04 as OSS Apache-2.0 CLI; positioned as OpenAI's answer to Claude Code; ~40k★ in first 6 months.",
@@ -740097,11 +740100,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "v0.164.0 (2026-10-23) — tag rust-v0.164.0",
-          "citation": "https://www.havoptic.com/tools/openai-codex",
+          "value": "v0.165.0 (2026-10-27)",
+          "citation": "https://learn.chatgpt.com/docs/changelog",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-10-26"
+          "last_verified_at": "2026-10-29"
         },
         "license": {
           "value": "Apache-2.0",
@@ -740729,7 +740732,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-29",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-codex-cli--gh-openai-codex",
           "status": "real-data",
           "tier": "T2"
@@ -740765,11 +740768,11 @@
           "verified": true
         },
         "desc": {
-          "scrape_url": "https://github.com/openai/codex/blob/main/README.md",
-          "scraped_at": "2026-10-26",
+          "scrape_url": "https://learn.chatgpt.com/docs/mcp-server",
+          "scraped_at": "2026-10-29",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "claims": {
           "source": "legacy",
@@ -740784,11 +740787,11 @@
           "verified": true
         },
         "latest-release": {
-          "scrape_url": "https://www.havoptic.com/tools/openai-codex",
-          "scraped_at": "2026-10-26",
+          "scrape_url": "https://learn.chatgpt.com/docs/changelog",
+          "scraped_at": "2026-10-29",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "license": {
           "source": "legacy",
@@ -741232,7 +741235,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-codex-cli--gh-openai-codex",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -741244,7 +741247,7 @@
       "name": "OpenAI Codex (cloud agent)",
       "tier": 1,
       "url": "https://developers.openai.com/codex/memories",
-      "last_verified_at": "2026-10-22",
+      "last_verified_at": "2026-10-29",
       "sections": [
         {
           "section": "Coding-agent memory",
@@ -741357,11 +741360,11 @@
           "last_verified_at": "2026-05-06"
         },
         "latest-release": {
-          "value": "0.161.0 (2026-10-07) (Codex CLI)",
-          "citation": "https://github.com/openai/codex/releases",
+          "value": "0.165.0 (2026-10-27) (Codex CLI)",
+          "citation": "https://learn.chatgpt.com/docs/changelog",
           "status": "real-data",
-          "tier": "T1",
-          "last_verified_at": "2026-10-22"
+          "tier": "T2",
+          "last_verified_at": "2026-10-29"
         },
         "license": {
           "value": "Apache-2.0 (Codex CLI; cloud agent proprietary)",
@@ -741989,7 +741992,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-22",
+          "value": "2026-10-29",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-codex-cloud-agent--developers-openai-com",
           "status": "real-data",
           "tier": "T2"
@@ -742041,8 +742044,8 @@
           "verified": true
         },
         "latest-release": {
-          "scrape_url": "https://github.com/openai/codex/releases",
-          "scraped_at": "2026-10-22",
+          "scrape_url": "https://learn.chatgpt.com/docs/changelog",
+          "scraped_at": "2026-10-29",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
@@ -742392,7 +742395,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-codex-cloud-agent--developers-openai-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1004184,8 +1004187,8 @@
       "id": "tabnine--docs-tabnine-com",
       "name": "Tabnine",
       "tier": 2,
-      "url": "https://docs.tabnine.com/main/getting-started/context-engine",
-      "last_verified_at": "2026-10-22",
+      "url": "https://docs.tabnine.com/main/administering-tabnine/managing-your-team/context-engine",
+      "last_verified_at": "2026-10-29",
       "sections": [
         {
           "section": "Coding-agent memory",
@@ -1004268,8 +1004271,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level. Individual completions stay session-scoped. Tabnine Agents (Nov 2025) adds team-shared agent context.",
-          "citation": "https://docs.tabnine.com/main/getting-started/context-engine",
+          "value": "Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level. Individual completions stay session-scoped. Tabnine Agents (Nov 2025) adds team-shared agent context. Acquired by Tricentis (2026-07-30); Tricentis is integrating the Enterprise Context Engine into its Agentic Quality Engineering Platform, and tabnine.com now redirects to tricentis.com.",
+          "citation": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
           "status": "real-data",
           "tier": "T2"
         },
@@ -1004327,11 +1004330,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$25M total Series B · 2023-11",
-          "citation": "https://techcrunch.com/2023/11/08/code-generating-ai-platform-tabnine-nabs-25m-investment/",
+          "value": "Acquired by Tricentis (2026-07-30); prior $25M Series B · 2023-11",
+          "citation": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-10-29"
         },
         "customers": {
           "value": "$27M ARR 51-200 ppl no data (1M+ monthly users, thousands of orgs)",
@@ -1004924,7 +1004927,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-22",
+          "value": "2026-10-29",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/tabnine--docs-tabnine-com",
           "status": "real-data",
           "tier": "T2"
@@ -1004960,7 +1004963,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -1004996,7 +1005002,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -1005314,7 +1005323,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/tabnine--docs-tabnine-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1080358,7 +1080367,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent.",
+          "value": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent. The legacy Cascade agent stayed available through 2026-07-01; windsurf.com now redirects to devin.ai/desktop.",
           "citation": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
           "status": "real-data",
           "tier": "T2"
@@ -1080417,11 +1080426,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "Codeium $150M Series C (2024); ~$3B reported OpenAI offer; ultimately $2.4B Google reverse-acqui-hire (2025-07)",
-          "citation": "https://windsurf.com",
+          "value": "Acquired by Cognition (2025-07-14, definitive agreement for IP, product, brand and team); prior Codeium $150M Series C (2024); ~$3B reported OpenAI offer; $2.4B Google reverse-acqui-hire (2025-07)",
+          "citation": "https://cognition.com/blog/windsurf",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-10-29"
         },
         "customers": {
           "value": "Codeium claimed 1M+ devs pre-acquisition; named enterprise users include Dell, JPMorgan-Chase (Codeium era)",
@@ -1081051,7 +1081060,7 @@
         },
         "desc": {
           "scrape_url": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
-          "scraped_at": "2026-10-27",
+          "scraped_at": "2026-10-29",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
@@ -1081089,7 +1081098,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://cognition.com/blog/windsurf",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {

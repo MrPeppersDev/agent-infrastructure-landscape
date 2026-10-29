@@ -1,0 +1,147 @@
+[
+ {
+  "id": "openai-deep-research--openai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "OpenAI deprecations page: deprecation announced 2026-04-22; o3-deep-research and o4-mini-deep-research API models shut down 2026-07-23, replacement gpt-5.6-sol. The deep-research API guide still documents Deep Research in ChatGPT and carries the same retirement notice. Product (ChatGPT feature) remains; only the API model snapshots were retired. Existing desc already states this, so no cell change. openai.com and help.openai.com returned 403, so ChatGPT plan limits (pricing cell) could not be re-checked.",
+  "lifecycle_citation": "https://developers.openai.com/api/docs/deprecations",
+  "record": {},
+  "updates": []
+ },
+ {
+  "id": "openai-codex-cloud-agent--developers-openai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "OpenAI Codex changelog: 2026-09-05 entry 'Codex MCP server removed' (codex mcp-server and codex-mcp-server binary removed after deprecation on 2026-08-24; shipped in CLI 0.154.0, 2026-09-09). This concerns the CLI, not the memory feature this row covers, so desc is left alone. Latest CLI is 0.165.0 (2026-10-27).",
+  "lifecycle_citation": "https://learn.chatgpt.com/docs/changelog",
+  "record": {},
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "0.161.0 (2026-10-07) (Codex CLI)",
+    "new": "0.165.0 (2026-10-27) (Codex CLI)",
+    "citation": "https://learn.chatgpt.com/docs/changelog",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "OpenAI Codex changelog: 'The codex mcp-server command and standalone codex-mcp-server binary have been removed after their deprecation on August 24, 2026' (entry dated 2026-09-05); release notes for Codex CLI 0.154.0 (2026-09-09) list 'Remove the deprecated codex mcp-server command (#42993)'. Replacement: the Codex app server (experimental, not supported for production). The docs page developers.openai.com/codex/guides/agents-sdk now 308-redirects to learn.chatgpt.com/docs/mcp-server, which states the removal. Latest CLI 0.165.0 (2026-10-27).",
+  "lifecycle_citation": "https://learn.chatgpt.com/docs/changelog",
+  "record": {},
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "OpenAI's actively developed OSS terminal coding agent (Apr 2025), now written in Rust (codex-rs replaced the original TS CLI); also IDE extension + desktop app. Separate from the Codex Web cloud agent and the retired 2021 Codex model API.",
+    "new": "OpenAI's actively developed OSS terminal coding agent (Apr 2025), now written in Rust (codex-rs replaced the original TS CLI); also IDE extension + desktop app. Separate from the Codex Web cloud agent and the retired 2021 Codex model API. The codex mcp-server command (Codex as an MCP server) was deprecated on 2026-08-24 and removed in CLI 0.154.0 (2026-09-09); OpenAI points integrations to the experimental Codex app server, and codex mcp still connects Codex to external MCP servers.",
+    "citation": "https://learn.chatgpt.com/docs/mcp-server",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "v0.164.0 (2026-10-23) — tag rust-v0.164.0",
+    "new": "v0.165.0 (2026-10-27)",
+    "citation": "https://learn.chatgpt.com/docs/changelog",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Confirmed. geminicli.com memory docs banner: 'Gemini CLI was replaced by Antigravity CLI on June 18th, 2026' for unpaid-tier and Google One users. Google Developers Blog (2026-05-19) says Google 'will continue to support Gemini CLI' for Code Assist Standard/Enterprise and paid API keys. Repo README (2026-10) says Gemini CLI is maintained for enterprise Code Assist workflows and is not tuned for Gemini 4. Not deprecated overall, so lifecycle stays active; desc already carries the 2026-06-18 change. Side note: the memory docs no longer mention a save_memory tool; the agent edits GEMINI.md with write_file/replace (the row name still says save_memory).",
+  "lifecycle_citation": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+  "record": {},
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents. On 2026-06-18 Google replaced Gemini CLI with Antigravity CLI for free, Google One and Google AI Pro/Ultra users; Gemini CLI stays supported for Gemini Code Assist Standard/Enterprise licenses and paid Gemini or Agent Platform API keys.",
+    "new": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents. On 2026-06-18 Google replaced Gemini CLI with Antigravity CLI for free, Google One and Google AI Pro/Ultra users; Gemini CLI stays supported for Gemini Code Assist Standard/Enterprise licenses and paid Gemini or Agent Platform API keys. As of 2026-10 the repo README describes Gemini CLI as maintained for enterprise Gemini Code Assist workflows and not tuned for the Gemini 4 model series.",
+    "citation": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "tabnine--docs-tabnine-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Tricentis press release 'Tricentis Acquires Tabnine to Further Scale Agentic Quality Engineering for the Enterprise', dateline AUSTIN, Texas, July 30, 2026 (page datePublished 2026-07-29 UTC): Tricentis 'today announced the acquisition of Tabnine' and will integrate the Enterprise Context Engine into the Tricentis Agentic Quality Engineering Platform. tabnine.com, /pricing and /blog now 301 to tricentis.com; Tabnine terms PDF on be.tricentis.com says 'Tabnine has been acquired by Tricentis'. docs.tabnine.com still serves. The old row URL 307-redirects to a new docs path. Pricing cell left alone: tabnine.com/pricing now redirects to a Tricentis contact form, so list prices can't be verified.",
+  "lifecycle_citation": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
+  "record": {
+   "url": "https://docs.tabnine.com/main/administering-tabnine/managing-your-team/context-engine"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level. Individual completions stay session-scoped. Tabnine Agents (Nov 2025) adds team-shared agent context.",
+    "new": "Enterprise Context Engine builds a multi-dimensional knowledge graph from repos + CI/CD + PRs + tickets + docs at the org level. Individual completions stay session-scoped. Tabnine Agents (Nov 2025) adds team-shared agent context. Acquired by Tricentis (2026-07-30); Tricentis is integrating the Enterprise Context Engine into its Agentic Quality Engineering Platform, and tabnine.com now redirects to tricentis.com.",
+    "citation": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$25M total Series B · 2023-11",
+    "new": "Acquired by Tricentis (2026-07-30); prior $25M Series B · 2023-11",
+    "citation": "https://www.tricentis.com/news/tricentis-acquires-tabnine",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "No primary page could be loaded. www.toplyne.io and toplyne.io return 404 with a Wix 'ConnectYourDomain Error' page (not parked or for sale); app./docs./help. subdomains don't resolve (proxy 502) and blog. has a cert mismatch. The Toplyne LinkedIn company page still loads but shows no posts. Wayback Machine is blocked from this sandbox (429 / fetch refused). Secondary reports (Inc42, Entrackr, YourStory, 2024-10-11) say CEO Rishen Kapoor announced on LinkedIn that Toplyne was shutting down and returning capital to investors. That is very likely dead since Oct 2024, but only secondary sources were found. A human could check the founder's LinkedIn post or the Wayback capture of toplyne.io. The existing funding/desc ($17.5M Series A May-2023, Tiger+Sequoia+Together) conflicts with secondary reports of a ~$15M Series A in Jun 2022 led by Tiger Global and Peak XV; it was not changed.",
+  "lifecycle_citation": "",
+  "record": {},
+  "updates": []
+ },
+ {
+  "id": "coalfire-ai-operations--coalfire-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The /services/managed-services/aiops page returns 404, and no managed-services or aiops path is in coalfire.com's sitemap (about 1000 URLs checked 2026-10-29). Coalfire's AI services now live under 'Coalfire AI Security and Trust Engineering' (LegionAI: automating security operations; ForgeAI; GuardianAI), and a 2026-05-05 press release launched Audit AI in Compliance Essentials (MCP + open APIs, agentic compliance). The firm and its AI offerings are active; the specific 'AI Ops' managed-service page is gone. Suggest re-pointing the row URL.",
+  "lifecycle_citation": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
+  "record": {
+   "url": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Coalfire is the largest specialist-cybersecurity-services firm in the FedRAMP/PCI/HITRUST space. Apax Partners acquired majority stake 2020. Launched AI-augmented assessment services 2024 — pentest + audit workpaper automation.",
+    "new": "Coalfire is the largest specialist-cybersecurity-services firm in the FedRAMP/PCI/HITRUST space. Apax Partners acquired majority stake 2020. Launched AI-augmented assessment services 2024 — pentest + audit workpaper automation. On 2026-05-05 Coalfire launched Audit AI in its Compliance Essentials platform, letting customers' AI agents work on live compliance data via MCP and open APIs; AI agent services for security operations (LegionAI) now sit under Coalfire AI Security and Trust Engineering.",
+    "citation": "https://coalfire.com/insights/news-and-events/press-releases/coalfire-launches-audit-ai-for-compliance-essentials-to-deliver-agentic-compliance-at-enterprise-scale",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "Confirmed. devin.ai blog 'Windsurf is now Devin Desktop' (Cognition, June 2, 2026) and cognition.com blog 'Introducing Devin Desktop' (2026.06.02) say Devin Desktop is the next generation of Windsurf, backwards-compatible, and that plans and pricing are unchanged. Devin Local is 'the successor to Cascade as our primary local agent', and the legacy Cascade agent was usable 'through July 1st' (2026). The devin.ai/desktop FAQ says 'Devin Desktop is the new name for Windsurf'; windsurf.com and windsurf.com/pricing 308-redirect to devin.ai. Cognition's own post (2025-07-14) says it 'signed a definitive agreement to acquire Windsurf' including IP, product, trademark, brand and team. Pricing on devin.ai/pricing matches the cell (Free $0, Pro $20, Max $200, Teams $80 + $40/seat, Enterprise custom).",
+  "lifecycle_citation": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
+  "record": {},
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent.",
+    "new": "Codeium-built agentic IDE (VS Code fork); flagship was Cascade, a planning + execution agent that maintains \"Flows\" and \"Memories\" as durable artifacts. Reported acquired by OpenAI in May 2025 for ~$3B (later partly unwound; Google paid ~$2.4B for an inverse-license + key staff; the remaining IDE/IP went to Cognition in July 2025). Renamed Devin Desktop by Cognition on 2026-06-02, with Devin Local replacing Cascade as the primary local agent. The legacy Cascade agent stayed available through 2026-07-01; windsurf.com now redirects to devin.ai/desktop.",
+    "citation": "https://devin.ai/blog/windsurf-is-now-devin-desktop",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Codeium $150M Series C (2024); ~$3B reported OpenAI offer; ultimately $2.4B Google reverse-acqui-hire (2025-07)",
+    "new": "Acquired by Cognition (2025-07-14, definitive agreement for IP, product, brand and team); prior Codeium $150M Series C (2024); ~$3B reported OpenAI offer; $2.4B Google reverse-acqui-hire (2025-07)",
+    "citation": "https://cognition.com/blog/windsurf",
+    "confidence": "high"
+   }
+  ]
+ }
+]
