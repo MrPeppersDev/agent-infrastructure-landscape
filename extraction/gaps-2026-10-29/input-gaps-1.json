@@ -1,0 +1,838 @@
+[
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "name": "01.AI Yi family",
+  "url": "https://www.01.ai/",
+  "section": "Foundation models (substrate reference)",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen. B",
+  "deployment": "Self-hostable (Yi-34B Apache 2.0) + 01.AI API for Yi-Large / Yi-Lightning; Together AI hosts Yi-34B",
+  "pricing": "API: Yi-Lightning $0.14 per 1M tokens (vendor-claimed lowest among frontier-tier); Yi-34B weights free under Apache 2.0"
+ },
+ {
+  "id": "1x-technologies--1x-tech",
+  "name": "1X Technologies",
+  "url": "https://www.1x.tech/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Norway / US humanoid robot company — Eve (wheeled bimanual) + Neo (legged humanoid, consumer-targeted, late 2025 / 2026 launch). Raised $100M Series B (Jan-2024, EQT + OpenAI Startup Fund); $40M Series A (Mar-2023, OpenAI lead). Distinguishing feature: consumer-home positioning rather than industria",
+  "deployment": "Direct customer (industrial Eve + consumer Neo)",
+  "pricing": "NEO: $20,000 early-access purchase (3-yr warranty) or $499/month subscription; $200 refundable deposit"
+ },
+ {
+  "id": "abridge--abridge-com",
+  "name": "Abridge",
+  "url": "https://www.abridge.com/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Clinician-assist ambient documentation. Source mapping: every AI-generated summary element traced back to the source utterance. Audit-and-trust layer over episodic memory. Built on proprietary 1.5M+ medical-encounter dataset.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "acuvity-now-proofpoint--acuvity-ai",
+  "name": "Acuvity (now Proofpoint)",
+  "url": "https://acuvity.ai/ai-runtime-security/",
+  "section": "Memory governance, privacy & safety",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Acquired by Proofpoint (closed 2026-02-12). Runtime enforcement targeting memory poisoning, unauthorised execution, identity spoofing per the OWASP LLM threat list. Visibility/control over MCP servers and locally-installed AI tools — the infrastructure layer where memory is most exposed.",
+  "deployment": "on-prem or cloud (Proofpoint enterprise deployment); agentless approach",
+  "pricing": "enterprise pricing via Proofpoint (not public); contact sales"
+ },
+ {
+  "id": "adept-act--adept-ai",
+  "name": "Adept ACT",
+  "url": "https://www.adept.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2022 by David Luan and fellow ex-OpenAI / Google researchers. Built ACT-1 / ACT-2 multimodal action transformers for computer-use. In June 2024 Amazon hired Luan and co-founders (Odena, Nye, Elsen, Szot) into Amazon AGI and licensed Adept's technology (acqui-hire, not a full acquisition); Ad",
+  "deployment": "not applicable — orchestration platform, not memory product",
+  "pricing": "Pre-acq: enterprise pilot only"
+ },
+ {
+  "id": "agility-robotics--agilityrobotics-com",
+  "name": "Agility Robotics",
+  "url": "https://agilityrobotics.com/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Oregon-based humanoid maker; Digit is in production at GXO Logistics warehouses since Sep-2024 — claimed first humanoid in commercial service in the US. Spinout of Oregon State University. $400M+ raised (Amazon Industrial Innovation Fund participant).",
+  "deployment": "Warehouse deployment; RaaS model",
+  "pricing": "Robot-as-a-Service (RaaS) — vendor reports per-hour rates"
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "name": "AlphaSense",
+  "url": "https://www.alpha-sense.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2010; AI-driven market intelligence — semantic search over earnings calls, broker research, regulatory filings. $4B val Jun-2024 ($650M growth round; BDT + MSP). **Acquired Tegus Jun-2024 for $930M** (expert-call transcripts). Genesis = autonomous research agent launched 2024.",
+  "deployment": "Managed-only — SaaS; enterprise deployment to AWS/GCP also offered",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "amplenote--amplenote-com",
+  "name": "Amplenote",
+  "url": "https://www.amplenote.com/",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Tags + bidirectional links + task/calendar integration. \"Task Score\" priority matrix. AmpleAI plugin supports OpenAI, Anthropic, Gemini, Grok, DeepSeek, Ollama.",
+  "deployment": "Managed-only",
+  "pricing": "Free; Basic $6.99/mo ($71.88/yr); Pro $11.99/mo ($119.88/yr); Founder $29.99/mo ($299.88/yr)"
+ },
+ {
+  "id": "anthropic-auto-dream--claudefa-st",
+  "name": "Anthropic Auto Dream",
+  "url": "https://claudefa.st/blog/guide/mechanics/auto-dream",
+  "section": "Claude Code memory mechanisms",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Unconfirmed / experimental — described only by third-party reports, not Anthropic docs: a background Claude Code sub-agent that periodically scans ~/.claude/projects/‹project›/memory/ plus recent transcripts, prunes stale notes, deduplicates, resolves contradictions, converts relative dates to absol",
+  "deployment": "Local CLI (Claude Code) — Claude.ai web not in scope",
+  "pricing": "bundled with Claude Code (no separate fee)"
+ },
+ {
+  "id": "anthropic-claude-memory--platform-claude-com",
+  "name": "Anthropic Claude Memory",
+  "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "section": "Platform-provider memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Memory tool API + consumer \"Memory\" feature + Auto Dream consolidation. Document-as-memory rather than extracted-fact-as-memory.",
+  "deployment": "Managed-only",
+  "pricing": "Free + paid"
+ },
+ {
+  "id": "apex-security--apex-security",
+  "name": "Apex Security",
+  "url": "https://www.apex.security/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Founded 2023 by Tomer Avni + Matan Getz (ex-Microsoft); generative-AI security platform spanning red-teaming, DLP, and runtime. $7M seed Apr-2024 (Sequoia + Index Ventures).",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "apptronik--apptronik-com",
+  "name": "Apptronik",
+  "url": "https://apptronik.com/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Apollo humanoid maker, spun out of University of Texas Human Centered Robotics Lab. Raised $350M Series A (Feb-2025; B Capital + Capital Factory); Mercedes-Benz manufacturing partner (Mar 2024). Partnered with Google DeepMind on Gemini Robotics (Mar 2025) — Apollo is the headline reference platform ",
+  "deployment": "Direct customer (manufacturing + logistics)",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "asapp-generativeagent--asapp-com",
+  "name": "ASAPP GenerativeAgent",
+  "url": "https://www.asapp.com/blog/from-models-to-memory-the-next-big-leap-in-ai-agents-in-customer-experience",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Treats memory as first-class architecture. Captures the digital footprint of every interaction; retrieves preference and history at engagement time. Public example: airline knowing a frequent flyer wants aisle seats with her son — preference-aware, not just history-lookup.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "auditboard--auditboard-com",
+  "name": "AuditBoard (now Optro)",
+  "url": "https://optro.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2014; enterprise audit + GRC platform — 60%+ of Fortune 500 customers. **Acquired by Hg for $3B Jun-2024** (private-equity take-private). AI features added 2024 — auto-population of audit workpapers, AI-assisted issue classification.",
+  "deployment": "SaaS + private cloud",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "backboard--github-com",
+  "name": "Backboard",
+  "url": "https://github.com/Backboard-io",
+  "section": "Dedicated memory layers",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Stateful AI API combining persistent memory, RAG, web search and routing across many LLMs behind one interface, with SDKs for Python and npm; benchmarks its memory on LoCoMo and LongMemEval. As of Oct 2026 Backboard positions itself as an AI compute efficiency lab selling an inference-optimization e",
+  "deployment": "Managed cloud API; vendor also advertises private-cloud, on-prem and on-device deployment",
+  "pricing": "Free $0; Education $5; Developer $20; Scale $400 (billing period not stated on page)"
+ },
+ {
+  "id": "bee--bee-computer",
+  "name": "Bee",
+  "url": "https://bee.computer",
+  "section": "Voice-first / wearable AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Acquired by Amazon (Jul 2025); bee.computer is now © Amazon and sells the Bee Frontier wearable ($74.99), with a Bee Eclipse device marked coming soon. Small wearable (pendant / clip / bracelet). Continuous capture; converts speech to text immediately; never stores raw audio . Daily summaries, perso",
+  "deployment": "Managed-only",
+  "pricing": "Bee Frontier bracelet $74.99 (sold via Amazon, launched 2026-10-15); Bee Pro subscription $11.99/mo (free tier keeps 14 days of memory); Bee Eclipse ($100) comi"
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "name": "BenevolentAI",
+  "url": "https://www.benevolent.com/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream pred",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "calypso-ai--calypsoai-com",
+  "name": "Calypso AI (now F5 AI Guardrails)",
+  "url": "https://www.f5.com/products/ai-guardrails",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Dublin / NYC founded 2018; GenAI security and content scanning. $23M Series A-1 Aug-2024 (Paladin Capital + Lockheed Martin Ventures). Pivoted from defence ML to enterprise GenAI guardrails 2023-24.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "cartesia-sonic--cartesia-ai",
+  "name": "Cartesia Sonic",
+  "url": "https://cartesia.ai/sonic",
+  "section": "Voice agent platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Cartesia's Sonic TTS — state-space-model-based voice generation, lowest published TTS latency (~40ms). Cartesia raised $64M Series A Q1 2025 (Index + Lightspeed); founded by Mamba authors. Agent platform layer ('Cartesia Line') wraps Sonic with telephony + LLM.",
+  "deployment": "Both (self-hosted + managed cloud) — managed API; on-prem (incl. air-gapped), customer VPC and OEM under enterprise contract",
+  "pricing": "Free (20K credits/mo); Pro $5/mo; Startup $49/mo; Scale $299/mo; Enterprise custom; managed voice agents $0.06/min"
+ },
+ {
+  "id": "causaly--causaly-com",
+  "name": "Causaly",
+  "url": "https://www.causaly.com/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Agentic AI platform for life sciences: orchestrated scientific agents over a curated biomedical knowledge graph (plus Bio Graph and Pipeline Graph), an evidence-retrieval system and an enterprise data fabric over literature, trials and patents.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "causaly--causaly-com-2",
+  "name": "Causaly",
+  "url": "https://www.causaly.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Cross-listing: Causaly already exists in Scientific / research AI memory. This row adds the use-case agent harness framing: London-based biomedical-research AI for drug-discovery teams. $60M Series B 2023 (Index + ICONIQ). 25M+ scientific articles indexed; causal-graph-grounded.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "cellon-memory-inc--en-wowtale-net",
+  "name": "Cellon (Memory.inc)",
+  "url": "https://en.wowtale.net/2026/04/30/233992/",
+  "section": "Dedicated memory layers",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Korean startup. Connects scattered internal/external data across multiple chats and services to improve AI answer quality at retrieval. 18-year-old CEO Jang Jun-ha; pitch is that answer quality depends on what the model remembers, not which model.",
+  "deployment": "searched not found",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "character-ai--character-ai",
+  "name": "Character.ai",
+  "url": "https://character.ai",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Chat Memories (user-defined facts), auto-memories for c.ai+ subscribers, pinned memories, in-context retention. Latest chat models PipSqueak 3 and ShortSqueak (Sep 2026). On 2026-10-12 the company announced a voluntary Chapter 11 process for a court-supervised sale of all or substantially all assets",
+  "deployment": "Managed-only",
+  "pricing": "Free + paid"
+ },
+ {
+  "id": "charisma-ai--charisma-ai",
+  "name": "Charisma.ai",
+  "url": "https://charisma.ai",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "No-code interactive narrative platform. Characters track what they know, when they were lied to, what they misremember; story state changes downstream behaviour. Characters can deliberately lie / misremember and track when players have lied.",
+  "deployment": "Managed-only",
+  "pricing": "Free + paid"
+ },
+ {
+  "id": "chatgpt-study-mode--openai-com",
+  "name": "ChatGPT Study Mode",
+  "url": "https://openai.com/index/chatgpt-study-mode/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Activates a Socratic interaction style — guiding questions, scaffolded concepts, knowledge checks rather than direct answers. With ChatGPT Memory enabled, persists learning goals and facts across sessions. Memory is not study-mode-specific; it is the same general ChatGPT Memory, so personalization d",
+  "deployment": "Web + iOS + Android",
+  "pricing": "Available on Free, Go ($8/mo), Plus ($20/mo), Pro ($200/mo), Team/Business"
+ },
+ {
+  "id": "clarivate--clarivate-com",
+  "name": "Clarivate",
+  "url": "https://clarivate.com/",
+  "section": "Enterprise-search adjacencies",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Bibliographic metadata curation (Web of Science, Derwent, Cortellis). Human editorial governance + journal-deindexing. Memory-adjacent — included as a curated-knowledge baseline.",
+  "deployment": "Both",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "claude-md--docs-claude-com",
+  "name": "CLAUDE.md",
+  "url": "https://docs.claude.com/en/docs/claude-code/memory",
+  "section": "File-backed / editor paradigms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "CLAUDE.md files (managed, user, project, local scopes) concatenated into context at session start, with @imports and path-scoped .claude/rules/; complemented by Claude-written auto memory (MEMORY.md index). Project-root file re-injected after /compact.",
+  "deployment": "not applicable — not a deployable product",
+  "pricing": "not applicable — not commercial"
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "name": "Cline .clinerules",
+  "url": "https://cline.bot/blog/clinerules-version-controlled-shareable-and-ai-editable-instructions",
+  "section": "File-backed / editor paradigms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Markdown rule files in a workspace .clinerules/ (or .cline/rules/) directory plus global rules in ~/Documents/Cline/Rules; workspace wins on conflict. Per-rule toggles, conditional rules via YAML 'paths' globs, and AGENTS.md / .cursorrules / .windsurfrules are also read.",
+  "deployment": "not applicable — not a deployable product",
+  "pricing": "not applicable — not commercial"
+ },
+ {
+  "id": "clio-duo-manage-ai--clio-com",
+  "name": "Clio Duo / Manage AI",
+  "url": "https://www.clio.com/features/legal-ai-software/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "SMB law firms. AI embedded in practice management; pulls full matter overviews — WIP, billing, documents, communications — as context. Memory is the PMS data; no separately persisted cross-matter layer. Renamed Manage AI at ClioCon 2025.",
+  "deployment": "Cloud SaaS only (runs entirely in Clio's cloud infrastructure)",
+  "pricing": "from $49/user/mo (third-party listing; AI add-on pricing not public)"
+ },
+ {
+  "id": "coalfire-ai-operations--coalfire-com",
+  "name": "Coalfire AI Operations",
+  "url": "https://www.coalfire.com/services/managed-services/aiops",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Coalfire is the largest specialist-cybersecurity-services firm in the FedRAMP/PCI/HITRUST space. Apax Partners acquired majority stake 2020. Launched AI-augmented assessment services 2024 — pentest + audit workpaper automation.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "cocounsel-legal-thomson-reuters--legaltechnology-com",
+  "name": "CoCounsel Legal (Thomson Reuters)",
+  "url": "https://legal.thomsonreuters.com/en/products/cocounsel-legal",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Next-gen release (Aug 2026, built on Claude Agent SDK) is fully agentic and adds per-matter Workspaces that keep firm documents and precedents as context across matters and teams, plus Brief Builder, a Word drafting agent and Deep Research Verify.",
+  "deployment": "Managed SaaS; GA in US, Canada/UK/Australia slated for later 2026",
+  "pricing": "searched not found"
+ },
+ {
+  "id": "cognigy--cognigy-com",
+  "name": "Cognigy (now NiCE Cognigy)",
+  "url": "https://www.cognigy.com/product-updates/an-ultimate-guide-to-ai-agent-memory",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Acquired by NiCE (closed 2025-09-08); continues as NiCE Cognigy, standalone and inside CXone Mpower. Enterprise contact centre (voice + chat). Short-term covers current session; long-term persists across sessions and is shared by every agent a customer might encounter. Most explicitly engineered mem",
+  "deployment": "Both",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "name": "Cognition Devin v2 / Spec Mode",
+  "url": "https://cognition.com/",
+  "section": "Agent IDEs & coding harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Cross-listing of Cognition's Devin product framed at the harness level rather than the memory layer. Devin 2.0 (Mar 2025) added cheaper concurrent sessions; Spec Mode (Aug 2025, post-Windsurf-IP acquisition) integrates Windsurf-style spec authoring. The Coding-agent-memory row remains canonical for ",
+  "deployment": "Managed-only — Cognition cloud agents plus Devin Desktop and CLI; enterprise plan offers a dedicated deployment option",
+  "pricing": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom"
+ },
+ {
+  "id": "collaborative-robotics--co-bot",
+  "name": "Collaborative Robotics",
+  "url": "https://www.co.bot/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2022 by Brad Porter (ex-Amazon Robotics VP + Scale AI CTO). Stealthier than the humanoid pack; raised $100M Series B Apr-2024 (General Catalyst). Targets warehouse + healthcare collaborative robots.",
+  "deployment": "Direct customer pilot",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "name": "Continue.dev",
+  "url": "https://continue.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "OSS in-IDE coding-assistant plugin — supports VS Code and JetBrains. Customisable: any model, any context provider, any slash-command. \"Agent mode\" added 2024 for multi-step plan + execute. Memory layer = .continue/rules; separate Memory MCP. Built by Nate Sesti and Ty Dunn. Acquired by Cursor (2026",
+  "deployment": "Self-hosted only — VS Code/JetBrains extensions and CLI (discontinued after Cursor acquisition; OSS code remains forkable)",
+  "pricing": "Discontinued — recurring billing turned off after Cursor acquisition; OSS code free (Apache-2.0)"
+ },
+ {
+  "id": "covariant--covariant-ai",
+  "name": "Covariant",
+  "url": "https://covariant.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. In Aug 2024 Amazon took a non-exclusive license to its robotic foundation models and hired founders Abbeel, Chen and Rocky Duan plus research staff; Covariant was ",
+  "deployment": "On-prem (warehouse) + cloud hybrid",
+  "pricing": "Enterprise; per-robot / per-pick fees"
+ },
+ {
+  "id": "cresta--cresta-com",
+  "name": "Cresta",
+  "url": "https://cresta.com",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Sales + contact centre. Customer history feeds real-time guidance and coaching. Memory survives handoffs between AI agent, human agent, and channels — but leans on CRM as the primary store.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "deepscribe--deepscribe-ai",
+  "name": "DeepScribe",
+  "url": "https://www.deepscribe.ai/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Specialty-care ambient scribe (oncology focus). Pulls forward prior notes with precise dates; synthesises interval history (what changed since last visit); auto-populates disease-status and treatment-plan context.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "dia-atlassian--diabrowser-com",
+  "name": "Dia (Atlassian)",
+  "url": "https://www.diabrowser.com",
+  "section": "Browser-agent memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "The Browser Company's AI-native browser; Atlassian acquired The Browser Company for $610M cash (announced 2025-09, closed 2025-10-21). Stores summaries and preferences locally; opt-in @history feature references up to 7 days of browsing as context. History/chats/bookmarks encrypted local-first.",
+  "deployment": "Managed-only",
+  "pricing": "Free (no AI); paid AI tiers 'Better Answers' $20/mo (page also shows $10) and 'Better Days' $100/mo"
+ },
+ {
+  "id": "diffbot--diffbot-com",
+  "name": "Diffbot",
+  "url": "https://www.diffbot.com/",
+  "section": "Knowledge-graph platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Auto-built knowledge graph from web crawl. 1T+ facts, 10B+ entities. GraphRAG-fine-tuned model based on open-source Llama 3.3.",
+  "deployment": "Managed-only",
+  "pricing": "Free $0/month (10,000 credits); Startup $299/month (250,000 credits, overage $0.001/credit); Startup Plus $899/month (1,000,000 credits, overage $0.0009/credit)"
+ },
+ {
+  "id": "dpo--arxiv-2305-18290",
+  "name": "DPO",
+  "url": "https://arxiv.org/abs/2305.18290",
+  "section": "Training infrastructure",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Stanford method that converts RLHF into a supervised-learning loss over preference pairs — no separate reward model needed; widely adopted alignment recipe.",
+  "deployment": "not applicable — research paper",
+  "pricing": "not applicable — research paper"
+ },
+ {
+  "id": "draftwise--draftwise-com",
+  "name": "DraftWise",
+  "url": "https://www.draftwise.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2021 by James Ding (ex-Allen & Overy); drafting + benchmarking AI agent that lets transactional lawyers see historical deals. $20M Series A Apr-2024 (Index Ventures + Y Combinator); ex-A&O / Linklaters customers.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "drata--drata-com",
+  "name": "Drata",
+  "url": "https://drata.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2020; compliance automation (SOC 2, HIPAA, GDPR, ISO 27001) with hundreds of pre-built control libraries. $200M Series C Mar-2024 ($2B val; ICONIQ + GGV + Cowboy). Trust Hub launched 2024; AI Trust Hub auto-fills security questionnaires.",
+  "deployment": "SaaS",
+  "pricing": "Quote-based; Compliance tiers Foundation, Advanced and Enterprise (no list prices published)"
+ },
+ {
+  "id": "duolingo-max--blog-duolingo-com",
+  "name": "Duolingo Max",
+  "url": "https://blog.duolingo.com/duolingo-max/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Adds GPT-4-powered Roleplay (character conversations, with cross-call memory for \"Lily\") and Explain My Answer on top of Duolingo's existing spaced-repetition engine, which tracks per-word and per-skill mastery state across all sessions.",
+  "deployment": "Managed-only",
+  "pricing": "Free + paid"
+ },
+ {
+  "id": "dynatrace-davis-copilot--dynatrace-com",
+  "name": "Dynatrace Davis CoPilot (now Dynatrace Assist)",
+  "url": "https://www.dynatrace.com/news/blog/dynatrace-assist-ask-analyze-and-act-with-dynatrace-intelligence/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Dynatrace launched Davis CoPilot Sep-2023 — GenAI conversational interface on top of the (deterministic) Davis AI engine, the largest causal-AI observability deployment. Dynatrace parent: NYSE:DT, $1.4B+ revenue.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "elsa-speak--elsaspeak-com",
+  "name": "ELSA Speak",
+  "url": "https://elsaspeak.com/en/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Persistent pronunciation profile per user, tracking which sounds, words, and patterns the learner consistently mispronounces. Self-evolving model re-evaluates and updates the profile as the learner improves. Competitive moat is a proprietary non-native accent training dataset, not a general LLM.",
+  "deployment": "Managed-only",
+  "pricing": "Free + paid individual plans; Business (50+ learners) and Schools (21+) custom pricing"
+ },
+ {
+  "id": "endor-labs--endorlabs-com",
+  "name": "Endor Labs",
+  "url": "https://www.endorlabs.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2021 by Dimitri Stiliadis + Varun Badhwar (ex-Palo Alto Networks Prisma Cloud); reachability-aware SCA with AI for triage. $70M Series A Oct-2023 ($200M val; Lightspeed + Coatue + Dell Tech Capital); $93M total raised.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "enkrypt-ai--enkryptai-com",
+  "name": "Enkrypt AI",
+  "url": "https://www.enkryptai.com/platform/capabilities/ai-risk-removal",
+  "section": "Memory governance, privacy & safety",
+  "need": [
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Applies guardrails at three points: (1) before write to vector DB, (2) before query reaches embedding model, (3) before response. Detects malicious instructions in stored memory before retrieval; scans for PII/PHI in/out. Text + image + voice modalities.",
+  "deployment": "SaaS for self-serve tiers; Enterprise offers VPC / on-prem deployment",
+  "pricing": "Explore free; Launch $149/mo ($134/mo annual); Scale $1,499/mo ($1,349/mo annual); Enterprise custom"
+ },
+ {
+  "id": "era-computer--techcrunch-com",
+  "name": "Era Computer",
+  "url": "https://era.world/",
+  "section": "Voice-first / wearable AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Software platform / OS layer for AI wearables (glasses, rings, pendants, speakers) that abstracts hardware from AI orchestration. Memory and model providers are pluggable and user-controlled rather than cloud-locked; supports 130+ LLMs from 14+ providers. Founded 2025 by ex-Humane team.",
+  "deployment": "not applicable — not a deployable product",
+  "pricing": "not applicable — not commercial"
+ },
+ {
+  "id": "figure-ai--figure-ai",
+  "name": "Figure AI",
+  "url": "https://www.figure.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Figure AI — humanoid robot maker founded 2022 by Brett Adcock (ex-Archer Aviation). Figure 02 (Aug 2024) + Helix VLA model (Feb 2025) for full-body / hand control. Raised $675M Series B Feb-2024 (Microsoft / OpenAI / Bezos / Intel; $2.6B val); reported new round at $39.5B val Q2 2025. Partnered with",
+  "deployment": "Direct customer deployment (humanoid robot)",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "filevine-lois--filevine-com",
+  "name": "Filevine LOIS",
+  "url": "https://www.filevine.com/news/filevine-launches-the-only-embedded-ai-legal-assistant-that-lets-legal-professionals-chat-with-their-case/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Embedded in case-management platform. Holds full scope of every matter — deadlines, billing, discovery, communications, negotiation history — as live context for every query. Case data is the context, not a separate retrieval corpus.",
+  "deployment": "Managed-only",
+  "pricing": "Free LOIS Explore tier (research/drafting, no card) + 90-day free trial; paid/enterprise pricing via sales"
+ },
+ {
+  "id": "friend--friend-com",
+  "name": "Friend",
+  "url": "https://friend.com",
+  "section": "Voice-first / wearable AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Pendant necklace (~2 inches). Always-on listening feeds a persistent AI companion persona. Companionship-framed rather than productivity / recall. Cloud LLM backend; no detailed encryption claims.",
+  "deployment": "Managed-only",
+  "pricing": "Hardware-bundled"
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "name": "FutureHouse",
+  "url": "https://www.futurehouse.org/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work. As of Oct 2026 FutureHouse describe",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "github-copilot-autofix--github-blog",
+  "name": "GitHub Copilot Autofix",
+  "url": "https://github.blog/2024-03-20-found-means-fixed-introducing-code-scanning-autofix-powered-by-github-copilot-and-codeql/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "GitHub's CodeQL-powered auto-fix for code-scanning alerts; combines static analysis with Copilot model suggestions to generate patches for vulnerabilities. Launched Mar-2024 (public beta), GA Aug-2024 for GitHub Advanced Security customers.",
+  "deployment": "GitHub SaaS",
+  "pricing": "Included in GitHub Code Security at $30 per active committer/month (Team and Enterprise); free on public repositories"
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "name": "Grok Memory (xAI)",
+  "url": "https://www.maginative.com/article/xai-upgrades-grok-with-personalized-memory-and-custom-workspaces/",
+  "section": "Platform-provider memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Extracts and persists facts from past conversations; applies them to future responses. Per-memory deletion UI; user can also clear all.",
+  "deployment": "Managed-only",
+  "pricing": "Free; SuperGrok ~$30/mo (higher limits, multi-agent)"
+ },
+ {
+  "id": "grpo--arxiv-2402-03300",
+  "name": "GRPO",
+  "url": "https://arxiv.org/abs/2402.03300",
+  "section": "Training infrastructure",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "DeepSeek-Math's GRPO — group-relative advantage estimation replacing PPO's critic. Used in DeepSeek-R1 reasoning post-training; widely adopted in OSS reasoning RLHF.",
+  "deployment": "not applicable — research paper",
+  "pricing": "not applicable — research paper"
+ },
+ {
+  "id": "hackerone-hai--hackerone-com",
+  "name": "HackerOne Hai",
+  "url": "https://www.hackerone.com/solutions/ai",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "HackerOne's AI-augmented offensive security service — Hai is an LLM-assisted triage/research copilot for hackers, plus a productised 'AI red-team' service connecting customers to skilled human red-teamers for LLM systems. Used by major LLM providers (OpenAI, Anthropic) historically as a vulnerabilit",
+  "deployment": "not applicable — wrong section",
+  "pricing": "Pay-per-finding + retainer service tiers"
+ },
+ {
+  "id": "hebbia--hebbia-com",
+  "name": "Hebbia",
+  "url": "https://www.hebbia.com/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2020 by George Sivulka (ex-Stanford); Matrix is its enterprise research agent — multi-step research across documents. $130M Series B Jul-2024 ($700M val; Andreessen Horowitz + Index + Google Ventures + Peter Thiel). Used heavily at Tier-1 investment banks + hedge funds.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "heptabase--heptabase-com",
+  "name": "Heptabase",
+  "url": "https://heptabase.com/",
+  "section": "Personal AI / PKM / lifelogging memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Visual whiteboard canvas + nested cards + bidirectional links + journal. AI chat with cited sources inside whiteboards; supports OpenAI / Gemini / Anthropic backends.",
+  "deployment": "Managed-only",
+  "pricing": "Pro $8.99/mo; Premium $17.99/mo; Premium+ $53.99/mo (yearly billing saves 25%)"
+ },
+ {
+  "id": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+  "name": "HiddenLayer AISec Platform 2.0",
+  "url": "https://www.hiddenlayer.com/platform",
+  "section": "Memory governance, privacy & safety",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "AI security platform with four modules: AI asset discovery, supply-chain/model integrity validation, continuous attack simulation, and runtime detection/response, including protection of agents and MCP-based systems.",
+  "deployment": "Agentless, model-agnostic; connectors for cloud, CI/CD, SIEM/SOAR, API gateways, MLOps (specific SaaS/on-prem options not stated)",
+  "pricing": "enterprise pricing; contact sales; no public pricing"
+ },
+ {
+  "id": "hippocratic-ai-polaris--hippocraticai-com",
+  "name": "Hippocratic AI Polaris",
+  "url": "https://hippocraticai.com/polaris-3/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Patient-conversation / chronic-care staffing model. HIPAA-compliant Memory Store holds non-EHR salient facts from prior calls, persists across engagements, explicitly not used for model training. Shifts from transactional call-handling to longitudinal patient relationship.",
+  "deployment": "Managed-only",
+  "pricing": "Enterprise only"
+ },
+ {
+  "id": "horizon3-nodezero--horizon3-ai",
+  "name": "Horizon3 NodeZero",
+  "url": "https://www.horizon3.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2019 by Snehal Antani (ex-CTO US SOCOM J6) + ex-NSA team. NodeZero is autonomous pentest — finds + exploits + verifies exploitability. $100M Series D Mar-2024 (NEA; $750M val); >300% YoY revenue growth reported. Federal + commercial.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "name": "Hyperproof",
+  "url": "https://hyperproof.io/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2018; compliance-operations platform — pre-built frameworks + workflow automation. $40M Series B Dec-2022 (Riverwood Capital + Toba + Madrona). AI agent layer added 2024. Targets enterprise-scale compliance teams.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "hyperproof-ai-trust-center--hyperproof-io",
+  "name": "Hyperproof AI Trust Center",
+  "url": "https://hyperproof.io/trust-center/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Standalone trust-center + AI-questionnaire-fill product from Hyperproof. Listed separately because the trust-center category is a distinct sub-market (Vanta, Drata, Hyperproof, SafeBase, ConveyorAI compete). SafeBase acquired by Drata Mar-2025.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "imbue-formerly-generally-intelligent--imbue-com",
+  "name": "Imbue (formerly Generally Intelligent)",
+  "url": "https://imbue.com/",
+  "section": "Multi-agent orchestration platforms",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Founded 2017 as Generally Intelligent; rebranded Imbue 2023. Founders Kanjun Qiu + Josh Albrecht. $200M Series B 2023 ($1B valuation). Trained a 70B reasoning model, then shifted to user-owned AI tools: imbue.com now lists Studio (personal AI operating system, waitlist), Bouncer, Cloud in a Bottle, ",
+  "deployment": "not applicable — orchestration platform, not memory product",
+  "pricing": "Pre-product (research-focused)"
+ },
+ {
+  "id": "iris-ai--iris-ai",
+  "name": "Iris.ai",
+  "url": "https://iris.ai/",
+  "section": "Vertical / domain-specific AI memory",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Enterprise R&D document-intelligence platform, now sold as three products (Axion data prep, Neuralith enterprise knowledge engine, RSpace R&D intelligence) under an 'AI harness' that controls what models read and traces each answer step.",
+  "deployment": "Managed-only",
+  "pricing": "not public — request a demo"
+ },
+ {
+  "id": "iris-ai--iris-ai-2",
+  "name": "Iris.ai",
+  "url": "https://iris.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus",
+   "positioning-platform-vs-product"
+  ],
+  "desc": "Oslo-founded 2015; scientific research engine + AI agent for R&D. Bootstrapped + small angel rounds; broader European AI scene. Differentiates with explainable / hallucination-free claims.",
+  "deployment": "not applicable — wrong section",
+  "pricing": "not applicable — wrong section"
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "name": "Ironclad AI Assistant",
+  "url": "https://ironcladapp.com/ai/",
+  "section": "Use-case-specific agent harnesses",
+  "need": [
+   "architecture-deployment-locus"
+  ],
+  "desc": "Ironclad's AI agents inside its CLM (contract lifecycle management) platform. Ironclad parent: $200M+ ARR; backed by Accel, Sequoia, YC, BOND. AI features include auto-redline, review, and contract intelligence. Note: separate Rivet Memory Node row already in catalog under Framework-embedded memory ",
+  "deployment": "SaaS",
+  "pricing": "not applicable — wrong section"
+ }
+]

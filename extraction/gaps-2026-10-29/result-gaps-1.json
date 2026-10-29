@@ -1,0 +1,488 @@
+[
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://github.com/01-ai/Yi",
+  "confidence": "high",
+  "note": "Official Yi repo (Apache-2.0) offers 'Deploy Yi locally' via pip/Docker/llama.cpp with downloadable weights, or 'Run Yi with APIs' (platform.01.ai notes its international API was suspended and moved to platform.lingyiwanwu.com)."
+ },
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://platform.01.ai/",
+  "confidence": "high",
+  "note": "01.AI's developer platform sells Yi-Large models to builders via an OpenAI-compatible API ('Build now with Yi-Large')."
+ },
+ {
+  "id": "abridge--abridge-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.abridge.com/",
+  "confidence": "medium",
+  "note": "Enterprise clinical AI platform sold to health systems with customer log-in and contact-sales; no self-hosted option is mentioned."
+ },
+ {
+  "id": "alphasense--alpha-sense-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.alpha-sense.com/pricing/",
+  "confidence": "high",
+  "note": "Pricing page lists Hosting & Security as SaaS on all plans, with private cloud (and BYOB in your own AWS) only on Enterprise Intelligence."
+ },
+ {
+  "id": "amplenote--amplenote-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.amplenote.com/help/installing_amplenote_macos_windows_linux_ios_android",
+  "confidence": "medium",
+  "note": "Amplenote is a logged-in web app with PWA and (Pro-tier) desktop clients for offline use; no self-hosting option is offered."
+ },
+ {
+  "id": "amplenote--amplenote-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.amplenote.com/",
+  "confidence": "high",
+  "note": "Note-taking app sold to end users on Free/Basic/Pro/Founder subscription plans."
+ },
+ {
+  "id": "anthropic-claude-memory--platform-claude-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "confidence": "medium",
+  "note": "Docs state the memory tool operates client-side: your application runs each memory operation and you control where data is stored through your own infrastructure (the model itself is the hosted Claude API)."
+ },
+ {
+  "id": "asapp-generativeagent--asapp-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.asapp.com/welcome",
+  "confidence": "medium",
+  "note": "GenerativeAgent is built, tested and deployed through ASAPP's hosted AI Console and APIs within ASAPP CXP; no self-hosted option is documented."
+ },
+ {
+  "id": "auditboard--auditboard-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://optro.ai/faqs",
+  "confidence": "high",
+  "note": "FAQ: 'Optro is a cloud-based, AI-powered GRC platform delivered as software-as-a-service', accessed through the browser without on-premise infrastructure (hosted on AWS per optro.ai/trust-security)."
+ },
+ {
+  "id": "backboard--github-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://backboard.io/products/api",
+  "confidence": "medium",
+  "note": "Stateful API is self-serve via API key on Free/Education/Developer/Scale plans; private-cloud, on-premise and on-device are advertised but routed through 'Talk to us'."
+ },
+ {
+  "id": "bee--bee-computer",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.bee.computer/",
+  "confidence": "medium",
+  "note": "Bee data lives in the user's Bee (Amazon) account: the CLI authenticates with 'bee login' and syncs conversations, facts and todos down from it."
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.qor.one/",
+  "confidence": "medium",
+  "note": "BenevolentAI now sells Qor (built on BenevolentAI) as a web service with 'Try Qor for free' sign-up and demos; no self-hosting is mentioned."
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://www.benevolent.com/",
+  "confidence": "high",
+  "note": "Homepage: 'Qor, powered by BenevolentAI, is an always-on strategic function for biopharma decision makers and life science consultancies'."
+ },
+ {
+  "id": "calypso-ai--calypsoai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.f5.com/products/ai-guardrails",
+  "confidence": "medium",
+  "note": "F5 AI Guardrails deployment methods are customer-run: deploy in your AWS/Azure/Google Cloud, private cloud, or on-premises/air-gapped; no F5-hosted SaaS is listed on the page."
+ },
+ {
+  "id": "cartesia-sonic--cartesia-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.cartesia.ai/pricing",
+  "confidence": "high",
+  "note": "Self-serve plans are API access; pricing FAQ answers on-prem/VPC deployment with 'Yes. Talk to our sales team about your setup.'"
+ },
+ {
+  "id": "causaly--causaly-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.causaly.com/about",
+  "confidence": "medium",
+  "note": "Causaly is an enterprise AI platform accessed by customer login with demo-based sales; no self-hosted deployment is mentioned."
+ },
+ {
+  "id": "causaly--causaly-com-2",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.causaly.com/about",
+  "confidence": "medium",
+  "note": "Causaly is an enterprise AI platform accessed by customer login with demo-based sales; no self-hosted deployment is mentioned."
+ },
+ {
+  "id": "character-ai--character-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://character.ai/about",
+  "confidence": "medium",
+  "note": "Consumer service offered as a Web App plus iPhone and Android apps tied to a Character.ai account; no self-hosting."
+ },
+ {
+  "id": "charisma-ai--charisma-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://charisma.ai/pricing",
+  "confidence": "medium",
+  "note": "Hosted platform billed by credits with platform-use fees; stories are authored on Charisma and played in external clients via its SDKs."
+ },
+ {
+  "id": "chatgpt-study-mode--openai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://openai.com/index/chatgpt-study-mode/",
+  "confidence": "medium",
+  "note": "Study mode is a ChatGPT feature 'available to logged in users on Free, Plus, Pro, Team'; ChatGPT is OpenAI-hosted."
+ },
+ {
+  "id": "chatgpt-study-mode--openai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://openai.com/index/chatgpt-study-mode/",
+  "confidence": "high",
+  "note": "Introduced as a learning experience inside the ChatGPT consumer app for students."
+ },
+ {
+  "id": "clarivate--clarivate-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://clarivate.com/trust-center/",
+  "confidence": "medium",
+  "note": "Trust Center frames Clarivate's offerings as cloud-based services ('How Clarivate Approaches Security for Cloud-Based Services'); no self-hosted product option is stated."
+ },
+ {
+  "id": "claude-md--docs-claude-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://code.claude.com/docs/en/memory",
+  "confidence": "high",
+  "note": "CLAUDE.md files are Markdown files on the user's machine (managed, user ~/.claude, project and local scopes) that Claude Code loads at session start."
+ },
+ {
+  "id": "cline-clinerules--cline-bot",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://cline.bot/blog/clinerules-version-controlled-shareable-and-ai-editable-instructions",
+  "confidence": "high",
+  "note": "Instructions 'live in simple Markdown (.md) files within your project or a global directory' and are committed to your Git repo."
+ },
+ {
+  "id": "cocounsel-legal-thomson-reuters--legaltechnology-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://sales.legalsolutions.thomsonreuters.com/en-us/products/cocounsel-legal/700/plans-pricing?segment=lawfirm",
+  "confidence": "medium",
+  "note": "Sold as an online subscription plan per attorney and used against Westlaw/Practical Law content; no self-hosted deployment is offered."
+ },
+ {
+  "id": "cognigy--cognigy-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.cognigy.com/",
+  "confidence": "medium",
+  "note": "Homepage: models are 'ready to run. We manage everything behind the scenes'; an on-prem Kubernetes installation guide exists for licensed enterprise deployments (docs.cognigy.com)."
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "hybrid",
+  "status": "real-data",
+  "citation": "https://devin.ai/",
+  "confidence": "high",
+  "note": "Homepage: 'Devin runs in the cloud or on your machine'; the Free plan downloads Devin Desktop and Pro adds Devin Cloud agents (devin.ai/pricing)."
+ },
+ {
+  "id": "cresta--cresta-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://cresta.com/trust",
+  "confidence": "medium",
+  "note": "Trust page describes Cresta's own certified infrastructure securing customers' conversations; no customer-hosted deployment is mentioned."
+ },
+ {
+  "id": "deepscribe--deepscribe-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.deepscribe.ai/privacy",
+  "confidence": "medium",
+  "note": "Privacy policy describes account sign-in to services on 'the computer that hosts our Services' and the DeepScribe app; no self-hosting is mentioned."
+ },
+ {
+  "id": "dia-atlassian--diabrowser-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://www.diabrowser.com/security",
+  "confidence": "medium",
+  "note": "Security FAQ: conversations, history, bookmarks and files are encrypted and stored locally on your device by default; AI requests pass through Dia's servers to AI partners."
+ },
+ {
+  "id": "diffbot--diffbot-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.diffbot.com/pricing",
+  "confidence": "medium",
+  "note": "Diffbot is sold as hosted APIs and Knowledge Graph access on credit-based monthly plans."
+ },
+ {
+  "id": "draftwise--draftwise-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.draftwise.com/faq",
+  "confidence": "medium",
+  "note": "FAQ: a containerized SaaS offering, with firm-specific private cloud or on-premise deployment available to law firms by arrangement."
+ },
+ {
+  "id": "drata--drata-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://drata.com/security",
+  "confidence": "high",
+  "note": "Security page: 'Hosted on reputable cloud services providers, Amazon Web Services (AWS) and Google Cloud Platform (GCP).'"
+ },
+ {
+  "id": "duolingo-max--blog-duolingo-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.duolingo.com/privacy",
+  "confidence": "medium",
+  "note": "Logged-in app service; privacy policy says speaking-activity audio is sent to providers such as Google, Apple or AWS and usage data is stored by Duolingo."
+ },
+ {
+  "id": "dynatrace-davis-copilot--dynatrace-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.dynatrace.com/docs/whats-new/saas/sprint-338",
+  "confidence": "medium",
+  "note": "Dynatrace Assist updates ship in 'Dynatrace SaaS' release notes, and its driver LLM is hosted in the cloud."
+ },
+ {
+  "id": "elsa-speak--elsaspeak-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://elsaspeak.com/en/",
+  "confidence": "medium",
+  "note": "Mobile app with account log-in and subscription plans; no offline or self-hosted option is offered."
+ },
+ {
+  "id": "endor-labs--endorlabs-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.endorlabs.com/pricing",
+  "confidence": "medium",
+  "note": "FAQ: most customers use agentless scanning via cloud apps that clone code to a container in Endor's cloud; CI-pipeline scanning also reports to the platform."
+ },
+ {
+  "id": "enkrypt-ai--enkryptai-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "platform",
+  "status": "real-data",
+  "citation": "https://www.enkryptai.com/",
+  "confidence": "medium",
+  "note": "Sold as a 'purpose-built platform' for agentic security and compliance to enterprises building AI apps (guardrails and red teaming); the site also notes Enkrypt AI has joined Anaconda."
+ },
+ {
+  "id": "filevine-lois--filevine-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.filevine.com/security/",
+  "confidence": "high",
+  "note": "Security page: Filevine products are built on AWS, GCP and Microsoft cloud environments, with client data backed up across AWS regions."
+ },
+ {
+  "id": "friend--friend-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://friend.com/privacy.pdf",
+  "confidence": "high",
+  "note": "Privacy policy: pendant audio is transmitted through the phone app to Friend and processed by Google and OpenAI to generate replies and store memories."
+ },
+ {
+  "id": "github-copilot-autofix--github-blog",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.github.com/en/code-security/concepts/code-scanning/copilot-autofix-for-code-scanning",
+  "confidence": "medium",
+  "note": "Docs: available for public repositories on GitHub.com and to Code Security licensees; GitHub generates the LLM-based fix suggestions."
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://x.ai/grok",
+  "confidence": "medium",
+  "note": "Grok is 'Available on Web, iOS and Android' with sign-in; memory is part of the xAI-hosted service."
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "cell": "positioning-platform-vs-product",
+  "value": "product",
+  "status": "real-data",
+  "citation": "https://x.ai/grok",
+  "confidence": "high",
+  "note": "Grok is marketed as a consumer assistant ('AI that is useful for everyone') with SuperGrok subscriptions."
+ },
+ {
+  "id": "hackerone-hai--hackerone-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.hackerone.com/platform/hai",
+  "confidence": "medium",
+  "note": "Hai is presented as the agentic AI orchestrator inside the HackerOne platform; no self-hosted option is mentioned."
+ },
+ {
+  "id": "hebbia--hebbia-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.hebbia.com/security/",
+  "confidence": "high",
+  "note": "Security page: 'Hebbia runs across the US and EU, with regional processing ... and can deploy on a dedicated tenant if needed.'"
+ },
+ {
+  "id": "heptabase--heptabase-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://heptabase.com/",
+  "confidence": "medium",
+  "note": "Desktop/mobile apps with offline access, but use requires a Heptabase log-in and supports real-time collaboration; no self-hosted sync is offered."
+ },
+ {
+  "id": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://www.hiddenlayer.com/security",
+  "confidence": "medium",
+  "note": "Security page describes HiddenLayer's own AWS-hosted service (AWS KMS, Secrets Manager, ALBs); no self-serve self-hosted option is listed."
+ },
+ {
+  "id": "hippocratic-ai-polaris--hippocraticai-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://hippocraticai.com/",
+  "confidence": "medium",
+  "note": "Vendor-operated healthcare agents sold via 'Book a meeting' with customer log-in; no self-hosted deployment is mentioned."
+ },
+ {
+  "id": "horizon3-nodezero--horizon3-ai",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://docs.horizon3.ai/",
+  "confidence": "medium",
+  "note": "Docs: operate from the NodeZero Portal ('Jump into our cloud UI'); a local host or OVA in the customer network runs the pentest."
+ },
+ {
+  "id": "hyperproof--hyperproof-io",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://hyperproof.io/security-trust/",
+  "confidence": "high",
+  "note": "FAQ: 'Hyperproof is hosted in Microsoft Azure data centers in the United States and Europe.'"
+ },
+ {
+  "id": "imbue-formerly-generally-intelligent--imbue-com",
+  "cell": "architecture-deployment-locus",
+  "value": "local",
+  "status": "real-data",
+  "citation": "https://imbue.com/blog/sculptor-announce",
+  "confidence": "medium",
+  "note": "Sculptor is downloaded for macOS/Linux and runs coding agents in containers on your machine; the homepage also offers 'Cloud in a Bottle' for self-hosting."
+ },
+ {
+  "id": "iris-ai--iris-ai",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://iris.ai/",
+  "confidence": "medium",
+  "note": "Sells Axion (data prep) and Neuralith (knowledge engine for agents and copilots) as infrastructure, plus RSpace as an end-user R&D intelligence app."
+ },
+ {
+  "id": "iris-ai--iris-ai-2",
+  "cell": "positioning-platform-vs-product",
+  "value": "both",
+  "status": "real-data",
+  "citation": "https://iris.ai/",
+  "confidence": "medium",
+  "note": "Sells Axion (data prep) and Neuralith (knowledge engine for agents and copilots) as infrastructure, plus RSpace as an end-user R&D intelligence app."
+ },
+ {
+  "id": "ironclad-ai-assistant--ironcladapp-com",
+  "cell": "architecture-deployment-locus",
+  "value": "cloud",
+  "status": "real-data",
+  "citation": "https://ironcladapp.com/security",
+  "confidence": "high",
+  "note": "Security page: 'Cloud-based deployment. Ironclad uses the US-hosted Google Cloud Platform for production servers.'"
+ }
+]

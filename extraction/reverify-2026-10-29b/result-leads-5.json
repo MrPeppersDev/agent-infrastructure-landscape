@@ -1,0 +1,424 @@
+[
+ {
+  "id": "pluto-ai--heypluto-ai",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verifiable from a primary source. heypluto.ai and www.heypluto.ai return NXDOMAIN, and the .ai registry RDAP (rdap.identitydigital.services) returns 404 'Object not found' for heypluto.ai on 2026-10-29, i.e. the domain is no longer registered. No other vendor page found. Strong sign the product is gone, but no shutdown statement; the row is also flagged 'wrong section' in its own cells, so it is a removal candidate.",
+  "lifecycle_citation": "https://rdap.identitydigital.services/rdap/domain/heypluto.ai",
+  "updates": []
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "No primary page found. toplyne.io and www.toplyne.io show a Wix 'ConnectYourDomain' 404 on 2026-10-29 (domain still registered to 2027-04-15 per RDAP); app./docs./help. subdomains unreachable; Wayback blocked from this session. Secondary press (Entrackr, Inc42, YourStory, Oct 2024) report Toplyne shut down operations in Oct 2024 and returned capital to investors, which contradicts the desc's 'pivoted to AI-agent positioning 2024' line. Needs a primary (founder post or MCA filing) before marking dead; the row may need correction or removal.",
+  "lifecycle_citation": "https://www.toplyne.io/",
+  "updates": []
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "xAI's official @grok account announced the feature on 2025-04-17: 'Grok now remembers your conversations. When you ask for recommendations or advice, you'll get personalized responses.' (loaded via X's syndication endpoint). No retirement notice found; xAI's docs (docs.x.ai, now branded SpaceXSI Docs) do not document consumer memory. x.ai/news returns 403 to scripts.",
+  "lifecycle_citation": "https://x.com/grok/status/1912670182012801156",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Extracts and persists facts from past conversations; applies them to future responses. Per-memory deletion UI; user can also clear all.",
+    "new": "Extracts and persists facts from past conversations; applies them to future responses. Per-memory deletion UI; user can also clear all. Announced by xAI's official Grok account on 2025-04-17 ('Grok now remembers your conversations').",
+    "citation": "https://x.com/grok/status/1912670182012801156",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Free; SuperGrok ~$30/mo (higher limits, multi-agent)",
+    "new": "Free; The X Subscription (Grok + Cursor + X): Plus $8/mo, Premium $30/mo, Super $100/mo, Ultra $200/mo (annual discounts; team seats on Premium/Super/Ultra); existing SuperGrok plans continue",
+    "citation": "https://docs.x.ai/x-subscription/pricing",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://x.com/grok/status/1912670182012801156"
+  }
+ },
+ {
+  "id": "krutrim-kruti-ola--ai-labs-olakrutrim-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Ola Krutrim's own Kruti page (https://www.olakrutrim.com/kruti, still listed in the olakrutrim.com sitemap) shows on 2026-10-29: 'We'll be back soon. Kruti AI is currently under maintenance. We're working on something great and will be back shortly.' So the vendor presents it as temporarily unavailable, not discontinued; no primary shutdown statement found. Parent site now leads with Krutrim Cloud. The catalog's 'shut down' wording rests only on press reports.",
+  "lifecycle_citation": "https://www.olakrutrim.com/kruti",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Shut down: Kruti was taken offline in Apr 2026 (pulled from app stores and the Ola platform, no official explanation). Was Ola Krutrim's agentic multimodal assistant (beta Jun 2025; booking, food ordering, bill pay; MCP/A2A for enterprises).",
+    "new": "Offline since Apr 2026 (pulled from app stores and the Ola platform per press reports); Ola Krutrim's own Kruti page says (checked 2026-10-29) that Kruti AI is under maintenance and will be back shortly, with no official shutdown statement. Was Ola Krutrim's agentic multimodal assistant (beta Jun 2025; booking, food ordering, bill pay; MCP/A2A for enterprises).",
+    "citation": "https://www.olakrutrim.com/kruti",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Product shut down Apr 2026 (parent Krutrim still operating). $50M Series A at $1B valuation (unicorn); Matrix Partners India; Bhavish Aggarwal committed ₹2000Cr + ₹10000Cr more",
+    "new": "Kruti offline since Apr 2026 (vendor page says under maintenance; parent Krutrim still operating). $50M Series A at $1B valuation (unicorn); Matrix Partners India; Bhavish Aggarwal committed ₹2000Cr + ₹10000Cr more",
+    "citation": "https://www.olakrutrim.com/kruti",
+    "confidence": "medium"
+   },
+   {
+    "cell": "pricing",
+    "old": "n/a — service offline since Apr 2026 (was free beta)",
+    "new": "n/a — service offline since Apr 2026, vendor page says under maintenance (was free beta)",
+    "citation": "https://www.olakrutrim.com/kruti",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.olakrutrim.com/kruti"
+  }
+ },
+ {
+  "id": "memorax-ai--eu-36kr-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Found the company's own site: www.memoraxai.com, whose Terms of Service say the site is operated by 深圳忆纪元科技有限公司 (MemoraX), i.e. the Shenzhen company. Site (©2026) describes textual, work/coding and multimodal memory infrastructure, a sign-in platform (platform.memorax.net), MemoraX Code, and public evals LoCoMo-Refined and ScriptMem. memorax.ai is an unrelated domain-sale page.",
+  "lifecycle_citation": "https://www.memoraxai.com/termsofservice/en/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Shenzhen. Argues attaching external vector stores is architecturally flawed; trains memory as an intrinsic capability via Agentic RL. Plans B2B enterprise KM and C2C personalisation in 12 months. Founded by Tianjin University AI professor.",
+    "new": "Shenzhen. Argues attaching external vector stores is architecturally flawed; trains memory as an intrinsic capability via Agentic RL. Plans B2B enterprise KM and C2C personalisation in 12 months. Founded by Tianjin University AI professor. Company site memoraxai.com (operated by 深圳忆纪元科技有限公司) describes textual, work/coding and multimodal memory infrastructure; ships MemoraX Code, an MIT-licensed cross-agent coding memory for Codex and Claude Code (npm @memorax/memorax-code, first published 2026-08), plus public evals LoCoMo-Refined and ScriptMem.",
+    "citation": "https://www.memoraxai.com/",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "not applicable — no GitHub repo",
+    "new": "memorax-ai/memorax-code (MemoraX Code, MIT); org github.com/memorax-ai also hosts ScriptMem",
+    "citation": "https://github.com/memorax-ai/memorax-code",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "not applicable — not OSS",
+    "new": "MIT (MemoraX Code client); hosted memory platform proprietary",
+    "citation": "https://raw.githubusercontent.com/memorax-ai/memorax-code/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "not applicable — not OSS",
+    "new": "MemoraX Code 0.1.21 (npm @memorax/memorax-code, 2026-10-21)",
+    "citation": "https://www.npmjs.com/package/@memorax/memorax-code",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.memoraxai.com/"
+  }
+ },
+ {
+  "id": "tesla-fsd-v13-occupancy-4d-world--thinkautonomous-ai",
+  "verified": false,
+  "lifecycle": "active",
+  "lifecycle_note": "tesla.com, ir.tesla.com and the FSD/AI/support pages return Akamai 403 to both curl and WebFetch. Tesla's own Q1-2025 shareholder update PDF (digitalassets.tesla.com, loadable) says its autonomy approach is 'a vision-only architecture with end-to-end neural networks trained on billions of examples of real-world data', and the Q4-2024 update credits Cortex with enabling FSD (Supervised) V13. Neither mentions occupancy volumes or a 4D world model, so the occupancy/4D description still rests only on thinkautonomous.ai. A Tesla AI Day 2022 / CVPR 2022 talk would be the primary for occupancy networks.",
+  "lifecycle_citation": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q1-2025-Update.pdf",
+  "updates": []
+ },
+ {
+  "id": "steamship--steamship-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Catalog status 'archived' is not supported by a primary source: the steamship-core/python-client GitHub page (loaded via WebFetch 2026-10-29) shows no archive banner (323 stars) and its README is unchanged. Last SDK release on PyPI is 2.17.34 (2024-01-24). www.steamship.com returns 404 and steamship.com/docs.steamship.com serve an expired TLS certificate; domain registration is current to 2027-09-13. Looks abandoned, but there is no primary shutdown or archive statement.",
+  "lifecycle_citation": "https://pypi.org/project/steamship/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "YC W21 startup providing managed hosting + deployment for LLM agents — 'one-click deploy' for LangChain / agent code. Founded by Ted Benson (ex-Google Brain). Pre-seed + seed funded YC + Twin Ventures. Positioned as Heroku for AI agents — but the agent-platform space crowded post-2023, and Steamship's commercial momentum has slowed vs Vercel AI / Modal / Bedrock.",
+    "new": "YC W21 startup providing managed hosting + deployment for LLM agents — 'one-click deploy' for LangChain / agent code. Founded by Ted Benson (ex-Google Brain). Pre-seed + seed funded YC + Twin Ventures. Positioned as Heroku for AI agents — but the agent-platform space crowded post-2023, and Steamship's commercial momentum has slowed vs Vercel AI / Modal / Bedrock. As of 2026-10-29 www.steamship.com returns 404 and docs.steamship.com serves an expired TLS certificate; the last Python SDK release was v2.17.34 (2024-01-24); the python-client repo is not archived.",
+    "citation": "https://pypi.org/project/steamship/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "covariant--covariant-ai",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "covariant.ai loads (2026-10-29) but is a placeholder: logo, background video and '©2026 Covariant. All rights reserved.'; every other path (insights, sitemap, robots) is a Netlify 404. No product, customer or contact pages and no status statement from Covariant or Amazon found; Wayback is blocked from this session.",
+  "lifecycle_citation": "https://covariant.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. In Aug 2024 Amazon took a non-exclusive license to its robotic foundation models and hired founders Abbeel, Chen and Rocky Duan plus research staff; Covariant was not acquired and continued serving customers.",
+    "new": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. In Aug 2024 Amazon took a non-exclusive license to its robotic foundation models and hired founders Abbeel, Chen and Rocky Duan plus research staff; Covariant was not acquired and continued serving customers. As of 2026-10-29 covariant.ai is a placeholder page (logo, video and a 2026 copyright line only; no product or contact pages).",
+    "citation": "https://covariant.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "soul-machines--soulmachines-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Official register confirms receivership: NZ Gazette notice 2026-ar623 (dated 2026-02-09, published 2026-02-10) says Leon Francis Bowker and Luke Norman of KPMG were appointed joint and several receivers of all present and after-acquired property of Soul Machines Limited on 2026-02-05, under a general security deed in favour of Bartok International Limited as security trustee for convertible-note holders (deed poll 2024-06-21). No liquidation notice or asset-sale statement found. soulmachines.com responds but serves a bot check (429) to scripts. Receivership is not the same as closure; the existing 'receivership' wording already makes the detector treat it as dead.",
+  "lifecycle_citation": "https://gazette.govt.nz/notice/id/2026-ar623",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "In receivership since 2026-02-05 (KPMG receivers); website still up. NZ/US digital-humans company. Patented Digital Brain simulates emotional state and learns from interactions. Cross-session Memories layer for user- and persona-specific context persistence. Deployed by ANZ Bank (Jamie) and Mercedes-Benz.",
+    "new": "In receivership since 2026-02-05 (KPMG receivers Leon Bowker and Luke Norman, appointed under a security deed held for convertible-note holders; NZ Gazette notice 2026-ar623); website still up. NZ/US digital-humans company. Patented Digital Brain simulates emotional state and learns from interactions. Cross-session Memories layer for user- and persona-specific context persistence. Deployed by ANZ Bank (Jamie) and Mercedes-Benz.",
+    "citation": "https://gazette.govt.nz/notice/id/2026-ar623",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$110M total (Series B1, 2023-02); placed in receivership 2026-02-05 (KPMG receivers Leon Bowker and Luke Norman)",
+    "new": "$110M total (Series B1, 2023-02); placed in receivership 2026-02-05 (KPMG receivers Leon Bowker and Luke Norman, appointed under a general security deed in favour of Bartok International Limited for convertible-note holders; NZ Gazette 2026-ar623)",
+    "citation": "https://gazette.govt.nz/notice/id/2026-ar623",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-deep-research--openai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "openai.com, chatgpt.com and help.openai.com return 403 to scripts and WebFetch. OpenAI's developer docs (developers.openai.com/api/docs/guides/deep-research, loaded 2026-10-29) confirm the API models o3-deep-research and o4-mini-deep-research shut down on 2026-07-23 with gpt-5.6-sol as replacement (already in desc), and still describe 'Deep Research in ChatGPT' in the present tense. ChatGPT plan availability and quotas (pricing cell) could not be re-checked; learn.chatgpt.com's index does not list deep research.",
+  "lifecycle_citation": "https://developers.openai.com/api/docs/guides/deep-research",
+  "updates": []
+ },
+ {
+  "id": "anthropic-auto-dream--claudefa-st",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "No primary source exists. The full Claude Code CHANGELOG.md (anthropics/claude-code, ~1.1 MB, fetched 2026-10-29) contains no 'dream' at all, and the Claude Code docs index (code.claude.com/docs/llms.txt) and the memory page (code.claude.com/docs/en/memory.md) describe auto memory but no background consolidation agent or /dream command. The memory page only says Claude Code reminds Claude to shorten MEMORY.md near its 200-line/25KB limits. The row rests solely on a third-party blog; recommend removal.",
+  "lifecycle_citation": "https://code.claude.com/docs/en/memory.md",
+  "updates": []
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Microsoft Research's LazyGraphRAG post carries an editor's note dated 2025-06-06: LazyGraphRAG 'has been integrated into Microsoft Discovery, an agentic platform for scientific research built on Azure, and into Azure Local services as part of a public preview'. The GraphRAG project page repeats that GraphRAG and LazyGraphRAG are available through Microsoft Discovery. The graphrag repo README says the project is largely in maintenance mode (bug fixes and dependency updates only). So LazyGraphRAG ships in Microsoft products, not in the OSS library.",
+  "lifecycle_citation": "https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Performs minimal up-front indexing; defers LLM use until query time. Announced (Nov 2024) for integration into the main GraphRAG library, but no implementation has shipped there, and the GraphRAG repo is now largely in maintenance mode with no new features.",
+    "new": "Performs minimal up-front indexing; defers LLM use until query time. Announced Nov 2024; per a Microsoft Research editor's note (2025-06-06) it ships inside Microsoft Discovery (Azure agentic science platform) and Azure Local services (public preview) rather than in the open-source GraphRAG library, which has no implementation and is largely limited to bug fixes and dependency updates.",
+    "citation": "https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/"
+  }
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "ClickHouse's own blog post 'ClickHouse welcomes Langfuse' (dated Jan 16, 2026, co-signed by Langfuse founders Marc Klingen, Max Deichmann and Clemens Rawert) says 'ClickHouse has acquired Langfuse'. langfuse.com now brands itself 'Langfuse by ClickHouse' with a 'Langfuse joins ClickHouse' banner.",
+  "lifecycle_citation": "https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Part of ClickHouse since Jan 2026; product and MIT-licensed repo continue under the Langfuse name. Memory module reads/writes captured as named spans. Trace Log View concatenates every agent step including memory ops. Agent Graphs (GA 2025) infer graph structure from observation nesting; session-level replay tracks how memory state evolves.",
+    "new": "Acquired by ClickHouse (2026-01-16); product and MIT-licensed repo continue under the Langfuse name. Memory module reads/writes captured as named spans. Trace Log View concatenates every agent step including memory ops. Agent Graphs (GA 2025) infer graph structure from observation nesting; session-level replay tracks how memory state evolves.",
+    "citation": "https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "acquired by ClickHouse (2026-01; terms undisclosed)",
+    "new": "Acquired by ClickHouse (2026-01-16; terms undisclosed)",
+    "citation": "https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "daytona--daytona-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "daytona.io is live (sandbox product, docs, pricing). The daytonaio/daytona README says 'This repository is no longer maintained. As of June 2026, Daytona's core development has moved to a private codebase', and GitHub shows it archived on 2026-10-03 (71.4k stars). The repo remains under its LICENSE at v0.190.0, which is AGPL-3.0. daytona/clients LICENSE: cli/ is AGPL-3.0, everything else Apache-2.0. Existing desc/gh already reflect this; only the license cell gains the AGPL-3.0 name.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/daytonaio/daytona/main/README.md",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Apache-2.0 (SDKs in daytona/clients; CLI under AGPL-3.0); core platform closed-source since June 2026 (archived OSS repo remains under its original license at v0.190.0)",
+    "new": "Apache-2.0 (SDKs in daytona/clients; CLI under AGPL-3.0); core platform closed-source since June 2026 (archived daytonaio/daytona repo remains AGPL-3.0 at v0.190.0)",
+    "citation": "https://raw.githubusercontent.com/daytonaio/daytona/v0.190.0/LICENSE",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "memobase--gh-memodb-io-memobase",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Repo README (main) is unchanged: still Apache-2.0, still advertises Memobase Cloud's free tier, and its News now promotes the team's newer project Acontext. No deprecation notice; GitHub page shows ~2.9k stars, not archived. But the commercial side looks down on 2026-10-29: www.memobase.io and memobase.io return Framer 'Site not found' 404 (incl. /pricing and the README's /en/login link), app.memobase.io returns Cloudflare 522, api.memobase.dev is unreachable. docs.memobase.io still loads. Last PyPI release memobase 0.0.27 (2025-11-08). No primary statement on whether the cloud has been discontinued.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/memodb-io/memobase/main/readme.md",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free + paid (Memobase Cloud free tier for testing; pay-as-you-go for production)",
+    "new": "OSS self-hosted free (Apache-2.0); Memobase Cloud free and pay-as-you-go tiers advertised in the README, but memobase.io (incl. pricing and login) returns 404 and app.memobase.io is down as of 2026-10-29",
+    "citation": "https://raw.githubusercontent.com/memodb-io/memobase/main/readme.md",
+    "confidence": "medium"
+   },
+   {
+    "cell": "latest-release",
+    "old": "no releases (no tagged releases on GitHub as of research date)",
+    "new": "memobase Python SDK 0.0.27 (PyPI, 2025-11-08); no tagged GitHub releases",
+    "citation": "https://pypi.org/project/memobase/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "claude-mem--gh-thedotmack-claude-mem",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "README (main) and cmem.ai/pricing (2026-10-29): engine remains free and open source (Apache-2.0); new paid hosted tier CMEM Pro adds hosted observation, cloud sync and private MCP recall. cmem.ai shows 104.1k GitHub stars.",
+  "lifecycle_citation": "https://cmem.ai/pricing",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "free / open source (Apache-2.0); no paid tier",
+    "new": "Open-source engine free (Apache-2.0, local memory); CMEM Pro hosted observation + cloud sync + private MCP recall: Pro $30/mo, Heavy $70/mo, CMEM Max $100/mo (with billed overage), 30-day free trial; TeamBrain team pricing not announced (pilot)",
+    "citation": "https://cmem.ai/pricing",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "thedotmack/claude-mem — ~102k stars, last commit 2026-10",
+    "new": "thedotmack/claude-mem — ~104k stars, last commit 2026-10",
+    "citation": "https://cmem.ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "jina-ai-embeddings--jina-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Hugging Face model cards (official jinaai org) checked 2026-10-29. jina-embeddings-v4 card: 'This model was initially released under cc-by-nc-4.0 due to an error. The correct license is the Qwen Research License, as this model is derived from Qwen-2.5-VL-3B'. jina-embeddings-v3, jina-embeddings-v5-omni-small, jina-embeddings-v5-text-small, jina-clip-v2, jina-colbert-v2 and jina-reranker-v3 are tagged cc-by-nc-4.0. Acquisition by Elastic is already recorded in the funding cell.",
+  "lifecycle_citation": "https://huggingface.co/jinaai/jina-embeddings-v4",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "mixed — many recent open-weight models CC-BY-NC-4.0 (commercial licence via Elastic); some older models Apache-2.0",
+    "new": "mixed — most recent open-weight models CC-BY-NC-4.0 (v3, v5-omni, v5-text, clip-v2, colbert-v2, reranker-v3; commercial licence via Elastic); jina-embeddings-v4 under the Qwen Research License (its model card says the initial CC-BY-NC-4.0 label was an error); some older models Apache-2.0",
+    "citation": "https://huggingface.co/jinaai/jina-embeddings-v4",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Hugging Face model metadata (official mistralai org, 2026-10-29): Mistral-Large-Instruct-2407 and -2411 are licensed 'other / mrl' linking https://mistral.ai/licenses/MRL-0.1.md, the Mistral AI Research License (use beyond what it authorises requires a separate licence from Mistral); Codestral-22B-v0.1 is under the Mistral Non-Production License (MNPL-0.1); Mixtral-8x22B-Instruct-v0.1 and Mistral-Small-24B-Instruct-2501 are Apache-2.0.",
+  "lifecycle_citation": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
+  "updates": [
+   {
+    "cell": "license",
+    "old": "Mixed: Modified MIT (Medium 3.5 weights); Apache-2.0 (Small / Large 3 / other open models); some models API-only proprietary",
+    "new": "Mixed: Mistral Research License MRL-0.1, non-OSI (Mistral Large 2 / 2407 and 2411 weights; commercial use needs a separate licence); Mistral Non-Production License (Codestral 22B); Modified MIT (Medium 3.5 weights); Apache-2.0 (Mixtral 8x22B, Small / Large 3 / other open models); some models API-only proprietary",
+    "citation": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "letta-memgpt--letta-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "letta-ai/letta README: 'Letta (f.k.a. MemGPT) is actively developed. The current source code lives in letta-ai/letta-code'; archive branch holds the retired V1 API server. GitHub: letta-code ~3.7k stars, Apache-2.0; letta ~25.3k stars, not archived. npm @letta-ai/letta-code latest 0.34.30 (2026-10-29); PyPI letta 0.34.12 (2026-10-12).",
+  "lifecycle_citation": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "letta-ai/letta — ~25.3k stars, not archived; README says the retired Letta V1 API server is on the archive branch and current source lives in letta-ai/letta-code",
+    "new": "letta-ai/letta-code — ~3.7k stars, Apache-2.0 (current source: agent harness, terminal UI, App Server); letta-ai/letta (~25.3k stars, not archived) is now a README pointing to letta-code, with the retired Letta V1 API server on its archive branch",
+    "citation": "https://github.com/letta-ai/letta-code",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "Letta Code (PyPI letta) v0.34.12 (2026-10-12); last letta-ai/letta server tag v0.16.8 (May 2026)",
+    "new": "Letta Code v0.34.30 (npm @letta-ai/letta-code, 2026-10-29); PyPI letta v0.34.12 (2026-10-12); last letta-ai/letta server tag v0.16.8 (May 2026)",
+    "citation": "https://www.npmjs.com/package/@letta-ai/letta-code",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sleep-time-compute-letta--letta-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "letta-ai/letta-code README (2026-10-29): Letta Code is by the creators of MemGPT and 'sleep-time compute (now called \"dreaming\")'; periodic dreaming is configured with /sleeptime, with manual /dream and /reflect commands, and server-side dreaming also exists. Repo Apache-2.0, ~3.7k stars; letta-ai/letta is a pointer README with the V1 server on its archive branch.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/letta-ai/letta-code/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Agents use idle time to reorganize and pre-reason over stored context ('learned context'). Letta ships this as sleep-time agents (v0.7.0+), where a background agent manages the primary agent's core memory. Traction: Shipped in Letta 0.7.0 and Letta Code (/sleeptime); arXiv 2504.13171. Letta's current source moved to letta-ai/letta-code; the V1 API server (where sleep-time agents first shipped) is retired to the letta-ai/letta archive branch.",
+    "new": "Agents use idle time to reorganize and pre-reason over stored context ('learned context'). Letta ships this as sleep-time agents (v0.7.0+), where a background agent manages the primary agent's core memory. Traction: Shipped in Letta 0.7.0 and Letta Code (/sleeptime); arXiv 2504.13171. Letta's current source moved to letta-ai/letta-code; the V1 API server (where sleep-time agents first shipped) is retired to the letta-ai/letta archive branch. Letta Code's README now calls sleep-time compute 'dreaming': periodic dreaming via /sleeptime, manual /dream and /reflect, plus server-side dreaming.",
+    "citation": "https://raw.githubusercontent.com/letta-ai/letta-code/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "https://github.com/letta-ai/letta (25276★; current source moved to letta-ai/letta-code, V1 server on archive branch)",
+    "new": "letta-ai/letta-code — ~3.7k stars (current source; /sleeptime configures dreaming); letta-ai/letta ~25.3k stars, V1 server on its archive branch",
+    "citation": "https://github.com/letta-ai/letta-code",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "Apache-2.0 (Letta)",
+    "new": "Apache-2.0 (Letta Code)",
+    "citation": "https://raw.githubusercontent.com/letta-ai/letta-code/main/LICENSE",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "last commit 2026-10-18",
+    "new": "Letta Code v0.34.30 (npm @letta-ai/letta-code, 2026-10-29)",
+    "citation": "https://www.npmjs.com/package/@letta-ai/letta-code",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openmemory--gh-caviraoss-openmemory",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "CaviraOSS/LongMemory README (2026-10-29) is titled LongMemory and gives the migration 'npm uninstall openmemory-js && npm install longmemory' / 'pip uninstall openmemory-py && pip install longmemory-sdk', noting openmemory-js@2 and openmemory-py@2 are forwarding bridges. Apache-2.0. This is the CaviraOSS project, not Mem0's OpenMemory. Row name and url already reflect the rename.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/CaviraOSS/LongMemory/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "k-scale-labs--kscale-dev",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "No primary status statement reachable. kscale.dev's DNS is a lame delegation (its Route 53 name servers REFUSE queries) although the domain is registered to 2027-02-17; url.kscale.dev links in the repos fail the same way, and humanoids.wiki (the wiki the org README links to) is now a domain-for-sale page. The GitHub org shows no shutdown text and kinfer was updated 2026-10-17 (PyPI kinfer 0.6.1, 2025-10-07; kscale 0.3.18, 2025-09-04). Secondary reports (Nov 2025) say K-Scale cancelled K-Bot pre-orders, refunded deposits, laid off most staff and open-sourced its IP, citing a Discord announcement by CEO Benjamin Bolte. His own blog post of 2026-02-16 (ben.bolte.cc) speaks of K-Scale in the past tense ('I planned to work on K-Scale for the rest of my life') but does not explicitly announce a shutdown. Likely dead; needs the Discord or letter text to confirm.",
+  "lifecycle_citation": "https://github.com/kscalelabs",
+  "updates": []
+ },
+ {
+  "id": "logseq--logseq-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Logseq's own blog post 'How to Set Up and Use Logseq Sync' (Tienson Qin, 2024-08-31): Sync is a beta for active Open Collective backers/sponsors with a monthly recurring donation of $5 or $15, and 'We'll implement a normal subscription system once we launch Sync to the general public.' The logseq/logseq README (2026-10) says the DB version is in beta with a new RTC sync/collaboration in alpha (sign-up form). logseq.com itself is a JS shell with no pricing text.",
+  "lifecycle_citation": "https://blog.logseq.com/how-to-setup-and-use-logseq-sync/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free (open-source; all local features free; future Logseq Pro cloud sync planned as paid)",
+    "new": "Free (open-source; all local features free); Logseq Sync beta available to Open Collective backers/sponsors on a $5 or $15/month recurring donation, normal subscription promised at public launch; DB-version RTC sync in alpha",
+    "citation": "https://blog.logseq.com/how-to-setup-and-use-logseq-sync/",
+    "confidence": "high"
+   }
+  ]
+ }
+]
