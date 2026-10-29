@@ -9,7 +9,8 @@
 // component: keeps the data path identical to /timeline and /sections,
 // and SvelteKit's data inlining means we don't double-fetch.
 
-import { getEdges, getRecords } from '$lib/data';
+import { getEdges } from '$lib/data';
+import { slimRecords } from '$lib/slim';
 
 export const prerender = true;
 // Skip SSR for this route — cytoscape touches the DOM during construction
@@ -21,7 +22,8 @@ export const ssr = false;
 
 export const load = () => {
   return {
-    records: getRecords(),
+    // Only the cells this page reads (#324); add a slug here before reading a new one.
+    records: slimRecords(['desc', 'claims', 'perf', 'citations', 'gh']),
     edges: getEdges()
   };
 };
