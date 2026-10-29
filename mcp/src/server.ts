@@ -357,7 +357,8 @@ async function main() {
         layers: z.array(z.enum(layerIds)).optional().describe('Replace the product preset\'s layers.'),
         add: z.array(z.enum(layerIds)).optional().describe('Add layers to the preset, e.g. ["voice"].'),
         pin: z.record(z.string(), z.string()).optional().describe('Fix a layer to a record id, e.g. {"vectors": "qdrant--qdrant-tech"}.'),
-        avoid: z.array(z.string()).optional().describe('Record ids never to pick.')
+        avoid: z.array(z.string()).optional().describe('Record ids never to pick.'),
+        compliance: z.array(z.string()).optional().describe('Attestations every hosted service must publish, e.g. ["soc2-type2","hipaa"] (codes: ccpa, csa-star, fedramp, gdpr, hipaa, hitrust, iso27001, iso27017, iso27018, iso27701, iso42001, pci-dss, soc2-type1, soc2-type2, soc3). Libraries you run yourself are exempt.')
       }
     },
     async (args) => {

@@ -170,8 +170,13 @@ CELL_COLUMN_SLUGS: list[str] = [
     "taxonomy-three-layer-rollup",
     "developer-activity-opendigger",
     "freshness-date",
+    # v1.2.0 buyer cells. See docs/SCHEMA.md §2.5.11.
+    "compliance-certifications",
+    "sdk-languages",
+    "protocol-support",
+    "maturity",
 ]
-assert len(CELL_COLUMN_SLUGS) == 106
+assert len(CELL_COLUMN_SLUGS) == 110
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -599,11 +604,11 @@ def render_row(record: dict[str, Any]) -> str:
 def render_group_header(label: str, is_subsection: bool) -> str:
     if is_subsection:
         return (
-            f'  <tr class="group-row"><td colspan="114" '
+            f'  <tr class="group-row"><td colspan="118" '
             f'style="{SUB_GROUP_STYLE}">{_value_passthrough(label)}</td></tr>'
         )
     return (
-        f'  <tr class="group-row"><td colspan="114">'
+        f'  <tr class="group-row"><td colspan="118">'
         f"{_value_passthrough(label)}</td></tr>"
     )
 
@@ -612,7 +617,7 @@ def render_section_explainer(explainer_html: str | None) -> str | None:
     if not explainer_html:
         return None
     return (
-        '  <tr class="section-explainer"><td colspan="114">'
+        '  <tr class="section-explainer"><td colspan="118">'
         f'<div class="explainer-text">{explainer_html}</div></td></tr>'
     )
 

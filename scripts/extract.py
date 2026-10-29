@@ -37,7 +37,7 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 # Schema constants — kept in sync with docs/SCHEMA.md.
 # ---------------------------------------------------------------------------
 
-SCHEMA_VERSION = "1.1.0"
+SCHEMA_VERSION = "1.2.0"
 # Fixed timestamp so the extractor is byte-stable across runs.
 # Override with env EXTRACT_GENERATED_AT (ISO-8601 Zulu) when re-stamping
 # is intentional.
@@ -179,8 +179,13 @@ CELL_COLUMN_SLUGS: list[str] = [
     "taxonomy-three-layer-rollup",
     "developer-activity-opendigger",
     "freshness-date",
+    # v1.2.0 buyer cells. See docs/SCHEMA.md §2.5.11.
+    "compliance-certifications",
+    "sdk-languages",
+    "protocol-support",
+    "maturity",
 ]
-assert len(CELL_COLUMN_SLUGS) == 106
+assert len(CELL_COLUMN_SLUGS) == 110
 
 TAXONOMY_AXES: list[str] = [
     "storage",
@@ -659,7 +664,7 @@ def section_label(group_row_td_text: str) -> tuple[str, bool]:
     """Return (label, is_subsection) for a group-row's first <td> text.
 
     Subsections in the HTML start with the literal "— " (em-dash + space)
-    inside a `<td colspan="114" style="padding-left: 28px; ...">`. We
+    inside a `<td colspan="118" style="padding-left: 28px; ...">`. We
     preserve the prefix exactly per §2.3.
     """
     txt = group_row_td_text.strip()
@@ -930,17 +935,17 @@ def build_record(
     #   tds[0]    = name
     #   tds[1]    = type (the "Memory model" cell — first cell column)
     #   tds[2..8] = tax-storage .. tax-conflict (7 taxonomy axes)
-    #   tds[9..113] = desc .. freshness-date (105 remaining cell columns)
-    # Total: 1 + 1 + 7 + 105 = 114 tds per row.
-    if len(tds) != 114:
+    #   tds[9..117] = desc .. maturity (109 remaining cell columns)
+    # Total: 1 + 1 + 7 + 109 = 118 tds per row.
+    if len(tds) != 118:
         raise RuntimeError(
-            f"row {rec_id!r}: expected 114 tds, got {len(tds)}"
+            f"row {rec_id!r}: expected 118 tds, got {len(tds)}"
         )
     type_td = tds[1]
     tax_tds = tds[2:9]
     rest_cell_tds = tds[9:]
     assert len(tax_tds) == 7
-    assert len(rest_cell_tds) == 105
+    assert len(rest_cell_tds) == 109
 
     taxonomy = OrderedDict()
     for axis, td in zip(TAXONOMY_AXES, tax_tds):

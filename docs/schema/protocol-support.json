@@ -1,0 +1,15 @@
+{
+  "cell": "protocol-support",
+  "description": "Open agent protocols the product supports first-party, as a sorted comma-separated set: mcp-server (ships an MCP server), mcp-client (consumes MCP servers), a2a (Agent2Agent), openai-compatible (serves an OpenAI-compatible API), ag-ui (AG-UI event protocol), opentelemetry (emits or ingests OpenTelemetry/OpenInference traces), or none.",
+  "values": [
+    "none"
+  ],
+  "set_values": [
+    "a2a",
+    "ag-ui",
+    "mcp-client",
+    "mcp-server",
+    "openai-compatible",
+    "opentelemetry"
+  ]
+}

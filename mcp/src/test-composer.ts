@@ -101,6 +101,15 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   ok(LAYER_BY_ID.voice.label === 'Voice runtime', 'layer labels exported');
 }
 
+// --- compliance must-haves --------------------------------------------------
+{
+  const p = planStack(ctx, { product: 'support-agent', compliance: ['soc2-type2'] } as StackAnswers);
+  for (const l of p.layers) {
+    const c = l.pick?.item.facts.compliance?.value ?? '';
+    if (l.pick && c && !l.pick.pinned) ok(c.split(',').includes('soc2-type2'), `compliance: ${l.layer} pick ${l.pick.item.name} publishes soc2-type2 (${c})`);
+  }
+}
+
 // --- integration evidence is cited ----------------------------------------
 {
   const p = planStack(ctx, { product: 'support-agent' } as StackAnswers);

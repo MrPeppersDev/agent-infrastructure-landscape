@@ -75,6 +75,13 @@ const ANY_LANG = /\b(any (language|http)|language[- ]agnostic|rest api|http api|
  * api-surface cells only. */
 export function languageTri(i: ChooserItem, lang: Language): { tri: Tri; fact: Fact } {
   if (lang === 'any') return { tri: 'yes', fact: { value: '', citation: null } };
+  // The sdk-languages cell (v1.2.0) is a checked set; when filled it decides.
+  const sdk = i.facts.sdk;
+  if (sdk?.value) {
+    const set = sdk.value.split(',');
+    const want = lang === 'typescript' ? ['typescript', 'javascript'] : [lang];
+    return { tri: set.some((s) => want.includes(s)) ? 'yes' : 'no', fact: sdk };
+  }
   const facts = [i.facts.runtimes, i.facts.api].filter((f) => f.value);
   const hit = facts.find((f) => LANG_RX[lang].test(f.value)) ?? facts.find((f) => ANY_LANG.test(f.value));
   if (hit) return { tri: 'yes', fact: hit };

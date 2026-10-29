@@ -152,6 +152,9 @@ V1_1_CELL_SLUGS = [
     "licensing-bucket", "positioning-platform-vs-product",
     "taxonomy-three-layer-rollup", "developer-activity-opendigger",
     "freshness-date",
+    # v1.2.0 buyer cells (SCHEMA.md §2.5.11).
+    "compliance-certifications", "sdk-languages", "protocol-support",
+    "maturity",
 ]
 CELL_COLUMN_SLUGS += V1_1_CELL_SLUGS
 # Cells that every record carries empty until a sweep fills them.

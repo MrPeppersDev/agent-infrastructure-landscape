@@ -14,6 +14,22 @@ that were on the table.
 
 ---
 
+## 2026-10-29: Schema v1.2.0 — buyer cells
+
+**What.** Four cells, empty until the research backfill fills them:
+- `compliance-certifications`: the attestations the vendor publishes.
+- `sdk-languages`: the languages with an official SDK.
+- `protocol-support`: MCP server or client, A2A, an OpenAI-compatible API, AG-UI, OpenTelemetry.
+- `maturity`: GA, beta, preview or alpha.
+
+Three are *set-valued*: sorted, unique tokens from a fixed list (`set_values` in `docs/schema/<slug>.json`, checked by gate 8 and by `apply_v1_1_research.py`).
+
+**Why.** These are the questions that kill a pick late in procurement: "is it SOC 2?", "is there a Go SDK?", "does it speak MCP?", "is it GA?". Until now they were only in free-text cells, which the choosers had to parse with regexes. As enum sets, the web, MCP and CLI can filter on them exactly. The composer gains a compliance must-have and a maturity risk factor.
+
+**Reversal cost.** Low. They are optional cells; removing them is the reverse migration.
+
+---
+
 ## 2026-10-29: Whole-stack composer (/build, plan_stack, `landscape stack`)
 
 **What.** `mcp/src/composer.ts` turns one set of answers (product type, language, hosting, open source, MCP) into one pick per layer of an agent stack: framework, model, model serving (added when everything is self-hosted), gateway, durable execution, memory, vector store, knowledge graph, embeddings, tools/auth, sandbox, browser, voice, evals and guardrails. The same module serves the web page `/build`, the MCP tool `plan_stack` (stdio and hosted worker) and the CLI `landscape stack`. It returns:

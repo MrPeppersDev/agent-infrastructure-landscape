@@ -15,6 +15,11 @@
   let { data }: { data: { items: ChooserItem[]; records: RecordLike[]; edges: CompatEdge[]; migrations: { id: string; summary: string; sources: string[] }[] } } = $props();
 
   const OPTIONAL: LayerId[] = ['voice', 'browser', 'sandbox', 'graph', 'orchestration', 'tools', 'memory'];
+  const COMPLIANCE: [string, string][] = [['soc2-type2', 'SOC 2 Type II'], ['iso27001', 'ISO 27001'], ['hipaa', 'HIPAA'], ['gdpr', 'GDPR'], ['iso42001', 'ISO 42001'], ['fedramp', 'FedRAMP']];
+  const toggleComp = (c: string) => {
+    const cur = answers.compliance ?? [];
+    answers.compliance = cur.includes(c) ? cur.filter((x) => x !== c) : [...cur, c];
+  };
 
   function fromParams(p: URLSearchParams): StackAnswers {
     const a: StackAnswers = { ...DEFAULT_STACK };
@@ -28,6 +33,8 @@
     a.mcp = p.get('mcp') === 'true';
     const add = (p.get('add') ?? '').split(',').filter((x) => LAYERS.some((l) => l.id === x)) as LayerId[];
     if (add.length) a.add = add;
+    const comp = (p.get('compliance') ?? '').split(',').filter((x) => COMPLIANCE.some(([c]) => c === x));
+    if (comp.length) a.compliance = comp;
     return a;
   }
   function toParams(a: StackAnswers): string {
@@ -38,6 +45,7 @@
     if (a.oss) p.set('oss', 'true');
     if (a.mcp) p.set('mcp', 'true');
     if (a.add?.length) p.set('add', a.add.join(','));
+    if (a.compliance?.length) p.set('compliance', a.compliance.join(','));
     return p.toString();
   }
 
@@ -118,6 +126,14 @@
       <div class="opts">
         <label class:on={answers.oss}><input type="checkbox" bind:checked={answers.oss} />Open-source licences</label>
         <label class:on={answers.mcp}><input type="checkbox" bind:checked={answers.mcp} />MCP support</label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Hosted services must publish</legend>
+      <div class="opts">
+        {#each COMPLIANCE as [c, l] (c)}
+          <label class:on={answers.compliance?.includes(c)}><input type="checkbox" checked={answers.compliance?.includes(c)} onchange={() => toggleComp(c)} />{l}</label>
+        {/each}
       </div>
     </fieldset>
     {#if extras.length}

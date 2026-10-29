@@ -95,6 +95,10 @@
     { label: 'Deployment locus', value: v11Text(record.cells['architecture-deployment-locus']), slug: 'architecture-deployment-locus' },
     { label: 'Platform vs product', value: v11Text(record.cells['positioning-platform-vs-product']), slug: 'positioning-platform-vs-product' },
     { label: 'Accelerator', value: v11Text(record.cells['adoption-accelerator']), slug: 'adoption-accelerator' },
+    { label: 'Maturity', value: v11Text(record.cells['maturity']), slug: 'maturity' },
+    { label: 'SDK languages', value: v11Text(record.cells['sdk-languages'])?.replaceAll(',', ', ') ?? null, slug: 'sdk-languages' },
+    { label: 'Protocols', value: v11Text(record.cells['protocol-support'])?.replaceAll(',', ', ') ?? null, slug: 'protocol-support' },
+    { label: 'Compliance', value: v11Text(record.cells['compliance-certifications'])?.replaceAll(',', ', ') ?? null, slug: 'compliance-certifications' },
     {
       label: 'Developer activity',
       value: opendiggerText(record.cells['developer-activity-opendigger']),

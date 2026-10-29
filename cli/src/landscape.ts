@@ -273,9 +273,10 @@ program
   .option('--add <layers>', `extra layers, comma-separated (${LAYERS.map((l) => l.id).join(', ')})`)
   .option('--avoid <ids>', 'record ids never to pick, comma-separated')
   .option('--pin <pairs>', 'layer=record-id pairs, comma-separated')
+  .option('--compliance <codes>', 'attestations every hosted service must publish, e.g. soc2-type2,hipaa')
   .option('-o, --out <file>', 'also write the stack.yml to this file')
   .option('--json', 'emit JSON')
-  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; out?: string }, cmd: Command) => {
+  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string }, cmd: Command) => {
     const p = (product ?? 'support-agent') as ProductType;
     if (!(p in PRODUCTS)) die(`product must be one of ${Object.keys(PRODUCTS).join(', ')}`);
     const list = (v?: string) => (v ? v.split(',').map((x) => x.trim()).filter(Boolean) : undefined);
@@ -284,6 +285,7 @@ program
       product: p, language: o.language as StackAnswers['language'], hosting: o.hosting as StackAnswers['hosting'], oss: !!o.oss, mcp: !!o.mcp,
       add: list(o.add) as LayerId[] | undefined,
       avoid: list(o.avoid)?.map((i) => moved[i] ?? i),
+      compliance: list(o.compliance),
       pin: o.pin ? Object.fromEntries(list(o.pin)!.map((kv) => kv.split('=')).map(([k, v]) => [k, moved[v] ?? v])) : undefined
     };
     setAliases(loadSystemAliases());
