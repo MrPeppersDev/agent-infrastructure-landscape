@@ -63,6 +63,14 @@
       "citation": "https://www.adept.ai/"
     },
     {
+      "source": "agent-kb--arxiv-2507-06229",
+      "target": "browsecomp--openai-com",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2507.06229",
+      "isInfluential": true
+    },
+    {
       "source": "agent-reconfigure-reconfigurable-agent--arxiv-2410-21465",
       "target": "infinitebench-bench--arxiv-2402-13718",
       "type": "cites",
@@ -87,6 +95,13 @@
       "isInfluential": true
     },
     {
+      "source": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "wered control plane giving agents one OpenAI-compatible API for every model and one router for MCP tools, with prov",
+      "citation": "https://theagentrouter.ai/"
+    },
+    {
       "source": "agent-s--arxiv-2410-08164",
       "target": "voyager--arxiv-2305-16291",
       "type": "cites",
@@ -95,11 +110,27 @@
       "isInfluential": true
     },
     {
+      "source": "agent-workflow-memory--openreview-net",
+      "target": "mind2web--osu-nlp-group-github-io",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/c68cc84ec7808d7bbd5686a6bd1393752a9d8e8d",
+      "isInfluential": true
+    },
+    {
       "source": "agentic-memory--arxiv-2601-01885",
       "target": "a-mem--gh-wujiangxu-a-mem",
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2601.01885",
+      "isInfluential": true
+    },
+    {
+      "source": "agentic-plan-caching-apc--neurips-cc",
+      "target": "gaia--huggingface-co",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2506.14852",
       "isInfluential": true
     },
     {
@@ -1046,6 +1077,13 @@
       "isInfluential": true
     },
     {
+      "source": "bifrost-maxim-ai--getmaxim-ai",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "gateway from Maxim AI with one OpenAI-compatible API for many models, failover, load balancing, semantic cac",
+      "citation": "https://www.getmaxim.ai/bifrost"
+    },
+    {
       "source": "bolt-new-stackblitz-harness--bolt-new",
       "target": "anthropic-claude-foundation-models--anthropic-com",
       "type": "runtime-dependency",
@@ -1840,6 +1878,13 @@
       "citation": "https://cline.bot"
     },
     {
+      "source": "cloudflare-ai-gateway--developers-cloudflare-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "front of 20+ model providers with an OpenAI-compatible unified API, caching, rate and spend limits, dynamic routin",
+      "citation": "https://developers.cloudflare.com/ai-gateway/"
+    },
+    {
       "source": "coalfire-ai-operations--coalfire-com",
       "target": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
       "type": "runtime-dependency",
@@ -2013,6 +2058,14 @@
       "type": "integrates-with",
       "evidence": "Cohere docs \"Integrating Embedding Models with Other Tools\": Weaviate and Cohere guide.",
       "citation": "https://docs.cohere.com/docs/weaviate-and-cohere"
+    },
+    {
+      "source": "cola--arxiv-2503-09263",
+      "target": "gaia--huggingface-co",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.09263",
+      "isInfluential": true
     },
     {
       "source": "cola--arxiv-2503-09263",
@@ -4622,6 +4675,14 @@
       "isInfluential": true
     },
     {
+      "source": "inducing-programmatic-skills--arxiv-2504-06821",
+      "target": "mind2web--osu-nlp-group-github-io",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2504.06821",
+      "isInfluential": true
+    },
+    {
       "source": "infini-attention--arxiv-2404-07143",
       "target": "compressive-transformer--arxiv-1911-05507",
       "type": "cites",
@@ -4721,6 +4782,22 @@
       "type": "cites",
       "evidence": "S2 isInfluential citation",
       "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2305.15294",
+      "isInfluential": true
+    },
+    {
+      "source": "iterresearch--arxiv-2511-07327",
+      "target": "browsecomp--openai-com",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2511.07327",
+      "isInfluential": true
+    },
+    {
+      "source": "iterresearch--arxiv-2511-07327",
+      "target": "gaia--huggingface-co",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2511.07327",
       "isInfluential": true
     },
     {
@@ -8612,6 +8689,14 @@
       "isInfluential": true
     },
     {
+      "source": "memento--arxiv-2508-16153",
+      "target": "gaia--huggingface-co",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2508.16153",
+      "isInfluential": true
+    },
+    {
       "source": "memevolve--arxiv-2512-18746",
       "target": "alita--arxiv-2505-20286",
       "type": "cites",
@@ -8828,6 +8913,14 @@
       "isInfluential": true
     },
     {
+      "source": "memgpt-v2-agent-tools--arxiv-2310-08560",
+      "target": "agentbench--gh-thudm-agentbench",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2310.08560",
+      "isInfluential": true
+    },
+    {
       "source": "memgraph--memgraph-com",
       "target": "langchain-framework--langchain-com",
       "type": "integrates-with",
@@ -8871,6 +8964,14 @@
       "type": "runtime-dependency",
       "evidence": "backend-storage cell: Postgres + pgvector",
       "citation": "https://github.com/memodb-io/memobase"
+    },
+    {
+      "source": "memobrain--arxiv-2601-08079",
+      "target": "gaia--huggingface-co",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2601.08079",
+      "isInfluential": true
     },
     {
       "source": "memochat--arxiv-2308-08239",
@@ -12668,6 +12769,14 @@
       "citation": "https://github.com/goweft/ratine"
     },
     {
+      "source": "readagent--arxiv-2402-09727",
+      "target": "mind2web--osu-nlp-group-github-io",
+      "type": "cites",
+      "evidence": "S2 isInfluential citation",
+      "citation": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2402.09727",
+      "isInfluential": true
+    },
+    {
       "source": "reasoningbank--arxiv-2509-25140",
       "target": "agent-workflow-memory--openreview-net",
       "type": "cites",
@@ -13947,6 +14056,13 @@
       "type": "integrates-with",
       "evidence": "Vapi docs list xAI Grok 4 as a provider/integration.",
       "citation": "https://docs.vapi.ai/providers/model/xai"
+    },
+    {
+      "source": "vercel-ai-gateway--vercel-com",
+      "target": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "type": "runtime-dependency",
+      "evidence": "ders, used from the AI SDK and OpenAI-compatible clients.",
+      "citation": "https://vercel.com/docs/ai-gateway"
     },
     {
       "source": "vercel-ai-sdk--sdk-vercel-ai",
