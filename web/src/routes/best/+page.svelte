@@ -4,7 +4,7 @@
   import JsonLd from '$lib/components/JsonLd.svelte';
   import { itemListLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
-  import type { BestOfIndexEntry } from './+page';
+  import type { BestOfIndexEntry } from './+page.server';
 
   let { data }: { data: { entries: BestOfIndexEntry[] } } = $props();
 

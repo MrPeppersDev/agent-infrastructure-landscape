@@ -10,9 +10,9 @@
   } from '$lib/components/CompareTables.svelte';
   import { articleLd, breadcrumbLd } from '$lib/seo/jsonld';
   import { absoluteUrl } from '$lib/site';
-  import { pairToSlug } from '$lib/seo/compare';
+  import { pairToSlug } from '$lib/seo/slugs';
   import type { Edge } from '$lib/types';
-  import type { SiblingPair } from './+page';
+  import type { SiblingPair } from './+page.server';
 
   let {
     data

@@ -3,7 +3,7 @@
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
   import { softwareLd, breadcrumbLd } from '$lib/seo/jsonld';
-  import { sectionToSlug } from '$lib/seo/sections';
+  import { sectionToSlug } from '$lib/seo/slugs';
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
   import { correctionUrl, REPO, type HistoryEvent } from '$lib/history';
