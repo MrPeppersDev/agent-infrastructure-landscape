@@ -87,7 +87,7 @@ export interface ChooserItem {
   managed: Tri;
   oss: Tri;
   mcp: Tri;
-  facts: Record<'license' | 'deployment' | 'mcp' | 'pricing' | 'release' | 'gh' | 'conflictText' | 'runtimes' | 'api', Fact>;
+  facts: Record<'license' | 'deployment' | 'mcp' | 'pricing' | 'release' | 'gh' | 'conflictText' | 'runtimes' | 'api' | 'sdk' | 'protocols' | 'maturity' | 'compliance', Fact>;
   storage: string[];
   unit: string[];
   conflict: string[];
@@ -158,6 +158,9 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
   const lic = fact(r, 'license');
   const dep = fact(r, 'deployment');
   const mcp = fact(r, 'mcp-support');
+  // v1.2.0 buyer cells (SCHEMA.md §2.5.11): enum sets, preferred over
+  // parsing free text when filled.
+  const protocols = fact(r, 'protocol-support');
   const gh = fact(r, 'gh');
   const rel = fact(r, 'latest-release');
   const oss: Tri = !lic.value ? 'unknown' : NOT_OSS.test(lic.value) ? 'no' : OSI.test(lic.value) ? 'yes' : 'no';
@@ -175,7 +178,7 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
     type: clip(fact(r, 'type').value, 120),
     ...hosting(dep.value, oss, hasRepo),
     oss,
-    mcp: mcpTri(mcp.value),
+    mcp: /\bmcp-(server|client)\b/.test(protocols.value) ? 'yes' : mcpTri(mcp.value),
     facts: {
       license: lic,
       deployment: dep,
@@ -185,7 +188,11 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
       gh,
       conflictText: fact(r, 'contradiction'),
       runtimes: fact(r, 'runtimes'),
-      api: fact(r, 'api-surface')
+      api: fact(r, 'api-surface'),
+      sdk: fact(r, 'sdk-languages'),
+      protocols,
+      maturity: fact(r, 'maturity'),
+      compliance: fact(r, 'compliance-certifications')
     },
     storage: tax(r, 'storage'),
     unit: tax(r, 'unit'),

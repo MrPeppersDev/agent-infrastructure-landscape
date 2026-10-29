@@ -980,6 +980,11 @@ PHASE_2_CELL_SLUGS: tuple[str, ...] = (
     "taxonomy-three-layer-rollup",
     "developer-activity-opendigger",
     "freshness-date",
+    # v1.2.0 buyer cells (SCHEMA.md §2.5.11).
+    "compliance-certifications",
+    "sdk-languages",
+    "protocol-support",
+    "maturity",
 )
 
 # Valid provenance source enum. `legacy` is reserved for pre-Phase-2
@@ -1117,11 +1122,23 @@ V1_1_ENUM_SLUGS: tuple[str, ...] = (
     "taxonomy-three-layer-rollup",
     "freshness-date",
     "developer-activity-opendigger",
+    # v1.2.0 buyer cells (SCHEMA.md §2.5.11).
+    "compliance-certifications",
+    "sdk-languages",
+    "protocol-support",
+    "maturity",
 )
 
 
+def _set_ok(value: str, allowed: list[str]) -> bool:
+    """A set-valued cell: comma-separated known tokens, unique and sorted,
+    so each set has exactly one spelling."""
+    toks = value.split(",")
+    return bool(value) and all(t in allowed for t in toks) and toks == sorted(set(toks))
+
+
 def gate_enum_domains() -> None:
-    gate_header(8, "v1.1.0 enum domains (docs/schema/*.json, issues #150 / #166)")
+    gate_header(8, "v1.1.0 / v1.2.0 enum domains (docs/schema/*.json)")
     landscape = json.loads(LANDSCAPE_JSON.read_text())
     specs = {s: json.loads((SCHEMA_DIR / f"{s}.json").read_text()) for s in V1_1_ENUM_SLUGS}
     rollup = json.loads((SCHEMA_DIR / "section-to-three-layer-rollup.json").read_text())["mapping"]
@@ -1152,7 +1169,7 @@ def gate_enum_domains() -> None:
                 continue
             ok = value in spec.get("values", []) or (
                 "pattern" in spec and re.match(spec["pattern"], value) is not None
-            )
+            ) or ("set_values" in spec and _set_ok(value, spec["set_values"]))
             if not ok:
                 errors.append(f"{rid}: {slug}={value!r} outside the enum domain")
             if slug == "taxonomy-three-layer-rollup" and ok:

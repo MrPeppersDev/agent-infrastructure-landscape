@@ -1,0 +1,24 @@
+{
+  "cell": "compliance-certifications",
+  "description": "Security and privacy attestations the vendor publishes for this product (trust center, security page or certificate registry), as a sorted comma-separated set of codes, or none-published when the vendor's own trust/security page lists none. Only what the vendor states for the product or its hosted service; self-hosted open-source code with no hosted service is not-applicable. gdpr and ccpa mean the vendor states compliance (DPA offered), not a certification.",
+  "values": [
+    "none-published"
+  ],
+  "set_values": [
+    "ccpa",
+    "csa-star",
+    "fedramp",
+    "gdpr",
+    "hipaa",
+    "hitrust",
+    "iso27001",
+    "iso27017",
+    "iso27018",
+    "iso27701",
+    "iso42001",
+    "pci-dss",
+    "soc2-type1",
+    "soc2-type2",
+    "soc3"
+  ]
+}

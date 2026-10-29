@@ -796,6 +796,23 @@ site, API and MCP server can filter on them. Cells that cannot apply
 `last_verified_at`. OpenRank comes from OpenDigger directly, never from
 third-party CSV snapshots (licence audit; see DECISIONS.md 2026-10-28).
 
+### 2.5.11 v1.2.0 buyer columns
+
+Schema **v1.2.0** adds four optional cells that buyers filter on (a SemVer minor bump). `scripts/v1_2_migrate_schema.py` added them empty to every record. Domains live in `docs/schema/<slug>.json`, and gate 8 checks them. A **set-valued** cell (`set_values` in its spec) holds comma-separated tokens from the list, with no repeats and in sorted order, so every set has exactly one spelling.
+
+| # | Column slug | Meaning | Filled by |
+|---|---|---|---|
+| 107 | `compliance-certifications` | Set of attestations the vendor publishes for the product or its hosted service: `soc2-type2`, `iso27001`, `hipaa`, `gdpr`, `iso42001`, `fedramp`, and so on. `none-published` when the vendor's trust or security page lists none. Use `not-applicable` for self-hosted code with no hosted service. | research: the vendor's trust center or security page |
+| 108 | `sdk-languages` | Set of languages with an official SDK: `python`, `typescript`, `javascript`, `go`, `java`, `csharp`, `rust`, …. `rest` means a documented HTTP API only. Community SDKs don't count. | research: the vendor's docs, the official repo, or a registry |
+| 109 | `protocol-support` | Set of open agent protocols supported first-party: `mcp-server`, `mcp-client`, `a2a`, `openai-compatible`, `ag-ui`, `opentelemetry`; or `none`. | research: the vendor's docs |
+| 110 | `maturity` | The release stage the vendor states: `ga`, `beta`, `preview` or `alpha`. | research: the vendor's docs or release notes |
+
+When filled, the choosers and the stack composer use these cells ahead of free-text parsing:
+- `sdk-languages` decides the language must-have.
+- `protocol-support` decides MCP.
+- `compliance-certifications` backs the composer's compliance must-have.
+- `maturity` other than `ga` adds a risk point.
+
 ---
 
 ## 3. The `status` enum — exact semantics

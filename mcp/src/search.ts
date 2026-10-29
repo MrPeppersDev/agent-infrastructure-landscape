@@ -220,7 +220,9 @@ export function slimForSearch(i: ChooserItem): ChooserItem {
     facts: {
       license: empty, deployment: empty, mcp: empty, pricing: empty, release: empty, gh: empty, conflictText: empty,
       runtimes: { value: i.facts.runtimes.value.slice(0, 160), citation: null },
-      api: { value: i.facts.api.value.slice(0, 160), citation: null }
+      api: { value: i.facts.api.value.slice(0, 160), citation: null },
+      sdk: { value: i.facts.sdk.value, citation: null },
+      protocols: empty, maturity: empty, compliance: empty
     }
   };
 }

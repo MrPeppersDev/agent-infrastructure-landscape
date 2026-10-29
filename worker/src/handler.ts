@@ -121,7 +121,8 @@ export const TOOLS = [
       mcp: S.bool('require MCP support where it applies'),
       add: { type: 'array', items: S.enum(LAYERS.map((l) => l.id), 'layer'), description: 'extra layers, e.g. ["voice"]' },
       avoid: { type: 'array', items: S.str('record id'), description: 'record ids never to pick' },
-      pin: { type: 'object', additionalProperties: S.str('record id'), description: 'layer → record id' }
+      pin: { type: 'object', additionalProperties: S.str('record id'), description: 'layer → record id' },
+      compliance: { type: 'array', items: S.str('attestation code, e.g. soc2-type2, hipaa, iso27001'), description: 'attestations every hosted service must publish' }
     } }
   }
 ];

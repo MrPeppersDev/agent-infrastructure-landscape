@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-apply_v1_1_research.py — write researched v1.1.0 cells (issue #150) into
-data/landscape.json.
+apply_v1_1_research.py — write researched v1.1.0 / v1.2.0 cells (issue #150,
+SCHEMA.md §2.5.11) into data/landscape.json.
 
 Input: one or more JSON files, each a list of
 
@@ -38,7 +38,8 @@ ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE = ROOT / "data" / "landscape.json"
 SCHEMA_DIR = ROOT / "docs" / "schema"
 SCRIPT = "scripts/apply_v1_1_research.py"
-CELLS = {"adoption-accelerator", "architecture-deployment-locus", "positioning-platform-vs-product", "licensing-bucket"}
+CELLS = {"adoption-accelerator", "architecture-deployment-locus", "positioning-platform-vs-product", "licensing-bucket",
+         "compliance-certifications", "sdk-languages", "protocol-support", "maturity"}
 STATUSES = {"real-data", "estimate", "not-applicable"}
 
 
@@ -55,6 +56,11 @@ def check(row: dict, specs: dict) -> str | None:
     spec = specs[cell]
     if value in spec.get("values", []) or ("pattern" in spec and re.match(spec["pattern"], value)):
         return None
+    if "set_values" in spec:
+        toks = value.split(",")
+        if all(t in spec["set_values"] for t in toks) and toks == sorted(set(toks)):
+            return None
+        return f"{cell}={value!r}: tokens must come from docs/schema/{cell}.json, unique and sorted"
     return f"{cell}={value!r} outside docs/schema/{cell}.json"
 
 

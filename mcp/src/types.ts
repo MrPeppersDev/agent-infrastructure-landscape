@@ -178,7 +178,12 @@ export type ColumnSlug =
   | 'positioning-platform-vs-product'
   | 'taxonomy-three-layer-rollup'
   | 'developer-activity-opendigger'
-  | 'freshness-date';
+  | 'freshness-date'
+  // v1.2.0 buyer cells. See SCHEMA.md §2.5.11.
+  | 'compliance-certifications'
+  | 'sdk-languages'
+  | 'protocol-support'
+  | 'maturity';
 
 export type Cells = Record<ColumnSlug, Cell>;
 

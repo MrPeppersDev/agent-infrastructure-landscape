@@ -10,6 +10,8 @@
 //   * A pair of picks with no recorded integration is "not recorded",
 //     never "incompatible".
 //   * The risk score only adds up cited facts; nothing is a judgement call.
+//   * Compliance must-haves count only when the vendor's published
+//     attestations (compliance-certifications cell) confirm them.
 //
 // Pure and dependency-free apart from its sibling modules.
 
@@ -104,6 +106,10 @@ export interface StackAnswers {
   pin?: Partial<Record<LayerId, string>>;
   /** Never pick these record ids. */
   avoid?: string[];
+  /** Attestations every hosted service in the stack must publish, as codes
+   * from docs/schema/compliance-certifications.json (e.g. soc2-type2, hipaa).
+   * Libraries you run yourself are exempt. */
+  compliance?: string[];
 }
 
 export const DEFAULT_STACK: StackAnswers = { product: 'support-agent', language: 'any', hosting: 'any', oss: false, mcp: false };
@@ -149,7 +155,7 @@ export interface PairResult {
 }
 
 export interface RiskFactor {
-  factor: 'lifecycle' | 'vendor-concentration' | 'bus-factor' | 'licence' | 'unrecorded-integration' | 'unconfirmed' | 'gap';
+  factor: 'lifecycle' | 'maturity' | 'vendor-concentration' | 'bus-factor' | 'licence' | 'unrecorded-integration' | 'unconfirmed' | 'gap';
   points: number;
   detail: string;
   citation?: string | null;
@@ -209,7 +215,16 @@ function layerAnswers(l: Layer, a: StackAnswers): InfraAnswers {
   };
 }
 
-const HARD = ['Self-hostable', 'Managed service', 'Open source', 'MCP', 'Python SDK', 'TypeScript / JavaScript SDK'];
+const HARD = ['Self-hostable', 'Managed service', 'Open source', 'MCP', 'Python SDK', 'TypeScript / JavaScript SDK', 'Compliance'];
+
+/** Does the item publish every required attestation? From the
+ * compliance-certifications cell only. */
+function complianceTri(i: ChooserItem, need: string[]): Tri {
+  const v = i.facts.compliance?.value ?? '';
+  if (!v) return 'unknown';
+  const have = new Set(v.split(','));
+  return need.every((c) => have.has(c)) ? 'yes' : 'no';
+}
 const category = (r: Reason) => r.text.split(':')[0];
 
 function pairEvidence(ctx: ComposerContext, byId: Map<string, RecordLike>, a: string, b: string): PairResult {
@@ -271,6 +286,16 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
         excluded.push({ item: i, why: r });
         continue;
       }
+      if (a.compliance?.length && !l.library) {
+        const c = complianceTri(i, a.compliance);
+        if (c === 'no') {
+          excluded.push({ item: i, why: { excluded: `doesn't publish ${a.compliance.join(', ')}`, fact: i.facts.compliance } });
+          continue;
+        }
+        if (c === 'unknown') r.unconfirmed.push('Compliance');
+        else r.reasons.unshift({ text: `Compliance: ${i.facts.compliance.value}`, citation: i.facts.compliance.citation });
+      }
+      if (/^(alpha|preview)$/.test(i.facts.maturity?.value ?? '')) r.score = Math.round((r.score - 0.5) * 10) / 10;
       // Prefer what works with the layers already chosen.
       for (const p of picked) {
         if (p.item.id === i.id) continue;
@@ -414,6 +439,8 @@ function riskOf(layers: LayerResult[], pairs: PairResult[], byId: Map<string, Re
   for (const p of picks) {
     const st = p.s.item.status;
     if (st.severity >= 1 && st.status !== 'active') f.push({ factor: 'lifecycle', points: st.severity, detail: `${p.s.item.name}: ${st.status}${st.note ? ' — ' + st.note : ''}` });
+    const m = p.s.item.facts.maturity;
+    if (m?.value && m.value !== 'ga') f.push({ factor: 'maturity', points: m.value === 'beta' ? 0.5 : 1, detail: `${p.s.item.name}: ${m.value}, not generally available`, citation: m.citation });
   }
   const byBrand = new Map<string, string[]>();
   for (const p of picks) {
