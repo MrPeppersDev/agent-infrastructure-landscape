@@ -3,7 +3,7 @@
 // (honesty rules, requirements, round-trips), not specific picks, so they
 // hold as the catalog changes.
 // Run: npm run build && node dist/test-composer.js
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { toItem, type ChooserItem } from './chooser.js';
@@ -119,6 +119,20 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   ok(picks.every((l) => opml.includes(`https://example.org/feeds/${l.pick!.item.id}.xml`)), 'OPML feed URLs point at /feeds/<id>.xml');
   const slim = slimPlan(p);
   ok(slim.layers.every((l) => !l.pick || (l.pick.page.includes('/systems/') && l.pick.feed.endsWith('.xml'))), 'slim plan links each pick and its feed');
+}
+
+// --- committed blueprints stay valid ---------------------------------------
+{
+  const dir = join(dirname(find('landscape.json')), '..', 'blueprints');
+  let files: string[] = [];
+  try {
+    files = readdirSync(dir).flatMap((d) => ['stack.yml', 'stack.self-hosted.yml'].map((f) => join(dir, d, f))).filter((f) => { try { readFileSync(f); return true; } catch { return false; } });
+  } catch { /* npm tarball: no blueprints/ */ }
+  for (const f of files) {
+    const r = checkManifest(readFileSync(f, 'utf-8'), INDEX, { filename: 'stack.yml' });
+    ok(r.unmatched.length === 0, `${f}: every component is a catalog record`);
+    ok(r.matched.every((m) => m.record.severity < 3), `${f}: no archived or shut-down component (run make blueprints)`);
+  }
 }
 
 // --- integration evidence is cited ----------------------------------------
