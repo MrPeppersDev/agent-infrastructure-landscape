@@ -1,0 +1,548 @@
+[
+ {
+  "id": "agent2agent-protocol-a2a--google-github-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "google.github.io/A2A/ now returns 404; the protocol site is a2a-protocol.org, which describes A2A as an open standard originated by Google and donated to the Linux Foundation (checked 2026-10-29).",
+  "lifecycle_citation": "https://a2a-protocol.org/",
+  "record": {
+   "url": "https://a2a-protocol.org/"
+  },
+  "updates": []
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "AWS end-of-support notice on the product page: on 2027-04-30 AWS will discontinue support for the Amazon Q Developer IDE plugins and points users to Kiro (checked 2026-10-29).",
+  "lifecycle_citation": "https://aws.amazon.com/q/developer/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Amazon's developer-focused agent — formerly CodeWhisperer (renamed 2024-Q4). Available as IDE plugins (VS Code, JetBrains, Visual Studio, Eclipse), in AWS Console, and CLI. Strong AWS-tooling integration: Q can read CloudWatch, troubleshoot IAM, suggest AWS-SDK code. Companion to Kiro for spec-driven flows.",
+    "new": "Amazon's developer-focused agent — formerly CodeWhisperer (renamed 2024-Q4). Available as IDE plugins (VS Code, JetBrains, Visual Studio, Eclipse), in AWS Console, and CLI. Strong AWS-tooling integration: Q can read CloudWatch, troubleshoot IAM, suggest AWS-SDK code. Companion to Kiro for spec-driven flows. End of support for the Amazon Q Developer IDE plugins is set for 2027-04-30 per an AWS notice, which points users to Kiro as the successor.",
+    "citation": "https://aws.amazon.com/q/developer/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "burr-dagworks--gh-dagworks-inc-burr",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "github.com/DAGWorks-Inc/burr now resolves to apache/burr; the README is titled Apache Burr (incubating) and the repo is not archived (checked 2026-10-29).",
+  "lifecycle_citation": "https://github.com/apache/burr",
+  "record": {
+   "url": "https://github.com/apache/burr"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "DAGWorks's state-machine framework for agents — state + actions + transitions; lightweight alternative to LangGraph.",
+    "new": "State-machine framework for agents — state + actions + transitions; lightweight alternative to LangGraph. Created by DAGWorks and donated to the Apache Software Foundation, where it is now Apache Burr (incubating).",
+    "citation": "https://raw.githubusercontent.com/apache/burr/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "GitHub banner: repository archived by the owner on 2026-03-07, read-only. bytebot.ai still loads and pitches cloud-scale desktop agents, so a hosted offering may continue separately.",
+  "lifecycle_citation": "https://github.com/bytebot-ai/bytebot",
+  "updates": []
+ },
+ {
+  "id": "claude-for-chrome--anthropic-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "anthropic.com/news/claude-for-chrome redirects to claude.com/resources/articles/claude-for-chrome; updates on the page say Max availability in beta (2025-11-24) and availability on Pro, Team and Enterprise (2025-12-18).",
+  "lifecycle_citation": "https://claude.com/resources/articles/claude-for-chrome",
+  "record": {
+   "url": "https://claude.com/resources/articles/claude-for-chrome"
+  },
+  "updates": []
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "cognition.ai redirects to cognition.com, which says Cognition operates Devin (checked 2026-10-29).",
+  "lifecycle_citation": "https://cognition.com/",
+  "record": {
+   "url": "https://cognition.com/"
+  },
+  "updates": []
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "continue.dev says 'Continue has joined Cursor ... Continue was acquired by Cursor'; the repo README says continuedev/continue is no longer actively maintained and read-only after a final 2.0.0 release. No acquisition date is given on either primary page.",
+  "lifecycle_citation": "https://continue.dev/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "OSS in-IDE coding-assistant plugin — supports VS Code and JetBrains. Customisable: any model, any context provider, any slash-command. \"Agent mode\" added 2024 for multi-step plan + execute. Memory layer = .continue/rules; separate Memory MCP. Built by Nate Sesti and Ty Dunn.",
+    "new": "OSS in-IDE coding-assistant plugin — supports VS Code and JetBrains. Customisable: any model, any context provider, any slash-command. \"Agent mode\" added 2024 for multi-step plan + execute. Memory layer = .continue/rules; separate Memory MCP. Built by Nate Sesti and Ty Dunn. Acquired by Cursor (2026, per continue.dev; no date given); the continuedev/continue repo is read-only and no longer maintained after a final 2.0.0 release.",
+    "citation": "https://continue.dev/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "crewai-enterprise--crewai-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "crewai.com/enterprise now returns 404; crewai.com/amp redirects to crewai.com/agent-management-platform, which presents the commercial platform as CrewAI AMP, the agent management platform (checked 2026-10-29).",
+  "lifecycle_citation": "https://crewai.com/agent-management-platform",
+  "record": {
+   "name": "CrewAI Enterprise (now CrewAI AMP)",
+   "url": "https://crewai.com/agent-management-platform"
+  },
+  "updates": []
+ },
+ {
+  "id": "elevenlabs-conversational-ai--elevenlabs-io",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "The ElevenLabs Conversational AI page now sits under the ElevenAgents product navigation (ElevenAgents Platform), although the page copy still says Conversational AI (checked 2026-10-29).",
+  "lifecycle_citation": "https://elevenlabs.io/conversational-ai",
+  "record": {
+   "name": "ElevenLabs Conversational AI (now ElevenAgents)"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "ElevenLabs launched Conversational AI Nov-2024 — STT + LLM + their own market-leading TTS in one pipeline. Combines vendor's voice cloning + multilingual TTS strengths with hosted call orchestration. ElevenLabs raised $180M Series C Jan-2025 at $3.3B val.",
+    "new": "ElevenLabs launched Conversational AI Nov-2024 — STT + LLM + their own market-leading TTS in one pipeline. Combines vendor's voice cloning + multilingual TTS strengths with hosted call orchestration. ElevenLabs raised $180M Series C Jan-2025 at $3.3B val. As of 2026-10 ElevenLabs markets the platform as ElevenAgents.",
+    "citation": "https://elevenlabs.io/conversational-ai",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "gitpod.io redirects to ona.com. Ona's post 'Ona is joining OpenAI' (2026-06-11) says the transaction closed on 2026-08-10 and Ona is now part of OpenAI; the old gitpod-flex blog url redirects to a 404 on ona.com.",
+  "lifecycle_citation": "https://ona.com/stories/ona-joins-openai",
+  "record": {
+   "name": "Gitpod AI features (now Ona)",
+   "url": "https://ona.com/"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Gitpod was the original cloud development environment (CDE) — founded by Sven Efftinge + Johannes Landgraf (TypeFox / Eclipse Theia / Open VSX); $25M Series A 2022 led by General Catalyst. Renamed Ona on 2025-09-02 and repositioned as background AI software-engineering agents in cloud environments (Ona cloud or customer VPC). OpenAI agreed to acquire Ona on 2026-06-11 (closed 2026-08-10; team joined Codex); Ona Cloud is being wound down on 2026-10-31.",
+    "new": "Gitpod was the original cloud development environment (CDE) — founded by Sven Efftinge + Johannes Landgraf (TypeFox / Eclipse Theia / Open VSX); $25M Series A 2022 led by General Catalyst. Renamed Ona on 2025-09-02 and repositioned as background AI software-engineering agents in cloud environments (Ona cloud or customer VPC). Acquired by OpenAI (2026-08-10; announced 2026-06-11; team joined the Codex team); Ona Cloud is being wound down on 2026-10-31.",
+    "citation": "https://ona.com/stories/ona-joins-openai",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$25M Series A May-2022 led by General Catalyst (Crane, Speedinvest, Cherry, Mango); ~$35M+ total raised",
+    "new": "Acquired by OpenAI (2026-08-10); prior $25M Series A May-2022 led by General Catalyst (Crane, Speedinvest, Cherry, Mango); ~$35M+ total raised",
+    "citation": "https://ona.com/stories/ona-joins-openai",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "goose-block--block-github-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "block.github.io/goose/ shows 'goose has moved' and redirects to goose-docs.ai, which says goose has moved to the Agentic AI Foundation (AAIF), Apache 2.0, 55k+ GitHub stars (checked 2026-10-29).",
+  "lifecycle_citation": "https://goose-docs.ai/",
+  "record": {
+   "url": "https://goose-docs.ai/"
+  },
+  "updates": []
+ },
+ {
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "GitHub banner: repository archived by the owner on 2026-04-22, read-only.",
+  "lifecycle_citation": "https://github.com/AntonOsika/gpt-engineer",
+  "updates": []
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "highlightai.com (beta) now positions Highlight as 'the AI multitasker for work' that captures meeting and work context and drafts follow-ups, briefs and recaps across connected tools (checked 2026-10-29). The arm64-Mac-only part of the lead was not confirmed on the homepage.",
+  "lifecycle_citation": "https://highlightai.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Always-on desktop AI assistant that watches the user's screen (across all apps) and answers questions / takes actions based on what's currently visible. Mac + Windows. Founded by Mac Bishop (ex-Mixpanel); raised $13M Series A from Aspect / Lightspeed (Oct 2024). Distinguishes itself from Rewind by being action-oriented (not just recall).",
+    "new": "Always-on desktop AI assistant that watches the user's screen (across all apps) and answers questions / takes actions based on what's currently visible. Mac + Windows. Founded by Mac Bishop (ex-Mixpanel); raised $13M Series A from Aspect / Lightspeed (Oct 2024). Distinguishes itself from Rewind by being action-oriented (not just recall). As of 2026-10 the site repositions it as an AI multitasker for work: it captures meeting and work context and drafts follow-ups, daily briefs and end-of-day recaps in connected tools (Gmail, Slack, Linear, GitHub and others).",
+    "citation": "https://highlightai.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "hugo-hugo-legal--hugo-legal",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "hugo.legal is an Estonian online legal-help service connecting clients with lawyers from 39 EUR per 30 min, plus the HUGO+ membership at 119 EUR/year; no AI agent product is described (checked 2026-10-29). The row's desc already says this, so it likely belongs outside the agent-harness section.",
+  "lifecycle_citation": "https://hugo.legal/",
+  "updates": []
+ },
+ {
+  "id": "hume-evi--hume-ai",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "Hume EVI docs: 'Hume is sunsetting the TTS and EVI APIs. Access ends November 13, 2026 at 12:01 a.m. EST'; both stay fully supported until then and account data is deleted afterwards. The row's product url now returns 404; the hume.ai homepage now leads with VoiceEQ. Kept as maintenance, not deprecated, until the 2026-11-13 cutoff: the API still serves traffic.",
+  "lifecycle_citation": "https://dev.hume.ai/voice/docs/speech-to-speech-evi/overview",
+  "record": {
+   "url": "https://dev.hume.ai/voice/docs/speech-to-speech-evi/overview"
+  },
+  "updates": []
+ },
+ {
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "GitHub banner: repository archived by the owner on 2026-04-23. The README (2025-09-02 announcement) moves the components into sdg_hub and training_hub. instructlab.ai did not connect today.",
+  "lifecycle_citation": "https://github.com/instructlab/instructlab",
+  "updates": []
+ },
+ {
+  "id": "lawdroid-copilot--lawdroid-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "lawdroid.ai now describes LawDroid as a partner for legal aid, courts and government agencies; its product is LawDroid Assist (plus a Court Filing Assistant) and the site does not mention Copilot (checked 2026-10-29). No primary statement says Copilot was discontinued.",
+  "lifecycle_citation": "https://lawdroid.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2017 by Tom Martin (lawyer + technologist); LawDroid Copilot serves solo and small-firm lawyers — drafting, research, client intake automation. Bootstrapped + small angel rounds. Marketed against the 'enterprise BigLaw' positioning of Harvey/Casetext.",
+    "new": "Founded 2017 by Tom Martin (lawyer + technologist); LawDroid Copilot serves solo and small-firm lawyers — drafting, research, client intake automation. Bootstrapped + small angel rounds. Marketed against the 'enterprise BigLaw' positioning of Harvey/Casetext. As of 2026-10 lawdroid.ai no longer lists Copilot; the company now markets LawDroid Assist to legal aid organisations, courts and government agencies.",
+    "citation": "https://lawdroid.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "linq-ai--linq-ai",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "linq.ai is now LINQ.AI, a hybrid higher-education platform company. It has no financial-analyst agent product, so the row's url points to an unrelated company (checked 2026-10-29). The status of the original financial-analyst product is unknown.",
+  "lifecycle_citation": "https://www.linq.ai/",
+  "updates": []
+ },
+ {
+  "id": "lutra-ai--lutra-ai",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "lutra.ai: 'Sorry, we have discontinued support for Lutra, please email support@lutra.ai for help.' (checked 2026-10-29).",
+  "lifecycle_citation": "https://lutra.ai/",
+  "updates": []
+ },
+ {
+  "id": "magic-dev--magic-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "magic.dev describes the company as building frontier code models to automate software engineering and research ($768M raised, thousands of GB200s, hiring). The site lists no released product (checked 2026-10-29).",
+  "lifecycle_citation": "https://magic.dev/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI-coding startup focused on extremely long-context models (claimed 100M tokens) and a frontier coding agent. Raised $320M Series B from Eric Schmidt, CapitalG, Atlassian Aug 2024. Lower public-product surface than peers — mostly known for the model claims and the funding round.",
+    "new": "AI-coding startup focused on extremely long-context models (claimed 100M tokens) and a frontier coding agent. Raised $320M Series B from Eric Schmidt, CapitalG, Atlassian Aug 2024. Lower public-product surface than peers — mostly known for the model claims and the funding round. As of 2026-10 magic.dev lists no released product; it describes the company as building frontier code models to automate software engineering and research.",
+    "citation": "https://magic.dev/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "magnitude.run redirects to magnitude.dev, which now presents Magnitude as an open-source (Apache 2.0) local inference engine and desktop app for running open models for agents. The browser-agent / E2E testing framework is no longer offered (checked 2026-10-29).",
+  "lifecycle_citation": "https://magnitude.dev/",
+  "record": {
+   "url": "https://magnitude.dev/"
+  },
+  "updates": []
+ },
+ {
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "The README says 'Semantic Kernel is now Microsoft Agent Framework', its enterprise-ready successor, which is at 1.0. Microsoft's Agent Framework blog says SK v1.x will keep getting critical bug and security fixes, with most new features going to MAF.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/microsoft/semantic-kernel/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "multion--multion-ai",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "www.multion.ai redirects to theagi.company. AGI, Inc. markets AGI-0, a private on-device action agent for phones (100% on AndroidWorld), plus a developer Platform (checked 2026-10-29).",
+  "lifecycle_citation": "https://theagi.company/",
+  "record": {
+   "name": "MultiOn (now AGI, Inc.)",
+   "url": "https://theagi.company/"
+  },
+  "updates": []
+ },
+ {
+  "id": "openai-deep-research--openai-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "OpenAI's deprecations page lists 2026-07-23 as the shutdown date for the API models o3-deep-research and o4-mini-deep-research, with gpt-5.6-sol as the replacement. That concerns the API models, not the ChatGPT feature, whose status could not be checked because openai.com and help.openai.com return 403.",
+  "lifecycle_citation": "https://developers.openai.com/api/docs/deprecations",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Cross-listing: OpenAI Deep Research, launched Feb-2025 inside ChatGPT, is OpenAI's flagship long-horizon research agent (o3 base model). Distinct from the OpenAI Codex / Computer Use rows because the focus is web-research + multi-step synthesis. Available to Pro / Plus / Team / Enterprise users.",
+    "new": "Cross-listing: OpenAI Deep Research, launched Feb-2025 inside ChatGPT, is OpenAI's flagship long-horizon research agent (o3 base model). Distinct from the OpenAI Codex / Computer Use rows because the focus is web-research + multi-step synthesis. Available to Pro / Plus / Team / Enterprise users. The separate API models o3-deep-research and o4-mini-deep-research were retired on 2026-07-23, with gpt-5.6-sol as OpenAI's recommended replacement.",
+    "citation": "https://developers.openai.com/api/docs/deprecations",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "The README says 'Swarm is now replaced by the OpenAI Agents SDK, which is a production-ready evolution of Swarm' and recommends migrating. No archive banner.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/openai/swarm/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "github.com/All-Hands-AI/OpenHands now shows OpenHands/OpenHands, not archived, with its website set to openhands.dev (checked 2026-10-29).",
+  "lifecycle_citation": "https://github.com/OpenHands/OpenHands",
+  "record": {
+   "url": "https://github.com/OpenHands/OpenHands"
+  },
+  "updates": []
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "www.all-hands.dev redirects to www.openhands.dev, the OpenHands open-source coding-agent platform (Agent Canvas, Cloud, SDK, Enterprise) (checked 2026-10-29).",
+  "lifecycle_citation": "https://www.openhands.dev/",
+  "record": {
+   "url": "https://www.openhands.dev/"
+  },
+  "updates": []
+ },
+ {
+  "id": "perplexity-deep-research--perplexity-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The launch post (2025-02-14) still loads. The lead concerns the Sonar API, not this in-app feature: the API changelog says Sonar Chat Completions became the Agent API (July 2026), and the 2026-09-27 end date was not found there. The feature's current availability was not separately confirmed.",
+  "lifecycle_citation": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research",
+  "updates": []
+ },
+ {
+  "id": "pincites--pincites-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Filevine press release (2026-01-14): Filevine acquired Pincites in December 2025, the full team joined, and Pincites becomes Filevine's LOIS for Word. pincites.com redirects to the LOIS for Word page.",
+  "lifecycle_citation": "https://www.filevine.com/news/filevine-announces-lois-for-word-as-it-acquires-pincites/",
+  "record": {
+   "name": "Pincites (now Filevine LOIS for Word)"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "YC-W24 contract-review AI; auto-redlines vendor contracts based on the in-house playbook. $3.6M seed 2024 (Y Combinator + Liquid 2). Targets in-house legal at SaaS companies.",
+    "new": "YC-W24 contract-review AI; auto-redlines vendor contracts based on the in-house playbook. $3.6M seed 2024 (Y Combinator + Liquid 2). Targets in-house legal at SaaS companies. Acquired by Filevine (2025-12; announced 2026-01-14); the product became LOIS for Word, part of Filevine's Legal Operating Intelligence System.",
+    "citation": "https://www.filevine.com/news/filevine-announces-lois-for-word-as-it-acquires-pincites/",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$3.6M seed 2024 (YC + Liquid 2)",
+    "new": "Acquired by Filevine (2025-12; announced 2026-01-14); prior $3.6M seed 2024 (YC + Liquid 2)",
+    "citation": "https://www.filevine.com/news/filevine-announces-lois-for-word-as-it-acquires-pincites/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pluto-ai--heypluto-ai",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "heypluto.ai and www.heypluto.ai did not connect today (proxy CONNECT 502). A failed load is not proof of shutdown, and no primary statement was found.",
+  "lifecycle_citation": "https://www.heypluto.ai/",
+  "updates": []
+ },
+ {
+  "id": "project-mariner--deepmind-google",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "The Project Mariner page at labs.google.com/mariner carries the notice 'Project Mariner was shut down on May 4th, 2026. Try using Gemini for complex tasks with Gemini Spark.' The deepmind.google product url now redirects to the DeepMind homepage.",
+  "lifecycle_citation": "https://labs.google.com/mariner/",
+  "record": {
+   "url": "https://labs.google.com/mariner/"
+  },
+  "updates": []
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Palo Alto Networks press release (2025-07-22): the acquisition of Protect AI is complete and its capabilities are being integrated into Prisma AIRS. protectai.com redirects to the Prisma AIRS page.",
+  "lifecycle_citation": "https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-completes-acquisition-of-protect-ai",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2022 by Ian Swanson + Daryan Dehghanpisheh (ex-AWS); AI/ML supply-chain + GenAI security. **Acquired by Palo Alto Networks Apr-2025 for $700M.** Products: Recon (red-team), ModelScan (model artifact scanner), Sightline (vulnerability DB).",
+    "new": "Founded 2022 by Ian Swanson + Daryan Dehghanpisheh (ex-AWS); AI/ML supply-chain + GenAI security. Acquired by Palo Alto Networks (2025-07-22; announced Apr-2025, reported $700M); its capabilities now ship in Prisma AIRS. Products: Recon (red-team), ModelScan (model artifact scanner), Sightline (vulnerability DB).",
+    "citation": "https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-completes-acquisition-of-protect-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$60M Series B Aug-2024 (Evolution Equity; $400M val) → Palo Alto Networks acq $700M Apr-2025",
+    "new": "Acquired by Palo Alto Networks (2025-07-22; announced Apr-2025, reported $700M); prior $60M Series B Aug-2024 (Evolution Equity; $400M val)",
+    "citation": "https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-completes-acquisition-of-protect-ai",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "ai.pydantic.dev redirects to pydantic.dev/docs/ai/overview/, the Pydantic AI docs (checked 2026-10-29).",
+  "lifecycle_citation": "https://pydantic.dev/docs/ai/overview/",
+  "record": {
+   "url": "https://pydantic.dev/docs/ai/overview/"
+  },
+  "updates": []
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "reflection.ai presents Reflection as an open-model lab. Beam is its 501B open-weight model, with weights on Hugging Face, a self-serve API Platform ('Get an API key'), and open-source containers and agentic harnesses (checked 2026-10-29).",
+  "lifecycle_citation": "https://reflection.ai/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Private beta; enterprise sales early",
+    "new": "Beam open weights free on Hugging Face; hosted Beam via Reflection's self-serve API Platform (API keys); no public per-token prices on the homepage",
+    "citation": "https://reflection.ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "reggie-ai--reggie-ai",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "www.reggie.ai now serves only a redirect to /lander, which forwards to forsale.godaddy.com/forsale/www.reggie.ai, so the domain is parked and listed for sale (checked 2026-10-29).",
+  "lifecycle_citation": "https://www.reggie.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2023; AI sales-agent product — autonomous outbound, meeting booking, follow-up. $4.7M seed Jul-2024 (Lightspeed + Mantis). Direct competitor in the 11x.ai / Artisan AI / Bland niche.",
+    "new": "Founded 2023; AI sales-agent product — autonomous outbound, meeting booking, follow-up. $4.7M seed Jul-2024 (Lightspeed + Mantis). Direct competitor in the 11x.ai / Artisan AI / Bland niche. As of 2026-10 the reggie.ai domain is parked and listed for sale on GoDaddy; the product appears discontinued.",
+    "citation": "https://www.reggie.ai/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cisco's page 'Robust Intelligence is part of Cisco' says it was acquired by Cisco in October 2024 and is foundational to Cisco AI Defense and Cisco Foundation AI. robustintelligence.com does not connect.",
+  "lifecycle_citation": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+  "record": {
+   "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2019 by Yaron Singer (Harvard); ML risk management — model testing, validation, runtime detection. **Acquired by Cisco Sep-2024** to anchor Cisco's AI security stack. Note: Harrison Chase (LangChain CEO) was an early Robust Intelligence ML lead.",
+    "new": "Founded 2019 by Yaron Singer (Harvard); ML risk management — model testing, validation, runtime detection. Acquired by Cisco (2024-10); now foundational to Cisco AI Defense and Cisco Foundation AI. Note: Harrison Chase (LangChain CEO) was an early Robust Intelligence ML lead.",
+    "citation": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Acquired by Cisco Sep-2024 (terms undisclosed; ~$44M pre-acq)",
+    "new": "Acquired by Cisco (2024-10; terms undisclosed); ~$44M raised pre-acquisition",
+    "citation": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "roo-code--roocode-com",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "The RooCodeInc/Roo-Code repo was archived by the owner on 2026-05-15, and its README says 'The Roo Code Extension was shut down on May 15th', pointing to ZooCode and Cline. roocode.com now redirects to roomote.dev, a separate cloud coding agent by the same creators.",
+  "lifecycle_citation": "https://github.com/RooCodeInc/Roo-Code",
+  "record": {
+   "url": "https://github.com/RooCodeInc/Roo-Code"
+  },
+  "updates": []
+ },
+ {
+  "id": "snapattack--snapattack-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Splunk blog (2024-12-16) says Cisco intends to acquire SnapAttack, and its update of 2025-01-31 says 'We have completed the acquisition of SnapAttack'. snapattack.com now redirects to the Splunk Enterprise Security product page.",
+  "lifecycle_citation": "https://www.splunk.com/en_us/blog/security/cisco-intends-to-acquire-threat-detection-and-defense-company-snapattack.html",
+  "record": {
+   "url": "https://www.splunk.com/en_us/products/enterprise-security.html"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Founded 2021 inside Booz Allen Hamilton; spun out 2022. Detection-as-code platform — threat emulation + auto-generated detections. Adds GenAI threat-content layer 2024. Acquired by Cisco's Splunk Mar-2025 (terms undisclosed).",
+    "new": "Founded 2021 inside Booz Allen Hamilton; spun out 2022. Detection-as-code platform — threat emulation + auto-generated detections. Adds GenAI threat-content layer 2024. Acquired by Cisco (2025-01-31; announced 2024-12-16) to extend Splunk Enterprise Security; snapattack.com now redirects to Splunk ES.",
+    "citation": "https://www.splunk.com/en_us/blog/security/cisco-intends-to-acquire-threat-detection-and-defense-company-snapattack.html",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "Booz Allen-incubated; acquired by Splunk Mar-2025",
+    "new": "Acquired by Cisco (2025-01-31) for Splunk; Booz Allen-incubated",
+    "citation": "https://www.splunk.com/en_us/blog/security/cisco-intends-to-acquire-threat-detection-and-defense-company-snapattack.html",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "speechmatics-flow--speechmatics-com",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "speechmatics.com/flow and the Flow docs pages now redirect to Agent STT, a speech-to-text API for voice agents on the Linden model, from $0.30/hour, for use via LiveKit, Pipecat or the API. Flow is no longer described (checked 2026-10-29). No explicit end-of-life statement was found.",
+  "lifecycle_citation": "https://www.speechmatics.com/voice-agents",
+  "record": {
+   "url": "https://www.speechmatics.com/voice-agents"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Speechmatics (UK; STT leader) launched Flow Q4 2024 — conversational voice-agent platform composed on Speechmatics STT + caller LLM. Speechmatics raised $62M Series B (2022); enterprise + media customers. UK / EU data-residency lead.",
+    "new": "Speechmatics (UK; STT leader) launched Flow Q4 2024 — conversational voice-agent platform composed on Speechmatics STT + caller LLM. Speechmatics raised $62M Series B (2022); enterprise + media customers. UK / EU data-residency lead. As of 2026-10 the Flow pages and docs redirect to Agent STT, a speech-to-text API for voice agents (Linden model, from $0.30/hour) used via LiveKit, Pipecat or the API; Flow itself is no longer listed.",
+    "citation": "https://www.speechmatics.com/voice-agents",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "steamship--steamship-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "steamship.com returns a Vercel DEPLOYMENT_NOT_FOUND 404, www.steamship.com does not connect, and docs.steamship.com has an expired TLS certificate. Those are strong signs it is gone, but there is no primary shutdown statement and the domain still resolves.",
+  "lifecycle_citation": "https://steamship.com/",
+  "updates": []
+ }
+]

@@ -1,0 +1,802 @@
+[
+ {
+  "id": "agent2agent-protocol-a2a--google-github-io",
+  "name": "Agent2Agent Protocol (A2A)",
+  "url": "https://google.github.io/A2A/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "A2A moved — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Google-led open protocol for agent-to-agent collaboration (announced 2025-04-09) — agent cards, RPCs, server-sent events. Launched with 50+ technology partners including Atlassian, MongoDB, Salesforce, ServiceNow.",
+   "gh": "a2aproject/A2A — ~25.5k stars, last commit 2026-05",
+   "license": "Apache-2.0",
+   "funding": "n/a — open-source project under the Linux Foundation, contributed by Google",
+   "latest-release": "v1.0.1 (2026-05-28)",
+   "pricing": "free (OSS)"
+  }
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "name": "Amazon Q Developer",
+  "url": "https://aws.amazon.com/q/developer/",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": "superseded",
+  "leads": [
+   "Amazon Q Developer IDE plugins end 2027-04-30 — Amazon Q Developer: IDE plugin support ends 2027-04-30, points to Kiro."
+  ],
+  "cells": {
+   "desc": "Amazon's developer-focused agent — formerly CodeWhisperer (renamed 2024-Q4). Available as IDE plugins (VS Code, JetBrains, Visual Studio, Eclipse), in AWS Console, and CLI. Strong AWS-tooling integration: Q can read CloudWatch, troubleshoot IAM, suggest AWS-SDK code. Companion to Kiro for spec-drive",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Amazon / AWS (parent — public, NASDAQ:AMZN)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free tier (50 agentic requests/mo); Pro $19/user/mo — new subscriptions closed from 2026-05-15"
+  }
+ },
+ {
+  "id": "burr-dagworks--gh-dagworks-inc-burr",
+  "name": "Burr (DAGWorks)",
+  "url": "https://github.com/DAGWorks-Inc/burr",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Burr -> apache/burr — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "DAGWorks's state-machine framework for agents — state + actions + transitions; lightweight alternative to LangGraph.",
+   "gh": "apache/burr (formerly DAGWorks-Inc/burr) — ~2.6k stars, last commit 2026-08",
+   "license": "Apache-2.0",
+   "funding": "n/a — donated by DAGWorks to the Apache Software Foundation (Apache Burr, incubating)",
+   "latest-release": "v0.43.0 (2026-08-25) — apache-burr",
+   "pricing": "free (OSS)"
+  }
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "name": "Bytebot",
+  "url": "https://bytebot.ai/",
+  "section": "Computer-use & desktop agents",
+  "family": "agents",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "Bytebot archived — Archived repos: GPT Engineer (2026-04-22), Bytebot (2026-03-07), InstructLab (2026-04-23; instructlab.ai TLS expired, 503)."
+  ],
+  "cells": {
+   "desc": "Open-source desktop-agent runtime that runs an LLM-controlled Linux desktop inside Docker — uses xdotool / X11 capture for control. Pitched as the 'self-hosted Operator' alternative; agent sees a real desktop screen, not just a browser.",
+   "gh": "bytebot-ai/bytebot — ~11.1k stars, archived 2026-03-07",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "none — no GitHub releases published; repo archived 2026-03-07",
+   "pricing": "Free (Apache-2.0 OSS; repo archived, no paid tier listed)"
+  }
+ },
+ {
+  "id": "claude-for-chrome--anthropic-com",
+  "name": "Claude for Chrome",
+  "url": "https://www.anthropic.com/news/claude-for-chrome",
+  "section": "Computer-use & desktop agents",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Claude for Chrome — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Anthropic's Chrome extension (Claude in Chrome) letting Claude act inside the user's own browser. Research preview Aug 2025; beta for all Max users Nov 2025; on all paid plans since Dec 2025. Distinct from the Computer Use API.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Anthropic (parent) — $65B Series H at $965B post-money (2026-05-28); S-1 filed for a proposed IPO (2026-10-26)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Not on Free; included in Pro ($20/mo, $17 annual), Max (from $100/mo), Team and Enterprise"
+  }
+ },
+ {
+  "id": "cognition-devin-v2-spec-mode--cognition-ai",
+  "name": "Cognition Devin v2 / Spec Mode",
+  "url": "https://cognition.ai",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Windsurf/Cognition domains — Windsurf → devin.ai/desktop; cognition.ai → cognition.com."
+  ],
+  "cells": {
+   "desc": "Cross-listing of Cognition's Devin product framed at the harness level rather than the memory layer. Devin 2.0 (Mar 2025) added cheaper concurrent sessions; Spec Mode (Aug 2025, post-Windsurf-IP acquisition) integrates Windsurf-style spec authoring. The Coding-agent-memory row remains canonical for ",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Over $2B Series E at $48B valuation (2026-09-08), led by Andreessen Horowitz and Accel with Founders Fund, General Catalyst and others",
+   "latest-release": "Devin release notes update (2026-10-26)",
+   "pricing": "Free $0; Pro $20/mo; Max $200/mo; Teams $80/mo plus $40/mo per full seat; Enterprise custom"
+  }
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "name": "Continue.dev",
+  "url": "https://continue.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": "deprecated",
+  "decay_cause": null,
+  "leads": [
+   "Continue acquired by Cursor — Continue.dev: continue.dev says \"Continue was acquired by Cursor\"; repo read-only, final 2.0.0."
+  ],
+  "cells": {
+   "desc": "OSS in-IDE coding-assistant plugin — supports VS Code and JetBrains. Customisable: any model, any context provider, any slash-command. \"Agent mode\" added 2024 for multi-step plan + execute. Memory layer = .continue/rules; separate Memory MCP. Built by Nate Sesti and Ty Dunn.",
+   "gh": "continuedev/continue — ~35.7k stars, last commit 2026-06 (read-only, no longer maintained)",
+   "license": "Apache-2.0",
+   "funding": "Acquired by Cursor (Anysphere), ~2026-06, terms undisclosed; prior $7.5M seed (Heavybit, YC)",
+   "latest-release": "v2.0.0-vscode (2026-06-19) — final release",
+   "pricing": "Discontinued — recurring billing turned off after Cursor acquisition; OSS code free (Apache-2.0)"
+  }
+ },
+ {
+  "id": "crewai-enterprise--crewai-com",
+  "name": "CrewAI Enterprise",
+  "url": "https://www.crewai.com/enterprise",
+  "section": "Multi-agent orchestration platforms",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "CrewAI enterprise url — Redirects: sdk.vercel.ai → ai-sdk.dev; ai.pydantic.dev → pydantic.dev/docs/ai; Claude for Chrome → claude.com/blog/claude-for-chrome (now Pro/Team/Enterprise); crewai.com/enterprise 404 → crewai.com/amp."
+  ],
+  "cells": {
+   "desc": "Commercial Enterprise tier of the CrewAI OSS multi-agent framework. Adds managed cloud runtime, RBAC, audit logging, SLA support, on-prem option. OSS CrewAI is in the Framework-embedded memory section already; this row covers the commercial cloud platform separately. $18M Series A Oct-2024 (Insight ",
+   "gh": "crewAIInc/crewAI (OSS core) — ~58.6k stars",
+   "license": "proprietary (CrewAI AMP); MIT OSS core",
+   "funding": "$18M Series A Oct-2024 (Insight Partners; Boldstart, Blitzscaling)",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "pricing": "Basic free (50 workflow executions/mo, 2 automations); Enterprise custom — no public self-serve paid tier"
+  }
+ },
+ {
+  "id": "elevenlabs-conversational-ai--elevenlabs-io",
+  "name": "ElevenLabs Conversational AI",
+  "url": "https://elevenlabs.io/conversational-ai",
+  "section": "Voice agent platforms",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "ElevenLabs -> ElevenAgents — ElevenLabs product now \"ElevenAgents\"; Perplexity Sonar Chat Completions ended 2026-09-27."
+  ],
+  "cells": {
+   "desc": "ElevenLabs launched Conversational AI Nov-2024 — STT + LLM + their own market-leading TTS in one pipeline. Combines vendor's voice cloning + multilingual TTS strengths with hosted call orchestration. ElevenLabs raised $180M Series C Jan-2025 at $3.3B val.",
+   "gh": "github.com/elevenlabs (SDKs only)",
+   "license": "not applicable — not OSS",
+   "funding": "$180M Series C Jan-2025 (a16z + ICONIQ; $3.3B val)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Per-minute usage (Conv AI tier); free + Pro + Enterprise"
+  }
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "name": "Gitpod AI features",
+  "url": "https://www.gitpod.io/blog/gitpod-flex",
+  "section": "AI sandbox & runtime environments",
+  "family": "agents",
+  "current_status": "dead",
+  "decay_cause": null,
+  "leads": [
+   "Gitpod -> Ona — Gitpod → Ona: gitpod.io redirects to ona.com; row url needs updating."
+  ],
+  "cells": {
+   "desc": "Gitpod was the original cloud development environment (CDE) — founded by Sven Efftinge + Johannes Landgraf (TypeFox / Eclipse Theia / Open VSX); $25M Series A 2022 led by General Catalyst. Renamed Ona on 2025-09-02 and repositioned as background AI software-engineering agents in cloud environments (",
+   "gh": "gitpod-io/gitpod — ~14k stars, last commit 2026-10",
+   "license": "AGPL-3.0 (Gitpod Self-Hosted)",
+   "funding": "$25M Series A May-2022 led by General Catalyst (Crane, Speedinvest, Cherry, Mango); ~$35M+ total raised",
+   "latest-release": "not applicable — sandbox/runtime, not memory product",
+   "pricing": "Free OSS tier + Personal Pro ($9/mo) + Team + Enterprise"
+  }
+ },
+ {
+  "id": "goose-block--block-github-io",
+  "name": "Goose (Block)",
+  "url": "https://block.github.io/goose/",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Goose moved — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Block (Square)'s open-source on-machine agent — terminal + desktop GUI. Modular: extensions for shell, computer-control, MCP servers; multi-model via LiteLLM. Released 2024; positioned as a general-purpose local agent, not coding-only. Goose Recipes provide reusable agent workflows.",
+   "gh": "aaif-goose/goose (formerly block/goose) — ~55.7k stars, last commit 2026-10",
+   "license": "Apache-2.0",
+   "funding": "Originated at Block; now part of the Agentic AI Foundation (AAIF) at the Linux Foundation",
+   "latest-release": "v1.56.0 (2026-10-23)",
+   "pricing": "Free (OSS); usage via LLM provider"
+  }
+ },
+ {
+  "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+  "name": "GPT Engineer",
+  "url": "https://github.com/AntonOsika/gpt-engineer",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "GPT Engineer archived — Archived repos: GPT Engineer (2026-04-22), Bytebot (2026-03-07), InstructLab (2026-04-23; instructlab.ai TLS expired, 503)."
+  ],
+  "cells": {
+   "desc": "One of the original 'agent writes a whole codebase from a prompt' CLI experiments; precursor to the commercial Lovable (lovable.dev / gptengineer.app). Repository archived (read-only) on 2026-04-22.",
+   "gh": "AntonOsika/gpt-engineer — ~55k stars, last commit 2025-05 (archived 2026-04-22)",
+   "license": "MIT",
+   "funding": "searched not found",
+   "latest-release": "v0.3.1 (2024-06-06)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "highlight-ai--highlightai-com",
+  "name": "Highlight AI",
+  "url": "https://highlightai.com/",
+  "section": "Computer-use & desktop agents",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Highlight AI repositioned — Highlight AI: repositioned to meeting/work-context follow-ups; arm64 Mac only."
+  ],
+  "cells": {
+   "desc": "Always-on desktop AI assistant that watches the user's screen (across all apps) and answers questions / takes actions based on what's currently visible. Mac + Windows. Founded by Mac Bishop (ex-Mixpanel); raised $13M Series A from Aspect / Lightspeed (Oct 2024). Distinguishes itself from Rewind by b",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$13M Series A Oct-2024 (Aspect Ventures / Lightspeed)",
+   "latest-release": "v2.0.20 (2026-10-20)",
+   "pricing": "Free $0/mo (14-day Pro trial); Pro $35/mo; Max $200/mo"
+  }
+ },
+ {
+  "id": "hugo-hugo-legal--hugo-legal",
+  "name": "Hugo (Hugo Legal)",
+  "url": "https://hugo.legal/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Hugo.legal human service — Hugo.legal: human lawyer consultation (39 EUR/30 min) — wrong section?"
+  ],
+  "cells": {
+   "desc": "Estonian online legal-help service that connects clients with lawyers by web or phone (Estonian, English, Russian). As of Oct-2026 the homepage describes no AI legal-research features. Note: distinct from Hugo Health and from the unrelated 'huggo.legal' typo.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "Lawyer consultation from €39/30 min (from €79/hour); HUGO+ membership €119/year"
+  }
+ },
+ {
+  "id": "hume-evi--hume-ai",
+  "name": "Hume EVI",
+  "url": "https://www.hume.ai/products/empathic-voice-interface",
+  "section": "Voice agent platforms",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Hume EVI — Hume EVI"
+  ],
+  "cells": {
+   "desc": "Hume's Empathic Voice Interface (EVI) — voice agent platform with vocal-affect understanding, using Hume's proprietary speech-prosody models. Hume will shut down the EVI and TTS APIs on 2026-11-13 (announced in its docs). Hume raised $50M Series B Mar-2024 (EQT).",
+   "gh": "HumeAI org (SDKs/examples; hume-api-examples ~250 stars, updated 2026-10) — EVI service closed source",
+   "license": "not applicable — not OSS",
+   "funding": "$50M Series B Mar-2024 (EQT)",
+   "latest-release": "EVI 3 and EVI 4-mini; the EVI API shuts down on 2026-11-13",
+   "pricing": "Per-minute usage; tiered + Enterprise"
+  }
+ },
+ {
+  "id": "instructlab-red-hat-ibm--instructlab-ai",
+  "name": "InstructLab (Red Hat / IBM)",
+  "url": "https://instructlab.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "family": "agents",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "InstructLab archived — Archived repos: GPT Engineer (2026-04-22), Bytebot (2026-03-07), InstructLab (2026-04-23; instructlab.ai TLS expired, 503)."
+  ],
+  "cells": {
+   "desc": "Red Hat / IBM-stewarded open-source framework for community-driven LLM alignment + fine-tuning (LAB method, IBM Research 2024; Granite models). Apache 2.0. Main CLI repo archived 2026-04-23 after a 2025 refactor into separate libraries — synthetic data generation in SDG Hub and training in Training ",
+   "gh": "instructlab/instructlab — ~1.4k stars, last commit 2026-03 (archived 2026-04-23)",
+   "license": "Apache 2.0",
+   "funding": "Red Hat (NYSE:RHT acquired by IBM 2019 for $34B); IBM (IBM) public ~$200B market cap",
+   "latest-release": "v0.26.1 (2025-05-05)",
+   "pricing": "OSS (free); IBM watsonx + Red Hat OpenShift AI commercial pricing for the platforms"
+  }
+ },
+ {
+  "id": "lawdroid-copilot--lawdroid-com",
+  "name": "LawDroid Copilot",
+  "url": "https://lawdroid.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "LawDroid pivot — LawDroid: pivoted to LawDroid Assist for legal aid/courts; no \"Copilot\"."
+  ],
+  "cells": {
+   "desc": "Founded 2017 by Tom Martin (lawyer + technologist); LawDroid Copilot serves solo and small-firm lawyers — drafting, research, client intake automation. Bootstrapped + small angel rounds. Marketed against the 'enterprise BigLaw' positioning of Harvey/Casetext.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "$60–$200/month per seat"
+  }
+ },
+ {
+  "id": "linq-ai--linq-ai",
+  "name": "Linq AI",
+  "url": "https://www.linq.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Linq AI wrong company — Linq AI: linq.ai now higher-ed company (already flagged)."
+  ],
+  "cells": {
+   "desc": "Founded 2023; AI-agent platform for financial analysts — multi-step research, data cleansing, model-building. Small seed round; competes in the AlphaSense / Hebbia / Rogo broader space at lower price point.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "lutra-ai--lutra-ai",
+  "name": "Lutra AI",
+  "url": "https://lutra.ai/",
+  "section": "Computer-use & desktop agents",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": "archived",
+  "leads": [
+   "Lutra discontinued — Lutra AI: lutra.ai says \"we have discontinued support for Lutra\"."
+  ],
+  "cells": {
+   "desc": "AI agent platform that automated SaaS workflows across Gmail, Slack, Sheets, etc. using natural-language instructions compiled into durable playbooks. Founded by ex-Google/Facebook engineers; raised seed funding 2024. Discontinued: lutra.ai now states support for Lutra has been discontinued (seen 20",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Seed round 2024 (a16z + others reported)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free tier + Plus ($20/mo) + Team / Enterprise"
+  }
+ },
+ {
+  "id": "magic-dev--magic-dev",
+  "name": "Magic.dev",
+  "url": "https://magic.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Magic.dev no product — Magic.dev: no released product on site."
+  ],
+  "cells": {
+   "desc": "AI-coding startup focused on extremely long-context models (claimed 100M tokens) and a frontier coding agent. Raised $320M Series B from Eric Schmidt, CapitalG, Atlassian Aug 2024. Lower public-product surface than peers — mostly known for the model claims and the funding round.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$768M total raised (company-stated, 2026) from Nat Friedman, Daniel Gross, CapitalG, Elad Gil, Sequoia, Jane Street, Eric Schmidt and others",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "name": "Magnitude",
+  "url": "https://magnitude.run/",
+  "section": "Computer-use & desktop agents",
+  "family": "agents",
+  "current_status": "deprecated",
+  "decay_cause": "superseded",
+  "leads": [
+   "Magnitude pivot — Magnitude: now an open-source local inference engine + desktop app, no longer a browser agent (section may be wrong)."
+  ],
+  "cells": {
+   "desc": "Formerly an OSS AI browser-agent / natural-language E2E testing framework (YC 2025). The magnitudedev/magnitude repo now hosts an OSS local inference engine + desktop app that serves open models to agents.",
+   "gh": "magnitudedev/magnitude — ~7.2k stars, last commit n/a (repo repurposed to inference engine)",
+   "license": "Apache-2.0",
+   "funding": "YC 2025 batch (~$500k standard YC)",
+   "latest-release": "v0.x ongoing on GitHub",
+   "pricing": "OSS free; cloud / enterprise on roadmap"
+  }
+ },
+ {
+  "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+  "name": "Microsoft Semantic Kernel",
+  "url": "https://github.com/microsoft/semantic-kernel",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "maintenance",
+  "decay_cause": null,
+  "leads": [
+   "Semantic Kernel succeeded by MS Agent Framework — Semantic Kernel README: succeeded by Microsoft Agent Framework 1.0. Swarm: replaced by OpenAI Agents SDK."
+  ],
+  "cells": {
+   "desc": "Microsoft's enterprise-focused agent framework — multi-language (C#, Python, Java); Plugins / Planners / Memory; integrates with Azure AI / Foundry. Its README now names Microsoft Agent Framework as the successor; Semantic Kernel still ships releases (maintenance mode).",
+   "gh": "microsoft/semantic-kernel — ~29k stars, last commit 2026-10",
+   "license": "MIT",
+   "funding": "searched not found",
+   "latest-release": "v1.45.0 (2026-10-06)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "multion--multion-ai",
+  "name": "MultiOn",
+  "url": "https://www.multion.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "MultiOn -> AGI Inc — MultiOn → AGI, Inc. (theagi.company): on-device phone action agent, Android app + OEM platform."
+  ],
+  "cells": {
+   "desc": "Web-browsing agent API platform (MultiOn Agent API, docs still labelled Agent V1 Beta). Founded 2023 by Div Garg. As of 2026-10 www.multion.ai redirects to AGI, Inc. (theagi.company), which now markets AGI-0, an on-device action model and agent that operates Android apps, plus a developer Platform; ",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$30M+ total raised (seed 2023-24); investors: Amazon AI Fund, Google, Samsung Next, Brave, GV, others",
+   "latest-release": "v1.3.8 (2024-10-08) — multion Python SDK",
+   "pricing": "API pay-per-task; freemium developer tier"
+  }
+ },
+ {
+  "id": "openai-deep-research--openai-com",
+  "name": "OpenAI Deep Research",
+  "url": "https://openai.com/index/introducing-deep-research/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "OpenAI deep research API shut down — Semantic Kernel README: succeeded by Microsoft Agent Framework 1.0. Swarm: replaced by OpenAI Agents SDK."
+  ],
+  "cells": {
+   "desc": "Cross-listing: OpenAI Deep Research, launched Feb-2025 inside ChatGPT, is OpenAI's flagship long-horizon research agent (o3 base model). Distinct from the OpenAI Codex / Computer Use rows because the focus is web-research + multi-step synthesis. Available to Pro / Plus / Team / Enterprise users.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "Pro $200/mo (100 queries/mo); Plus tier 10 queries/mo (post-Apr 2025)"
+  }
+ },
+ {
+  "id": "openai-swarm-deprecated--gh-openai-swarm",
+  "name": "OpenAI Swarm (deprecated)",
+  "url": "https://github.com/openai/swarm",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "deprecated",
+  "decay_cause": "superseded",
+  "leads": [
+   "Swarm replaced — Semantic Kernel README: succeeded by Microsoft Agent Framework 1.0. Swarm: replaced by OpenAI Agents SDK."
+  ],
+  "cells": {
+   "desc": "OpenAI Swarm — experimental educational multi-agent framework released Oct 2024; deprecated in favour of the OpenAI Agents SDK in Mar 2025.",
+   "gh": "openai/swarm — ~22k stars, last commit 2026-04 (not archived; no releases)",
+   "license": "MIT",
+   "funding": "searched not found",
+   "latest-release": "searched not found",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "name": "OpenDevin / OpenHands",
+  "url": "https://github.com/All-Hands-AI/OpenHands",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "OpenHands moved — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Open-source SWE agent platform (renamed from OpenDevin to OpenHands). All Hands AI raised $5M; widely used as the OSS counterpart to Devin.",
+   "gh": "OpenHands/OpenHands (formerly All-Hands-AI/OpenHands) — ~92k stars, last commit 2026-10",
+   "license": "MIT",
+   "funding": "All Hands AI raised $5M seed 2024 (Menlo Ventures led); commercial steward of OpenHands OSS.",
+   "latest-release": "v1.33.0 (2026-10-23) — OpenHands Agent Canvas; Python openhands-sdk v1.58.2 (2026-10-25)",
+   "pricing": "Agent Canvas free to self-host (BYO LLM key); Teams USD 499/mo for up to 10 users (+USD 50/seat); Enterprise custom"
+  }
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "name": "OpenHands (All Hands AI)",
+  "url": "https://www.all-hands.dev",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "OpenHands moved — Moved: Goose → goose-docs.ai; OpenHands → openhands.dev; Burr → apache/burr; A2A → a2a-protocol.org; Anthropic computer-use docs → platform.claude.com; Claude Code → claude.com/product/claude-code."
+  ],
+  "cells": {
+   "desc": "Cross-listing of OpenHands at the harness layer. OSS Devin-alternative — sandboxed full SWE agent with browser + shell + editor. Renamed from OpenDevin Mar 2024. ~40k★. Commercial offering: All Hands AI cloud (managed SaaS).",
+   "gh": "OpenHands/OpenHands (formerly All-Hands-AI/OpenHands) — ~92k stars, last commit 2026-09",
+   "license": "MIT",
+   "funding": "All Hands AI — $5M Seed 2024 (Menlo Ventures)",
+   "latest-release": "v1.24.0 (2026-09-25)",
+   "pricing": "Free (OSS) + paid cloud ($20/mo+)"
+  }
+ },
+ {
+  "id": "perplexity-deep-research--perplexity-ai",
+  "name": "Perplexity Deep Research",
+  "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Perplexity Sonar ended — ElevenLabs product now \"ElevenAgents\"; Perplexity Sonar Chat Completions ended 2026-09-27."
+  ],
+  "cells": {
+   "desc": "Perplexity's autonomous-research mode, launched Feb-2025 — multi-step research agent inside Perplexity. Perplexity parent: $9B val Dec-2024 ($500M round; IVP + NEA + Andreessen Horowitz).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Perplexity: $9B val Dec-2024 ($500M round; IVP + NEA + a16z)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "Pro $20/mo (unlimited); free 5/day"
+  }
+ },
+ {
+  "id": "pincites--pincites-com",
+  "name": "Pincites",
+  "url": "https://www.filevine.com/platform/lois-for-word/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Pincites url — Pincites row url → Filevine LOIS page (no Pincites mention)."
+  ],
+  "cells": {
+   "desc": "YC-W24 contract-review AI; auto-redlines vendor contracts based on the in-house playbook. $3.6M seed 2024 (Y Combinator + Liquid 2). Targets in-house legal at SaaS companies.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$3.6M seed 2024 (YC + Liquid 2)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "pluto-ai--heypluto-ai",
+  "name": "Pluto AI",
+  "url": "https://www.heypluto.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Pluto dead — Reggie.ai parked/for sale; heypluto.ai doesn't resolve; toplyne.io 404 — probably dead."
+  ],
+  "cells": {
+   "desc": "Founded 2024; AI personal-finance assistant — analyses spending, suggests savings, manages budgets via chat. Consumer-tier; small seed funding. Distinct from Pluto Money (different product; same space).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "project-mariner--deepmind-google",
+  "name": "Project Mariner",
+  "url": "https://deepmind.google/technologies/project-mariner/",
+  "section": "Computer-use & desktop agents",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": "archived",
+  "leads": [
+   "Project Mariner — Project Mariner: URL redirects to deepmind.google homepage (catalog shutdown note 2026-05-04)."
+  ],
+  "cells": {
+   "desc": "Google DeepMind's experimental browser agent built on Gemini 2.0, a Chrome extension that took actions on the user's behalf. Research preview launched Dec 2024 as Google's answer to OpenAI Operator / Anthropic Computer Use. Shut down on 2026-05-04; Google directs users to Gemini for complex agentic ",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Google DeepMind parent (Alphabet)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Bundled with Gemini Advanced ($19.99/mo)"
+  }
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "name": "Protect AI",
+  "url": "https://www.paloaltonetworks.com/ai-security/prisma-airs",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Protect AI -> Prisma AIRS — SnapAttack → Splunk ES; Protect AI → Prisma AIRS; Robust Intelligence site down (Cisco)."
+  ],
+  "cells": {
+   "desc": "Founded 2022 by Ian Swanson + Daryan Dehghanpisheh (ex-AWS); AI/ML supply-chain + GenAI security. **Acquired by Palo Alto Networks Apr-2025 for $700M.** Products: Recon (red-team), ModelScan (model artifact scanner), Sightline (vulnerability DB).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$60M Series B Aug-2024 (Evolution Equity; $400M val) → Palo Alto Networks acq $700M Apr-2025",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "pydantic-ai--ai-pydantic-dev",
+  "name": "Pydantic-AI",
+  "url": "https://ai.pydantic.dev/",
+  "section": "Agent frameworks (no first-party memory layer)",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Pydantic AI moved — Redirects: sdk.vercel.ai → ai-sdk.dev; ai.pydantic.dev → pydantic.dev/docs/ai; Claude for Chrome → claude.com/blog/claude-for-chrome (now Pro/Team/Enterprise); crewai.com/enterprise 404 → crewai.com/amp."
+  ],
+  "cells": {
+   "desc": "Pydantic team's agent framework — type-safe agent definitions, structured outputs, tool calls validated by Pydantic schemas.",
+   "gh": "pydantic/pydantic-ai — ~21k stars, last commit 2026-10",
+   "license": "MIT",
+   "funding": "Pydantic Services Inc raised $4.7M seed 2023-02 (Sequoia, Partech); commercial steward of Pydantic OSS.",
+   "latest-release": "v2.62.0 (2026-10-27)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "reflection-ai--reflection-ai",
+  "name": "Reflection AI",
+  "url": "https://reflection.ai/",
+  "section": "Multi-agent orchestration platforms",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Reflection AI pivot — Reflection AI: now open-weight model lab (Beam 501B + API); coding-agent framing outdated."
+  ],
+  "cells": {
+   "desc": "Founded 2024 by Misha Laskin and Ioannis Antonoglou (ex-DeepMind). Pivoted from autonomous coding agents (Asimov) to open-weight frontier models: its first open-weight model Beam is a 501B-parameter MoE built for coding, reasoning and agentic workloads, offered with open-source harnesses/containers,",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$130M Series A Mar-2025 ($555M val; Lightspeed + CRV; Sequoia, Nvidia investors)",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "pricing": "Private beta; enterprise sales early"
+  }
+ },
+ {
+  "id": "reggie-ai--reggie-ai",
+  "name": "Reggie.ai",
+  "url": "https://www.reggie.ai/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Reggie.ai dead — Reggie.ai parked/for sale; heypluto.ai doesn't resolve; toplyne.io 404 — probably dead."
+  ],
+  "cells": {
+   "desc": "Founded 2023; AI sales-agent product — autonomous outbound, meeting booking, follow-up. $4.7M seed Jul-2024 (Lightspeed + Mantis). Direct competitor in the 11x.ai / Artisan AI / Bland niche.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$4.7M seed Jul-2024 (Lightspeed + Mantis)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "name": "Robust Intelligence",
+  "url": "https://www.robustintelligence.com/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Robust Intelligence (Cisco) — SnapAttack → Splunk ES; Protect AI → Prisma AIRS; Robust Intelligence site down (Cisco)."
+  ],
+  "cells": {
+   "desc": "Founded 2019 by Yaron Singer (Harvard); ML risk management — model testing, validation, runtime detection. **Acquired by Cisco Sep-2024** to anchor Cisco's AI security stack. Note: Harrison Chase (LangChain CEO) was an early Robust Intelligence ML lead.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Acquired by Cisco Sep-2024 (terms undisclosed; ~$44M pre-acq)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "roo-code--roocode-com",
+  "name": "Roo Code",
+  "url": "https://roocode.com",
+  "section": "Agent IDEs & coding harnesses",
+  "family": "agents",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "Roo Code shut down — Roo Code: roocode.com 301 → roomote.dev (separate cloud agent); catalog shutdown 2026-05-15."
+  ],
+  "cells": {
+   "desc": "Discontinued OSS VS Code agentic extension — Cline fork with custom modes (Architect, Code, Ask, Debug) and .roorules/Memory Bank. Shut down 2026-05-15; repo archived.",
+   "gh": "RooCodeInc/Roo-Code — ~24.3k stars, archived 2026-05-15",
+   "license": "Apache-2.0",
+   "funding": "Roo Code, Inc. (commercial entity, per repo copyright); extension shut down 2026-05-15",
+   "latest-release": "Roo Code 3.x rolling",
+   "pricing": "Discontinued — extension shut down 2026-05-15 (code remains Apache-2.0)"
+  }
+ },
+ {
+  "id": "snapattack--snapattack-com",
+  "name": "SnapAttack",
+  "url": "https://www.snapattack.com/",
+  "section": "Use-case-specific agent harnesses",
+  "family": "agents",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "SnapAttack -> Splunk — SnapAttack → Splunk ES; Protect AI → Prisma AIRS; Robust Intelligence site down (Cisco)."
+  ],
+  "cells": {
+   "desc": "Founded 2021 inside Booz Allen Hamilton; spun out 2022. Detection-as-code platform — threat emulation + auto-generated detections. Adds GenAI threat-content layer 2024. Acquired by Cisco's Splunk Mar-2025 (terms undisclosed).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Booz Allen-incubated; acquired by Splunk Mar-2025",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "speechmatics-flow--speechmatics-com",
+  "name": "Speechmatics Flow",
+  "url": "https://www.speechmatics.com/flow",
+  "section": "Voice agent platforms",
+  "family": "agents",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Speechmatics Flow -> Agent STT — Speechmatics Flow docs → \"Agent STT\" (SaaS only); Flow gone from main site."
+  ],
+  "cells": {
+   "desc": "Speechmatics (UK; STT leader) launched Flow Q4 2024 — conversational voice-agent platform composed on Speechmatics STT + caller LLM. Speechmatics raised $62M Series B (2022); enterprise + media customers. UK / EU data-residency lead.",
+   "gh": "github.com/speechmatics (SDKs)",
+   "license": "not applicable — not OSS",
+   "funding": "$62M Series B (2022, Susquehanna)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise / per-minute"
+  }
+ },
+ {
+  "id": "steamship--steamship-com",
+  "name": "Steamship",
+  "url": "https://www.steamship.com/",
+  "section": "Multi-agent orchestration platforms",
+  "family": "agents",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "Steamship dead — Steamship: steamship.com 404, www.steamship.com no connect — looks dead."
+  ],
+  "cells": {
+   "desc": "YC W21 startup providing managed hosting + deployment for LLM agents — 'one-click deploy' for LangChain / agent code. Founded by Ted Benson (ex-Google Brain). Pre-seed + seed funded YC + Twin Ventures. Positioned as Heroku for AI agents — but the agent-platform space crowded post-2023, and Steamship",
+   "gh": "steamship-core/python-client — ~320 stars, last commit 2024-02",
+   "license": "MIT (python-client SDK); hosted platform proprietary",
+   "funding": "Seed: YC + Twin Ventures + others (~$3M+ disclosed)",
+   "latest-release": "v2.17.34 (2024-01-24) — steamship Python SDK",
+   "pricing": "Free + paid tiers (per-call + storage)"
+  }
+ }
+]

@@ -1,0 +1,526 @@
+[
+ {
+  "id": "tonkean-legalworks--tonkean-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Tonkean's homepage (checked 2026-10-29) carries a 'Coupa Acquires Tonkean' banner linking to Coupa's newsroom release; LegalWorks is still offered, but the old /use-cases/legalworks/ URL now 404s and the product page is /solutions/legal-works. Coupa's release page itself is behind a bot wall (403), so the exact date was not re-read.",
+  "lifecycle_citation": "https://www.tonkean.com/",
+  "record": {
+   "url": "https://www.tonkean.com/solutions/legal-works"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Tonkean is a workflow-orchestration platform; LegalWorks is the legal-ops vertical with AI agents for intake triage, contract routing, and SLA management. Tonkean: $50M Series C Sep-2022 (Insight + Lightspeed + Accel; $500M+ val).",
+    "new": "Tonkean is a workflow-orchestration platform; LegalWorks is the legal-ops vertical with AI agents for intake triage, contract routing, and SLA management. Tonkean: $50M Series C Sep-2022 (Insight + Lightspeed + Accel; $500M+ val). Acquired by Coupa (2026), per the banner on Tonkean's homepage; LegalWorks remains on sale.",
+    "citation": "https://www.tonkean.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "toplyne--toplyne-io",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: toplyne.io returns a Wix 'ConnectYourDomain Error' page (404), which shows the site is unpublished but is not a shutdown statement; reggie.ai is a GoDaddy for-sale lander and heypluto.ai did not resolve. No primary page from the company was found.",
+  "lifecycle_citation": "https://www.toplyne.io/",
+  "updates": []
+ },
+ {
+  "id": "vercel-ai-sdk--sdk-vercel-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "sdk.vercel.ai redirects to ai-sdk.dev (checked 2026-10-29), which is the live AI SDK site ('The framework for building agents'). The other redirects in the lead (Pydantic AI, Claude for Chrome, CrewAI) concern other rows.",
+  "lifecycle_citation": "https://ai-sdk.dev/",
+  "record": {
+   "url": "https://ai-sdk.dev/"
+  },
+  "updates": []
+ },
+ {
+  "id": "windsurf-codeium-openai--windsurf-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "windsurf.com now redirects to devin.ai/desktop, the Devin Desktop product page (checked 2026-10-29); the catalog already records the rename to Devin Desktop.",
+  "lifecycle_citation": "https://devin.ai/desktop",
+  "record": {
+   "url": "https://devin.ai/desktop"
+  },
+  "updates": []
+ },
+ {
+  "id": "you-com-research--you-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "you.com/research now redirects to a sign-in page; the you.com homepage (checked 2026-10-29) is titled 'Search and inference for AI' and sells web Search, Contents, Answer and Research APIs plus an Inference Router, so research is offered as an API.",
+  "lifecycle_citation": "https://you.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "You.com's research-agent mode — multi-step web research + synthesis. You.com parent: $99M Series B Aug-2024 ($700M val; Georgian + NEA + Salesforce Ventures). Founded by Richard Socher (ex-Salesforce Chief Scientist).",
+    "new": "You.com's research-agent mode — multi-step web research + synthesis. You.com parent: $99M Series B Aug-2024 ($700M val; Georgian + NEA + Salesforce Ventures). Founded by Richard Socher (ex-Salesforce Chief Scientist). As of Oct 2026 You.com positions itself as search and inference APIs for AI, and research is offered as a Research API; the consumer /research page now requires sign-in.",
+    "citation": "https://you.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "0-5-physical-intelligence--pi-website",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The row already uses pi.website and the π0.5 post still loads (published 2025-04-22). The pi.website homepage announces on 2026-10-13 that its latest robotics models are available through the Pi API beta.",
+  "lifecycle_citation": "https://www.pi.website/",
+  "updates": []
+ },
+ {
+  "id": "acontext-memodb--gh-memodb-io-acontext",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "The Acontext README says 'Acontext is no longer maintained' and that the team now focuses on agent self-learning in a shared workspace at alook.ai (checked 2026-10-29).",
+  "lifecycle_citation": "https://raw.githubusercontent.com/memodb-io/Acontext/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "'Agent Skills as a Memory Layer': an open-source skill-memory layer that stores what agents learn as agent skill files. Built by the Memobase team. Traction: ~3.7k stars",
+    "new": "'Agent Skills as a Memory Layer': an open-source skill-memory layer that stores what agents learn as agent skill files. Built by the Memobase team. Traction: ~3.7k stars. The README now says Acontext is no longer maintained; the team has moved on to alook.ai.",
+    "citation": "https://raw.githubusercontent.com/memodb-io/Acontext/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "aleph-alpha-phariaai-phariacatch--aleph-alpha-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Lead partly refuted. aleph-alpha.com no longer names PhariaAI (/phariaai/ redirects to the homepage, which markets Kolibri models, an 'Adaptive Platform' and solutions). But Aleph Alpha's docs still document PhariaAI and PhariaCatch, with release notes up to PhariaAI v1.260900.0 (Sep 2026).",
+  "lifecycle_citation": "https://docs.aleph-alpha.com/phariaai-home/latest/index.html",
+  "record": {
+   "url": "https://docs.aleph-alpha.com/phariaai-home/latest/index.html"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "German enterprise stack. PhariaCatch captures + preserves organisational knowledge through structured human-machine collaboration; PhariaAssistant queries via semantic search. Combines sovereign deployment constraints with explainability tooling.",
+    "new": "German enterprise stack. PhariaCatch captures + preserves organisational knowledge through structured human-machine collaboration; PhariaAssistant queries via semantic search. Combines sovereign deployment constraints with explainability tooling. The aleph-alpha.com marketing site no longer uses the Pharia names, but the PhariaAI docs still cover PhariaCatch and list releases through v1.260900.0 (Sep 2026).",
+    "citation": "https://docs.aleph-alpha.com/phariaai-home/latest/index.html",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anda-hippocampus--gh-ldclabs-anda-hippocampus",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The anda-brain README (checked 2026-10-29) says the hosted service brain.anda.ai has been discontinued and that Anda Brain is open source and meant to be self-hosted (Rust service or Cloudflare Worker edition).",
+  "lifecycle_citation": "https://raw.githubusercontent.com/ldclabs/anda-brain/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Renamed Anda Brain (repo now ldclabs/anda-brain). Native graph-based memory for autonomous AI agents. Bio-inspired sleep-based memory consolidation.",
+    "new": "Renamed Anda Brain (repo now ldclabs/anda-brain). Native graph-based memory for autonomous AI agents. Bio-inspired sleep-based memory consolidation. The hosted service brain.anda.ai has been discontinued; Anda Brain is now self-hosted only (Rust service or Cloudflare Worker).",
+    "citation": "https://raw.githubusercontent.com/ldclabs/anda-brain/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-auto-dream--claudefa-st",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "The lead (a list of moved domains) does not concern this row. Anthropic's Claude Code memory docs (checked 2026-10-29) describe CLAUDE.md and auto memory but say nothing about a 'dream' consolidation feature, so it is still unconfirmed by a primary source.",
+  "lifecycle_citation": "https://code.claude.com/docs/en/memory",
+  "updates": []
+ },
+ {
+  "id": "atlas--arxiv-2208-03299",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "The facebookresearch/atlas README opens with 'REPO NO LONGER MAINTAINED, RESEARCH CODE PROVIDED AS IT IS' (checked 2026-10-29).",
+  "lifecycle_citation": "https://raw.githubusercontent.com/facebookresearch/atlas/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Meta AI. Jointly fine-tunes retriever + LM for few-shot tasks.",
+    "new": "Meta AI. Jointly fine-tunes retriever + LM for few-shot tasks. The facebookresearch/atlas repo is no longer maintained; the code is provided as is.",
+    "citation": "https://raw.githubusercontent.com/facebookresearch/atlas/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "augment-code--augmentcode-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Lead understated. augmentcode.com now leads with Cosmos and links to Harness's post 'Harness acquires Augment Code to advance the Autonomous SDLC' (published 2026-10-08), which says Harness acquired select Augment Code assets (Cosmos, the Auggie CLI, the Code Context Engine and related technology) and the team is joining Harness.",
+  "lifecycle_citation": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Real-time knowledge graph indexed from connected repos + commit history + CI/CD + tickets + docs. Separate Agent Memory layer (Sept 2025) captures session decisions/corrections/goals as discrete items with developer review/approval UI. MCP endpoint exposes the graph.",
+    "new": "Real-time knowledge graph indexed from connected repos + commit history + CI/CD + tickets + docs. Separate Agent Memory layer (Sept 2025) captures session decisions/corrections/goals as discrete items with developer review/approval UI. MCP endpoint exposes the graph. Acquired by Harness (2026-10-08): Harness bought select Augment Code assets, including Cosmos, the Auggie CLI and the Context Engine, and the team joined Harness. augmentcode.com now leads with Cosmos, a software-factory agent platform.",
+    "citation": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "$252M total $977M val Series B · 2024-04",
+    "new": "Acquired by Harness (2026-10-08; select assets incl. Cosmos, Auggie CLI, Context Engine); previously $252M total $977M val Series B · 2024-04",
+    "citation": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "autorag--arxiv-2410-20878",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "The AutoRAG repo README (checked 2026-10-29) says it now hosts AutoRAG 2.0, a personal-librarian agent and desktop app, and that the original AutoML-for-RAG library lives in legacy/ in maintenance mode (bug fixes, dependency updates and PyPI releases only). Both the root LICENSE and legacy/LICENSE are Apache-2.0.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/Marker-Inc-Korea/AutoRAG/main/legacy/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Applies AutoML to RAG: greedy algorithm evaluates and selects best-performing module at each pipeline stage (query expansion, retrieval, reranking, generation). Validated on ARAGOG (423 papers, 107 QAs).",
+    "new": "Applies AutoML to RAG: greedy algorithm evaluates and selects best-performing module at each pipeline stage (query expansion, retrieval, reranking, generation). Validated on ARAGOG (423 papers, 107 QAs). The AutoML library now lives in the repo's legacy/ directory in maintenance mode (bug fixes, dependency updates, PyPI releases); the repo root now hosts AutoRAG 2.0, a personal-librarian agent with a desktop app.",
+    "citation": "https://raw.githubusercontent.com/Marker-Inc-Korea/AutoRAG/main/README.md",
+    "confidence": "high"
+   },
+   {
+    "cell": "license",
+    "old": "MIT (AutoRAG 2.0); Apache-2.0 (legacy/ package)",
+    "new": "Apache-2.0",
+    "citation": "https://raw.githubusercontent.com/Marker-Inc-Korea/AutoRAG/main/LICENSE",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "backboard--github-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "backboard.io (checked 2026-10-29) now calls Backboard 'an AI compute efficiency lab' that builds and licenses inference-optimization software. Memory and the Stateful API are still listed in its navigation as products.",
+  "lifecycle_citation": "https://backboard.io/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Stateful AI API combining persistent memory, RAG, web search and routing across many LLMs behind one interface, with SDKs for Python and npm; benchmarks its memory on LoCoMo and LongMemEval.",
+    "new": "Stateful AI API combining persistent memory, RAG, web search and routing across many LLMs behind one interface, with SDKs for Python and npm; benchmarks its memory on LoCoMo and LongMemEval. As of Oct 2026 Backboard positions itself as an AI compute efficiency lab selling an inference-optimization engine; the memory product continues as its Stateful API.",
+    "citation": "https://backboard.io/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "beads-steve-yegge--gh-steveyegge-beads",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "github.com/steveyegge/beads now resolves to gastownhall/beads (about 28.3k stars, not archived), and the README's install script and badges point at gastownhall/beads (checked 2026-10-29).",
+  "lifecycle_citation": "https://raw.githubusercontent.com/steveyegge/beads/main/README.md",
+  "record": {
+   "url": "https://github.com/gastownhall/beads"
+  },
+  "updates": [
+   {
+    "cell": "gh",
+    "old": "https://github.com/steveyegge/beads (28104★)",
+    "new": "https://github.com/gastownhall/beads (moved from steveyegge/beads; ~28.3k★)",
+    "citation": "https://github.com/steveyegge/beads",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "bee--bee-computer",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "The lead (Amazon Q Developer plugin end of support) is about a different product. bee.computer still sells Bee Frontier and Bee Eclipse and carries '©2026 Amazon.com, Inc. or its affiliates' (checked 2026-10-29), consistent with the recorded Amazon acquisition.",
+  "lifecycle_citation": "https://bee.computer/",
+  "updates": []
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "benevolent.com (checked 2026-10-29) now leads with 'Qor, powered by BenevolentAI, is an always-on strategic function for biopharma decision makers and life science consultancies', under the tagline 'Life science intelligence'. Its registered address is in Luxembourg.",
+  "lifecycle_citation": "https://www.benevolent.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop.",
+    "new": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop. As of Oct 2026 benevolent.com leads with Qor, powered by BenevolentAI, a life-science intelligence service for biopharma decision makers and consultancies.",
+    "citation": "https://www.benevolent.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "byterover--byterover-dev",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "byterover.dev (checked 2026-10-29) is live with Free, Pro ($15/mo billed yearly) and Enterprise plans and says 'MIT license'. The docs now cover ByteRover V4, a Desktop app. The only public code repo, campfirein/byterover-cli, is archived and its LICENSE file is Elastic License 2.0. The homepage's MIT claim does not match any public repo found, so the license cell was left unchanged.",
+  "lifecycle_citation": "https://www.byterover.dev/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Agent-memory product. LLM-curated hierarchical context.",
+    "new": "Agent-memory product. LLM-curated hierarchical context. Now ships as ByteRover Desktop (V4) with cloud-synced spaces for agents and teammates; the open-source CLI repo campfirein/byterover-cli is archived.",
+    "citation": "https://docs.byterover.dev/v4/overview",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "character-ai--character-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Character.ai's blog post 'An Update on Character.ai' (2026-10-12) says the company has started a voluntary Chapter 11 process to enable a court-supervised sale. The catalog desc and funding already record this and the app is still running.",
+  "lifecycle_citation": "https://blog.character.ai/",
+  "updates": []
+ },
+ {
+  "id": "cipher-byterover--gh-campfirein-cipher",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "Confirmed. campfirein/byterover-cli is archived (GitHub repository metadata) and its LICENSE is Elastic License 2.0, so the catalog's Elastic-2.0 is right for this repo. The 'MIT license' text on byterover.dev matches no public repo.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/campfirein/byterover-cli/main/LICENSE",
+  "updates": []
+ },
+ {
+  "id": "cloudflare-agent-memory--infoq-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Cloudflare's own post 'Agents that remember: introducing Agent Memory' (published 2026-04-17) announces the private beta of Agent Memory, a managed service that extracts information from agent conversations.",
+  "lifecycle_citation": "https://blog.cloudflare.com/introducing-agent-memory/",
+  "record": {
+   "url": "https://blog.cloudflare.com/introducing-agent-memory/"
+  },
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Managed persistent memory service for AI agents on Cloudflare's edge. Beta-launched April 2026. Sits alongside Workers AI / Vectorize as the memory tier of the Cloudflare agent stack.",
+    "new": "Managed persistent memory service for AI agents on Cloudflare's edge. Private beta announced 2026-04-17. Sits alongside Workers AI / Vectorize as the memory tier of the Cloudflare agent stack.",
+    "citation": "https://blog.cloudflare.com/introducing-agent-memory/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cocounsel-legal-thomson-reuters--legaltechnology-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Thomson Reuters' own CoCounsel Legal product page (checked 2026-10-29) is live and describes Workspaces, Deep Research and a CoCounsel Legal MCP for Claude.",
+  "lifecycle_citation": "https://legal.thomsonreuters.com/en/products/cocounsel-legal",
+  "record": {
+   "url": "https://legal.thomsonreuters.com/en/products/cocounsel-legal"
+  },
+  "updates": []
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "continue.dev (checked 2026-10-29) is titled 'Continue (acquired by Cursor)' and says 'Continue was acquired by Cursor'. The catalog already records the acquisition and the discontinued extension.",
+  "lifecycle_citation": "https://continue.dev/",
+  "updates": []
+ },
+ {
+  "id": "continue-dev-memory-mcp--hub-continue-dev",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "continue.dev (checked 2026-10-29) says 'Continue was acquired by Cursor'. The catalog already records that the product is discontinued. hub.continue.dev did not load (proxy 502), so the row URL was not changed.",
+  "lifecycle_citation": "https://continue.dev/",
+  "updates": []
+ },
+ {
+  "id": "cursor-memories--docs-cursor-com",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "docs.cursor.com/context/memories now redirects to the Cursor docs home, which has no Memories page (checked 2026-10-29). A Cursor forum reply says the feature was removed in 2.1.x, but that isn't a primary statement, so the lifecycle stays unknown.",
+  "lifecycle_citation": "https://cursor.com/docs",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Project-scoped memories in Cursor, created either by a background 'sidecar' model watching chats or by the agent via tool calls, and managed as auto-generated rules in settings. Traction: First-party feature of one of the most widely used AI IDEs",
+    "new": "Project-scoped memories in Cursor, created either by a background 'sidecar' model watching chats or by the agent via tool calls, and managed as auto-generated rules in settings. Traction: First-party feature of one of the most widely used AI IDEs. As of 2026-10-29 the Memories docs page redirects to the Cursor docs home, which no longer documents Memories; Rules remain the documented persistent-context mechanism.",
+    "citation": "https://cursor.com/docs",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "devin-cognition--devin-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "devin.ai is live (checked 2026-10-29). cognition.ai now redirects to cognition.com, which says Cognition operates Devin. The row URL is devin.ai, so nothing changes.",
+  "lifecycle_citation": "https://devin.ai/",
+  "updates": []
+ },
+ {
+  "id": "era-computer--techcrunch-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The lead (moved domains) is about other rows. Era's own site, era.world (era.computer redirects there, and the TechCrunch article links it), is live with a waitlist and describes Era as 'the platform that gives you control of how your devices act on your intent'. The row URL is a TechCrunch article, so it was replaced with the company's site.",
+  "lifecycle_citation": "https://era.world/",
+  "record": {
+   "url": "https://era.world/"
+  },
+  "updates": []
+ },
+ {
+  "id": "flowise-memory--docs-flowiseai-com",
+  "verified": true,
+  "lifecycle": "archived",
+  "lifecycle_note": "The Flowise README (checked 2026-10-29) says 'Flowise has been archived' and points to the 'Future of Flowise' discussion. The catalog already records this.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/README.md",
+  "updates": []
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "futurehouse.org (checked 2026-10-29) calls FutureHouse 'a non-profit building AI agents to automate research', with the AI-for-Science Independent Postdoctoral Fellowship as its flagship program. platform.futurehouse.org redirects to platform.edisonscientific.com.",
+  "lifecycle_citation": "https://www.futurehouse.org/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work.",
+    "new": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work. As of Oct 2026 FutureHouse describes itself as a non-profit whose flagship program is an AI-for-Science postdoctoral fellowship; its agent platform (platform.futurehouse.org) now redirects to Edison Scientific's platform.",
+    "citation": "https://www.futurehouse.org/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "gemini-cli-memory-save-memory-gemini-md--geminicli-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Partly confirmed. geminicli.com says Gemini CLI 'was replaced by Antigravity CLI on June 18th, 2026' for unpaid-tier and Google One users. Google's developer blog adds that requests from Google AI Pro/Ultra and free users stopped on 2026-06-18, while Gemini Code Assist Standard/Enterprise licensees and users with paid Gemini or Agent Platform API keys keep access, with continued support and model updates. The memory docs page is still live.",
+  "lifecycle_citation": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents",
+    "new": "Google's open-source Gemini CLI persists facts by editing tiered Markdown memory files — repo GEMINI.md, a per-project private memory folder and global ~/.gemini/GEMINI.md — that load into hierarchical context each session. Traction: Google first-party; Gemini CLI is one of the most-used terminal coding agents. On 2026-06-18 Google replaced Gemini CLI with Antigravity CLI for free, Google One and Google AI Pro/Ultra users; Gemini CLI stays supported for Gemini Code Assist Standard/Enterprise licenses and paid Gemini or Agent Platform API keys.",
+    "citation": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex--docs-cloud-google-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The lead (Nyne's pivot) concerns a different row. The Agent Platform release notes (checked 2026-10-29) show Memory Bank still active: on 2026-09-01, Memory Bank embedding SKUs changed and Memory Bank compute metering took effect.",
+  "lifecycle_citation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+  "updates": []
+ },
+ {
+  "id": "graphrag-microsoft--microsoft-com",
+  "verified": true,
+  "lifecycle": "maintenance",
+  "lifecycle_note": "The microsoft/graphrag README (checked 2026-10-29) says the project 'is largely in maintenance mode, and won't be accepting new PRs or implementing new features'. Bug fixes and dependency updates will continue, particularly for CVEs.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/microsoft/graphrag/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Modular graph-based RAG. Leiden community detection over knowledge graph; community summaries at multiple levels. DRIFT Search hybrid (Oct 2024).",
+    "new": "Modular graph-based RAG. Leiden community detection over knowledge graph; community summaries at multiple levels. DRIFT Search hybrid (Oct 2024). The GraphRAG repo is now largely in maintenance mode: no new features or PRs, only bug fixes and dependency/CVE updates.",
+    "citation": "https://raw.githubusercontent.com/microsoft/graphrag/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "lazygraphrag--gh-microsoft-graphrag",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "The linked discussion has a maintainer post from 2024-12-09 calling LazyGraphRAG 'the next milestone for our repo', followed by unanswered 2026 requests for a timeline. The GraphRAG README now says the repo is largely in maintenance mode with no new features, and its CHANGELOG has no LazyGraphRAG entry, so the planned integration looks unlikely. No primary statement about LazyGraphRAG itself was found.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/microsoft/graphrag/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Performs minimal up-front indexing; defers LLM use until query time. Being integrated into the main GraphRAG library.",
+    "new": "Performs minimal up-front indexing; defers LLM use until query time. Announced (Nov 2024) for integration into the main GraphRAG library, but no implementation has shipped there, and the GraphRAG repo is now largely in maintenance mode with no new features.",
+    "citation": "https://raw.githubusercontent.com/microsoft/graphrag/main/README.md",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "grok-memory-xai--maginative-com",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Not verified: x.ai/grok and x.ai/news return 403 to both curl and WebFetch, and no primary xAI page describing consumer Grok memory could be loaded. x.ai/news/grok-build-memory loads but covers the Grok Build coding tool, not chat memory. The URL was left as the secondary source.",
+  "lifecycle_citation": "https://x.ai/grok",
+  "updates": []
+ },
+ {
+  "id": "heyday--heyday-xyz",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "heyday.xyz (checked 2026-10-29) serves only a script redirecting to /lander, which is a GoDaddy domain-parking page (parking-lander assets). The domain no longer hosts the product. No shutdown announcement was found, so this rests on the parked domain alone.",
+  "lifecycle_citation": "https://www.heyday.xyz/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "AI assistant that builds a searchable memory from meetings (Zoom app), emails, documents, notes and web reading; answers questions, prepares client context and drafts content. Now marketed mainly to coaches and knowledge workers.",
+    "new": "AI assistant that builds a searchable memory from meetings (Zoom app), emails, documents, notes and web reading; answers questions, prepares client context and drafts content. Now marketed mainly to coaches and knowledge workers. As of 2026-10-29 heyday.xyz is a GoDaddy domain-parking page, so the product appears to be gone (no shutdown announcement found).",
+    "citation": "https://www.heyday.xyz/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "inworld-ai--inworld-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "inworld.ai (checked 2026-10-29) leads with Inworld Inference for consumer AI and voice models, which confirms the pivot that the catalog desc already records.",
+  "lifecycle_citation": "https://inworld.ai/",
+  "updates": []
+ },
+ {
+  "id": "krutrim-kruti-ola--ai-labs-olakrutrim-com",
+  "verified": false,
+  "lifecycle": "dead",
+  "lifecycle_note": "Not changed: ai-labs.olakrutrim.com and olakrutrim.com load but do not mention Kruti, which matches the lead. There is still no primary shutdown statement, and the catalog already records the Apr 2026 shutdown.",
+  "lifecycle_citation": "https://ai-labs.olakrutrim.com/",
+  "updates": []
+ },
+ {
+  "id": "labgenius--labgenius-app",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "Lead confirmed with a correction. labgenius.app is an unrelated 'Lab Genius Coming Soon' AI lab-assistant page. labgenius.com does not resolve (DNS failure). The company's own site is labgeniustx.com (labgeni.us redirects there), titled 'LabGenius Therapeutics | ML-driven Antibody Discovery', and it describes the EVA platform.",
+  "lifecycle_citation": "https://labgeniustx.com/",
+  "record": {
+   "url": "https://labgeniustx.com/"
+  },
+  "updates": []
+ },
+ {
+  "id": "lakera-guard-lakera-red--lakera-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "lakera.ai/lakera-guard now redirects to lakera.ai/ai-agent-security, whose footer reads '©1994-2026 Check Point Software Technologies Ltd.'. docs.lakera.ai is titled 'Check Point AI Security'.",
+  "lifecycle_citation": "https://docs.lakera.ai/docs/landing",
+  "record": {
+   "url": "https://www.lakera.ai/ai-agent-security"
+  },
+  "updates": []
+ },
+ {
+  "id": "letta-code--gh-letta-ai-letta-code",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "The letta-ai/letta README (checked 2026-10-29) says Letta's current source code lives in letta-ai/letta-code (harness, TUI, App Server, channels, runtime) and that the retired Letta V1 API server is kept on the 'archive' branch. letta.com now describes Letta as an AI research lab.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Letta's stateful coding-agent harness: agents rewrite their own memory blocks and skills, version context in git via MemFS (syncable to GitHub) and reflect via a periodic /sleeptime 'dreaming' process. Traction: ~3.5k stars; from Letta (MemGPT) team",
+    "new": "Letta's stateful coding-agent harness: agents rewrite their own memory blocks and skills, version context in git via MemFS (syncable to GitHub) and reflect via a periodic /sleeptime 'dreaming' process. Traction: ~3.5k stars; from Letta (MemGPT) team. letta-ai/letta-code is now the main Letta source (harness, terminal UI, App Server, channels); the Letta V1 API server was retired to the archive branch of letta-ai/letta.",
+    "citation": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+    "confidence": "high"
+   }
+  ]
+ }
+]

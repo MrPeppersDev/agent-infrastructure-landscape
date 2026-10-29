@@ -1,0 +1,802 @@
+[
+ {
+  "id": "supabase-vector--supabase-com",
+  "name": "Supabase Vector",
+  "url": "https://supabase.com/vector",
+  "section": "Search platforms (non-memory)",
+  "family": "data",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Supabase vector url — Supabase /vector 404."
+  ],
+  "cells": {
+   "desc": "Supabase's managed pgvector — combined Postgres + vector store; popular default for OSS LLM apps. Supabase $80M Series C 2024.",
+   "gh": "supabase/supabase — ~108k stars, active (commit date not captured)",
+   "license": "Apache-2.0 (Supabase stack); vectors via pgvector (PostgreSQL licence)",
+   "funding": "Supabase Inc raised $116M Series C 2024-04 ($2B valuation; Peak XV led).",
+   "latest-release": "searched not found",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "topquadrant-topbraid-edg--topquadrant-com",
+  "name": "TopQuadrant (TopBraid EDG)",
+  "url": "https://www.topquadrant.com/",
+  "section": "Knowledge-graph platforms",
+  "family": "data",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "TopBraid -> TQ Data Foundation — TopBraid EDG renamed TQ Data Foundation."
+  ],
+  "cells": {
+   "desc": "Ontology-native semantic governance suite (formerly TopBraid EDG, now TQ Data Foundation) built on RDF, OWL and SHACL; serves governed context to agents via MCP, a Python SDK and REST.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$350K (seed; bootstrapped)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only — modular packages (Metadata Mgmt, Reference Data Mgmt, Vocabulary Mgmt, Business Glossaries)"
+  }
+ },
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "name": "01.AI Yi family",
+  "url": "https://www.01.ai/",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "01.AI Yi — 01.AI: enterprise AI transformation products; Yi not featured."
+  ],
+  "cells": {
+   "desc": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen.",
+   "gh": "github.com/01-ai/Yi ~7k+ stars",
+   "license": "Apache 2.0 (Yi-34B + base sizes); proprietary (Yi-Large, Yi-Lightning)",
+   "funding": "$1B+ raised; >$1B valuation 2024 (Alibaba, Lightspeed China, Tencent investors)",
+   "latest-release": "Yi-Lightning (2024-10)",
+   "pricing": "API: Yi-Lightning $0.14 per 1M tokens (vendor-claimed lowest among frontier-tier); Yi-34B weights free under Apache 2.0"
+  }
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "name": "Amazon Nova family",
+  "url": "https://www.aboutamazon.com/news/aws/amazon-nova-foundation-models",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Row urls 404 (Mistral Large 2, Gemini 3, Phi-4, Nova) — Row urls 404: Mistral Large 2, Gemini 3, Phi-4, Amazon Nova. anthropic.com/claude → claude.com/product/overview."
+  ],
+  "cells": {
+   "desc": "Amazon's first-party foundation model family, launched at AWS re:Invent Dec-2024. Nova Pro (multimodal mid-tier), Nova Lite (multimodal cheap), Nova Micro (text-only fast), Nova Canvas (image gen), Nova Reel (video gen). Premier frontier-tier launched 2025. Substrate for AWS Bedrock-native agents an",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Amazon (AMZN) public; ~$2T market cap; capex $100B+ 2025 (largest among hyperscalers)",
+   "latest-release": "Nova 2.5 Sonic speech-to-speech (2026-10); Nova 2 Lite reasoning model (2025-12-02) is newest text model on Bedrock",
+   "pricing": "AWS Bedrock pay-per-token: Nova Micro $0.035/$0.14 per 1M; Lite $0.06/$0.24; Pro $0.80/$3.20; Premier $2.50/$12.50"
+  }
+ },
+ {
+  "id": "argilla--argilla-io",
+  "name": "Argilla",
+  "url": "https://argilla.io/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "acquired",
+  "decay_cause": null,
+  "leads": [
+   "Argilla joining HF — Argilla: \"joining Hugging Face\" banner."
+  ],
+  "cells": {
+   "desc": "Open-source data-quality platform for LLM training data — human-in-the-loop labelling, RLHF data collection, dataset curation. Acquired by Hugging Face 2024.",
+   "gh": "argilla-io/argilla — ~5.2k stars, last commit 2025-08",
+   "license": "Apache-2.0",
+   "funding": "Acquired by Hugging Face in 2024-06; previously seed-funded (~$2M, 2022).",
+   "latest-release": "v2.8.0 (2025-03-10)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "cleanba--gh-vwxyzjn-cleanba",
+  "name": "Cleanba",
+  "url": "https://github.com/vwxyzjn/cleanba",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "research-code",
+  "decay_cause": "research-complete",
+  "leads": [
+   "Cleanba archived — TGI: README confirms maintenance mode. Cleanba: README \"intended for archiving purposes\"."
+  ],
+  "cells": {
+   "desc": "Distributed PPO/IMPALA reference implementations from CleanRL author — research-friendly, reproducible.",
+   "gh": "vwxyzjn/cleanba — ~127 stars, last commit 2024-08",
+   "license": "MIT",
+   "funding": "searched not found",
+   "latest-release": "no releases (no GitHub releases or PyPI package)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "covariant--covariant-ai",
+  "name": "Covariant",
+  "url": "https://covariant.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Covariant dead — Covariant: covariant.ai shows only copyright line; /covariant-brain/ 404 — effectively dead."
+  ],
+  "cells": {
+   "desc": "Pieter Abbeel / Peter Chen-founded robotics FM company — built RFM-1 (Robotics Foundation Model, Mar 2024) for warehouse pick-and-place. In Aug 2024 Amazon took a non-exclusive license to its robotic foundation models and hired founders Abbeel, Chen and Rocky Duan plus research staff; Covariant was ",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$222M total raised — $80M Series C 2021 (Index + Radical); Amazon acqui-hire 2024 reported $1.5B-equivalent licensing-fee",
+   "latest-release": "RFM-1 (Mar 2024)",
+   "pricing": "Enterprise; per-robot / per-pick fees"
+  }
+ },
+ {
+  "id": "dagster--dagster-io",
+  "name": "Dagster",
+  "url": "https://dagster.io/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Dagster part of Prefect — Dagster: dagster.io/pricing banner \"Dagster is now part of Prefect\"."
+  ],
+  "cells": {
+   "desc": "Data orchestrator with first-class ML pipeline support — software-defined assets model; competes with Airflow/Prefect for ML pipelines.",
+   "gh": "dagster-io/dagster — ~16.3k stars, last commit 2026-10",
+   "license": "Apache-2.0",
+   "funding": "$47M total raised through Series B 2022-05 ($33M, Sapphire Ventures led).",
+   "latest-release": "v1.13.27 (2026-10-26)",
+   "pricing": "Dagster+ Solo $10/mo, Starter $100/mo (plus per-credit and serverless compute usage), Pro custom"
+  }
+ },
+ {
+  "id": "dvc--dvc-org",
+  "name": "DVC",
+  "url": "https://dvc.org/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "DVC/lakeFS — DVC: dvc.org leads with lakeFS; DVC \"Git Extension for small projects\"."
+  ],
+  "cells": {
+   "desc": "Open-source data and ML model version control — git-like commands for datasets/models stored in cloud blob storage. Created by Iterative.ai; the project was acquired by lakeFS (Treeverse) in Nov 2025 and now lives at github.com/treeverse/dvc.",
+   "gh": "treeverse/dvc — ~15.9k stars, last commit 2026-10",
+   "license": "Apache-2.0",
+   "funding": "Iterative.ai raised $20M Series A 2022 (True Ventures led); also runs CML, MLEM, Studio.",
+   "latest-release": "v3.67.1 (2026-03-31)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "figure-ai--figure-ai",
+  "name": "Figure AI",
+  "url": "https://www.figure.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Figure 03 — Figure 03 positioned for home help. Sanctuary: \"Physical AI on existing robotic hardware\"."
+  ],
+  "cells": {
+   "desc": "Figure AI — humanoid robot maker founded 2022 by Brett Adcock (ex-Archer Aviation). Figure 02 (Aug 2024) + Helix VLA model (Feb 2025) for full-body / hand control. Raised $675M Series B Feb-2024 (Microsoft / OpenAI / Bezos / Intel; $2.6B val); reported new round at $39.5B val Q2 2025. Partnered with",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$675M Series B Feb-2024 ($2.6B val); Series C over $1B committed at $39B post-money, Sep-2025 (Parkway Venture Capital led)",
+   "latest-release": "Helix 2.5 (2026-09-17)",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "google-deepmind-gemini-robotics--deepmind-google",
+  "name": "Google DeepMind Gemini Robotics",
+  "url": "https://deepmind.google/technologies/gemini-robotics/",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Gemini Robotics 2 — Gemini CLI: geminicli.com says replaced by Antigravity CLI on 2026-06-18."
+  ],
+  "cells": {
+   "desc": "Google DeepMind's Gemini Robotics + Gemini Robotics-ER (Embodied Reasoning) released Mar-2025. VLA models built on Gemini 2.0 backbone. Reference platform: Apptronik Apollo. The DeepMind line of robotics-FM, descendant of earlier RT-1 / RT-2 / RT-X work.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Google DeepMind (Alphabet parent)",
+   "latest-release": "Gemini Robotics 1.5 (2025)",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "name": "Google Gemini 3 family",
+  "url": "https://blog.google/technology/google-deepmind/gemini-3/",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Row urls 404 (Mistral Large 2, Gemini 3, Phi-4, Nova) — Row urls 404: Mistral Large 2, Gemini 3, Phi-4, Amazon Nova. anthropic.com/claude → claude.com/product/overview."
+  ],
+  "cells": {
+   "desc": "Google DeepMind's Gemini 3 frontier model family — Gemini 3 Pro (top tier), 3 Flash (fast), 3 Nano (on-device). Substrate for Google Workspace AI, Vertex AI Agent Platform, Gemini Code Assist, Project Mariner, and Project Astra. Multimodal-native; 1M-10M context window. Largest context window of any",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Alphabet (GOOGL) public; ~$2T+ market cap; Google AI capex $75B+ 2025",
+   "latest-release": "Gemini 4 Argon (GA 2026-10-13); Gemini 3.8 Flash (2026-09-02)",
+   "pricing": "Paid per 1M in/out: Gemini 4 Argon $2/$10 intro to 2026-11-30, then $4/$20 (no free tier); Gemini 3.8 Flash $0.75/$3.75 (free tier available)"
+  }
+ },
+ {
+  "id": "google-vertex-ai-training--cloud-google-com",
+  "name": "Google Vertex AI Training",
+  "url": "https://cloud.google.com/vertex-ai",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Vertex AI rebrand — Possible duplicate: vertex-ai-memory-bank vs gemini-enterprise-agent-platform-memory-bank-rebrand-of-vertex."
+  ],
+  "cells": {
+   "desc": "Google Cloud's managed training service — TPU and GPU clusters, hyperparameter tuning, model registry. Part of Vertex AI umbrella.",
+   "gh": "googleapis/python-aiplatform — ~910 stars, last commit 2026-10",
+   "license": "proprietary; Python SDK Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "v2.6.0 (2026-10-20) — google-cloud-aiplatform",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "helicone--helicone-ai",
+  "name": "Helicone",
+  "url": "https://www.helicone.ai/",
+  "section": "Evaluation & observability platforms",
+  "family": "models-ops",
+  "current_status": "maintenance",
+  "decay_cause": null,
+  "leads": [
+   "Helicone/Mintlify — Helicone: \"no longer part of Mintlify\"."
+  ],
+  "cells": {
+   "desc": "Open-source LLM observability and AI gateway — one-line proxy integration captures every LLM call; sessions, custom properties, evals. Acquired by Mintlify in Mar 2026 and placed in maintenance mode; helicone.ai now states it is no longer part of Mintlify.",
+   "gh": "Helicone/helicone — ~6.2k stars, last commit 2026-10",
+   "license": "Apache-2.0 (Core)",
+   "funding": "$5M total: $2.7M seed 2023 (YC W23 + Lightspeed); $2M extension 2024.",
+   "latest-release": "v1.8.3 (2025-11-07) — @helicone/helpers",
+   "pricing": "Hobby free (10k requests); Pro $79/mo; Team $799/mo; Enterprise custom; plus usage-based pricing"
+  }
+ },
+ {
+  "id": "humanloop--humanloop-com",
+  "name": "Humanloop",
+  "url": "https://humanloop.com/",
+  "section": "Evaluation & observability platforms",
+  "family": "models-ops",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "Humanloop sunset — Humanloop: joined Anthropic, platform sunset (confirms)."
+  ],
+  "cells": {
+   "desc": "Collaborative LLM development platform — prompt editor, evals, tracing. UK; Index Ventures + Y Combinator backed. The team joined Anthropic in 2025 and the platform shut down on 2025-09-08.",
+   "gh": "humanloop/humanloop-python — ~12 stars, last commit 2025-05",
+   "license": "searched not found",
+   "funding": "$5.6M total: $2.8M seed 2023 (Index Ventures + YC W21).",
+   "latest-release": "v0.8.38 (2025-05-09) — humanloop SDK, final",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "labelbox--labelbox-com",
+  "name": "Labelbox",
+  "url": "https://labelbox.com/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Labelbox pivot — Labelbox: pivot to agents (Recursion) + RL envs (Horizon); $100M+ Series E."
+  ],
+  "cells": {
+   "desc": "Enterprise data-labelling platform — annotation tools + 'Frontier' offering (expert RLHF labelers + Boost compute). Pivoting toward frontier-lab data services.",
+   "gh": "Labelbox/labelbox-python — ~158 stars, last commit 2026-10",
+   "license": "proprietary; Python SDK Apache-2.0",
+   "funding": "$188.9M total raised (Series D $110M, 2022-01; led by SoftBank Vision Fund 2).",
+   "latest-release": "v7.17.0 (2026-10-22) — labelbox SDK",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "name": "Meta Llama 4 family",
+  "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Meta Muse / llama.com — Limitless: acquired by Meta; Pendant no longer sold (2025-12-05); Rewind/desktop recording shutting down; service ended in EU/UK."
+  ],
+  "cells": {
+   "desc": "Meta's Llama 4 family (released 2025-04) — Scout (109B MoE, 17B active), Maverick (400B MoE, 17B active), Behemoth (2T MoE, 288B active; preview). First Llama generation to use mixture-of-experts and to be multimodal-native. Substrate for many OSS agents (Open-Interpreter, Ollama-served local agents",
+   "gh": "github.com/meta-llama/llama (combined Llama repos); ~58k stars",
+   "license": "Llama 4 community license (Meta-custom; commercial OK <700M MAU)",
+   "funding": "Meta (META) public; ~$1.5T market cap; AI infra capex $60-65B 2025",
+   "latest-release": "No Llama release found after Llama 4 Scout + Maverick (2025-04-05); successor Muse family: Muse Spark (2026-04-08, closed), Muse Spark Open weights (2026-10-15)",
+   "pricing": "Free for self-hosting (Llama community license, <700M MAU); hosted via Together $0.20-$3/M (Maverick); AWS Bedrock + Azure AI consumption"
+  }
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "name": "Microsoft Phi-4 family",
+  "url": "https://azure.microsoft.com/en-us/blog/welcome-phi-4/",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Row urls 404 (Mistral Large 2, Gemini 3, Phi-4, Nova) — Row urls 404: Mistral Large 2, Gemini 3, Phi-4, Amazon Nova. anthropic.com/claude → claude.com/product/overview."
+  ],
+  "cells": {
+   "desc": "Microsoft Research's Phi family of small, data-curation-focused open-weights models. Phi-4 (14B, Dec-2024) matches much larger models on STEM benchmarks. Phi-4 Multimodal (5.6B, Feb-2025) integrates speech + vision + text. MIT license. Substrate for on-device / edge agents and cost-sensitive OSS use",
+   "gh": "github.com/microsoft/Phi-3CookBook ~3k+ stars + various HuggingFace repos",
+   "license": "MIT",
+   "funding": "Microsoft (MSFT) public; ~$3T market cap; AI capex $80B+ 2025",
+   "latest-release": "Phi-4-reasoning-vision-15B (2026-03)",
+   "pricing": "Free open-weights (MIT); Azure AI pay-per-token if hosted"
+  }
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "name": "Mistral Large 2 / Mixtral family",
+  "url": "https://mistral.ai/news/mistral-large-2/",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Row urls 404 (Mistral Large 2, Gemini 3, Phi-4, Nova) — Row urls 404: Mistral Large 2, Gemini 3, Phi-4, Amazon Nova. anthropic.com/claude → claude.com/product/overview."
+  ],
+  "cells": {
+   "desc": "French frontier-model lab (Paris). Family includes Mistral Large 2 (123B dense, Jul-2024), Mixtral 8x22B (open-weights MoE), Mistral Small 3 (24B, open-weights Jan-2025), Codestral (code specialist). EU-headquartered alternative to US/China model labs; GDPR-friendly data residency. Distinct from the",
+   "gh": "github.com/mistralai/mistral-inference + various model repos; cumulative ~30k+ stars",
+   "license": "Mixed: Modified MIT (Medium 3.5 weights); Apache-2.0 (Small / Large 3 / other open models); some models API-only proprietary",
+   "funding": "€2.4B+ total raised (~$2.7B USD); €11.7B valuation Series C Sept-2025 (ASML lead); a16z, General Catalyst, DST, Lightspeed, Nvidia investors",
+   "latest-release": "Mistral Medium 3.5 (2026-04-29); Mistral Large 4 in public preview (2026-10), weights not yet released",
+   "pricing": "API: Mistral Medium 3.5 $1.50 in / $7.50 out per 1M; Mistral Large 3 $0.50 / $1.50; batch 50% off; open weights free"
+  }
+ },
+ {
+  "id": "nvidia-gr00t-isaac--developer-nvidia-com",
+  "name": "NVIDIA GR00T / Isaac",
+  "url": "https://developer.nvidia.com/isaac/gr00t",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "GR00T — OpenMind: openmind.org → openmind.com. GR00T N1.7 GA; developer.nvidia.com/isaac/gr00t moved."
+  ],
+  "cells": {
+   "desc": "NVIDIA Project GR00T (Mar-2024) — general-purpose humanoid foundation model + Isaac simulation stack + Jetson Thor compute. GR00T N1 model released open March 2025. NVIDIA's full-stack play: model + sim + compute + training cloud (Cosmos). Major partners include Figure, Apptronik, Boston Dynamics, A",
+   "gh": "NVIDIA/Isaac-GR00T — ~8.3k stars, last commit 2026-10",
+   "license": "Apache-2.0 code; model weights NVIDIA Open Model License",
+   "funding": "NVIDIA parent — public company, $3T+ mkt cap",
+   "latest-release": "GR00T N1.7 (2026-04-21) — Isaac-GR00T",
+   "pricing": "OSS weights free; Cosmos / Jetson hardware sold separately"
+  }
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "name": "OctoAI (now NVIDIA)",
+  "url": "https://octo.ai/",
+  "section": "Inference platforms & gateways",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "OctoAI -> NVIDIA — OctoAI: octo.ai → NVIDIA homepage."
+  ],
+  "cells": {
+   "desc": "Inference cloud spun out of OctoML — acquired by NVIDIA in 2024. Originally TVM-compiler heritage; offered API for OSS LLM/diffusion serving.",
+   "gh": "searched not found",
+   "license": "searched not found",
+   "funding": "Acquired by NVIDIA in 2024-10 (terms undisclosed; reportedly ~$250M); previously raised $135M total through Series C 2023-12 (Tiger Global led).",
+   "latest-release": "searched not found",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "openmind-om1--openmind-org",
+  "name": "OpenMind OM1",
+  "url": "https://www.openmind.org/",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "OpenMind domain — OpenMind: openmind.org → openmind.com. GR00T N1.7 GA; developer.nvidia.com/isaac/gr00t moved."
+  ],
+  "cells": {
+   "desc": "OpenMind — open robot OS (OM1) + FABRIC interconnect, founded by Jan Liphardt (Stanford). Pitched as the 'Android of robots': any humanoid + any LLM + the same OS layer. Raised $20M Series A (Pantera + others, 2025).",
+   "gh": "OpenMind/OM1 — ~3.0k stars, last commit 2026-10",
+   "license": "MIT",
+   "funding": "$20M Series A 2025 (Pantera + others)",
+   "latest-release": "OM1 (open robot operating model)",
+   "pricing": "OSS free; commercial support paid"
+  }
+ },
+ {
+  "id": "outerbounds--outerbounds-com",
+  "name": "Outerbounds",
+  "url": "https://outerbounds.com/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Outerbounds joining Anaconda — Outerbounds: \"Outerbounds is joining Anaconda\"; pricing → anaconda.com."
+  ],
+  "cells": {
+   "desc": "Commercial platform behind Metaflow (originally Netflix OSS) — ML workflow orchestration with managed compute. Acquisition by Anaconda announced 2026-04-29; now marketed as AI Orchestration in Anaconda Platform, and Metaflow stays open source.",
+   "gh": "Netflix/metaflow — ~10.3k stars, last commit 2026-10",
+   "license": "proprietary; Metaflow Apache-2.0",
+   "funding": "$26.6M total raised through Series A 2022 (Index Ventures led); acquisition by Anaconda announced 2026-04-29 (terms not disclosed in the announcement).",
+   "latest-release": "v0.12.53 (2026-10-16) — outerbounds",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "pachyderm-hpe--pachyderm-com",
+  "name": "Pachyderm (HPE)",
+  "url": "https://www.pachyderm.com/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "acquired",
+  "decay_cause": null,
+  "leads": [
+   "Pachyderm license — Pachyderm: README badge \"license-Pachyderm\" vs catalog Apache-2.0; site 502."
+  ],
+  "cells": {
+   "desc": "Data-versioning and pipeline platform — Pachyderm File System tracks lineage across pipeline runs. Acquired by HPE in 2023.",
+   "gh": "pachyderm/pachyderm — ~6.3k stars, last commit 2025-02",
+   "license": "Apache-2.0",
+   "funding": "$28.5M raised through Series B (2020-06) before HPE acquired in 2023-01 (terms undisclosed).",
+   "latest-release": "v2.12.2 (2025-01-15)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "patronus-ai--patronus-ai",
+  "name": "Patronus AI",
+  "url": "https://www.patronus.ai/",
+  "section": "Evaluation & observability platforms",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Patronus pivot — Patronus AI: now \"a behavioral research lab for AI\"; eval platform not offered."
+  ],
+  "cells": {
+   "desc": "Enterprise eval and guardrails platform — Lynx hallucination detector (open weights), Glider judge model, Polyglot benchmark. Built by ex-Meta researchers.",
+   "gh": "searched not found",
+   "license": "proprietary; Python SDK MIT",
+   "funding": "$50M total raised through Series A 2024-10 ($17M Series A + $35M extension; Notable Capital led).",
+   "latest-release": "v0.1.26 (2026-09-17) — patronus",
+   "pricing": "Contact sales — no public price list"
+  }
+ },
+ {
+  "id": "physical-intelligence--physicalintelligence-company",
+  "name": "Physical Intelligence (π)",
+  "url": "https://www.physicalintelligence.company/",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Physical Intelligence domain — Physical Intelligence: domain → pi.website; Pi API beta (Oct 2026)."
+  ],
+  "cells": {
+   "desc": "Founded 2024 by Sergey Levine (UC Berkeley) and Karol Hausman + others (ex-Google Brain Robotics). Building general-purpose robot foundation models (π0 released Oct-2024; π0.5 in 2025) trained on cross-embodiment robot trajectories. Raised $400M Series A (Nov-2024; Jeff Bezos, OpenAI, Thrive, Lux) a",
+   "gh": "Physical-Intelligence/openpi — ~14.4k stars, last commit 2026-08",
+   "license": "OpenPI Apache 2.0 (Feb 2025 release of weights)",
+   "funding": "$400M Series A Nov-2024 (Bezos / OpenAI / Thrive / Lux; $2.4B val)",
+   "latest-release": "pi0.7 (2026-04-16) — model; openpi repo has no GitHub releases",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "name": "Portkey AI",
+  "url": "https://portkey.ai/",
+  "section": "Inference platforms & gateways",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Portkey -> Prisma AIRS — Portkey: banner \"Portkey is now PRISMA AIRS AI Gateway\" (Palo Alto?)."
+  ],
+  "cells": {
+   "desc": "AI gateway + observability — load balancing across 200+ LLMs, retries, caching, eval, prompts. Open-source Gateway + commercial Portkey Cloud.",
+   "gh": "Portkey-AI/gateway — ~13.3k stars, last commit 2026-05",
+   "license": "MIT (Gateway)",
+   "funding": "$3M seed 2024 (Lightspeed India + Y Combinator); OSS + Cloud gateway/observability.",
+   "latest-release": "v1.15.2 (2026-01-12) — gateway",
+   "pricing": "Open-source gateway free (self-host); Developer free (10K logs/mo); Production $49/mo (100K logs, $9 per extra 100K up to 3M); Enterprise custom"
+  }
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "name": "Reka Core / Flash / Edge",
+  "url": "https://www.reka.ai/",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": "acquired",
+  "decay_cause": null,
+  "leads": [
+   "Reka pivot — Reka: \"physical AI\" research lab."
+  ],
+  "cells": {
+   "desc": "SF / Singapore foundation-model startup founded by ex-DeepMind / Meta / Google researchers (Dani Yogatama, Yi Tay, Qi Liu). Native multimodal models — Reka Core (~67B, frontier candidate), Flash (~21B), Edge (~7B). Apr-2024: claimed Core matched GPT-4 / Gemini Ultra on MMMU. Acquired by Snowflake an",
+   "gh": "github.com/reka-ai (limited public repos)",
+   "license": "Reka Flash 3 weights under Apache 2.0; Core proprietary",
+   "funding": "Independent — Snowflake acquisition talks dropped; raised $110M at ~$1B valuation (2025-07; Nvidia, Snowflake)",
+   "latest-release": "Reka Edge 2603 (2026-03); Rho-1 research preview (2026-10-05)",
+   "pricing": "Reka API pay-per-token, per-model rates (e.g. Reka Edge 2603 $0.10 in / $0.10 out per 1M)"
+  }
+ },
+ {
+  "id": "sanctuary-ai--sanctuary-ai",
+  "name": "Sanctuary AI",
+  "url": "https://sanctuary.ai/",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Sanctuary pivot — Figure 03 positioned for home help. Sanctuary: \"Physical AI on existing robotic hardware\"."
+  ],
+  "cells": {
+   "desc": "Vancouver-based Physical AI company, founded 2018; originally built the Phoenix humanoid, and since 2026-06 deploys hardware-agnostic Physical AI on existing commercial industrial robots (Tier 1 automotive proof-of-concept), with hydraulic hands in development.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$130M+ total (Bell + Magna + EvokOne)",
+   "latest-release": "Phoenix Gen 7 (2023)",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "snorkel-ai--snorkel-ai",
+  "name": "Snorkel AI",
+  "url": "https://snorkel.ai/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Snorkel pivot — Snorkel: now expert datasets/RL envs/custom agents; /data-development-platform 404."
+  ],
+  "cells": {
+   "desc": "AI data company spun out of Stanford Snorkel weak-supervision research; now sells expert-built training datasets, RL environments, benchmarks and evals to frontier AI labs (Snorkel Data Series, custom data development).",
+   "gh": "snorkel-team/snorkel — ~6.0k stars, last commit 2026-10",
+   "license": "proprietary; Snorkel OSS library Apache-2.0",
+   "funding": "$350M Series E 2026-09-22 at $3.5B valuation (co-led by Insight Partners and S32, Addition participating)",
+   "latest-release": "v0.10.0 (2024-02-27) — snorkel (OSS library)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+  "name": "Text Generation Inference (TGI)",
+  "url": "https://github.com/huggingface/text-generation-inference",
+  "section": "Inference platforms & gateways",
+  "family": "models-ops",
+  "current_status": "archived",
+  "decay_cause": "archived",
+  "leads": [
+   "TGI maintenance — AutoRAG repo now \"AutoRAG 2.0\" desktop file-search app; AutoML library in legacy/ maintenance."
+  ],
+  "cells": {
+   "desc": "Hugging Face's LLM inference server (continuous batching, FlashAttention, quantization). Entered maintenance mode, then archived 2026-03-21; HF recommends vLLM, SGLang, llama.cpp or MLX instead.",
+   "gh": "huggingface/text-generation-inference — ~10.9k stars, archived 2026-03-21, last commit 2026-03",
+   "license": "Apache-2.0",
+   "funding": "searched not found",
+   "latest-release": "v3.3.7 (2025-12-19)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "torchtune-pytorch--gh-pytorch-torchtune",
+  "name": "torchtune (PyTorch)",
+  "url": "https://github.com/meta-pytorch/torchtune",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "deprecated",
+  "decay_cause": null,
+  "leads": [
+   "torchtune unmaintained — torchtune unmaintained"
+  ],
+  "cells": {
+   "desc": "Pure-PyTorch library for fine-tuning LLMs — Llama/Mistral/Phi/Gemma recipes; native FSDP2 + memory-efficient training. From Meta PyTorch team. Per its README, torchtune is no longer actively maintained; active development ended in 2025.",
+   "gh": "meta-pytorch/torchtune (linked from pytorch/torchtune) — ~5.8k stars, last commit 2026-04",
+   "license": "BSD-3-Clause",
+   "funding": "searched not found",
+   "latest-release": "v0.6.1 (2025-04-07) — torchtune",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "toyota-research-institute-lbm--tri-global",
+  "name": "Toyota Research Institute LBM",
+  "url": "https://www.tri.global/research/robotics",
+  "section": "Robotics foundation models & agent stacks",
+  "family": "models-ops",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "TRI LBM url — Continue.dev: continue.dev says \"Continue was acquired by Cursor\"; repo read-only, final 2.0.0."
+  ],
+  "cells": {
+   "desc": "Toyota Research Institute's robotics group — published Large Behavior Models (LBMs) Sep-2023 + diffusion-policy / behavior-cloning at scale. Industrial-research lab with Toyota's manufacturing-data advantage. Not a startup — division of Toyota Motor Corp.",
+   "gh": "ToyotaResearchInstitute (org) — 123 public repos incl. lbm_eval (~125 stars), last activity 2026-10",
+   "license": "Some research code OSS (BSD / MIT)",
+   "funding": "Toyota Motor Corp internal research arm; $1B+ initial endowment (2015)",
+   "latest-release": "LBM paper, A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation (2025-07-07)",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "truera--truera-com",
+  "name": "TruEra",
+  "url": "https://truera.com/",
+  "section": "Evaluation & observability platforms",
+  "family": "models-ops",
+  "current_status": "acquired",
+  "decay_cause": null,
+  "leads": [
+   "TruEra -> Snowflake — TruEra: \"has agreed to join Snowflake\", redirects to Snowflake."
+  ],
+  "cells": {
+   "desc": "ML observability with the TruLens open-source LLM eval framework — the 'RAG Triad' (context-relevance, groundedness, answer-relevance) metrics. Acquired by Snowflake 2024-05.",
+   "gh": "searched not found",
+   "license": "searched not found",
+   "funding": "Acquired by Snowflake in 2024-05 (terms undisclosed); previously raised $42M total through Series B 2022.",
+   "latest-release": "v12.6.1 (2024-03-04) — truera (Python SDK)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "trulens--gh-truera-trulens",
+  "name": "TruLens",
+  "url": "https://github.com/truera/trulens",
+  "section": "Evaluation & observability platforms",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "TruEra -> Snowflake — TruEra: \"has agreed to join Snowflake\", redirects to Snowflake."
+  ],
+  "cells": {
+   "desc": "Open-source LLM/RAG evaluation framework — feedback functions, the RAG Triad. Originally TruEra; now Snowflake-stewarded.",
+   "gh": "truera/trulens — ~3.6k stars, last commit 2026-10",
+   "license": "MIT",
+   "funding": "searched not found",
+   "latest-release": "v2.16.0 (2026-10-19) — trulens",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "vellum-ai--vellum-ai",
+  "name": "Vellum AI",
+  "url": "https://www.vellum.ai/",
+  "section": "Evaluation & observability platforms",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "Vellum shutdown — Vellum: Personal Assistant Platform shutting down 2026-11-02 (confirms)."
+  ],
+  "cells": {
+   "desc": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud), and Vellum announced its hosted Personal Assistant Platform shuts down 2026-11-02.",
+   "gh": "searched not found",
+   "license": "proprietary; Python SDK MIT",
+   "funding": "$5M seed 2023 (Y Combinator S23 + Rebel Fund + Eastlink).",
+   "latest-release": "v1.14.8 (2026-10-02) — vellum-ai (Python SDK)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "weights-biases--wandb-ai",
+  "name": "Weights & Biases",
+  "url": "https://wandb.ai/",
+  "section": "Training infrastructure",
+  "family": "models-ops",
+  "current_status": "acquired",
+  "decay_cause": null,
+  "leads": [
+   "W&B CoreWeave Forge — W&B: pricing → coreweave.com/forge-pricing; docs → docs.coreweave.com/products/wandb (CoreWeave Forge)."
+  ],
+  "cells": {
+   "desc": "Experiment-tracking and ML-ops platform (metrics, artifacts, sweeps, Weave tracing/evals). Acquired by CoreWeave (completed 2025-05-05, ~$1.7B); now part of CoreWeave Forge.",
+   "gh": "wandb/wandb — ~11.3k stars, last commit 2026-10",
+   "license": "proprietary; wandb SDK MIT",
+   "funding": "Acquired by CoreWeave for ~$1.7B (agreement 2025-03, completed 2025-05-05); previously VC-backed",
+   "latest-release": "v0.31.0 (2026-10-16) — wandb",
+   "pricing": "CoreWeave Forge plans: Free $0 (up to 5 model seats); Pro from $60/mo; Enterprise custom; Academic free"
+  }
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "name": "xAI Grok 4",
+  "url": "https://x.ai/news/grok-4",
+  "section": "Foundation models (substrate reference)",
+  "family": "models-ops",
+  "current_status": "active",
+  "decay_cause": null,
+  "leads": [
+   "xAI SpaceXSI — xAI Grok 4 page title \"SpaceXSI\"."
+  ],
+  "cells": {
+   "desc": "Elon Musk's xAI frontier model — Grok 4 launched 2025-07. Trained on Colossus (100k+ GPU supercluster in Memphis). Deeply integrated with X/Twitter (real-time tweet data access). Grok 4 Heavy variant for premium tier. No frontier-tier open-weights — Grok 1 (314B MoE) is the only weight release.",
+   "gh": "github.com/xai-org/grok-1 ~50k stars (older Grok 1 weights only)",
+   "license": "proprietary (Grok 4); older open weights: Grok-1 (Apache-2.0) and Grok 2 (Grok 2 Community License)",
+   "funding": "xAI merged into SpaceX (announced 2026-02-02, combined ~$1T); prior $20B Series E (2026-01, ~$230B valuation)",
+   "latest-release": "Grok 4.7 (2026-09-21)",
+   "pricing": "API: Grok 4.7 $2 in / $6 out per 1M (prompts ‹200k tokens; $4 / $12 above); consumer via X / SuperGrok subscriptions"
+  }
+ },
+ {
+  "id": "atlas--arxiv-2505-23735",
+  "name": "ATLAS",
+  "url": "https://arxiv.org/abs/2505.23735",
+  "section": "Recent method papers — theorized, no distinct product",
+  "family": "memory-research",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Atlas unmaintained — Atlas README: \"REPO NO LONGER MAINTAINED\"."
+  ],
+  "cells": {
+   "desc": "Long-term memory module that learns to memorise the context at test time. Omega rule (sliding-window update over all past tokens), polynomial feature mappings, Muon optimiser. Generalises to \"DeepTransformers\" family. May 2025.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — not commercial",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "not applicable — not commercial"
+  }
+ },
+ {
+  "id": "sleep-time-compute-letta--letta-com",
+  "name": "Sleep-time Compute (Letta)",
+  "url": "https://letta.com/blog/sleep-time-compute",
+  "section": "Recent method papers — theorized, no distinct product",
+  "family": "memory-research",
+  "current_status": null,
+  "decay_cause": null,
+  "leads": [
+   "Letta repo moved / V1 archived — Letta: letta.com research-lab page; source moved to letta-ai/letta-code; V1 API server retired to archive branch."
+  ],
+  "cells": {
+   "desc": "Agents use idle time to reorganize and pre-reason over stored context ('learned context'). Letta ships this as sleep-time agents (v0.7.0+), where a background agent manages the primary agent's core memory. Traction: Shipped in Letta 0.7.0 and Letta Code (/sleeptime); arXiv 2504.13171",
+   "gh": "https://github.com/letta-ai/letta (25229★)",
+   "license": "Apache-2.0 (Letta)",
+   "funding": "searched not found",
+   "latest-release": "last commit 2026-10-18",
+   "pricing": "searched not found"
+  }
+ }
+]
