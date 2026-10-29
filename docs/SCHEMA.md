@@ -781,7 +781,7 @@ gate 8 of `make validate` rejects a filled cell outside its domain.
 
 | # | Column slug                        | Meaning                                                                                                   | Filled by |
 |---|------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------|
-| 100 | `adoption-accelerator`           | Accelerator batch as YC's own lowercase code (`yc-w24`; `w`/`s`/`f`, spring `x` in 2025 and `p` from 2026), or `none`. | research, YC company page |
+| 100 | `adoption-accelerator`           | Accelerator as a lowercase code, or `none`. YC batches use YC's own code (`yc-w24`; `w`/`s`/`f`, spring `x` in 2025 and `p` from 2026); other programs use the code listed in `schema/adoption-accelerator.json` → `programs`, plus `-yyyy` when the cohort year is known (`techstars-2023`, `hf0`). One value: the YC batch if any, else the earliest program. | research, YC company page or the program's own portfolio page |
 | 101 | `architecture-deployment-locus`  | `local` \| `cloud` \| `ide` \| `computer-use` \| `hybrid`: where the system runs.                         | research |
 | 102 | `licensing-bucket`               | `open-source` \| `open-core` \| `commercial`.                                                              | derived from `license` + pricing, reviewed |
 | 103 | `positioning-platform-vs-product`| `platform` (sold to builders) \| `product` (sold to end users) \| `both`.                                  | research |

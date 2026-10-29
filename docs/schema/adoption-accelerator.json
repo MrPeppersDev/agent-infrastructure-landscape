@@ -1,8 +1,29 @@
 {
   "cell": "adoption-accelerator",
-  "description": "Accelerator batch the company went through, as a lowercase code, or none. Y Combinator batches use YC's own code from the company page: yc- plus season letter and two-digit year (w winter, s summer, f fall; spring is x for 2025 and p from 2026), e.g. yc-w24, yc-p26.",
+  "description": "Accelerator the company went through, as a lowercase code, or none. Y Combinator batches use YC's own code from the company page: yc- plus season letter and two-digit year (w winter, s summer, f fall; spring is x for 2025 and p from 2026), e.g. yc-w24, yc-p26. Other programs use the program code from `programs`, plus -yyyy for the cohort year when a primary page states it, e.g. techstars-2023, hf0, ef-2022. One value per row: the YC batch if there is one, else the earliest program. A program not in `programs` is added here first.",
   "values": [
     "none"
   ],
-  "pattern": "^yc-[wsfxp]\\d{2}$"
+  "programs": {
+    "techstars": "Techstars (any program)",
+    "antler": "Antler",
+    "ef": "Entrepreneur First",
+    "hf0": "HF0 residency",
+    "a16z-speedrun": "a16z speedrun",
+    "ai-grant": "AI Grant",
+    "spc": "South Park Commons Founder Fellowship",
+    "neo": "Neo Accelerator",
+    "pioneer": "Pioneer",
+    "500-global": "500 Global (500 Startups)",
+    "plug-and-play": "Plug and Play",
+    "alchemist": "Alchemist Accelerator",
+    "sequoia-arc": "Sequoia Arc",
+    "betaworks-camp": "betaworks Camp",
+    "google-for-startups": "Google for Startups Accelerator",
+    "aws-genai-accelerator": "AWS Generative AI Accelerator",
+    "cdl": "Creative Destruction Lab",
+    "seedcamp": "Seedcamp",
+    "pear-x": "PearX (Pear VC)"
+  },
+  "pattern": "^(yc-[wsfxp]\\d{2}|(aws-genai-accelerator|google-for-startups|betaworks-camp|a16z-speedrun|plug-and-play|sequoia-arc|500-global|alchemist|techstars|ai-grant|seedcamp|pioneer|antler|pear-x|cdl|hf0|neo|spc|ef)(-\\d{4})?)$"
 }

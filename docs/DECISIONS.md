@@ -14,6 +14,22 @@ that were on the table.
 
 ---
 
+## 2026-10-29: Accelerators other than Y Combinator
+
+**What.** `adoption-accelerator` now accepts other programs, each with a fixed code listed under `programs` in `docs/schema/adoption-accelerator.json` (Techstars, Antler, Entrepreneur First, HF0, a16z speedrun, AI Grant, South Park Commons, Neo, Pioneer, 500 Global, Plug and Play, Alchemist, Sequoia Arc, betaworks Camp, Google for Startups Accelerator, AWS Generative AI Accelerator, Creative Destruction Lab, Seedcamp, PearX). The value is the code plus `-yyyy` when a primary page states the cohort year. The cell holds one value: the YC batch if there is one, else the earliest program. Gate 8 enforces the pattern, so a new program is added to the schema file before it is used.
+
+**Why.** The maintainer asked for it. A fixed code list keeps the cell filterable; a free-text program name would drift ("Techstars Boston", "Techstars '23").
+
+**Reversal cost.** Low. Removing a program from the list makes gate 8 flag its rows, which can then be emptied.
+
+---
+
+## 2026-10-29: Remove unverifiable rows too
+
+**What.** The removal rule below also covers rows with no primary source left at all: Anthropic Auto Dream (only third-party blog posts; Anthropic's docs and changelog never mention it) and Pluto AI (heypluto.ai is unregistered). Logged in `extraction/removals-2026-10-29/removed.json`. The maintainer approved both.
+
+---
+
 ## 2026-10-29: Remove out-of-scope rows outright
 
 **What.** A row whose product turns out not to be an AI system at all is deleted from `data/landscape.json`, rather than merged or kept with a decay cause. The removal is logged with its reason and citation in `extraction/<pass>/removed.json`. The first case is Hugo (Hugo Legal): hugo.legal connects clients with human lawyers and sells no AI product.
