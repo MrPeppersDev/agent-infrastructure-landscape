@@ -2162,14 +2162,21 @@
       "target": "pgvector--gh-pgvector-pgvector",
       "type": "built-on",
       "evidence": "OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant)",
-      "citation": "https://mem0.ai/security"
+      "citation": "https://trust.mem0.ai/"
+    },
+    {
+      "source": "mem0-security-openmemory--mem0-ai",
+      "target": "pgvector--gh-pgvector-pgvector",
+      "type": "runtime-dependency",
+      "evidence": "EST API + dashboard via Docker Compose with pgvector Postgres, admin setup wizard, per-user API keys, request au",
+      "citation": "https://docs.mem0.ai/open-source/setup"
     },
     {
       "source": "mem0-security-openmemory--mem0-ai",
       "target": "qdrant--qdrant-tech",
       "type": "built-on",
       "evidence": "OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant)",
-      "citation": "https://mem0.ai/security"
+      "citation": "https://trust.mem0.ai/"
     },
     {
       "source": "memary--gh-kingjulio8238-memary",

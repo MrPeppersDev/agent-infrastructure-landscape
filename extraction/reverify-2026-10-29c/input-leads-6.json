@@ -1,0 +1,402 @@
+[
+ {
+  "id": "openmemory-mcp--mem0-ai",
+  "name": "OpenMemory MCP",
+  "url": "https://mem0.ai/openmemory",
+  "leads": [
+   "mem0.ai/openmemory links to Mem0 MCP docs saying 'Nothing runs on your machine: the server is hosted by Mem0'; the openmemory/ folder in mem0ai/mem0 returns 404. Row desc says local Docker server — check and correct."
+  ],
+  "cells": {
+   "desc": "Mem0's MCP memory layer for coding agents (Claude, Cursor, VS Code etc.). Ships both as a hosted service (API key + npx installer) and a local Docker-based self-hosted server where data stays on-machine.",
+   "gh": "mem0ai/mem0 (openmemory/ subdirectory) — ~67.3k stars",
+   "license": "Apache-2.0 (mem0 monorepo)",
+   "funding": "not applicable — not commercial",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "not applicable — not commercial"
+  }
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "name": "Mem0 Security / OpenMemory",
+  "url": "https://mem0.ai/security",
+  "leads": [
+   "Same OpenMemory change (hosted-only now); check whether this row's desc needs correcting."
+  ],
+  "cells": {
+   "desc": "Commercial Mem0 ships SOC 2 / HIPAA, zero-trust access controls, BYOK encryption, real-time monitoring, audit logs, workspace governance as defaults. OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant) for privacy-first deployments.",
+   "gh": "mem0ai/mem0 — ~67.3k stars, last release 2026-09",
+   "license": "Apache-2.0",
+   "funding": "$24M total ($3.9M seed Kindred + $20M Series A Basis Set + YC + Peak XV Oct 2025)",
+   "latest-release": "v2.2.1 (2026-09-25)",
+   "pricing": "Hobby free (10K adds/1K retrievals/mo); Starter $19/mo; Pro $249/mo; Enterprise custom"
+  }
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "name": "OpenAI Operator",
+  "url": "https://openai.com/index/introducing-operator/",
+  "leads": [
+   "Operator became ChatGPT agent mode (July 2025); operator.chatgpt.com retired. Confirm from openai.com and record as renamed/deprecated with the date."
+  ],
+  "cells": {
+   "desc": "OpenAI's general-purpose browser agent — research preview launched January 2025 (US Pro tier). Built on the Computer-Using Agent (CUA) model that processes screenshots and emits mouse / keyboard actions; runs inside an OpenAI-hosted browser sandbox. Operator is the consumer product; the underlying CUA model is the substrate.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "OpenAI parent — ~$157B val 2024-10; $40B round Mar-2025 ($300B val)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Bundled with ChatGPT Pro $200/mo"
+  }
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "name": "Limitless",
+  "url": "https://www.limitless.ai/",
+  "leads": [
+   "Acquired by Meta; Pendant sales stopped; Rewind being retired; existing customers supported at least a year. Confirm from limitless.ai."
+  ],
+  "cells": {
+   "desc": "Former Rewind/Limitless lifelog (Pendant wearable + screen/audio capture with timeline search). Acquired by Meta (2025-12); Pendant no longer sold as of 2025-12-05, service withdrawn from the EU, UK, Brazil, China, Israel, South Korea and Turkey on 2025-12-05, desktop/web recording ended and Rewind capture disabled from 2025-12-19; existing Pendant customers supported throughout 2026.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Acquired by Meta (announced 2025-12-05; terms undisclosed); prior VC total $34.3M",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Discontinued — no new sales since 2025-12-05; existing Pendant owners get Unlimited plan free"
+  }
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "name": "Sweep AI",
+  "url": "https://sweep.dev",
+  "leads": [
+   "sweep.dev no longer resolves; repo README says the team now builds a JetBrains coding-assistant plugin. Confirm pivot, new URL."
+  ],
+  "cells": {
+   "desc": "Superseded: the sweepai/sweep README says the team now builds an AI coding assistant for JetBrains; the GitHub-app product described here is no longer the focus (repo not archived). No dedicated persistent memory layer. Operates as a GitHub App — reads issue + codebase fresh on each trigger. Some context implicit in the PR/issue threads it created previously.",
+   "gh": "sweepai/sweep — ~7.7k stars (legacy GitHub-app code)",
+   "license": "proprietary (Sweep Enterprise Edition License; some parts MIT)",
+   "funding": "$500K Seed · 2023-01",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free (community); Pro and Team tiers; LLM cost + 5% markup model for agent usage"
+  }
+ },
+ {
+  "id": "litera-ai--litera-com",
+  "name": "Litera AI",
+  "url": "https://www.lito.app/",
+  "leads": [
+   "Product now 'Lito' (lito.app). Confirm rename from Litera's or Lito's own pages."
+  ],
+  "cells": {
+   "desc": "Litera (Hg-backed; 50%+ of AmLaw 200 customers) added a Litera AI overlay 2024 — drafting, redlining, document analytics. Litera parent has been a private-equity rollup of legal-tech (Microsystems, Workshare, Kira Systems acquired 2021).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "tana--tana-inc",
+  "name": "Tana (now Tana Outliner)",
+  "url": "https://outliner.tana.inc/",
+  "leads": [
+   "Tana split: outliner at outliner.tana.inc, separate meetings product at tana.inc. Confirm and fix desc if needed."
+  ],
+  "cells": {
+   "desc": "Tana split in Mar 2026: the supertag-based outliner/PKM is now 'Tana Outliner' at outliner.tana.inc, while tana.inc is a separate agentic meeting platform sharing a knowledge graph. Outliner keeps Tana AI on nodes (chat with notes, summaries, automations).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$40M total Series B · 2025-02",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Tana Outliner: Free (500 AI credits); Plus $8/mo; Pro $14/mo (yearly saves 22%). Meetings product: Free; Pro ~$20–30; Business from $35/user/mo"
+  }
+ },
+ {
+  "id": "bee--bee-computer",
+  "name": "Bee",
+  "url": "https://bee.computer",
+  "leads": [
+   "Bee is now an Amazon product (acquired). Confirm from bee.computer / Amazon."
+  ],
+  "cells": {
+   "desc": "Acquired by Amazon (Jul 2025); bee.computer is now © Amazon and sells the Bee Frontier wearable ($74.99), with a Bee Eclipse device marked coming soon. Small wearable (pendant / clip / bracelet). Continuous capture; converts speech to text immediately; never stores raw audio . Daily summaries, personal fact sheet, to-do suggestions. Cloud processing on derived text only.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "total $7M (seed, 2024-07); acquired by Amazon (announced 2025-07, terms undisclosed)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Bee Frontier bracelet $74.99 (sold via Amazon, launched 2026-10-15); Bee Pro subscription $11.99/mo (free tier keeps 14 days of memory); Bee Eclipse ($100) coming soon"
+  }
+ },
+ {
+  "id": "enkrypt-ai--enkryptai-com",
+  "name": "Enkrypt AI",
+  "url": "https://www.enkryptai.com/platform/capabilities/ai-risk-removal",
+  "leads": [
+   "Enkrypt AI says it joined Anaconda. Confirm from Enkrypt or Anaconda pages; date."
+  ],
+  "cells": {
+   "desc": "Applies guardrails at three points: (1) before write to vector DB, (2) before query reaches embedding model, (3) before response. Detects malicious instructions in stored memory before retrieval; scans for PII/PHI in/out. Text + image + voice modalities.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "total $2.35M (Seed led by Boldcap, 2024-02-27)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Explore free; Launch $149/mo ($134/mo annual); Scale $1,499/mo ($1,349/mo annual); Enterprise custom"
+  }
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "name": "OctoAI (now NVIDIA)",
+  "url": "https://octo.ai/",
+  "leads": [
+   "octo.ai redirects to nvidia.com. Confirm lifecycle (acquired by NVIDIA, service shut down?) and dates."
+  ],
+  "cells": {
+   "desc": "Inference cloud spun out of OctoML — acquired by NVIDIA in 2024. Originally TVM-compiler heritage; offered API for OSS LLM/diffusion serving.",
+   "gh": "searched not found",
+   "license": "searched not found",
+   "funding": "Acquired by NVIDIA in 2024-10 (terms undisclosed; reportedly ~$250M); previously raised $135M total through Series C 2023-12 (Tiger Global led).",
+   "latest-release": "searched not found",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "sajari-now-search-io--search-io",
+  "name": "Sajari (now Search.io)",
+  "url": "https://www.search.io/",
+  "leads": [
+   "search.io redirects to Algolia. Confirm acquisition by Algolia and date."
+  ],
+  "cells": {
+   "desc": "Site-search platform (formerly Sajari) with the Neuralsearch vector engine. Acquired by Algolia in September 2022 and folded into Algolia's hybrid search; search.io now redirects to algolia.com.",
+   "gh": "sajari/sajari-sdk-go — ~4 stars, last commit 2019-05",
+   "license": "searched not found",
+   "funding": "Acquired by Algolia · 2022-09",
+   "latest-release": "searched not found",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "truera--truera-com",
+  "name": "TruEra",
+  "url": "https://truera.com/",
+  "leads": [
+   "truera.com redirects to Snowflake. Confirm acquisition by Snowflake and date; product status (TruLens continues?)."
+  ],
+  "cells": {
+   "desc": "ML observability with the TruLens open-source LLM eval framework — the 'RAG Triad' (context-relevance, groundedness, answer-relevance) metrics. Acquired by Snowflake 2024-05.",
+   "gh": "searched not found",
+   "license": "searched not found",
+   "funding": "Acquired by Snowflake in 2024-05 (terms undisclosed); previously raised $42M total through Series B 2022.",
+   "latest-release": "v12.6.1 (2024-03-04) — truera (Python SDK)",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "name": "Robust Intelligence",
+  "url": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+  "leads": [
+   "Now part of Cisco AI Defense. Confirm acquisition date from Cisco."
+  ],
+  "cells": {
+   "desc": "Founded 2019 by Yaron Singer (Harvard); ML risk management — model testing, validation, runtime detection. Acquired by Cisco (2024-10); now foundational to Cisco AI Defense and Cisco Foundation AI. Note: Harrison Chase (LangChain CEO) was an early Robust Intelligence ML lead.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Acquired by Cisco (2024-10; terms undisclosed); ~$44M raised pre-acquisition",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "snapattack--snapattack-com",
+  "name": "SnapAttack",
+  "url": "https://www.splunk.com/en_us/products/enterprise-security.html",
+  "leads": [
+   "URL now Splunk Enterprise Security. Confirm acquisition by Splunk/Cisco and date."
+  ],
+  "cells": {
+   "desc": "Founded 2021 inside Booz Allen Hamilton; spun out 2022. Detection-as-code platform — threat emulation + auto-generated detections. Adds GenAI threat-content layer 2024. Acquired by Cisco (2025-01-31; announced 2024-12-16) to extend Splunk Enterprise Security; snapattack.com now redirects to Splunk ES.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Acquired by Cisco (2025-01-31) for Splunk; Booz Allen-incubated",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "name": "Protect AI",
+  "url": "https://www.paloaltonetworks.com/ai-security/prisma-airs",
+  "leads": [
+   "URL now Palo Alto Prisma AIRS. Confirm acquisition by Palo Alto Networks and date."
+  ],
+  "cells": {
+   "desc": "Founded 2022 by Ian Swanson + Daryan Dehghanpisheh (ex-AWS); AI/ML supply-chain + GenAI security. Acquired by Palo Alto Networks (2025-07-22; announced Apr-2025, reported $700M); its capabilities now ship in Prisma AIRS. Products: Recon (red-team), ModelScan (model artifact scanner), Sightline (vulnerability DB).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Acquired by Palo Alto Networks (2025-07-22; announced Apr-2025, reported $700M); prior $60M Series B Aug-2024 (Evolution Equity; $400M val)",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "name": "BenevolentAI",
+  "url": "https://www.benevolent.com/",
+  "leads": [
+   "BenevolentAI now sells 'Qor'. Confirm what Qor is and whether the row desc needs updating."
+  ],
+  "cells": {
+   "desc": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop. As of Oct 2026 benevolent.com leads with Qor, powered by BenevolentAI, a life-science intelligence service for biopharma decision makers and consultancies.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$550M total raised (pre-merger); merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only"
+  }
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "name": "Continue.dev",
+  "url": "https://continue.dev",
+  "leads": [
+   "Continue.dev reportedly acquired by Cursor; site is a goodbye page. Confirm from continue.dev / Cursor; date; repo status."
+  ],
+  "cells": {
+   "desc": "OSS in-IDE coding-assistant plugin — supports VS Code and JetBrains. Customisable: any model, any context provider, any slash-command. \"Agent mode\" added 2024 for multi-step plan + execute. Memory layer = .continue/rules; separate Memory MCP. Built by Nate Sesti and Ty Dunn. Acquired by Cursor (2026, per continue.dev; no date given); the continuedev/continue repo is read-only and no longer maintained after a final 2.0.0 release.",
+   "gh": "continuedev/continue — ~35.7k stars, last commit 2026-06 (read-only, no longer maintained)",
+   "license": "Apache-2.0",
+   "funding": "Acquired by Cursor (Anysphere), ~2026-06, terms undisclosed; prior $7.5M seed (Heavybit, YC)",
+   "latest-release": "v2.0.0-vscode (2026-06-19) — final release",
+   "pricing": "Discontinued — recurring billing turned off after Cursor acquisition; OSS code free (Apache-2.0)"
+  }
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "name": "Continue.dev .continue/rules",
+  "url": "https://docs.continue.dev/customize/deep-dives/rules",
+  "leads": [
+   "Same Continue.dev acquisition/shutdown — check docs status."
+  ],
+  "cells": {
+   "desc": ".continue/rules/*.md at workspace root, loaded lexicographically; YAML frontmatter name, globs, regex, description, alwaysApply. Continue was acquired by Cursor in June 2026 and the extension is no longer maintained.",
+   "gh": "continuedev/continue — ~35.7k stars, last commit 2026-06 (read-only, unmaintained)",
+   "license": "Apache-2.0",
+   "funding": "not applicable — feature of Continue; Continue acquired by Cursor (2026-06, terms undisclosed) and discontinued",
+   "latest-release": "v2.0.0-vscode (2026-06-19) — final release",
+   "pricing": "not applicable — not commercial"
+  }
+ },
+ {
+  "id": "continue-dev-memory-mcp--hub-continue-dev",
+  "name": "Continue.dev Memory MCP",
+  "url": "https://hub.continue.dev/continuedev/memory-mcp",
+  "leads": [
+   "Same Continue.dev acquisition/shutdown — check hub status."
+  ],
+  "cells": {
+   "desc": "Discontinued: Continue was bought by Cursor (announced ~2026-06-16); the product is discontinued and the continuedev/continue repo is read-only. Official Memory MCP (Mar 2025) backed by a knowledge graph. Memory is injected via MCP rather than native to the Continue core. Scope depends on MCP server deployment (local or shared).",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "$5.6M total raised: $2.1M (YCS23) + $3M SAFE led by Heavybit; acquired by Cursor (2026-06, terms undisclosed)",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Free (OSS core); paid Continue Hub plans for teams (pricing on website)"
+  }
+ },
+ {
+  "id": "adept-act--adept-ai",
+  "name": "Adept ACT",
+  "url": "https://www.adept.ai/",
+  "leads": [
+   "adept.ai returns 403; team absorbed by Amazon (2024). Confirm current status from any primary page."
+  ],
+  "cells": {
+   "desc": "Founded 2022 by David Luan and fellow ex-OpenAI / Google researchers. Built ACT-1 / ACT-2 multimodal action transformers for computer-use. In June 2024 Amazon hired Luan and co-founders (Odena, Nye, Elsen, Szot) into Amazon AGI and licensed Adept's technology (acqui-hire, not a full acquisition); Adept continues with former head of engineering Zach Brock as CEO, refocused on agentic AI solutions. Important historical entry — ACT models inspired Anthropic Computer Use + OpenAI Operator.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "total $415M+ raised (~$1B valuation) before June 2024 Amazon licensing deal + founder hires (terms undisclosed)",
+   "latest-release": "not applicable — orchestration platform, not memory product",
+   "pricing": "Pre-acq: enterprise pilot only"
+  }
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "name": "FutureHouse",
+  "url": "https://www.futurehouse.org/",
+  "leads": [
+   "FutureHouse is now a nonprofit research + fellowship org; platform.futurehouse.org redirects to Edison Scientific login. Confirm relationship and update desc/url."
+  ],
+  "cells": {
+   "desc": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work. As of Oct 2026 FutureHouse describes itself as a non-profit whose flagship program is an AI-for-Science postdoctoral fellowship; its agent platform (platform.futurehouse.org) now redirects to Edison Scientific's platform.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Philanthropically funded (Eric Schmidt) + Edison spinout raised $70M seed at $250M valuation",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "Enterprise only"
+  }
+ },
+ {
+  "id": "cellon-memory-inc--en-wowtale-net",
+  "name": "Cellon (Memory.inc)",
+  "url": "https://en.wowtale.net/2026/04/30/233992/",
+  "leads": [
+   "memory.inc now redirects to Pogl (AI game maker, same company Celon Inc.). Memory.inc product appears gone. Confirm."
+  ],
+  "cells": {
+   "desc": "Korean startup. Connects scattered internal/external data across multiple chats and services to improve AI answer quality at retrieval. 18-year-old CEO Jang Jun-ha; pitch is that answer quality depends on what the model remembers, not which model.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "Seed · 2026-04",
+   "latest-release": "not applicable — not OSS",
+   "pricing": "searched not found"
+  }
+ },
+ {
+  "id": "backboard--github-com",
+  "name": "Backboard",
+  "url": "https://github.com/Backboard-io",
+  "leads": [
+   "Backboard homepage pivoted to licensing an inference engine; Stateful API memory product still exists. Check desc."
+  ],
+  "cells": {
+   "desc": "Stateful AI API combining persistent memory, RAG, web search and routing across many LLMs behind one interface, with SDKs for Python and npm; benchmarks its memory on LoCoMo and LongMemEval. As of Oct 2026 Backboard positions itself as an AI compute efficiency lab selling an inference-optimization engine; the memory product continues as its Stateful API.",
+   "gh": "Backboard-io/Backboard-Locomo-Benchmark — ~18 stars (org's largest repo is Backboard-R-CLI, ~54 stars)",
+   "license": "Unlicensed",
+   "funding": "undisclosed pre-seed (2026-01), led by Mistral Venture Partners + N49P; Garage Capital, DevCap participated. The $3M figure could not be confirmed: BetaKit and the company press release give no amount",
+   "latest-release": "no releases",
+   "pricing": "Free $0; Education $5; Developer $20; Scale $400 (billing period not stated on page)"
+  }
+ },
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "name": "01.AI Yi family",
+  "url": "https://www.01.ai/",
+  "leads": [
+   "01.AI suspended its international API, pointing to platform.lingyiwanwu.com. Confirm and note."
+  ],
+  "cells": {
+   "desc": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen. By 2026 01.AI's site leads with enterprise AI products (WorldWise Enterprise LLM Platform, 2025-03; Boss AI; TopSales AI) and lists Yi-Lightning (2024-10) as its latest Yi model.",
+   "gh": "github.com/01-ai/Yi ~7k+ stars",
+   "license": "Apache 2.0 (Yi-34B + base sizes); proprietary (Yi-Large, Yi-Lightning)",
+   "funding": "$1B+ raised; >$1B valuation 2024 (Alibaba, Lightspeed China, Tencent investors)",
+   "latest-release": "Yi-Lightning (2024-10)",
+   "pricing": "API: Yi-Lightning $0.14 per 1M tokens (vendor-claimed lowest among frontier-tier); Yi-34B weights free under Apache 2.0"
+  }
+ },
+ {
+  "id": "hyperproof-ai-trust-center--hyperproof-io",
+  "name": "Hyperproof AI Trust Center",
+  "url": "https://hyperproof.io/trust-center/",
+  "leads": [
+   "Trust Center page 404; Hyperproof product menu no longer lists it. Confirm whether the product was renamed or removed."
+  ],
+  "cells": {
+   "desc": "Standalone trust-center + AI-questionnaire-fill product from Hyperproof. Listed separately because the trust-center category is a distinct sub-market (Vanta, Drata, Hyperproof, SafeBase, ConveyorAI compete). SafeBase acquired by Drata Mar-2025.",
+   "gh": "not applicable — no GitHub repo",
+   "license": "not applicable — not OSS",
+   "funding": "not applicable — wrong section",
+   "latest-release": "not applicable — wrong section",
+   "pricing": "not applicable — wrong section"
+  }
+ }
+]
