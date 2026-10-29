@@ -8465,10 +8465,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://huggingface.co/docs/accelerate/main/en/basic_tutorials/install",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/huggingface/accelerate/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -8837,11 +8837,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://huggingface.co/docs/accelerate/main/en/basic_tutorials/install",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/accelerate/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/huggingface/accelerate/main/README.md",
@@ -13544,8 +13544,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://deeplake.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -13931,8 +13931,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://deeplake.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -77559,10 +77559,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/arangodb/arangodb/blob/devel/LICENSE",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://raw.githubusercontent.com/arangodb/arangodb/devel/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -77929,11 +77929,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/arangodb/arangodb/blob/devel/LICENSE",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/arangodb/arangodb/devel/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/arangodb/arangodb/devel/README.md",
@@ -78671,9 +78671,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://github.com/arcadeai/arcade-mcp",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://www.arcade.dev/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -79041,11 +79041,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/arcadeai/arcade-mcp",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.arcade.dev/pricing/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.arcade.dev/",
@@ -94351,10 +94351,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://open.bigmodel.cn/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://huggingface.co/zai-org/AutoGLM-Phone-9B",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -94723,9 +94723,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://open.bigmodel.cn/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://huggingface.co/zai-org/AutoGLM-Phone-9B",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -95464,10 +95464,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/Significant-Gravitas/AutoGPT",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/master/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -95839,9 +95839,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/Significant-Gravitas/AutoGPT",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/master/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -122189,9 +122189,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://www.jetadmin.io/blog/bolt-new-pricing-plans-tokens-and-real-costs-in-2026/",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://bolt.new/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -122563,9 +122563,9 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.jetadmin.io/blog/bolt-new-pricing-plans-tokens-and-real-costs-in-2026/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://bolt.new/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -125621,8 +125621,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://botpress.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -125984,8 +125984,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://botpress.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -129009,8 +129009,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://browser-use.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -129484,8 +129484,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://browser-use.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -135804,10 +135804,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/bytebot-ai/bytebot",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/bytebot-ai/bytebot/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -136192,11 +136192,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/bytebot-ai/bytebot",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/bytebot-ai/bytebot/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/bytebot-ai/bytebot",
@@ -152755,10 +152755,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/charmbracelet/crush",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://raw.githubusercontent.com/charmbracelet/crush/main/LICENSE.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -153136,11 +153136,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/charmbracelet/crush",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/charmbracelet/crush/main/LICENSE.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/charmbracelet/crush",
@@ -175719,9 +175719,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://clear.ml/",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://clear.ml/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -176078,11 +176078,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://clear.ml/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://clear.ml/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://clear.ml/pricing",
@@ -180176,9 +180176,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://cline.bot",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://cline.bot/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -180550,11 +180550,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://cline.bot",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://cline.bot/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://cline.bot",
@@ -186710,10 +186710,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/DeusData/codebase-memory-mcp",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -187082,11 +187082,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/DeusData/codebase-memory-mcp",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -187824,9 +187824,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://coder.com/docs/admin/licensing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://coder.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -188204,11 +188204,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://coder.com/docs/admin/licensing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://coder.com/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://coder.com/",
@@ -190050,9 +190050,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://cognee.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://www.cognee.ai/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -190518,11 +190518,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://cognee.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.cognee.ai/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.cognee.ai/",
@@ -194725,8 +194725,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://cohere.com/blog/cohere-releases-command-a-plus",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -195087,8 +195087,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://cohere.com/blog/cohere-releases-command-a-plus",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -207840,8 +207840,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.confident-ai.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -208212,10 +208212,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.confident-ai.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md",
@@ -227253,9 +227253,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://crewai.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://www.crewai.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -227711,11 +227711,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://crewai.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.crewai.com/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://docs.crewai.com/en/introduction",
@@ -229581,9 +229581,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://crewai.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://www.crewai.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -229951,11 +229951,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://crewai.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.crewai.com/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://docs.crewai.com/en/introduction",
@@ -236580,8 +236580,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://dagster.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -236945,10 +236945,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://dagster.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://dagster.io/pricing",
@@ -241050,10 +241050,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.daytona.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://raw.githubusercontent.com/daytonaio/daytona/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -241437,11 +241437,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.daytona.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/daytonaio/daytona/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.daytona.io/",
@@ -245557,10 +245557,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://api-docs.deepseek.com/quick_start/pricing/?tool=deepseek",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-R1/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -246008,9 +246008,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://api-docs.deepseek.com/quick_start/pricing/?tool=deepseek",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-R1/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -267239,10 +267239,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://getlatka.com/companies/dspy.ai/funding",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/stanfordnlp/dspy/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -267606,11 +267606,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://getlatka.com/companies/dspy.ai/funding",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/stanfordnlp/dspy/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://dspy.ai/",
@@ -274840,10 +274840,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://e2b.dev/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/e2b-dev/infra/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -275216,11 +275216,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://e2b.dev/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/e2b-dev/infra/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://e2b.dev/",
@@ -275983,9 +275983,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://raw.githubusercontent.com/elastic/elasticsearch/main/LICENSE.txt",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -276359,11 +276359,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/elastic/elasticsearch/blob/main/LICENSE.txt",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/elastic/elasticsearch/main/LICENSE.txt",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.elastic.co/elasticsearch",
@@ -315101,8 +315101,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.union.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -315460,10 +315460,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.union.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/flyteorg/flyte/master/README.md",
@@ -343876,10 +343876,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.gitpod.io/blog/gitpod-flex",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://raw.githubusercontent.com/gitpod-io/gitpod/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -344243,9 +344243,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.gitpod.io/blog/gitpod-flex",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/gitpod-io/gitpod/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -357777,8 +357777,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.getzep.com/pricing/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -358238,8 +358238,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.getzep.com/pricing/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -368932,10 +368932,10 @@
           "tier": "T3"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://aihabitat.org/habitat3/",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/facebookresearch/habitat-lab/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "",
@@ -369287,11 +369287,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://aihabitat.org/habitat3/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/facebookresearch/habitat-lab/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -375907,8 +375907,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.deepset.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -376272,10 +376272,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.deepset.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://haystack.deepset.ai/",
@@ -377018,9 +377018,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://www.deepset.ai/products-and-services/haystack-enterprise-platform",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://www.deepset.ai/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -377392,11 +377392,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.deepset.ai/products-and-services/haystack-enterprise-platform",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.deepset.ai/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://haystack.deepset.ai/",
@@ -391644,9 +391644,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://docs.hindsight.vectorize.io",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://vectorize.io/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -392112,9 +392112,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://docs.hindsight.vectorize.io",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://vectorize.io/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -403303,10 +403303,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://huggingface.co/lerobot",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/huggingface/lerobot/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -403769,11 +403769,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://huggingface.co/lerobot",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/huggingface/lerobot/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/huggingface/lerobot/main/README.md",
@@ -403799,1093 +403799,6 @@
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/hugging-face-lerobot--huggingface-co",
           "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
-          "source": "scrape",
-          "verified": true
-        }
-      }
-    },
-    {
-      "id": "hugo-hugo-legal--hugo-legal",
-      "name": "Hugo (Hugo Legal)",
-      "tier": 3,
-      "url": "https://hugo.legal/",
-      "last_verified_at": "2026-10-29",
-      "sections": [
-        {
-          "section": "Use-case-specific agent harnesses",
-          "subsection": "— Legal: matter / contract agents",
-          "primary": true,
-          "reason": null
-        }
-      ],
-      "taxonomy": {
-        "storage": [
-          {
-            "value": "none-trivial",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "retrieval": [
-          {
-            "value": "none",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "persistence": [
-          {
-            "value": "session-only",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "update": [
-          {
-            "value": "agent-controlled",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "unit": [
-          {
-            "value": "turn",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "governance": [
-          {
-            "value": "opaque",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "conflict": [
-          {
-            "value": "out-of-scope",
-            "primary": true,
-            "reason": null
-          }
-        ]
-      },
-      "cells": {
-        "type": {
-          "value": "Legal research + case-analysis AI agent",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "desc": {
-          "value": "Estonian online legal-help service that connects clients with lawyers by web or phone (Estonian, English, Russian). As of Oct-2026 the homepage describes no AI legal-research features. Note: distinct from Hugo Health and from the unrelated 'huggo.legal' typo.",
-          "citation": "https://hugo.legal/en/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "claims": {
-          "value": "Tallinn-founded 2018; legal-AI research focus; EU multilingual; small commercial footprint",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "modalities": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "created": {
-          "value": "2018 (founded)",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
-        },
-        "latest-release": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "license": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "gh": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "mindshare": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "citations": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "funding": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "customers": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "pricing": {
-          "value": "Lawyer consultation from €39/30 min (from €79/hour); HUGO+ membership €119/year",
-          "citation": "https://hugo.legal/en/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "compliance": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "data-handling": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "deployment": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "hq": {
-          "value": "Tallinn, Estonia",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "founders": {
-          "value": "Artur Fjodorov + co-founders",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "volume": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "perf": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "repro": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "code-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "api-surface": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "latency": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "throughput": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "backend-storage": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "multi-tenancy": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "encryption": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "sso-rbac": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "embedding-model": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "consistency": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "versioning": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "tombstoning": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "schema-evolution": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "namespace": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "contradiction": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "forgetting": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "mcp-support": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "a2a-support": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "otel": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "webhooks": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "import-export": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "integration-count": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "orchestration": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "programmatic-control": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "vendor-benchmarks": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "pricing-specifics": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "agent-abstraction": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "memory-primitives": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "llm-lock": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "runtimes": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "session-handling": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "validated-verticals": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "time-to-running": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "anti-fit": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "optimised-for": {
-          "value": "EU/Baltic legal research",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "adjacent-infrastructure": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "pros": {
-          "value": "EU multilingual / data-residency angle; bootstrapped sustainability.",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "cons": {
-          "value": "Small footprint; less brand than Legora; primarily EE/EU focus.",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "links": {
-          "value": "hugo.legal/",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "obs-langsmith": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-opentelemetry": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-datadog": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-helicone": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-weave": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-langfuse": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-arize": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-custom": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-token-budget": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-prompt-caching": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-semantic-caching": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-batching": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-model-routing": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-streaming-only": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-observability-cost-attribution": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-langsmith-evals": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-braintrust": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-weights-and-biases-agent": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-helicone-evals": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-custom-test-harness": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-human-loop": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-production-traffic-replay": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "commit-trajectory": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "citation-trajectory": {
-          "value": "not applicable — non-paper row",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "download-trajectory": {
-          "value": "not applicable — not published as a package",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-input-usd-per-mtok": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-output-usd-per-mtok": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-tier": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-pricing-model": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-last-verified": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "capability-composite-score": {
-          "value": "45",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-band": {
-          "value": "competent",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-benchmark-sources": {
-          "value": "general capability estimate — no specific benchmark recalled",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-last-verified": {
-          "value": "2026-06-29",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-code-score": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "capability-agentic-score": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "capability-longcontext-score": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "use-case-tags": {
-          "value": "analytical-summarization, memory-augmented-chat",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "use-case-anti-tags": {
-          "value": "code-generation-focused, offline-capable",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "adoption-accelerator": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "architecture-deployment-locus": {
-          "value": "cloud",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "licensing-bucket": {
-          "value": "commercial",
-          "citation": "https://hugo.legal/en/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "positioning-platform-vs-product": {
-          "value": "product",
-          "citation": "https://hugo.legal/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "taxonomy-three-layer-rollup": {
-          "value": "agent-infra",
-          "citation": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
-          "status": "real-data",
-          "tier": "T1"
-        },
-        "developer-activity-opendigger": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "freshness-date": {
-          "value": "2026-10-29",
-          "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/hugo-hugo-legal--hugo-legal",
-          "status": "real-data",
-          "tier": "T2"
-        }
-      },
-      "_provenance": {
-        "type": {
-          "source": "legacy",
-          "verified": true
-        },
-        "desc": {
-          "scrape_url": "https://hugo.legal/en/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/apply_reverify.py",
-          "source": "scrape",
-          "verified": false
-        },
-        "claims": {
-          "source": "legacy",
-          "verified": true
-        },
-        "modalities": {
-          "source": "legacy",
-          "verified": true
-        },
-        "created": {
-          "source": "legacy",
-          "verified": true
-        },
-        "latest-release": {
-          "source": "legacy",
-          "verified": true
-        },
-        "license": {
-          "source": "legacy",
-          "verified": true
-        },
-        "gh": {
-          "source": "legacy",
-          "verified": true
-        },
-        "mindshare": {
-          "source": "legacy",
-          "verified": true
-        },
-        "citations": {
-          "source": "legacy",
-          "verified": true
-        },
-        "funding": {
-          "source": "legacy",
-          "verified": true
-        },
-        "customers": {
-          "source": "legacy",
-          "verified": true
-        },
-        "pricing": {
-          "scrape_url": "https://hugo.legal/en/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/apply_reverify.py",
-          "source": "scrape",
-          "verified": true
-        },
-        "compliance": {
-          "source": "legacy",
-          "verified": true
-        },
-        "data-handling": {
-          "source": "legacy",
-          "verified": true
-        },
-        "deployment": {
-          "source": "legacy",
-          "verified": true
-        },
-        "hq": {
-          "source": "legacy",
-          "verified": true
-        },
-        "founders": {
-          "source": "legacy",
-          "verified": true
-        },
-        "volume": {
-          "source": "legacy",
-          "verified": true
-        },
-        "perf": {
-          "source": "legacy",
-          "verified": true
-        },
-        "repro": {
-          "source": "legacy",
-          "verified": true
-        },
-        "code-release": {
-          "source": "legacy",
-          "verified": true
-        },
-        "api-surface": {
-          "source": "legacy",
-          "verified": true
-        },
-        "latency": {
-          "source": "legacy",
-          "verified": true
-        },
-        "throughput": {
-          "source": "legacy",
-          "verified": true
-        },
-        "backend-storage": {
-          "source": "legacy",
-          "verified": true
-        },
-        "multi-tenancy": {
-          "source": "legacy",
-          "verified": true
-        },
-        "encryption": {
-          "source": "legacy",
-          "verified": true
-        },
-        "sso-rbac": {
-          "source": "legacy",
-          "verified": true
-        },
-        "embedding-model": {
-          "source": "legacy",
-          "verified": true
-        },
-        "consistency": {
-          "source": "legacy",
-          "verified": true
-        },
-        "versioning": {
-          "source": "legacy",
-          "verified": true
-        },
-        "tombstoning": {
-          "source": "legacy",
-          "verified": true
-        },
-        "schema-evolution": {
-          "source": "legacy",
-          "verified": true
-        },
-        "namespace": {
-          "source": "legacy",
-          "verified": true
-        },
-        "contradiction": {
-          "source": "legacy",
-          "verified": true
-        },
-        "forgetting": {
-          "source": "legacy",
-          "verified": true
-        },
-        "mcp-support": {
-          "source": "legacy",
-          "verified": true
-        },
-        "a2a-support": {
-          "source": "legacy",
-          "verified": true
-        },
-        "otel": {
-          "source": "legacy",
-          "verified": true
-        },
-        "webhooks": {
-          "source": "legacy",
-          "verified": true
-        },
-        "import-export": {
-          "source": "legacy",
-          "verified": true
-        },
-        "integration-count": {
-          "source": "legacy",
-          "verified": true
-        },
-        "orchestration": {
-          "source": "legacy",
-          "verified": true
-        },
-        "programmatic-control": {
-          "source": "legacy",
-          "verified": true
-        },
-        "vendor-benchmarks": {
-          "source": "legacy",
-          "verified": true
-        },
-        "pricing-specifics": {
-          "source": "legacy",
-          "verified": true
-        },
-        "agent-abstraction": {
-          "source": "legacy",
-          "verified": true
-        },
-        "memory-primitives": {
-          "source": "legacy",
-          "verified": true
-        },
-        "llm-lock": {
-          "source": "legacy",
-          "verified": true
-        },
-        "runtimes": {
-          "source": "legacy",
-          "verified": true
-        },
-        "session-handling": {
-          "source": "legacy",
-          "verified": true
-        },
-        "validated-verticals": {
-          "source": "legacy",
-          "verified": true
-        },
-        "time-to-running": {
-          "source": "legacy",
-          "verified": true
-        },
-        "anti-fit": {
-          "source": "legacy",
-          "verified": true
-        },
-        "optimised-for": {
-          "source": "legacy",
-          "verified": true
-        },
-        "adjacent-infrastructure": {
-          "source": "legacy",
-          "verified": true
-        },
-        "pros": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cons": {
-          "source": "legacy",
-          "verified": true
-        },
-        "links": {
-          "source": "legacy",
-          "verified": true
-        },
-        "commit-trajectory": {
-          "source": "legacy",
-          "verified": true
-        },
-        "citation-trajectory": {
-          "source": "legacy",
-          "verified": true
-        },
-        "download-trajectory": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-input-usd-per-mtok": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-output-usd-per-mtok": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-tier": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-pricing-model": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-last-verified": {
-          "source": "legacy",
-          "verified": true
-        },
-        "capability-composite-score": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "capability-band": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "capability-last-verified": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "use-case-tags": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "use-case-anti-tags": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "architecture-deployment-locus": {
-          "scrape_url": "https://hugo.legal/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/apply_v1_1_research.py",
-          "source": "scrape",
-          "verified": false
-        },
-        "licensing-bucket": {
-          "scrape_url": "https://hugo.legal/en/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
-          "source": "scrape",
-          "verified": true
-        },
-        "positioning-platform-vs-product": {
-          "scrape_url": "https://hugo.legal/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/apply_v1_1_research.py",
-          "source": "scrape",
-          "verified": true
-        },
-        "taxonomy-three-layer-rollup": {
-          "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
-          "source": "scrape",
-          "verified": true
-        },
-        "freshness-date": {
-          "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/hugo-hugo-legal--hugo-legal",
-          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -426557,10 +425470,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "commercial",
           "citation": "https://raw.githubusercontent.com/inngest/inngest/main/LICENSE.md",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -426924,10 +425837,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/inngest/inngest/main/LICENSE.md",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.inngest.com/docs/self-hosting",
@@ -427666,8 +426579,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.inngest.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -428037,8 +426950,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.inngest.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -445318,10 +444231,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/jina-ai/jina-on-prem",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://huggingface.co/jinaai/jina-embeddings-v4",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -445686,9 +444599,9 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/jina-ai/jina-on-prem",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://huggingface.co/jinaai/jina-embeddings-v4",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -447512,10 +446425,10 @@
           "tier": "T3"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.kscale.dev/",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://raw.githubusercontent.com/kscalelabs/kbot/master/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "",
@@ -447879,9 +446792,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.kscale.dev/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/kscalelabs/kbot/master/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -455309,9 +454222,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://labelstud.io/",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://humansignal.com/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -455668,11 +454581,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://labelstud.io/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://humansignal.com/pricing/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://humansignal.com/pricing/",
@@ -458606,10 +457519,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "commercial",
           "citation": "https://raw.githubusercontent.com/treeverse/lakeFS/master/LICENSE",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -458973,10 +457886,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/treeverse/lakeFS/master/LICENSE",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://lakefs.io/pricing/",
@@ -460820,8 +459733,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://lancedb.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -461301,8 +460214,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://lancedb.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -464588,10 +463501,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.miniloop.ai/blog/langflow-pricing-2026",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://www.langflow.org/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -464960,11 +463873,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.miniloop.ai/blog/langflow-pricing-2026",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.langflow.org/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://docs.langflow.org/memory",
@@ -465702,9 +464615,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://www.langchain.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://raw.githubusercontent.com/langfuse/langfuse/main/LICENSE",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -466081,11 +464994,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.langchain.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/langfuse/langfuse/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://langfuse.com/",
@@ -468036,8 +466949,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.langchain.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -468419,10 +467332,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.langchain.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://docs.langchain.com/oss/python/langgraph/persistence",
@@ -469181,8 +468094,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.langchain.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -469553,8 +468466,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.langchain.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -482669,8 +481582,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://docs.letta.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -483140,8 +482053,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://docs.letta.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -493202,7 +492115,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Founded 2023; AI-agent platform for financial analysts — multi-step research, data cleansing, model-building. Small seed round; competes in the AlphaSense / Hebbia / Rogo broader space at lower price point.",
+          "value": "Founded 2023; AI-agent platform for financial analysts — multi-step research, data cleansing, model-building. Small seed round; competes in the AlphaSense / Hebbia / Rogo broader space at lower price point. As of 2026-10-29 linq.ai belongs to an unrelated higher-education company, so this product's current home is unconfirmed.",
           "citation": "https://www.linq.ai/",
           "status": "real-data",
           "tier": "T2"
@@ -493870,7 +492783,10 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
+          "scrape_url": "https://www.linq.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "claims": {
@@ -494903,8 +493819,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -495284,10 +494200,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
@@ -497103,8 +496019,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://livekit.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -497478,8 +496394,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://livekit.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -501522,8 +500438,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.llamaindex.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -501896,10 +500812,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.llamaindex.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://developers.llamaindex.ai/python/framework/module_guides/deploying/agents/memory/",
@@ -508021,10 +506937,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -508393,10 +507309,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://github.com/studiomeyer-io/local-memory-mcp",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/studiomeyer-io/local-memory-mcp",
@@ -533734,10 +532650,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://magnitude.run/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "",
@@ -534123,10 +533039,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://magnitude.run/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "taxonomy-three-layer-rollup": {
           "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
@@ -540316,9 +539232,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://mastra.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -540691,11 +539607,11 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://mastra.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://mastra.ai/",
@@ -541443,9 +540359,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://github.com/mastra-ai/mastra",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -541824,11 +540740,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/mastra-ai/mastra",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://mastra.ai/",
@@ -545881,10 +544797,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/doobidoo/mcp-memory-service",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://mcpmemory.services",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -546256,11 +545172,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/doobidoo/mcp-memory-service",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://mcpmemory.services",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/doobidoo/mcp-memory-service",
@@ -550423,8 +549339,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://github.com/meilisearch/meilisearch/blob/main/LICENSE",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -550800,10 +549716,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://github.com/meilisearch/meilisearch/blob/main/LICENSE",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.meilisearch.com/",
@@ -553736,8 +552652,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://mem0.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -554211,10 +553127,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://mem0.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://mem0.ai/",
@@ -554970,9 +553886,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://mem0.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://github.com/mem0ai/mem0-mcp",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "",
@@ -555420,9 +554336,9 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://mem0.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/mem0ai/mem0-mcp",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -556166,8 +555082,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://mem0.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -556633,10 +555549,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://mem0.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://docs.mem0.ai/introduction",
@@ -578661,9 +577577,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://github.com/MemMachine/MemMachine",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://memmachine.ai/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -579041,9 +577957,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/MemMachine/MemMachine",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://memmachine.ai/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -580872,10 +579788,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.memobase.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://github.com/memodb-io/memobase",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -581244,9 +580160,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.memobase.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/memodb-io/memobase",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -588481,8 +587397,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://memorilabs.ai/pricing/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -588858,8 +587774,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://memorilabs.ai/pricing/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -589604,9 +588520,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://github.com/GibsonAI/memori",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://memorilabs.ai/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -589975,9 +588891,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/GibsonAI/memori",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://memorilabs.ai/pricing/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -661078,9 +659994,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://ai.azure.com/catalog/models/mistral-medium-3-5",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://mistral.ai/news/mistral-large-2407/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -661446,9 +660362,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://ai.azure.com/catalog/models/mistral-medium-3-5",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://mistral.ai/news/mistral-large-2407/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -663393,8 +662309,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -663850,10 +662766,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
@@ -670045,10 +668961,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/modal-labs/modal-client",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://modal.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -670415,11 +669331,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/modal-labs/modal-client",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://modal.com/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://modal.com/docs/guide/sandbox",
@@ -685517,8 +684433,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://nebula-graph.io/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -685888,10 +684804,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://nebula-graph.io/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://nebula-graph.io/",
@@ -688791,9 +687707,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://github.com/neo4j/neo4j",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://neo4j.com/pricing/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -689265,11 +688181,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/neo4j/neo4j",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://neo4j.com/pricing/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://neo4j.com/",
@@ -699163,10 +698079,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.nomic.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -699529,9 +698445,9 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.nomic.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -714810,8 +713726,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://omegamax.co/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -715184,10 +714100,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://omegamax.co/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://omegamax.co/",
@@ -722839,10 +721755,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://www.jetadmin.io/blog/codex-pricing-current-costs-usage-limits-and-realistic-budgets-2026/",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://github.com/openai/codex",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -723314,9 +722230,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.jetadmin.io/blog/codex-pricing-current-costs-usage-limits-and-realistic-budgets-2026/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/openai/codex",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -724075,10 +722991,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://github.com/openai/codex",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "commercial",
+          "citation": "https://developers.openai.com/codex/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -724450,11 +723366,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://github.com/openai/codex",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://developers.openai.com/codex/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://learn.chatgpt.com/docs/customization/memories?surface=app",
@@ -738285,8 +737201,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://openhands.dev/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -738653,10 +737569,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://openhands.dev/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/All-Hands-AI/OpenHands",
@@ -740489,9 +739405,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://www.all-hands.dev",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://openhands.dev/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "both",
@@ -740943,11 +739859,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.all-hands.dev",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://openhands.dev/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.openhands.dev/",
@@ -743908,10 +742824,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://openmemory.cavira.app/docs/deployment/backend",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://github.com/CaviraOSS/LongMemory",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -744284,11 +743200,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://openmemory.cavira.app/docs/deployment/backend",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/CaviraOSS/LongMemory",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/CaviraOSS/LongMemory",
@@ -777796,8 +776712,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.agno.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -778179,10 +777095,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.agno.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.agno.com/",
@@ -792132,8 +791048,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://portkey.ai/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -792503,10 +791419,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://portkey.ai/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://portkey.ai/",
@@ -795430,8 +794346,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.prefect.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -795792,10 +794708,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.prefect.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.prefect.io/pricing",
@@ -800942,8 +799858,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.promptfoo.dev/pricing/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -801307,10 +800223,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.promptfoo.dev/pricing/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.promptfoo.dev/",
@@ -819627,10 +818543,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://github.com/goweft/ratine",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -819993,10 +818909,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://github.com/goweft/ratine",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://raw.githubusercontent.com/goweft/ratine/main/README.md",
@@ -830912,10 +829828,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://reflect.app/",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://github.com/team-reflect/reflect-open",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -831285,9 +830201,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://reflect.app/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/team-reflect/reflect-open",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -874822,10 +873738,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "commercial",
           "citation": "https://www.runwhen.com/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -875177,8 +874093,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.runwhen.com/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -933942,10 +932858,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://huggingface.co/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://github.com/huggingface/smolagents/blob/main/LICENSE",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -934312,11 +933228,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://huggingface.co/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/huggingface/smolagents/blob/main/LICENSE",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://huggingface.co/docs/smolagents/tutorials/memory",
@@ -946082,10 +944998,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "commercial",
           "citation": "https://specterops.io/bloodhound-enterprise/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -946437,8 +945353,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://specterops.io/bloodhound-enterprise/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -951541,10 +950457,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/tanzu-spring/commercial/spring-tanzu/spring-enterprise-subscription.html",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -951914,8 +950830,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/tanzu-spring/commercial/spring-tanzu/spring-enterprise-subscription.html",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -964098,8 +963014,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -964464,8 +963380,8 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://aws.amazon.com/bedrock/agentcore/pricing/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -969695,10 +968611,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
-          "citation": "https://pypi.org/project/superlocalmemory/",
-          "status": "estimate",
-          "tier": "T3"
+          "value": "open-source",
+          "citation": "https://github.com/qualixar/superlocalmemory",
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -970057,11 +968973,11 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://pypi.org/project/superlocalmemory/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://github.com/qualixar/superlocalmemory",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.superlocalmemory.com/",
@@ -973129,10 +972045,10 @@
           "tier": "T1"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://github.com/obra/episodic-memory",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T1"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -973502,10 +972418,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://github.com/obra/episodic-memory",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://github.com/obra/episodic-memory",
@@ -985182,10 +984098,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://temporal.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -985549,10 +984465,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://temporal.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://temporal.io/",
@@ -1017111,10 +1016027,10 @@
           "tier": "T2"
         },
         "licensing-bucket": {
-          "value": "open-core",
+          "value": "open-source",
           "citation": "https://trigger.dev/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -1017485,10 +1016401,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://trigger.dev/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://trigger.dev/",
@@ -1049256,8 +1048172,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://weaviate.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -1049642,10 +1048558,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://weaviate.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://weaviate.io/",
@@ -1064744,9 +1063660,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://zed.dev",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://zed.dev/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "product",
@@ -1065121,9 +1064037,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://zed.dev",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://zed.dev/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },
@@ -1066948,8 +1065864,8 @@
         "licensing-bucket": {
           "value": "open-core",
           "citation": "https://www.zenml.io/pricing",
-          "status": "estimate",
-          "tier": "T3"
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -1067307,10 +1066223,10 @@
         },
         "licensing-bucket": {
           "scrape_url": "https://www.zenml.io/pricing",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "positioning-platform-vs-product": {
           "scrape_url": "https://www.zenml.io/pricing",
@@ -1069164,9 +1068080,9 @@
         },
         "licensing-bucket": {
           "value": "open-core",
-          "citation": "https://pricingsaas.com/companies/getzep",
-          "status": "estimate",
-          "tier": "T3"
+          "citation": "https://www.getzep.com/pricing",
+          "status": "real-data",
+          "tier": "T2"
         },
         "positioning-platform-vs-product": {
           "value": "platform",
@@ -1069639,9 +1068555,9 @@
           "verified": true
         },
         "licensing-bucket": {
-          "scrape_url": "https://pricingsaas.com/companies/getzep",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.getzep.com/pricing",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
           "source": "scrape",
           "verified": false
         },

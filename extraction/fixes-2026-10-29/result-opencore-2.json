@@ -1,0 +1,416 @@
+[
+ {
+  "id": "livekit-agents--docs-livekit-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://livekit.io/pricing",
+  "confidence": "medium",
+  "note": "Framework is Apache-2.0 but the pricing page meters cloud-hosted models such as adaptive interruption and turn detection (self-hosted agents fall back to local models after an allowance), and the turn-detector models are under the non-OSI LiveKit Model License."
+ },
+ {
+  "id": "llamaindex-memory--llamaindex-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.llamaindex.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing page says LlamaParse/LlamaCloud is a commercial platform (credits, Starter/Pro/Enterprise) separate from the MIT-licensed llama_index framework."
+ },
+ {
+  "id": "local-memory-mcp--gh-studiomeyer-io-local-memory-mcp",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/studiomeyer-io/local-memory-mcp",
+  "confidence": "high",
+  "note": "README shows MIT licence and a local-first design with no cloud and no paid tier."
+ },
+ {
+  "id": "magnitude--magnitude-run",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://magnitude.run/",
+  "confidence": "high",
+  "note": "Site describes Magnitude as free, private, open source under Apache 2.0 with no paid plan."
+ },
+ {
+  "id": "mastra--mastra-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+  "confidence": "high",
+  "note": "LICENSE.md puts code under ee/ directories under a separate Mastra enterprise license while the rest is Apache-2.0, and the pricing page sells licensed self-hosted enterprise features."
+ },
+ {
+  "id": "mastra-memory--mastra-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+  "confidence": "high",
+  "note": "Same repo: ee/ directories are under the Mastra enterprise license and the rest is Apache-2.0, with paid Platform and enterprise self-hosted tiers."
+ },
+ {
+  "id": "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://mcpmemory.services",
+  "confidence": "high",
+  "note": "Project site lists the licence as Apache 2.0 at $0 cost and offers no paid tier or proprietary edition."
+ },
+ {
+  "id": "meilisearch--meilisearch-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://github.com/meilisearch/meilisearch/blob/main/LICENSE",
+  "confidence": "high",
+  "note": "LICENSE says the Enterprise Edition parts are under BUSL-1.1 and the rest under MIT (SPDX MIT AND BUSL-1.1)."
+ },
+ {
+  "id": "mem0--mem0-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://mem0.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing page contrasts self-hosted Mem0 Open-Source (Apache 2.0) with the managed Platform, which adds analytics, Dream memory consolidation, user profiles, SSO, audit logs and on-prem deployment."
+ },
+ {
+  "id": "mem0-mcp-official--gh-mem0ai-mem0-mcp",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://github.com/mem0ai/mem0-mcp",
+  "confidence": "medium",
+  "note": "README says the Apache-2.0 server requires a Mem0 Platform API key (the proprietary hosted platform) and points to a newer cloud-hosted MCP; the repo is archived."
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://mem0.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing page separates Apache-2.0 Mem0 Open-Source from the paid Platform, whose enterprise features (SSO, audit logs, on-prem, Dream, analytics) are not in OSS."
+ },
+ {
+  "id": "memmachine--gh-memmachine-memmachine",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://memmachine.ai/pricing",
+  "confidence": "medium",
+  "note": "Pricing page gives Open Source $0 self-hosted, then Pro $79/mo adding managed hosting and Premium Integrations, and Enterprise adding SSO and advanced security."
+ },
+ {
+  "id": "memobase--gh-memodb-io-memobase",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/memodb-io/memobase",
+  "confidence": "medium",
+  "note": "README presents Memobase Cloud only as a hosted alternative to running the same Apache-2.0 server locally and describes no cloud-only features; memobase.io currently returns 404."
+ },
+ {
+  "id": "memori--gh-memorilabs-memori",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://memorilabs.ai/pricing/",
+  "confidence": "medium",
+  "note": "Pricing page sets the free self-hosted open-source SDK against Memori Cloud and production plans ($60K/yr+) that add Advanced Augmentation, ReBAC pools, observability dashboards, immutable audit logging and SSO/SCIM."
+ },
+ {
+  "id": "memori-gibsonai--gh-gibsonai-memori",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://memorilabs.ai/pricing/",
+  "confidence": "medium",
+  "note": "Same Memori Labs pricing page: open-source SDK free to self-host, with hosted Advanced Augmentation and enterprise governance features only in Memori Cloud plans."
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://mistral.ai/news/mistral-large-2407/",
+  "confidence": "medium",
+  "note": "Mistral Large 2 is released under the non-OSI Mistral Research License and needs a commercial licence for commercial self-deployment, while Mixtral and the other Apache models stay open."
+ },
+ {
+  "id": "mistral-vibe-remote-agents-mistral-medium-3-5--mistral-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+  "confidence": "high",
+  "note": "Vibe CLI is Apache-2.0, but remote agents run on Mistral's hosted runtime through Le Chat plans, a capability the CLI release does not include."
+ },
+ {
+  "id": "modal-sandboxes--modal-com",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://modal.com/pricing",
+  "confidence": "high",
+  "note": "Sandboxes run only on Modal's metered hosted platform, and only the client SDK (modal-client) is open source."
+ },
+ {
+  "id": "nebulagraph--nebula-graph-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://nebula-graph.io/",
+  "confidence": "high",
+  "note": "Site offers a separate NebulaGraph Enterprise Edition, 'an advanced edition for the production environment', next to the Apache-2.0 open-source release."
+ },
+ {
+  "id": "neo4j--neo4j-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://neo4j.com/pricing/",
+  "confidence": "high",
+  "note": "Pricing page lists a GPL3 Community Edition lacking automatic HA, horizontal scale and advanced security, and a commercially licensed Enterprise Edition that adds them."
+ },
+ {
+  "id": "nomic-embed--nomic-ai",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+  "confidence": "medium",
+  "note": "Model card lists license apache-2.0 for the weights; Nomic's paid plans are for a separate agent platform, not extra features of the embedding model."
+ },
+ {
+  "id": "omega--omegamax-co",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://omegamax.co/",
+  "confidence": "high",
+  "note": "Site says OMEGA ships a free Apache-2.0 Core plus a $19/mo Pro tier adding multi-agent coordination, routing, knowledge base, sync, audit and dreaming."
+ },
+ {
+  "id": "openai-codex-cli--gh-openai-codex",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/openai/codex",
+  "confidence": "medium",
+  "note": "The CLI itself is fully Apache-2.0 with no paid CLI edition; ChatGPT plans or API keys pay for OpenAI model usage, not extra CLI features."
+ },
+ {
+  "id": "openai-codex-cloud-agent--developers-openai-com",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://developers.openai.com/codex/pricing",
+  "confidence": "high",
+  "note": "Codex Cloud runs on OpenAI's hosted environments and is sold only inside ChatGPT plans; only the separate CLI is open source."
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://openhands.dev/pricing",
+  "confidence": "high",
+  "note": "Pricing page has the free MIT Agent Canvas as single-user, while paid Teams/Enterprise self-hosted tiers add user identity and RBAC, SAML/SSO, budgeting controls and multiple organizations."
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://openhands.dev/pricing",
+  "confidence": "high",
+  "note": "Same OpenHands pricing page: open source (MIT) single-user tier vs paid tiers with RBAC, SSO, budgeting controls and organizations not in the OSS release."
+ },
+ {
+  "id": "openmemory--gh-caviraoss-openmemory",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/CaviraOSS/LongMemory",
+  "confidence": "high",
+  "note": "README (project renamed LongMemory) gives an Apache-2.0 licence and only self-hosted deployment options, with no paid tier."
+ },
+ {
+  "id": "phidata-now-agno--agno-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.agno.com/pricing",
+  "confidence": "high",
+  "note": "Pricing page says the runtime is free and open source, while the AgentOS control plane is sold as Pro/Enterprise with seats, live connections, SSO, RBAC and audit logs."
+ },
+ {
+  "id": "portkey-ai--portkey-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://portkey.ai/pricing",
+  "confidence": "high",
+  "note": "Pricing page gives the self-hosted open-source gateway only basic features and reserves prompt management, RBAC, custom guardrails, log retention and VPC deployment for hosted paid plans."
+ },
+ {
+  "id": "prefect--prefect-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.prefect.io/pricing",
+  "confidence": "high",
+  "note": "Prefect Cloud plans add audit logs, service accounts, SSO, RBAC/ACLs, SCIM, multiple workspaces and Prefect Serverless beyond Prefect Open Source."
+ },
+ {
+  "id": "promptfoo--promptfoo-dev",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.promptfoo.dev/pricing/",
+  "confidence": "high",
+  "note": "Pricing page sets the open-source Community tier against Enterprise and On-Premise tiers that add advanced vulnerability detection, remediation reports, team access control and SSO."
+ },
+ {
+  "id": "ratine--gh-goweft-ratine",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/goweft/ratine",
+  "confidence": "high",
+  "note": "Repo has an MIT LICENSE and no paid offering."
+ },
+ {
+  "id": "reflect--reflect-app",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/team-reflect/reflect-open",
+  "confidence": "medium",
+  "note": "README says the MIT monorepo's apps/desktop holds both the Mac and the iOS app, so the paid iPhone/iPad App Store subscription distributes the same open code; the separate legacy Reflect Classic is still sold."
+ },
+ {
+  "id": "runwhen--runwhen-com",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://www.runwhen.com/pricing",
+  "confidence": "medium",
+  "note": "Pricing page sells a paid 'self-hosted platform license for the Skill authoring and Agent runtimes' ($25k\u2013$120k/yr), so only the skill library (codecollections) is Apache-2.0."
+ },
+ {
+  "id": "smolagents-memory--huggingface-co",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/huggingface/smolagents/blob/main/LICENSE",
+  "confidence": "high",
+  "note": "smolagents is Apache-2.0 and has no paid edition; Hugging Face's paid hub plans are a separate product."
+ },
+ {
+  "id": "specter-ops-bloodhound-enterprise--specterops-io",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://specterops.io/bloodhound-enterprise/",
+  "confidence": "medium",
+  "note": "This row is BloodHound Enterprise, SpecterOps's demo-gated commercial product; only the separate BloodHound Community Edition is Apache-2.0 (per the GitHub README)."
+ },
+ {
+  "id": "spring-ai-chatmemory--docs-spring-io",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/tanzu-spring/commercial/spring-tanzu/spring-enterprise-subscription.html",
+  "confidence": "medium",
+  "note": "The Tanzu Spring Enterprise subscription gives supported releases and commercial support for the same Spring projects; Spring AI itself is Apache-2.0 with no proprietary edition."
+ },
+ {
+  "id": "strands-agents-memory-aws--docs-aws-amazon-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+  "confidence": "medium",
+  "note": "The Strands SDK is Apache-2.0, but the memory it documents is Amazon Bedrock AgentCore Memory, a proprietary pay-per-use AWS service."
+ },
+ {
+  "id": "superlocalmemory--superlocalmemory-com",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/qualixar/superlocalmemory",
+  "confidence": "high",
+  "note": "README licenses the whole project AGPL-3.0-or-later with an optional commercial licence (dual licensing) and no proprietary feature tier."
+ },
+ {
+  "id": "superpowers-episodic-memory-plugin--gh-obra-episodic-memory",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://github.com/obra/episodic-memory",
+  "confidence": "high",
+  "note": "Repo has an MIT LICENSE and no paid tier."
+ },
+ {
+  "id": "temporal--temporal-io",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://temporal.io/pricing",
+  "confidence": "high",
+  "note": "Pricing page says 'You can run the full Temporal platform on your own infrastructure at no cost', and Temporal Cloud bills consumption and support with no features locked behind plans."
+ },
+ {
+  "id": "trigger-dev--trigger-dev",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://trigger.dev/pricing",
+  "confidence": "high",
+  "note": "Pricing FAQ says Trigger.dev is open source under Apache 2.0 and fully self-hostable, with paid plans for hosted compute."
+ },
+ {
+  "id": "weaviate--weaviate-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://weaviate.io/pricing",
+  "confidence": "high",
+  "note": "Pricing FAQ says Weaviate Cloud wraps the open-source project and 'adds features like the Embedding Service, Query Agent, and Data Import'."
+ },
+ {
+  "id": "zed-agentic-editing--zed-dev",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://zed.dev/pricing",
+  "confidence": "medium",
+  "note": "The editor is GPL, but the paid Pro/Business plans add Zed-hosted models, unlimited edit predictions and org admin controls for Zed's hosted services."
+ },
+ {
+  "id": "zenml--zenml-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.zenml.io/pricing",
+  "confidence": "high",
+  "note": "Pricing page says Pro adds a Model Control Plane, Artifact Control Plane, Snapshots and Codespaces on top of the free self-hosted open source."
+ },
+ {
+  "id": "zep-graphiti--getzep-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/pricing",
+  "confidence": "medium",
+  "note": "Zep's paid credit plans and Enterprise BYOC add hosted capabilities (Observations, Context MCP seats, analytics, governance) on top of the Apache-2.0 Graphiti engine."
+ }
+]

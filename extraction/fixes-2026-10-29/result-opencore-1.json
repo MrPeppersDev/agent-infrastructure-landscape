@@ -1,0 +1,425 @@
+[
+ {
+  "id": "accelerate-hugging-face--gh-huggingface-accelerate",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/accelerate/main/LICENSE",
+  "confidence": "high",
+  "note": "Library is Apache-2.0 with no paid tier; the heuristic misfired."
+ },
+ {
+  "id": "activeloop-deep-lake--activeloop-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://deeplake.ai/pricing",
+  "confidence": "medium",
+  "note": "Apache-2.0 deeplake library, while the paid Deeplake Hivemind Team/Enterprise plans add hosted traces, seat collaboration and VPC deployment not in the OSS release."
+ },
+ {
+  "id": "arangodb--arangodb-com",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/arangodb/arangodb/devel/LICENSE",
+  "confidence": "high",
+  "note": "LICENSE is Business Source License 1.1 (converts to Apache-2.0 after 4 years), not OSI-approved."
+ },
+ {
+  "id": "arcade-dev--arcade-dev",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.arcade.dev/pricing/",
+  "confidence": "high",
+  "note": "MIT arcade-mcp framework, but Arcade Cloud/Engine is proprietary and Team/Enterprise add managed runtime, SSO, RBAC, audit logs and private registry."
+ },
+ {
+  "id": "autoglm-zhipu-ai--xiao9905-github-io",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://huggingface.co/zai-org/AutoGLM-Phone-9B",
+  "confidence": "medium",
+  "note": "Open-AutoGLM code is Apache-2.0 and the AutoGLM-Phone-9B weights are MIT; the paid z.ai API serves the same open model (also hosted by Novita/Parasail)."
+ },
+ {
+  "id": "autogpt--gh-significant-gravitas-autogpt",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/Significant-Gravitas/AutoGPT/master/LICENSE",
+  "confidence": "medium",
+  "note": "The current AutoGPT Platform (autogpt_platform/) is under Polyform Shield (non-OSI); only the legacy classic code outside it is MIT."
+ },
+ {
+  "id": "bolt-new-stackblitz--bolt-new",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://bolt.new/pricing",
+  "confidence": "medium",
+  "note": "The MIT stackblitz/bolt.new repo is a 2024 snapshot, while the paid bolt.new service adds hosting, databases, connectors/MCPs and team controls not in that release."
+ },
+ {
+  "id": "botpress-llmz--botpress-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://botpress.com/pricing",
+  "confidence": "medium",
+  "note": "Only SDK/integration packages in botpress/botpress are MIT; the Knowledge Bases/Vector DB features run on the proprietary Botpress Cloud plans."
+ },
+ {
+  "id": "browser-use--browser-use-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://browser-use.com/pricing",
+  "confidence": "medium",
+  "note": "MIT library, but Browser Use Cloud sells hosted browsers with residential proxies and its own custom models, which are not in the OSS release."
+ },
+ {
+  "id": "bytebot--bytebot-ai",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/bytebot-ai/bytebot/main/README.md",
+  "confidence": "high",
+  "note": "README says Bytebot is open source under Apache 2.0, and no paid tier exists."
+ },
+ {
+  "id": "charm-crush--gh-charmbracelet-crush",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/charmbracelet/crush/main/LICENSE.md",
+  "confidence": "high",
+  "note": "LICENSE is FSL-1.1-MIT (Functional Source License), source-available and not OSI-approved until the 2-year MIT conversion."
+ },
+ {
+  "id": "clearml--clear-ml",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://clear.ml/pricing",
+  "confidence": "high",
+  "note": "Apache-2.0 core, while the Pro/Scale/Enterprise tiers add cloud autoscaling, HPO, Hyper-Datasets, fractional GPUs and SSO not in Community."
+ },
+ {
+  "id": "cline-harness--cline-bot",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://cline.bot/pricing",
+  "confidence": "high",
+  "note": "The Apache-2.0 extension is free, while Enterprise adds a JetBrains extension, team dashboard, RBAC, SSO/SCIM, audit logs and VPC deployments."
+ },
+ {
+  "id": "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/LICENSE",
+  "confidence": "high",
+  "note": "MIT-licensed with no paid tier; the heuristic misfired."
+ },
+ {
+  "id": "coder-com--coder-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://coder.com/pricing",
+  "confidence": "high",
+  "note": "AGPL-3.0 Community edition, while Premium/AI Premium licences unlock AI governance, HA, workspace proxies, multi-org RBAC, audit logging and Coder Agents."
+ },
+ {
+  "id": "cognee--cognee-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.cognee.ai/pricing",
+  "confidence": "high",
+  "note": "Apache-2.0 engine, while the Enterprise BYOC tiers list a 'Proprietary Cognee runtime', bi-temporal memory and fine-tuned small models."
+ },
+ {
+  "id": "cohere-command-r-command-a--cohere-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://cohere.com/blog/cohere-releases-command-a-plus",
+  "confidence": "medium",
+  "note": "Command A+ weights are Apache-2.0, while the rest of the paid API/North lineup is proprietary and earlier Command R/A weights are CC-BY-NC."
+ },
+ {
+  "id": "confident-ai-deepeval--confident-ai-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.confident-ai.com/pricing",
+  "confidence": "high",
+  "note": "DeepEval is Apache-2.0, while the paid Confident AI platform adds no-code evals, online evals, annotation queues, alerting, RBAC/SSO and on-prem."
+ },
+ {
+  "id": "crewai--crewai-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.crewai.com/pricing",
+  "confidence": "high",
+  "note": "MIT framework, while the CrewAI AMP Enterprise plan adds enterprise connectors, SSO, RBAC, PII redaction and VPC deployment."
+ },
+ {
+  "id": "crewai-memory--crewai-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.crewai.com/pricing",
+  "confidence": "high",
+  "note": "Memory ships in the MIT framework, while the paid CrewAI AMP Enterprise plan adds proprietary governance (SSO, RBAC, PII redaction) and enterprise connectors."
+ },
+ {
+  "id": "dagster--dagster-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://dagster.io/pricing",
+  "confidence": "high",
+  "note": "Apache-2.0 OSS, while Dagster+ plans add catalog search, column lineage, cost insights, Dagster AI chat and BI cataloguing not in OSS."
+ },
+ {
+  "id": "daytona--daytona-io",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/daytonaio/daytona/main/README.md",
+  "confidence": "high",
+  "note": "README says that as of June 2026 Daytona's core development moved to a private codebase; only SDKs/CLI remain open."
+ },
+ {
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-R1/main/LICENSE",
+  "confidence": "medium",
+  "note": "R1 is MIT-licensed and the paid API serves the same open-weight models, with no proprietary add-on tier."
+ },
+ {
+  "id": "dspy-history--dspy-ai",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/stanfordnlp/dspy/main/LICENSE",
+  "confidence": "high",
+  "note": "DSPy is MIT-licensed and dspy.ai lists no paid product or tier."
+ },
+ {
+  "id": "e2b--e2b-dev",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/e2b-dev/infra/main/README.md",
+  "confidence": "high",
+  "note": "The e2b infra README says 'the same code serves the public cloud, dedicated enterprise deployments' under Apache-2.0, so paid plans are hosting of the OSS runtime."
+ },
+ {
+  "id": "elasticsearch-opensearch--elastic-co",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/elastic/elasticsearch/main/LICENSE.txt",
+  "confidence": "high",
+  "note": "The default code is AGPL-3.0 (OSI) among three licence choices, but the x-pack folder is solely under Elastic License 2.0 and backs the paid subscription features."
+ },
+ {
+  "id": "flyte--flyte-org",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.union.ai/pricing",
+  "confidence": "high",
+  "note": "Apache-2.0 Flyte, while Union.ai sells a distinct production runtime adding a durable runtime, inference gateway, advanced scheduling and SSO/RBAC."
+ },
+ {
+  "id": "gitpod-ai-features--gitpod-io",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/gitpod-io/gitpod/main/README.md",
+  "confidence": "medium",
+  "note": "README says Gitpod was renamed Ona and the AGPL Gitpod Classic is no longer recommended (PAYG sunset Oct 2025); the Ona agents product is proprietary."
+ },
+ {
+  "id": "graphiti-mcp-server-zep--getzep-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.getzep.com/pricing/",
+  "confidence": "medium",
+  "note": "Graphiti and its MCP server are Apache-2.0, while the paid Zep Cloud context-graph service (custom extraction, observations, webhooks, BYOC) is proprietary."
+ },
+ {
+  "id": "habitat-3-0-social-agents--aihabitat-org",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/facebookresearch/habitat-lab/main/LICENSE",
+  "confidence": "high",
+  "note": "Habitat-Lab is MIT and is a free research benchmark with no paid tier; the heuristic misfired."
+ },
+ {
+  "id": "haystack-framework--haystack-deepset-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.deepset.ai/pricing",
+  "confidence": "high",
+  "note": "Apache-2.0 framework, while the deepset Haystack Enterprise Platform adds Pipeline Builder, Prompt Explorer, observability, SSO and RBAC."
+ },
+ {
+  "id": "haystack-memory-deepset--haystack-deepset-ai",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.deepset.ai/pricing",
+  "confidence": "high",
+  "note": "Apache-2.0 Haystack, while the paid Haystack Enterprise Platform adds proprietary Pipeline Builder, Prompt Explorer, SSO and RBAC."
+ },
+ {
+  "id": "hindsight-vectorize--hindsight-vectorize-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://vectorize.io/pricing",
+  "confidence": "medium",
+  "note": "Self-host is MIT, but the comparison table marks Dashboard & Analytics and Team Collaboration as Cloud-only, and Enterprise adds Hindsight Memlake."
+ },
+ {
+  "id": "hugging-face-lerobot--huggingface-co",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/huggingface/lerobot/main/LICENSE",
+  "confidence": "high",
+  "note": "LeRobot is Apache-2.0 with no LeRobot-specific paid tier; HF Hub plans are a separate product."
+ },
+ {
+  "id": "inngest--inngest-com",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/inngest/inngest/main/LICENSE.md",
+  "confidence": "high",
+  "note": "The server LICENSE is SSPL-1.0 with a delayed Apache-2.0 grant, so the core is source-available and not OSI."
+ },
+ {
+  "id": "inngest-agentkit-network-state--agentkit-inngest-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.inngest.com/pricing",
+  "confidence": "medium",
+  "note": "AgentKit is Apache-2.0, while the paid Inngest Cloud plans add SAML, RBAC, audit trails, trace exports and Datadog observability on an SSPL-licensed server."
+ },
+ {
+  "id": "jina-ai-embeddings--jina-ai",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://huggingface.co/jinaai/jina-embeddings-v4",
+  "confidence": "medium",
+  "note": "Current models are non-OSI (the v4 card says Qwen Research License; others CC-BY-NC), and Elastic sells a commercial Jina On-Prem licence."
+ },
+ {
+  "id": "k-scale-labs--kscale-dev",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/kscalelabs/kbot/master/README.md",
+  "confidence": "medium",
+  "note": "K-Bot software is GPL-3.0, hardware CERN-OHL-S and kos MIT; revenue is hardware kits, with no paid software tier."
+ },
+ {
+  "id": "label-studio-humansignal--labelstud-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://humansignal.com/pricing/",
+  "confidence": "high",
+  "note": "Apache-2.0 Community Edition, while Starter Cloud and Enterprise are proprietary editions with extra features."
+ },
+ {
+  "id": "lakefs--lakefs-io",
+  "cell": "licensing-bucket",
+  "value": "commercial",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/treeverse/lakeFS/master/LICENSE",
+  "confidence": "high",
+  "note": "LICENSE is now Business Source License 1.1 for lakeFS 1.87.0 (non-OSI); earlier releases were Apache-2.0."
+ },
+ {
+  "id": "lancedb--lancedb-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://lancedb.com/pricing",
+  "confidence": "medium",
+  "note": "Apache-2.0 LanceDB OSS, while LanceDB Enterprise/Cloud adds proprietary features such as the feature-engineering platform."
+ },
+ {
+  "id": "langflow-memory--docs-langflow-org",
+  "cell": "licensing-bucket",
+  "value": "open-source",
+  "status": "real-data",
+  "citation": "https://www.langflow.org/",
+  "confidence": "high",
+  "note": "The site says 'Same Langflow whether you're using OSS or Cloud' and the cloud account is free; Langflow is MIT."
+ },
+ {
+  "id": "langfuse--langfuse-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/langfuse/langfuse/main/LICENSE",
+  "confidence": "high",
+  "note": "LICENSE puts ee/ directories under a separate enterprise licence and the rest under MIT; Enterprise SSO, SCIM and audit logs are paid."
+ },
+ {
+  "id": "langgraph-persistence--docs-langchain-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.langchain.com/pricing",
+  "confidence": "high",
+  "note": "LangGraph is MIT, while the paid LangSmith platform (tracing, managed deployments) is proprietary."
+ },
+ {
+  "id": "langmem-langchain--langchain-ai-github-io",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://www.langchain.com/pricing",
+  "confidence": "medium",
+  "note": "LangMem is MIT, while the related paid LangSmith platform is proprietary."
+ },
+ {
+  "id": "letta-memgpt--letta-com",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://docs.letta.com/pricing",
+  "confidence": "medium",
+  "note": "Letta Code is Apache-2.0, while paid Letta Cloud plans add remote sandboxes, Letta Auto quota and team agent sharing/permissions."
+ },
+ {
+  "id": "litellm--gh-berriai-litellm",
+  "cell": "licensing-bucket",
+  "value": "open-core",
+  "status": "real-data",
+  "citation": "https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE",
+  "confidence": "high",
+  "note": "LICENSE puts the enterprise/ directory under a commercial licence (SSO/SCIM, audit logs, RBAC per litellm.ai/enterprise) and the rest under MIT."
+ }
+]
