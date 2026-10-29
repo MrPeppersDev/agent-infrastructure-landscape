@@ -1,0 +1,349 @@
+[
+ {
+  "id": "openmemory-mcp--mem0-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "mem0.ai/openmemory (loaded 2026-10-29) still markets OpenMemory as a persistent MCP memory layer for coding agents, offered as an install plugin or an MCP setup. Mem0's MCP docs say: 'Nothing runs on your machine: the server is hosted by Mem0, and your client connects to it over HTTPS. Memories you store this way live in your Mem0 account.' The openmemory/ folder is no longer on mem0ai/mem0 main (raw README and docker-compose return 404). Self-hosting is now the generic Mem0 server (server/, docker compose with pgvector Postgres).",
+  "lifecycle_citation": "https://docs.mem0.ai/platform/mem0-mcp",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Mem0's MCP memory layer for coding agents (Claude, Cursor, VS Code etc.). Ships both as a hosted service (API key + npx installer) and a local Docker-based self-hosted server where data stays on-machine.",
+    "new": "Mem0's MCP memory layer for coding agents (Claude, Cursor, VS Code, Windsurf, Codex etc.). As of Oct 2026 it is a hosted service: the MCP server runs at mcp.mem0.ai, needs a Mem0 Platform account (browser sign-in or API key, npx mcp-add installer), and memories live in the Mem0 account, not on the user's machine. The earlier local Docker OpenMemory server (openmemory/ folder) is no longer in the mem0ai/mem0 repo; self-hosting now means the general Mem0 open-source server.",
+    "citation": "https://docs.mem0.ai/platform/mem0-mcp",
+    "confidence": "high"
+   },
+   {
+    "cell": "gh",
+    "old": "mem0ai/mem0 (openmemory/ subdirectory) — ~67.3k stars",
+    "new": "mem0ai/mem0 — ~67.3k stars (openmemory/ subdirectory removed from main by Oct 2026; MCP server is hosted)",
+    "citation": "https://raw.githubusercontent.com/mem0ai/mem0/main/openmemory/README.md",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "mem0-security-openmemory--mem0-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "mem0.ai/security now redirects to Mem0's Trust Center (trust.mem0.ai, loaded 2026-10-29). OpenMemory is now a hosted MCP service (docs.mem0.ai/platform/mem0-mcp). The self-hosted option is the Mem0 OSS REST server and dashboard (server/, Docker Compose with a pgvector Postgres image, admin wizard, per-user API keys, audit log), per docs.mem0.ai/open-source/setup and the repo README.",
+  "lifecycle_citation": "https://docs.mem0.ai/open-source/setup",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Commercial Mem0 ships SOC 2 / HIPAA, zero-trust access controls, BYOK encryption, real-time monitoring, audit logs, workspace governance as defaults. OpenMemory is the local self-hosted variant (Docker + FastAPI + Postgres + Qdrant) for privacy-first deployments.",
+    "new": "Commercial Mem0 ships SOC 2 / HIPAA, zero-trust access controls, BYOK encryption, real-time monitoring, audit logs and workspace governance as defaults (Trust Center at trust.mem0.ai). For privacy-first deployments the self-hosted path is now the Mem0 open-source server (REST API + dashboard via Docker Compose with pgvector Postgres, admin setup wizard, per-user API keys, request audit log). As of Oct 2026 OpenMemory itself is a hosted MCP service and its old local Docker variant is no longer in the repo.",
+    "citation": "https://docs.mem0.ai/open-source/setup",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://trust.mem0.ai/"
+  }
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "operator.chatgpt.com returns HTTP 308 to https://chatgpt.com/?system_hints=agent, which is ChatGPT agent mode (checked 2026-10-29). OpenAI's own news feed (openai.com/news/rss.xml) lists 'Introducing ChatGPT agent' on 2025-07-17. Search snippets of openai.com/index/introducing-operator and the ChatGPT agent release notes say Operator's functionality was integrated into ChatGPT agent and the standalone site would sunset in the following weeks. openai.com and help.openai.com return 403 to this environment, so that update text could not be loaded directly.",
+  "lifecycle_citation": "https://operator.chatgpt.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "OpenAI's general-purpose browser agent — research preview launched January 2025 (US Pro tier). Built on the Computer-Using Agent (CUA) model that processes screenshots and emits mouse / keyboard actions; runs inside an OpenAI-hosted browser sandbox. Operator is the consumer product; the underlying CUA model is the substrate.",
+    "new": "OpenAI's general-purpose browser agent — research preview launched January 2025 (US Pro tier). Built on the Computer-Using Agent (CUA) model that processes screenshots and emits mouse / keyboard actions; runs inside an OpenAI-hosted browser sandbox. Operator is the consumer product; the underlying CUA model is the substrate. Superseded by ChatGPT agent (launched 2025-07-17), which absorbed Operator's functionality as agent mode in ChatGPT; operator.chatgpt.com now redirects to ChatGPT agent mode.",
+    "citation": "https://openai.com/news/rss.xml",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "limitless--limitless-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "limitless.ai (loaded 2026-10-29) carries Dan Siroker's note: 'Limitless has been acquired by Meta'. The FAQ says existing Pendant customers are supported throughout 2026 and Pendant sales stopped as of 2025-12-05. Service ended in Brazil, China, EU, Israel, South Korea, Turkey and UK on 2025-12-05. Desktop and web recording has ended. Rewind is sunsetting, with capture disabled from 2025-12-19. The current row already matches.",
+  "lifecycle_citation": "https://www.limitless.ai/",
+  "updates": []
+ },
+ {
+  "id": "sweep-ai--sweep-dev",
+  "verified": true,
+  "lifecycle": "deprecated",
+  "lifecycle_note": "sweepai/sweep README (raw, loaded 2026-10-29) says: 'We're now building an AI coding assistant for JetBrains'. The JetBrains Marketplace (official registry) lists 'Sweep: AI Autocomplete & Coding Agent' (plugin 26860, vendor Sweep AI, vendor URL sweep.dev). Its latest version is 1.29.3, dated 2026-02-05, with about 68.8k downloads. sweep.dev has no A record in DNS (Google DNS: NOERROR, no answer) and docs.sweep.dev is NXDOMAIN, so the site does not load. That is not by itself proof of shutdown. The GitHub-app product was replaced by the JetBrains plugin.",
+  "lifecycle_citation": "https://raw.githubusercontent.com/sweepai/sweep/main/README.md",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Superseded: the sweepai/sweep README says the team now builds an AI coding assistant for JetBrains; the GitHub-app product described here is no longer the focus (repo not archived). No dedicated persistent memory layer. Operates as a GitHub App — reads issue + codebase fresh on each trigger. Some context implicit in the PR/issue threads it created previously.",
+    "new": "Superseded: the sweepai/sweep README says the team now builds an AI coding assistant for JetBrains; the GitHub-app product described here is no longer the focus (repo not archived). No dedicated persistent memory layer. Operates as a GitHub App — reads issue + codebase fresh on each trigger. Some context implicit in the PR/issue threads it created previously. Successor product: Sweep: AI Autocomplete and Coding Agent JetBrains plugin (Marketplace id 26860; latest version 1.29.3, 2026-02-05). As of Oct 2026 sweep.dev does not resolve to a website.",
+    "citation": "https://plugins.jetbrains.com/plugin/26860-sweep-ai-autocomplete--coding-agent",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "litera-ai--litera-com",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "lito.app (loaded 2026-10-29): 'Meet Lito. Litera's award-winning Legal AI agent that unifies the practice and business of law.' litera.com's navigation has a 'Meet Lito' entry and banners call it 'Lito, Litera's award-winning Legal AI agent' (Litera One with Lito). Litera's own pages don't say that Lito formally replaces the 'Litera AI' name, so 'renamed' is my inference from Litera's AI being branded Lito across its site.",
+  "lifecycle_citation": "https://www.lito.app/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Litera (Hg-backed; 50%+ of AmLaw 200 customers) added a Litera AI overlay 2024 — drafting, redlining, document analytics. Litera parent has been a private-equity rollup of legal-tech (Microsystems, Workshare, Kira Systems acquired 2021).",
+    "new": "Litera (Hg-backed; 50%+ of AmLaw 200 customers) added a Litera AI overlay 2024 — drafting, redlining, document analytics. Litera parent has been a private-equity rollup of legal-tech (Microsystems, Workshare, Kira Systems acquired 2021). As of Oct 2026 Litera markets its AI as Lito (lito.app), a legal AI agent spanning drafting, contract review and redlining, deal review and firm business intelligence (client and billing questions, pitch drafting), sold with Litera One.",
+    "citation": "https://www.lito.app/",
+    "confidence": "medium"
+   }
+  ],
+  "record": {
+   "name": "Litera AI (now Lito)"
+  }
+ },
+ {
+  "id": "tana--tana-inc",
+  "verified": true,
+  "lifecycle": "renamed",
+  "lifecycle_note": "outliner.tana.inc (loaded 2026-10-29): 'This is Tana Outliner ... a separate product from Tana, the company's agentic meeting platform at https://tana.inc.' tana.inc says: 'This is Tana, an agentic meeting platform ... separate product from Tana Outliner'. The current desc is already correct.",
+  "lifecycle_citation": "https://outliner.tana.inc/",
+  "updates": []
+ },
+ {
+  "id": "bee--bee-computer",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "bee.computer footer reads '©2026 Amazon.com, Inc. or its affiliates', and products are sold via amazon.com. A Bee blog post by co-founder Maria Zollo (2026-01-05) says 'After joining Amazon last year, Bee shipped several major features', which confirms the 2025 acquisition. The current row already matches.",
+  "lifecycle_citation": "https://bee.computer/blog/building-bee-at-amazon-how-the-wearable-ai-device-is-evolving",
+  "updates": []
+ },
+ {
+  "id": "enkrypt-ai--enkryptai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Anaconda blog by David DeSanto and Sahil Agarwal, 2026-08-04: 'What It Means To Secure AI on Your Own Terms: Anaconda Acquires Enkrypt AI'. enkryptai.com shows the banner 'Enkrypt AI Joins Anaconda' and links to it. Anaconda's pricing page now sells Enkrypt AI (Explore $0, Launch $149/mo, Scale $1,499/mo, Enterprise custom), the same prices as the current row. The row URL (/platform/capabilities/ai-risk-removal) now redirects to the enkryptai.com homepage.",
+  "lifecycle_citation": "https://www.anaconda.com/blog/anaconda-acquires-enkrypt-ai",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Applies guardrails at three points: (1) before write to vector DB, (2) before query reaches embedding model, (3) before response. Detects malicious instructions in stored memory before retrieval; scans for PII/PHI in/out. Text + image + voice modalities.",
+    "new": "Applies guardrails at three points: (1) before write to vector DB, (2) before query reaches embedding model, (3) before response. Detects malicious instructions in stored memory before retrieval; scans for PII/PHI in/out. Text + image + voice modalities. Acquired by Anaconda (2026-08-04); Enkrypt AI is now sold as Anaconda's AI security and guardrails product.",
+    "citation": "https://www.anaconda.com/blog/anaconda-acquires-enkrypt-ai",
+    "confidence": "high"
+   },
+   {
+    "cell": "funding",
+    "old": "total $2.35M (Seed led by Boldcap, 2024-02-27)",
+    "new": "Acquired by Anaconda (2026-08-04; terms undisclosed); prior total $2.35M (Seed led by Boldcap, 2024-02-27)",
+    "citation": "https://www.anaconda.com/blog/anaconda-acquires-enkrypt-ai",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://www.enkryptai.com/"
+  }
+ },
+ {
+  "id": "octoai-now-nvidia--octo-ai",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "octo.ai and octoml.ai both redirect to https://www.nvidia.com/en-us/#referrer=octoai (checked 2026-10-29). This is first-party evidence that NVIDIA controls the domains. NVIDIA never announced the deal publicly, and I found no primary page giving the date. The commonly cited 2024-10-31 service wind-down comes from customer emails reported in the press (secondary), as does the price: the row says ~$250M, while The Information reportedly said ~$165M. The last official SDK release is octoai 1.11.0 on PyPI (2024-09-18). octoai.cloud has an invalid certificate and docs.octoai.cloud is NXDOMAIN.",
+  "lifecycle_citation": "https://octo.ai/",
+  "updates": [
+   {
+    "cell": "latest-release",
+    "old": "searched not found",
+    "new": "octoai Python SDK 1.11.0 (2024-09-18) — final release before shutdown",
+    "citation": "https://pypi.org/project/octoai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "sajari-now-search-io--search-io",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "www.search.io redirects to www.algolia.com (checked 2026-10-29). Algolia's own blog ('Neural Search 101', 2023-05-11) calls NeuralSearch the result of a 'game-changing acquisition'. Algolia's 2022-09-12 press release (Business Wire, 'Algolia Disrupts Market with Search.io Acquisition') would date it, but businesswire.com returned 403. The current row already matches.",
+  "lifecycle_citation": "https://www.search.io/",
+  "updates": []
+ },
+ {
+  "id": "truera--truera-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "truera.com (loaded 2026-10-29): 'TruEra has agreed to join Snowflake!', then auto-redirects to Snowflake. Snowflake blog dated 2024-05-22: 'Snowflake Announces Agreement to Acquire TruEra AI Observability Platform'. TruLens continues as OSS under truera/trulens, with Snowflake Cortex providers and a Snowflake community forum. truera SDK on PyPI last released 12.6.1 on 2024-03-04, which matches the row.",
+  "lifecycle_citation": "https://www.snowflake.com/en/blog/snowflake-acquires-truera-to-bring-llm-ml-observability-to-data-cloud/",
+  "updates": []
+ },
+ {
+  "id": "robust-intelligence--robustintelligence-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cisco page 'Robust Intelligence is now part of Cisco': 'The company was acquired by Cisco in October 2024' and 'has been foundational to the development of Cisco AI Defense and Cisco Foundation AI' (via WebFetch; curl got 403). Cisco's acquisitions list gives the announcement date as 2024-08-26. The current row already matches.",
+  "lifecycle_citation": "https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html",
+  "updates": []
+ },
+ {
+  "id": "snapattack--snapattack-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Cisco's acquisitions list: SnapAttack, announced December 16, 2024; it 'brings threat detection and engineering technology, IP and expertise to Splunk'. www.snapattack.com meta-refreshes to Splunk Enterprise Security. I could not reach a primary page for the 2025-01-31 close date already in the row, so it stays as is.",
+  "lifecycle_citation": "https://www.cisco.com/c/en/us/about/corporate-strategy-office/acquisitions/acquisitions-list-years.html",
+  "updates": []
+ },
+ {
+  "id": "protect-ai--protectai-com",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "Palo Alto Networks press release, 2025-07-22: 'Palo Alto Networks Completes Acquisition of Protect AI'; Protect AI's technology becomes 'a cornerstone of Palo Alto Networks' Prisma AIRS'. protectai.com redirects to the Prisma AIRS page. The current row already matches.",
+  "lifecycle_citation": "https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-completes-acquisition-of-protect-ai",
+  "updates": []
+ },
+ {
+  "id": "benevolentai--benevolent-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "benevolent.com (loaded 2026-10-29): 'Qor, powered by BenevolentAI, is an always-on strategic function for biopharma decision makers and life science consultancies'. The footer gives a Luxembourg registered address and R.C.S. Luxembourg B288631. qor.one: 'Qor turns relevant evidence and expert methodology into decisions that stay current as the world changes ... Qor is built on BenevolentAI', with case studies for biotechs and consultancies, a 'Try Qor for free' link and demo booking.",
+  "lifecycle_citation": "https://www.qor.one/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop. As of Oct 2026 benevolent.com leads with Qor, powered by BenevolentAI, a life-science intelligence service for biopharma decision makers and consultancies.",
+    "new": "Taken private: merged into Osaka Holdings (renamed BenevolentAI S.A.) and delisted from Euronext Amsterdam 2025-03-13. Target identification / drug repurposing / mechanism tracing. 85+ data sources, petabyte-scale, rebuilt every few weeks. Wet-lab results re-enter the graph and shift downstream predictions — institutional experimental memory closing a feedback loop. As of Oct 2026 benevolent.com leads with Qor, powered by BenevolentAI, a life-science intelligence service for biopharma decision makers and consultancies. Qor (qor.one) is a continuously updated decision-intelligence service built on BenevolentAI's knowledge graph and reasoning methods: it tracks evidence on an asset or indication (competitive position, rival readouts, comparable deals), source-verifies each claim and flags when an earlier conclusion stops holding. It targets biotech teams and life-science consultancies.",
+    "citation": "https://www.qor.one/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "Enterprise only",
+    "new": "Qor: free trial (Try Qor for free) plus demo-led enterprise sales; no public price list",
+    "citation": "https://www.qor.one/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "continue-dev-harness--continue-dev",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "continue.dev (loaded 2026-10-29), titled 'Continue (acquired by Cursor)': 'Continue has joined Cursor. Continue was acquired by Cursor.' No date is given. The FAQ says recurring billing has been disabled and unused paid credits will be refunded. The continuedev/continue README says the repository 'is no longer actively maintained and is read-only for all users' after a final 2.0.0 release of the VS Code extension, CLI and JetBrains plugin. The current row already matches.",
+  "lifecycle_citation": "https://continue.dev/",
+  "updates": []
+ },
+ {
+  "id": "continue-dev-continue-rules--docs-continue-dev",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "docs.continue.dev/customize/deep-dives/rules still loads (2026-10-29) and documents .continue/rules. Its parent product was acquired by Cursor per continue.dev, and the repo is read-only and unmaintained per the README. The current row already matches.",
+  "lifecycle_citation": "https://continue.dev/",
+  "updates": []
+ },
+ {
+  "id": "continue-dev-memory-mcp--hub-continue-dev",
+  "verified": true,
+  "lifecycle": "acquired",
+  "lifecycle_note": "hub.continue.dev is NXDOMAIN (Google DNS, 2026-10-29), so the row URL is dead. continue.dev says Continue was acquired by Cursor, and the FAQ says 'Recurring billing has been disabled, and you will not incur any new subscription charges'. The paid Hub plans in the pricing cell are therefore gone.",
+  "lifecycle_citation": "https://continue.dev/",
+  "updates": [
+   {
+    "cell": "pricing",
+    "old": "Free (OSS core); paid Continue Hub plans for teams (pricing on website)",
+    "new": "Discontinued — Continue acquired by Cursor; recurring billing disabled and unused paid credits refunded; Continue Hub (hub.continue.dev) offline",
+    "citation": "https://continue.dev/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "adept-act--adept-ai",
+  "verified": false,
+  "lifecycle": "unknown",
+  "lifecycle_note": "Blocked. adept.ai and www.adept.ai return a Cloudflare challenge (403) to both curl and WebFetch; only robots.txt loads. The Wayback Machine is unreachable from this environment (connection reset). I found no Amazon primary page. Lifecycle unchanged.",
+  "lifecycle_citation": "https://www.adept.ai/",
+  "updates": []
+ },
+ {
+  "id": "futurehouse--futurehouse-org",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "futurehouse.org/about (loaded 2026-10-29): 'FutureHouse is a nonprofit independent research organization ... founded in 2023 by Sam Rodriques and Andrew White ... Edison Scientific, a for-profit company that spun out of FutureHouse in 2025, commercializes the AI tools. FutureHouse has access to Edison's technology and remains focused on its nonprofit mission.' The footer says Future House, Inc. is a registered 501(c)(3). platform.futurehouse.org redirects to platform.edisonscientific.com. Edison's site sells the Kosmos agent platform for biopharma R&D. FutureHouse still publishes research, including Robin (2026-05-19) and DISCO (2026-04-08).",
+  "lifecycle_citation": "https://www.futurehouse.org/about",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work. As of Oct 2026 FutureHouse describes itself as a non-profit whose flagship program is an AI-for-Science postdoctoral fellowship; its agent platform (platform.futurehouse.org) now redirects to Edison Scientific's platform.",
+    "new": "Full autonomous-scientist loop. Owl agent surfaces prior work so downstream agents don't re-derive known results. WikiCrow produced cited factsheets for 15,616 previously undocumented human genes; Phoenix uses accumulated experiment context to plan chemistry work. FutureHouse is a 501(c)(3) non-profit research lab (founded 2023 by Sam Rodriques and Andrew White) whose flagship program is now an AI-for-Science postdoctoral fellowship; its tools are commercialized by Edison Scientific, a for-profit spun out of FutureHouse in 2025, and platform.futurehouse.org now redirects to Edison's platform (Kosmos agents for biopharma R&D). Recent FutureHouse research includes Robin, an end-to-end multi-agent discovery system (2026-05).",
+    "citation": "https://www.futurehouse.org/about",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cellon-memory-inc--en-wowtale-net",
+  "verified": true,
+  "lifecycle": "unknown",
+  "lifecycle_note": "memory.inc and www.memory.inc now redirect to about.pogl.com (checked 2026-10-29). Pogl is an AI tool for making and sharing playable experiences, run by the same company: the footer reads 'Celon Inc. | CEO: Junha Jang | Business Registration No.: 633-88-03542', © 2026 Celon Inc. The Pogl page still lists the 2026-04-29 press coverage of Celon's AI memory-layer seed round, from Primer and TheVentures, but shows no memory product. There is no primary statement that the memory product was discontinued, so I left the lifecycle as unknown rather than dead. The company's own romanization is 'Celon', not 'Cellon'. The row URL is a news article (secondary), and no primary page for the memory product exists any more, so the row may need removal or a rescope.",
+  "lifecycle_citation": "https://about.pogl.com/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Korean startup. Connects scattered internal/external data across multiple chats and services to improve AI answer quality at retrieval. 18-year-old CEO Jang Jun-ha; pitch is that answer quality depends on what the model remembers, not which model.",
+    "new": "Korean startup. Connects scattered internal/external data across multiple chats and services to improve AI answer quality at retrieval. 18-year-old CEO Jang Jun-ha; pitch is that answer quality depends on what the model remembers, not which model. As of Oct 2026 memory.inc redirects to Pogl (about.pogl.com), an AI game and experience maker from the same company (Celon Inc., CEO Junha Jang); the memory product is no longer presented.",
+    "citation": "https://about.pogl.com/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "backboard--github-com",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "backboard.io (loaded 2026-10-29) describes Backboard as 'an AI compute efficiency lab' that licenses an inference-optimization engine. backboard.io/products/api still offers the Stateful API, covering native memory (Lite and Pro), RAG, state, routing across 17,000+ LLMs, and a Python/npm SDK. That page lists Free $0/month, Education $5, Developer $20 and Scale $400, which matches the row. backboard.io/research/memory reports LongMemEval 93.4% and LoCoMo 90.0%. The current desc is already correct. The row URL is the GitHub org, so a primary product URL is proposed.",
+  "lifecycle_citation": "https://backboard.io/products/api",
+  "updates": [],
+  "record": {
+   "url": "https://backboard.io/products/api"
+  }
+ },
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "platform.01.ai (international API platform, loaded 2026-10-29) shows the notice: 'We regret to inform you that our API services will be temporarily unavailable starting from August 25th due to business adjustments. To continue using our services, we invite you to register on our official Chinese website at https://platform.lingyiwanwu.com.' The page gives no year. platform.lingyiwanwu.com loads, titled '零一万物-大模型开放平台'. 01.ai leads with enterprise products: TrueNorth AI Decision Platform, Boss AI, Investor AI, TopSales AI and WorldWise.",
+  "lifecycle_citation": "https://platform.01.ai/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen. By 2026 01.AI's site leads with enterprise AI products (WorldWise Enterprise LLM Platform, 2025-03; Boss AI; TopSales AI) and lists Yi-Lightning (2024-10) as its latest Yi model.",
+    "new": "Kai-Fu Lee's 01.AI (founded 2023, Beijing). Yi family open-weights — Yi-34B (2023), Yi-Large (proprietary 2024), Yi-Lightning (2024-10, frontier-tier, matched GPT-4o on LMSYS chatbot arena). Apache 2.0 (Yi-34B and base sizes). Important second Chinese open-weights option alongside DeepSeek + Qwen. By 2026 01.AI's site leads with enterprise AI products (WorldWise Enterprise LLM Platform, 2025-03; Boss AI; TopSales AI) and lists Yi-Lightning (2024-10) as its latest Yi model. 01.AI's international API platform (platform.01.ai) is suspended: it says API services are temporarily unavailable from August 25 due to business adjustments and points users to the Chinese platform at platform.lingyiwanwu.com.",
+    "citation": "https://platform.01.ai/",
+    "confidence": "high"
+   },
+   {
+    "cell": "pricing",
+    "old": "API: Yi-Lightning $0.14 per 1M tokens (vendor-claimed lowest among frontier-tier); Yi-34B weights free under Apache 2.0",
+    "new": "API: Yi-Lightning $0.14 per 1M tokens (vendor-claimed lowest among frontier-tier); Yi-34B weights free under Apache 2.0 (international API at platform.01.ai suspended; API access now only via platform.lingyiwanwu.com)",
+    "citation": "https://platform.01.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "hyperproof-ai-trust-center--hyperproof-io",
+  "verified": true,
+  "lifecycle": "active",
+  "lifecycle_note": "hyperproof.io/trust-center/ returns 404 (2026-10-29) and the page sitemap has no trust-center product page. The hyperproof.io homepage lists 'Trust' as a platform capability: 'Build transparency and confidence with every stakeholder. Automate trust center operations and streamline security questionnaire responses with verified control data.' The standalone product page is gone, but the capability survives inside the Hyperproof GRC platform. Hyperproof's own public trust center is trust.hyperproof.io.",
+  "lifecycle_citation": "https://hyperproof.io/",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "Standalone trust-center + AI-questionnaire-fill product from Hyperproof. Listed separately because the trust-center category is a distinct sub-market (Vanta, Drata, Hyperproof, SafeBase, ConveyorAI compete). SafeBase acquired by Drata Mar-2025.",
+    "new": "Standalone trust-center + AI-questionnaire-fill product from Hyperproof. Listed separately because the trust-center category is a distinct sub-market (Vanta, Drata, Hyperproof, SafeBase, ConveyorAI compete). SafeBase acquired by Drata Mar-2025. As of Oct 2026 the standalone Trust Center page (hyperproof.io/trust-center) is gone; trust-center automation and security-questionnaire response are now presented as the Trust capability of the Hyperproof GRC platform.",
+    "citation": "https://hyperproof.io/",
+    "confidence": "high"
+   }
+  ],
+  "record": {
+   "url": "https://hyperproof.io/"
+  }
+ }
+]
