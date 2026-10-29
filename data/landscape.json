@@ -23203,28 +23203,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go,rest",
+          "citation": "https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server,openai-compatible,opentelemetry",
+          "citation": "https://theagentrouter.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://theagentrouter.ai/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -23962,31 +23962,31 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://theagentrouter.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://theagentrouter.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -28063,16 +28063,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/THUDM/AgentBench",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://raw.githubusercontent.com/THUDM/AgentBench/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -28822,18 +28822,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/THUDM/AgentBench",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/THUDM/AgentBench/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -31742,22 +31742,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "rust",
+          "citation": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/Cargo.toml",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "a2a,mcp-client,mcp-server,openai-compatible,opentelemetry",
+          "citation": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -32501,25 +32501,25 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/Cargo.toml",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -59700,16 +59700,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csa-star,fedramp,gdpr,hipaa",
+          "citation": "https://aws.amazon.com/bedrock/security-compliance/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csharp,go,java,kotlin,php,python,rest,ruby,rust,swift,typescript",
+          "citation": "https://docs.aws.amazon.com/bedrock/latest/userguide/sdk-general-information-section.html",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -60459,18 +60459,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://aws.amazon.com/bedrock/security-compliance/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/sdk-general-information-section.html",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -92452,16 +92452,16 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/arthur-observability-sdk/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "opentelemetry",
+          "citation": "https://raw.githubusercontent.com/arthur-ai/arthur-engine/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -93212,18 +93212,18 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/arthur-observability-sdk/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/arthur-ai/arthur-engine/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -100776,16 +100776,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csa-star,gdpr,hipaa,iso27001,iso27017,iso27018,pci-dss,soc2-type2",
+          "citation": "https://auth0.com/docs/secure/data-privacy-and-compliance",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://auth0.com/ai/docs/overview",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -100794,10 +100794,10 @@
           "tier": "T3"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://auth0.com/blog/auth0-for-ai-agents-generally-available/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -101535,18 +101535,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://auth0.com/docs/secure/data-privacy-and-compliance",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://auth0.com/ai/docs/overview",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -101556,11 +101556,11 @@
           "verified": false
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://auth0.com/blog/auth0-for-ai-agents-generally-available/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -111554,16 +111554,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "fedramp",
+          "citation": "https://learn.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "rest",
+          "citation": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/quickstart-jailbreak",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -111572,10 +111572,10 @@
           "tier": "T3"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -112313,18 +112313,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://learn.microsoft.com/en-us/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/quickstart-jailbreak",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -112334,10 +112334,10 @@
           "verified": false
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -129187,16 +129187,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/sierra-research/tau2-bench",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -129946,18 +129946,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/sierra-research/tau2-bench",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -131812,16 +131812,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/bfcl-eval/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -132571,18 +132571,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/bfcl-eval/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -136685,28 +136685,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa,iso27001",
+          "citation": "https://trust.getmaxim.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go,rest",
+          "citation": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,openai-compatible",
+          "citation": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -137444,31 +137444,31 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://trust.getmaxim.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/maximhq/bifrost/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -146338,16 +146338,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/openai/simple-evals",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -147097,17 +147097,17 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/openai/simple-evals",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -205016,28 +205016,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csa-star,gdpr,iso27001,iso27017,iso27018,iso27701,soc2-type2",
+          "citation": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "rest",
+          "citation": "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "openai-compatible,opentelemetry",
+          "citation": "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://blog.cloudflare.com/ai-gateway-is-generally-available/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -205775,32 +205775,32 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://developers.cloudflare.com/ai-gateway/usage/chat-completion/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://blog.cloudflare.com/ai-gateway-is-generally-available/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -206507,10 +206507,10 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csa-star,gdpr,iso27001,iso27017,iso27018,iso27701,soc2-type2",
+          "citation": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
           "value": "",
@@ -206519,10 +206519,10 @@
           "tier": "T3"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server",
+          "citation": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -207266,10 +207266,10 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
@@ -207280,10 +207280,10 @@
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "maturity": {
@@ -207998,16 +207998,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csa-star,gdpr,iso27001,iso27017,iso27018,iso27701,soc2-type2",
+          "citation": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://developers.cloudflare.com/workflows/python/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -208016,10 +208016,10 @@
           "tier": "T3"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://blog.cloudflare.com/workflows-ga-production-ready-durable-execution/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -208757,18 +208757,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.cloudflare.com/trust-hub/compliance-resources/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://developers.cloudflare.com/workflows/python/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -208778,11 +208778,11 @@
           "verified": false
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://blog.cloudflare.com/workflows-ga-production-ready-durable-execution/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -258037,10 +258037,10 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://pypi.org/project/crowdstrike-aidr/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -258797,10 +258797,10 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/crowdstrike-aidr/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -265611,28 +265611,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://raw.githubusercontent.com/dapr/dapr-agents/main/README.md",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/dapr-agents/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client",
+          "citation": "https://raw.githubusercontent.com/dapr/dapr-agents/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://docs.dapr.io/developing-ai/dapr-agents/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -266370,32 +266370,32 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/dapr/dapr-agents/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/dapr-agents/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/dapr/dapr-agents/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.dapr.io/developing-ai/dapr-agents/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -269361,28 +269361,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ccpa,csa-star,fedramp,gdpr,hipaa,iso27001,iso27017,iso27018,iso27701,iso42001,pci-dss,soc2-type1,soc2-type2",
+          "citation": "https://trust.datadoghq.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go,java,python,rest,typescript",
+          "citation": "https://docs.datadoghq.com/llm_observability/instrument/sdk/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "opentelemetry",
+          "citation": "https://docs.datadoghq.com/llm_observability/instrument/otel_instrumentation/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://www.datadoghq.com/about/latest-news/press-releases/datadog-llm-observability-is-now-generally-available-to-help-businesses-monitor-improve-and-secure-generative-ai-applications/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -270120,32 +270120,32 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://trust.datadoghq.com/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.datadoghq.com/llm_observability/instrument/sdk/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.datadoghq.com/llm_observability/instrument/otel_instrumentation/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.datadoghq.com/about/latest-news/press-releases/datadog-llm-observability-is-now-generally-available-to-help-businesses-monitor-improve-and-secure-generative-ai-applications/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -273231,16 +273231,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ccpa,gdpr,soc2-type2",
+          "citation": "https://www.dbos.dev/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go,java,python,rust,typescript",
+          "citation": "https://docs.dbos.dev/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -273249,10 +273249,10 @@
           "tier": "T3"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://pypi.org/project/dbos/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -273990,18 +273990,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.dbos.dev/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.dbos.dev/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -274011,10 +274011,10 @@
           "verified": false
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/dbos/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -281643,16 +281643,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csa-star,fedramp,gdpr,hipaa,iso27001,soc2-type2",
+          "citation": "https://www.descope.com/security-compliance",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://pypi.org/project/descope/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -282402,17 +282402,17 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.descope.com/security-compliance",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/descope/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -292715,28 +292715,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,iso27001,iso27701,soc2-type2",
+          "citation": "https://www.docker.com/trust/compliance/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go",
+          "citation": "https://raw.githubusercontent.com/docker/mcp-gateway/main/go.mod",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server",
+          "citation": "https://raw.githubusercontent.com/docker/mcp-gateway/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "beta",
+          "citation": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -293474,32 +293474,32 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.docker.com/trust/compliance/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/docker/mcp-gateway/main/go.mod",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/docker/mcp-gateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -361502,10 +361502,10 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://huggingface.co/gaia-benchmark",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
           "value": "",
@@ -362261,11 +362261,11 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/gaia-benchmark",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
           "generated_at": "2026-10-29",
@@ -387432,22 +387432,22 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "rust,typescript",
+          "citation": "https://learn.golem.cloud/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server,opentelemetry",
+          "citation": "https://golem.cloud/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "preview",
+          "citation": "https://golem.cloud/cloud/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -388192,25 +388192,25 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://learn.golem.cloud/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://golem.cloud/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://golem.cloud/cloud/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -392688,16 +392688,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "iso27001,iso27017,iso27018,pci-dss,soc3",
+          "citation": "https://cloud.google.com/security/compliance/services-in-scope",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csharp,go,java,php,python,rest,typescript",
+          "citation": "https://docs.cloud.google.com/model-armor/reference/libraries",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -393447,18 +393447,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://cloud.google.com/security/compliance/services-in-scope",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.cloud.google.com/model-armor/reference/libraries",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -409447,16 +409447,16 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "openai-compatible",
+          "citation": "https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -410207,18 +410207,18 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -422480,22 +422480,22 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go,python,ruby,typescript",
+          "citation": "https://docs.hatchet.run/v1",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "opentelemetry",
+          "citation": "https://hatchet.run/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://pypi.org/project/hatchet-sdk/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -423240,24 +423240,24 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.hatchet.run/v1",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://hatchet.run/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/hatchet-sdk/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -447615,22 +447615,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa,soc2-type2",
+          "citation": "https://www.honeyhive.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,rest,typescript",
+          "citation": "https://docs.honeyhive.ai/introduction/what-is-hhai",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "opentelemetry",
+          "citation": "https://www.honeyhive.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -448374,25 +448374,25 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.honeyhive.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.honeyhive.ai/introduction/what-is-hhai",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.honeyhive.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -467668,22 +467668,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/README.md",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/mcp-context-forge-gateway/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "a2a,mcp-client,mcp-server,openai-compatible,opentelemetry",
+          "citation": "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -468427,25 +468427,25 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/mcp-context-forge-gateway/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/IBM/mcp-context-forge/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -480343,28 +480343,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://inspect.aisi.org.uk/",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/inspect-ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client",
+          "citation": "https://inspect.aisi.org.uk/tools-mcp.html",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "beta",
+          "citation": "https://pypi.org/project/inspect-ai/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -481102,31 +481102,31 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://inspect.aisi.org.uk/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/inspect-ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://inspect.aisi.org.uk/tools-mcp.html",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/inspect-ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -485340,22 +485340,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/README.md",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/invariant-ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server",
+          "citation": "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -486099,24 +486099,24 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/invariant-ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/invariantlabs-ai/invariant/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "maturity": {
@@ -504819,16 +504819,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "soc2-type2",
+          "citation": "https://www.keycard.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://pypi.org/project/keycardai-mcp/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -505578,17 +505578,17 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.keycard.ai/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/keycardai-mcp/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -509742,10 +509742,10 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ccpa,csa-star,gdpr,iso27001,pci-dss,soc2-type2",
+          "citation": "https://trust.konghq.com/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
           "value": "",
@@ -509754,10 +509754,10 @@
           "tier": "T3"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "a2a,mcp-server,opentelemetry",
+          "citation": "https://developer.konghq.com/ai-gateway/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -510501,11 +510501,11 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://trust.konghq.com/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
           "generated_at": "2026-10-29",
@@ -510515,11 +510515,11 @@
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://developer.konghq.com/ai-gateway/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -519161,22 +519161,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "hipaa,soc2-type2",
+          "citation": "https://laminar.sh/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://pypi.org/project/lmnr/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-server,opentelemetry",
+          "citation": "https://raw.githubusercontent.com/lmnr-ai/lmnr/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -519920,25 +519920,25 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://laminar.sh/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/lmnr/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/lmnr-ai/lmnr/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -585332,10 +585332,10 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "soc2-type2",
+          "citation": "https://www.lunar.dev/security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
           "value": "",
@@ -585344,10 +585344,10 @@
           "tier": "T3"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server",
+          "citation": "https://raw.githubusercontent.com/TheLunarCompany/lunar/main/mcpx/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -586091,11 +586091,11 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.lunar.dev/security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
           "generated_at": "2026-10-29",
@@ -586105,11 +586105,11 @@
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/TheLunarCompany/lunar/main/mcpx/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -699710,10 +699710,10 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ccpa,gdpr,hipaa,iso27001,soc2-type2",
+          "citation": "https://www.merge.dev/security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
           "value": "",
@@ -699722,10 +699722,10 @@
           "tier": "T3"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-server",
+          "citation": "https://www.merge.dev/merge-agent-handler",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -700469,11 +700469,11 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.merge.dev/security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
           "generated_at": "2026-10-29",
@@ -700483,11 +700483,11 @@
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.merge.dev/merge-agent-handler",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -703552,16 +703552,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/README.md",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/llamafirewall/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -704311,18 +704311,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/llamafirewall/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -718396,22 +718396,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/microsoft/mcp-gateway",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csharp",
+          "citation": "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server",
+          "citation": "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -719155,24 +719155,24 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/microsoft/mcp-gateway",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/microsoft/mcp-gateway/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "maturity": {
@@ -724516,16 +724516,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/OSU-NLP-Group/Mind2Web",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://raw.githubusercontent.com/OSU-NLP-Group/Mind2Web/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -725275,18 +725275,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/OSU-NLP-Group/Mind2Web",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/OSU-NLP-Group/Mind2Web/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -756792,22 +756792,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa,soc2-type2",
+          "citation": "https://nango.dev/docs/guides/platform/security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,rest,typescript",
+          "citation": "https://nango.dev/docs/getting-started/intro-to-nango",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-server,opentelemetry",
+          "citation": "https://nango.dev/docs/getting-started/intro-to-nango",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -757551,25 +757551,25 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://nango.dev/docs/guides/platform/security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://nango.dev/docs/getting-started/intro-to-nango",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://nango.dev/docs/getting-started/intro-to-nango",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -781363,28 +781363,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/nemoguardrails/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "openai-compatible,opentelemetry",
+          "citation": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "beta",
+          "citation": "https://pypi.org/project/nemoguardrails/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -782122,31 +782122,31 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/nemoguardrails/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/nemoguardrails/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -788550,16 +788550,16 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go",
+          "citation": "https://raw.githubusercontent.com/obot-platform/obot/main/go.mod",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-client,mcp-server",
+          "citation": "https://raw.githubusercontent.com/obot-platform/obot/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -789310,18 +789310,18 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/obot-platform/obot/main/go.mod",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/obot-platform/obot/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -793542,10 +793542,10 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "go,rest",
+          "citation": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -793554,10 +793554,10 @@
           "tier": "T3"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "preview",
+          "citation": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -794302,10 +794302,10 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -794316,11 +794316,11 @@
           "verified": false
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -811072,16 +811072,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/openai/evals",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://raw.githubusercontent.com/openai/evals/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -811831,18 +811831,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/openai/evals",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/openai/evals/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -848791,16 +848791,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa,soc2-type2",
+          "citation": "https://www.useparagon.com/security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "rest",
+          "citation": "https://docs.useparagon.com/actionkit/overview",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -849550,18 +849550,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.useparagon.com/security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://docs.useparagon.com/actionkit/overview",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -873643,22 +873643,22 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,soc2-type2",
+          "citation": "https://pipedream.com/docs/privacy-and-security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "java,python,rest,typescript",
+          "citation": "https://pipedream.com/docs/connect/api-reference/sdks",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-server",
+          "citation": "https://pipedream.com/docs/connect",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -874402,25 +874402,25 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pipedream.com/docs/privacy-and-security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pipedream.com/docs/connect/api-reference/sdks",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pipedream.com/docs/connect",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
           "generated_at": "2026-10-29",
@@ -884149,16 +884149,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://presidio.dataprivacystack.org/",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/presidio-analyzer/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -884908,18 +884908,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://presidio.dataprivacystack.org/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/presidio-analyzer/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -899613,28 +899613,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa,soc2-type2",
+          "citation": "https://pydantic.dev/docs/logfire/deploy/compliance/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,rust,typescript",
+          "citation": "https://pydantic.dev/logfire",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "mcp-server,opentelemetry",
+          "citation": "https://pydantic.dev/logfire",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://pypi.org/project/logfire/",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -900372,31 +900372,31 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pydantic.dev/docs/logfire/deploy/compliance/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pydantic.dev/logfire",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pydantic.dev/logfire",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/logfire/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         }
       }
@@ -901104,16 +901104,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://microsoft.github.io/PyRIT/",
+          "status": "not-applicable",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/pyrit/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -901863,18 +901863,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://microsoft.github.io/PyRIT/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/pyrit/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -1028936,10 +1028936,10 @@
           "tier": "T3"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,rest,typescript",
+          "citation": "https://www.npmjs.com/package/@smithery/api",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -1029696,10 +1029696,10 @@
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.npmjs.com/package/@smithery/api",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -1067118,16 +1067118,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "iso27001,pci-dss",
+          "citation": "https://stytch.com/docs/resources/policies/security-and-trust/compliance/overview.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python,typescript",
+          "citation": "https://pypi.org/project/stytch/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -1067877,17 +1067877,17 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://stytch.com/docs/resources/policies/security-and-trust/compliance/overview.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://pypi.org/project/stytch/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "protocol-support": {
@@ -1076803,16 +1076803,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/SWE-bench/SWE-bench",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://pypi.org/project/swebench/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -1077562,18 +1077562,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/SWE-bench/SWE-bench",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://pypi.org/project/swebench/",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -1093420,16 +1093420,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "not applicable — no hosted service",
+          "citation": "https://github.com/laude-institute/terminal-bench",
+          "status": "not-applicable",
+          "tier": "T1"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "python",
+          "citation": "https://raw.githubusercontent.com/laude-institute/terminal-bench/main/README.md",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -1094179,18 +1094179,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/laude-institute/terminal-bench",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://raw.githubusercontent.com/laude-institute/terminal-bench/main/README.md",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
@@ -1125048,10 +1125048,10 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa",
+          "citation": "https://www.truefoundry.com/ai-gateway",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
           "value": "",
@@ -1125060,10 +1125060,10 @@
           "tier": "T3"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "a2a,mcp-client,mcp-server",
+          "citation": "https://www.truefoundry.com/ai-gateway",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
           "value": "",
@@ -1125807,10 +1125807,10 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.truefoundry.com/ai-gateway",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "sdk-languages": {
@@ -1125821,10 +1125821,10 @@
           "verified": false
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
+          "scrape_url": "https://www.truefoundry.com/ai-gateway",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
           "verified": false
         },
         "maturity": {
@@ -1145844,28 +1145844,28 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "gdpr,hipaa,iso27001,pci-dss,soc2-type2",
+          "citation": "https://vercel.com/security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "rest,typescript",
+          "citation": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "openai-compatible",
+          "citation": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+          "status": "real-data",
+          "tier": "T2"
         },
         "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ga",
+          "citation": "https://vercel.com/blog/ai-gateway-is-now-generally-available",
+          "status": "real-data",
+          "tier": "T2"
         }
       },
       "_provenance": {
@@ -1146603,32 +1146603,32 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://vercel.com/security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "maturity": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://vercel.com/blog/ai-gateway-is-now-generally-available",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         }
       }
     },
@@ -1170274,16 +1170274,16 @@
           "tier": "T2"
         },
         "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "ccpa,gdpr,hipaa,soc2-type2",
+          "citation": "https://workos.com/security",
+          "status": "real-data",
+          "tier": "T2"
         },
         "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
+          "value": "csharp,elixir,go,java,kotlin,php,python,rest,ruby,rust,typescript",
+          "citation": "https://workos.com/docs/sdks",
+          "status": "real-data",
+          "tier": "T2"
         },
         "protocol-support": {
           "value": "",
@@ -1171033,18 +1171033,18 @@
           "verified": true
         },
         "compliance-certifications": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://workos.com/security",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "sdk-languages": {
-          "generated_at": "2026-10-29",
-          "model_id": "claude-opus-4-7",
-          "note": "no-data",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://workos.com/docs/sdks",
+          "scraped_at": "2026-10-29",
+          "script": "scripts/apply_v1_1_research.py",
+          "source": "scrape",
+          "verified": true
         },
         "protocol-support": {
           "generated_at": "2026-10-29",
