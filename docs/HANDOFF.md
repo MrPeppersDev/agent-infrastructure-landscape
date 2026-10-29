@@ -30,7 +30,7 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 - **Blocked:** #128 needs `ANTHROPIC_API_KEY`, and #129 / #132 wait on #128.
 
 - **Stack builder program (2026-10-29, maintainer-approved):** the whole-stack composer is live: `/build`, MCP `plan_stack`, CLI `landscape stack` and `stack.yml` checking (DECISIONS.md, 2026-10-29). Still in progress, in order:
-  1. Integration edges from official integration pages (`extraction/integrations/`).
+  1. ~~Integration edges~~ done: 1,396 edges from 53 hubs' official integration pages (`extraction/integrations/REPORT.md`). Add a hub by dropping another JSON file there.
   2. New sections plus intake for guardrails, agent identity and auth, MCP gateways and registries, and durable execution.
   3. Buyer cells: compliance, SDK languages, protocols and maturity.
   4. Whole-stack pricing.
