@@ -19,6 +19,7 @@
   // research views) lives under one "Research" menu so the bar stays
   // readable on a laptop.
   const routes = [
+    { path: '/build', label: 'Build a stack' },
     { path: '/choose', label: 'Choose' },
     { path: '/check', label: 'Check stack' },
     { path: '/alternatives', label: 'Alternatives' },

@@ -14,8 +14,10 @@
 //   MCP client config JSON   mcpServers.*: npx / uvx / pipx / docker args
 //                            (Claude Desktop, Claude Code .mcp.json, Cursor)
 //   plain list               one package per line, optional npm:/pypi: prefix
+//   stack.yml                `components:` → `layer: record-id` lines, as
+//                            written by the stack composer (composer.ts)
 
-export type Ecosystem = 'npm' | 'pypi' | 'docker' | 'git' | 'unknown';
+export type Ecosystem = 'npm' | 'pypi' | 'docker' | 'git' | 'record' | 'unknown';
 
 export interface Dependency {
   ecosystem: Ecosystem;
@@ -271,7 +273,26 @@ function parsePlainList(text: string): Dependency[] {
   return out;
 }
 
-export type ManifestFormat = 'package.json' | 'requirements.txt' | 'pyproject.toml' | 'mcp-config' | 'list';
+/** A stack file from the composer: catalog record ids under `components:`.
+ * Only that block is read; everything else in the file is ignored. */
+function parseStackFile(text: string): Dependency[] {
+  const out: Dependency[] = [];
+  let inComponents = false;
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.replace(/\s+#.*$/, '');
+    if (!line.trim() || line.trim().startsWith('#')) continue;
+    if (/^\S/.test(line)) {
+      inComponents = /^components:\s*$/.test(line);
+      continue;
+    }
+    if (!inComponents) continue;
+    const m = line.match(/^\s+([\w-]+):\s*([\w.-]+)\s*$/);
+    if (m) out.push({ ecosystem: 'record', name: m[2], source: `components.${m[1]}` });
+  }
+  return out;
+}
+
+export type ManifestFormat = 'package.json' | 'requirements.txt' | 'pyproject.toml' | 'mcp-config' | 'stack.yml' | 'list';
 
 export function parseManifest(text: string, opts: { filename?: string; format?: ManifestFormat } = {}): {
   format: ManifestFormat;
@@ -293,6 +314,7 @@ export function parseManifest(text: string, opts: { filename?: string; format?: 
   if (!format) {
     if (json && (json.mcpServers || (json.mcp as Record<string, unknown> | undefined)?.servers || json.servers)) format = 'mcp-config';
     else if (json) format = 'package.json';
+    else if (/(^|\/)stack\.ya?ml$/.test(fname) || (/^components:\s*$/m.test(text) && /^version:\s*1\s*$/m.test(text))) format = 'stack.yml';
     else if (fname.endsWith('.toml') || /^\s*\[(project|tool\.poetry|build-system)/m.test(text)) format = 'pyproject.toml';
     else if (fname.includes('requirements') || /^[A-Za-z0-9._-]+(\[[^\]]*\])?\s*(==|>=|<=|~=|!=|<|>)/m.test(text)) format = 'requirements.txt';
     else format = 'list';
@@ -302,6 +324,7 @@ export function parseManifest(text: string, opts: { filename?: string; format?: 
   else if (format === 'package.json' && json) deps = parsePackageJson(json);
   else if (format === 'pyproject.toml') deps = parsePyproject(text);
   else if (format === 'requirements.txt') deps = parseRequirements(text);
+  else if (format === 'stack.yml') deps = parseStackFile(text);
   else deps = parsePlainList(text);
   // de-duplicate on ecosystem + name
   const seen = new Set<string>();
@@ -320,6 +343,7 @@ export function parseManifest(text: string, opts: { filename?: string; format?: 
 
 function lookup(dep: Dependency, index: StackIndex): { id: string; by: string } | null {
   const tryKey = (k: string, by: string) => (index.packages[k] ? { id: index.packages[k], by } : null);
+  if (dep.ecosystem === 'record') return index.records[dep.name] ? { id: dep.name, by: 'record id' } : null;
   if (dep.ecosystem === 'git') {
     const rk = repoKey(dep.name);
     return rk && index.repos[rk] ? { id: index.repos[rk], by: `github:${rk}` } : null;

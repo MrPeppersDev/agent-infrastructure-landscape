@@ -37,8 +37,8 @@ export interface Need {
   exclude?: RegExp;
 }
 
-const FW_SECTIONS = ['Agent frameworks (no first-party memory layer)', 'Multi-agent orchestration platforms'];
-const NOT_A_FRAMEWORK = /protocol|\bMCP\b|coding (agent|assistant)|VS Code|SWE agent|spec-to-codebase|durable|workflow|long-running|jobs|event-driven|OAuth|tools? ?\/ ?auth|tool\/auth|computer[- ]use|research lab|foundation lab|fine-tuning|\(origin\)|no-code|low-code|web-agent|browser-agent/i;
+export const FW_SECTIONS = ['Agent frameworks (no first-party memory layer)', 'Multi-agent orchestration platforms'];
+export const NOT_A_FRAMEWORK = /protocol|\bMCP\b|coding (agent|assistant)|VS Code|SWE agent|spec-to-codebase|durable|workflow|long-running|jobs|event-driven|OAuth|tools? ?\/ ?auth|tool\/auth|computer[- ]use|research lab|foundation lab|fine-tuning|\(origin\)|no-code|low-code|web-agent|browser-agent/i;
 
 export const NEEDS: Record<InfraKind, Need[]> = {
   framework: [
@@ -103,24 +103,40 @@ export function inNeed(i: ChooserItem, need: Need): boolean {
   return true;
 }
 
+/** Why a system was ruled out: the requirement it fails and the cited
+ * fact that shows it. */
+export interface Exclusion {
+  excluded: string;
+  fact: Fact | null;
+}
+
 export function scoreInfra(item: ChooserItem, a: InfraAnswers): Scored | 'excluded' {
-  if (item.status.severity >= 3) return 'excluded';
+  const r = scoreInfraDetailed(item, a);
+  return 'excluded' in r ? 'excluded' : r;
+}
+
+export function scoreInfraDetailed(item: ChooserItem, a: InfraAnswers): Scored | Exclusion {
+  if (item.status.severity >= 3) return { excluded: `${item.status.status}${item.status.note ? ' — ' + item.status.note : ''}`, fact: null };
   const reasons: Reason[] = [];
   const unconfirmed: string[] = [];
+  let failed: Exclusion | null = null;
   const req = (want: boolean, have: Tri, label: string, f: Fact) => {
     if (!want) return true;
-    if (have === 'no') return false;
+    if (have === 'no') {
+      failed = { excluded: `not ${label.toLowerCase()}`, fact: f.value ? f : null };
+      return false;
+    }
     if (have === 'unknown') unconfirmed.push(label);
     else reasons.push({ text: `${label}: ${f.value || 'yes'}`, citation: f.citation });
     return true;
   };
   const lang = languageTri(item, a.language);
   const langLabel = a.language === 'python' ? 'Python SDK' : 'TypeScript / JavaScript SDK';
-  if (!req(a.language !== 'any', lang.tri, langLabel, lang.fact)) return 'excluded';
-  if (!req(a.hosting === 'self', item.selfHost, 'Self-hostable', item.facts.deployment.value ? item.facts.deployment : item.facts.license)) return 'excluded';
-  if (!req(a.hosting === 'managed', item.managed, 'Managed service', item.facts.deployment)) return 'excluded';
-  if (!req(a.oss, item.oss, 'Open source', item.facts.license)) return 'excluded';
-  if (!req(a.mcp, item.mcp, 'MCP', item.facts.mcp)) return 'excluded';
+  if (!req(a.language !== 'any', lang.tri, langLabel, lang.fact)) return failed!;
+  if (!req(a.hosting === 'self', item.selfHost, 'Self-hostable', item.facts.deployment.value ? item.facts.deployment : item.facts.license)) return failed!;
+  if (!req(a.hosting === 'managed', item.managed, 'Managed service', item.facts.deployment)) return failed!;
+  if (!req(a.oss, item.oss, 'Open source', item.facts.license)) return failed!;
+  if (!req(a.mcp, item.mcp, 'MCP', item.facts.mcp)) return failed!;
 
   let s = ({ 1: 3, 2: 2, 3: 1 } as Record<number, number>)[item.tier] ?? 0;
   if (a.kind === 'data' && a.existing) {

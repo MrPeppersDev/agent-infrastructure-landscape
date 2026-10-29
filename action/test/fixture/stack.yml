@@ -1,0 +1,6 @@
+# Fixture for the action self-test: a composer stack file.
+version: 1
+product: support-agent
+components:
+  memory: mem0--mem0-ai  # Mem0
+  framework: autogen-memory--microsoft-github-io  # flagged in the index

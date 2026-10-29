@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // landscape — CLI for the AI agent infrastructure landscape catalog.
 //
-// 9 read-only subcommands mirroring the MCP server in ../mcp. The query
+// Read-only subcommands mirroring the MCP server in ../mcp. The query
 // layer is imported directly from mcp/dist/tools.js so there is exactly
 // one source of truth for catalog logic.
 //
@@ -44,6 +44,9 @@ import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
 import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
 import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
+import { planStack, slimPlan, PRODUCTS, LAYERS } from '../../mcp/dist/composer.js';
+import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
+import { writeFileSync } from 'node:fs';
 import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
 import { readFileSync } from 'node:fs';
 import type { EdgeType } from '../../mcp/dist/tools.js';
@@ -256,6 +259,51 @@ program
     if (!r.picks.length) lines.push('No catalogued system confirms all of those must-haves.');
     if (r.alsoConsider.length) lines.push('', `also consider: ${r.alsoConsider.map((x) => x.item.name).join(', ')}`);
     if (r.unconfirmed.length) lines.push(`might fit (unconfirmed): ${r.unconfirmed.map((x) => x.item.name).join(', ')}`);
+    emit(lines.join('\n'));
+  });
+
+program
+  .command('stack')
+  .description('Plan a whole agent stack: one cited pick per layer, why-not for runners-up, exit paths, integrations, risk score, OWASP LLM Top 10 coverage, eval plan and a stack.yml.')
+  .argument('[product]', `${Object.keys(PRODUCTS).join(' | ')} (default support-agent)`)
+  .option('--language <l>', 'python | typescript | any', 'any')
+  .option('--hosting <h>', 'self | managed | any', 'any')
+  .option('--oss', 'require open-source licences')
+  .option('--mcp', 'require MCP support where it applies')
+  .option('--add <layers>', `extra layers, comma-separated (${LAYERS.map((l) => l.id).join(', ')})`)
+  .option('--avoid <ids>', 'record ids never to pick, comma-separated')
+  .option('--pin <pairs>', 'layer=record-id pairs, comma-separated')
+  .option('-o, --out <file>', 'also write the stack.yml to this file')
+  .option('--json', 'emit JSON')
+  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; out?: string }, cmd: Command) => {
+    const p = (product ?? 'support-agent') as ProductType;
+    if (!(p in PRODUCTS)) die(`product must be one of ${Object.keys(PRODUCTS).join(', ')}`);
+    const list = (v?: string) => (v ? v.split(',').map((x) => x.trim()).filter(Boolean) : undefined);
+    const moved = loadRedirects();
+    const a: StackAnswers = {
+      product: p, language: o.language as StackAnswers['language'], hosting: o.hosting as StackAnswers['hosting'], oss: !!o.oss, mcp: !!o.mcp,
+      add: list(o.add) as LayerId[] | undefined,
+      avoid: list(o.avoid)?.map((i) => moved[i] ?? i),
+      pin: o.pin ? Object.fromEntries(list(o.pin)!.map((kv) => kv.split('=')).map(([k, v]) => [k, moved[v] ?? v])) : undefined
+    };
+    setAliases(loadSystemAliases());
+    const plan = planStack({ items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never }, a);
+    if (o.out) writeFileSync(o.out, plan.stackYaml);
+    if (globalOpts(cmd).json) return emit(JSON.stringify(slimPlan(plan), null, 2));
+    const lines: string[] = [`${plan.product} — risk ${plan.risk.level} (${plan.risk.score})`, ''];
+    for (const l of plan.layers) {
+      const pk = l.pick;
+      lines.push(`${l.label}: ${pk ? pk.item.name : '— nothing in the catalog meets the requirements'}${pk?.warning ? '  ⚠ ' + pk.warning : ''}${l.pickUnconfirmed ? '  (unconfirmed)' : ''}`);
+      for (const x of pk?.reasons.slice(0, 4) ?? []) lines.push(`     · ${x.text}${x.citation ? '  ' + x.citation : ''}`);
+      for (const w of l.whyNot.slice(0, 3)) lines.push(`     not ${w.name}: ${w.because.map((b) => b.text).join('; ')}`);
+      if (l.exit?.fallback) lines.push(`     exit: self-host ${l.exit.selfHost.tri}, open source ${l.exit.openSource.tri}; fallback ${l.exit.fallback.name}`);
+    }
+    lines.push('', 'Risk factors:');
+    for (const f of plan.risk.factors) lines.push(`  +${f.points}  ${f.detail}`);
+    lines.push('', `Security (OWASP LLM Top 10, ${plan.security.source}):`);
+    for (const s of plan.security.items) lines.push(`  ${s.id} ${s.risk}: ${s.status}${s.by.length ? ' — ' + s.by.join(', ') : ''}${s.status !== 'addressed' ? ' — ' + s.note : ''}`);
+    if (plan.evals.benchmarks.length) lines.push('', `Benchmarks to run: ${plan.evals.benchmarks.map((b) => b.name).join(', ')}`);
+    lines.push('', o.out ? `stack.yml written to ${o.out}` : plan.stackYaml);
     emit(lines.join('\n'));
   });
 

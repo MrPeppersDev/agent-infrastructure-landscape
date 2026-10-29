@@ -223,11 +223,10 @@ def main() -> int:
                         sources[k] = "repo-name"
             break
 
-    used = set(packages.values()) | set(repos.values())
+    # Every record gets a lifecycle entry, not only those with a package or
+    # repo: stack files (composer.ts → stack.yml) name records by id.
     records = {}
     for r in recs:
-        if r["id"] not in used:
-            continue
         sec = next((s["section"] for s in r["sections"] if s.get("primary")), r["sections"][0]["section"])
         lc = lifecycle(r, today)
         lock = cell(r, "llm-lock")

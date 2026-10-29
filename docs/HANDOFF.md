@@ -29,6 +29,14 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 - **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. All four steps are done: the schema and gate 8, the OpenDigger fetcher, the derived backfill with the #166 facets and MCP filters, and the research backfill. Locus is filled on 546 of 695 product rows, positioning on 629, and the YC accelerator on 60 (`extraction/v1.1-backfill/REPORT.md`). Lifecycle leads re-verified 2026-10-29 (`extraction/reverify-2026-10-29/REPORT.md`, retries in `reverify-2026-10-29b/`); open-core estimates reviewed and wrong-section rows handled (`extraction/fixes-2026-10-29/REPORT.md`); 95 more locus/positioning cells filled with a headless browser (`extraction/gaps-2026-10-29/REPORT.md`). Next: (1) mark Hume EVI and Vellum dead after their shutdown dates (2026-11-13, 2026-11-02; a check-in is scheduled for 2026-11-14); (2) the gaps-report leads are done (`extraction/reverify-2026-10-29c/REPORT.md`); still open there: Adept (bot wall) and Cellon (no primary page left, removal candidate); (3) non-YC accelerators backfilled on 50 rows (`extraction/accelerators-2026-10-29/REPORT.md`); Plug and Play and the SPC/Neo/Pear near-misses need a visible primary statement before they count. Anthropic Auto Dream and Pluto AI were removed (`extraction/removals-2026-10-29/`). Locally, svelte-check needs `NODE_OPTIONS=--max-old-space-size=6144`.
 - **Blocked:** #128 needs `ANTHROPIC_API_KEY`, and #129 / #132 wait on #128.
 
+- **Stack builder program (2026-10-29, maintainer-approved):** the whole-stack composer is live: `/build`, MCP `plan_stack`, CLI `landscape stack` and `stack.yml` checking (DECISIONS.md, 2026-10-29). Still in progress, in order:
+  1. Integration edges from official integration pages (`extraction/integrations/`).
+  2. New sections plus intake for guardrails, agent identity and auth, MCP gateways and registries, and durable execution.
+  3. Buyer cells: compliance, SDK languages, protocols and maturity.
+  4. Whole-stack pricing.
+  5. Reference blueprints and scaffolds.
+  6. Per-stack feed and "we use this stack" submissions.
+
 ## 3. Things that need the maintainer
 
 These need a human. List them back to the maintainer, with links, if they're still open.
