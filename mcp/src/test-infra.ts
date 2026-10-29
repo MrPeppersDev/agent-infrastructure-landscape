@@ -85,7 +85,10 @@ console.log('compat');
 {
   const links = allLinks(L.records, E);
   const deg = new Map<string, number>();
-  for (const l of links) if (l.status === 'documented') for (const x of [l.a, l.b]) deg.set(x, (deg.get(x) ?? 0) + 1);
+  // Alias noise shows up in cell mentions; hubs with many curated
+  // integration edges (extraction/integrations/) are legitimately busy.
+  const byAlias = (l: (typeof links)[number]) => l.status === 'documented' && !l.evidence.some((e) => e.kind === 'edge');
+  for (const l of links) if (byAlias(l)) for (const x of [l.a, l.b]) deg.set(x, (deg.get(x) ?? 0) + 1);
   const name = new Map(L.records.map((r: { id: string; name: string }) => [r.id, r.name]));
   const noisy = [...deg].filter(([id, n]) => n > 30 && !/Claude|GPT|Model Context Protocol|Claude Code/.test(String(name.get(id))));
   check('no system over-matched by a generic alias', noisy.length === 0, noisy.map(([id, n]) => `${name.get(id)}:${n}`).join(', '));
