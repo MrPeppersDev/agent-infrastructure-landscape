@@ -6,12 +6,16 @@
 // prerender the page shell so the route is reachable as
 // /analyses/co-citation/index.html via adapter-static.
 
-import { getEdges, getRecords } from '$lib/data';
+import { getEdges } from '$lib/data';
+import { slimRecords } from '$lib/slim';
 
 export const prerender = true;
+
+// Only the cells this page reads (#324). The list is every cell slug the page
+// and the modules it imports name; add a slug here before reading a new one.
 export const ssr = false;
 
 export const load = () => ({
-  records: getRecords(),
+  records: slimRecords(['citations', 'funding', 'gh', 'integration-count', 'mindshare']),
   edges: getEdges()
 });
