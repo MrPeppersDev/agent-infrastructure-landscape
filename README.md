@@ -74,7 +74,20 @@ Full schema: [`docs/SCHEMA.md`](docs/SCHEMA.md). Claims are vendor-stated unless
 | External-landscape diff | monthly | Diffs against [Agentic Community](https://github.com/agentic-community/agentic-landscape) and other landscapes and files candidate batches |
 | Staleness / release / price watch | daily | Flags abandoned repos, new model releases and vendor price changes |
 
-Every change lands as a reviewable PR. Nothing auto-merges. The maintenance contract (scope, freshness SLA, succession) is in [`MAINTAINER.md`](./MAINTAINER.md).
+**How changes land.** Every change goes through a pull request. Nothing is written to `main` directly, and no workflow merges its own output.
+
+The gate is CI:
+- the eight `make validate` gates, including the JSON → HTML → JSON round-trip and the enum checks;
+- the contradiction lint;
+- type-checking;
+- the full site build with link and JSON-LD validation;
+- a per-page JS budget;
+- a browser smoke test;
+- the MCP server, worker and Action tests.
+
+Agent sessions working for the maintainer merge their own PRs once CI is green ([`CLAUDE.md`](./CLAUDE.md)). The maintainer reviews after the fact, and the PR history is the audit trail. Bot output (the draft PRs and branches from the audit, intake and correction workflows) is merged only after a maintainer or one of those sessions has checked it against its sources.
+
+The maintenance contract (scope, freshness SLA, succession) is in [`MAINTAINER.md`](./MAINTAINER.md), §"Merge policy".
 
 ## Contributing
 
