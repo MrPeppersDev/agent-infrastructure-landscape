@@ -19,6 +19,7 @@ import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '
 import { alternativesFor } from '../../mcp/src/chooser.js';
 import { attentionIds } from '../../mcp/src/stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers } from '../../mcp/src/composer.js';
+import type { StackPricing } from '../../mcp/src/stack-costs.js';
 
 export type Loader = (file: string) => Promise<unknown>;
 const SITE = 'https://mrpeppersdev.github.io/agent-infrastructure-landscape';
@@ -36,6 +37,7 @@ interface Data {
   history: Record<string, unknown[]>;
   pricing: { checked: string; vendors: VendorPricing[] };
   vectorPricing: { checked: string; vendors: VectorPricing[] };
+  stackPricing: StackPricing;
   redirects: Record<string, string>;
   search?: SearchIndex;
   replacements?: Record<string, { id: string; name: string; why: string[] }[]>;
@@ -122,7 +124,8 @@ export const TOOLS = [
       add: { type: 'array', items: S.enum(LAYERS.map((l) => l.id), 'layer'), description: 'extra layers, e.g. ["voice"]' },
       avoid: { type: 'array', items: S.str('record id'), description: 'record ids never to pick' },
       pin: { type: 'object', additionalProperties: S.str('record id'), description: 'layer → record id' },
-      compliance: { type: 'array', items: S.str('attestation code, e.g. soc2-type2, hipaa, iso27001'), description: 'attestations every hosted service must publish' }
+      compliance: { type: 'array', items: S.str('attestation code, e.g. soc2-type2, hipaa, iso27001'), description: 'attestations every hosted service must publish' },
+      workload: { type: 'object', description: 'cost-estimate workload: runsPerDay, llmCallsPerRun, inputTokensPerCall, outputTokensPerCall, toolCallsPerRun, users, sandboxMinutesPerRun, browserMinutesPerRun, voiceMinutesPerRun, vectors (all numbers, all optional)' }
     } }
   }
 ];
@@ -133,19 +136,20 @@ export function createHandler(load: Loader) {
   let dataP: Promise<Data> | null = null;
   const getData = () =>
     (dataP ??= (async () => {
-      const [L, E, I, F, M, H, A, P, V] = await Promise.all([
+      const [L, E, I, F, M, H, A, P, V, SP] = await Promise.all([
         load('landscape.json'), load('landscape.edges.json'), load('stack-index.json'), load('families.json'),
         load('migrations.json').catch(() => ({ notes: [] })), load('history.json').catch(() => ({ records: {} })),
         load('system-aliases.json').catch(() => ({ aliases: {} })), load('pricing-memory.json').catch(() => ({ checked: '', vendors: [] })),
-        load('pricing-vector.json').catch(() => ({ checked: '', vendors: [] }))
-      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }, { checked: string; vendors: VectorPricing[] }];
+        load('pricing-vector.json').catch(() => ({ checked: '', vendors: [] })),
+        load('pricing-stack.json').catch(() => ({ checked: '', models: [], metered: [] }))
+      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }, { checked: string; vendors: VectorPricing[] }, StackPricing];
       const fam = new Map<string, string>();
       for (const f of F.families) for (const s of f.sections) fam.set(s, f.id);
       setAliases(A.aliases);
       const items = L.records.map((r) => toItem(r as never, I.records[r.id] as never));
       return {
         records: L.records, edges: E.edges, index: I, famOf: (s: string) => fam.get(s) ?? 'other', items,
-        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, vectorPricing: V, redirects: A.redirects ?? {}
+        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, vectorPricing: V, stackPricing: SP, redirects: A.redirects ?? {}
       };
     })().catch((e) => {
       dataP = null;
@@ -201,8 +205,11 @@ export function createHandler(load: Loader) {
         return { id: r.id, name: r.name, url: r.url, section: r.sections.find((s) => s.primary)?.section, tier: r.tier, last_verified_at: r.last_verified_at ?? null, lifecycle: d.index.records[r.id] ?? { status: 'active' }, migration: d.migrations.get(r.id) ?? null, history: d.history[r.id] ?? [], taxonomy: r.taxonomy, cells, page: `${SITE}/systems/${r.id}` };
       }
       case 'plan_stack': {
-        const plan = planStack({ items: d.items, records: d.records as never, edges: d.edges as never, migrations: d.migrations as never }, a as unknown as StackAnswers);
-        return slimPlan(plan, (id) => `${SITE}/systems/${id}`);
+        const plan = planStack(
+          { items: d.items, records: d.records as never, edges: d.edges as never, migrations: d.migrations as never, pricing: { stack: d.stackPricing, memory: d.pricing, vector: d.vectorPricing } },
+          a as unknown as StackAnswers
+        );
+        return slimPlan(plan, SITE);
       }
       case 'estimate_memory_cost': {
         const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(a).filter(([, v]) => typeof v === 'number')) };

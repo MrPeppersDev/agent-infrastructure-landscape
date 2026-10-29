@@ -225,6 +225,13 @@ export function loadPricing(): { checked: string; vendors: unknown[] } {
   return { checked: '', vendors: [] };
 }
 
+export function loadStackPricing(): { checked: string; models: unknown[]; metered: unknown[] } {
+  for (const p of [join(DATA_DIR, 'pricing-stack.json'), join(DATA_DIR, 'pricing', 'stack.json')]) {
+    if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8'));
+  }
+  return { checked: '', models: [], metered: [] };
+}
+
 export function loadVectorPricing(): { checked: string; vendors: unknown[] } {
   for (const p of [join(DATA_DIR, 'pricing-vector.json'), join(DATA_DIR, 'pricing', 'vector.json')]) {
     if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf-8'));

@@ -7,6 +7,9 @@ import { LAYERS } from '../../../../mcp/src/composer';
 import { INTEGRATION_CELLS } from '../../../../mcp/src/compat';
 import stackIndex from '../../../../data/stack-index.json';
 import migrations from '../../../../data/migrations.json';
+import stackPricing from '../../../../data/pricing/stack.json';
+import memoryPricing from '../../../../data/pricing/memory.json';
+import vectorPricing from '../../../../data/pricing/vector.json';
 
 export const prerender = true;
 
@@ -39,5 +42,5 @@ export const load = () => {
   const notes = (migrations as unknown as { notes: { id: string; summary: string; sources: string[] }[] }).notes
     .filter((n) => ids.has(n.id))
     .map(({ id, summary, sources }) => ({ id, summary, sources }));
-  return { items, records, edges, migrations: notes };
+  return { items, records, edges, migrations: notes, pricing: { stack: stackPricing, memory: memoryPricing, vector: vectorPricing } };
 };

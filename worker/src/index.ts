@@ -15,7 +15,8 @@ const FILES: Record<string, string> = {
   'history.json': 'data/history.json',
   'system-aliases.json': 'taxonomy/system-aliases.json',
   'pricing-memory.json': 'data/pricing/memory.json',
-  'pricing-vector.json': 'data/pricing/vector.json'
+  'pricing-vector.json': 'data/pricing/vector.json',
+  'pricing-stack.json': 'data/pricing/stack.json'
 };
 
 let handler: ((r: Request) => Promise<Response>) | null = null;

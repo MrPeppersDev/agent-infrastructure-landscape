@@ -6,7 +6,7 @@ const ROOT = new URL('../../', import.meta.url).pathname;
 const FILES: Record<string, string> = {
   'landscape.json': 'data/landscape.json', 'landscape.edges.json': 'data/landscape.edges.json', 'stack-index.json': 'data/stack-index.json',
   'families.json': 'taxonomy/families.json', 'migrations.json': 'data/migrations.json', 'history.json': 'data/history.json',
-  'system-aliases.json': 'taxonomy/system-aliases.json', 'pricing-memory.json': 'data/pricing/memory.json', 'pricing-vector.json': 'data/pricing/vector.json'
+  'system-aliases.json': 'taxonomy/system-aliases.json', 'pricing-memory.json': 'data/pricing/memory.json', 'pricing-vector.json': 'data/pricing/vector.json', 'pricing-stack.json': 'data/pricing/stack.json'
 };
 const handle = createHandler(async (f) => JSON.parse(readFileSync(ROOT + FILES[f], 'utf8')));
 let failures = 0;

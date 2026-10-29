@@ -1,0 +1,48 @@
+name: We use this stack
+description: Share an agent stack you run (or ran) in production, so the catalog's blueprints and stack picks learn from real use.
+title: "Stack report: <product or team>"
+labels: ["stack-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing. Stack reports feed the reference blueprints and, over time, how the stack builder weighs picks.
+        They are *reports*, not catalog data: a curator checks the components against the catalog and any public evidence
+        before anything is published. Leave out anything confidential — only share what you are happy to make public.
+
+        The quickest way to fill this in is the **Share this stack** button on the
+        [stack builder](https://mrpeppersdev.github.io/agent-infrastructure-landscape/build), which pre-fills the stack.yml.
+  - type: textarea
+    id: stack
+    attributes:
+      label: stack.yml
+      description: Paste your stack.yml (from /build, `landscape stack -o stack.yml` or MCP plan_stack). Edit components to what you actually run.
+      render: yaml
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: How is it used?
+      options:
+        - In production
+        - In a pilot / beta with real users
+        - Prototype only
+        - Used before, migrated away (say why below)
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Product or team (optional)
+      description: Name and link if public. Anonymous reports are fine.
+  - type: input
+    id: evidence
+    attributes:
+      label: Public evidence (optional)
+      description: A public link describing this stack (engineering blog, case study, talk). Reports with public evidence can be cited in blueprints.
+  - type: textarea
+    id: notes
+    attributes:
+      label: What worked, what didn't
+      description: Integrations that were painful, components you'd swap, costs that surprised you.
