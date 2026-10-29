@@ -1,5 +1,717 @@
 {
-  "checked": "",
-  "models": [],
-  "metered": []
+  "checked": "2026-10-29",
+  "models": [
+    {
+      "id": "anthropic-claude-foundation-models--anthropic-com",
+      "system": "Anthropic",
+      "model": "Claude Fable 5.1",
+      "inputPerMtok": 10,
+      "outputPerMtok": 50,
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "id": "anthropic-claude-foundation-models--anthropic-com",
+      "system": "Anthropic",
+      "model": "Claude Haiku 5.5",
+      "inputPerMtok": 0.1,
+      "outputPerMtok": 0.5,
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "system": "OpenAI",
+      "model": "gpt-6-astra",
+      "inputPerMtok": 10,
+      "outputPerMtok": 50,
+      "source": "https://developers.openai.com/api/docs/pricing"
+    },
+    {
+      "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+      "system": "OpenAI",
+      "model": "gpt-6-luna",
+      "inputPerMtok": 0.1,
+      "outputPerMtok": 0.5,
+      "source": "https://developers.openai.com/api/docs/pricing"
+    },
+    {
+      "id": "google-gemini-3-family--blog-google",
+      "system": "Google",
+      "model": "Gemini 4 Argon",
+      "inputPerMtok": 2,
+      "outputPerMtok": 10,
+      "source": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "id": "google-gemini-3-family--blog-google",
+      "system": "Google",
+      "model": "Gemini 3.1 Flash-Lite",
+      "inputPerMtok": 0.25,
+      "outputPerMtok": 1.5,
+      "source": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "id": "xai-grok-4--x-ai",
+      "system": "xAI",
+      "model": "grok-4.7",
+      "inputPerMtok": 2,
+      "outputPerMtok": 6,
+      "source": "https://docs.x.ai/developers/pricing"
+    },
+    {
+      "id": "xai-grok-4--x-ai",
+      "system": "xAI",
+      "model": "grok-4.3",
+      "inputPerMtok": 1.25,
+      "outputPerMtok": 2.5,
+      "source": "https://docs.x.ai/developers/pricing"
+    },
+    {
+      "id": "deepseek-r1-v3-family--deepseek-com",
+      "system": "DeepSeek",
+      "model": "deepseek-v4-pro (DeepSeek-V4-Pro-0813)",
+      "inputPerMtok": 1.32,
+      "outputPerMtok": 3.96,
+      "source": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    {
+      "id": "deepseek-r1-v3-family--deepseek-com",
+      "system": "DeepSeek",
+      "model": "deepseek-flash (DeepSeek-V4.1-Flash-1017)",
+      "inputPerMtok": 0.3,
+      "outputPerMtok": 1.2,
+      "source": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    {
+      "id": "mistral-large-2-mixtral-family--mistral-ai",
+      "system": "Mistral AI",
+      "model": "Mistral Medium 3.5",
+      "inputPerMtok": 1.5,
+      "outputPerMtok": 7.5,
+      "source": "https://docs.mistral.ai/inference/pricing"
+    },
+    {
+      "id": "mistral-large-2-mixtral-family--mistral-ai",
+      "system": "Mistral AI",
+      "model": "Ministral 3 3B",
+      "inputPerMtok": 0.1,
+      "outputPerMtok": 0.1,
+      "source": "https://docs.mistral.ai/inference/pricing"
+    },
+    {
+      "id": "alibaba-qwen-3-family--qwenlm-github-io",
+      "system": "Alibaba Cloud Model Studio",
+      "model": "qwen3.8-max",
+      "inputPerMtok": 2,
+      "outputPerMtok": 6,
+      "source": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"
+    },
+    {
+      "id": "alibaba-qwen-3-family--qwenlm-github-io",
+      "system": "Alibaba Cloud Model Studio",
+      "model": "qwen3.8-flash",
+      "inputPerMtok": 0.15,
+      "outputPerMtok": 0.47,
+      "source": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"
+    },
+    {
+      "id": "amazon-nova-family--aboutamazon-com",
+      "system": "Amazon Bedrock",
+      "model": "Amazon Nova Premier",
+      "inputPerMtok": 2.5,
+      "outputPerMtok": 12.5,
+      "source": "https://aws.amazon.com/nova/pricing/"
+    },
+    {
+      "id": "amazon-nova-family--aboutamazon-com",
+      "system": "Amazon Bedrock",
+      "model": "Amazon Nova Micro",
+      "inputPerMtok": 0.035,
+      "outputPerMtok": 0.14,
+      "source": "https://aws.amazon.com/nova/pricing/"
+    },
+    {
+      "id": "microsoft-phi-4-family--azure-microsoft-com",
+      "system": "Microsoft Foundry",
+      "model": "Phi-4",
+      "inputPerMtok": 0.125,
+      "outputPerMtok": 0.5,
+      "source": "https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/"
+    },
+    {
+      "id": "microsoft-phi-4-family--azure-microsoft-com",
+      "system": "Microsoft Foundry",
+      "model": "Phi-4-mini",
+      "inputPerMtok": 0.075,
+      "outputPerMtok": 0.3,
+      "source": "https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/microsoft/"
+    },
+    {
+      "id": "reka-core-flash-edge--reka-ai",
+      "system": "Reka",
+      "model": "Reka Flash 3",
+      "inputPerMtok": 0.1,
+      "outputPerMtok": 0.2,
+      "source": "https://developer.reka.ai/models"
+    },
+    {
+      "id": "reka-core-flash-edge--reka-ai",
+      "system": "Reka",
+      "model": "Reka Edge 2603",
+      "inputPerMtok": 0.1,
+      "outputPerMtok": 0.1,
+      "source": "https://developer.reka.ai/models"
+    }
+  ],
+  "metered": [
+    {
+      "id": "arize-ai--arize-com",
+      "system": "Arize AX",
+      "unit": "spans",
+      "source": "https://arize.com/pricing/",
+      "plans": [
+        {
+          "name": "AX Free",
+          "usd": 0,
+          "included": 25000
+        },
+        {
+          "name": "AX Pro",
+          "usd": 50,
+          "included": 50000
+        }
+      ],
+      "overage": null,
+      "beyond": "AX Enterprise (custom)",
+      "notes": "No overage rate is published; usage above 50k spans a month needs AX Enterprise."
+    },
+    {
+      "id": "langfuse--langfuse-com",
+      "system": "Langfuse Cloud",
+      "unit": "spans",
+      "source": "https://langfuse.com/pricing",
+      "plans": [
+        {
+          "name": "Core",
+          "usd": 29,
+          "included": 100000
+        },
+        {
+          "name": "Pro",
+          "usd": 199,
+          "included": 100000
+        },
+        {
+          "name": "Enterprise",
+          "usd": 2499,
+          "included": 100000
+        }
+      ],
+      "overage": {
+        "per": 100000,
+        "usd": 8
+      },
+      "beyond": "Custom volume pricing with a yearly commitment",
+      "notes": "Billable units are traces, observations and scores, counted here as spans; $8 per 100k is the list overage on Core, Pro and Enterprise (the page says lower with volume), the free Hobby plan (50k units, no overage) is left out because the estimator would otherwise add overage to it."
+    },
+    {
+      "id": "langsmith--langchain-com",
+      "system": "LangSmith",
+      "unit": "traces",
+      "source": "https://www.langchain.com/pricing",
+      "plans": [
+        {
+          "name": "Developer",
+          "usd": 0,
+          "included": 5000
+        },
+        {
+          "name": "Plus (1 seat)",
+          "usd": 39,
+          "included": 10000
+        }
+      ],
+      "overage": {
+        "per": 1000,
+        "usd": 5
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Plus is $39 per seat; extra base traces cost 0.005 LSU each at $1.00 per LSU."
+    },
+    {
+      "id": "openllmetry-traceloop--gh-traceloop-openllmetry",
+      "system": "Traceloop",
+      "unit": "spans",
+      "source": "https://www.traceloop.com/pricing",
+      "plans": [
+        {
+          "name": "Free",
+          "usd": 0,
+          "included": 50000
+        }
+      ],
+      "overage": null,
+      "beyond": "Enterprise (contact sales) above 50k spans a month",
+      "notes": "OpenLLMetry itself is Apache-2.0 and free; this is the hosted Traceloop platform."
+    },
+    {
+      "id": "galileo--galileo-ai",
+      "system": "Splunk Agent Observability (Galileo)",
+      "unit": "spans",
+      "source": "https://www.splunk.com/en_us/products/pricing.html",
+      "plans": [
+        {
+          "name": "Agent Observability (annual)",
+          "usd": 100,
+          "included": 1200000
+        }
+      ],
+      "overage": {
+        "per": 1200000,
+        "usd": 100
+      },
+      "beyond": "Quote from Splunk",
+      "notes": "\"Starting at $100 per month per 1.2 million spans, billed annually\"; read as linear per 1.2M spans."
+    },
+    {
+      "id": "galileo-galileo-ai--galileo-ai",
+      "system": "Splunk Agent Observability (Galileo)",
+      "unit": "spans",
+      "source": "https://www.splunk.com/en_us/products/pricing.html",
+      "plans": [
+        {
+          "name": "Agent Observability (annual)",
+          "usd": 100,
+          "included": 1200000
+        }
+      ],
+      "overage": {
+        "per": 1200000,
+        "usd": 100
+      },
+      "beyond": "Quote from Splunk",
+      "notes": "\"Starting at $100 per month per 1.2 million spans, billed annually\"; read as linear per 1.2M spans."
+    },
+    {
+      "id": "agentops--agentops-ai",
+      "system": "AgentOps",
+      "unit": "spans",
+      "source": "https://www.agentops.ai/",
+      "plans": [
+        {
+          "name": "Basic",
+          "usd": 0,
+          "included": 5000
+        }
+      ],
+      "overage": null,
+      "beyond": "Pro from $40/month pay-as-you-go (rate shown only in a calculator); Enterprise",
+      "notes": "Billed per event (counted here as spans); the Pro per-event rate is not published as a number."
+    },
+    {
+      "id": "portkey-ai--portkey-ai",
+      "system": "Portkey",
+      "unit": "llm-requests",
+      "source": "https://portkey.ai/pricing",
+      "plans": [
+        {
+          "name": "Production",
+          "usd": 49,
+          "included": 100000
+        }
+      ],
+      "overage": {
+        "per": 100000,
+        "usd": 9
+      },
+      "beyond": "Enterprise (custom, 10M+ logs a month)",
+      "notes": "Billed per recorded log (one per request); the free Developer plan (10k logs, nothing recorded beyond) is left out because it has no overage."
+    },
+    {
+      "id": "composio--composio-dev",
+      "system": "Composio",
+      "unit": "tool-calls",
+      "source": "https://composio.dev/pricing",
+      "plans": [
+        {
+          "name": "Pro",
+          "usd": 29,
+          "included": 196666
+        }
+      ],
+      "overage": {
+        "per": 1000,
+        "usd": 0.3
+      },
+      "beyond": "Enterprise (committed volume, custom)",
+      "notes": "Pro includes the 100k free calls plus a $29 usage credit, converted at the $0.0003 base rate (196,666 calls); assumes your own OAuth apps (Composio-managed apps get 20k free, then +$0.0002/call); the free Hobby plan (100k calls) is hard-capped, so it is left out."
+    },
+    {
+      "id": "lakera-guard-lakera-red--lakera-ai",
+      "system": "Lakera Guard",
+      "unit": "llm-requests",
+      "source": "https://platform.lakera.ai/pricing",
+      "plans": [
+        {
+          "name": "Community",
+          "usd": 0,
+          "included": 10000
+        }
+      ],
+      "overage": null,
+      "beyond": "Enterprise (contact sales)",
+      "notes": "One screening request per model call assumed."
+    },
+    {
+      "id": "e2b--e2b-dev",
+      "system": "E2B",
+      "unit": "sandbox-minutes",
+      "source": "https://e2b.dev/pricing",
+      "plans": [
+        {
+          "name": "Hobby",
+          "usd": 0,
+          "included": 0
+        },
+        {
+          "name": "Pro",
+          "usd": 150,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.1656
+      },
+      "beyond": "Enterprise ($3,000/month minimum)",
+      "notes": "Default sandbox is 2 vCPU ($0.000028/s) + 4 GiB RAM ($0.000018/s) = $0.000046/s, x 3600 = $0.1656 per hour; Hobby has a one-time $100 credit (not counted), 1-hour sessions and 20 concurrent sandboxes."
+    },
+    {
+      "id": "daytona--daytona-io",
+      "system": "Daytona",
+      "unit": "sandbox-minutes",
+      "source": "https://www.daytona.io/pricing",
+      "plans": [
+        {
+          "name": "Pay as you go",
+          "usd": 0,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.0666
+      },
+      "beyond": "Enterprise (contact sales)",
+      "notes": "Default sandbox is 1 vCPU ($0.0504/h) + 1 GiB ($0.0162/h) with 3 GiB disk inside the 5 GiB free (https://www.daytona.io/docs/en/sandboxes/); billed per second; the $200 free compute is not counted."
+    },
+    {
+      "id": "modal-sandboxes--modal-com",
+      "system": "Modal Sandboxes",
+      "unit": "sandbox-minutes",
+      "source": "https://modal.com/pricing",
+      "plans": [
+        {
+          "name": "Starter",
+          "usd": 0,
+          "included": 86786
+        },
+        {
+          "name": "Team",
+          "usd": 250,
+          "included": 289289
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.0207405
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Default request 0.125 core + 128 MiB (https://modal.com/docs/guide/resources) at sandbox non-preemptible rates ($0.00003942/core/s, $0.00000667/GiB/s) = $0.0207405 per hour; included minutes convert the $30 (Starter) and $100 (Team) monthly credits; billing is on the higher of request or actual use."
+    },
+    {
+      "id": "browserless-io--browserless-io",
+      "system": "Browserless",
+      "unit": "browser-minutes",
+      "source": "https://www.browserless.io/pricing",
+      "plans": [
+        {
+          "name": "Free",
+          "usd": 0,
+          "included": 500
+        },
+        {
+          "name": "Prototyping",
+          "usd": 35,
+          "included": 10000
+        },
+        {
+          "name": "Starter",
+          "usd": 200,
+          "included": 90000
+        },
+        {
+          "name": "Scale",
+          "usd": 500,
+          "included": 250000
+        }
+      ],
+      "overage": null,
+      "beyond": "Enterprise (custom)",
+      "notes": "Monthly billing; one unit is up to 30 s of browser time, so minutes = units / 2; overage per unit differs by plan ($0.0020 Prototyping, $0.0017 Starter, $0.0015 Scale), so none is applied here."
+    },
+    {
+      "id": "browser-use--browser-use-com",
+      "system": "Browser Use Cloud",
+      "unit": "browser-minutes",
+      "source": "https://browser-use.com/pricing",
+      "plans": [
+        {
+          "name": "Pay as you go",
+          "usd": 0,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.02
+      },
+      "beyond": "Enterprise (talk to sales)",
+      "notes": "Cloud browser at $0.02 per hour, metered by the minute; proxies ($5/GB) and agent model costs (+20%) extra; $1 one-time free credit not counted."
+    },
+    {
+      "id": "browserbase--browserbase-com",
+      "system": "Browserbase",
+      "unit": "browser-minutes",
+      "source": "https://www.browserbase.com/pricing",
+      "plans": [
+        {
+          "name": "Developer",
+          "usd": 20,
+          "included": 6000
+        },
+        {
+          "name": "Startup",
+          "usd": 99,
+          "included": 30000
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.12
+      },
+      "beyond": "Scale (custom)",
+      "notes": "Overage is $0.12 per browser hour on Developer and $0.10 on Startup; the higher rate is used for every plan; the Free plan (1 browser hour, no published overage) is left out."
+    },
+    {
+      "id": "hyperbrowser--hyperbrowser-ai",
+      "system": "Hyperbrowser",
+      "unit": "browser-minutes",
+      "source": "https://www.hyperbrowser.ai/pricing",
+      "plans": [
+        {
+          "name": "Startup",
+          "usd": 30,
+          "included": 18000
+        },
+        {
+          "name": "Scale",
+          "usd": 100,
+          "included": 60000
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.1
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Browser time is $0.10 per hour on every plan; included minutes convert the $30 / $100 monthly usage credit; only paid plans can buy more credits, so the free account (5,000 credits) is left out; proxy data extra."
+    },
+    {
+      "id": "steel-dev--steel-dev",
+      "system": "Steel",
+      "unit": "browser-minutes",
+      "source": "https://steel.dev/pricing",
+      "plans": [
+        {
+          "name": "Launch",
+          "usd": 0,
+          "included": 0
+        },
+        {
+          "name": "Scale",
+          "usd": 250,
+          "included": 75000
+        }
+      ],
+      "overage": {
+        "per": 60,
+        "usd": 0.1
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Browser hours cost $0.10 on Launch and $0.08 on Scale; the higher rate is applied as overage; Scale minutes convert its $100 monthly credit at $0.08/h; Launch has a one-time $30 credit (not counted)."
+    },
+    {
+      "id": "bland-ai--bland-ai",
+      "system": "Bland AI",
+      "unit": "voice-minutes",
+      "source": "https://www.bland.ai/pricing",
+      "plans": [
+        {
+          "name": "Start",
+          "usd": 0,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.14
+      },
+      "beyond": "Build $299/month + $0.12/min; Enterprise (custom)",
+      "notes": "Per-minute rate includes LLM, STT and TTS; telephony is pass-through; Start is capped at 100 calls a day."
+    },
+    {
+      "id": "vapi--vapi-ai",
+      "system": "Vapi",
+      "unit": "voice-minutes",
+      "source": "https://vapi.ai/pricing",
+      "plans": [
+        {
+          "name": "Pay as you go",
+          "usd": 0,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.05
+      },
+      "beyond": "Pro $999/month minimum; Premier (contact sales)",
+      "notes": "Vapi hosting fee only; transcriber, model, voice and telephony are billed at provider cost on top."
+    },
+    {
+      "id": "retell-ai--retellai-com-2",
+      "system": "Retell AI",
+      "unit": "voice-minutes",
+      "source": "https://www.retellai.com/pricing",
+      "plans": [
+        {
+          "name": "Pay as you go",
+          "usd": 0,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.055
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Retell voice infrastructure only; LLM, TTS (from $0.015/min) and telephony are added per minute; $10 one-time credit not counted."
+    },
+    {
+      "id": "elevenlabs-conversational-ai--elevenlabs-io",
+      "system": "ElevenLabs Agents",
+      "unit": "voice-minutes",
+      "source": "https://elevenlabs.io/pricing/agents",
+      "plans": [
+        {
+          "name": "Creator",
+          "usd": 22,
+          "included": 275
+        },
+        {
+          "name": "Pro",
+          "usd": 99,
+          "included": 1238
+        },
+        {
+          "name": "Scale",
+          "usd": 299,
+          "included": 3738
+        },
+        {
+          "name": "Business",
+          "usd": 990,
+          "included": 12375
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.08
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Monthly billing; additional minutes are $0.08 (stated on Creator, the first plan with additional minutes); LLM usage is deducted from credits separately; Free (15 min) and Starter (75 min) have no additional minutes, so they are left out."
+    },
+    {
+      "id": "livekit-agents--docs-livekit-io",
+      "system": "LiveKit Cloud",
+      "unit": "voice-minutes",
+      "source": "https://livekit.com/pricing",
+      "plans": [
+        {
+          "name": "Ship",
+          "usd": 50,
+          "included": 5000
+        },
+        {
+          "name": "Scale",
+          "usd": 500,
+          "included": 50000
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.01
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Agent session minutes only; inference (LLM/STT/TTS), telephony and recordings are metered separately; the free Build plan (1,000 min) lists no overage, so it is left out."
+    },
+    {
+      "id": "cartesia-sonic--cartesia-ai",
+      "system": "Cartesia Managed Agents",
+      "unit": "voice-minutes",
+      "source": "https://www.cartesia.ai/pricing",
+      "plans": [
+        {
+          "name": "Pro",
+          "usd": 5,
+          "included": 166
+        },
+        {
+          "name": "Startup",
+          "usd": 49,
+          "included": 1633
+        },
+        {
+          "name": "Scale",
+          "usd": 299,
+          "included": 9966
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.03
+      },
+      "beyond": "Enterprise (custom)",
+      "notes": "Call minutes at the promotional $0.03/min through Dec 31, 2026 (regular $0.06); included minutes convert each plan's prepaid agent dollars; LLM and telephony billed separately; TTS-only use is billed in credits instead; overages are for paid plans only, so Free ($1 of agent minutes) is left out."
+    },
+    {
+      "id": "pipecat-daily--pipecat-ai",
+      "system": "Pipecat Cloud (Daily)",
+      "unit": "voice-minutes",
+      "source": "https://www.daily.co/pricing/pipecat-cloud/",
+      "plans": [
+        {
+          "name": "Pay as you go",
+          "usd": 0,
+          "included": 0
+        }
+      ],
+      "overage": {
+        "per": 1,
+        "usd": 0.01
+      },
+      "beyond": "Enterprise volume (contact sales)",
+      "notes": "agent-1x profile (0.5 vCPU, 1 GB, \"best for voice agents\") active-minute rate; providers (LLM/STT/TTS) billed by them and telephony extra."
+    }
+  ]
 }

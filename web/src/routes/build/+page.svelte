@@ -285,7 +285,7 @@
               <tr>
                 <td>{LAYERS.find((x) => x.id === c.layer)?.label ?? c.layer}</td>
                 <td>{c.name}{#if c.source} <a class="cite" href={c.source} target="_blank" rel="noopener noreferrer">↗</a>{/if}</td>
-                <td>{typeof c.monthlyUsd === 'number' ? money(c.monthlyUsd) : c.monthlyUsd === null ? 'contact sales' : '—'}</td>
+                <td>{c.status === 'priced' ? money(c.monthlyUsd ?? 0) : c.status === 'contact-sales' ? 'contact sales' : '—'}</td>
                 <td class="note">{c.plan}{#if c.working.length}<br />{c.working.join(' · ')}{/if}{#if c.caveat}<br /><em>{c.caveat}</em>{/if}</td>
               </tr>
             {/each}
