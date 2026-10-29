@@ -30,11 +30,11 @@ jobs:
         id: check
         uses: ./
         with:
-          manifests: action/test/fixture/package.json, action/test/fixture/requirements.txt
+          manifests: action/test/fixture/package.json, action/test/fixture/requirements.txt, action/test/fixture/stack.yml
           comment: never
           badge-path: badge.json
       - name: Flags what it should
         run: |
-          test "${{ steps.check.outputs.manifests }}" = "2"
+          test "${{ steps.check.outputs.manifests }}" = "3"
           test "${{ steps.check.outputs.attention-count }}" -ge 1
           grep -q '"label":"AI stack"' badge.json

@@ -22,6 +22,7 @@ import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from './costs.js';
 import { loadPricing, loadVectorPricing } from './data.js';
 import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from './vector-costs.js';
 import { checkManifest } from './stack-check.js';
+import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers, type LayerId, type ProductType } from './composer.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
   searchRecords,
@@ -234,7 +235,7 @@ async function main() {
         manifest: z.string().describe('The manifest file contents, or one package per line (npm:/pypi: prefixes optional).'),
         filename: z.string().optional().describe('Original filename, e.g. "requirements.txt" (helps format detection).'),
         format: z
-          .enum(['package.json', 'requirements.txt', 'pyproject.toml', 'mcp-config', 'list'])
+          .enum(['package.json', 'requirements.txt', 'pyproject.toml', 'mcp-config', 'stack.yml', 'list'])
           .optional()
           .describe('Force a format instead of auto-detecting.')
       }
@@ -329,6 +330,43 @@ async function main() {
         poolSize: r.poolSize,
         excludedCount: r.excludedCount
       });
+    }
+  );
+
+  const layerIds = LAYERS.map((l) => l.id) as [LayerId, ...LayerId[]];
+  server.registerTool(
+    'plan_stack',
+    {
+      title: 'Plan a whole agent stack',
+      description:
+        'Compose a full stack for an AI agent product in one call: one pick per layer (framework, model, ' +
+        'gateway, memory, vector store, embeddings, tools/auth, sandbox, browser, voice, evals/observability, ' +
+        'guardrails), each with cited reasons, a "why not" for the runners-up and the best-known systems ruled ' +
+        'out, and an exit path (self-host fallback, licence, migration notes). Later layers prefer systems with ' +
+        'a recorded integration with earlier picks. Also returns which picks have documented integrations, a ' +
+        'risk score built only from cited facts (lifecycle, vendor concentration, bus factor, licence, ' +
+        'unrecorded integrations), an OWASP LLM Top 10 coverage map, an eval plan, and a stack.yml that ' +
+        'check_stack and the GitHub Action can watch. Archived systems are never picked.',
+      inputSchema: {
+        product: z.enum(Object.keys(PRODUCTS) as [ProductType, ...ProductType[]]).optional()
+          .describe('support-agent (default) | coding-agent | research-agent | voice-agent | multi-agent-workflow | rag-copilot'),
+        language: z.enum(['python', 'typescript', 'any']).optional().describe('Required SDK language (default any).'),
+        hosting: z.enum(['self', 'managed', 'any']).optional().describe('self = run everything yourself (adds model serving); managed = prefer hosted services.'),
+        oss: z.boolean().optional().describe('Require open-source licences.'),
+        mcp: z.boolean().optional().describe('Require MCP support where it applies (framework, memory, tools).'),
+        layers: z.array(z.enum(layerIds)).optional().describe('Replace the product preset\'s layers.'),
+        add: z.array(z.enum(layerIds)).optional().describe('Add layers to the preset, e.g. ["voice"].'),
+        pin: z.record(z.string(), z.string()).optional().describe('Fix a layer to a record id, e.g. {"vectors": "qdrant--qdrant-tech"}.'),
+        avoid: z.array(z.string()).optional().describe('Record ids never to pick.')
+      }
+    },
+    async (args) => {
+      const a = Object.fromEntries(Object.entries(args).filter(([, v]) => v !== undefined)) as Partial<StackAnswers>;
+      const plan = planStack(
+        { items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never },
+        a as StackAnswers
+      );
+      return jsonResult(slimPlan(plan));
     }
   );
 

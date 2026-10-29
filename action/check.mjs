@@ -17,7 +17,7 @@ const SITE = 'https://mrpeppersdev.github.io/agent-infrastructure-landscape';
 const input = (name, def = '') => (process.env[`INPUT_${name.replace(/ /g, '_').toUpperCase()}`] ?? def).trim() || def;
 const workspace = process.env.GITHUB_WORKSPACE || process.cwd();
 
-const MANIFEST_NAMES = /^(package\.json|requirements[\w.-]*\.txt|pyproject\.toml|\.mcp\.json|mcp\.json|claude_desktop_config\.json)$/i;
+const MANIFEST_NAMES = /^(package\.json|requirements[\w.-]*\.txt|pyproject\.toml|\.mcp\.json|mcp\.json|claude_desktop_config\.json|stack\.ya?ml)$/i;
 const SKIP_DIRS = new Set(['node_modules', '.git', 'dist', 'build', '.venv', 'venv', '__pycache__', '.next', 'vendor', 'site-packages']);
 
 function findManifests(root, depth = 0, out = []) {

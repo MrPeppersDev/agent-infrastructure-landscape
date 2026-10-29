@@ -192,8 +192,9 @@ write('llms.txt', `# AI Agent Infrastructure Landscape
 
 ## Answer a builder's question
 
+- [Build a whole agent stack](${PUBLIC}/build): product type + requirements → one cited pick per layer (framework, model, gateway, memory, vector store, tools, sandbox, evals, guardrails…), why not the runners-up, exit paths, documented integrations, a risk score, OWASP LLM Top 10 coverage and a stack.yml. MCP: \`plan_stack\`; CLI: \`landscape stack\`.
 - [Choose a memory layer](${PUBLIC}/choose), [an agent framework](${PUBLIC}/choose/framework) or [a vector / graph database](${PUBLIC}/choose/data): a few questions → three cited picks.
-- [Check a stack](${PUBLIC}/check): paste package.json / requirements.txt / pyproject.toml / MCP config → archived, acquired or stale dependencies and replacements.
+- [Check a stack](${PUBLIC}/check): paste package.json / requirements.txt / pyproject.toml / MCP config / stack.yml → archived, acquired or stale dependencies and replacements.
 - [Alternatives](${PUBLIC}/alternatives): live alternatives to any memory layer, framework or data store.
 - [Ask the catalog](${PUBLIC}/search): plain-language search with requirement checking.
 - [Memory & vector cost calculator](${PUBLIC}/costs): monthly cost of managed memory layers and vector stores from published prices.

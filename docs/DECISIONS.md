@@ -14,6 +14,32 @@ that were on the table.
 
 ---
 
+## 2026-10-29: Whole-stack composer (/build, plan_stack, `landscape stack`)
+
+**What.** `mcp/src/composer.ts` turns one set of answers (product type, language, hosting, open source, MCP) into one pick per layer of an agent stack: framework, model, model serving (added when everything is self-hosted), gateway, durable execution, memory, vector store, knowledge graph, embeddings, tools/auth, sandbox, browser, voice, evals and guardrails. The same module serves the web page `/build`, the MCP tool `plan_stack` (stdio and hosted worker) and the CLI `landscape stack`. It returns:
+- **Picks.** The single-layer scorer from `chooser-infra.ts` ranks candidates. Each layer then adds +1.5 for every documented integration with a layer already picked, so the stack holds together.
+- **Why not.** For the two runners-up, the cited facts the pick has and they lack, plus any missing integrations and the scores. Also the two best-known systems ruled out by a must-have, with the fact that ruled them out.
+- **Exit path.** Whether the pick can be self-hosted and is open source, the best live fallback you could run yourself, and an official migration note if there is one.
+- **Risk score.** It only adds cited facts:
+  - Lifecycle status: the severity points.
+  - Two or more layers from one vendor: 1 point, or 2 for three or more.
+  - Fewer than 5 OpenDigger participants: 1 point.
+  - A source-available or changed licence: 1 point.
+  - Each missing integration between layers that must connect: 0.5 points.
+  - Each unconfirmed must-have: 0.5 points.
+  - Each layer with no option: 1 point.
+
+  Below 3 is low, below 6 medium, otherwise high.
+- **Security map.** The OWASP Top 10 for LLM applications (2025), each risk marked *addressed* (the stack has a component aimed at it, not a guarantee), *gap*, or *practice* (no component covers it on its own).
+- **Eval plan.** The observability pick, plus benchmark rows that fit the product.
+- **`stack.yml`.** A `components:` block of `layer: record-id` lines. `stack-check.ts` parses it, so `landscape check`, the /check page, `check_stack` and the GitHub Action all watch a composed stack. `data/stack-index.json` now has an entry for every record, not only those with a package or repo, so any record id resolves.
+
+**Why.** Builders were assembling stacks one chooser at a time, with no view of whether the pieces fit together. Keeping the composer pure and shared means one implementation and one set of honesty rules everywhere.
+
+**Reversal cost.** Low. The single-layer choosers are unchanged. `scoreInfra` gained a `scoreInfraDetailed` twin that also says why a system was excluded.
+
+---
+
 ## 2026-10-29: Accelerators other than Y Combinator
 
 **What.** `adoption-accelerator` now accepts other programs, each with a fixed code listed under `programs` in `docs/schema/adoption-accelerator.json` (Techstars, Antler, Entrepreneur First, HF0, a16z speedrun, AI Grant, South Park Commons, Neo, Pioneer, 500 Global, Plug and Play, Alchemist, Sequoia Arc, betaworks Camp, Google for Startups Accelerator, AWS Generative AI Accelerator, Creative Destruction Lab, Seedcamp, PearX). The value is the code plus `-yyyy` when a primary page states the cohort year. The cell holds one value: the YC batch if there is one, else the earliest program. Gate 8 enforces the pattern, so a new program is added to the schema file before it is used.

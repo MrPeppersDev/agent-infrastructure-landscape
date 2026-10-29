@@ -18,6 +18,7 @@ import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from '../../mcp/src
 import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '../../mcp/src/vector-costs.js';
 import { alternativesFor } from '../../mcp/src/chooser.js';
 import { attentionIds } from '../../mcp/src/stack-check.js';
+import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers } from '../../mcp/src/composer.js';
 
 export type Loader = (file: string) => Promise<unknown>;
 const SITE = 'https://mrpeppersdev.github.io/agent-infrastructure-landscape';
@@ -108,6 +109,20 @@ export const TOOLS = [
       vectors: S.num('vectors stored'), dimensions: S.num('embedding dimensions'), metadataBytes: S.num('metadata bytes per vector'),
       writesPerMonth: S.num('vectors written per month'), queriesPerMonth: S.num('queries per month'), batchSize: S.num('vectors per write request')
     } }
+  },
+  {
+    name: 'plan_stack',
+    description: 'Compose a whole agent stack in one call: one cited pick per layer (framework, model, gateway, memory, vector store, embeddings, tools/auth, sandbox, browser, voice, evals, guardrails) with why-not for runners-up, exit paths, documented integrations between picks, a risk score from cited facts, an OWASP LLM Top 10 coverage map, an eval plan and a stack.yml for check_stack.',
+    inputSchema: { type: 'object', properties: {
+      product: S.enum(Object.keys(PRODUCTS), 'support-agent (default), coding-agent, research-agent, voice-agent, multi-agent-workflow, rag-copilot'),
+      language: S.enum(['python', 'typescript', 'any'], 'required SDK language'),
+      hosting: S.enum(['self', 'managed', 'any'], 'self = run everything yourself (adds model serving)'),
+      oss: S.bool('require open-source licences'),
+      mcp: S.bool('require MCP support where it applies'),
+      add: { type: 'array', items: S.enum(LAYERS.map((l) => l.id), 'layer'), description: 'extra layers, e.g. ["voice"]' },
+      avoid: { type: 'array', items: S.str('record id'), description: 'record ids never to pick' },
+      pin: { type: 'object', additionalProperties: S.str('record id'), description: 'layer → record id' }
+    } }
   }
 ];
 
@@ -183,6 +198,10 @@ export function createHandler(load: Loader) {
         if (!r) throw new Error(`no record ${a.id}; use ask_catalog to find ids`);
         const cells = Object.fromEntries(Object.entries(r.cells).filter(([, c]) => c?.value && !EMPTY.has(c.status ?? '')).map(([k, c]) => [k, { value: c.value, citation: c.citation ?? null }]));
         return { id: r.id, name: r.name, url: r.url, section: r.sections.find((s) => s.primary)?.section, tier: r.tier, last_verified_at: r.last_verified_at ?? null, lifecycle: d.index.records[r.id] ?? { status: 'active' }, migration: d.migrations.get(r.id) ?? null, history: d.history[r.id] ?? [], taxonomy: r.taxonomy, cells, page: `${SITE}/systems/${r.id}` };
+      }
+      case 'plan_stack': {
+        const plan = planStack({ items: d.items, records: d.records as never, edges: d.edges as never, migrations: d.migrations as never }, a as unknown as StackAnswers);
+        return slimPlan(plan, (id) => `${SITE}/systems/${id}`);
       }
       case 'estimate_memory_cost': {
         const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(a).filter(([, v]) => typeof v === 'number')) };

@@ -66,6 +66,12 @@ try {
   check('/check permalink restores the result', findings.length >= 2, JSON.stringify(findings));
   check('/check links migration notes', (await page.locator('a[href*="#migrate"]').count()) > 0);
 
+  await go('/build?product=coding-agent&language=typescript');
+  const layers = await texts('.layer h2');
+  check('/build shows the coding-agent layers', layers.length >= 7 && layers.some((l) => /sandbox/i.test(l)), JSON.stringify(layers));
+  check('/build has picks and a stack.yml', (await texts('.layer .name')).length >= 6 && /components:/.test((await texts('pre.yaml'))[0] ?? ''));
+  check('/build maps OWASP risks', (await texts('td.st')).length === 10);
+
   await go('/choose/framework');
   check('/choose/framework has picks', (await texts('.picks .name')).length > 0);
   await go('/choose/data?existing=true');

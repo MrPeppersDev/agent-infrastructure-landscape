@@ -223,6 +223,7 @@
           <option value="requirements.txt">requirements.txt</option>
           <option value="pyproject.toml">pyproject.toml</option>
           <option value="mcp-config">MCP config</option>
+          <option value="stack.yml">stack.yml</option>
           <option value="list">One package per line</option>
         </select>
       </label>
