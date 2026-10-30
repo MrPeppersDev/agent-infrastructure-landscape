@@ -12,6 +12,7 @@ import { getRecords, getEdges, getRedirects } from '$lib/data';
 import { allPairs, pairToSlug } from '$lib/seo/compare';
 import { familyForSection } from '$lib/families';
 import { historyFor, type HistoryEvent } from '$lib/history';
+import { lifecycleOf, type LifecycleInfo } from '$lib/lifecycle';
 
 // Families with /alternatives/<id> pages (mirror of $lib/alternatives ALT_FAMILIES).
 const ALT_FAMILIES = new Set(['memory', 'agents', 'data']);
@@ -54,6 +55,7 @@ export function load({ params }: { params: { slug: string } }): {
   hasAlternatives: boolean;
   history: HistoryEvent[];
   citedCells: number;
+  lifecycle: LifecycleInfo;
 } {
   const records = getRecords();
   const record = records.find((r) => r.id === params.slug);
@@ -126,5 +128,5 @@ export function load({ params }: { params: { slug: string } }): {
 
   const citedCells = Object.values(record.cells).filter((c) => c && c.citation && c.status === 'real-data').length;
 
-  return { record, outgoing, incoming, relatedNames, relatedPairs, similar, hasAlternatives, history: historyFor(record.id), citedCells };
+  return { record, outgoing, incoming, relatedNames, relatedPairs, similar, hasAlternatives, history: historyFor(record.id), citedCells, lifecycle: lifecycleOf(record.id) };
 }

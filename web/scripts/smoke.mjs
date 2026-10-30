@@ -123,7 +123,7 @@ try {
     const i = l.querySelector('input'); return i && i.getBoundingClientRect().right > l.getBoundingClientRect().right + 1;
   }).length);
   check('/costs inputs stay inside their fields at 1440px', overflow === 0, `${overflow} overflowing`);
-  await go('/');
+  await go('/?view=full');
   const sticky = await page.evaluate(() => {
     const sc = [...document.querySelectorAll('*')].find((e) => e.scrollWidth > e.clientWidth + 50 && ['auto', 'scroll'].includes(getComputedStyle(e).overflowX));
     if (sc) sc.scrollLeft = 700;
@@ -140,10 +140,23 @@ try {
     return { pills: cells.filter((td) => td.querySelector('.tax-pill')).length, na: cells.filter((td) => td.querySelector('.na')).length };
   });
   const memTax = await taxCells();
-  await go('/?product=agents');
-  await page.locator('.row').first().waitFor();
+  await go('/?product=agents&view=full');
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
   const agentTax = await taxCells();
   check('taxonomy columns: pills on memory rows, n/a on framework rows', memTax.pills > 0 && agentTax.pills === 0 && agentTax.na > 0, JSON.stringify({ memTax, agentTax }));
+
+  // #331: compact default view, lifecycle column and filter, system-page banner.
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await go('/');
+  const rowH = await page.evaluate(() => document.querySelector('.row')?.getBoundingClientRect().height ?? 0);
+  check('compact rows fit about 20 to a 900px screen', rowH > 0 && rowH <= 40, `${rowH}px`);
+  check('compact view has a Status column', (await page.locator('.row td[data-col="lifecycle"] .life').count()) > 0);
+  await go('/?lifecycle=archived');
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
+  const lives = await texts('.row td[data-col="lifecycle"]');
+  check('?lifecycle=archived shows only archived rows', lives.length > 0 && lives.every((t) => t === 'Archived'), lives.slice(0, 3).join(', '));
+  await go('/systems/bytebot--bytebot-ai');
+  check('archived system page shows the lifecycle banner', (await page.locator('.life-banner').count()) === 1);
 } finally {
   await browser.close();
   server.close();

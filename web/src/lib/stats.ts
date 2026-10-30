@@ -12,12 +12,23 @@ export interface CatalogStats {
   columns: number;
   /** Newest per-record verification date (YYYY-MM-DD). */
   dataAsOf: string;
+  /** Records verified in the same calendar month as dataAsOf. */
+  verifiedThisMonth: number;
 }
 
 export function catalogStats(): CatalogStats {
   const records = getRecords();
   const sections = new Set(records.flatMap((r) => r.sections.map((s) => s.section)));
   const dataAsOf = records.reduce((m, r) => ((r.last_verified_at ?? '') > m ? (r.last_verified_at ?? '') : m), '');
-  return { records: records.length, edges: getEdgeCount(), sections: sections.size, columns: COLUMNS.length, dataAsOf };
+  const month = dataAsOf.slice(0, 7);
+  const verifiedThisMonth = records.filter((r) => month && (r.last_verified_at ?? '').startsWith(month)).length;
+  return {
+    records: records.length,
+    edges: getEdgeCount(),
+    sections: sections.size,
+    columns: COLUMNS.filter((c) => !c.derived).length,
+    dataAsOf,
+    verifiedThisMonth
+  };
 }
 

@@ -18,6 +18,7 @@
   import { searchQuery, applySearch } from '$lib/stores/search';
   import { filters, applyFilters, FACET_ORDER } from '$lib/stores/filters';
   import { sortRecords } from '$lib/sortRecords';
+  import { COLUMNS, COMPACT_COLUMNS } from '$lib/columns';
   import {
     selectedIds,
     toggleSelected,
@@ -45,6 +46,11 @@
   //
   // Guard with `browser` because this script runs during SSR prerender too
   // (where `window` is undefined).
+  // Table view (#331): one line per system by default; `?view=full`
+  // shows every column. Kept out of the url-state codec, which covers
+  // search, filters and sort.
+  let fullView = $state(browser && new URLSearchParams(window.location.search).get('view') === 'full');
+
   if (browser) {
     const initial = urlToState(new URLSearchParams(window.location.search));
     // .set() rather than .update() — we want full replacement, including
@@ -53,6 +59,14 @@
     filters.set(initial.filters);
     sortColumns.set(initial.sort);
   }
+
+  // The prerendered rows are the default view. Hydration adopts them as-is
+  // even when the URL asked for a filtered view, so the table is remounted
+  // once after hydration to render the rows the stores describe (#331).
+  let hydrated = $state(false);
+  onMount(() => {
+    hydrated = true;
+  });
 
   // Reactive pipeline: search → filters → sort.
   const visibleRecords = $derived(
@@ -84,6 +98,7 @@
 
   function writeUrl(search: string, f: typeof $filters, s: typeof $sortColumns) {
     const params = stateToUrl(search, f, s);
+    if (fullView) params.set('view', 'full');
     const qs = params.toString();
     const target = qs ? `?${qs}` : window.location.pathname;
     if (window.location.search === (qs ? `?${qs}` : '')) return;
@@ -133,6 +148,7 @@
   function cloneFilterState(f: typeof $filters): typeof $filters {
     return {
       product: new Set(f.product),
+      lifecycle: new Set(f.lifecycle),
       tier: new Set(f.tier),
       section: new Set(f.section),
       storage: new Set(f.storage),
@@ -216,6 +232,7 @@
       searchQuery.set(next.search);
       filters.set(next.filters);
       sortColumns.set(next.sort);
+      fullView = new URLSearchParams(window.location.search).get('view') === 'full';
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -272,6 +289,7 @@
         {data.recordCount.toLocaleString()} systems · {data.edgeCount.toLocaleString()} edges
         · {visibleRecords.length.toLocaleString()} visible
         · data as of {page.data.stats.dataAsOf}
+        ({page.data.stats.verifiedThisMonth.toLocaleString()} re-verified that month)
         {#if $sortColumns.length}
           · sorted by {$sortColumns
             .map((s) => `${s.column} ${s.direction === 'asc' ? '↑' : '↓'}`)
@@ -299,6 +317,18 @@
           {/if}
         </button>
       {/if}
+      <button
+        type="button"
+        class="view-toggle"
+        aria-pressed={fullView}
+        onclick={() => {
+          fullView = !fullView;
+          writeUrl($searchQuery, $filters, $sortColumns);
+        }}
+        title={fullView ? 'Back to one line per system' : 'Show every column, including the memory taxonomy'}
+      >
+        {fullView ? 'Compact view' : 'All columns'}
+      </button>
       <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
       {#if $selectedIds.size > 0}
         <div class="selection-pill">
@@ -325,12 +355,16 @@
       open={drawerOpen}
       onClose={() => (drawerOpen = false)}
     />
-    <main class="table-shell">
-      <Table
-        records={visibleRecords}
-        onSelect={openDetail}
-        onToggleSelect={handleToggleSelect}
-      />
+    <main class="table-shell" data-hydrated={hydrated || undefined}>
+      {#key hydrated}
+        <Table
+          records={visibleRecords}
+          columns={fullView ? COLUMNS : COMPACT_COLUMNS}
+          compact={!fullView}
+          onSelect={openDetail}
+          onToggleSelect={handleToggleSelect}
+        />
+      {/key}
     </main>
   </div>
 </div>
@@ -395,6 +429,7 @@
     gap: 12px;
     flex-wrap: wrap;
   }
+  .view-toggle,
   .filters-pill {
     display: inline-flex;
     align-items: center;
@@ -409,6 +444,7 @@
     cursor: pointer;
     line-height: 1.4;
   }
+  .view-toggle:hover,
   .filters-pill:hover {
     color: #f0f6fc;
     border-color: #58a6ff;

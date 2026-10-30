@@ -7,6 +7,8 @@
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
   import { hasMemoryTaxonomy, memoryTaxonomyOf } from '$lib/families';
+  import type { LifecycleInfo } from '$lib/lifecycle';
+  import { LIFECYCLE_LABEL, LIFECYCLE_TONE, LIFECYCLE_BANNER } from '$lib/lifecycle-labels';
   import { correctionUrl, REPO, type HistoryEvent } from '$lib/history';
 
   type RelatedPair = { slug: string; otherId: string; otherName: string };
@@ -30,6 +32,7 @@
       hasAlternatives: boolean;
       history: HistoryEvent[];
       citedCells: number;
+      lifecycle: LifecycleInfo;
     };
   } = $props();
 
@@ -186,8 +189,17 @@
       <p class="home"><a href={record.url} rel="nofollow noopener">{record.url}</a></p>
     {/if}
     <p class="lede">{desc ?? fallbackDesc}</p>
+    {#if LIFECYCLE_BANNER.has(data.lifecycle.status)}
+      <div class="life-banner {LIFECYCLE_TONE[data.lifecycle.status]}" role="note">
+        <strong>{LIFECYCLE_LABEL[data.lifecycle.status]}.</strong>
+        {#if data.lifecycle.note}{data.lifecycle.note}{/if}
+        {#if data.lifecycle.evidence?.startsWith('http')}<a href={data.lifecycle.evidence} rel="nofollow noopener">Source</a>{/if}
+        {#if data.hasAlternatives}· <a href="{base}/alternatives/{record.id}">Alternatives and migration notes →</a>{/if}
+      </div>
+    {/if}
     <p class="fresh">
-      Verified <strong>{record.last_verified_at ?? 'not yet'}</strong>
+      <span class="life {LIFECYCLE_TONE[data.lifecycle.status]}">{LIFECYCLE_LABEL[data.lifecycle.status]}</span>
+      · Verified <strong>{record.last_verified_at ?? 'not yet'}</strong>
       {#if freshness}· fresh as of <strong>{freshness}</strong>{/if}
       · {data.citedCells} cited facts
       {#if data.history.length}· <a href="#changes">{data.history.length} recorded change{data.history.length === 1 ? '' : 's'}</a>{/if}
@@ -412,6 +424,16 @@
 <style>
   .fresh { font-size: 0.85rem; color: #8b949e; margin: -0.25rem 0 1rem; }
   .fresh a, .changes a { color: #58a6ff; }
+  .life { display: inline-block; padding: 0 6px; border-radius: 3px; border: 1px solid; font-size: 0.78rem; font-weight: 600; }
+  .life.ok { background: #1f3a26; color: #8fc99a; border-color: #2c5235; }
+  .life.info { background: #1f2e3a; color: #8fb3c9; border-color: #2c4253; }
+  .life.warn { background: #3a2e1f; color: #d29922; border-color: #5d4720; }
+  .life.bad { background: #3a1f1f; color: #f85149; border-color: #5d2a2a; }
+  .life-banner { margin: 0 0 0.75rem; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid; font-size: 0.9rem; line-height: 1.5; }
+  .life-banner a { color: #58a6ff; }
+  .life-banner.info { background: #161f29; border-color: #2c4253; color: #c9d1d9; }
+  .life-banner.warn { background: #241d12; border-color: #5d4720; color: #e3c27a; }
+  .life-banner.bad { background: #2a1515; border-color: #5d2a2a; color: #f0a8a3; }
   .fix { margin-left: 0.5rem; font-size: 0.72rem; color: #6e7681 !important; text-decoration: none; }
   .fix:hover { color: #58a6ff !important; text-decoration: underline; }
   .changes ol { list-style: none; padding: 0; margin: 0.5rem 0; }

@@ -56,6 +56,9 @@ export interface ColumnDef {
   isTaxonomy?: boolean;
   /** Default column width hint in pixels. Used to size <col> elements. */
   width?: number;
+  /** Derived display column (lifecycle, section, verified) rather than a
+   *  catalog column; not counted in the site's column total. */
+  derived?: boolean;
 }
 
 /**
@@ -94,7 +97,9 @@ export const GROUP_META: Record<
 export const COLUMNS: ColumnDef[] = [
   // — Identity (sticky / leftmost)
   { key: 'name', label: 'System', group: 'identity', width: 220 },
+  { key: 'lifecycle', label: 'Status', group: 'identity', width: 110, derived: true },
   { key: 'tier', label: 'Tier',   group: 'identity', width: 70 },
+  { key: 'section', label: 'Section', group: 'identity', width: 200, derived: true },
   { key: 'type', label: 'What it is', group: 'identity', isCell: true, width: 180 },
 
   // — Taxonomy axes
@@ -113,6 +118,7 @@ export const COLUMNS: ColumnDef[] = [
 
   // — Activity (timeline / trend signals)
   { key: 'created',        label: 'Created',        group: 'activity', isCell: true, trend: true, width: 100 },
+  { key: 'verified', label: 'Verified', group: 'activity', width: 100, derived: true },
   { key: 'latest-release', label: 'Latest release', group: 'activity', isCell: true, width: 130 },
   { key: 'license',        label: 'License',        group: 'activity', isCell: true, width: 110 },
   { key: 'gh',             label: 'GitHub',         group: 'activity', isCell: true, trend: true, width: 150 },
@@ -198,18 +204,20 @@ export interface GroupRun {
   span: number;
 }
 
-export const GROUP_RUNS: GroupRun[] = (() => {
+export function groupRuns(columns: ColumnDef[]): GroupRun[] {
   const runs: GroupRun[] = [];
   let i = 0;
-  while (i < COLUMNS.length) {
-    const g = COLUMNS[i].group;
+  while (i < columns.length) {
+    const g = columns[i].group;
     let j = i + 1;
-    while (j < COLUMNS.length && COLUMNS[j].group === g) j++;
+    while (j < columns.length && columns[j].group === g) j++;
     runs.push({ group: g, start: i, span: j - i });
     i = j;
   }
   return runs;
-})();
+}
+
+export const GROUP_RUNS: GroupRun[] = groupRuns(COLUMNS);
 
 /** Lookup by column key. */
 export const COLUMN_BY_KEY: Record<string, ColumnDef> = (() => {
@@ -217,6 +225,19 @@ export const COLUMN_BY_KEY: Record<string, ColumnDef> = (() => {
   for (const c of COLUMNS) m[c.key] = c;
   return m;
 })();
+
+/**
+ * The default table view (#331): one line per system with what a buyer
+ * scans first. The "All columns" view shows COLUMNS.
+ */
+const COMPACT_WIDTHS: Record<string, number> = {
+  name: 220, lifecycle: 110, tier: 60, section: 210, type: 280,
+  license: 170, 'latest-release': 170, gh: 160, verified: 100
+};
+export const COMPACT_COLUMNS: ColumnDef[] = Object.entries(COMPACT_WIDTHS).map(([key, width]) => ({
+  ...COLUMN_BY_KEY[key],
+  width
+}));
 
 /** Get the cell slug from a column key, or null if not a cell column. */
 export function cellSlugOf(key: string): ColumnSlug | null {
