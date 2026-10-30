@@ -14,6 +14,8 @@
 import { getRecords, getRecordCount, getEdgeCount } from '$lib/data';
 import { getFamilies, familyIdOf } from '$lib/families';
 import { lifecycleOf } from '$lib/lifecycle';
+import { fillRates } from '$lib/fill-rates';
+import { COLUMNS } from '$lib/columns';
 
 export const prerender = true;
 
@@ -21,7 +23,9 @@ export const load = () => {
   return {
     records: defaultOrder(getRecords()).map((r) => ({ ...r, lifecycle: lifecycleOf(r.id).status })),
     recordCount: getRecordCount(),
-    edgeCount: getEdgeCount()
+    edgeCount: getEdgeCount(),
+    // Fill rate per table cell column, for hiding sparse ones (#334).
+    fill: Object.fromEntries(COLUMNS.filter((c) => c.isCell).map((c) => [c.key, fillRates()[c.key] ?? 0]))
   };
 };
 

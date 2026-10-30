@@ -199,7 +199,7 @@ export function toCSV(
     return k;
   });
 
-  const lines: string[] = [headers.map(csvEscape).join(',')];
+  const body: string[][] = [];
 
   for (const r of records) {
     const primary = r.sections.find((s) => s.primary)?.section ?? r.sections[0]?.section ?? '';
@@ -243,8 +243,15 @@ export function toCSV(
       // real-data: append citation URL in parens so the source survives.
       row.push(cell.citation ? `${value} [${cell.citation}]` : value);
     }
-    lines.push(row.map(csvEscape).join(','));
+    body.push(row);
   }
+
+  // Drop columns that are empty for every exported record (#334), so a
+  // sparse or planned column doesn't ship as a blank stripe. Identity
+  // columns always stay.
+  const keep = cols.map((k, i) => IDENTITY_KEYS.has(k) || body.some((row) => row[i] !== ''));
+  const pick = <T,>(xs: T[]) => xs.filter((_, i) => keep[i]);
+  const lines = [pick(headers).map(csvEscape).join(','), ...body.map((row) => pick(row).map(csvEscape).join(','))];
 
   // CRLF per RFC 4180 — Excel on Windows is the historically-tetchy consumer.
   return lines.join('\r\n');

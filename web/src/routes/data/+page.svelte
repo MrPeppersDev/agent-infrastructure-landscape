@@ -4,7 +4,19 @@
   import { base } from '$app/paths';
   import SeoHead from '$lib/components/SeoHead.svelte';
 
-  let { data }: { data: { catalogs: { id: string; name: string; count: number }[]; total: number; sample: { id: string; name: string }; changes: number } } = $props();
+  let {
+    data
+  }: {
+    data: {
+      catalogs: { id: string; name: string; count: number }[];
+      total: number;
+      sample: { id: string; name: string };
+      changes: number;
+      fill: { slug: string; label: string | null; rate: number }[];
+      threshold: number;
+    };
+  } = $props();
+  const pct = (r: number) => (r * 100).toFixed(r > 0 && r < 0.01 ? 1 : 0) + '%';
   const REPO = 'https://github.com/MrPeppersDev/agent-infrastructure-landscape';
 </script>
 
@@ -72,6 +84,29 @@
     <li><a href="{base}/api/stack-index.json">Stack-checker index</a>: npm, PyPI and Docker package names and GitHub repos mapped to systems and their lifecycle status.</li>
   </ul>
 
+  <h2 id="fill-rates">How complete each column is</h2>
+  <p class="note">
+    The share of systems with a value in each column. Many columns only apply to one kind of system (memory semantics to
+    memory layers, citations to papers), so a low rate is often expected. Columns under {pct(data.threshold)} are hidden
+    from the table until you ask for them; columns at 0% are planned and are left out of the exports until they have data.
+    Also as JSON: <a href="{base}/api/fill-rates.json">/api/fill-rates.json</a>.
+  </p>
+  <details>
+    <summary>{data.fill.length} columns</summary>
+    <table class="fill">
+      <thead><tr><th>Column</th><th class="num">Filled</th><th aria-hidden="true"></th></tr></thead>
+      <tbody>
+        {#each data.fill as f (f.slug)}
+          <tr class:sparse={f.rate < data.threshold}>
+            <td>{f.label ?? f.slug} <code>{f.slug}</code></td>
+            <td class="num">{pct(f.rate)}</td>
+            <td class="bar"><span style="width:{Math.round(f.rate * 100)}%"></span></td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </details>
+
   <h2>Fixing the data</h2>
   <p>
     Every system page has a <strong>Suggest a correction</strong> link. It opens a pre-filled issue; a bot checks the source,
@@ -90,5 +125,11 @@
   th { color: #8b949e; font-weight: 500; }
   .num { text-align: right; font-variant-numeric: tabular-nums; }
   pre { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; overflow-x: auto; font-size: 13px; }
+  .fill td { padding: 3px 10px; }
+  .fill code { color: #6e7681; font-size: 0.8em; margin-left: 4px; }
+  .fill tr.sparse td { color: #8b949e; }
+  .fill .bar { width: 35%; }
+  .fill .bar span { display: block; height: 6px; background: #2f81f7; border-radius: 3px; }
+  summary { cursor: pointer; color: #8b949e; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
 </style>
