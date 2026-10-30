@@ -134,6 +134,16 @@ try {
   const hoverBg = await page.evaluate(() => getComputedStyle(document.querySelector('.row td.sticky-col')).backgroundColor);
   const opaque = (c) => !/rgba\([^)]*,\s*0?\.\d+\)|transparent/.test(c);
   check('sticky name column stays opaque when scrolled and hovered', opaque(sticky) && opaque(hoverBg), `${sticky} / ${hoverBg}`);
+  // #330: the memory taxonomy shows on memory rows only.
+  const taxCells = () => page.evaluate(() => {
+    const cells = [...document.querySelectorAll('.row td[data-col="tax:storage"]')];
+    return { pills: cells.filter((td) => td.querySelector('.tax-pill')).length, na: cells.filter((td) => td.querySelector('.na')).length };
+  });
+  const memTax = await taxCells();
+  await go('/?product=agents');
+  await page.locator('.row').first().waitFor();
+  const agentTax = await taxCells();
+  check('taxonomy columns: pills on memory rows, n/a on framework rows', memTax.pills > 0 && agentTax.pills === 0 && agentTax.na > 0, JSON.stringify({ memTax, agentTax }));
 } finally {
   await browser.close();
   server.close();

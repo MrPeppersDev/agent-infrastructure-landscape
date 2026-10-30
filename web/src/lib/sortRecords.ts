@@ -9,6 +9,7 @@
 import type { LandscapeRecord } from './types';
 import type { SortEntry } from './stores/sort';
 import { cellSlugOf, taxonomyAxisOf } from './columns';
+import { memoryTaxonomyOf } from './families';
 
 /**
  * Pull a comparable value out of a record for a given sort column.
@@ -23,7 +24,7 @@ function extractSortValue(record: LandscapeRecord, column: string): number | str
 
   const axis = taxonomyAxisOf(column);
   if (axis) {
-    const arr = record.taxonomy[axis];
+    const arr = memoryTaxonomyOf(record)[axis];
     const primary = arr.find((v) => v.primary) ?? arr[0];
     return primary?.value.toLowerCase() ?? '';
   }

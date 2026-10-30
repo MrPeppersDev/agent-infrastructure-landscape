@@ -25,6 +25,8 @@ export type Loader = (file: string) => Promise<unknown>;
 const SITE = 'https://mrpeppersdev.github.io/agent-infrastructure-landscape';
 const PROTOCOL_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05'];
 
+// The memory taxonomy applies to the memory families only (#330).
+const MEMORY_FAMILIES = new Set(['memory', 'memory-research']);
 type Rec = { id: string; name: string; url: string | null; tier: number; sections: { section: string; primary: boolean }[]; cells: Record<string, { value?: string; citation?: string | null; status?: string }>; taxonomy: unknown; last_verified_at?: string };
 
 interface Data {
@@ -204,7 +206,7 @@ export function createHandler(load: Loader) {
         const r = d.records.find((x) => x.id === a.id);
         if (!r) throw new Error(`no record ${a.id}; use ask_catalog to find ids`);
         const cells = Object.fromEntries(Object.entries(r.cells).filter(([, c]) => c?.value && !EMPTY.has(c.status ?? '')).map(([k, c]) => [k, { value: c.value, citation: c.citation ?? null }]));
-        return { id: r.id, name: r.name, url: r.url, section: r.sections.find((s) => s.primary)?.section, tier: r.tier, last_verified_at: r.last_verified_at ?? null, lifecycle: d.index.records[r.id] ?? { status: 'active' }, migration: d.migrations.get(r.id) ?? null, history: d.history[r.id] ?? [], taxonomy: r.taxonomy, cells, page: `${SITE}/systems/${r.id}` };
+        return { id: r.id, name: r.name, url: r.url, section: r.sections.find((s) => s.primary)?.section, tier: r.tier, last_verified_at: r.last_verified_at ?? null, lifecycle: d.index.records[r.id] ?? { status: 'active' }, migration: d.migrations.get(r.id) ?? null, history: d.history[r.id] ?? [], taxonomy: MEMORY_FAMILIES.has(d.famOf(r.sections.find((s) => s.primary)?.section ?? '')) ? r.taxonomy : null, cells, page: `${SITE}/systems/${r.id}` };
       }
       case 'plan_stack': {
         const plan = planStack(

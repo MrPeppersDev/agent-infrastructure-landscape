@@ -20,6 +20,7 @@
   import { COLUMNS, GROUP_META, type ColumnGroup, type ColumnDef } from '$lib/columns';
   import { removeSelected, clearSelection } from '$lib/stores/selection';
   import { onMount } from 'svelte';
+  import { memoryTaxonomyOf } from '$lib/families';
 
   let {
     records,
@@ -50,7 +51,7 @@
     if (col.key === 'tier') return String(record.tier);
     if (col.isTaxonomy) {
       const axis = col.key.slice(4) as keyof typeof record.taxonomy;
-      const values = record.taxonomy[axis] ?? [];
+      const values = memoryTaxonomyOf(record)[axis] ?? [];
       return [...values]
         .sort((a, b) => a.value.localeCompare(b.value))
         .map((v) => `${v.value}${v.primary ? '*' : ''}`)
@@ -178,7 +179,7 @@
                   <span class="tier-badge t{record.tier}">T{record.tier}</span>
                 {:else if col.isTaxonomy}
                   {@const axis = col.key.slice(4) as keyof Taxonomy}
-                  {@const values = sortTax(record.taxonomy[axis])}
+                  {@const values = sortTax(memoryTaxonomyOf(record)[axis])}
                   {#if values.length === 0}
                     <span class="no-data">—</span>
                   {:else}

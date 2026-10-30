@@ -10,6 +10,7 @@
   // unbounded text instead.
 
   import type { LandscapeRecord, Cell, TaxonomyValue } from '$lib/types';
+  import { memoryTaxonomyOf } from '$lib/families';
   import { COLUMNS, GROUP_META, type ColumnGroup, type ColumnDef } from '$lib/columns';
   import { onMount } from 'svelte';
 
@@ -68,7 +69,7 @@
     if (col.key === 'tier') return { kind: 'tier' };
     if (col.isTaxonomy) {
       const axis = col.key.slice(4) as keyof typeof record.taxonomy;
-      return { kind: 'taxonomy', taxValues: record.taxonomy[axis] };
+      return { kind: 'taxonomy', taxValues: memoryTaxonomyOf(record)[axis] };
     }
     const slug = col.key as keyof typeof record.cells;
     return { kind: 'cell', cell: record.cells[slug] };

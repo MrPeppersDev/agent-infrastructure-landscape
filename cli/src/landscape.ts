@@ -37,7 +37,7 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, gateTaxonomy, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
@@ -384,7 +384,7 @@ program
     if (!record && !opts.json && !opts.csv) {
       die(`record not found: ${id}`);
     }
-    emit(formatRecord(record, id, opts));
+    emit(formatRecord(record && gateTaxonomy(record), id, opts));
     if (!record) process.exit(1);
   });
 
