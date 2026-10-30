@@ -6,6 +6,7 @@
   // owns the Phase 2 block, "Where they differ", At-a-glance, Taxonomy,
   // and Pros & cons sections.
   import type { LandscapeRecord, Cell } from '$lib/types';
+  import { memoryTaxonomyOf } from '$lib/families';
 
   export type SlimRecord = Pick<
     LandscapeRecord,
@@ -32,7 +33,7 @@
 
   type Axis = keyof LandscapeRecord['taxonomy'];
   function primaryTax(r: SlimRecord, axis: Axis): string | null {
-    const list = r.taxonomy[axis];
+    const list = memoryTaxonomyOf(r)[axis];
     if (!list || list.length === 0) return null;
     const p = list.find((v) => v.primary) ?? list[0];
     return p?.value ?? null;

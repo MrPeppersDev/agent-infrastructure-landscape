@@ -95,7 +95,7 @@ export const COLUMNS: ColumnDef[] = [
   // — Identity (sticky / leftmost)
   { key: 'name', label: 'System', group: 'identity', width: 220 },
   { key: 'tier', label: 'Tier',   group: 'identity', width: 70 },
-  { key: 'type', label: 'Memory model', group: 'identity', isCell: true, width: 180 },
+  { key: 'type', label: 'What it is', group: 'identity', isCell: true, width: 180 },
 
   // — Taxonomy axes
   { key: 'tax:storage',     label: 'Storage',     group: 'taxonomy', isTaxonomy: true, width: 130 },

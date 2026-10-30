@@ -120,6 +120,26 @@ export function familyIdForSection(section: string): string {
   return 'other';
 }
 
+// The seven taxonomy axes describe how a system remembers, so they only
+// apply to the memory families (#330). Other records return
+// `taxonomy: null` with a note instead of axes that read as noise.
+export const MEMORY_TAXONOMY_FAMILIES: ReadonlySet<string> = new Set(['memory', 'memory-research']);
+
+export type GatedRecord = Omit<LandscapeRecord, 'taxonomy'> & {
+  taxonomy: LandscapeRecord['taxonomy'] | null;
+  taxonomy_note?: string;
+};
+
+export function hasMemoryTaxonomy(r: Pick<LandscapeRecord, 'sections'>): boolean {
+  const primary = r.sections.find((s) => s.primary) ?? r.sections[0];
+  return MEMORY_TAXONOMY_FAMILIES.has(familyIdForSection(primary?.section ?? ''));
+}
+
+export function gateTaxonomy(r: LandscapeRecord): GatedRecord {
+  if (hasMemoryTaxonomy(r)) return r;
+  return { ...r, taxonomy: null, taxonomy_note: 'The memory taxonomy applies to memory and memory-research systems only.' };
+}
+
 // ---------------------------------------------------------------------------
 // Stack-checker index (data/stack-index.json, built by
 // scripts/build_stack_index.py). Shipped next to landscape.json.

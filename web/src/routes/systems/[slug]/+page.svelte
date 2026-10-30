@@ -6,6 +6,7 @@
   import { sectionToSlug } from '$lib/seo/slugs';
   import { absoluteUrl } from '$lib/site';
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
+  import { hasMemoryTaxonomy, memoryTaxonomyOf } from '$lib/families';
   import { correctionUrl, REPO, type HistoryEvent } from '$lib/history';
 
   type RelatedPair = { slug: string; otherId: string; otherName: string };
@@ -120,7 +121,7 @@
   ];
 
   function primaryTax(axis: Axis): string | null {
-    const list = record.taxonomy[axis];
+    const list = memoryTaxonomyOf(record)[axis];
     if (!list || list.length === 0) return null;
     const p = list.find((v) => v.primary) ?? list[0];
     return p?.value ?? null;
@@ -217,8 +218,9 @@
     </dl>
   </section>
 
+  {#if hasMemoryTaxonomy(record)}
   <section class="taxonomy">
-    <h2>Taxonomy</h2>
+    <h2>Memory taxonomy</h2>
     <dl>
       {#each taxonomyAxes as axis}
         {@const v = primaryTax(axis)}
@@ -231,6 +233,7 @@
       {/each}
     </dl>
   </section>
+  {/if}
 
   {#if cellText(record.cells['optimised-for']) || cellText(record.cells['anti-fit'])}
     <section>

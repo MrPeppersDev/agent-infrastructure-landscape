@@ -39,6 +39,9 @@
     'governance',
     'conflict'
   ] as const;
+  // Memory-taxonomy bars appear only for sections with memory systems (#330).
+  const hasTaxonomy = (s: { taxonomy: Record<(typeof AXES)[number], unknown[]> }) =>
+    AXES.some((a) => s.taxonomy[a].length > 0);
 
   const visibleRecords = $derived(applyFilters(data.records, $filters));
   const sections = $derived(aggregateAllSections(visibleRecords));
@@ -170,7 +173,8 @@
               {/each}
             </div>
 
-            <h3 class="block-h">Taxonomy</h3>
+            {#if hasTaxonomy(side)}
+            <h3 class="block-h">Memory taxonomy</h3>
             <div class="axes">
               {#each AXES as axis}
                 {@const top = topNWithOther(side.taxonomy[axis], 3)}
@@ -195,6 +199,7 @@
                 </div>
               {/each}
             </div>
+            {/if}
 
             <h3 class="block-h">License · Deployment</h3>
             <div class="dual">
@@ -249,6 +254,7 @@
             <div><span class="nlab">med funding</span><span class="nval">{formatCompact(s.numeric.funding.median, true)}</span></div>
           </div>
 
+          {#if hasTaxonomy(s)}
           <div class="axes axes-mini">
             {#each AXES as axis}
               {@const top = topNWithOther(s.taxonomy[axis], 3)}
@@ -273,6 +279,7 @@
               </div>
             {/each}
           </div>
+          {/if}
         </article>
       {/each}
     </div>

@@ -60,7 +60,7 @@ A hosted, no-install endpoint is ready in [`worker/`](./worker/README.md) (Cloud
 
 ## What a record looks like
 
-Each record has a stable id, a tier (1 battle-tested → 5 theoretical), its section(s), a memory taxonomy (storage, retrieval, persistence, update, unit, governance, conflict), and **99 attribute cells**. These cover license, deployment, pricing, MCP/A2A support, observability and eval integrations, cost and capability scores, and more. Every cell carries:
+Each record has a stable id, a tier (1 battle-tested → 5 theoretical), its section(s), and **99 attribute cells**. Memory systems also carry a memory taxonomy (storage, retrieval, persistence, update, unit, governance, conflict); the site, exports, API and MCP show it for the memory and memory-research families only. These cover license, deployment, pricing, MCP/A2A support, observability and eval integrations, cost and capability scores, and more. Every cell carries:
 
 - **value**: the claim itself
 - **citation**: the URL it came from

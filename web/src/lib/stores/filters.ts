@@ -36,7 +36,7 @@
 
 import { writable } from 'svelte/store';
 import type { LandscapeRecord, Tier } from '$lib/types';
-import { familyIdOf } from '$lib/families';
+import { familyIdOf, memoryTaxonomyOf } from '$lib/families';
 
 export type TaxonomyFacet =
   | 'storage'
@@ -236,7 +236,7 @@ function primarySection(r: LandscapeRecord): string {
 }
 
 function primaryTaxonomy(r: LandscapeRecord, axis: TaxonomyFacet): string {
-  const values = r.taxonomy[axis] ?? [];
+  const values = memoryTaxonomyOf(r)[axis] ?? [];
   const primary = values.find((v) => v.primary);
   return primary?.value ?? values[0]?.value ?? 'unspecified';
 }

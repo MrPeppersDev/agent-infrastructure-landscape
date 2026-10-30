@@ -43,7 +43,10 @@ const cv = (r, k) => {
   const c = r.cells?.[k];
   return c && typeof c.value === 'string' && !['no-data', 'not-applicable'].includes(c.status) ? c.value : '';
 };
-const tax = (r, axis) => (r.taxonomy?.[axis] ?? []).map((v) => v.value).join('|');
+// The seven memory-taxonomy axes apply to the memory families only (#330).
+const MEMORY_FAMILIES = new Set(['memory', 'memory-research']);
+const hasMemTax = (r) => MEMORY_FAMILIES.has(famOf.get(primary(r)));
+const tax = (r, axis) => (hasMemTax(r) ? (r.taxonomy?.[axis] ?? []).map((v) => v.value).join('|') : '');
 const statusOf = (id) => {
   const s = stack.records?.[id];
   return s ? { status: s.status, severity: s.severity, note: s.note || null } : { status: 'active', severity: 0, note: null };
@@ -76,7 +79,7 @@ for (const r of records) {
     tier: r.tier,
     last_verified_at: r.last_verified_at ?? null,
     lifecycle: statusOf(r.id),
-    taxonomy: r.taxonomy,
+    taxonomy: hasMemTax(r) ? r.taxonomy : null,
     cells: r.cells,
     edges: { outgoing: outE.get(r.id) ?? [], incoming: inE.get(r.id) ?? [] },
     history: history.records?.[r.id] ?? [],

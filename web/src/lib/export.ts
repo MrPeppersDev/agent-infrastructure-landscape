@@ -7,6 +7,7 @@
 // Issue #19. See DECISIONS.md for the flattening strategy rationale.
 
 import type { LandscapeRecord, Taxonomy, TaxonomyValue } from './types';
+import { memoryTaxonomyOf } from './families';
 
 // --- Helpers ----------------------------------------------------------
 
@@ -217,7 +218,7 @@ export function toCSV(
       }
       if (key.startsWith(TAXONOMY_KEY_PREFIX)) {
         const axis = key.slice(TAXONOMY_KEY_PREFIX.length) as keyof Taxonomy;
-        row.push(formatTaxonomy(r.taxonomy[axis] ?? []));
+        row.push(formatTaxonomy(memoryTaxonomyOf(r)[axis] ?? []));
         continue;
       }
       // Cell slug.
@@ -283,7 +284,7 @@ export function toJSON(
     }
     if (wantedAxes.length > 0) {
       const tax: Partial<Taxonomy> = {};
-      for (const a of wantedAxes) tax[a] = r.taxonomy[a] ?? [];
+      for (const a of wantedAxes) tax[a] = memoryTaxonomyOf(r)[a] ?? [];
       out.taxonomy = tax;
     }
     if (wantedCells.length > 0) {

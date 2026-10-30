@@ -3,6 +3,7 @@
   import { COLUMNS, taxonomyAxisOf, cellSlugOf } from '$lib/columns';
   import TableCell from './TableCell.svelte';
   import TaxonomyCell from './TaxonomyCell.svelte';
+  import { hasMemoryTaxonomy } from '$lib/families';
   import { searchQuery, highlightPlain } from '$lib/stores/search';
   import { classify } from '$lib/analyses/survivorship';
 
@@ -75,7 +76,9 @@
     {:else if col.isTaxonomy}
       {@const axis = taxonomyAxisOf(col.key)}
       <td class="cell tax" data-col={col.key} class:trend={col.trend}>
-        {#if axis}
+        {#if !hasMemoryTaxonomy(record)}
+          <span class="no-data na" title="Memory taxonomy applies to memory systems only">·</span>
+        {:else if axis}
           <TaxonomyCell values={record.taxonomy[axis]} />
         {/if}
       </td>

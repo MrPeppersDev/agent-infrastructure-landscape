@@ -14,7 +14,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, gateTaxonomy, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
 import { compatibility, worksWith, setAliases } from './compat.js';
 import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
@@ -549,7 +549,8 @@ async function main() {
     {
       title: 'Get a full record by id',
       description:
-        'Returns the complete record (all cells, taxonomy, section memberships) for the given stable id. ' +
+        'Returns the complete record (all cells, section memberships, and the memory taxonomy for memory systems; ' +
+        'null for others) for the given stable id. ' +
         'Use search_records to find ids; ids look like "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com".',
       inputSchema: {
         id: z.string().describe('Stable record id from the catalog.')
@@ -561,7 +562,7 @@ async function main() {
       if (!record) {
         return jsonResult({ error: `Record not found: ${args.id}` });
       }
-      return jsonResult(record);
+      return jsonResult(gateTaxonomy(record));
     }
   );
 

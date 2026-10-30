@@ -34,6 +34,8 @@ const sys = await callTool('get_system', { id: 'mem0--mem0-ai' });
 check('get_system', sys.structuredContent.cells.license?.value?.length > 0);
 const moved = await callTool('get_system', { id: 'qdrant-cloud--cloud-qdrant-io' });
 check('merged-away id resolves to the kept record', moved.structuredContent?.id === 'qdrant--qdrant-tech');
+check('memory taxonomy on memory systems', sys.structuredContent.taxonomy?.storage?.length > 0);
+check('no memory taxonomy on a vector database', moved.structuredContent.taxonomy === null);
 const cost = await callTool('estimate_memory_cost', { users: 50 });
 check('estimate_memory_cost', cost.structuredContent.estimates.length >= 5);
 const vcost = await callTool('estimate_vector_store_cost', { vectors: 10000 });

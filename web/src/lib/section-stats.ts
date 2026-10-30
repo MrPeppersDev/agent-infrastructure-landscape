@@ -34,6 +34,7 @@ import {
   type TaxonomyFacet,
   TAXONOMY_FACETS
 } from './stores/filters';
+import { hasMemoryTaxonomy } from './families';
 
 // --- Number extraction --------------------------------------------------
 //
@@ -164,8 +165,10 @@ export function aggregateSection(
 
   for (const r of records) {
     tierCounts[r.tier]++;
-    for (const axis of TAXONOMY_FACETS) {
-      taxonomyBuckets[axis].push(primaryTaxonomy(r.taxonomy[axis] ?? []));
+    if (hasMemoryTaxonomy(r)) {
+      for (const axis of TAXONOMY_FACETS) {
+        taxonomyBuckets[axis].push(primaryTaxonomy(r.taxonomy[axis] ?? []));
+      }
     }
     const lic = r.cells.license;
     licenseBucket.push(

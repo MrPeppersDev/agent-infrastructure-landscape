@@ -21,6 +21,7 @@ import type {
   RecordSummary,
   LandscapeRecord
 } from '../../mcp/dist/tools.js';
+import type { GatedRecord } from '../../mcp/dist/data.js';
 import type { CitationFit } from '../../mcp/dist/citation-prediction.js';
 import type {
   Candidate,
@@ -185,7 +186,7 @@ export function formatSearch(result: SearchResult, opts: FormatOptions): string 
 // ===========================================================================
 
 export function formatRecord(
-  record: LandscapeRecord | null,
+  record: GatedRecord | null,
   id: string,
   opts: FormatOptions
 ): string {
@@ -267,7 +268,7 @@ export function formatRecord(
 
   // Taxonomy summary. Cast through unknown — Taxonomy is a structural type
   // with named axes (storage/retrieval/...), but we want to iterate generically.
-  const tax = record.taxonomy as unknown as Record<
+  const tax = (record.taxonomy ?? {}) as unknown as Record<
     string,
     Array<{ value: string; primary: boolean }>
   >;
