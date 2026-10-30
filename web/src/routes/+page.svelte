@@ -355,7 +355,7 @@
       open={drawerOpen}
       onClose={() => (drawerOpen = false)}
     />
-    <main class="table-shell">
+    <main class="table-shell" data-hydrated={hydrated || undefined}>
       {#key hydrated}
         <Table
           records={visibleRecords}

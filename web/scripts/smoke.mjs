@@ -141,7 +141,7 @@ try {
   });
   const memTax = await taxCells();
   await go('/?product=agents&view=full');
-  await page.locator('.row').first().waitFor();
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
   const agentTax = await taxCells();
   check('taxonomy columns: pills on memory rows, n/a on framework rows', memTax.pills > 0 && agentTax.pills === 0 && agentTax.na > 0, JSON.stringify({ memTax, agentTax }));
 
@@ -152,6 +152,7 @@ try {
   check('compact rows fit about 20 to a 900px screen', rowH > 0 && rowH <= 40, `${rowH}px`);
   check('compact view has a Status column', (await page.locator('.row td[data-col="lifecycle"] .life').count()) > 0);
   await go('/?lifecycle=archived');
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
   const lives = await texts('.row td[data-col="lifecycle"]');
   check('?lifecycle=archived shows only archived rows', lives.length > 0 && lives.every((t) => t === 'Archived'), lives.slice(0, 3).join(', '));
   await go('/systems/bytebot--bytebot-ai');
