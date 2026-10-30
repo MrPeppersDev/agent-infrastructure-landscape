@@ -128,9 +128,19 @@ try {
   await page.locator('#nav-panel a', { hasText: 'Check your stack' }).click();
   await page.waitForTimeout(400);
   check('phone menu link navigates and closes the menu', page.url().endsWith('/check') && !(await page.locator('#nav-panel').count()));
+  // #335: on a phone the catalog is a card list with no sideways scroll.
+  await go('/');
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
+  const phone = await page.evaluate(() => ({ cards: document.querySelectorAll('ul.cards li').length, table: document.querySelectorAll('.row').length, overflow: document.documentElement.scrollWidth - window.innerWidth }));
+  check('phone home shows cards, no table and no sideways scroll', phone.cards > 0 && phone.table === 0 && phone.overflow <= 0, JSON.stringify(phone));
   await page.setViewportSize({ width: 1280, height: 900 });
   const sitemap = await readFile(join(BUILD, 'sitemap.xml'), 'utf8').catch(() => '');
   check('sitemap has no /recommend or redirect-stub URLs (#332)', sitemap.length > 0 && !sitemap.includes('/recommend') && !sitemap.includes('/systems/algolia-neuralsearch--algolia-com<'));
+  await go('/search?q=memory');
+  await page.waitForSelector('ol.hits li');
+  const before = await page.locator('ol.hits li').count();
+  await page.locator('button.more').click();
+  check('/search shows more than 25 matches on request (#335)', before === 25 && (await page.locator('ol.hits li').count()) > 25);
 
   // #328: layout at desktop width.
   await page.setViewportSize({ width: 1440, height: 900 });

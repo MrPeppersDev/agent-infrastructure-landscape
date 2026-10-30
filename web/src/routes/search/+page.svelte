@@ -24,7 +24,15 @@
     if (location.search !== qs) history.replaceState({}, '', `${location.pathname}${qs}`);
   });
 
-  const result = $derived(index && q.trim() ? search(index, q, 25) : null);
+  // Every match is ranked; the list shows 25 at a time (#335).
+  const PAGE = 25;
+  let shown = $state(PAGE);
+  const result = $derived(index && q.trim() ? search(index, q, Infinity) : null);
+  const hits = $derived(result ? result.hits.slice(0, shown) : []);
+  $effect(() => {
+    q;
+    shown = PAGE;
+  });
   const EXAMPLES = [
     'memory that handles contradictions and runs on postgres',
     'self-hosted vector db with MCP, python',
@@ -63,11 +71,11 @@
     <p class="meta">
       {#if result.constraints.length}Must-haves: {#each result.constraints as c, i (c.label)}<strong>{c.label}</strong>{i < result.constraints.length - 1 ? ', ' : ''}{/each}. {/if}
       {#if result.terms.length}Ranking by: {result.terms.join(', ')}. {/if}
-      {result.hits.length} of {result.considered} systems shown.
+      {result.hits.length} match{result.hits.length === 1 ? '' : 'es'}{#if result.hits.length > hits.length}, top {hits.length} shown{/if}.
     </p>
     {#if result.hits.length}
       <ol class="hits">
-        {#each result.hits as h (h.id)}
+        {#each hits as h (h.id)}
           <li>
             <div class="head">
               <a class="name" href="{base}/systems/{h.id}">{h.name}</a>
@@ -84,6 +92,11 @@
           </li>
         {/each}
       </ol>
+      {#if result.hits.length > hits.length}
+        <button type="button" class="more" onclick={() => (shown += PAGE)}>
+          Show {Math.min(PAGE, result.hits.length - hits.length)} more ({result.hits.length - hits.length} left)
+        </button>
+      {/if}
     {:else}
       <p class="none">Nothing matches all of that. Drop a requirement, or try the <a href="{base}/choose">chooser</a>.</p>
     {/if}
@@ -118,4 +131,6 @@
   .unk { color: #d29922; }
   .none { color: #d29922; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .more { margin: 4px 0 16px; padding: 6px 14px; font: inherit; font-size: 14px; color: #c9d1d9; background: #161b22; border: 1px solid #30363d; border-radius: 6px; cursor: pointer; }
+  .more:hover { border-color: #58a6ff; color: #f0f6fc; }
 </style>

@@ -7,6 +7,7 @@
   import { browser } from '$app/environment';
   import { page } from '$app/state';
   import Table from '$lib/components/Table.svelte';
+  import CardList from '$lib/components/CardList.svelte';
   import SearchBox from '$lib/components/SearchBox.svelte';
   import FilterRail from '$lib/components/FilterRail.svelte';
   import DetailModal from '$lib/components/DetailModal.svelte';
@@ -252,6 +253,15 @@
 
   let isNarrow = $state(false);
   let drawerOpen = $state(false);
+  // Phones get a card list instead of the wide table (#335).
+  let isPhone = $state(false);
+  onMount(() => {
+    const mql = window.matchMedia('(max-width: 767px)');
+    isPhone = mql.matches;
+    const onChange = (e: MediaQueryListEvent) => (isPhone = e.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  });
 
   onMount(() => {
     if (!browser) return;
@@ -322,6 +332,7 @@
           {/if}
         </button>
       {/if}
+      {#if !isPhone}
       <button
         type="button"
         class="view-toggle"
@@ -347,6 +358,7 @@
         >
           {showSparse ? 'Hide' : 'Show'} {sparseCount} sparse columns
         </button>
+      {/if}
       {/if}
       <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
       {#if $selectedIds.size > 0}
@@ -375,6 +387,9 @@
       onClose={() => (drawerOpen = false)}
     />
     <main class="table-shell" data-hydrated={hydrated || undefined}>
+      {#if isPhone}
+        <CardList records={visibleRecords} />
+      {:else}
       {#key hydrated}
         <Table
           records={visibleRecords}
@@ -384,6 +399,7 @@
           onToggleSelect={handleToggleSelect}
         />
       {/key}
+      {/if}
     </main>
   </div>
 </div>
