@@ -4,7 +4,7 @@
   // The pre-computed /compare/[pair] pages only cover competes-with edges
   // + top-in-section pairs. This route lets users pick any two of the
   // catalog's records; state lives in ?a=&b= so comparisons are shareable.
-  // Same hydration pattern as /recommend/between: read
+  // Hydration pattern: read
   // window.location.search once in a browser-only $effect guarded by a
   // hydrated flag (page.url.searchParams breaks prerendered layouts),
   // write back via history.replaceState.

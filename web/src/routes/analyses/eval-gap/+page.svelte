@@ -457,7 +457,7 @@
     <span class="muted">
       Pivot of <code>obs-*</code> and <code>eval-*</code> cells. Helper
       in <code>$lib/analyses/eval-gap.ts</code>. Schema in
-      <code>docs/SCHEMA.md</code> §2.5.1 and §2.5.3.
+      <code>docs/SCHEMA.md</code> (sections 2.5.1 and 2.5.3).
     </span>
   </footer>
 </main>

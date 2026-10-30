@@ -111,10 +111,26 @@ try {
   check('/graph mounts the canvas', (await page.locator('canvas').count()) >= 1);
 
   await go('/');
-  await page.locator('nav.topnav summary').click();
-  check('Research menu opens', await page.locator('nav.topnav .menu').isVisible());
+  const group = (name) => page.locator('nav.topnav .groups details', { hasText: name });
+  await group('Decide').locator('summary').click();
+  await group('Research').locator('summary').click();
+  check('Research menu opens', await group('Research').locator('.menu').isVisible());
+  check('opening one nav group closes the others (#332)', !(await group('Decide').locator('.menu').isVisible()));
   await page.evaluate(() => document.body.dispatchEvent(new MouseEvent('click', { bubbles: true })));
-  check('Research menu closes on an outside click (#328)', !(await page.locator('nav.topnav .menu').isVisible()));
+  check('Research menu closes on an outside click (#328)', !(await group('Research').locator('.menu').isVisible()));
+  const navH = await page.evaluate(() => document.querySelector('nav.topnav').getBoundingClientRect().height);
+  check('desktop nav fits one row (#332)', navH < 70, `${navH}px`);
+  await page.setViewportSize({ width: 390, height: 844 });
+  const phoneH = await page.evaluate(() => document.querySelector('nav.topnav').getBoundingClientRect().height);
+  check('phone nav is one row with a menu button (#332)', phoneH < 70 && (await page.locator('nav.topnav .burger').isVisible()), `${phoneH}px`);
+  await page.locator('nav.topnav .burger').click();
+  check('phone menu lists every group', (await page.locator('#nav-panel a').count()) >= 20);
+  await page.locator('#nav-panel a', { hasText: 'Check your stack' }).click();
+  await page.waitForTimeout(400);
+  check('phone menu link navigates and closes the menu', page.url().endsWith('/check') && !(await page.locator('#nav-panel').count()));
+  await page.setViewportSize({ width: 1280, height: 900 });
+  const sitemap = await readFile(join(BUILD, 'sitemap.xml'), 'utf8').catch(() => '');
+  check('sitemap has no /recommend or redirect-stub URLs (#332)', sitemap.length > 0 && !sitemap.includes('/recommend') && !sitemap.includes('/systems/algolia-neuralsearch--algolia-com<'));
 
   // #328: layout at desktop width.
   await page.setViewportSize({ width: 1440, height: 900 });

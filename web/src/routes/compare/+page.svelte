@@ -67,7 +67,7 @@
     </p>
     <p class="custom-cta">
       Don't see your pair? <a href="{base}/compare/custom">Compare any two
-      systems →</a>
+      systems →</a> · <a href="{base}/compare/many">Compare up to five →</a>
     </p>
     <label class="search">
       <span class="sr">Filter comparisons</span>

@@ -434,7 +434,7 @@
     <span class="muted">
       Pivot of <code>cost-*</code> cells. Helper in
       <code>$lib/analyses/cost-economics.ts</code>. Schema in
-      <code>docs/SCHEMA.md</code> §2.5.2.
+      <code>docs/SCHEMA.md</code> (section 2.5.2).
     </span>
   </footer>
 </main>

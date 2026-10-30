@@ -12,7 +12,7 @@
 //
 // Mirror of SITE_ORIGIN lives in web/src/lib/site.ts — keep in sync.
 
-import { readdirSync, writeFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { resolve, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -38,7 +38,9 @@ function* walk(dir) {
   }
 }
 
-const htmlFiles = [...walk(buildDir)];
+// Redirect stubs (merged-away systems, retired routes) are not pages.
+const isRedirect = (f) => readFileSync(f, 'utf8').slice(0, 400).includes('http-equiv="refresh"');
+const htmlFiles = [...walk(buildDir)].filter((f) => !isRedirect(f));
 
 const routes = htmlFiles
   .map((f) => {

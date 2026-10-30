@@ -6,12 +6,28 @@
   import { websiteLd, organizationLd } from '$lib/seo/jsonld';
 
   let { children } = $props();
-  let menu: HTMLDetailsElement | undefined = $state();
-  // The Research menu is a <details>: close it on a click outside, on Escape
-  // and when the pointer leaves it, so it never sits open over the page (#328).
+  let nav: HTMLElement | undefined = $state();
+  let mobileOpen = $state(false);
+  // Each group is a <details> dropdown: opening one closes the others, and
+  // a click outside, Escape or the pointer leaving closes it, so a menu
+  // never sits open over the page (#328).
+  function openMenus(): HTMLDetailsElement[] {
+    return [...(nav?.querySelectorAll('details[open]') ?? [])] as HTMLDetailsElement[];
+  }
   function closeMenu(e: Event) {
-    if (!menu?.open) return;
-    if (e instanceof KeyboardEvent ? e.key === 'Escape' : !menu.contains(e.target as Node)) menu.removeAttribute('open');
+    const escape = e instanceof KeyboardEvent && e.key === 'Escape';
+    if (!(e instanceof KeyboardEvent) || escape) {
+      for (const d of openMenus()) if (escape || !d.contains(e.target as Node)) d.removeAttribute('open');
+    }
+    if (escape || (e.type === 'click' && !nav?.contains(e.target as Node))) mobileOpen = false;
+  }
+  function onToggle(e: Event) {
+    const d = e.currentTarget as HTMLDetailsElement;
+    if (d.open) for (const o of openMenus()) if (o !== d) o.removeAttribute('open');
+  }
+  function navigated() {
+    for (const d of openMenus()) d.removeAttribute('open');
+    mobileOpen = false;
   }
 
   // Site-wide entity markup. WebSite/SearchAction makes the SERP listing
@@ -21,36 +37,53 @@
   // additive and lives on the individual routes.
   const siteLd = [websiteLd(), organizationLd()];
 
-  // Primary nav: the six things people come for. Everything else (the
-  // research views) lives under one "Research" menu so the bar stays
-  // readable on a laptop.
-  const routes = [
-    { path: '/build', label: 'Build a stack' },
-    { path: '/choose', label: 'Choose' },
-    { path: '/check', label: 'Check stack' },
-    { path: '/alternatives', label: 'Alternatives' },
-    { path: '/', label: 'Catalog' },
-    { path: '/compare', label: 'Compare' },
-    { path: '/findings', label: 'Findings' }
+  // Navigation in four groups (#332): deciding on a stack, browsing the
+  // catalog, the research views, and the data itself.
+  const groups: { label: string; items: { path: string; label: string }[] }[] = [
+    {
+      label: 'Decide',
+      items: [
+        { path: '/build', label: 'Build a stack' },
+        { path: '/choose', label: 'Choose a component' },
+        { path: '/check', label: 'Check your stack' },
+        { path: '/compatibility', label: 'Compatibility' },
+        { path: '/costs', label: 'Costs' }
+      ]
+    },
+    {
+      label: 'Browse',
+      items: [
+        { path: '/', label: 'Catalog' },
+        { path: '/search', label: 'Ask the catalog' },
+        { path: '/alternatives', label: 'Alternatives' },
+        { path: '/compare', label: 'Compare' },
+        { path: '/best', label: 'Best-of lists' }
+      ]
+    },
+    {
+      label: 'Research',
+      items: [
+        { path: '/findings', label: 'Findings' },
+        { path: '/analyses', label: 'Analyses' },
+        { path: '/benchmarks', label: 'Benchmarks' },
+        { path: '/leaderboards', label: 'Leaderboards' },
+        { path: '/graph', label: 'Graph' },
+        { path: '/timeline', label: 'Timeline' },
+        { path: '/lineages', label: 'Lineages' },
+        { path: '/sections', label: 'Sections' }
+      ]
+    },
+    {
+      label: 'Data',
+      items: [
+        { path: '/data', label: 'Data & API' },
+        { path: '/submit', label: 'Submit a system' },
+        { path: '/about', label: 'About' }
+      ]
+    }
   ];
-  const research = [
-    { path: '/systems', label: 'All systems' },
-    { path: '/compatibility', label: 'Compatibility' },
-    { path: '/compare/many', label: 'Compare up to 5' },
-    { path: '/search', label: 'Ask the catalog' },
-    { path: '/costs', label: 'Memory & vector cost calculator' },
-    { path: '/benchmarks', label: 'Benchmarks' },
-    { path: '/best', label: 'Best-of lists' },
-    { path: '/leaderboards', label: 'Leaderboards' },
-    { path: '/timeline', label: 'Timeline' },
-    { path: '/sections', label: 'Sections' },
-    { path: '/graph', label: 'Graph' },
-    { path: '/lineages', label: 'Lineages' },
-    { path: '/analyses', label: 'Analyses' },
-    { path: '/data', label: 'Data & API' },
-    { path: '/submit', label: 'Submit a system' },
-    { path: '/about', label: 'About' }
-  ];
+  const href = (path: string) => (path === '/' ? `${base}/` : `${base}${path}`);
+  const isActive = (path: string, rel: string) => (path === '/' ? rel === '/' : rel.startsWith(path));
 
   // Strip the base prefix from the current path for active-route matching.
   const relPath = $derived(
@@ -72,30 +105,43 @@
 
 <JsonLd data={siteLd} />
 
-<nav class="topnav" aria-label="Primary">
-  <a class="brand" href="{base}/">AI Agent Infrastructure</a>
-  <ul>
-    {#each routes as r}
-      <li>
-        <a
-          href={r.path === '/' ? `${base}/` : `${base}${r.path}`}
-          class:active={r.path === '/' ? relPath === '/' : relPath.startsWith(r.path)}
-        >
-          {r.label}
-        </a>
+<nav class="topnav" aria-label="Primary" bind:this={nav}>
+  <a class="brand" href="{base}/" onclick={navigated}>AI Agent Stack</a>
+  <button
+    type="button"
+    class="burger"
+    aria-expanded={mobileOpen}
+    aria-controls="nav-panel"
+    onclick={() => (mobileOpen = !mobileOpen)}
+  >
+    {mobileOpen ? 'Close' : 'Menu'}
+  </button>
+  <ul class="groups">
+    {#each groups as g}
+      <li class="group">
+        <details ontoggle={onToggle} onmouseleave={(e) => (e.currentTarget as HTMLDetailsElement).removeAttribute('open')}>
+          <summary class:active={g.items.some((r) => isActive(r.path, relPath))}>{g.label} <span aria-hidden="true">▾</span></summary>
+          <ul class="menu">
+            {#each g.items as r}
+              <li><a href={href(r.path)} onclick={navigated} class:active={isActive(r.path, relPath)}>{r.label}</a></li>
+            {/each}
+          </ul>
+        </details>
       </li>
     {/each}
-    <li class="more">
-      <details bind:this={menu} onmouseleave={() => menu?.removeAttribute('open')}>
-        <summary class:active={research.some((r) => relPath.startsWith(r.path))}>Research ▾</summary>
-        <ul class="menu">
-          {#each research as r}
-            <li><a href="{base}{r.path}" onclick={() => menu?.removeAttribute('open')} class:active={relPath.startsWith(r.path)}>{r.label}</a></li>
+  </ul>
+  {#if mobileOpen}
+    <div id="nav-panel" class="panel">
+      {#each groups as g}
+        <p class="panel-head">{g.label}</p>
+        <ul>
+          {#each g.items as r}
+            <li><a href={href(r.path)} onclick={navigated} class:active={isActive(r.path, relPath)}>{r.label}</a></li>
           {/each}
         </ul>
-      </details>
-    </li>
-  </ul>
+      {/each}
+    </div>
+  {/if}
 </nav>
 
 <div class="page">
@@ -119,6 +165,7 @@
     color: #e8e8e8;
     text-decoration: none;
     letter-spacing: -0.01em;
+    white-space: nowrap;
   }
   .topnav ul {
     display: flex;
@@ -145,13 +192,14 @@
     font-size: 0.92rem;
     cursor: pointer;
     list-style: none;
+    white-space: nowrap;
   }
   .topnav summary::-webkit-details-marker { display: none; }
   .topnav summary:hover, .topnav summary.active { color: #e8e8e8; background: #202020; }
-  .more { position: relative; }
+  .group { position: relative; }
   .menu {
     position: absolute;
-    right: 0;
+    left: 0;
     top: calc(100% + 6px);
     flex-direction: column;
     background: #161616;
@@ -162,11 +210,34 @@
     z-index: 60;
   }
   .menu a { display: block; white-space: nowrap; }
-  .topnav { flex-wrap: wrap; }
-  .topnav ul { flex-wrap: wrap; }
   .topnav a.active {
     color: #e8e8e8;
     background: #242424;
+  }
+  .burger {
+    display: none;
+    margin-left: auto;
+    font: inherit;
+    font-size: 0.9rem;
+    color: #e8e8e8;
+    background: #202020;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+
+  .panel { display: none; }
+
+  /* Phones: one row with the brand and a menu button; the groups open as
+     one stacked panel with every item visible. */
+  @media (max-width: 767px) {
+    .topnav { flex-wrap: wrap; gap: 8px; }
+    .burger { display: inline-block; }
+    .topnav .groups { display: none; }
+    .panel { display: block; width: 100%; max-height: 75vh; overflow-y: auto; padding-bottom: 6px; }
+    .panel ul { flex-wrap: wrap; }
+    .panel-head { margin: 8px 10px 2px; color: #777; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
   }
 
   /* Full-bleed page for the table view. The narrow centered look from
