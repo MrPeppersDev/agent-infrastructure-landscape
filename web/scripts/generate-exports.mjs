@@ -16,6 +16,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { sourceClass, corroboration } from '../src/lib/source-class.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const buildDir = resolve(__dirname, '..', 'build');
@@ -80,7 +81,11 @@ for (const r of records) {
     last_verified_at: r.last_verified_at ?? null,
     lifecycle: statusOf(r.id),
     taxonomy: hasMemTax(r) ? r.taxonomy : null,
-    cells: r.cells,
+    // source_class (#333): who published each cell's citation.
+    cells: Object.fromEntries(
+      Object.entries(r.cells).map(([k, c]) => [k, c?.citation ? { ...c, source_class: sourceClass(c.citation, r) } : c])
+    ),
+    corroboration: (({ cited, thirdParty }) => ({ cited_cells: cited, third_party_cells: thirdParty }))(corroboration(r)),
     edges: { outgoing: outE.get(r.id) ?? [], incoming: inE.get(r.id) ?? [] },
     history: history.records?.[r.id] ?? [],
     license: 'CC-BY-4.0',
@@ -108,6 +113,7 @@ const COLS = [
   ['github', (r) => cv(r, 'gh')], ['storage', (r) => tax(r, 'storage')], ['retrieval', (r) => tax(r, 'retrieval')],
   ['persistence', (r) => tax(r, 'persistence')], ['update', (r) => tax(r, 'update')], ['unit', (r) => tax(r, 'unit')],
   ['governance', (r) => tax(r, 'governance')], ['conflict', (r) => tax(r, 'conflict')], ['description', (r) => cv(r, 'desc')],
+  ['cited_cells', (r) => corroboration(r).cited], ['third_party_cells', (r) => corroboration(r).thirdParty],
   ['page', (r) => `${baseUrl}/systems/${r.id}`]
 ];
 const csvCell = (v) => {

@@ -11,6 +11,7 @@ import type { SortEntry } from './stores/sort';
 import { cellSlugOf, taxonomyAxisOf } from './columns';
 import { memoryTaxonomyOf, primarySectionOf } from './families';
 import { LIFECYCLE_ORDER } from './lifecycle-labels';
+import { corroboration } from './source-class.js';
 
 /**
  * Pull a comparable value out of a record for a given sort column.
@@ -26,6 +27,7 @@ function extractSortValue(record: LandscapeRecord, column: string): number | str
   if (column === 'lifecycle') return LIFECYCLE_ORDER.indexOf(record.lifecycle ?? 'active');
   if (column === 'section') return primarySectionOf(record).toLowerCase();
   if (column === 'verified') return record.last_verified_at ?? '';
+  if (column === 'third-party') return corroboration(record).thirdParty;
 
   const axis = taxonomyAxisOf(column);
   if (axis) {

@@ -119,6 +119,7 @@ export const COLUMNS: ColumnDef[] = [
   // — Activity (timeline / trend signals)
   { key: 'created',        label: 'Created',        group: 'activity', isCell: true, trend: true, width: 100 },
   { key: 'verified', label: 'Verified', group: 'activity', width: 100, derived: true },
+  { key: 'third-party', label: 'Third-party sources', group: 'activity', width: 130, derived: true },
   { key: 'latest-release', label: 'Latest release', group: 'activity', isCell: true, width: 130 },
   { key: 'license',        label: 'License',        group: 'activity', isCell: true, width: 110 },
   { key: 'gh',             label: 'GitHub',         group: 'activity', isCell: true, trend: true, width: 150 },

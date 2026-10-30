@@ -177,6 +177,33 @@
     </ul>
   </section>
 
+  <section id="sources">
+    <h2>Where a fact comes from</h2>
+    <p>
+      Each cited cell shows who published its source, so a vendor's own claim
+      reads differently from a third party's:
+    </p>
+    <ul class="status-list">
+      <li><span class="src-pill">vendor</span><span>The system's own site or docs. A vendor-stated claim.</span></li>
+      <li><span class="src-pill">repo</span><span>A code repository, usually the project's own.</span></li>
+      <li><span class="src-pill">registry</span><span>A package or model registry (PyPI, npm, Hugging Face).</span></li>
+      <li><span class="src-pill">paper</span><span>A paper or paper index (arXiv, ACL Anthology, OpenReview).</span></li>
+      <li><span class="src-pill">third-party</span><span>Anything else: press, analysts, funding databases, other vendors' integration docs.</span></li>
+    </ul>
+    <p>
+      A system page's header counts how many of its cited facts have a
+      third-party source. The class is derived from the citation URL when the
+      site is built and is published per cell as <code>source_class</code> in
+      <code>/api/systems/&lt;id&gt;.json</code>.
+    </p>
+    <p>
+      Separately, each cell carries a verifiability tier:
+      <strong>T1</strong> (●) is auto-verifiable from GitHub,
+      <strong>T2</strong> needs a resolvable source URL, and
+      <strong>T3</strong> is an estimate or inference without a citation.
+    </p>
+  </section>
+
   <section>
     <h2>How edges work</h2>
     <p>
@@ -329,6 +356,16 @@
     list-style: none;
   }
 
+  .src-pill {
+    display: inline-block;
+    min-width: 6.5em;
+    font-size: 0.75rem;
+    color: #8b949e;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 0 6px;
+    text-align: center;
+  }
   .about ul.tier-list li,
   .about ul.status-list li {
     display: flex;
