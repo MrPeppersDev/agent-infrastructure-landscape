@@ -305,8 +305,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory Lineages — System Family Trees"
-    description="Lineage trees connecting AI agent memory systems through descended-from and inspired-by edges. Traces the intellectual ancestry of {page.data.stats.records.toLocaleString('en-US')} systems."
+    title="AI Agent Stack Lineages — System Family Trees"
+    description="Lineage trees connecting AI agent systems through descended-from and inspired-by edges. Traces the intellectual ancestry of {page.data.stats.records.toLocaleString('en-US')} systems."
     path="/lineages"
     ogType="website"
   />

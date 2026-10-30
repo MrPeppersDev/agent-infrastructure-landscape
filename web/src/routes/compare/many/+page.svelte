@@ -63,7 +63,7 @@
 
 <SeoHead
   title="Compare AI agent systems side by side"
-  description="Compare up to five AI agent memory layers, frameworks, vector databases or tools side by side: licence, deployment, pricing, MCP support, storage and retrieval design, every value cited."
+  description="Compare up to five memory layers, agent frameworks, vector databases or tools side by side: licence, deployment, pricing, MCP support, storage and retrieval design, every value cited."
   path="/compare/many"
 />
 

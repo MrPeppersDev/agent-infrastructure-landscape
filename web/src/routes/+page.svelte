@@ -255,8 +255,8 @@
 </script>
 
 <SeoHead
-  title="AI Agent Memory & Infrastructure Landscape — Catalog of {page.data.stats.records.toLocaleString('en-US')} Systems"
-  description="Browse and compare {page.data.stats.records.toLocaleString('en-US')} AI agent memory systems, frameworks, and research papers across {page.data.stats.columns} columns. Searchable catalog with typed edges, citations, and benchmark coverage."
+  title="AI Agent Stack Analysis — Choose and Check Your Agent Stack ({page.data.stats.records.toLocaleString('en-US')} Systems)"
+  description="Pick the components of an AI agent or multi-agent system and check the stack you run: {page.data.stats.records.toLocaleString('en-US')} frameworks, models, memory layers, data stores, gateways, guardrails and tools, compared on {page.data.stats.columns} cited columns with lifecycle, pricing and integrations."
   path="/"
   ogType="website"
 />

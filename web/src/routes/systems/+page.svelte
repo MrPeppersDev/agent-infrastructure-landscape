@@ -40,7 +40,7 @@
 
 <SeoHead
   title="All Systems — AI Agent Infrastructure Landscape"
-  description="Browse every AI agent memory system, framework, and research project in the landscape. {data.systems.length} entries grouped by section, each with a dedicated profile page."
+  description="Browse every AI agent framework, model, memory layer, data store and tool in the landscape. {data.systems.length} entries grouped by section, each with a dedicated profile page."
   path="/systems"
   ogType="website"
 />

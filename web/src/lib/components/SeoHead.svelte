@@ -9,7 +9,7 @@
 
   type Props = {
     /** Full <title> for the page. Include a short site suffix yourself,
-     * e.g. "Findings — AI Agent Memory Landscape". */
+     * e.g. "Findings — AI Agent Infrastructure Landscape". */
     title: string;
     /** Meta description, 50–160 chars for best CTR in SERPs. */
     description: string;

@@ -139,7 +139,7 @@
 <svelte:head>
   <SeoHead
     title="AI Memory Cost Economics: Pricing Coverage"
-    description="Pricing model coverage across the AI agent memory catalog — per-token, per-request, subscription, self-hosted, free-tier. Where the market gaps are."
+    description="Pricing model coverage across the agent stack catalog — per-token, per-request, subscription, self-hosted, free-tier. Where the market gaps are."
     path="/analyses/cost-economics"
     ogType="article"
   />

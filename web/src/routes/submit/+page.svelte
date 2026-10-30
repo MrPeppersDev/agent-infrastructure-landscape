@@ -140,7 +140,7 @@
 
 <svelte:head>
   <SeoHead
-    title="Submit a System to the AI Agent Memory Landscape"
+    title="Submit a System to the AI Agent Infrastructure Landscape"
     description="Submit a new AI memory / agent infrastructure system to the catalog via a pre-filled GitHub Issue."
     path="/submit"
     ogType="website"

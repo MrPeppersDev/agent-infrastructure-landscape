@@ -123,8 +123,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory Leaderboards — Citation, Adoption, Benchmark Rankings"
-    description="Ranked leaderboards across the AI agent memory catalog: citations, GitHub stars, downloads, benchmark scores, and benchmark integrity. {page.data.stats.records.toLocaleString('en-US')} systems compared."
+    title="AI Agent Stack Leaderboards — Citation, Adoption, Benchmark Rankings"
+    description="Ranked leaderboards across the agent stack catalog: citations, GitHub stars, downloads, benchmark scores, and benchmark integrity. {page.data.stats.records.toLocaleString('en-US')} systems compared."
     path="/leaderboards"
     ogType="website"
   />

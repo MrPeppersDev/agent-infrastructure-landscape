@@ -14,6 +14,21 @@ that were on the table.
 
 ---
 
+## 2026-10-30: Product identity: an AI agent stack analysis tool (#330)
+
+**What.** The maintainer chose option (a) from #330, framed this way: the project is "an AI agent stack analysis tool", for people deciding what's best for an agent or multi-agent system they are building. So:
+
+- The decision tools (`/build`, `/choose`, `/check`, `/alternatives`, `/compatibility`) are the front door. The catalog is the cited evidence underneath them.
+- `SITE_DESCRIPTION`, the home and About copy, JSON-LD keywords, the README intro and generic page titles say "AI agent stack", not "AI agent memory".
+- Pages that really are about memory keep the memory wording: the memory chooser, the memory and vector cost calculator, the memory benchmarks, and the memory analyses (archetypes, eval gap, benchmark trust, co-citation).
+- The seven memory-taxonomy axes and the "Memory model" column describe memory systems only. They are shown for the `memory` and `memory-research` families and marked not-applicable elsewhere: in the table, the system page, CSV exports and MCP `get_system` (follow-up PR).
+
+**Why.** The catalog has grown to 1,005 systems across every layer: frameworks, models, gateways, guardrails, identity, MCP, durable execution and observability. The composer, checker and blueprints are what users act on. Memory-first copy and memory columns on a model gateway confused readers (site review, #330).
+
+**Reversal cost.** Low. It is copy plus a family gate on which columns show.
+
+---
+
 ## 2026-10-29: Composer scoring follows ecosystem evidence; reference blueprints
 
 **What.**

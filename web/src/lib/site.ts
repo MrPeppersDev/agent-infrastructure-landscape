@@ -23,7 +23,7 @@ export const SITE_URL = `${SITE_ORIGIN}${SITE_BASE_PATH}`;
 export const SITE_NAME = 'AI Agent Infrastructure Landscape';
 
 export const SITE_DESCRIPTION =
-  'Comparative catalog of AI agent memory systems, frameworks, and research papers — with typed edges, lineages, and benchmark coverage.';
+  'An analysis tool for the AI agent stack: choose frameworks, models, memory, vector and graph stores, gateways, guardrails, tools and observability for an agent or multi-agent system, and check a stack you already run. Every fact links to its source.';
 
 /**
  * Build a resolvable absolute URL from a SvelteKit route path. The path

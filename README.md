@@ -1,10 +1,14 @@
-# AI Agent Memory & Infrastructure Landscape
+# AI Agent Infrastructure Landscape
 
-**Pick the right memory layer, framework or substrate for your AI agent, with a citation behind every claim.**
+**An analysis tool for the AI agent stack. Work out what's best for the agent or multi-agent system you're building, with a citation behind every claim.**
 
-An open, comparative catalog of **1,005 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
+- **Build a stack:** describe the product; get one cited pick per layer (framework, model, gateway, memory, vector/graph store, tools and auth, sandbox, guardrails, observability), the runners-up and why not, integrations, risk, OWASP coverage, cost and a `stack.yml`.
+- **Choose one layer:** memory, framework or data store.
+- **Check a stack you run:** archived, acquired or stale dependencies, with replacements that fit the rest of your stack.
 
-**[Browse the catalog →](https://mrpeppersdev.github.io/agent-infrastructure-landscape/)** · [Findings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings) · [Choose a memory layer](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose) · [Check your stack](https://mrpeppersdev.github.io/agent-infrastructure-landscape/check) · [Submit a system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) · [Raw data (CC-BY-4.0)](./data/landscape.json)
+Underneath is an open, comparative catalog of **1,005 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
+
+**[Build a stack →](https://mrpeppersdev.github.io/agent-infrastructure-landscape/build)** · [Check your stack](https://mrpeppersdev.github.io/agent-infrastructure-landscape/check) · [Choose a component](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose) · [Browse the catalog](https://mrpeppersdev.github.io/agent-infrastructure-landscape/) · [Findings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings) · [Submit a system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) · [Raw data (CC-BY-4.0)](./data/landscape.json)
 
 ## Five catalogs in one dataset
 

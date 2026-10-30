@@ -31,7 +31,7 @@
 </script>
 
 <SeoHead
-  title="{f.headline} — AI Agent Memory Findings"
+  title="{f.headline} — AI Agent Stack Findings"
   description={f.metaDescription}
   path={routePath}
   ogType="article"
