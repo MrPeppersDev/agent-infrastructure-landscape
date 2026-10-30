@@ -192,6 +192,14 @@ try {
   const agentsCsv = (await readFile(join(BUILD, 'api/catalogs/agents.csv'), 'utf8')).split('\n')[0].split(',');
   check('catalog CSV drops all-empty columns', !agentsCsv.includes('storage') && agentsCsv.includes('license'), agentsCsv.join(','));
 
+  // #336: /changes lists events by week, with type filters.
+  await go('/changes');
+  const weeksN = await page.locator('section.week').count();
+  const allN = await page.locator('section.week li').count();
+  await page.locator('.chips button', { hasText: 'Price change' }).click();
+  const types = await texts('section.week li .type');
+  check('/changes lists weekly changes and filters by type', weeksN >= 1 && allN > 50 && types.length > 0 && types.length < allN && types.every((t) => t === 'Price change'), `${weeksN} weeks, ${allN} entries, ${types.length} price`);
+
   // #333: source classes on the Mem0 page and in its API JSON.
   await go('/systems/mem0--mem0-ai');
   check('Mem0 page shows source badges', (await page.locator('.facts .src').count()) > 0 && (await page.locator('#sources .src').count()) > 20);
