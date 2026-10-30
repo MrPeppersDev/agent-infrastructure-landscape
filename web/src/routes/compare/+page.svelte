@@ -41,7 +41,7 @@
   });
 
   const ldData = itemListLd({
-    name: 'AI Agent Memory Comparisons',
+    name: 'AI Agent Stack Comparisons',
     items: data.pairs.slice(0, 50).map((p) => ({
       name: `${p.aName} vs ${p.bName}`,
       url: absoluteUrl(`/compare/${p.slug}`)
@@ -50,8 +50,8 @@
 </script>
 
 <SeoHead
-  title="AI Agent Memory Comparisons — {data.pairs.length} Head-to-Heads"
-  description="Side-by-side comparisons of AI agent memory systems and frameworks: {data.pairs.length} head-to-head pages covering architecture, taxonomy, license, pricing, and direct edges between systems."
+  title="AI Agent Stack Comparisons — {data.pairs.length} Head-to-Heads"
+  description="Side-by-side comparisons of AI agent frameworks, models and infrastructure: {data.pairs.length} head-to-head pages covering architecture, taxonomy, license, pricing, and direct edges between systems."
   path="/compare"
   ogType="website"
 />

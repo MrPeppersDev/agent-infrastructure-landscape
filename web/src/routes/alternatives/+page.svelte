@@ -13,7 +13,7 @@
 </script>
 
 <SeoHead
-  title="Alternatives to AI agent memory layers, frameworks and vector stores"
+  title="Alternatives to memory layers, agent frameworks and vector stores"
   description="Find live alternatives to {data.count} AI agent systems — memory layers (Mem0, Zep, Letta…), agent frameworks and retrieval infrastructure — ranked by shared design, licence, hosting and MCP support."
   path="/alternatives"
 />

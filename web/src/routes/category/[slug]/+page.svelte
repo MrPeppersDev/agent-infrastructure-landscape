@@ -23,7 +23,7 @@
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')}`;
 
-  const title = `${data.sectionName} — AI Agent Memory Systems (${data.systems.length})`;
+  const title = `${data.sectionName} — AI Agent Stack (${data.systems.length})`;
   const description = `${data.systems.length} ${data.sectionName} entries in the AI Agent Infrastructure Landscape. Compare typed edges, tiers, licenses, and architecture across every system in this category.`;
 
   const ldData = [

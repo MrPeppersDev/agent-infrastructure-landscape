@@ -101,8 +101,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory Analyses — Comparative and Trend Reports"
-    description="Hub of analytical views of the AI agent memory catalog: cost economics, benchmark integrity, survivorship, lineage forecasts, co-citation, and more."
+    title="AI Agent Stack Analyses — Comparative and Trend Reports"
+    description="Hub of analytical views of the agent stack catalog: cost economics, benchmark integrity, survivorship, lineage forecasts, co-citation, and more."
     path="/analyses"
     ogType="website"
   />

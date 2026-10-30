@@ -23,7 +23,7 @@
         {
           question: 'What is the AI Agent Infrastructure Landscape?',
           answer:
-            `A comparative catalog of ${s.records.toLocaleString('en-US')} AI agent memory systems, frameworks, runtimes, vector stores, knowledge graphs, MCP servers, and benchmarks. Each record is scored on ${s.columns} columns and connected by ${s.edges.toLocaleString('en-US')} typed edges. The data lives in landscape.json under CC-BY-4.0.`
+            `An analysis tool for the AI agent stack, built on a cited catalog of ${s.records.toLocaleString('en-US')} systems: agent frameworks, models, memory layers, vector and graph stores, gateways, guardrails, identity and MCP tooling, observability and benchmarks. Each record is scored on ${s.columns} columns and connected by ${s.edges.toLocaleString('en-US')} typed edges. The data lives in landscape.json under CC-BY-4.0.`
         },
         {
           question: 'What do the tier badges (T1 to T5) mean?',
@@ -58,7 +58,7 @@
 
 <svelte:head>
   <SeoHead
-    title="About: How to Read the AI Agent Memory Landscape"
+    title="About: How to Read the AI Agent Infrastructure Landscape"
     description="How to read the AI Agent Infrastructure Landscape: tiers, taxonomy axes, cell status, and edge types."
     path="/about"
     ogType="website"
@@ -70,9 +70,10 @@
   <header>
     <h1>How to read this</h1>
     <p class="lede">
-      A landscape catalog of AI memory systems — products, frameworks, papers, and
-      theoretical proposals — built as the substrate for cross-system comparison,
-      adoption signal, and trend analysis.
+      An analysis tool for the AI agent stack. It helps you choose the components
+      of an agent or multi-agent system (framework, models, memory, vector and graph
+      stores, gateways, guardrails, tools, observability), check a stack you already
+      run, and see why each pick was made: every fact it uses links to its source.
     </p>
   </header>
 
@@ -80,8 +81,8 @@
     <h2>What this is</h2>
     <p>
       <strong>{s.records.toLocaleString('en-US')} systems</strong> across {s.sections} sections, scored on
-      <strong>{s.columns} columns</strong> (memory model, claims, performance, deployment,
-      governance, &hellip;), connected by <strong>{s.edges.toLocaleString('en-US')} typed edges</strong> (built-on,
+      <strong>{s.columns} columns</strong> (lifecycle, licence, deployment, pricing, compliance,
+      integrations, &hellip;), connected by <strong>{s.edges.toLocaleString('en-US')} typed edges</strong> (built-on,
       cites, integrates-with, &hellip;).
     </p>
     <p class="note">Counted from <code>landscape.json</code> when the site was built; data as of {s.dataAsOf}.</p>

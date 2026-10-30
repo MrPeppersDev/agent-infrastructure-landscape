@@ -67,7 +67,7 @@
   const fallbackDesc = `${record.name}${primarySection ? ' — ' + primarySection : ''}. Tier ${record.tier} entry in the AI Agent Infrastructure Landscape: typed edges, citations, and benchmark coverage.`;
   const description = (desc ?? fallbackDesc).slice(0, 300);
 
-  const title = `${record.name} — ${primarySection ?? 'AI agent memory'} | Landscape Profile`;
+  const title = `${record.name} — ${primarySection ?? 'AI agent stack'} | Landscape Profile`;
 
   // Headline facts gathered in render-order. nulls dropped at template time.
   const facts: { label: string; value: string | null; cite?: string | null; internal?: string; slug?: string }[] = [

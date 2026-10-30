@@ -38,7 +38,7 @@
 
 <SeoHead
   title="Ask the AI agent infrastructure catalog"
-  description="Search 950+ AI agent memory layers, frameworks, vector databases and tools in plain words: 'self-hosted vector db with MCP, python' or 'memory that handles contradictions on Postgres'."
+  description="Search agent frameworks, models, memory layers, vector databases, gateways and tools in plain words: 'self-hosted vector db with MCP, python' or 'memory that handles contradictions on Postgres'."
   path="/search"
 />
 

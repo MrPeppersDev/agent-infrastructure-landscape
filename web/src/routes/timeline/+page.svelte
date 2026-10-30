@@ -172,8 +172,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory Timeline — Releases, Lineages, Evolution"
-    description="Chronological view of when each AI agent memory system shipped — from foundational papers to current production frameworks. Filter by tier, section, or memory archetype."
+    title="AI Agent Stack Timeline — Releases, Lineages, Evolution"
+    description="Chronological view of when each AI agent system shipped — from foundational papers to current production frameworks. Filter by tier, section, or memory archetype."
     path="/timeline"
     ogType="website"
   />

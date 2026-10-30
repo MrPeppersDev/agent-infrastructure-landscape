@@ -10,7 +10,7 @@
   let { data }: { data: { categories: Category[] } } = $props();
 
   const ldData = itemListLd({
-    name: 'AI Agent Memory Categories',
+    name: 'AI Agent Stack Categories',
     items: data.categories.map((c) => ({
       name: c.name,
       url: absoluteUrl(`/category/${c.slug}`)
@@ -19,7 +19,7 @@
 </script>
 
 <SeoHead
-  title="AI Agent Memory Categories — Browse by Section"
+  title="AI Agent Stack Categories — Browse by Section"
   description="All {data.categories.length} categories in the AI Agent Infrastructure Landscape — dedicated memory layers, framework-embedded memory, browser-agent memory, voice memory, and more. Each links to the full system list."
   path="/category"
   ogType="website"

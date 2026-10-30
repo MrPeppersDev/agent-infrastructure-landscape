@@ -81,8 +81,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory Categories — Section Index"
-    description="Browse AI agent memory systems by category: dedicated memory layers, framework-embedded memory, browser-agent memory, voice-first memory, vertical/domain memory, and more."
+    title="AI Agent Stack Categories — Section Index"
+    description="Browse the AI agent stack by category: agent frameworks and harnesses, models and serving, memory layers, vector and graph stores, gateways, guardrails, identity and MCP tooling, observability, and more."
     path="/sections"
     ogType="website"
   />

@@ -20,7 +20,7 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory: 5 Key Findings from a {s.records.toLocaleString('en-US')}-System Catalog"
+    title="AI Agent Stack: 5 Key Findings from a {s.records.toLocaleString('en-US')}-System Catalog"
     description="Five publishable headlines from the catalog: the semantic-cache gap, the no-peer-reviewed-benchmark finding, MCP-as-substrate, the bridge node, single-vendor FM concentration."
     path="/findings"
     ogType="website"

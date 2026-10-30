@@ -1,6 +1,7 @@
 <script lang="ts">
-  // Front-door banner on the main table: the two questions most visitors
-  // arrive with, answered by dedicated pages. Hidden once the visitor is
+  // Front-door banner on the main table: the questions most visitors arrive
+  // with (what should my stack be, which component, is my stack healthy),
+  // answered by the decision tools (#330). Hidden once the visitor is
   // already filtering/searching, and dismissible (remembered per browser).
   import { base } from '$app/paths';
   import { browser } from '$app/environment';
@@ -27,9 +28,13 @@
 
 {#if !hidden && !dismissed}
   <section class="start" aria-label="Start here">
+    <a class="tile" href="{base}/build">
+      <strong>What should my agent stack be?</strong>
+      <span>Describe what you're building and get one cited pick per layer, the runners-up, risk, cost and a stack.yml.</span>
+    </a>
     <a class="tile" href="{base}/choose">
-      <strong>Which memory layer should I use?</strong>
-      <span>Answer a few questions, get three cited picks and a side-by-side comparison.</span>
+      <strong>Which framework, memory layer or database?</strong>
+      <span>Answer a few questions about one layer, get three cited picks and a side-by-side comparison.</span>
     </a>
     <a class="tile" href="{base}/check">
       <strong>Is anything in my stack dead?</strong>

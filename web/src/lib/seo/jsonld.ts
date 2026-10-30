@@ -42,8 +42,13 @@ export function datasetLd(opts: {
       }
     ],
     keywords: [
-      'AI agent memory',
+      'AI agent stack',
       'agent infrastructure',
+      'multi-agent systems',
+      'agent framework comparison',
+      'LLM gateway',
+      'agent guardrails',
+      'AI agent memory',
       'memory systems',
       'LLM memory',
       'agent memory comparison',

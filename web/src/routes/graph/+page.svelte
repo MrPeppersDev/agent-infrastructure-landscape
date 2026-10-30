@@ -456,8 +456,8 @@
 
 <svelte:head>
   <SeoHead
-    title="AI Agent Memory Knowledge Graph — Citations and Influence"
-    description="Interactive graph of {page.data.stats.records.toLocaleString('en-US')} AI agent memory systems and their {page.data.stats.edges.toLocaleString('en-US')} typed edges — citations, lineages, alternatives, inspirations. Visualises the influence network."
+    title="AI Agent Stack Knowledge Graph — Citations and Influence"
+    description="Interactive graph of {page.data.stats.records.toLocaleString('en-US')} AI agent systems and their {page.data.stats.edges.toLocaleString('en-US')} typed edges — citations, lineages, alternatives, inspirations. Visualises the influence network."
     path="/graph"
     ogType="website"
   />
