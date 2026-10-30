@@ -813,6 +813,13 @@ When filled, the choosers and the stack composer use these cells ahead of free-t
 - `compliance-certifications` backs the composer's compliance must-have.
 - `maturity` other than `ga` adds a risk point.
 
+### 2.6 How complete each column is
+
+Many columns apply to one kind of system only, so fill rates vary widely. The site computes the share of records with a `real-data` or `estimate` value per cell slug at build time. It publishes the rates at [`/data#fill-rates`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/data#fill-rates) and as [`/api/fill-rates.json`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/api/fill-rates.json).
+
+- Columns under 15% are hidden from the table until a reader asks for them.
+- Columns at 0% are planned. Today these are three `capability-*` scores (agentic, code, long-context), which are blocked on #128. They stay in this schema but are left out of the per-system JSON and the catalog exports until they have data.
+
 ---
 
 ## 3. The `status` enum — exact semantics

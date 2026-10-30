@@ -18,7 +18,7 @@
   import { searchQuery, applySearch } from '$lib/stores/search';
   import { filters, applyFilters, FACET_ORDER } from '$lib/stores/filters';
   import { sortRecords } from '$lib/sortRecords';
-  import { COLUMNS, COMPACT_COLUMNS } from '$lib/columns';
+  import { COMPACT_COLUMNS, fullViewColumns } from '$lib/columns';
   import {
     selectedIds,
     toggleSelected,
@@ -33,7 +33,7 @@
   } from '$lib/url-state';
   import type { LandscapeRecord } from '$lib/types';
 
-  let { data }: { data: { records: LandscapeRecord[]; recordCount: number; edgeCount: number } } =
+  let { data }: { data: { records: LandscapeRecord[]; recordCount: number; edgeCount: number; fill: Record<string, number> } } =
     $props();
 
   // --- URL → stores (synchronous, runs before first reactive render) ---
@@ -50,6 +50,9 @@
   // shows every column. Kept out of the url-state codec, which covers
   // search, filters and sort.
   let fullView = $state(browser && new URLSearchParams(window.location.search).get('view') === 'full');
+  // Columns under 15% filled join the full view only on request (#334).
+  let showSparse = $state(browser && new URLSearchParams(window.location.search).get('sparse') === '1');
+  const sparseCount = $derived(fullViewColumns(data.fill, true).length - fullViewColumns(data.fill, false).length);
 
   if (browser) {
     const initial = urlToState(new URLSearchParams(window.location.search));
@@ -99,6 +102,7 @@
   function writeUrl(search: string, f: typeof $filters, s: typeof $sortColumns) {
     const params = stateToUrl(search, f, s);
     if (fullView) params.set('view', 'full');
+    if (fullView && showSparse) params.set('sparse', '1');
     const qs = params.toString();
     const target = qs ? `?${qs}` : window.location.pathname;
     if (window.location.search === (qs ? `?${qs}` : '')) return;
@@ -233,6 +237,7 @@
       filters.set(next.filters);
       sortColumns.set(next.sort);
       fullView = new URLSearchParams(window.location.search).get('view') === 'full';
+      showSparse = new URLSearchParams(window.location.search).get('sparse') === '1';
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -329,6 +334,20 @@
       >
         {fullView ? 'Compact view' : 'All columns'}
       </button>
+      {#if fullView}
+        <button
+          type="button"
+          class="view-toggle"
+          aria-pressed={showSparse}
+          onclick={() => {
+            showSparse = !showSparse;
+            writeUrl($searchQuery, $filters, $sortColumns);
+          }}
+          title="Columns filled for under 15% of systems"
+        >
+          {showSparse ? 'Hide' : 'Show'} {sparseCount} sparse columns
+        </button>
+      {/if}
       <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
       {#if $selectedIds.size > 0}
         <div class="selection-pill">
@@ -359,7 +378,7 @@
       {#key hydrated}
         <Table
           records={visibleRecords}
-          columns={fullView ? COLUMNS : COMPACT_COLUMNS}
+          columns={fullView ? fullViewColumns(data.fill, showSparse) : COMPACT_COLUMNS}
           compact={!fullView}
           onSelect={openDetail}
           onToggleSelect={handleToggleSelect}

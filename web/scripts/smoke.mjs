@@ -171,6 +171,17 @@ try {
   await page.locator('main.table-shell[data-hydrated]').waitFor();
   const lives = await texts('.row td[data-col="lifecycle"]');
   check('?lifecycle=archived shows only archived rows', lives.length > 0 && lives.every((t) => t === 'Archived'), lives.slice(0, 3).join(', '));
+  // #334: sparse columns are opt-in in the full view; exports drop empty columns.
+  await go('/?view=full');
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
+  const heads = await texts('.head-row th');
+  check('full view hides sparse columns', heads.length > 30 && !heads.includes('Throughput'), `${heads.length} headers`);
+  await go('/?view=full&sparse=1');
+  await page.locator('main.table-shell[data-hydrated]').waitFor();
+  check('sparse toggle adds them', (await texts('.head-row th')).includes('Throughput'));
+  const agentsCsv = (await readFile(join(BUILD, 'api/catalogs/agents.csv'), 'utf8')).split('\n')[0].split(',');
+  check('catalog CSV drops all-empty columns', !agentsCsv.includes('storage') && agentsCsv.includes('license'), agentsCsv.join(','));
+
   // #333: source classes on the Mem0 page and in its API JSON.
   await go('/systems/mem0--mem0-ai');
   check('Mem0 page shows source badges', (await page.locator('.facts .src').count()) > 0 && (await page.locator('#sources .src').count()) > 20);

@@ -5,6 +5,7 @@
 //   /api/catalogs/<family>.json     one product family, flattened (one object per system)
 //   /api/catalogs/<family>.csv      the same as CSV
 //   /api/stack-index.json           the stack checker's package → system index
+//   /api/fill-rates.json            share of systems with a value, per cell column
 //   /feeds/<id>.xml                 Atom feed of one system's recorded changes
 //   /changes.xml                    Atom feed of the latest 100 changes catalog-wide
 //   /llms.txt                       regenerated with live counts and the endpoints above
@@ -59,6 +60,20 @@ const write = (rel, text) => {
 };
 const xml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]);
 
+// ---- fill rates (#334) -------------------------------------------------------
+// Share of records with a real or estimated value per cell key. Keys at zero
+// (planned columns with no data yet) are left out of the per-system JSON.
+const filledCount = new Map();
+for (const r of records) {
+  for (const [k, c] of Object.entries(r.cells ?? {})) {
+    if (!filledCount.has(k)) filledCount.set(k, 0);
+    if (c && ['real-data', 'estimate'].includes(c.status) && String(c.value ?? '').trim()) filledCount.set(k, filledCount.get(k) + 1);
+  }
+}
+const fillRate = Object.fromEntries([...filledCount].sort((a, b) => b[1] - a[1]).map(([k, n]) => [k, Math.round((n / records.length) * 1000) / 1000]));
+const emptyKeys = new Set(Object.keys(fillRate).filter((k) => fillRate[k] === 0));
+write('api/fill-rates.json', JSON.stringify({ records: records.length, sparse_threshold: 0.15, fill_rate: fillRate }));
+
 // ---- per-system JSON -------------------------------------------------------
 const outE = new Map(), inE = new Map();
 for (const e of edges) {
@@ -83,7 +98,7 @@ for (const r of records) {
     taxonomy: hasMemTax(r) ? r.taxonomy : null,
     // source_class (#333): who published each cell's citation.
     cells: Object.fromEntries(
-      Object.entries(r.cells).map(([k, c]) => [k, c?.citation ? { ...c, source_class: sourceClass(c.citation, r) } : c])
+      Object.entries(r.cells).filter(([k]) => !emptyKeys.has(k)).map(([k, c]) => [k, c?.citation ? { ...c, source_class: sourceClass(c.citation, r) } : c])
     ),
     corroboration: (({ cited, thirdParty }) => ({ cited_cells: cited, third_party_cells: thirdParty }))(corroboration(r)),
     edges: { outgoing: outE.get(r.id) ?? [], incoming: inE.get(r.id) ?? [] },
@@ -123,9 +138,13 @@ const csvCell = (v) => {
 const catalogs = [];
 for (const f of [...families, { id: 'all', name: 'Full catalog', sections: null }]) {
   const rows = records.filter((r) => f.id === 'all' || famOf.get(primary(r)) === f.id);
-  const objs = rows.map((r) => Object.fromEntries(COLS.map(([k, fn]) => [k, fn(r)])));
+  // Columns empty for every row of this catalog are dropped (#334): the
+  // memory taxonomy outside the memory catalogs, for instance.
+  const full = rows.map((r) => Object.fromEntries(COLS.map(([k, fn]) => [k, fn(r)])));
+  const cols = COLS.map(([k]) => k).filter((k) => full.some((o) => String(o[k] ?? '') !== ''));
+  const objs = full.map((o) => Object.fromEntries(cols.map((k) => [k, o[k]])));
   write(`api/catalogs/${f.id}.json`, JSON.stringify({ family: f.id, name: f.name, count: objs.length, license: 'CC-BY-4.0', systems: objs }));
-  write(`api/catalogs/${f.id}.csv`, [COLS.map(([k]) => k).join(','), ...objs.map((o) => COLS.map(([k]) => csvCell(o[k])).join(','))].join('\n') + '\n');
+  write(`api/catalogs/${f.id}.csv`, [cols.join(','), ...objs.map((o) => cols.map((k) => csvCell(o[k])).join(','))].join('\n') + '\n');
   catalogs.push({ id: f.id, name: f.name, count: objs.length });
 }
 

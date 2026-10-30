@@ -36,7 +36,8 @@ export type ColumnGroup =
   | 'section-deep'
   | 'architecture'
   | 'research'
-  | 'judgement';
+  | 'judgement'
+  | 'sparse';
 
 export interface ColumnDef {
   /** Stable key. For cell columns, the slug from SCHEMA.md §2.5. For the
@@ -86,7 +87,8 @@ export const GROUP_META: Record<
   'section-deep': { label: 'Section-deep', bg: '#24201a', accent: '#c8a868' },
   architecture: { label: 'Architecture', bg: '#1f241f', accent: '#7ac88a' },
   research:    { label: 'Research',     bg: '#1a1a24', accent: '#7a8ac8' },
-  judgement:   { label: 'Judgement',    bg: '#241a1a', accent: '#c87a7a' }
+  judgement:   { label: 'Judgement',    bg: '#241a1a', accent: '#c87a7a' },
+  sparse:      { label: 'Sparse (under 15% filled)', bg: '#1c1c1c', accent: '#8b949e' }
 };
 
 /**
@@ -239,6 +241,20 @@ export const COMPACT_COLUMNS: ColumnDef[] = Object.entries(COMPACT_WIDTHS).map((
   ...COLUMN_BY_KEY[key],
   width
 }));
+
+/**
+ * The All-columns view (#334). Columns filled for under 15% of records
+ * are left out unless asked for, then gathered at the end under "Sparse";
+ * columns with no data at all are never shown. `fill` maps a cell slug to
+ * its fill rate (see $lib/fill-rates).
+ */
+export function fullViewColumns(fill: Record<string, number>, showSparse: boolean, threshold = 0.15): ColumnDef[] {
+  const rate = (c: ColumnDef) => (c.isCell ? (fill[c.key] ?? 0) : 1);
+  const dense = COLUMNS.filter((c) => rate(c) >= threshold);
+  if (!showSparse) return dense;
+  const sparse = COLUMNS.filter((c) => rate(c) > 0 && rate(c) < threshold).map((c) => ({ ...c, group: 'sparse' as const }));
+  return [...dense, ...sparse];
+}
 
 /** Get the cell slug from a column key, or null if not a cell column. */
 export function cellSlugOf(key: string): ColumnSlug | null {
