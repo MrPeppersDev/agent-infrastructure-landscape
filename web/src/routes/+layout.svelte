@@ -63,6 +63,7 @@
     {
       label: 'Research',
       items: [
+        { path: '/changes', label: 'What changed' },
         { path: '/findings', label: 'Findings' },
         { path: '/analyses', label: 'Analyses' },
         { path: '/benchmarks', label: 'Benchmarks' },

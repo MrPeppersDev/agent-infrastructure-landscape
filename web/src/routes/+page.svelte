@@ -4,6 +4,7 @@
   import { datasetLd } from '$lib/seo/jsonld';
   import { onMount, untrack } from 'svelte';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { browser } from '$app/environment';
   import { page } from '$app/state';
   import Table from '$lib/components/Table.svelte';
@@ -305,6 +306,7 @@
         · {visibleRecords.length.toLocaleString()} visible
         · data as of {page.data.stats.dataAsOf}
         ({page.data.stats.verifiedThisMonth.toLocaleString()} re-verified that month)
+        · <a href="{base}/changes">what changed</a>
         {#if $sortColumns.length}
           · sorted by {$sortColumns
             .map((s) => `${s.column} ${s.direction === 'asc' ? '↑' : '↓'}`)
@@ -433,6 +435,9 @@
     font-size: 1.4rem;
     margin: 0;
     letter-spacing: -0.01em;
+  }
+  .subtitle a {
+    color: #58a6ff;
   }
   .subtitle {
     color: #8b949e;

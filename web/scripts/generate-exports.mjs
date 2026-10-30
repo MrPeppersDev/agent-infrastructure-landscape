@@ -206,7 +206,7 @@ const all = Object.entries(history.records ?? {})
 write('changes.xml', feed({
   title: 'AI Agent Infrastructure Landscape — changes',
   subtitle: 'The latest 100 lifecycle, licence, release, pricing and hosting changes across the catalog.',
-  self: `${baseUrl}/changes.xml`, alt: `${baseUrl}/`,
+  self: `${baseUrl}/changes.xml`, alt: `${baseUrl}/changes`,
   updated: iso(all[0]?.ev.date ?? '2026-01-01'),
   entries: all.map(({ id, ev }) => entry(id, ev))
 }));
@@ -242,7 +242,7 @@ ${famLines}
 
 ## Change feeds
 
-- [All changes (Atom)](${PUBLIC}/changes.xml); one system: \`${PUBLIC}/feeds/<id>.xml\`.
+- [What changed](${PUBLIC}/changes): acquisitions, shutdowns, renames, price and release changes, by week. [Atom feed](${PUBLIC}/changes.xml); one system: \`${PUBLIC}/feeds/<id>.xml\`.
 - [Recently verified (Atom)](${PUBLIC}/feed.xml).
 
 ## Tools
