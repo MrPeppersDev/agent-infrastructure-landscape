@@ -15,6 +15,7 @@
 // identity is unchanged.
 //
 // Facet semantics:
+//   lifecycle     → record.lifecycle (stack-index status, attached by the loader)
 //   tier          → numeric record.tier (1..5)
 //   section       → record.sections.find(s => s.primary).section
 //   {storage…conflict}  → record.taxonomy[axis].find(v => v.primary).value
@@ -37,6 +38,7 @@
 import { writable } from 'svelte/store';
 import type { LandscapeRecord, Tier } from '$lib/types';
 import { familyIdOf, memoryTaxonomyOf } from '$lib/families';
+import { LIFECYCLE_ORDER } from '$lib/lifecycle-labels';
 
 export type TaxonomyFacet =
   | 'storage'
@@ -51,6 +53,7 @@ export type CellFacet = 'license' | 'deployment' | 'modality' | 'layer' | 'licen
 
 export type FacetName =
   | 'product'
+  | 'lifecycle'
   | 'tier'
   | 'section'
   | TaxonomyFacet
@@ -59,6 +62,8 @@ export type FacetName =
 export interface FilterState {
   /** Product family id (taxonomy/families.json), e.g. "memory". */
   product: Set<string>;
+  /** Lifecycle status (#331): active, acquired, archived, … */
+  lifecycle: Set<string>;
   tier: Set<number>;
   section: Set<string>;
   storage: Set<string>;
@@ -88,6 +93,7 @@ export const TAXONOMY_FACETS: TaxonomyFacet[] = [
 
 export const FACET_ORDER: FacetName[] = [
   'product',
+  'lifecycle',
   'tier',
   'section',
   ...TAXONOMY_FACETS,
@@ -101,6 +107,7 @@ export const FACET_ORDER: FacetName[] = [
 
 export const FACET_LABEL: Record<FacetName, string> = {
   product: 'Product',
+  lifecycle: 'Lifecycle',
   tier: 'Tier',
   section: 'Section',
   storage: 'Storage',
@@ -121,6 +128,7 @@ export const FACET_LABEL: Record<FacetName, string> = {
 export function emptyState(): FilterState {
   return {
     product: new Set<string>(),
+    lifecycle: new Set<string>(),
     tier: new Set<number>(),
     section: new Set<string>(),
     storage: new Set<string>(),
@@ -251,6 +259,7 @@ export function recordFacetValue(
   facet: FacetName
 ): string | number {
   if (facet === 'product') return familyIdOf(r);
+  if (facet === 'lifecycle') return r.lifecycle ?? 'active';
   if (facet === 'tier') return r.tier;
   if (facet === 'section') return primarySection(r);
   if (facet === 'license') {
@@ -334,6 +343,9 @@ export function facetCounts(
   const entries = [...counts.entries()];
   if (facet === 'tier') {
     entries.sort((a, b) => (a[0] as number) - (b[0] as number));
+  } else if (facet === 'lifecycle') {
+    const rank = (v: string | number) => LIFECYCLE_ORDER.indexOf(String(v) as (typeof LIFECYCLE_ORDER)[number]);
+    entries.sort((a, b) => rank(a[0]) - rank(b[0]));
   } else if (facet === 'freshness') {
     const rank = (v: string | number) => FRESHNESS_BUCKETS.indexOf(String(v) as (typeof FRESHNESS_BUCKETS)[number]);
     entries.sort((a, b) => rank(a[0]) - rank(b[0]));

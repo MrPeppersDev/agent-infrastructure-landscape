@@ -271,6 +271,12 @@ export interface LandscapeRecord {
    * legacy entries; see PHASE_2_SPEC.html §3.4.
    */
   _provenance?: Record<string, CellProvenance>;
+  /**
+   * Lifecycle status from data/stack-index.json. Not stored in
+   * landscape.json: server loaders attach it ($lib/lifecycle) for the
+   * table (#331). Absent reads as active.
+   */
+  lifecycle?: import('../../../mcp/src/stack-check').StackStatus;
 }
 
 /** See PHASE_2_SPEC.html §3.4 for the model. */

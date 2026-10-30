@@ -18,7 +18,7 @@
   // This keeps the math simple and trivially 60fps.
 
   import type { LandscapeRecord } from '$lib/types';
-  import { COLUMNS, GROUP_RUNS, GROUP_META } from '$lib/columns';
+  import { COLUMNS, GROUP_META, groupRuns, type ColumnDef } from '$lib/columns';
   import { sortColumns, cycleSort, type SortEntry } from '$lib/stores/sort';
   import TableRow from './TableRow.svelte';
 
@@ -29,15 +29,23 @@
   // a pure presentational unit; the parent owns the wiring.
   let {
     records,
+    columns = COLUMNS,
+    compact = false,
     onSelect,
     onToggleSelect
   }: {
     records: LandscapeRecord[];
+    /** Columns to show; the compact view (#331) passes COMPACT_COLUMNS. */
+    columns?: ColumnDef[];
+    /** One line per row, no group band. */
+    compact?: boolean;
     onSelect?: (record: LandscapeRecord) => void;
     onToggleSelect?: (record: LandscapeRecord) => void;
   } = $props();
 
-  const ROW_HEIGHT = 56;
+  const runs = $derived(groupRuns(columns));
+  // Rows are fixed-height (cells clip) so the virtual-scroll math holds.
+  const ROW_HEIGHT = $derived(compact ? 34 : 56);
   /** Render this many extra rows above & below the viewport so fast
    *  scrolling doesn't show empty space at the edges. */
   const OVERSCAN = 8;
@@ -115,6 +123,8 @@
 
 <div
   class="scroll-container"
+  class:compact
+  style="--row-h: {ROW_HEIGHT}px"
   bind:this={scrollContainer}
   onscroll={onScroll}
 >
@@ -122,14 +132,15 @@
 
   <table>
     <colgroup>
-      {#each COLUMNS as col (col.key)}
+      {#each columns as col (col.key)}
         <col style="width: {col.width ?? 120}px" />
       {/each}
     </colgroup>
 
     <thead>
+      {#if !compact}
       <tr class="group-band-row">
-        {#each GROUP_RUNS as run}
+        {#each runs as run}
           {@const meta = GROUP_META[run.group]}
           <th
             colspan={run.span}
@@ -140,8 +151,9 @@
           </th>
         {/each}
       </tr>
+      {/if}
       <tr class="head-row">
-        {#each COLUMNS as col, i (col.key)}
+        {#each columns as col, i (col.key)}
           {@const sortIdx = sortIndex($sortColumns, col.key)}
           {@const sortEntry = sortIdx >= 0 ? $sortColumns[sortIdx] : null}
           <th
@@ -173,7 +185,7 @@
       onclick={onTbodyClick}
     >
       {#each visibleSlice as record (record.id)}
-        <TableRow {record} />
+        <TableRow {record} {columns} />
       {/each}
     </tbody>
   </table>

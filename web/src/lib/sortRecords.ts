@@ -9,7 +9,8 @@
 import type { LandscapeRecord } from './types';
 import type { SortEntry } from './stores/sort';
 import { cellSlugOf, taxonomyAxisOf } from './columns';
-import { memoryTaxonomyOf } from './families';
+import { memoryTaxonomyOf, primarySectionOf } from './families';
+import { LIFECYCLE_ORDER } from './lifecycle-labels';
 
 /**
  * Pull a comparable value out of a record for a given sort column.
@@ -21,6 +22,10 @@ import { memoryTaxonomyOf } from './families';
 function extractSortValue(record: LandscapeRecord, column: string): number | string {
   if (column === 'name') return record.name.toLowerCase();
   if (column === 'tier') return record.tier;
+  // Derived columns (#331). Lifecycle sorts healthiest first.
+  if (column === 'lifecycle') return LIFECYCLE_ORDER.indexOf(record.lifecycle ?? 'active');
+  if (column === 'section') return primarySectionOf(record).toLowerCase();
+  if (column === 'verified') return record.last_verified_at ?? '';
 
   const axis = taxonomyAxisOf(column);
   if (axis) {

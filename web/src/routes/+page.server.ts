@@ -13,12 +13,13 @@
 
 import { getRecords, getRecordCount, getEdgeCount } from '$lib/data';
 import { getFamilies, familyIdOf } from '$lib/families';
+import { lifecycleOf } from '$lib/lifecycle';
 
 export const prerender = true;
 
 export const load = () => {
   return {
-    records: defaultOrder(getRecords()),
+    records: defaultOrder(getRecords()).map((r) => ({ ...r, lifecycle: lifecycleOf(r.id).status })),
     recordCount: getRecordCount(),
     edgeCount: getEdgeCount()
   };
