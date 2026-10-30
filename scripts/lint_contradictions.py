@@ -14,6 +14,9 @@ Checks (each finding names the record, the cells involved and why):
                     (https://github.com/, https://news.ycombinator.com/), so
                     it points at nothing about this record. A vendor's own
                     homepage is a fine citation and is not flagged.
+  bad-citation      a citation whose first token is not a URL with a dotted
+                    host ("https://no data - no public code found"), so it
+                    links nowhere. A note after a real URL is fine.
   blank-taxonomy    an Agent Memory / Memory Research record whose seven
                     taxonomy axes are all n/a.
   edge-midword      an edge whose evidence excerpt starts in the middle of a
@@ -48,6 +51,7 @@ CLOSED = re.compile(
     r"\b(not OSS|not open[- ]source|closed[- ]source|code closed|proprietary only|"
     r"no (public )?(github )?repo|paper only|no code (release|released)|weights closed)\b", re.I)
 ACQ = re.compile(r"acquired by ([A-Z][\w&.\- ]{1,30}?)[ ,(]+(?:in |on )?(?:\w+ )?(20\d\d)", re.I)
+GOOD_URL = re.compile(r"^https?://[^\s/]+\.[^\s/]+")
 BARE = re.compile(r"^https?://(www\.)?(github\.com|news\.ycombinator\.com|arxiv\.org|huggingface\.co|"
                   r"x\.com|twitter\.com|linkedin\.com|reddit\.com|medium\.com|pypi\.org|npmjs\.com|"
                   r"youtube\.com|crunchbase\.com|techcrunch\.com|google\.com)/?$", re.I)
@@ -128,6 +132,8 @@ def lint(rec: dict, fam: str) -> list[dict]:
         cit = c.get("citation") or ""
         if cit and BARE.match(cit):
             out.append({"check": "bare-citation", "cells": [k], "why": cit})
+        if cit and not GOOD_URL.match(cit.split()[0]):
+            out.append({"check": "bad-citation", "cells": [k], "why": cit[:80]})
 
     gh_cell = cells.get("gh") or {}
     if gh_cell.get("status") == "real-data" and gh_cell.get("value"):
