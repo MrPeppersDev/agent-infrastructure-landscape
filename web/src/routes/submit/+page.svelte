@@ -126,7 +126,7 @@
     return validation.errors[k] ?? '';
   }
 
-  // Phase 2: toggle a use-case tag in form.useCaseTags. Chip UI calls
+  // Toggle a use-case tag in form.useCaseTags. Chip UI calls
   // this on click. Tag list stays in vocab order regardless of click
   // order so the issue body is deterministic for the bot's parser.
   function toggleUseCaseTag(tag: UseCaseTag): void {
@@ -407,7 +407,7 @@
       </section>
 
       <section class="group">
-        <h2>Cost (Phase 2)</h2>
+        <h2>Cost</h2>
         <p class="hint" style="margin: -6px 0 12px 0;">
           Optional. The research bot scrapes the vendor pricing page
           when the pricing model is "hosted-api" or "hosted-service"
@@ -458,7 +458,7 @@
       </section>
 
       <section class="group">
-        <h2>Capability (Phase 2)</h2>
+        <h2>Capability</h2>
         <p class="hint" style="margin: -6px 0 12px 0;">
           Optional. Paste benchmark sources — URLs to MMLU / HumanEval /
           memory-eval leaderboards, ideally with the relevant score.
@@ -483,7 +483,7 @@
       </section>
 
       <section class="group">
-        <h2>Use-case (Phase 2)</h2>
+        <h2>Use-case</h2>
         <p class="hint" style="margin: -6px 0 12px 0;">
           Pick the use-cases this system is built for. The bot may add
           additional tags from the same controlled vocabulary, but

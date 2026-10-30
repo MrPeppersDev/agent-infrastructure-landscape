@@ -4,7 +4,6 @@
   import SeoHead from '$lib/components/SeoHead.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
   import CompareTables, {
-    cellText,
     primarySection,
     type SlimRecord
   } from '$lib/components/CompareTables.svelte';
@@ -35,15 +34,6 @@
   // Canonical A/B kept for JSON-LD / SEO — those stay stable across swaps.
   const a = data.a;
   const b = data.b;
-
-  // Cross-link to /recommend/between if both sides have cost + capability
-  // data — that's when the positioning recommender can actually run.
-  const canRecommendBetween = $derived(
-    !!cellText(a.cells['cost-input-usd-per-mtok']) &&
-      !!cellText(b.cells['cost-input-usd-per-mtok']) &&
-      !!cellText(a.cells['capability-composite-score']) &&
-      !!cellText(b.cells['capability-composite-score'])
-  );
 
   // Pickers: keep one endpoint, swap the other. Selecting an option
   // navigates to the corresponding pre-computed pair slug.
@@ -146,14 +136,6 @@
         title="Open the client-side picker to compare any two catalog systems">
         Compare any two systems →
       </a>
-      {#if canRecommendBetween}
-        <a
-          class="control-btn cross-link"
-          href="{base}/recommend/between?low={a.id}&high={b.id}"
-          title="See catalog systems positioned between these two on cost/capability">
-          Recommend between these two →
-        </a>
-      {/if}
     </div>
   </header>
 
@@ -253,15 +235,6 @@
   .control-btn:hover {
     background: #262626;
     color: #f0f0f0;
-  }
-  .control-btn.cross-link {
-    background: #2a1e14;
-    color: #e8a868;
-    border-color: #4a3420;
-  }
-  .control-btn.cross-link:hover {
-    background: #35271a;
-    color: #f0b878;
   }
   .control-picker {
     display: flex;
