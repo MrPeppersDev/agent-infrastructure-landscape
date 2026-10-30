@@ -30,7 +30,11 @@
   import { base } from '$app/paths';
   import type { LandscapeRecord, Edge, Tier } from '$lib/types';
 
-  let { data }: { data: { records: LandscapeRecord[]; edges: Edge[] } } = $props();
+  let {
+    data
+  }: {
+    data: { records: LandscapeRecord[]; edges: Edge[]; corroborated: { id: string; cited: number; thirdParty: number }[] };
+  } = $props();
 
   // --- Curated boards (computed once; data is bundled, never mutates) ---
 
@@ -66,6 +70,15 @@
       10
     )
   );
+
+  // 6. Most facts with a third-party source (#333).
+  const mostCorroborated = $derived.by(() => {
+    const byId = new Map(data.records.map((r) => [r.id, r]));
+    return data.corroborated.flatMap((c) => {
+      const record = byId.get(c.id);
+      return record ? [{ record, value: c.thirdParty, display: `${c.thirdParty} of ${c.cited} cited facts` }] : [];
+    });
+  });
 
   // --- Custom mode -----------------------------------------------------
 
@@ -117,7 +130,8 @@
       mostStarred.length +
       bestFunded.length +
       mostInboundCites.length +
-      mostIntegrated.length
+      mostIntegrated.length +
+      mostCorroborated.length
   );
 </script>
 
@@ -142,7 +156,7 @@
   </header>
 
   <section class="grid">
-    {#each [{ title: 'Most-cited research (T3 / T4)', desc: 'Papers ranked by Semantic Scholar citation count parsed from the citations cell.', rows: mostCited, valueHeader: 'Citations' }, { title: 'Most-starred OSS', desc: 'GitHub repos ranked by leading star count in the gh cell ("18.8k★ / 1.4k forks" → 18 800).', rows: mostStarred, valueHeader: 'Stars' }, { title: 'Best-funded commercial', desc: 'Private companies ranked by total funding raised, from the funding cell: a stated total wins, otherwise the largest round. Valuations are never counted, and public companies are left out because their figures are market value, not funding.', rows: bestFunded, valueHeader: 'Raised', money: true }, { title: 'Highest inbound citations (in-catalog)', desc: 'How many other records in the catalog cite this one. Pure graph metric — no external lookup.', rows: mostInboundCites, valueHeader: 'Inbound cites' }, { title: 'Most-integrated (built-on + integrates-with)', desc: 'How many other records depend on or integrate this one. Mem0 should top this list.', rows: mostIntegrated, valueHeader: 'Inbound' }] as board (board.title)}
+    {#each [{ title: 'Most-cited research (T3 / T4)', desc: 'Papers ranked by Semantic Scholar citation count parsed from the citations cell.', rows: mostCited, valueHeader: 'Citations' }, { title: 'Most-starred OSS', desc: 'GitHub repos ranked by leading star count in the gh cell ("18.8k★ / 1.4k forks" → 18 800).', rows: mostStarred, valueHeader: 'Stars' }, { title: 'Best-funded commercial', desc: 'Private companies ranked by total funding raised, from the funding cell: a stated total wins, otherwise the largest round. Valuations are never counted, and public companies are left out because their figures are market value, not funding.', rows: bestFunded, valueHeader: 'Raised', money: true }, { title: 'Highest inbound citations (in-catalog)', desc: 'How many other records in the catalog cite this one. Pure graph metric — no external lookup.', rows: mostInboundCites, valueHeader: 'Inbound cites' }, { title: 'Most-integrated (built-on + integrates-with)', desc: 'How many other records depend on or integrate this one. Mem0 should top this list.', rows: mostIntegrated, valueHeader: 'Inbound' }, { title: 'Most third-party-sourced facts', desc: 'Cited facts whose source is not published by the vendor, its repo, a registry or a paper: press, analysts, funding databases, other vendors’ integration docs.', rows: mostCorroborated, valueHeader: 'Third-party' }] as board (board.title)}
       <article class="card">
         <h2>{board.title}</h2>
         <p class="card-desc">{board.desc}</p>
@@ -273,7 +287,7 @@
   <footer class="lb-footer">
     <a href="{base}/">← Back to table</a>
     <span class="muted">
-      {totalRanked} rows across 5 curated boards · {CUSTOM_COLUMNS.length}
+      {totalRanked} rows across 6 curated boards · {CUSTOM_COLUMNS.length}
       custom ranking columns
     </span>
   </footer>

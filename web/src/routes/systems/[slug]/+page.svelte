@@ -10,6 +10,8 @@
   import type { LifecycleInfo } from '$lib/lifecycle';
   import { LIFECYCLE_LABEL, LIFECYCLE_TONE, LIFECYCLE_BANNER } from '$lib/lifecycle-labels';
   import { correctionUrl, REPO, type HistoryEvent } from '$lib/history';
+  import { sourceClass, corroboration, citationUrl, SOURCE_TITLE } from '$lib/source-class.js';
+  import { COLUMN_BY_KEY } from '$lib/columns';
 
   type RelatedPair = { slug: string; otherId: string; otherName: string };
   type SimilarSystem = {
@@ -73,6 +75,20 @@
 
   const title = `${record.name} — ${primarySection ?? 'AI agent stack'} | Landscape Profile`;
 
+  // Who published each cited fact (#333): vendor, repo, registry, paper,
+  // third-party. The header counts the third-party ones.
+  const corr = $derived(corroboration(record));
+  const citedList = $derived(
+    Object.entries(record.cells)
+      .filter(([, c]) => c?.status === 'real-data' && citationUrl(c.citation))
+      .map(([slug, c]) => ({ slug, label: COLUMN_BY_KEY[slug]?.label ?? slug, value: cellText(c) ?? '', citation: citationUrl(c!.citation)!, cls: sourceClass(c!.citation, record) }))
+      .filter((x) => x.cls !== 'catalog')
+  );
+  const citeOf = (slug: string) => {
+    const c = record.cells[slug as keyof typeof record.cells];
+    return c?.status === 'real-data' ? citationUrl(c.citation) : null;
+  };
+
   // Headline facts gathered in render-order. nulls dropped at template time.
   const facts: { label: string; value: string | null; cite?: string | null; internal?: string; slug?: string }[] = [
     { label: 'Type', value: cellText(record.cells.type), slug: 'type' },
@@ -88,12 +104,12 @@
     {
       label: 'GitHub',
       value: cellText(record.cells.gh),
-      cite: record.cells.gh?.citation ?? null,
+      cite: citationUrl(record.cells.gh?.citation),
       slug: 'gh'
     },
     { label: 'Pricing', value: cellText(record.cells.pricing), slug: 'pricing' },
     { label: 'Funding', value: cellText(record.cells.funding), slug: 'funding' },
-    { label: 'Freshness', value: freshness, cite: record.cells['freshness-date']?.citation ?? null, slug: 'freshness-date' },
+    { label: 'Freshness', value: freshness, cite: citationUrl(record.cells['freshness-date']?.citation), slug: 'freshness-date' },
     { label: 'Layer', value: v11Text(record.cells['taxonomy-three-layer-rollup']), slug: 'taxonomy-three-layer-rollup' },
     { label: 'Licensing', value: v11Text(record.cells['licensing-bucket']), slug: 'licensing-bucket' },
     { label: 'Deployment locus', value: v11Text(record.cells['architecture-deployment-locus']), slug: 'architecture-deployment-locus' },
@@ -106,7 +122,7 @@
     {
       label: 'Developer activity',
       value: opendiggerText(record.cells['developer-activity-opendigger']),
-      cite: record.cells['developer-activity-opendigger']?.citation ?? null,
+      cite: citationUrl(record.cells['developer-activity-opendigger']?.citation),
       slug: 'developer-activity-opendigger'
     }
   ];
@@ -201,7 +217,8 @@
       <span class="life {LIFECYCLE_TONE[data.lifecycle.status]}">{LIFECYCLE_LABEL[data.lifecycle.status]}</span>
       · Verified <strong>{record.last_verified_at ?? 'not yet'}</strong>
       {#if freshness}· fresh as of <strong>{freshness}</strong>{/if}
-      · {data.citedCells} cited facts
+      · {data.citedCells} cited facts,
+      <a href="{base}/about#sources" title="How to read sources">{corr.thirdParty} with a third-party source</a>
       {#if data.history.length}· <a href="#changes">{data.history.length} recorded change{data.history.length === 1 ? '' : 's'}</a>{/if}
       · <a href={correctionUrl(record.id)} rel="noopener">Suggest a correction</a>
     </p>
@@ -217,8 +234,11 @@
             <dd>
               {#if f.internal}
                 <a href={f.internal}>{f.value}</a>
-              {:else if f.cite}
-                <a href={f.cite} rel="nofollow noopener">{f.value}</a>
+              {:else if f.cite ?? (f.slug && citeOf(f.slug))}
+                {@const href = f.cite ?? citeOf(f.slug ?? '')}
+                {@const cls = sourceClass(href, record)}
+                <a href={href} rel="nofollow noopener">{f.value}</a>
+                {#if cls && cls !== 'catalog'}<span class="src" title={SOURCE_TITLE[cls]}>{cls}</span>{/if}
               {:else}
                 {f.value}
               {/if}
@@ -342,6 +362,24 @@
     </section>
   {/if}
 
+  {#if citedList.length}
+    <section class="sources" id="sources">
+      <details>
+        <summary><h2>Sources ({citedList.length} cited facts, {corr.thirdParty} third-party)</h2></summary>
+        <p class="similar-lede">Each fact links to the page it came from; the badge says who published it (<a href="{base}/about#sources">how to read sources</a>).</p>
+        <ul>
+          {#each citedList as s}
+            <li>
+              <span class="src-label">{s.label}</span>
+              <a href={s.citation} rel="nofollow noopener">{s.value.length > 90 ? s.value.slice(0, 88) + '…' : s.value || s.citation}</a>
+              {#if s.cls}<span class="src" title={SOURCE_TITLE[s.cls]}>{s.cls}</span>{/if}
+            </li>
+          {/each}
+        </ul>
+      </details>
+    </section>
+  {/if}
+
   {#if data.history.length}
     <section class="changes" id="changes">
       <h2>What changed</h2>
@@ -423,7 +461,13 @@
 
 <style>
   .fresh { font-size: 0.85rem; color: #8b949e; margin: -0.25rem 0 1rem; }
-  .fresh a, .changes a { color: #58a6ff; }
+  .fresh a, .changes a, .sources a { color: #58a6ff; }
+  .src { display: inline-block; margin-left: 0.4rem; padding: 0 5px; font-size: 0.68rem; color: #8b949e; border: 1px solid #30363d; border-radius: 4px; vertical-align: 1px; cursor: help; }
+  .sources summary { cursor: pointer; }
+  .sources summary h2 { display: inline; }
+  .sources ul { list-style: none; padding: 0; margin: 0.5rem 0; }
+  .sources li { padding: 0.2rem 0; font-size: 0.88rem; border-bottom: 1px solid #21262d; }
+  .src-label { display: inline-block; min-width: 11rem; color: #8b949e; }
   .life { display: inline-block; padding: 0 6px; border-radius: 3px; border: 1px solid; font-size: 0.78rem; font-weight: 600; }
   .life.ok { background: #1f3a26; color: #8fc99a; border-color: #2c5235; }
   .life.info { background: #1f2e3a; color: #8fb3c9; border-color: #2c4253; }

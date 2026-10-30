@@ -11,6 +11,7 @@
 
   import type { LandscapeRecord, Cell, TaxonomyValue } from '$lib/types';
   import { memoryTaxonomyOf } from '$lib/families';
+  import { sourceClass, SOURCE_TITLE } from '$lib/source-class.js';
   import { COLUMNS, GROUP_META, type ColumnGroup, type ColumnDef } from '$lib/columns';
   import { onMount } from 'svelte';
 
@@ -243,7 +244,9 @@
                     {:else}
                       <span class="cell-value">{@html cell.value}</span>
                       {#if cell.citation}
+                        {@const cls = sourceClass(cell.citation, record)}
                         <a class="cite" href={cell.citation} target="_blank" rel="noopener noreferrer">↗</a>
+                        {#if cls && cls !== 'catalog'}<span class="src" title={SOURCE_TITLE[cls]}>{cls}</span>{/if}
                       {/if}
                     {/if}
                     {#if cell.last_verified_at}
@@ -571,5 +574,15 @@
   .footer-close:hover {
     background: #30363d;
     border-color: #58a6ff;
+  }
+  .src {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 0 4px;
+    font-size: 9.5px;
+    color: #8b949e;
+    border: 1px solid #30363d;
+    border-radius: 3px;
+    cursor: help;
   }
 </style>

@@ -171,6 +171,12 @@ try {
   await page.locator('main.table-shell[data-hydrated]').waitFor();
   const lives = await texts('.row td[data-col="lifecycle"]');
   check('?lifecycle=archived shows only archived rows', lives.length > 0 && lives.every((t) => t === 'Archived'), lives.slice(0, 3).join(', '));
+  // #333: source classes on the Mem0 page and in its API JSON.
+  await go('/systems/mem0--mem0-ai');
+  check('Mem0 page shows source badges', (await page.locator('.facts .src').count()) > 0 && (await page.locator('#sources .src').count()) > 20);
+  check('Mem0 header counts third-party sources', /\d+ with a third-party source/.test(await page.locator('.fresh').innerText()));
+  const mem0 = JSON.parse(await readFile(join(BUILD, 'api/systems/mem0--mem0-ai.json'), 'utf8'));
+  check('/api/systems/<id>.json carries source_class per cell', mem0.cells.license?.source_class === 'repo' && mem0.corroboration?.third_party_cells > 0);
   await go('/systems/bytebot--bytebot-ai');
   check('archived system page shows the lifecycle banner', (await page.locator('.life-banner').count()) === 1);
 } finally {

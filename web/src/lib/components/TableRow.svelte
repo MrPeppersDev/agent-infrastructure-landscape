@@ -5,6 +5,7 @@
   import TaxonomyCell from './TaxonomyCell.svelte';
   import { hasMemoryTaxonomy, primarySectionOf } from '$lib/families';
   import { LIFECYCLE_LABEL, LIFECYCLE_TONE } from '$lib/lifecycle-labels';
+  import { corroboration } from '$lib/source-class.js';
   import { searchQuery, highlightPlain } from '$lib/stores/search';
 
   let { record, columns = COLUMNS }: { record: LandscapeRecord; columns?: ColumnDef[] } = $props();
@@ -72,6 +73,9 @@
       </div></td>
     {:else if col.key === 'section'}
       <td class="cell" data-col={col.key}><div class="clip" title={section}>{section}</div></td>
+    {:else if col.key === 'third-party'}
+      {@const c = corroboration(record)}
+      <td class="cell" data-col={col.key}><div class="clip" title="{c.thirdParty} of {c.cited} cited facts have a third-party source">{c.thirdParty} / {c.cited}</div></td>
     {:else if col.key === 'verified'}
       <td class="cell" data-col={col.key}><div class="clip">{record.last_verified_at ?? ''}</div></td>
     {:else if col.isTaxonomy}
