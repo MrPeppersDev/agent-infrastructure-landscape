@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: MrPeppersDev/agent-infrastructure-landscape@main
         with:
-          fail-on: archived   # none | attention | archived
+          fail-on: archived   # none | attention | archived | drift
 ```
 
 On a PR it posts or updates one comment when something is flagged. It adds file annotations and a job summary, and sets the outputs `attention-count`, `matched-count` and `manifests`.
@@ -26,7 +26,7 @@ On a PR it posts or updates one comment when something is flagged. It adds file 
 | Input | Default | |
 |---|---|---|
 | `manifests` | auto-detect | Comma- or newline-separated paths |
-| `fail-on` | `none` | `attention` fails on any flagged dependency; `archived` fails only on archived, deprecated or shut-down ones |
+| `fail-on` | `none` | `attention` fails on any flagged dependency; `archived` fails only on archived, deprecated or shut-down ones; `drift` also fails on dependencies pinned behind the catalog's latest release |
 | `comment` | `auto` | `auto` (only when something is flagged), `always`, `never` |
 | `badge-path` | — | Writes a [shields.io endpoint](https://shields.io/badges/endpoint-badge) JSON you can commit or publish |
 | `index-url` | live catalog index | Falls back to the copy bundled with the action version |

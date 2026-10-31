@@ -188,6 +188,11 @@ program
         lines.push(`    record: landscape show ${f.recordId}`);
       }
       if (!report.attention.length && !opts.all) lines.push('\n  Nothing archived, deprecated, acquired or stale among the catalogued dependencies.');
+      if (report.drift.length) {
+        lines.push('', 'Version drift (against the catalog\'s latest release):');
+        for (const d of report.drift) lines.push(`  ${d.dependency.name} ${d.dependency.spec ?? ''}  →  ${d.name}: ${d.note}`);
+      }
+      if (report.noVersionData) lines.push(`  (${report.noVersionData} catalogued dependencies have no release version in the catalog, so no drift verdict)`);
       const a = report.audit;
       if (a.layers.length) {
         lines.push('', 'Stack audit (by catalog section):');

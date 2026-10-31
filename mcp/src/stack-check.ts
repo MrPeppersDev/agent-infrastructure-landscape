@@ -53,6 +53,9 @@ export interface IndexRecord {
   context: string;
   evidence: string | null;
   last_commit: string | null;
+  /** Latest release the catalog knows (#364), from the latest-release cell. */
+  latest_release?: { version: string; date: string | null } | null;
+  latest_release_text?: string;
 }
 
 export interface StackIndex {
@@ -119,6 +122,11 @@ export interface StackReport {
   /** Which layers of an agent stack the manifest covers and lacks, vendor
    * concentration and licence mix (#363). */
   audit: StackAudit;
+  /** Dependencies pinned behind the catalog's latest release (#364). */
+  drift: DriftFinding[];
+  /** Matched npm / PyPI dependencies the catalog has no release version
+   * for, so no drift verdict was possible (said, never "fine"). */
+  noVersionData: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -421,6 +429,7 @@ export function checkStack(deps: Dependency[], index: StackIndex, format = 'list
     summary,
     indexGeneratedAt: index.generatedAt,
     audit: auditStack(matched),
+    ...versionDrift(matched),
   };
 }
 
@@ -622,6 +631,75 @@ export function auditStack(matched: Finding[]): StackAudit {
     for (const r of rest) yaml.push(`  # also ${l.layer}: ${r.id}  # ${r.name.replace(/#/g, '')}`);
   }
   return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n' };
+}
+
+
+// ---------------------------------------------------------------------------
+// Version drift (#364): the version a manifest pins against the latest
+// release the catalog records for that system. Only a verdict the spec
+// supports: a caret, tilde, exact or compatible-release spec names a major
+// (or a minor on 0.x); an open lower bound (">=0.3") or "latest" does not,
+// and gets no finding. Systems with no release version in the catalog are
+// counted as "no version data", never reported as fine.
+// ---------------------------------------------------------------------------
+
+export interface PinnedVersion {
+  major: number;
+  minor: number | null;
+  patch: number | null;
+  /** The spec allows newer majors (open lower bound), so no verdict. */
+  unbounded: boolean;
+}
+
+export function pinnedVersion(spec: string | undefined): PinnedVersion | null {
+  const s = (spec ?? '').trim();
+  if (!s || /^(latest|\*|x|next|workspace:|file:|link:|git\+|https?:)/i.test(s)) return null;
+  // Take the first clause of a range ("^1.2 || ^2.0", ">=1,<2").
+  const first = s.split(/\s*(?:\|\||,)\s*/)[0];
+  const m = first.match(/(\d+)(?:\.(\d+|x|\*))?(?:\.(\d+|x|\*))?/);
+  if (!m) return null;
+  const num = (x: string | undefined) => (x === undefined || x === 'x' || x === '*' ? null : Number(x));
+  const op = first.slice(0, m.index).trim();
+  const unbounded = /^(>=?|!=)$/.test(op) && !/<|==|~=|\^|~/.test(s);
+  return { major: Number(m[1]), minor: num(m[2]), patch: num(m[3]), unbounded };
+}
+
+export interface DriftFinding {
+  dependency: Dependency;
+  recordId: string;
+  name: string;
+  pinned: PinnedVersion;
+  latest: { version: string; date: string | null };
+  level: 'behind-major' | 'behind-minor';
+  note: string;
+}
+
+function versionDrift(matched: Finding[]): { drift: DriftFinding[]; noVersionData: number } {
+  const drift: DriftFinding[] = [];
+  let noVersionData = 0;
+  for (const f of matched) {
+    if (f.dependency.ecosystem !== 'npm' && f.dependency.ecosystem !== 'pypi') continue;
+    const latest = f.record.latest_release;
+    if (!latest) {
+      noVersionData++;
+      continue;
+    }
+    const pinned = pinnedVersion(f.dependency.spec);
+    if (!pinned || pinned.unbounded) continue;
+    const lm = latest.version.match(/^(\d+)\.(\d+)/);
+    if (!lm) continue;
+    const lMajor = Number(lm[1]), lMinor = Number(lm[2]);
+    const when = latest.date ? ` (${latest.date})` : '';
+    if (pinned.major < lMajor) {
+      drift.push({ dependency: f.dependency, recordId: f.recordId, name: f.record.name, pinned, latest, level: 'behind-major',
+        note: `pinned to ${pinned.major}.x; the catalog's latest release is ${latest.version}${when}` });
+    } else if (pinned.major === 0 && lMajor === 0 && pinned.minor !== null && pinned.minor < lMinor) {
+      drift.push({ dependency: f.dependency, recordId: f.recordId, name: f.record.name, pinned, latest, level: 'behind-minor',
+        note: `pinned to 0.${pinned.minor}; on a 0.x line every minor can break, and the catalog's latest release is ${latest.version}${when}` });
+    }
+  }
+  drift.sort((a, b) => (a.level === b.level ? a.name.localeCompare(b.name) : a.level === 'behind-major' ? -1 : 1));
+  return { drift, noVersionData };
 }
 
 export function checkManifest(

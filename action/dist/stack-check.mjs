@@ -350,6 +350,7 @@ export function checkStack(deps, index, format = 'list', opts = {}) {
         summary,
         indexGeneratedAt: index.generatedAt,
         audit: auditStack(matched),
+        ...versionDrift(matched),
     };
 }
 /** Upgrade advisor: for each flagged dependency, prefer replacements with
@@ -503,6 +504,51 @@ export function auditStack(matched) {
             yaml.push(`  # also ${l.layer}: ${r.id}  # ${r.name.replace(/#/g, '')}`);
     }
     return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n' };
+}
+export function pinnedVersion(spec) {
+    const s = (spec ?? '').trim();
+    if (!s || /^(latest|\*|x|next|workspace:|file:|link:|git\+|https?:)/i.test(s))
+        return null;
+    // Take the first clause of a range ("^1.2 || ^2.0", ">=1,<2").
+    const first = s.split(/\s*(?:\|\||,)\s*/)[0];
+    const m = first.match(/(\d+)(?:\.(\d+|x|\*))?(?:\.(\d+|x|\*))?/);
+    if (!m)
+        return null;
+    const num = (x) => (x === undefined || x === 'x' || x === '*' ? null : Number(x));
+    const op = first.slice(0, m.index).trim();
+    const unbounded = /^(>=?|!=)$/.test(op) && !/<|==|~=|\^|~/.test(s);
+    return { major: Number(m[1]), minor: num(m[2]), patch: num(m[3]), unbounded };
+}
+function versionDrift(matched) {
+    const drift = [];
+    let noVersionData = 0;
+    for (const f of matched) {
+        if (f.dependency.ecosystem !== 'npm' && f.dependency.ecosystem !== 'pypi')
+            continue;
+        const latest = f.record.latest_release;
+        if (!latest) {
+            noVersionData++;
+            continue;
+        }
+        const pinned = pinnedVersion(f.dependency.spec);
+        if (!pinned || pinned.unbounded)
+            continue;
+        const lm = latest.version.match(/^(\d+)\.(\d+)/);
+        if (!lm)
+            continue;
+        const lMajor = Number(lm[1]), lMinor = Number(lm[2]);
+        const when = latest.date ? ` (${latest.date})` : '';
+        if (pinned.major < lMajor) {
+            drift.push({ dependency: f.dependency, recordId: f.recordId, name: f.record.name, pinned, latest, level: 'behind-major',
+                note: `pinned to ${pinned.major}.x; the catalog's latest release is ${latest.version}${when}` });
+        }
+        else if (pinned.major === 0 && lMajor === 0 && pinned.minor !== null && pinned.minor < lMinor) {
+            drift.push({ dependency: f.dependency, recordId: f.recordId, name: f.record.name, pinned, latest, level: 'behind-minor',
+                note: `pinned to 0.${pinned.minor}; on a 0.x line every minor can break, and the catalog's latest release is ${latest.version}${when}` });
+        }
+    }
+    drift.sort((a, b) => (a.level === b.level ? a.name.localeCompare(b.name) : a.level === 'behind-major' ? -1 : 1));
+    return { drift, noVersionData };
 }
 export function checkManifest(text, index, opts = {}) {
     const { format, dependencies } = parseManifest(text, opts);

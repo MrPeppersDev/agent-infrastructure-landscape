@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkManifest, parseManifest, licenceBucket, vendorOf, type StackIndex } from './stack-check.js';
+import { checkManifest, parseManifest, licenceBucket, vendorOf, pinnedVersion, type StackIndex } from './stack-check.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 function findIndex(): string {
@@ -149,6 +149,29 @@ function check(name: string, cond: boolean, detail = '') {
   check('licenceBucket: BSL-1.0 is Boost (open source), BSL-1.1 is source-available', licenceBucket('BSL-1.0').bucket === 'open-source' && licenceBucket('BSL-1.1').bucket === 'source-available');
   check('licenceBucket: Apache with source-available parts is open-source and mixed', licenceBucket('Apache-2.0 (core; ee/ dirs under source-available Enterprise License)').mixed === true);
   check('vendorOf: GitHub keeps the owner', vendorOf({ url: 'https://github.com/langchain-ai/langchain' }, 'x') === 'github.com/langchain-ai');
+}
+
+// version drift (#364)
+{
+  const pj = JSON.stringify({ dependencies: { mem0ai: '^1.0.0', chromadb: 'latest' } });
+  const r = checkManifest(pj, index, { filename: 'package.json' });
+  const d = r.drift.find((x) => x.recordId === 'mem0--mem0-ai');
+  check('mem0ai ^1.0.0 is behind the catalog release (2.x)', d?.level === 'behind-major' && /^2\./.test(d.latest.version), JSON.stringify(r.drift));
+  check('"latest" gets no drift verdict', !r.drift.some((x) => x.dependency.name === 'chromadb'));
+  const open = checkManifest('mem0ai>=0.1\n', index, { filename: 'requirements.txt' });
+  check('an open lower bound gets no drift verdict', open.drift.length === 0, JSON.stringify(open.drift));
+  const exact = checkManifest('mem0ai==1.1.0\n', index, { filename: 'requirements.txt' });
+  check('an exact old pin is behind-major', exact.drift[0]?.level === 'behind-major');
+  check('pinnedVersion parses npm and PEP 440 specs',
+    pinnedVersion('^2.2.0')?.major === 2 && pinnedVersion('~=1.4')?.major === 1 && pinnedVersion('>=0.3')?.unbounded === true &&
+    pinnedVersion('>=1,<2')?.unbounded === false && pinnedVersion('0.3.*')?.minor === 3 && pinnedVersion('latest') === null && pinnedVersion('workspace:*') === null);
+}
+{
+  const rec = (name: string, latest: { version: string; date: string | null } | null) => ({ name, family: 'x', section: 'Dedicated memory layers', url: null, license: 'MIT', llm_lock: '', status: 'active', severity: 0, note: '', context: '', evidence: null, last_commit: null, latest_release: latest });
+  const idx = { generatedAt: 't', packages: { 'npm:zero': 'z', 'npm:nov': 'n' }, repos: {}, records: { z: rec('Zero', { version: '0.9.0', date: null }), n: rec('NoVersion', null) } } as unknown as StackIndex;
+  const r = checkManifest(JSON.stringify({ dependencies: { zero: '^0.4.0', nov: '^1.0.0' } }), idx, { filename: 'package.json' });
+  check('0.x minors count as drift', r.drift[0]?.level === 'behind-minor' && r.drift[0].recordId === 'z', JSON.stringify(r.drift));
+  check('no release version → counted, not judged', r.noVersionData === 1 && !r.drift.some((x) => x.recordId === 'n'));
 }
 console.log(failures ? `\n${failures} failure(s)` : '\nall stack-check tests passed');
 process.exit(failures ? 1 : 0);
