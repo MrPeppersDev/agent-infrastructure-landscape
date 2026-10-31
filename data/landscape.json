@@ -376926,6 +376926,1495 @@
       }
     },
     {
+      "id": "ghost-beacon--gh-moecanales-agent-oracle-beacon",
+      "name": "Ghost Beacon",
+      "tier": 4,
+      "url": "https://github.com/moecanales/agent-oracle-beacon",
+      "last_verified_at": "2026-10-31",
+      "sections": [
+        {
+          "section": "MCP gateways & registries",
+          "subsection": null,
+          "primary": true,
+          "reason": null
+        }
+      ],
+      "taxonomy": {
+        "storage": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ],
+        "retrieval": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ],
+        "persistence": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ],
+        "update": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ],
+        "unit": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ],
+        "governance": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ],
+        "conflict": [
+          {
+            "value": "n/a",
+            "primary": true,
+            "reason": "searched not found"
+          }
+        ]
+      },
+      "cells": {
+        "type": {
+          "value": "MCP tool server (GitHub-Issue rollover, board-game rules, transcript scan, A2A checks)",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "desc": {
+          "value": "Zero-dependency Node.js MCP server (npx -y github:moecanales/agent-oracle-beacon) exposing nine tools: GitHub-Issue context rollover and comment-mutex extraction (GBR-2500), board-game rules lookup over bundled CC0 datasets, an agent transcript scanner, and A2A discovery with DNS/TLS checks. Submitted by its author (issue #194); GBR-2500 (issue #299) is one of its tools in the same repository, not a separate system.",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "claims": {
+          "value": "README claims 1,509 clones from 430 unique cloners and a 44-node A2A \"beacon ring\". These are self-reported and not verifiable from the repository, which has no GitHub stars and one fork as of 2026-10-31. The repository description advertises a CAPTCHA-capture service and a fiat proxy that the README says the project does not provide.",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "modalities": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "created": {
+          "value": "2026-10 (first commit 2026-10-22)",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon/commits/main",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "latest-release": {
+          "value": "v5.0 per README (2026-10-28); no GitHub releases published",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "license": {
+          "value": "MIT",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon/blob/main/LICENSE",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "gh": {
+          "value": "moecanales/agent-oracle-beacon — 0 stars, 1 fork, first commit 2026-10-22, last commit 2026-10-31",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "mindshare": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "citations": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "funding": {
+          "value": "Independent / bootstrapped (author statement in the intake issue)",
+          "citation": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/194",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "customers": {
+          "value": "No verifiable customers or users. The README lists self-described \"ring nodes\" pointing at the author's own and third-party repositories without evidence those projects use it.",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "pricing": {
+          "value": "Free — MIT, no hosted plan",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "compliance": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "data-handling": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "deployment": {
+          "value": "Self-hosted — runs locally over stdio via npx; static JSON shards served from GitHub Pages",
+          "citation": "https://moecanales.github.io/agent-oracle-beacon/",
+          "status": "real-data",
+          "tier": "T2"
+        },
+        "hq": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "founders": {
+          "value": "Armando \"Moe\" Canales (README authorship note)",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "volume": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "perf": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "repro": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "code-release": {
+          "value": "Full source in the repository (MIT); no npm package, installed from GitHub via npx",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "api-surface": {
+          "value": "MCP tools over stdio; CLI rollover <owner/repo#issue>",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "latency": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "throughput": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "backend-storage": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "multi-tenancy": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "encryption": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "sso-rbac": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "embedding-model": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "consistency": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "versioning": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "tombstoning": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "schema-evolution": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "namespace": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "contradiction": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "forgetting": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "mcp-support": {
+          "value": "yes — ships an MCP server (mcp-server.js) with 9 tools; install with npx -y github:moecanales/agent-oracle-beacon",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "a2a-support": {
+          "value": "A2A discovery and DNS/TLS check tooling only; no verified A2A agent card of its own",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "otel": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "webhooks": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "import-export": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "integration-count": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "orchestration": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "programmatic-control": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "vendor-benchmarks": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "pricing-specifics": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "agent-abstraction": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "memory-primitives": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "llm-lock": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "runtimes": {
+          "value": "Node.js (zero runtime dependencies)",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "session-handling": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "validated-verticals": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "time-to-running": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "anti-fit": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "optimised-for": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "adjacent-infrastructure": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "pros": {
+          "value": "One-line install with no dependencies; MIT licence; source fully in the open.",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "cons": {
+          "value": "Nine days old with no independent adoption signal (no GitHub stars, one fork); the repository description and the README disagree about what the project does; adoption figures are self-reported.",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "links": {
+          "value": "https://github.com/moecanales/agent-oracle-beacon · https://moecanales.github.io/agent-oracle-beacon/",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "obs-langsmith": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-opentelemetry": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-datadog": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-helicone": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-weave": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-langfuse": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-arize": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "obs-custom": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-token-budget": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-prompt-caching": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-semantic-caching": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-batching": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-model-routing": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-streaming-only": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-observability-cost-attribution": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-langsmith-evals": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-braintrust": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-weights-and-biases-agent": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-helicone-evals": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-custom-test-harness": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-human-loop": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "eval-production-traffic-replay": {
+          "value": "no",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "commit-trajectory": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "citation-trajectory": {
+          "value": "not applicable — non-paper row",
+          "citation": null,
+          "status": "not-applicable",
+          "tier": "T3"
+        },
+        "download-trajectory": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-input-usd-per-mtok": {
+          "value": "not applicable — non-hosted pricing model",
+          "citation": null,
+          "status": "not-applicable",
+          "tier": "T3"
+        },
+        "cost-output-usd-per-mtok": {
+          "value": "not applicable — non-hosted pricing model",
+          "citation": null,
+          "status": "not-applicable",
+          "tier": "T3"
+        },
+        "cost-tier": {
+          "value": "searched not found",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "depth-floor-reached",
+          "tier": "T1"
+        },
+        "cost-pricing-model": {
+          "value": "oss-self-host",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "cost-last-verified": {
+          "value": "2026-10-31",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "capability-composite-score": {
+          "value": "(LLM unverified)",
+          "citation": null,
+          "status": "estimate",
+          "tier": "T3"
+        },
+        "capability-band": {
+          "value": "(LLM unverified)",
+          "citation": null,
+          "status": "estimate",
+          "tier": "T3"
+        },
+        "capability-benchmark-sources": {
+          "value": "(LLM unverified)",
+          "citation": null,
+          "status": "estimate",
+          "tier": "T3"
+        },
+        "capability-last-verified": {
+          "value": "(LLM unverified)",
+          "citation": null,
+          "status": "estimate",
+          "tier": "T3"
+        },
+        "capability-code-score": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        },
+        "capability-agentic-score": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        },
+        "capability-longcontext-score": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        },
+        "use-case-tags": {
+          "value": "(LLM unverified)",
+          "citation": null,
+          "status": "estimate",
+          "tier": "T3"
+        },
+        "use-case-anti-tags": {
+          "value": "(LLM unverified)",
+          "citation": null,
+          "status": "estimate",
+          "tier": "T3"
+        },
+        "adoption-accelerator": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        },
+        "architecture-deployment-locus": {
+          "value": "local",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "licensing-bucket": {
+          "value": "open-source",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon/blob/main/LICENSE",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "positioning-platform-vs-product": {
+          "value": "product",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "taxonomy-three-layer-rollup": {
+          "value": "agent-infra",
+          "citation": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "developer-activity-opendigger": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        },
+        "freshness-date": {
+          "value": "2026-10-31",
+          "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/ghost-beacon--gh-moecanales-agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T2"
+        },
+        "compliance-certifications": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        },
+        "sdk-languages": {
+          "value": "javascript",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "protocol-support": {
+          "value": "mcp-server",
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "status": "real-data",
+          "tier": "T1"
+        },
+        "maturity": {
+          "value": "",
+          "citation": null,
+          "status": "no-data",
+          "tier": "T3"
+        }
+      },
+      "_provenance": {
+        "type": {
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "desc": {
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "claims": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "modalities": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "created": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "latest-release": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "license": {
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "gh": {
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "mindshare": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "citations": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "funding": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "customers": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "pricing": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "compliance": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "data-handling": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "deployment": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "hq": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "founders": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "volume": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "perf": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "repro": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "code-release": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "api-surface": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "latency": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "throughput": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "backend-storage": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "multi-tenancy": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "encryption": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "sso-rbac": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "embedding-model": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "consistency": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "versioning": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "tombstoning": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "schema-evolution": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "namespace": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "contradiction": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "forgetting": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "mcp-support": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "a2a-support": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "otel": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "webhooks": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "import-export": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "integration-count": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "orchestration": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "programmatic-control": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "vendor-benchmarks": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "pricing-specifics": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "agent-abstraction": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "memory-primitives": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "llm-lock": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "runtimes": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "session-handling": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "validated-verticals": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "time-to-running": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "anti-fit": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "optimised-for": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "adjacent-infrastructure": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "pros": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cons": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "links": {
+          "citation": "https://github.com/moecanales/agent-oracle-beacon",
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-langsmith": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-opentelemetry": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-datadog": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-helicone": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-weave": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-langfuse": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-arize": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "obs-custom": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-token-budget": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-prompt-caching": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-semantic-caching": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-batching": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-model-routing": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-streaming-only": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-observability-cost-attribution": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-langsmith-evals": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-braintrust": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-weights-and-biases-agent": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-helicone-evals": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-custom-test-harness": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-human-loop": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "eval-production-traffic-replay": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "commit-trajectory": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "citation-trajectory": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "download-trajectory": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "depth-floor-reached",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-input-usd-per-mtok": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "non-hosted pricing model",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-output-usd-per-mtok": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "non-hosted pricing model",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-tier": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "cost-pricing-model": {
+          "author": "intake-issue-0",
+          "source": "human",
+          "verified": true
+        },
+        "cost-last-verified": {
+          "author": "intake-issue-0",
+          "source": "human",
+          "verified": true
+        },
+        "capability-composite-score": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "capability-band": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "capability-benchmark-sources": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "capability-last-verified": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "capability-code-score": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "capability-agentic-score": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "capability-longcontext-score": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "use-case-tags": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "use-case-anti-tags": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "source": "llm",
+          "verified": false
+        },
+        "adoption-accelerator": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "architecture-deployment-locus": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "licensing-bucket": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "positioning-platform-vs-product": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "taxonomy-three-layer-rollup": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "developer-activity-opendigger": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "freshness-date": {
+          "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/ghost-beacon--gh-moecanales-agent-oracle-beacon",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/derive_v1_1_cells.py",
+          "source": "scrape",
+          "verified": true
+        },
+        "compliance-certifications": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "sdk-languages": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "protocol-support": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        },
+        "maturity": {
+          "generated_at": "2026-10-31",
+          "model_id": "claude-opus-4-7",
+          "note": "no-data",
+          "source": "llm",
+          "verified": false
+        }
+      }
+    },
+    {
       "id": "github-copilot-agent-mode--gh-features-copilot",
       "name": "GitHub Copilot (Agent Mode)",
       "tier": 1,
