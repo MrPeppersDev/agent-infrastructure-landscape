@@ -82,6 +82,161 @@ _Infrastructure estimates for components with no published price, assumed self-h
 - Evals & observability: [Braintrust](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/braintrust--braintrust-dev) → [AgentOps](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/agentops--agentops-ai): AgentOps is beyond its published plans at this workload (contact sales); documented to work with LangChain (framework), OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4), Mem0 in this stack.
 - Guardrails & security: [NVIDIA NeMo Guardrails](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/nvidia-nemo-guardrails--docs-nvidia-com) → [Presidio](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/presidio--presidio-dataprivacystack-org): no published price for one side; documented to work with OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) in this stack.
 
+## Security review sheet
+
+<details><summary>Attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing for every pick, with sources</summary>
+
+## Voice runtime: [LiveKit Agents](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/livekit-agents--docs-livekit-io)
+
+Lifecycle: active · catalog record verified 2026-10-26 · vendor: https://docs.livekit.io/agents/
+
+| Item | Value |
+|---|---|
+| Attestations | ccpa, gdpr, hipaa, soc2-type2 ([source](https://trust.livekit.io/)) |
+| Compliance (as stated) | SOC 2 Type II; HIPAA available ([source](https://livekit.io/security)) |
+| Data handling | Cloud data residency US/EU; self-host = your infra ([source](https://livekit.io/security)) |
+| Encryption | TLS / DTLS-SRTP; E2EE available ([source](https://livekit.io/security)) |
+| SSO / RBAC | SAML/SSO on Cloud Enterprise ([source](https://livekit.io/security)) |
+| Deployment | Both (self-hosted + managed cloud) — OSS framework self-host + LiveKit Cloud ([source](https://github.com/livekit/agents)) |
+| Deployment locus | hybrid ([source](https://docs.livekit.io/agents/)) |
+| Licence | Apache-2.0 (framework); turn-detector models under LiveKit Model License ([source](https://github.com/livekit/agents)) |
+| Licensing model | open-core ([source](https://livekit.io/pricing)) |
+| SDK languages | python, typescript ([source](https://docs.livekit.io/llms.txt)) |
+| Protocols | mcp-client, opentelemetry ([source](https://raw.githubusercontent.com/livekit/agents/main/README.md)) |
+| Maturity | not published ([trust page](https://trust.livekit.io/)) |
+| HQ | US (San Francisco) ([source](https://livekit.io/)) |
+| Pricing | OSS free; LiveKit Cloud tiered ($50/mo+ + usage) ([source](https://livekit.io/pricing)) |
+
+## Foundation model: [OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4)](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com)
+
+Lifecycle: active · catalog record verified 2026-10-28 · vendor: https://openai.com/index/introducing-gpt-5/
+
+| Item | Value |
+|---|---|
+| Attestations | gdpr, hipaa, soc2-type2 ([source](https://openai.com/enterprise-privacy/)) |
+| Compliance (as stated) | SOC 2 Type II, ISO 27001, ISO 27017/18, ISO 42001, HIPAA (Enterprise/API w/ BAA), FedRAMP High (Azure GovCloud) ([source](https://openai.com/index/introducing-gpt-5/)) |
+| Data handling | Never trains on API/Enterprise data; consumer opt-out via Settings ([source](https://openai.com/index/introducing-gpt-5/)) |
+| Encryption | not published ([trust page](https://openai.com/enterprise-privacy/)) |
+| SSO / RBAC | not published ([trust page](https://openai.com/enterprise-privacy/)) |
+| Deployment | Managed-only — OpenAI API + ChatGPT, also Microsoft Azure and AWS Bedrock (separate gpt-oss open-weight models exist) ([source](https://openai.com/blog/gpt-6-astra)) |
+| Deployment locus | cloud ([source](https://developers.openai.com/api/docs/models/gpt-5)) |
+| Licence | proprietary (API only) ([source](https://openai.com/blog/gpt-6-astra)) |
+| Licensing model | commercial ([source](https://openai.com/blog/gpt-6-astra)) |
+| SDK languages | csharp, go, java, python, rest, ruby, typescript ([source](https://developers.openai.com/api/docs/libraries)) |
+| Protocols | mcp-client ([source](https://developers.openai.com/api/docs/guides/tools-connectors-mcp)) |
+| Maturity | not published ([trust page](https://openai.com/enterprise-privacy/)) |
+| HQ | San Francisco, US ([source](https://openai.com/index/introducing-gpt-5/)) |
+| Pricing | API flagship GPT-6 Astra $10 input / $50 output per 1M tokens (Fast mode 2x price); ChatGPT Free / Go / Plus / Pro / Business / Enterprise plans ([source](https://openai.com/blog/gpt-6-astra)) |
+
+## Agent framework: [LangChain (framework)](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/langchain-framework--langchain-com)
+
+Lifecycle: active · catalog record verified 2026-10-27 · vendor: https://www.langchain.com/
+
+| Item | Value |
+|---|---|
+| Attestations | not published |
+| Compliance (as stated) | not published |
+| Data handling | not published |
+| Encryption | not published |
+| SSO / RBAC | not published |
+| Deployment | Both (self-hosted + managed cloud) — OSS library; agents deploy to LangSmith Deployment (cloud, hybrid or self-hosted) ([source](https://docs.langchain.com/langsmith/deployment)) |
+| Deployment locus | local ([source](https://github.com/langchain-ai/langchain)) |
+| Licence | MIT (OSS framework) ([source](https://www.langchain.com/)) |
+| Licensing model | open-source ([source](https://www.langchain.com/)) |
+| SDK languages | python, typescript ([source](https://raw.githubusercontent.com/langchain-ai/langchainjs/main/README.md)) |
+| Protocols | mcp-client ([source](https://docs.langchain.com/oss/python/langchain/mcp)) |
+| Maturity | ga ([source](https://docs.langchain.com/oss/python/release-policy)) |
+| HQ | San Francisco, CA, USA. ([source](https://www.crunchbase.com/organization/langchain)) |
+| Pricing | not published |
+
+## Memory layer: [Mem0](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/mem0--mem0-ai)
+
+Lifecycle: active · catalog record verified 2026-10-23 · vendor: https://mem0.ai/
+
+| Item | Value |
+|---|---|
+| Attestations | gdpr, hipaa, soc2-type1 ([source](https://trust.mem0.ai/)) |
+| Compliance (as stated) | SOC 2 Type II, HIPAA-ready ([source](https://mem0.ai/security)) |
+| Data handling | Trains on de-identified/aggregated data (see privacy policy); enterprise controls not publicly detailed ([source](https://mem0.ai/privacy-policy)) |
+| Encryption | AES-256 at rest, TLS in transit; BYOK supported; SOC 2 Type I (Type II in progress), HIPAA-ready ([source](https://mem0.ai/security)) |
+| SSO / RBAC | SSO + RBAC ([source](https://mem0.ai/security)) |
+| Deployment | Both ([source](https://mem0.ai/blog/self-host-mem0-docker)) |
+| Deployment locus | hybrid ([source](https://docs.mem0.ai/open-source/overview)) |
+| Licence | Apache-2.0 ([source](https://github.com/mem0ai/mem0/blob/main/LICENSE)) |
+| Licensing model | open-core ([source](https://mem0.ai/pricing)) |
+| SDK languages | python, rest, typescript ([source](https://docs.mem0.ai/llms.txt)) |
+| Protocols | mcp-server ([source](https://docs.mem0.ai/platform/mem0-mcp)) |
+| Maturity | not published ([trust page](https://trust.mem0.ai/)) |
+| HQ | US ([source](https://www.crunchbase.com/organization/mem0ai)) |
+| Pricing | Free + paid ([source](https://mem0.ai/pricing)) |
+
+## Tools, auth and MCP: [Composio](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/composio--composio-dev)
+
+Lifecycle: active · catalog record verified 2026-10-26 · vendor: https://composio.dev/
+
+| Item | Value |
+|---|---|
+| Attestations | iso27001, soc2-type2 ([source](https://trust.composio.dev/)) |
+| Compliance (as stated) | not published ([trust page](https://trust.composio.dev/)) |
+| Data handling | not published ([trust page](https://trust.composio.dev/)) |
+| Encryption | not published ([trust page](https://trust.composio.dev/)) |
+| SSO / RBAC | not published ([trust page](https://trust.composio.dev/)) |
+| Deployment | Managed-only — hosted API + MCP endpoints (Helm charts published for Kubernetes deploys) ([source](https://github.com/ComposioHQ)) |
+| Deployment locus | cloud ([source](https://docs.composio.dev/docs/self-hosting)) |
+| Licence | MIT (SDKs) ([source](https://github.com/composiohq/composio)) |
+| Licensing model | open-source ([source](https://github.com/composiohq/composio)) |
+| SDK languages | python, typescript ([source](https://github.com/ComposioHQ/composio)) |
+| Protocols | mcp-server ([source](https://github.com/ComposioHQ/composio)) |
+| Maturity | not published ([trust page](https://trust.composio.dev/)) |
+| HQ | San Francisco, CA, USA / Bengaluru, India. ([source](https://www.crunchbase.com/organization/composio)) |
+| Pricing | not published ([trust page](https://trust.composio.dev/)) |
+
+## Evals & observability: [Braintrust](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/braintrust--braintrust-dev)
+
+Lifecycle: active · catalog record verified 2026-10-27 · vendor: https://www.braintrust.dev/
+
+| Item | Value |
+|---|---|
+| Attestations | gdpr, hipaa, soc2-type2 ([source](https://trust.braintrust.dev/)) |
+| Compliance (as stated) | not published ([trust page](https://trust.braintrust.dev/)) |
+| Data handling | not published ([trust page](https://trust.braintrust.dev/)) |
+| Encryption | not published ([trust page](https://trust.braintrust.dev/)) |
+| SSO / RBAC | not published ([trust page](https://trust.braintrust.dev/)) |
+| Deployment | Both (self-hosted + managed cloud) — hosted SaaS; on-prem deployment on Enterprise ([source](https://www.braintrust.dev/pricing)) |
+| Deployment locus | cloud ([source](https://www.braintrust.dev/pricing)) |
+| Licence | proprietary; SDKs open source ([source](https://pypi.org/project/braintrust/)) |
+| Licensing model | commercial ([source](https://pypi.org/project/braintrust/)) |
+| SDK languages | csharp, go, java, python, ruby, typescript ([source](https://www.braintrust.dev/docs/reference/sdks.md)) |
+| Protocols | mcp-server, opentelemetry ([source](https://www.braintrust.dev/docs/integrations/sdk-integrations/opentelemetry/send-traces-and-logs.md)) |
+| Maturity | not published ([trust page](https://trust.braintrust.dev/)) |
+| HQ | US (SF) ([source](https://www.braintrust.dev/)) |
+| Pricing | Starter $0/mo; Pro $249/mo; Enterprise custom ([source](https://www.braintrust.dev/pricing)) |
+
+## Guardrails & security: [NVIDIA NeMo Guardrails](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/nvidia-nemo-guardrails--docs-nvidia-com)
+
+Lifecycle: active · catalog record verified 2026-10-29 · vendor: https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview
+
+| Item | Value |
+|---|---|
+| Attestations | not published |
+| Compliance (as stated) | not published |
+| Data handling | not published |
+| Encryption | not published |
+| SSO / RBAC | not published |
+| Deployment | not published |
+| Deployment locus | not published |
+| Licence | Apache-2.0 ([source](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview)) |
+| Licensing model | open-source ([source](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview)) |
+| SDK languages | python ([source](https://pypi.org/project/nemoguardrails/)) |
+| Protocols | openai-compatible, opentelemetry ([source](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview)) |
+| Maturity | beta ([source](https://pypi.org/project/nemoguardrails/)) |
+| HQ | not published |
+| Pricing | not published |
+
+</details>
+
+Download the same sheet as CSV from [/build](https://mrpeppersdev.github.io/agent-infrastructure-landscape/build?product=voice-agent) or with `landscape stack voice-agent --sheet sheet.csv`.
+
 ## Self-hosted variant
 
 `stack.self-hosted.yml` picks only self-hostable components and adds model serving. `docker-compose.yml` starts the ones with an official single-image setup; it is a local starter, not a production deployment.

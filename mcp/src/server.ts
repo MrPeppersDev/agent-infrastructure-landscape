@@ -22,7 +22,8 @@ import { estimateAll, DEFAULT_WORKLOAD, type VendorPricing } from './costs.js';
 import { loadPricing, loadVectorPricing, loadStackPricing } from './data.js';
 import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from './vector-costs.js';
 import { checkManifest } from './stack-check.js';
-import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers, type LayerId, type ProductType } from './composer.js';
+import { planStack, slimPlan, PRODUCTS, LAYERS, SITE, type StackAnswers, type LayerId, type ProductType } from './composer.js';
+import { procurementSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
   searchRecords,
@@ -365,7 +366,8 @@ async function main() {
           sandboxMinutesPerRun: z.number().optional(), browserMinutesPerRun: z.number().optional(), voiceMinutesPerRun: z.number().optional(), embeddingTokensPerRun: z.number().optional(),
           vectors: z.number().optional()
         }).optional().describe('Workload for the monthly cost estimate from published list prices (defaults: 1,000 runs/day, 6 model calls of 3,000 in / 400 out tokens, 4 tool calls, 1,000 users, 1M vectors).'),
-        compliance: z.array(z.string()).optional().describe('Attestations every hosted service must publish, e.g. ["soc2-type2","hipaa"] (codes: ccpa, csa-star, fedramp, gdpr, hipaa, hitrust, iso27001, iso27017, iso27018, iso27701, iso42001, pci-dss, soc2-type1, soc2-type2, soc3). Libraries you run yourself are exempt.')
+        compliance: z.array(z.string()).optional().describe('Attestations every hosted service must publish, e.g. ["soc2-type2","hipaa"] (codes: ccpa, csa-star, fedramp, gdpr, hipaa, hitrust, iso27001, iso27017, iso27018, iso27701, iso42001, pci-dss, soc2-type1, soc2-type2, soc3). Libraries you run yourself are exempt.'),
+        sheet: z.boolean().optional().describe('Also return a procurement / security-review sheet for the picks: attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing, each with its source (rows plus CSV and Markdown).')
       }
     },
     async (args) => {
@@ -377,7 +379,10 @@ async function main() {
         },
         a as StackAnswers
       );
-      return jsonResult(slimPlan(plan));
+      const slim = slimPlan(plan);
+      if (!args.sheet) return jsonResult(slim);
+      const sheet = procurementSheet(plan, loadRecords() as never, SITE);
+      return jsonResult({ ...slim, sheet: { ...sheet, csv: sheetToCsv(sheet), markdown: sheetToMarkdown(sheet) } });
     }
   );
 

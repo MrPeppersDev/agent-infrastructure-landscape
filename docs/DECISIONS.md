@@ -34,6 +34,18 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Procurement / security-review sheet for a stack (#366)
+
+**What.** `mcp/src/procurement.ts` turns a stack plan into a sheet: one row per pick with attestations (`compliance-certifications`), compliance as stated, data handling, encryption, SSO/RBAC, deployment and locus, licence and licensing model, SDK languages, protocols, maturity, HQ and pricing, each with the page it was read from, plus lifecycle status, the record's verification date and the vendor's trust page (the citation of the compliance cells). Blank cells print "not published" and link the trust page where one is known; nothing is guessed. `sheetToCsv` emits one line per pick with a source column after every value; `sheetToMarkdown` emits one section per pick for a review ticket. Surfaces: a "Security review sheet" section on `/build` with CSV and Markdown downloads and a preview; `plan_stack` with `sheet: true`; `landscape stack <product> --sheet file.csv|.md`; a collapsed section in every blueprint README.
+
+**Why.** Roadmap item 2.4 (#366): the schema v1.2.0 buyer cells existed one system at a time. A consultant taking a stack through security review needs them for all picks at once, with sources, in a file they can attach.
+
+**Follow-up.** The sheet for an audited stack (`/check`, #363) needs the buyer cells in the browser; the check page ships only the stack index today.
+
+**Reversal cost.** Low. One module and three call sites.
+
+---
+
 ## 2026-10-31: Maintainer-health signals from the GitHub API (#365)
 
 **What.** A daily workflow (`repo-health.yml`, `scripts/fetch_repo_health.py`) reads four GitHub API payloads per repo in `data/stack-index.json#repos` and reduces them to: issues opened in the last 90 days and the share that are closed or have a comment; the median age of open issues in the sample; releases in the last 12 months and the newest release date; the bus factor (contributors needed to reach half of the sampled commits) and the top contributor's share; archived. It writes `data/repo-health.json` on a rolling basis (about 120 repos a run, oldest first, within the GITHUB_TOKEN rate limit) and commits it. `build_stack_index.py` copies the numbers into each record's `health`; `healthConcerns()` in `stack-check.ts` names a concern when under 30% of 10+ recent issues got a reply, when there is no release in a year and no commit for six months, when one contributor wrote 80%+ of sampled commits, or when the repo is archived. The system page shows a "Maintainer health" line, the stack audit lists concerns among matched dependencies (and counts those without data), the Action and CLI print them, and the leaderboards gain "Most depended-on, with a maintainer-health concern". Fixtures under `extraction/repo-health-fixtures/` pin the reduction.
