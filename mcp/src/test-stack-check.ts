@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkManifest, parseManifest, type StackIndex } from './stack-check.js';
+import { checkManifest, parseManifest, licenceBucket, vendorOf, type StackIndex } from './stack-check.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 function findIndex(): string {
@@ -113,5 +113,42 @@ function check(name: string, cond: boolean, detail = '') {
   check('without links, order is unchanged and capped at 3', plain.attention[0]?.replacements?.map((x) => x.id).join(',') === 'a,b,c');
 }
 
+
+// stack audit (#363): layers covered, layers missing, concentration, licences
+{
+  const pj = JSON.stringify({ dependencies: { '@mastra/core': '^1.0.0', mem0ai: '^2.2.0', chromadb: '^3.0.0' } });
+  const r = checkManifest(pj, index, { filename: 'package.json' });
+  const layers = r.audit.layers.map((l) => l.layer);
+  check('audit detects framework, memory and vectors', ['framework', 'memory', 'vectors'].every((l) => layers.includes(l as never)), layers.join(','));
+  const missing = r.audit.missing.map((m) => m.layer);
+  check('audit lists observability and guardrails as not detected', missing.includes('observability') && missing.includes('guardrails'), missing.join(','));
+  check('audit never reports a detected layer as missing', !missing.some((m) => layers.includes(m)));
+  check('audit stack.yml names the memory layer', /components:\n(.*\n)*\s+memory: mem0--mem0-ai/.test(r.audit.stackYaml), r.audit.stackYaml);
+  check('audit licence mix has an open-source bucket', r.audit.licences.some((b) => b.bucket === 'open-source' && b.systems.length >= 2), JSON.stringify(r.audit.licences.map((b) => [b.bucket, b.systems.length])));
+  const one = checkManifest('mem0ai', index);
+  check('a single dependency is not audited for missing layers', one.audit.missing.length === 0);
+}
+{
+  const rec = (name: string, section: string, url: string, license: string) => ({ name, family: 'x', section, url, license, llm_lock: '', status: 'active', severity: 0, note: '', context: '', evidence: null, last_commit: null });
+  const idx = {
+    generatedAt: 't', packages: {}, repos: {},
+    records: {
+      fw: rec('Acme Agents', 'Agent frameworks (no first-party memory layer)', 'https://docs.acme.dev/agents', 'MIT'),
+      obs: rec('Acme Trace', 'Evaluation & observability platforms', 'https://acme.dev/trace', 'Proprietary (SaaS)'),
+      gw: rec('Acme Router', 'Inference platforms & gateways', 'https://acme.dev/router', 'BSL-1.1 (converts to Apache-2.0)'),
+      srv: rec('Fast Serve', 'Inference platforms & gateways', 'https://github.com/fast/serve', 'AGPL-3.0')
+    }
+  } as unknown as StackIndex;
+  const r = checkManifest('version: 1\ncomponents:\n  framework: fw\n  observability: obs\n  gateway: gw\n  serving: srv\n', idx, { filename: 'stack.yml' });
+  const layers = Object.fromEntries(r.audit.layers.map((l) => [l.layer, l.systems.map((s) => s.id).join(',')]));
+  check('gateway and serving are split by name within one section', layers.gateway === 'gw' && layers.serving === 'srv', JSON.stringify(layers));
+  check('vendor concentration groups by registrable domain', r.audit.concentration[0]?.vendor === 'acme.dev' && r.audit.concentration[0].layers.length === 3, JSON.stringify(r.audit.concentration));
+  const buckets = Object.fromEntries(r.audit.licences.map((b) => [b.bucket, b.systems.map((s) => s.id).join(',')]));
+  check('licence buckets: open-source, source-available, proprietary', buckets['open-source'] === 'fw,srv' && buckets['source-available'] === 'gw' && buckets.proprietary === 'obs', JSON.stringify(buckets));
+  check('copyleft flagged for AGPL', r.audit.licences.find((b) => b.bucket === 'open-source')?.systems.find((s) => s.id === 'srv')?.copyleft === true);
+  check('licenceBucket: BSL-1.0 is Boost (open source), BSL-1.1 is source-available', licenceBucket('BSL-1.0').bucket === 'open-source' && licenceBucket('BSL-1.1').bucket === 'source-available');
+  check('licenceBucket: Apache with source-available parts is open-source and mixed', licenceBucket('Apache-2.0 (core; ee/ dirs under source-available Enterprise License)').mixed === true);
+  check('vendorOf: GitHub keeps the owner', vendorOf({ url: 'https://github.com/langchain-ai/langchain' }, 'x') === 'github.com/langchain-ai');
+}
 console.log(failures ? `\n${failures} failure(s)` : '\nall stack-check tests passed');
 process.exit(failures ? 1 : 0);

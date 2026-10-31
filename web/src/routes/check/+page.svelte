@@ -13,6 +13,7 @@
   import {
     checkManifest,
     STATUS_LABEL,
+    LICENCE_LABEL,
     type StackIndex,
     type StackReport,
     type ManifestFormat
@@ -151,6 +152,13 @@
     return lines.join('\n');
   }
   // ---- watch my stack: an OPML bundle of the per-system change feeds ---------
+  function downloadYaml() {
+    if (!report) return;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([report.audit.stackYaml], { type: 'text/yaml' }));
+    a.download = 'stack.yml';
+    a.click();
+  }
   function downloadOpml() {
     if (!report) return;
     const site = `https://mrpeppersdev.github.io/agent-infrastructure-landscape`;
@@ -291,6 +299,55 @@
         </ul>
       {/if}
 
+      {#if report.audit.layers.length}
+        <section class="audit">
+          <h2>Stack audit</h2>
+          <p class="hint">
+            Which layers of an agent stack these dependencies cover, by catalog section. Only catalogued dependencies count:
+            a layer you run through a cloud console, or a package the catalog doesn't know, shows as not detected.
+          </p>
+          <table class="layers">
+            <tbody>
+              {#each report.audit.layers as l (l.layer)}
+                <tr>
+                  <th>{l.label}</th>
+                  <td>{#each l.systems as s, i (s.id)}<a href="{base}/systems/{s.id}">{s.name}</a>{#if s.status !== 'active'} <span class="st">({STATUS_LABEL[s.status].toLowerCase()})</span>{/if}{i < l.systems.length - 1 ? ', ' : ''}{/each}</td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+          {#if report.audit.missing.length}
+            <h3>Not detected</h3>
+            <ul class="missing">
+              {#each report.audit.missing as m (m.layer)}
+                <li><strong>{m.label}</strong> — {m.role} <a href="{base}{m.choose}">choose one →</a></li>
+              {/each}
+            </ul>
+          {/if}
+          {#if report.audit.concentration.length}
+            <h3>Vendor concentration</h3>
+            <ul class="plain">
+              {#each report.audit.concentration as c (c.vendor)}
+                <li><strong>{c.vendor}</strong> covers {c.layers.length} layers ({c.layers.join(', ')}): {c.systems.join(', ')}</li>
+              {/each}
+            </ul>
+          {/if}
+          <h3>Licences</h3>
+          <ul class="plain">
+            {#each report.audit.licences as b (b.bucket)}
+              <li>
+                <strong>{LICENCE_LABEL[b.bucket]}</strong> ({b.systems.length}):
+                {#each b.systems as s, i (s.id)}<span title={s.licence}>{s.name}{#if s.copyleft} <em>copyleft</em>{/if}{#if s.mixed} <em>mixed</em>{/if}</span>{i < b.systems.length - 1 ? ', ' : ''}{/each}
+              </li>
+            {/each}
+          </ul>
+          <div class="share">
+            <button type="button" onclick={downloadYaml} title="The detected stack as stack.yml, one system per layer; check it again later or open it in the builder">Download stack.yml</button>
+            <a class="go" href="{base}/build">Plan the missing layers in the builder →</a>
+          </div>
+        </section>
+      {/if}
+
       {#if report.unmatched.length}
         <details class="unmatched">
           <summary>{report.unmatched.length} dependencies not in the catalog</summary>
@@ -420,6 +477,19 @@
   .clean {
     color: #3fb950;
   }
+  .audit { margin: 20px 0 8px; padding: 14px 16px; border: 1px solid #30363d; border-radius: 10px; background: #0f1419; }
+  .audit h2 { font-size: 1.1rem; margin: 0 0 4px; }
+  .audit h3 { font-size: 0.95rem; margin: 14px 0 4px; color: #e6edf3; }
+  .audit .hint { color: #8b949e; font-size: 0.85rem; margin: 0 0 10px; }
+  .audit .layers { border-collapse: collapse; font-size: 0.92rem; }
+  .audit .layers th { text-align: left; color: #8b949e; font-weight: 500; padding: 3px 14px 3px 0; white-space: nowrap; vertical-align: top; }
+  .audit .layers td { padding: 3px 0; }
+  .audit .layers a, .audit .missing a, .audit .go { color: #58a6ff; text-decoration: none; }
+  .audit .st { color: #d29922; font-size: 0.85em; }
+  .audit .missing, .audit .plain { margin: 0; padding-left: 1.2rem; font-size: 0.92rem; }
+  .audit .missing li, .audit .plain li { margin: 2px 0; }
+  .audit em { color: #d29922; font-style: normal; font-size: 0.85em; }
+  .audit .share { margin: 12px 0 0; align-items: center; }
   .toggle {
     display: block;
     font-size: 13px;

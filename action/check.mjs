@@ -151,6 +151,17 @@ async function main() {
     }
     lines.push('');
   }
+  // Stack audit (#363): layers covered and missing, from the first manifest
+  // with at least two catalogued dependencies.
+  const audited = reports.find((r) => r.report.audit.layers.length && r.report.matched.length >= 2);
+  if (audited) {
+    const a = audited.report.audit;
+    lines.push('<details><summary>Stack audit</summary>', '');
+    lines.push(`Covers: ${a.layers.map((l) => `${l.label} (${l.systems.map((s) => s.name).join(', ')})`).join(' · ')}.`);
+    if (a.missing.length) lines.push('', `Not detected among catalogued dependencies: ${a.missing.map((m) => `[${m.label}](${site}${m.choose})`).join(', ')}.`);
+    for (const c of a.concentration) lines.push('', `Vendor concentration: **${c.vendor}** covers ${c.layers.join(', ')} (${c.systems.join(', ')}).`);
+    lines.push('', `Licences: ${a.licences.map((b) => `${b.bucket} ${b.systems.length}`).join(' · ')}.`, '', '</details>', '');
+  }
   lines.push(`<sub>From the [AI Agent Infrastructure Landscape](${site}) · index ${index.generatedAt ?? ''} (${from === 'bundled' ? 'bundled' : 'live'}) · [check a stack in the browser](${site}/check)</sub>`);
   const md = lines.join('\n');
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
