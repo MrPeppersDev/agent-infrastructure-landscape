@@ -33,7 +33,7 @@
   let {
     data
   }: {
-    data: { records: LandscapeRecord[]; edges: Edge[]; corroborated: { id: string; cited: number; thirdParty: number }[] };
+    data: { records: LandscapeRecord[]; edges: Edge[]; corroborated: { id: string; cited: number; thirdParty: number }[]; leastHealthy: { id: string; inbound: number; concerns: string[]; asOf: string }[] };
   } = $props();
 
   // --- Curated boards (computed once; data is bundled, never mutates) ---
@@ -77,6 +77,15 @@
     return data.corroborated.flatMap((c) => {
       const record = byId.get(c.id);
       return record ? [{ record, value: c.thirdParty, display: `${c.thirdParty} of ${c.cited} cited facts` }] : [];
+    });
+  });
+
+  // 7. Most depended-on with a maintainer-health concern (#365).
+  const leastHealthy = $derived.by(() => {
+    const byId = new Map(data.records.map((r) => [r.id, r]));
+    return data.leastHealthy.flatMap((c) => {
+      const record = byId.get(c.id);
+      return record ? [{ record, value: c.inbound, display: `${c.inbound} dependants · ${c.concerns[0]}` }] : [];
     });
   });
 
@@ -131,7 +140,8 @@
       bestFunded.length +
       mostInboundCites.length +
       mostIntegrated.length +
-      mostCorroborated.length
+      mostCorroborated.length +
+      leastHealthy.length
   );
 </script>
 
@@ -156,7 +166,7 @@
   </header>
 
   <section class="grid">
-    {#each [{ title: 'Most-cited research (T3 / T4)', desc: 'Papers ranked by Semantic Scholar citation count parsed from the citations cell.', rows: mostCited, valueHeader: 'Citations' }, { title: 'Most-starred OSS', desc: 'GitHub repos ranked by leading star count in the gh cell ("18.8k★ / 1.4k forks" → 18 800).', rows: mostStarred, valueHeader: 'Stars' }, { title: 'Best-funded commercial', desc: 'Private companies ranked by total funding raised, from the funding cell: a stated total wins, otherwise the largest round. Valuations are never counted, and public companies are left out because their figures are market value, not funding.', rows: bestFunded, valueHeader: 'Raised', money: true }, { title: 'Highest inbound citations (in-catalog)', desc: 'How many other records in the catalog cite this one. Pure graph metric — no external lookup.', rows: mostInboundCites, valueHeader: 'Inbound cites' }, { title: 'Most-integrated (built-on + integrates-with)', desc: 'How many other records depend on or integrate this one. Mem0 should top this list.', rows: mostIntegrated, valueHeader: 'Inbound' }, { title: 'Most third-party-sourced facts', desc: 'Cited facts whose source is not published by the vendor, its repo, a registry or a paper: press, analysts, funding databases, other vendors’ integration docs.', rows: mostCorroborated, valueHeader: 'Third-party' }] as board (board.title)}
+    {#each [{ title: 'Most-cited research (T3 / T4)', desc: 'Papers ranked by Semantic Scholar citation count parsed from the citations cell.', rows: mostCited, valueHeader: 'Citations' }, { title: 'Most-starred OSS', desc: 'GitHub repos ranked by leading star count in the gh cell ("18.8k★ / 1.4k forks" → 18 800).', rows: mostStarred, valueHeader: 'Stars' }, { title: 'Best-funded commercial', desc: 'Private companies ranked by total funding raised, from the funding cell: a stated total wins, otherwise the largest round. Valuations are never counted, and public companies are left out because their figures are market value, not funding.', rows: bestFunded, valueHeader: 'Raised', money: true }, { title: 'Highest inbound citations (in-catalog)', desc: 'How many other records in the catalog cite this one. Pure graph metric — no external lookup.', rows: mostInboundCites, valueHeader: 'Inbound cites' }, { title: 'Most-integrated (built-on + integrates-with)', desc: 'How many other records depend on or integrate this one. Mem0 should top this list.', rows: mostIntegrated, valueHeader: 'Inbound' }, { title: 'Most third-party-sourced facts', desc: 'Cited facts whose source is not published by the vendor, its repo, a registry or a paper: press, analysts, funding databases, other vendors’ integration docs.', rows: mostCorroborated, valueHeader: 'Third-party' }, { title: 'Most depended-on, with a maintainer-health concern', desc: 'Systems other catalogued systems integrate with or depend on, whose GitHub repo shows a concern: under 30% of recent issues answered, no release in a year with a quiet repo, or one contributor behind most commits. From the daily repo-health refresh; empty until it has covered repos.', rows: leastHealthy, valueHeader: 'Dependants' }] as board (board.title)}
       <article class="card">
         <h2>{board.title}</h2>
         <p class="card-desc">{board.desc}</p>

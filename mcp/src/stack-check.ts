@@ -56,6 +56,41 @@ export interface IndexRecord {
   /** Latest release the catalog knows (#364), from the latest-release cell. */
   latest_release?: { version: string; date: string | null } | null;
   latest_release_text?: string;
+  /** Maintainer health from the GitHub API (#365, data/repo-health.json via
+   * build_stack_index.py); null until the repo-health bot has covered it. */
+  health?: RepoHealth | null;
+}
+
+export interface RepoHealth {
+  repo: string;
+  as_of: string;
+  issues_90d: number;
+  /** Share of issues opened in the window that are closed or have a comment; null under 3 issues. */
+  responded_share: number | null;
+  open_issue_median_age_days: number | null;
+  releases_12mo: number;
+  latest_release_at: string | null;
+  /** Contributors needed to reach half of the sampled commits. */
+  bus_factor: number | null;
+  top_contributor_share: number | null;
+  archived: boolean;
+}
+
+/** Thresholds for a low-health flag, documented in docs/DECISIONS.md (#365). */
+export function healthConcerns(h: RepoHealth, lastCommit: string | null): string[] {
+  const why: string[] = [];
+  if (h.archived) why.push('repository archived');
+  if (h.issues_90d >= 10 && h.responded_share !== null && h.responded_share < 0.3) {
+    why.push(`${Math.round(h.responded_share * 100)}% of the ${h.issues_90d} issues opened in 90 days got a reply or were closed`);
+  }
+  if (h.releases_12mo === 0) {
+    const m = lastCommit?.match(/^(\d{4})-(\d{2})/);
+    const asOf = h.as_of.match(/^(\d{4})-(\d{2})/);
+    const monthsQuiet = m && asOf ? (Number(asOf[1]) - Number(m[1])) * 12 + (Number(asOf[2]) - Number(m[2])) : null;
+    if (monthsQuiet !== null && monthsQuiet >= 6) why.push(`no release in 12 months and no commit for ${monthsQuiet} months`);
+  }
+  if (h.bus_factor === 1 && (h.top_contributor_share ?? 0) >= 0.8) why.push(`one contributor wrote ${Math.round((h.top_contributor_share ?? 0) * 100)}% of sampled commits`);
+  return why;
 }
 
 export interface StackIndex {
@@ -569,6 +604,11 @@ export interface StackAudit {
   /** The detected stack as stack.yml, one system per layer, for /build and
    * for watching with `landscape check stack.yml`. */
   stackYaml: string;
+  /** Matched systems whose maintainer-health signals meet a concern
+   * threshold (#365), with the reasons; `healthUnknown` counts matched
+   * systems the repo-health bot has not covered yet. */
+  health: { id: string; name: string; asOf: string; why: string[] }[];
+  healthUnknown: number;
 }
 
 export function auditStack(matched: Finding[]): StackAudit {
@@ -630,7 +670,15 @@ export function auditStack(matched: Finding[]): StackAudit {
     yaml.push(`  ${l.layer}: ${first.id}  # ${first.name.replace(/#/g, '')}`);
     for (const r of rest) yaml.push(`  # also ${l.layer}: ${r.id}  # ${r.name.replace(/#/g, '')}`);
   }
-  return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n' };
+  const health: StackAudit['health'] = [];
+  let healthUnknown = 0;
+  for (const f of systems) {
+    const h = f.record.health;
+    if (!h) { healthUnknown++; continue; }
+    const why = healthConcerns(h, f.record.last_commit);
+    if (why.length) health.push({ id: f.recordId, name: f.record.name, asOf: h.as_of, why });
+  }
+  return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n', health, healthUnknown };
 }
 
 

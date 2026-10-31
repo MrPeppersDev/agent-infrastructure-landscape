@@ -260,6 +260,27 @@ def main() -> int:
             "latest_release_text": rel[:100] if rel and not re.match(r"(n/a|no-release|not applicable)", rel, re.I) else "",
         }
 
+    # Maintainer health (#365) from data/repo-health.json, keyed by the same
+    # owner/repo keys as `repos`; absent until the repo-health bot has run.
+    health_file = ROOT / "data" / "repo-health.json"
+    health_by_repo = {}
+    if health_file.exists():
+        try:
+            health_by_repo = {k.lower(): v for k, v in (json.loads(health_file.read_text()).get("repos") or {}).items()}
+        except json.JSONDecodeError:
+            health_by_repo = {}
+    repo_of_id: dict[str, str] = {}
+    for key, rid in repos.items():
+        repo_of_id.setdefault(rid, key)
+    for rid, rec in records.items():
+        h = health_by_repo.get(repo_of_id.get(rid, ""))
+        if h and not h.get("error"):
+            rec["health"] = {k: h.get(k) for k in ("as_of", "issues_90d", "responded_share", "open_issue_median_age_days",
+                                                   "releases_12mo", "latest_release_at", "bus_factor", "top_contributor_share", "archived")}
+            rec["health"]["repo"] = repo_of_id[rid]
+        else:
+            rec["health"] = None
+
     out = {"generatedAt": today.isoformat(), "sourceGeneratedAt": data.get("generatedAt"),
            "packages": dict(sorted(packages.items())), "packageSource": dict(sorted(sources.items())),
            "repos": dict(sorted(repos.items())), "records": records}

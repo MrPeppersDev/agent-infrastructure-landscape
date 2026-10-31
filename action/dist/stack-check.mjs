@@ -17,6 +17,25 @@
 //   plain list               one package per line, optional npm:/pypi: prefix
 //   stack.yml                `components:` → `layer: record-id` lines, as
 //                            written by the stack composer (composer.ts)
+/** Thresholds for a low-health flag, documented in docs/DECISIONS.md (#365). */
+export function healthConcerns(h, lastCommit) {
+    const why = [];
+    if (h.archived)
+        why.push('repository archived');
+    if (h.issues_90d >= 10 && h.responded_share !== null && h.responded_share < 0.3) {
+        why.push(`${Math.round(h.responded_share * 100)}% of the ${h.issues_90d} issues opened in 90 days got a reply or were closed`);
+    }
+    if (h.releases_12mo === 0) {
+        const m = lastCommit?.match(/^(\d{4})-(\d{2})/);
+        const asOf = h.as_of.match(/^(\d{4})-(\d{2})/);
+        const monthsQuiet = m && asOf ? (Number(asOf[1]) - Number(m[1])) * 12 + (Number(asOf[2]) - Number(m[2])) : null;
+        if (monthsQuiet !== null && monthsQuiet >= 6)
+            why.push(`no release in 12 months and no commit for ${monthsQuiet} months`);
+    }
+    if (h.bus_factor === 1 && (h.top_contributor_share ?? 0) >= 0.8)
+        why.push(`one contributor wrote ${Math.round((h.top_contributor_share ?? 0) * 100)}% of sampled commits`);
+    return why;
+}
 const LINK_TYPES = new Set(['integrates-with', 'built-on', 'runtime-dependency', 'extends']);
 /** Build the integration-link map from catalog edges (served to the
  * GitHub Action as /api/integration-links.json). */
@@ -503,7 +522,19 @@ export function auditStack(matched) {
         for (const r of rest)
             yaml.push(`  # also ${l.layer}: ${r.id}  # ${r.name.replace(/#/g, '')}`);
     }
-    return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n' };
+    const health = [];
+    let healthUnknown = 0;
+    for (const f of systems) {
+        const h = f.record.health;
+        if (!h) {
+            healthUnknown++;
+            continue;
+        }
+        const why = healthConcerns(h, f.record.last_commit);
+        if (why.length)
+            health.push({ id: f.recordId, name: f.record.name, asOf: h.as_of, why });
+    }
+    return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n', health, healthUnknown };
 }
 export function pinnedVersion(spec) {
     const s = (spec ?? '').trim();

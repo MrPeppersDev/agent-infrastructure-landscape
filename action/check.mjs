@@ -171,6 +171,7 @@ async function main() {
     lines.push(`Covers: ${a.layers.map((l) => `${l.label} (${l.systems.map((s) => s.name).join(', ')})`).join(' · ')}.`);
     if (a.missing.length) lines.push('', `Not detected among catalogued dependencies: ${a.missing.map((m) => `[${m.label}](${site}${m.choose})`).join(', ')}.`);
     for (const c of a.concentration) lines.push('', `Vendor concentration: **${c.vendor}** covers ${c.layers.join(', ')} (${c.systems.join(', ')}).`);
+    for (const h of a.health) lines.push('', `Maintainer health: [${h.name}](${site}/systems/${h.id}): ${h.why.join('; ')} (GitHub, as of ${h.asOf}).`);
     lines.push('', `Licences: ${a.licences.map((b) => `${b.bucket} ${b.systems.length}`).join(' · ')}.`, '', '</details>', '');
   }
   lines.push(`<sub>From the [AI Agent Infrastructure Landscape](${site}) · index ${index.generatedAt ?? ''} (${from === 'bundled' ? 'bundled' : 'live'}) · [check a stack in the browser](${site}/check)</sub>`);

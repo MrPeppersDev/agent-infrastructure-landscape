@@ -8,6 +8,7 @@
   import type { LandscapeRecord, Edge, Cell } from '$lib/types';
   import { hasMemoryTaxonomy, memoryTaxonomyOf } from '$lib/families';
   import type { LifecycleInfo } from '$lib/lifecycle';
+  import type { RepoHealth } from '../../../../../mcp/src/stack-check';
   import { LIFECYCLE_LABEL, LIFECYCLE_TONE, LIFECYCLE_BANNER } from '$lib/lifecycle-labels';
   import { correctionUrl, REPO, type HistoryEvent } from '$lib/history';
   import { sourceClass, corroboration, citationUrl, SOURCE_TITLE } from '$lib/source-class.js';
@@ -35,6 +36,7 @@
       history: HistoryEvent[];
       citedCells: number;
       lifecycle: LifecycleInfo;
+      health: { health: RepoHealth; concerns: string[] } | null;
     };
   } = $props();
 
@@ -55,6 +57,20 @@
     const v = c.value?.trim();
     if (!v) return null;
     return c.status === 'estimate' ? `${v} (estimate)` : v;
+  }
+  // Maintainer health (#365) from the GitHub API via data/repo-health.json:
+  // issue responsiveness, release cadence and commit concentration.
+  function healthText(h: typeof data.health): string | null {
+    if (!h) return null;
+    const x = h.health;
+    const parts: string[] = [];
+    parts.push(x.issues_90d >= 3 && x.responded_share !== null
+      ? `${x.issues_90d} issues in 90 days, ${Math.round(x.responded_share * 100)}% answered or closed`
+      : `${x.issues_90d} issues in 90 days`);
+    parts.push(`${x.releases_12mo} release${x.releases_12mo === 1 ? '' : 's'} in 12 months${x.latest_release_at ? ` (latest ${x.latest_release_at})` : ''}`);
+    if (x.bus_factor !== null) parts.push(`bus factor ${x.bus_factor}`);
+    const concerns = h.concerns.length ? ` · concern: ${h.concerns.join('; ')}` : '';
+    return `${parts.join(' · ')} — as of ${x.as_of}${concerns}`;
   }
   function opendiggerText(c: Cell | undefined): string | null {
     if (!c || c.status !== 'real-data') return null;
@@ -124,6 +140,11 @@
       value: opendiggerText(record.cells['developer-activity-opendigger']),
       cite: citationUrl(record.cells['developer-activity-opendigger']?.citation),
       slug: 'developer-activity-opendigger'
+    },
+    {
+      label: 'Maintainer health',
+      value: healthText(data.health),
+      cite: data.health ? `https://github.com/${data.health.health.repo}` : undefined
     }
   ];
 
