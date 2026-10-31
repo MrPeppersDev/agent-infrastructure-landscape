@@ -314,11 +314,8 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       }
       if (/^(alpha|preview)$/.test(i.facts.maturity?.value ?? '')) r.score = Math.round((r.score - 0.5) * 10) / 10;
       // Model families: GitHub stars measure open-weight repos, not how
-      // widely a model is used, so they don't rank models.
-      if (lid === 'model' && i.stars) {
-        r.score = Math.round((r.score - Math.min(2.5, Math.log10(i.stars) - 2)) * 10) / 10;
-        r.reasons = r.reasons.filter((x) => !x.text.startsWith('Adoption:'));
-      }
+      // widely a model is used, so they are not even a tiebreaker reason.
+      if (lid === 'model') r.reasons = r.reasons.filter((x) => !x.text.startsWith('Adoption'));
       // Ecosystem breadth: how many catalogued systems document an
       // integration with it (curated integration pages).
       const n = reach.get(i.id) ?? 0;
@@ -344,7 +341,8 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       if (picked.some((p) => p.item.id === i.id)) r.score -= 5;
       (r.unconfirmed.some((u) => HARD.includes(u)) ? maybe : ok).push(r);
     }
-    const byScore = (x: Scored, y: Scored) => y.score - x.score || (y.item.stars ?? 0) - (x.item.stars ?? 0) || x.item.name.localeCompare(y.item.name);
+    const tiebreak = (x: Scored, y: Scored) => (lid === 'model' ? 0 : (y.item.stars ?? 0) - (x.item.stars ?? 0));
+    const byScore = (x: Scored, y: Scored) => y.score - x.score || tiebreak(x, y) || x.item.name.localeCompare(y.item.name);
     ok.sort(byScore);
     maybe.sort(byScore);
     const seen = new Set<string>();
@@ -440,7 +438,7 @@ function whyNot(pick: Scored, ranked: Scored[], excluded: { item: ChooserItem; w
       text: r.score > pick.score && r.unconfirmed.length
         ? `Scores higher (${r.score} vs ${pick.score}), but a must-have is unconfirmed, so it ranks below systems that confirm all of them`
         : r.score === pick.score
-          ? `Tied on score (${r.score}); ${pick.item.name} ranks first on adoption (${pick.item.stars ?? '—'} vs ${r.item.stars ?? '—'} GitHub stars)`
+          ? `Tied on fit (score ${r.score}); ${pick.item.name} ranks first on the tiebreaker, adoption (${pick.item.stars ?? '—'} vs ${r.item.stars ?? '—'} GitHub stars)`
           : `Score ${r.score} vs ${pick.score} for ${pick.item.name}`
     });
     out.push({ id: r.item.id, name: r.item.name, because });

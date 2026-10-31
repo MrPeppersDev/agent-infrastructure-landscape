@@ -145,6 +145,10 @@ export function scoreInfraDetailed(item: ChooserItem, a: InfraAnswers): Scored |
   if (!req(a.oss, item.oss, 'Open source', item.facts.license)) return failed!;
   if (!req(a.mcp, item.mcp, 'MCP', item.facts.mcp)) return failed!;
 
+  // Fit first (#359): tier, fit facts the question did not already require,
+  // how well the catalog documents the system, and a recent release. GitHub
+  // stars are not scored; they break ties in the sort and are labelled as
+  // the tiebreaker in the reasons.
   let s = ({ 1: 3, 2: 2, 3: 1 } as Record<number, number>)[item.tier] ?? 0;
   if (a.kind === 'data' && a.existing) {
     const m = `${item.name} ${item.desc}`.match(EXISTING);
@@ -152,14 +156,6 @@ export function scoreInfraDetailed(item: ChooserItem, a: InfraAnswers): Scored |
       s += 3;
       reasons.push({ text: `Runs on or inside ${m[0]}, which you may already operate` });
     }
-  }
-  if (item.stars) {
-    s += Math.min(2.5, Math.log10(item.stars) - 2);
-    reasons.push({ text: `Adoption: ${item.facts.gh.value.split(' — ').slice(0, 2).join(' — ')}`, citation: item.facts.gh.citation });
-  }
-  if (item.releaseDate && monthsSince(item.releaseDate) <= 6) {
-    s += 1;
-    reasons.push({ text: `Recently released: ${item.facts.release.value}`, citation: item.facts.release.citation });
   }
   if (a.language === 'any' && item.facts.runtimes.value) reasons.push({ text: `SDKs: ${item.facts.runtimes.value}`, citation: item.facts.runtimes.citation });
   if (!a.oss && item.oss === 'yes') reasons.push({ text: `Licence: ${item.facts.license.value}`, citation: item.facts.license.citation });
@@ -170,12 +166,19 @@ export function scoreInfraDetailed(item: ChooserItem, a: InfraAnswers): Scored |
   // well-documented ones.
   const known = [item.facts.license, item.facts.deployment, item.facts.gh, item.facts.release].filter((f) => f.value).length;
   s += known * 0.25;
+  if (item.releaseDate && monthsSince(item.releaseDate) <= 6) {
+    s += 1;
+    reasons.push({ text: `Recently released: ${item.facts.release.value}`, citation: item.facts.release.citation });
+  }
+  if (item.stars) {
+    reasons.push({ text: `Adoption (tiebreaker): ${item.facts.gh.value.split(' — ').slice(0, 2).join(' — ')}`, citation: item.facts.gh.citation });
+  }
 
   const warning = item.status.severity >= 1 && item.status.status !== 'active'
     ? `${item.status.status}${item.status.note ? ' — ' + item.status.note : ''}`
     : null;
   if (warning) s -= item.status.severity;
-  return { item, score: Math.round(s * 10) / 10, reasons: reasons.slice(0, 6), unconfirmed, warning };
+  return { item, score: Math.round(s * 10) / 10, reasons: reasons.slice(0, 7), unconfirmed, warning };
 }
 
 export interface InfraResult {

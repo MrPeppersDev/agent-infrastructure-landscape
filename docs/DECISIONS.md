@@ -14,6 +14,16 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Choosers and composer rank on fit; adoption is the tiebreaker (#359)
+
+**What.** `chooser.ts`, `chooser-infra.ts` and `composer.ts` no longer add GitHub stars to a candidate's score. The score is now: hard requirements (still exclusions), tier, fit facts the question did not already require (SDKs, licence, deployment, MCP, pricing), documentation depth (licence, deployment, repo and release facts present), a recent release, and in the composer the documented integrations with earlier picks and ecosystem breadth. Stars break ties in the sort and appear last in the reasons as "Adoption (tiebreaker)". For model families they are not shown at all and do not break ties. The "why not" text for a tie says so. Blueprints regenerated.
+
+**Why.** Site review (#359): the first reason shown for a pick was "~149k stars", which is popularity, not fit. For an engineer the question is fit under constraints; adoption is a risk signal and a tiebreaker. Hard requirements were already filters, so this changes the order among systems that fit and the order of the reasons.
+
+**Reversal cost.** Low. One term in each scorer; `make blueprints` regenerates the outputs; `test-infra.ts` has a fit-before-adoption test.
+
+---
+
 ## 2026-10-31: Catalog silos: focused views over one dataset
 
 **What.** `taxonomy/silos.json` defines catalog silos: a named set of sections (which may cross product families), the table columns that audience scans first, whether the memory taxonomy applies, and the decision tools, research views, best-of lists, MCP tools and CLI commands for that job. The web app renders `/catalogs` (index), `/catalogs/<silo>` (landing: counts, lifecycle mix, sections, most-referenced systems, recent changes, tools, exports) and `/catalogs/<silo>/browse` (the shared table with the silo's rows and columns). The home table is the Atlas: every row, every column. Eleven silos ship: the five product families (memory, agents, retrieval, models, research) and six use-case views (coding agents; security, governance and identity; evals and observability; voice, computer-use and embodied; assistant and personal memory; vertical and domain agents). Cross-cutting silos get their own `api/catalogs/<id>.json` / `.csv`; family silos reuse the family export. `llms.txt` lists them. The table view was extracted into `CatalogView.svelte` so the Atlas and every browse page share one implementation.
