@@ -1,0 +1,567 @@
+<script lang="ts">
+  // Shared catalog table view: the Atlas (routes/+page.svelte, every row) and
+  // each silo's browse page (routes/catalogs/[silo]/browse) render this with
+  // their own rows, default columns, title and banner.
+  import type { Snippet } from 'svelte';
+  import { onMount, untrack } from 'svelte';
+  import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
+  import { browser } from '$app/environment';
+  import { page } from '$app/state';
+  import Table from '$lib/components/Table.svelte';
+  import CardList from '$lib/components/CardList.svelte';
+  import SearchBox from '$lib/components/SearchBox.svelte';
+  import FilterRail from '$lib/components/FilterRail.svelte';
+  import DetailModal from '$lib/components/DetailModal.svelte';
+  import ComparePanel from '$lib/components/ComparePanel.svelte';
+  import ExportButton from '$lib/components/ExportButton.svelte';
+  import { sortColumns } from '$lib/stores/sort';
+  import { searchQuery, applySearch } from '$lib/stores/search';
+  import { filters, applyFilters, FACET_ORDER } from '$lib/stores/filters';
+  import { sortRecords } from '$lib/sortRecords';
+  import { fullViewColumns, type ColumnDef } from '$lib/columns';
+  import {
+    selectedIds,
+    toggleSelected,
+    clearSelection,
+    MAX_COMPARE
+  } from '$lib/stores/selection';
+  import {
+    stateToUrl,
+    urlToState,
+    filterStateEqual,
+    sortEntriesEqual
+  } from '$lib/url-state';
+  import type { LandscapeRecord } from '$lib/types';
+
+  let {
+    data,
+    title,
+    lede,
+    columns,
+    banner
+  }: {
+    data: { records: LandscapeRecord[]; recordCount: number; edgeCount: number; fill: Record<string, number> };
+    /** Page heading. */
+    title: string;
+    /** One line under the counts, for silo pages. */
+    lede?: string;
+    /** Default (compact) columns; the "All columns" toggle shows every column. */
+    columns: ColumnDef[];
+    /** Rendered between the toolbar and the table (start-here tiles, family tabs, silo strip). */
+    banner?: Snippet;
+  } = $props();
+
+  // --- URL → stores (synchronous, runs before first reactive render) ---
+  //
+  // The site is prerendered (adapter-static), so +page.ts load() can't read
+  // query params — they don't exist at build time. We parse window.location
+  // here, synchronously at module-script init time, so the three stores are
+  // populated BEFORE any $derived reads them. That eliminates the
+  // flash-of-default-view on paste-into-new-tab.
+  //
+  // Guard with `browser` because this script runs during SSR prerender too
+  // (where `window` is undefined).
+  // Table view (#331): one line per system by default; `?view=full`
+  // shows every column. Kept out of the url-state codec, which covers
+  // search, filters and sort.
+  let fullView = $state(browser && new URLSearchParams(window.location.search).get('view') === 'full');
+  // Columns under 15% filled join the full view only on request (#334).
+  let showSparse = $state(browser && new URLSearchParams(window.location.search).get('sparse') === '1');
+  const sparseCount = $derived(fullViewColumns(data.fill, true).length - fullViewColumns(data.fill, false).length);
+
+  if (browser) {
+    const initial = urlToState(new URLSearchParams(window.location.search));
+    // .set() rather than .update() — we want full replacement, including
+    // wiping any value left over from a prior client-side navigation.
+    if (initial.search) searchQuery.set(initial.search);
+    filters.set(initial.filters);
+    sortColumns.set(initial.sort);
+  }
+
+  // The prerendered rows are the default view. Hydration adopts them as-is
+  // even when the URL asked for a filtered view, so the table is remounted
+  // once after hydration to render the rows the stores describe (#331).
+  let hydrated = $state(false);
+  onMount(() => {
+    hydrated = true;
+  });
+
+  // Reactive pipeline: search → filters → sort.
+  const visibleRecords = $derived(
+    sortRecords(applyFilters(applySearch(data.records, $searchQuery), $filters), $sortColumns)
+  );
+
+  // --- Stores → URL (debounced, replaceState) --------------------------
+  //
+  // Why debounce: every keystroke in the search box updates $searchQuery,
+  // and every click in the filter rail mutates $filters. Without a debounce
+  // we'd call goto() 50× during a fast typing burst — each one a no-op for
+  // history (replaceState) but still a router operation. 150ms matches the
+  // search debounce in #10 and feels instant.
+  //
+  // Why goto + replaceState rather than history.replaceState directly:
+  // - keeps SvelteKit's $page store in sync (so any future code reading
+  //   $page.url.searchParams gets the current view)
+  // - works with the framework's transition / preload machinery
+  // - noScroll: true + keepFocus: true preserves user position
+  // - replaceState: true means the back button doesn't fill up with every
+  //   filter toggle (it would be unusable otherwise)
+  //
+  // We track previous serialised state with the equality helpers so we
+  // never call goto() when the URL would be identical — saves a router
+  // round-trip on store-set-but-no-real-change.
+
+  let lastSearch = $state('');
+  let writeTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function writeUrl(search: string, f: typeof $filters, s: typeof $sortColumns) {
+    const params = stateToUrl(search, f, s);
+    if (fullView) params.set('view', 'full');
+    if (fullView && showSparse) params.set('sparse', '1');
+    const qs = params.toString();
+    const target = qs ? `?${qs}` : window.location.pathname;
+    if (window.location.search === (qs ? `?${qs}` : '')) return;
+    goto(target, {
+      replaceState: true,
+      noScroll: true,
+      keepFocus: true
+    });
+  }
+
+  // Snapshot last-written state so $effect can detect real changes and
+  // skip writing when only object identity changed (Set mutations under
+  // filters.update() preserve identity but re-notify the store).
+  let lastFilters: typeof $filters | null = null;
+  let lastSort: typeof $sortColumns | null = null;
+
+  $effect(() => {
+    if (!browser) return;
+    // Subscribe to the three stores.
+    const s = $searchQuery;
+    const f = $filters;
+    const so = $sortColumns;
+    untrack(() => {
+      if (
+        s === lastSearch &&
+        lastFilters !== null &&
+        filterStateEqual(f, lastFilters) &&
+        lastSort !== null &&
+        sortEntriesEqual(so, lastSort)
+      ) {
+        return;
+      }
+      lastSearch = s;
+      // Clone the filter state so subsequent in-place mutations don't
+      // make our snapshot equal-to-current and skip a real write.
+      lastFilters = cloneFilterState(f);
+      lastSort = [...so];
+
+      if (writeTimer !== null) clearTimeout(writeTimer);
+      writeTimer = setTimeout(() => {
+        writeUrl(s, f, so);
+        writeTimer = null;
+      }, 150);
+    });
+  });
+
+  function cloneFilterState(f: typeof $filters): typeof $filters {
+    return {
+      product: new Set(f.product),
+      lifecycle: new Set(f.lifecycle),
+      tier: new Set(f.tier),
+      section: new Set(f.section),
+      storage: new Set(f.storage),
+      retrieval: new Set(f.retrieval),
+      persistence: new Set(f.persistence),
+      update: new Set(f.update),
+      unit: new Set(f.unit),
+      governance: new Set(f.governance),
+      conflict: new Set(f.conflict),
+      license: new Set(f.license),
+      deployment: new Set(f.deployment),
+      modality: new Set(f.modality),
+      layer: new Set(f.layer),
+      licensing: new Set(f.licensing),
+      freshness: new Set(f.freshness)
+    };
+  }
+
+  // --- Detail modal + compare panel state (issue #18) ----------------
+  //
+  // `detailRecord` is the currently-open modal record (null = closed).
+  // The "Compare" panel reads from the selectedIds store and resolves
+  // them against `data.records` (so unfiltered selections still work).
+  let detailRecord = $state<LandscapeRecord | null>(null);
+  let comparing = $state(false);
+
+  const selectedRecords = $derived(
+    [...$selectedIds]
+      .map((id) => data.records.find((r) => r.id === id))
+      .filter((r): r is LandscapeRecord => r !== undefined)
+  );
+
+  function openDetail(record: LandscapeRecord) {
+    detailRecord = record;
+  }
+  function closeDetail() {
+    detailRecord = null;
+  }
+  function handleToggleSelect(record: LandscapeRecord) {
+    toggleSelected(record.id);
+  }
+  function openCompare() {
+    if ($selectedIds.size >= 2) comparing = true;
+  }
+  function closeCompare() {
+    comparing = false;
+  }
+
+  // --- Export filename summary (issue #19) ---------------------------
+  //
+  // Compact string like "tier=1,2;license=Apache-2.0" — included in the
+  // download filename so users can tell exports apart at a glance.
+  const filterSummary = $derived(buildFilterSummary($searchQuery, $filters, $sortColumns));
+
+  function buildFilterSummary(
+    search: string,
+    f: typeof $filters,
+    s: typeof $sortColumns
+  ): string {
+    const parts: string[] = [];
+    if (search.trim()) parts.push(`q=${search.trim().slice(0, 30)}`);
+    for (const facet of FACET_ORDER) {
+      const set = f[facet] as Set<string | number>;
+      if (set.size > 0) {
+        const values = [...set].slice(0, 3).join(',');
+        parts.push(`${facet}=${values}`);
+      }
+    }
+    if (s.length > 0) {
+      parts.push(`sort=${s[0].column}${s[0].direction === 'asc' ? '_asc' : '_desc'}`);
+    }
+    return parts.join('_');
+  }
+
+  // Handle back/forward navigation: re-parse the URL and push it into the
+  // stores. Without this, browser back after a filter change leaves the
+  // stores stale (the URL changes but the view doesn't).
+  onMount(() => {
+    const onPop = () => {
+      const next = urlToState(new URLSearchParams(window.location.search));
+      searchQuery.set(next.search);
+      filters.set(next.filters);
+      sortColumns.set(next.sort);
+      fullView = new URLSearchParams(window.location.search).get('view') === 'full';
+      showSparse = new URLSearchParams(window.location.search).get('sparse') === '1';
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  });
+
+  // --- Narrow-viewport drawer (Polish 2026-05-07) ------------------------
+  //
+  // Under 900px the FilterRail moves out of the page flow and becomes
+  // a slide-in drawer. The pill in the toolbar opens it. We track the
+  // breakpoint with a MediaQueryList listener — cheaper than wiring a
+  // ResizeObserver on the body for a binary breakpoint.
+
+  let isNarrow = $state(false);
+  let drawerOpen = $state(false);
+  // Phones get a card list instead of the wide table (#335).
+  let isPhone = $state(false);
+  onMount(() => {
+    const mql = window.matchMedia('(max-width: 767px)');
+    isPhone = mql.matches;
+    const onChange = (e: MediaQueryListEvent) => (isPhone = e.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  });
+
+  onMount(() => {
+    if (!browser) return;
+    const mql = window.matchMedia('(max-width: 900px)');
+    isNarrow = mql.matches;
+    const onChange = (e: MediaQueryListEvent) => {
+      isNarrow = e.matches;
+      if (!e.matches) drawerOpen = false; // close when expanding to wide
+    };
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  });
+
+  /** Count of selected facet values across all facets. Surfaced in the
+   *  toolbar pill ("Filters (3 active)"). */
+  const activeFilterCount = $derived.by(() => {
+    let n = 0;
+    for (const facet of FACET_ORDER) {
+      n += ($filters[facet] as Set<unknown>).size;
+    }
+    return n;
+  });
+</script>
+
+<div class="app">
+  <header class="toolbar">
+    <div class="title-block">
+      <h1>{title}</h1>
+      <p class="subtitle">
+        {data.recordCount.toLocaleString()} systems · {data.edgeCount.toLocaleString()} edges
+        · {visibleRecords.length.toLocaleString()} visible
+        · data as of {page.data.stats.dataAsOf}
+        ({page.data.stats.verifiedThisMonth.toLocaleString()} re-verified that month)
+        · <a href="{base}/changes">what changed</a>
+        {#if $sortColumns.length}
+          · sorted by {$sortColumns
+            .map((s) => `${s.column} ${s.direction === 'asc' ? '↑' : '↓'}`)
+            .join(', ')}
+        {/if}
+      </p>
+      {#if lede}<p class="lede">{lede}</p>{/if}
+    </div>
+    <div class="hint">
+      Click a row to inspect · shift-click rows (2-{MAX_COMPARE}) to compare ·
+      click headers to sort
+    </div>
+    <div class="toolbar-actions">
+      {#if isNarrow}
+        <button
+          type="button"
+          class="filters-pill"
+          class:has-active={activeFilterCount > 0}
+          onclick={() => (drawerOpen = true)}
+          aria-expanded={drawerOpen}
+          aria-controls="filter-rail"
+        >
+          Filters
+          {#if activeFilterCount > 0}
+            <span class="pill-count">({activeFilterCount} active)</span>
+          {/if}
+        </button>
+      {/if}
+      {#if !isPhone}
+      <button
+        type="button"
+        class="view-toggle"
+        aria-pressed={fullView}
+        onclick={() => {
+          fullView = !fullView;
+          writeUrl($searchQuery, $filters, $sortColumns);
+        }}
+        title={fullView ? 'Back to one line per system' : 'Show every column, including the memory taxonomy'}
+      >
+        {fullView ? 'Compact view' : 'All columns'}
+      </button>
+      {#if fullView}
+        <button
+          type="button"
+          class="view-toggle"
+          aria-pressed={showSparse}
+          onclick={() => {
+            showSparse = !showSparse;
+            writeUrl($searchQuery, $filters, $sortColumns);
+          }}
+          title="Columns filled for under 15% of systems"
+        >
+          {showSparse ? 'Hide' : 'Show'} {sparseCount} sparse columns
+        </button>
+      {/if}
+      {/if}
+      <SearchBox matchCount={visibleRecords.length} totalCount={data.recordCount} />
+      {#if $selectedIds.size > 0}
+        <div class="selection-pill">
+          <span class="sel-count">{$selectedIds.size} selected</span>
+          {#if $selectedIds.size >= 2}
+            <button type="button" class="sel-btn primary" onclick={openCompare}>
+              Compare
+            </button>
+          {/if}
+          <button type="button" class="sel-btn" onclick={clearSelection}>Clear</button>
+        </div>
+      {/if}
+      <ExportButton records={visibleRecords} {filterSummary} />
+    </div>
+  </header>
+
+  {@render banner?.()}
+
+  <div class="body">
+    <FilterRail
+      records={data.records}
+      drawer={isNarrow}
+      open={drawerOpen}
+      onClose={() => (drawerOpen = false)}
+    />
+    <main class="table-shell" data-hydrated={hydrated || undefined}>
+      {#if isPhone}
+        <CardList records={visibleRecords} />
+      {:else}
+      {#key hydrated}
+        <Table
+          records={visibleRecords}
+          columns={fullView ? fullViewColumns(data.fill, showSparse) : columns}
+          compact={!fullView}
+          onSelect={openDetail}
+          onToggleSelect={handleToggleSelect}
+        />
+      {/key}
+      {/if}
+    </main>
+  </div>
+</div>
+
+{#if detailRecord}
+  <DetailModal record={detailRecord} onClose={closeDetail} />
+{/if}
+
+{#if comparing && selectedRecords.length >= 2}
+  <ComparePanel records={selectedRecords} onClose={closeCompare} />
+{/if}
+
+<style>
+  /* Override the layout's narrow .page padding for the table view so
+     the table fills the viewport. The layout still wraps everything in
+     a centered .page div but we expand inside it. */
+  .app {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .subtitle a {
+    color: #58a6ff;
+  }
+  .subtitle {
+    color: #8b949e;
+    font-size: 0.85rem;
+    margin: 4px 0 0 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .lede {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin: 6px 0 0;
+    max-width: 78ch;
+  }
+  .hint {
+    color: #6e7681;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+  .body {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: stretch;
+    min-height: 0;
+    flex: 1;
+  }
+  .table-shell {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+  }
+  .toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .view-toggle,
+  .filters-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 0.82rem;
+    color: #c9d1d9;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .view-toggle:hover,
+  .filters-pill:hover {
+    color: #f0f6fc;
+    border-color: #58a6ff;
+  }
+  .filters-pill.has-active {
+    border-color: #58a6ff;
+    color: #58a6ff;
+  }
+  .pill-count {
+    font-size: 0.74rem;
+    color: #6e7681;
+    font-variant-numeric: tabular-nums;
+  }
+  .filters-pill.has-active .pill-count {
+    color: #58a6ff;
+  }
+  /* On narrow viewports the rail lives in a fixed-position drawer, so
+     the body flex no longer needs to allocate space for it. We also
+     reduce the toolbar font scale slightly to fit on small screens. */
+  @media (max-width: 900px) {
+    .toolbar {
+      gap: 8px;
+    }
+    h1 {
+      font-size: 1.2rem;
+    }
+    .hint {
+      display: none;
+    }
+  }
+  .selection-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px 4px 12px;
+    background: #1a1f24;
+    border: 1px solid #c4633c;
+    border-radius: 6px;
+    font-size: 0.83rem;
+    color: #d4845f;
+  }
+  .sel-count {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .sel-btn {
+    padding: 3px 10px;
+    font: inherit;
+    font-size: 0.78rem;
+    color: #c9d1d9;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .sel-btn:hover {
+    color: #f0f6fc;
+    border-color: #58a6ff;
+  }
+  .sel-btn.primary {
+    color: #161b22;
+    background: #d4845f;
+    border-color: #d4845f;
+    font-weight: 600;
+  }
+  .sel-btn.primary:hover {
+    background: #e29571;
+    border-color: #e29571;
+  }
+</style>

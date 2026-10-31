@@ -99,6 +99,17 @@ try {
   check('system page has change log', (await page.locator('#changes li').count()) > 0);
   check('system page has correction link', (await page.locator('a[href*="template=correction.yml"]').count()) > 0);
 
+  // Catalog silos (taxonomy/silos.json): index, landing page and scoped table.
+  await go('/catalogs');
+  check('/catalogs lists every silo', (await page.locator('.grid a').count()) >= 10);
+  await go('/catalogs/memory');
+  check('/catalogs/memory has decide tiles and top systems', (await page.locator('.tiles a').count()) >= 3 && (await page.locator('ol.top li').count()) >= 10);
+  await go('/catalogs/coding/browse');
+  const codingCount = Number(((await texts('.subtitle'))[0] ?? '').match(/^([\d,]+) systems/)?.[1]?.replace(/,/g, '') ?? 0);
+  const codingHeads = await texts('thead th');
+  check('/catalogs/coding/browse shows only coding rows', codingCount > 50 && codingCount < 200, `${codingCount} systems`);
+  check('/catalogs/coding/browse uses the silo columns', codingHeads.some((h) => /MCP/.test(h)) && !codingHeads.some((h) => /Storage/.test(h)), JSON.stringify(codingHeads));
+
   // Pages fed by slimmed records (#324): they must still render their data.
   await go('/leaderboards');
   check('/leaderboards renders boards', (await page.locator('tbody tr').count()) >= 30);
@@ -111,7 +122,8 @@ try {
   check('/graph mounts the canvas', (await page.locator('canvas').count()) >= 1);
 
   await go('/');
-  const group = (name) => page.locator('nav.topnav .groups details', { hasText: name });
+  // Match the group's own summary, not an item that happens to contain the word.
+  const group = (name) => page.locator('nav.topnav .groups details').filter({ has: page.locator('summary', { hasText: new RegExp('^' + name + '\\b') }) });
   await group('Decide').locator('summary').click();
   await group('Research').locator('summary').click();
   check('Research menu opens', await group('Research').locator('.menu').isVisible());

@@ -4,6 +4,7 @@
   import { base } from '$app/paths';
   import JsonLd from '$lib/components/JsonLd.svelte';
   import { websiteLd, organizationLd } from '$lib/seo/jsonld';
+  import { getSilos } from '$lib/silos';
 
   let { children } = $props();
   let nav: HTMLElement | undefined = $state();
@@ -51,9 +52,16 @@
       ]
     },
     {
+      label: 'Catalogs',
+      items: [
+        { path: '/catalogs', label: 'All catalogs' },
+        ...getSilos().map((s) => ({ path: `/catalogs/${s.id}`, label: s.name }))
+      ]
+    },
+    {
       label: 'Browse',
       items: [
-        { path: '/', label: 'Catalog' },
+        { path: '/', label: 'Atlas (every system)' },
         { path: '/search', label: 'Ask the catalog' },
         { path: '/alternatives', label: 'Alternatives' },
         { path: '/compare', label: 'Compare' },
@@ -84,7 +92,8 @@
     }
   ];
   const href = (path: string) => (path === '/' ? `${base}/` : `${base}${path}`);
-  const isActive = (path: string, rel: string) => (path === '/' ? rel === '/' : rel.startsWith(path));
+  const isActive = (path: string, rel: string) =>
+    path === '/' ? rel === '/' : path === '/catalogs' ? rel === '/catalogs' : rel === path || rel.startsWith(path + '/');
 
   // Strip the base prefix from the current path for active-route matching.
   const relPath = $derived(
