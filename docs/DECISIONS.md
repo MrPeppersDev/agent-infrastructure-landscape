@@ -34,6 +34,16 @@ that were on the table.
 
 ---
 
+## 2026-10-31: The stack bill is a range; switching cost per layer (#362)
+
+**What.** `data/pricing/stack.json` gains `selfHost`: five reference instances at list price (AWS t3.medium, m6i.large, r6i.xlarge and g5.xlarge from EC2Instances.info, a third-party index, confidence medium; Lambda 1× H100 from the vendor's page) and, per layer, the low and high instance to assume for a component with no published price, or none for a library. `stackCost` fills an `estimate` (low, high, basis, sources) on each unpriced line and returns `range`: published prices plus estimates, with the number of priced, estimated and "contact sales" lines; "contact sales" lines stay outside the range and are named. The builder's heading reads "$low to $high plus N contact-sales lines" and lists the assumption under each estimated line; blueprint READMEs do the same. Each layer's exit path gains `switching`: the monthly delta to the fallback where both sides have a published price (or why not), how many of the other picks the fallback is documented to work with, and whether migration notes exist.
+
+**Why.** Roadmap item 1.5 (#362): the support-agent blueprint read "at least $9,029" with one model line and dashes for every other layer, a floor nobody can budget from. The estimates are labelled, sourced and kept out of the published-price total, so the honesty rule (never a guess presented as a price) holds while the reader gets a bracket. The switching line turns the exit path into a number and an integration count.
+
+**Reversal cost.** Low. Remove `selfHost` and the range disappears; the switching field is additive.
+
+---
+
 ## 2026-10-31: Version drift in the stack check (#364)
 
 **What.** `data/stack-index.json` records now carry `latest_release` ({version, date}) parsed from the latest-release cell, plus the cell text. `checkStack` compares the version a manifest pins for an npm or PyPI dependency with that release and reports `behind-major` (pinned major below the catalog's) or `behind-minor` (both on a 0.x line and the pinned minor is older). Only specs that name a version get a verdict: caret, tilde, exact and PEP 440 compatible-release specs do; an open lower bound (`>=0.3`), `latest`, `*`, workspace and git specs do not. Matched dependencies with no release version in the catalog are counted in `noVersionData` and shown as such, never as fine. The web page, the CLI, the Action (new `fail-on: drift`, `drift-count` output, a notice annotation per finding) and `check_stack` all carry it.

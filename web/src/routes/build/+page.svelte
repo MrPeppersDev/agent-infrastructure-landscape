@@ -208,7 +208,7 @@
           {/if}
           {#if l.exit}
             <p class="exit">
-              Exit path: self-host {triLabel(l.exit.selfHost.tri)}, open source {triLabel(l.exit.openSource.tri)}{#if l.exit.fallback}; fallback <a href="{base}/systems/{l.exit.fallback.id}">{l.exit.fallback.name}</a>{/if}{#if l.exit.migration}; <a href={l.exit.migration.sources[0]} target="_blank" rel="noopener noreferrer">migration notes</a>{/if}
+              Exit path: self-host {triLabel(l.exit.selfHost.tri)}, open source {triLabel(l.exit.openSource.tri)}{#if l.exit.fallback}; fallback <a href="{base}/systems/{l.exit.fallback.id}">{l.exit.fallback.name}</a>{/if}{#if l.exit.migration}; <a href={l.exit.migration.sources[0]} target="_blank" rel="noopener noreferrer">migration notes</a>{/if}{#if l.exit.switching}. Switching: {l.exit.switching.deltaNote}{#if l.exit.switching.sharedIntegrations}; works with {l.exit.switching.sharedWith.slice(0, 3).join(', ')} already in this stack{:else}; no documented integration with the other picks{/if}.{/if}
             </p>
           {/if}
         {:else}
@@ -273,8 +273,13 @@
 
   {#if plan.cost}
     <section>
-      <h2>Monthly cost: {plan.cost.lowerBound ? 'at least ' : ''}{money(plan.cost.knownMonthlyUsd)}</h2>
-      <p class="muted">From published list prices only (checked {plan.cost.checked || '—'}); usage beyond the largest published plan is "contact sales", never extrapolated. Components with no published price (often self-hosted open source) cost your own infrastructure.</p>
+      {#if plan.cost.range && plan.cost.range.estimatedLines}
+        <h2>Monthly cost: {money(plan.cost.range.lowUsd)} to {money(plan.cost.range.highUsd)}{#if plan.cost.range.unquotedLines} plus {plan.cost.range.unquotedLines} "contact sales" {plan.cost.range.unquotedLines === 1 ? 'line' : 'lines'}{/if}</h2>
+        <p class="muted">{money(plan.cost.knownMonthlyUsd)} from published list prices (checked {plan.cost.checked || '—'}), the rest self-hosting estimates for components with no published price (assumptions below, checked {plan.cost.range.checked}). Usage beyond the largest published plan is "contact sales", never extrapolated.</p>
+      {:else}
+        <h2>Monthly cost: {plan.cost.lowerBound ? 'at least ' : ''}{money(plan.cost.knownMonthlyUsd)}</h2>
+        <p class="muted">From published list prices only (checked {plan.cost.checked || '—'}); usage beyond the largest published plan is "contact sales", never extrapolated. Components with no published price (often self-hosted open source) cost your own infrastructure.</p>
+      {/if}
       <div class="workload">
         {#each WORKLOAD_FIELDS as [k, label] (k)}
           <label>{label}<input type="number" min="0" bind:value={workload[k]} /></label>
@@ -288,13 +293,16 @@
               <tr>
                 <td>{LAYERS.find((x) => x.id === c.layer)?.label ?? c.layer}</td>
                 <td>{c.name}{#if c.source} <a class="cite" href={c.source} target="_blank" rel="noopener noreferrer">↗</a>{/if}</td>
-                <td>{c.status === 'priced' ? money(c.monthlyUsd ?? 0) : c.status === 'contact-sales' ? 'contact sales' : '—'}</td>
-                <td class="note">{c.plan}{#if c.working.length}<br />{c.working.join(' · ')}{/if}{#if c.caveat}<br /><em>{c.caveat}</em>{/if}</td>
+                <td>{c.status === 'priced' ? money(c.monthlyUsd ?? 0) : c.status === 'contact-sales' ? 'contact sales' : c.estimate ? `${money(c.estimate.lowUsd)} to ${money(c.estimate.highUsd)} (est.)` : '—'}</td>
+                <td class="note">{c.plan}{#if c.working.length}<br />{c.working.join(' · ')}{/if}{#if c.estimate}<br /><em>Self-hosting estimate: {c.estimate.basis}.</em>{#each c.estimate.sources as src, i (src)} <a class="cite" href={src} target="_blank" rel="noopener noreferrer">↗{i + 1}</a>{/each}{:else if c.caveat}<br /><em>{c.caveat}</em>{/if}</td>
               </tr>
             {/each}
           </tbody>
         </table>
       </div>
+      {#if plan.cost.range && plan.cost.range.estimatedLines}
+        <p class="muted small">{plan.cost.range.note}</p>
+      {/if}
     </section>
   {/if}
 
@@ -354,6 +362,7 @@
   .cite, .layer a, .pairs a, .factors a, .meta a, .muted a, p a { color: #58a6ff; text-decoration: none; }
   .warn { color: #d29922; font-size: 13px; margin: 6px 0 0; }
   .unconf, .exit { color: #8b949e; font-size: 12px; margin: 8px 0 0; }
+  .muted.small { font-size: 12px; margin-top: 8px; }
   .none { color: #d29922; font-size: 13px; }
   .tag { margin-left: 6px; font-size: 11px; color: #d29922; border: 1px solid #d29922; border-radius: 999px; padding: 0 6px; }
   .whynot { margin-top: 8px; font-size: 12px; color: #8b949e; }

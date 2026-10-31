@@ -108,12 +108,23 @@ export interface EmbeddingPrice {
   notes?: string;
 }
 
+/** Self-hosting assumptions for components with no published price (#362):
+ * reference instances at list price and, per layer, the low and high
+ * instance to assume. `null` means no separate infrastructure. */
+export interface SelfHostAssumptions {
+  checked: string;
+  note: string;
+  instances: Record<string, { label: string; usdPerHour: number; source: string; confidence: 'high' | 'medium' }>;
+  layers: Record<string, { low: string | null; high: string | null; note: string }>;
+}
+
 export interface StackPricing {
   checked: string;
   models: ModelPrice[];
   metered: MeteredPricing[];
   gatewayFees?: GatewayFee[];
   embeddings?: EmbeddingPrice[];
+  selfHost?: SelfHostAssumptions;
 }
 
 export interface CostLine {
@@ -128,6 +139,9 @@ export interface CostLine {
   working: string[];
   caveat: string | null;
   source: string | null;
+  /** For an unpriced component assumed self-hosted: the infrastructure
+   * estimate (#362), never counted in knownMonthlyUsd. */
+  estimate?: { lowUsd: number; highUsd: number; basis: string; sources: string[] } | null;
 }
 
 export interface StackCost {
@@ -138,6 +152,21 @@ export interface StackCost {
   /** True when some layer has no price or needs a sales quote. */
   lowerBound: boolean;
   checked: string;
+  /** Published prices plus self-hosting estimates for the unpriced lines
+   * (#362). Null when the price file has no assumptions table. */
+  range: {
+    lowUsd: number;
+    highUsd: number;
+    /** Lines priced from a published plan or rate. */
+    pricedLines: number;
+    /** Lines covered by a self-hosting estimate. */
+    estimatedLines: number;
+    /** "Contact sales" lines, outside the range. */
+    unquotedLines: number;
+    assumptions: { layer: string; name: string; lowUsd: number; highUsd: number; basis: string; sources: string[] }[];
+    note: string;
+    checked: string;
+  } | null;
 }
 
 const num = (n: number) => Math.round(n).toLocaleString('en-US');
@@ -315,11 +344,50 @@ export function stackCost(
     };
   }
   const known = lines.reduce((s, l) => s + (typeof l.monthlyUsd === 'number' ? l.monthlyUsd : 0), 0);
+  const range = selfHostRange(lines, known, pricing.stack.selfHost);
   return {
     workload: w,
     lines,
     knownMonthlyUsd: cents(known),
     lowerBound: lines.some((l) => l.status !== 'priced'),
-    checked: [pricing.stack.checked, pricing.memory.checked, pricing.vector.checked].filter(Boolean).sort()[0] ?? ''
+    checked: [pricing.stack.checked, pricing.memory.checked, pricing.vector.checked].filter(Boolean).sort()[0] ?? '',
+    range
   };
+}
+
+const HOURS = 730;
+
+/** Self-hosting estimate for one unpriced line, from the assumptions table. */
+export function selfHostEstimate(layer: string, sh: SelfHostAssumptions): CostLine['estimate'] {
+  const a = sh.layers[layer];
+  if (!a) return null;
+  const inst = (k: string | null) => (k ? sh.instances[k] : null);
+  const lo = inst(a.low), hi = inst(a.high);
+  const lowUsd = lo ? cents(lo.usdPerHour * HOURS) : 0;
+  const highUsd = hi ? cents(hi.usdPerHour * HOURS) : 0;
+  const parts = [a.note];
+  if (lo && hi && lo !== hi) parts.push(`${lo.label} at ${usd(lo.usdPerHour)}/h to ${hi.label} at ${usd(hi.usdPerHour)}/h, ${HOURS} h a month`);
+  else if (hi) parts.push(`${hi.label} at ${usd(hi.usdPerHour)}/h, ${HOURS} h a month`);
+  const sources = [...new Set([lo?.source, hi?.source].filter((x): x is string => !!x))];
+  return { lowUsd, highUsd, basis: parts.join('. '), sources };
+}
+
+/** Fill `estimate` on unpriced lines and sum the range. Lines beyond
+ * published plans ("contact sales") stay outside the range and are counted. */
+function selfHostRange(lines: CostLine[], known: number, sh: SelfHostAssumptions | undefined): StackCost['range'] {
+  if (!sh) return null;
+  let low = known, high = known, estimated = 0, unquoted = 0, priced = 0;
+  const assumptions: NonNullable<StackCost['range']>['assumptions'] = [];
+  for (const l of lines) {
+    if (l.status === 'priced') { priced++; continue; }
+    if (l.status === 'contact-sales') { unquoted++; continue; }
+    const e = selfHostEstimate(l.layer, sh);
+    l.estimate = e;
+    if (!e) continue;
+    estimated++;
+    low += e.lowUsd;
+    high += e.highUsd;
+    assumptions.push({ layer: l.layer, name: l.name, lowUsd: e.lowUsd, highUsd: e.highUsd, basis: e.basis, sources: e.sources });
+  }
+  return { lowUsd: cents(low), highUsd: cents(high), pricedLines: priced, estimatedLines: estimated, unquotedLines: unquoted, assumptions, note: sh.note, checked: sh.checked };
 }

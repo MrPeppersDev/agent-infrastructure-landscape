@@ -52,6 +52,15 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   ok(p.risk.factors.every((f) => f.points > 0 && f.detail), `${product}: every risk factor has points and a detail`);
   ok(p.evals.benchmarks.every((b) => items.find((i) => i.id === b.id)), `${product}: benchmarks are catalog records`);
 
+  // switching cost (#362): every exit path with a fallback says what moving costs
+  for (const l of p.layers) {
+    if (!l.exit?.fallback) continue;
+    const sw = l.exit.switching;
+    ok(!!sw && sw.to?.id === l.exit.fallback.id && typeof sw.deltaNote === 'string' && sw.deltaNote.length > 0, `${product}/${l.layer}: switching names the fallback and a cost note`);
+    ok(!!sw && sw.sharedIntegrations === sw.sharedWith.length && !sw.sharedWith.includes(l.pick!.item.name), `${product}/${l.layer}: shared integrations count other picks only`);
+  }
+  if (p.cost?.range) ok(p.cost.range.lowUsd >= p.cost.knownMonthlyUsd && p.cost.range.highUsd >= p.cost.range.lowUsd, `${product}: cost range brackets the published total`);
+
   // stack.yml round-trips through the stack checker
   const parsed = parseManifest(p.stackYaml, { filename: 'stack.yml' });
   ok(parsed.format === 'stack.yml', `${product}: stack.yml detected by filename`);

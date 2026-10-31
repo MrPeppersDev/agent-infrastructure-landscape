@@ -137,6 +137,17 @@ export interface ExitPath {
   fallback: { id: string; name: string } | null;
   /** Official migration guidance, when the catalog has it. */
   migration: { summary: string; sources: string[] } | null;
+  /** What moving to the fallback would mean (#362): the monthly delta at
+   * this workload where both sides have a published price, and how many of
+   * the other picks the fallback is documented to work with. */
+  switching: {
+    to: { id: string; name: string } | null;
+    monthlyDeltaUsd: number | null;
+    deltaNote: string;
+    sharedIntegrations: number;
+    sharedWith: string[];
+    hasMigrationNotes: boolean;
+  } | null;
 }
 
 export interface LayerResult {
@@ -378,7 +389,7 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       pick,
       pickUnconfirmed,
       whyNot: pick ? whyNot(pick, rest.slice(0, 2), excluded) : [],
-      exit: pick ? exitPath(pick.item, rest, ctx.migrations) : null,
+      exit: pick ? exitPath(pick.item, rest, ctx.migrations, { ctx, recById, layer: lid, picked: picked.filter((p) => p.item.id !== pick!.item.id), workload: { ...DEFAULT_STACK_WORKLOAD, ...(a.workload ?? {}) } }) : null,
       poolSize: pool.length,
       excludedCount: excluded.length
     });
@@ -456,16 +467,39 @@ function whyNot(pick: Scored, ranked: Scored[], excluded: { item: ChooserItem; w
   return out;
 }
 
-function exitPath(item: ChooserItem, rest: Scored[], migrations?: ComposerContext['migrations']): ExitPath {
+function exitPath(
+  item: ChooserItem,
+  rest: Scored[],
+  migrations?: ComposerContext['migrations'],
+  sw?: { ctx: ComposerContext; recById: Map<string, RecordLike>; layer: LayerId; picked: { layer: LayerId; item: ChooserItem }[]; workload: StackWorkload }
+): ExitPath {
   const own = brand(item.name);
   const runnable = (r: Scored) => (r.item.oss === 'yes' || r.item.selfHost === 'yes') && brand(r.item.name) !== own;
   const fb = rest.find((r) => runnable(r) && r.item.status.severity === 0) ?? rest.find(runnable);
   const m = migrations?.get(item.id);
+  let switching: ExitPath['switching'] = null;
+  if (sw && fb) {
+    const sharedWith = sw.picked.filter((p) => pairEvidence(sw.ctx, sw.recById, fb.item.id, p.item.id).status === 'documented').map((p) => p.item.name);
+    let monthlyDeltaUsd: number | null = null;
+    let deltaNote = 'no published price for one side';
+    if (sw.ctx.pricing) {
+      const one = (x: ChooserItem) => stackCost([{ layer: sw.layer, id: x.id, name: x.name }], sw.ctx.pricing!, sw.workload).lines[0];
+      const a = one(item), b = one(fb.item);
+      if (a?.status === 'priced' && b?.status === 'priced') {
+        monthlyDeltaUsd = Math.round(((b.monthlyUsd ?? 0) - (a.monthlyUsd ?? 0)) * 100) / 100;
+        deltaNote = `${fb.item.name} ${monthlyDeltaUsd >= 0 ? 'costs' : 'saves'} about $${Math.abs(monthlyDeltaUsd).toLocaleString('en-US', { maximumFractionDigits: 0 })} a month ${monthlyDeltaUsd >= 0 ? 'more' : ''} at this workload, from published prices`.replace(/\s+,/g, ',').replace(/\s{2,}/g, ' ');
+      } else if (a?.status === 'priced' && b?.status === 'unpriced') deltaNote = `${fb.item.name} has no published price (self-hosted: your own infrastructure)`;
+      else if (a?.status === 'unpriced' && b?.status === 'priced') deltaNote = `${item.name} has no published price; ${fb.item.name} would cost $${(b.monthlyUsd ?? 0).toLocaleString('en-US', { maximumFractionDigits: 0 })} a month at this workload`;
+      else if (b?.status === 'contact-sales') deltaNote = `${fb.item.name} is beyond its published plans at this workload (contact sales)`;
+    }
+    switching = { to: { id: fb.item.id, name: fb.item.name }, monthlyDeltaUsd, deltaNote, sharedIntegrations: sharedWith.length, sharedWith, hasMigrationNotes: !!m };
+  }
   return {
     selfHost: { tri: item.selfHost, fact: item.facts.deployment.value ? item.facts.deployment : item.facts.license },
     openSource: { tri: item.oss, fact: item.facts.license },
     fallback: fb ? { id: fb.item.id, name: fb.item.name } : null,
-    migration: m ? { summary: m.summary, sources: m.sources } : null
+    migration: m ? { summary: m.summary, sources: m.sources } : null,
+    switching
   };
 }
 
@@ -645,7 +679,8 @@ export function slimPlan(p: StackPlan, site: string = SITE) {
         openSource: l.exit.openSource.tri,
         licence: l.exit.openSource.fact.value || null,
         fallback: l.exit.fallback,
-        migration: l.exit.migration
+        migration: l.exit.migration,
+        switching: l.exit.switching
       },
       candidates: l.poolSize,
       ruledOut: l.excludedCount

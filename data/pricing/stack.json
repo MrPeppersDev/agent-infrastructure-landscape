@@ -858,5 +858,118 @@
       "source": "https://docs.mistral.ai/inference/pricing",
       "notes": "Codestral Embed is $0.15 per 1M tokens."
     }
-  ]
+  ],
+  "selfHost": {
+    "checked": "2026-10-31",
+    "note": "Infrastructure estimates for components with no published price, assumed self-hosted on one reference instance (monthly = hourly list price × 730 h). AWS hourly prices are read from EC2Instances.info (Vantage), a third-party price index, and are estimates; the Lambda price is the vendor's own page. Storage, egress, redundancy and operations time are not included.",
+    "instances": {
+      "small": {
+        "label": "AWS t3.medium (2 vCPU, 4 GiB)",
+        "usdPerHour": 0.0416,
+        "source": "https://instances.vantage.sh/aws/ec2/t3.medium",
+        "confidence": "medium"
+      },
+      "medium": {
+        "label": "AWS m6i.large (2 vCPU, 8 GiB)",
+        "usdPerHour": 0.096,
+        "source": "https://instances.vantage.sh/aws/ec2/m6i.large",
+        "confidence": "medium"
+      },
+      "memory": {
+        "label": "AWS r6i.xlarge (4 vCPU, 32 GiB)",
+        "usdPerHour": 0.252,
+        "source": "https://instances.vantage.sh/aws/ec2/r6i.xlarge",
+        "confidence": "medium"
+      },
+      "gpu-a10": {
+        "label": "AWS g5.xlarge (1× A10G 24 GiB)",
+        "usdPerHour": 1.006,
+        "source": "https://instances.vantage.sh/aws/ec2/g5.xlarge",
+        "confidence": "medium"
+      },
+      "gpu-h100": {
+        "label": "Lambda 1× H100 SXM 80 GB, on demand",
+        "usdPerHour": 4.29,
+        "source": "https://lambda.ai/pricing",
+        "confidence": "high"
+      }
+    },
+    "layers": {
+      "framework": {
+        "low": null,
+        "high": null,
+        "note": "A library inside your application; no separate infrastructure."
+      },
+      "orchestration": {
+        "low": "small",
+        "high": "medium",
+        "note": "One workflow-engine instance plus its database."
+      },
+      "model": {
+        "low": "gpu-a10",
+        "high": "gpu-h100",
+        "note": "Open weights served on one GPU; larger models need more GPUs."
+      },
+      "serving": {
+        "low": "gpu-a10",
+        "high": "gpu-h100",
+        "note": "One GPU instance; larger models need more GPUs."
+      },
+      "gateway": {
+        "low": "small",
+        "high": "medium",
+        "note": "One proxy instance."
+      },
+      "memory": {
+        "low": "medium",
+        "high": "memory",
+        "note": "One service instance plus its store."
+      },
+      "vectors": {
+        "low": "medium",
+        "high": "memory",
+        "note": "One node; index size drives memory."
+      },
+      "graph": {
+        "low": "medium",
+        "high": "memory",
+        "note": "One node; graph size drives memory."
+      },
+      "embeddings": {
+        "low": "medium",
+        "high": "gpu-a10",
+        "note": "A CPU encoder at low volume, one GPU at high."
+      },
+      "tools": {
+        "low": null,
+        "high": null,
+        "note": "A library or the gateway's own instance; no separate infrastructure."
+      },
+      "sandbox": {
+        "low": "medium",
+        "high": "memory",
+        "note": "One host for sandboxes; concurrency drives size."
+      },
+      "browser": {
+        "low": "medium",
+        "high": "memory",
+        "note": "One host for headless browsers; concurrency drives size."
+      },
+      "voice": {
+        "low": "medium",
+        "high": "gpu-a10",
+        "note": "Transport on CPU; self-hosted speech models need a GPU."
+      },
+      "observability": {
+        "low": "medium",
+        "high": "memory",
+        "note": "One collector instance plus its database."
+      },
+      "guardrails": {
+        "low": null,
+        "high": "medium",
+        "note": "A library in-process, or one service instance."
+      }
+    }
+  }
 }
