@@ -22,7 +22,7 @@ services:
 #   Agent framework: LangChain (framework) — library or hosted-only; no container
 #   Foundation model: Mistral Large 2 / Mixtral family — library or hosted-only; no container
 #   Memory layer: claude-mem — library or hosted-only; no container
-#   Code sandbox: e2b — Self-host supported (Apache-2.0) but not a single image: download compose.yaml + .env from e2b-dev/runtime/embed/compose and run 'docker compose up -d --wait' on a Linux host (Firecracker microVMs); also Terraform for GCP/AWS/Azure or Kubernetes. Image names come from the shipped .env; ports listed in docs/REFERENCE.md.
+#   Code sandbox: Daytona — library or hosted-only; no container
 #   Tools, auth and MCP: Composio — library or hosted-only; no container
 #   Evals & observability: Langfuse — needs docker.langfuse.com/langfuse/langfuse-worker:4, postgres:17, clickhouse/clickhouse-server, redis:7, minio (S3); use the project's compose file: https://github.com/langfuse/langfuse/blob/main/docker-compose.yml
-#   Guardrails & security: NVIDIA NeMo Guardrails — library or hosted-only; no container
+#   Guardrails & security: Guardrails AI — library or hosted-only; no container

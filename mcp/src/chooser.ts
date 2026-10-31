@@ -245,6 +245,22 @@ export interface Scored {
   /** Requirements the catalog can't confirm for this system. */
   unconfirmed: string[];
   warning: string | null;
+  /** Ranking components for the infra chooser and stack composer (#359):
+   *  compared in this order, so adoption only breaks ties. */
+  rank?: Rank;
+}
+
+/** Fit under the user's constraints first, then maturity, then adoption. */
+export interface Rank {
+  /** Documented integrations with systems already chosen, and fit with
+   *  infrastructure the user runs. Hard constraints are filters, not points. */
+  fit: number;
+  /** Tier, lifecycle and release maturity (alpha / preview). Coarse on
+   *  purpose, so that systems of the same standing tie and fall through. */
+  maturity: number;
+  /** The tiebreaker: GitHub stars, catalogued integrations, weaker
+   *  integration mentions, a recent release, how documented the record is. */
+  adoption: number;
 }
 
 export interface ChooserResult {

@@ -16,7 +16,7 @@
 // Pure and dependency-free apart from its sibling modules.
 
 import { brand, POOLS, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting, type RecordLike } from './chooser.js';
-import { scoreInfraDetailed, FW_SECTIONS, NOT_A_FRAMEWORK, type Language, type InfraAnswers, type Exclusion } from './chooser-infra.js';
+import { scoreInfraDetailed, byFit, rankScore, orderReasons, FW_SECTIONS, NOT_A_FRAMEWORK, type Language, type InfraAnswers, type Exclusion } from './chooser-infra.js';
 import { compatibility, type CompatEdge, type CompatEvidence } from './compat.js';
 import { stackCost, DEFAULT_STACK_WORKLOAD, type StackCost, type StackPricing, type StackWorkload } from './stack-costs.js';
 import type { VendorPricing } from './costs.js';
@@ -312,11 +312,12 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
         if (c === 'unknown') r.unconfirmed.push('Compliance');
         else r.reasons.unshift({ text: `Compliance: ${i.facts.compliance.value}`, citation: i.facts.compliance.citation });
       }
-      if (/^(alpha|preview)$/.test(i.facts.maturity?.value ?? '')) r.score = Math.round((r.score - 0.5) * 10) / 10;
+      const rank = r.rank!;
+      if (/^(alpha|preview)$/.test(i.facts.maturity?.value ?? '')) rank.maturity -= 0.5;
       // Model families: GitHub stars measure open-weight repos, not how
       // widely a model is used, so they don't rank models.
       if (lid === 'model' && i.stars) {
-        r.score = Math.round((r.score - Math.min(2.5, Math.log10(i.stars) - 2)) * 10) / 10;
+        rank.adoption = 0;
         r.reasons = r.reasons.filter((x) => !x.text.startsWith('Adoption:'));
       }
       // Ecosystem breadth: how many catalogued systems document an
@@ -325,8 +326,7 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       if (n) {
         // For model families, provider support across frameworks and tools is
         // the main signal, so it scales instead of saturating.
-        const bonus = lid === 'model' ? Math.min(5, n / 10) : Math.min(2.5, Math.log2(1 + n) * 0.5);
-        r.score = Math.round((r.score + bonus) * 10) / 10;
+        rank.adoption += lid === 'model' ? n / 10 : Math.log2(1 + n) * 0.5;
         r.reasons.push({ text: `Ecosystem: ${n} catalogued system${n === 1 ? ' documents' : 's document'} an integration with it`, citation: `${SITE}/compatibility?ids=${i.id}` });
       }
       // Prefer what works with the layers already chosen.
@@ -334,19 +334,23 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
         if (p.item.id === i.id) continue;
         const pe = pairEvidence(ctx, recById, i.id, p.item.id);
         if (pe.status === 'documented') {
-          r.score = Math.round((r.score + 1.5) * 10) / 10;
-          r.reasons.unshift(evidenceReason(p.item.name, pe));
+          rank.fit += 1;
+          r.reasons.push(evidenceReason(p.item.name, pe));
         } else if (pe.status === 'mentioned') {
-          r.score = Math.round((r.score + 0.5) * 10) / 10;
+          // A passing mention is weaker evidence: it only breaks ties.
+          rank.adoption += 0.5;
         }
       }
       // One product shouldn't fill two layers when anything else fits.
-      if (picked.some((p) => p.item.id === i.id)) r.score -= 5;
+      if (picked.some((p) => p.item.id === i.id)) rank.fit -= 5;
+      rank.maturity = Math.round(rank.maturity * 10) / 10;
+      rank.adoption = Math.round(rank.adoption * 10) / 10;
+      r.score = rankScore(rank);
+      r.reasons = orderReasons(r.reasons);
       (r.unconfirmed.some((u) => HARD.includes(u)) ? maybe : ok).push(r);
     }
-    const byScore = (x: Scored, y: Scored) => y.score - x.score || (y.item.stars ?? 0) - (x.item.stars ?? 0) || x.item.name.localeCompare(y.item.name);
-    ok.sort(byScore);
-    maybe.sort(byScore);
+    ok.sort(byFit);
+    maybe.sort(byFit);
     const seen = new Set<string>();
     const uniq = (xs: Scored[]) => xs.filter((x) => {
       const k = brand(x.item.name) ?? x.item.id;
@@ -436,13 +440,7 @@ function whyNot(pick: Scored, ranked: Scored[], excluded: { item: ChooserItem; w
     if (missing.length) because.push({ text: `The catalog has no ${missing.slice(0, 3).map((m) => m.toLowerCase()).join(', ')} fact for it` });
     if (r.unconfirmed.length) because.push({ text: `Can't confirm: ${r.unconfirmed.join(', ')}` });
     if (r.warning) because.push({ text: `Lifecycle: ${r.warning}` });
-    because.push({
-      text: r.score > pick.score && r.unconfirmed.length
-        ? `Scores higher (${r.score} vs ${pick.score}), but a must-have is unconfirmed, so it ranks below systems that confirm all of them`
-        : r.score === pick.score
-          ? `Tied on score (${r.score}); ${pick.item.name} ranks first on adoption (${pick.item.stars ?? '—'} vs ${r.item.stars ?? '—'} GitHub stars)`
-          : `Score ${r.score} vs ${pick.score} for ${pick.item.name}`
-    });
+    because.push({ text: rankedBelow(pick, r) });
     out.push({ id: r.item.id, name: r.item.name, because });
   }
   // The best-known systems ruled out by a hard requirement.
@@ -455,6 +453,28 @@ function whyNot(pick: Scored, ranked: Scored[], excluded: { item: ChooserItem; w
     out.push({ id: e.item.id, name: e.item.name, because: [{ text: `Ruled out: ${e.why.excluded}${f?.value ? ` (${f.value})` : ''}`, citation: f?.citation ?? null }] });
   }
   return out;
+}
+
+/** Why a runner-up ranks below the pick, on the first component that
+ *  differs: fit, then maturity, then adoption (#359). */
+function rankedBelow(pick: Scored, r: Scored): string {
+  const p = pick.rank ?? { fit: 0, maturity: 0, adoption: 0 };
+  const q = r.rank ?? { fit: 0, maturity: 0, adoption: 0 };
+  if (r.unconfirmed.length && byFit(r, pick) < 0) {
+    return 'Would rank higher, but a must-have is unconfirmed, so it ranks below systems that confirm all of them';
+  }
+  if (q.fit !== p.fit) {
+    return `Fits less: ${q.fit} documented integration${q.fit === 1 ? '' : 's'} with the picks so far, against ${p.fit} for ${pick.item.name}`;
+  }
+  if (q.maturity !== p.maturity) {
+    const why = [
+      q.maturity < p.maturity && r.item.tier > pick.item.tier ? `tier T${r.item.tier} vs T${pick.item.tier}` : '',
+      r.warning ? `lifecycle: ${r.item.status.status}` : '',
+      /^(alpha|preview)$/.test(r.item.facts.maturity?.value ?? '') ? `${r.item.facts.maturity.value} release` : ''
+    ].filter(Boolean);
+    return `Equal fit; less mature${why.length ? ` (${why.join(', ')})` : ' (fewer recorded licence, deployment, repo or release facts, or no recent release)'}`;
+  }
+  return `Equal fit and maturity; ${pick.item.name} wins the tiebreaker on adoption (${p.adoption} vs ${q.adoption}: GitHub stars, catalogued integrations, a recent release, how complete the record is)`;
 }
 
 function exitPath(item: ChooserItem, rest: Scored[], migrations?: ComposerContext['migrations']): ExitPath {

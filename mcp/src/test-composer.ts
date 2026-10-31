@@ -144,6 +144,39 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   ok(p.pairs.every((x) => ['documented', 'mentioned', 'not-recorded'].includes(x.status)), 'pair statuses are never "incompatible"');
 }
 
+// --- fit first, adoption only breaks ties (#359) ---------------------------
+{
+  // Reasons lead with constraints and integration facts; adoption comes last.
+  for (const product of Object.keys(PRODUCTS) as ProductType[]) {
+    const p = planStack(ctx, { product } as StackAnswers);
+    for (const l of p.layers) {
+      const rs = l.pick?.reasons ?? [];
+      if (!rs.length || l.pick?.pinned) continue;
+      ok(!/^(Adoption|Ecosystem):/.test(rs[0].text), `${product}/${l.layer}: first reason is not adoption (${rs[0].text.slice(0, 50)})`);
+      const firstAdoption = rs.findIndex((r) => /^(Adoption|Ecosystem):/.test(r.text));
+      if (firstAdoption >= 0) ok(rs.slice(firstAdoption).every((r) => /^(Adoption|Ecosystem):/.test(r.text)), `${product}/${l.layer}: adoption reasons come last`);
+      if ((l.pick?.rank?.fit ?? 0) > 0) ok(rs[0].text.startsWith('Works with'), `${product}/${l.layer}: a pick that fits earlier layers leads with that integration`);
+    }
+  }
+  // Under constraints (TypeScript, self-hosted, SOC 2 Type II), a fitting
+  // system ranks above a more-starred one that fits less: in at least one
+  // layer the pick has fewer GitHub stars than a runner-up it outranks on fit
+  // or maturity, never on adoption.
+  const a: StackAnswers = { product: 'support-agent', language: 'typescript', hosting: 'self', compliance: ['soc2-type2'] } as StackAnswers;
+  const p = planStack(ctx, a);
+  let fitOverStars = 0;
+  for (const l of p.layers) {
+    if (!l.pick) continue;
+    ok(!l.pick.unconfirmed.length || l.pickUnconfirmed, `constrained ${l.layer}: a confirmed pick when one exists`);
+    for (const w of l.whyNot) {
+      const runner = items.find((i) => i.id === w.id);
+      const last = w.because.at(-1)?.text ?? '';
+      if (runner && (runner.stars ?? 0) > (l.pick.item.stars ?? 0) && /^(Fits less|Equal fit; less mature)/.test(last)) fitOverStars++;
+    }
+  }
+  ok(fitOverStars > 0, `constrained plan: some pick outranks a more-starred runner-up on fit or maturity (${fitOverStars})`);
+}
+
 if (failures) {
   console.error(`${failures} composer test(s) failed`);
   process.exit(1);

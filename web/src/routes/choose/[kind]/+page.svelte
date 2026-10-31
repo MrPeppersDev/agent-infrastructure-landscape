@@ -79,7 +79,8 @@
     <h1>{t.h1}</h1>
     <p class="lede">
       Answer a few questions and get three picks from {data.items.length} catalogued {t.lede}. Every reason is a catalogued
-      fact with its source. Archived and shut-down systems are left out, and only one product per vendor is recommended. Where
+      fact with its source. Picks rank on fit with your answers, then maturity; adoption only breaks ties. Archived and
+      shut-down systems are left out, and only one product per vendor is recommended. Where
       the catalog can't confirm a must-have, the system goes under <em>might fit</em>.
     </p>
   </header>

@@ -105,7 +105,8 @@
     <h1>Build an agent stack</h1>
     <p class="lede">
       Answer once and get one pick per layer of an AI agent product, from {data.items.length} catalogued systems. Every reason is a
-      catalogued fact with its source; later layers prefer systems with a recorded integration with earlier picks. Archived and
+      catalogued fact with its source. Picks rank on fit first: your must-haves, then a documented integration with the
+      layers already chosen, then maturity, and only then adoption (stars, catalogued integrations) to break ties. Archived and
       shut-down systems are never picked. A pair with no recorded integration is <em>not recorded</em>, not incompatible.
       Reference stacks for each product type, checked against public production write-ups, are in the
       <a href="https://github.com/MrPeppersDev/agent-infrastructure-landscape/tree/main/blueprints" target="_blank" rel="noopener noreferrer">blueprints</a>.

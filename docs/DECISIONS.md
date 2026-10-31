@@ -14,6 +14,24 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Stack picks rank on fit first; adoption only breaks ties (#359)
+
+**What.** The stack composer (`/build`, MCP `plan_stack`, CLI `landscape stack`, the blueprints) and the infra choosers (`/choose/framework`, `/choose/data`, `choose_framework_or_store`) rank candidates on three components, compared in order:
+
+1. **Fit.** Hard constraints (language SDK, hosting, open source, MCP, compliance) stay filters: a system that fails one is ruled out, and one the catalog can't confirm goes under "might fit". Among the rest, fit counts documented integrations with the layers already chosen and, for data stores, running on infrastructure you already operate.
+2. **Maturity.** Tier, lifecycle status and alpha/preview releases. It is coarse on purpose, so that systems of the same standing tie.
+3. **Adoption,** the tiebreaker. GitHub stars (uncapped, so 149k beats 45k), catalogued integrations (ecosystem breadth, the main signal for model families), passing integration mentions, a release in the last six months, and how complete the record is.
+
+Each pick's reasons list follows the same order: the constraint facts first, then the integration evidence ("Works with …"), then other cited facts, and adoption last, labelled "Adoption" or "Ecosystem". `whyNot` names the first component where a runner-up falls behind: "Fits less: 1 documented integration with the picks so far, against 3"; "Equal fit; less mature (tier T3 vs T1)"; or "wins the tiebreaker on adoption".
+
+**Why.** Before, a single score added tier, stars, ecosystem breadth and integration bonuses together, so a pick's headline reason was often "~149k stars". For an engineer the question is fit under constraints. Popularity is a tiebreaker and a risk signal, not the reason.
+
+**Effect.** The support-agent blueprint keeps LangChain, LiteLLM, Mem0, Milvus, OpenAI Embeddings, Composio, Arize Phoenix and NeMo Guardrails. The foundation model moves from OpenAI to Anthropic Claude: both document a LangChain integration, and Claude has more catalogued integrations. Every layer after the framework now leads with an integration fact.
+
+**Reversal cost.** Low. `byFit` and `rankScore` in `mcp/src/chooser-infra.ts` and the bonuses in `composer.ts` hold the logic, and `make blueprints` regenerates the outputs. The memory chooser (`/choose`) is unchanged.
+
+---
+
 ## 2026-10-31: Catalog silos: focused views over one dataset
 
 **What.** `taxonomy/silos.json` defines catalog silos: a named set of sections (which may cross product families), the table columns that audience scans first, whether the memory taxonomy applies, and the decision tools, research views, best-of lists, MCP tools and CLI commands for that job. The web app renders `/catalogs` (index), `/catalogs/<silo>` (landing: counts, lifecycle mix, sections, most-referenced systems, recent changes, tools, exports) and `/catalogs/<silo>/browse` (the shared table with the silo's rows and columns). The home table is the Atlas: every row, every column. Eleven silos ship: the five product families (memory, agents, retrieval, models, research) and six use-case views (coding agents; security, governance and identity; evals and observability; voice, computer-use and embodied; assistant and personal memory; vertical and domain agents). Cross-cutting silos get their own `api/catalogs/<id>.json` / `.csv`; family silos reuse the family export. `llms.txt` lists them. The table view was extracted into `CatalogView.svelte` so the Atlas and every browse page share one implementation.

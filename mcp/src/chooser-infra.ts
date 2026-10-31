@@ -11,7 +11,35 @@
 //
 // Pure and dependency-free apart from chooser.ts.
 
-import { brand, monthsSince, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting } from './chooser.js';
+import { brand, monthsSince, type ChooserItem, type Fact, type Reason, type Rank, type Scored, type Tri, type Hosting } from './chooser.js';
+
+const r1 = (n: number) => Math.round(n * 10) / 10;
+
+/** Fit first, then maturity, then adoption (#359); name last for stability. */
+export function byFit(x: Scored, y: Scored): number {
+  const a = x.rank ?? { fit: 0, maturity: 0, adoption: 0 };
+  const b = y.rank ?? { fit: 0, maturity: 0, adoption: 0 };
+  return b.fit - a.fit || b.maturity - a.maturity || b.adoption - a.adoption || x.item.name.localeCompare(y.item.name);
+}
+
+/** Display score: the three components, fit weighted most. */
+export function rankScore(r: Rank): number {
+  return r1(r.fit * 10 + r.maturity + r.adoption / 10);
+}
+
+const HARD_LABELS = ['Python SDK', 'TypeScript / JavaScript SDK', 'Self-hostable', 'Managed service', 'Open source', 'MCP', 'Compliance'];
+/** Reasons in the order they matter (#359): the constraints the user set,
+ *  then integration and infrastructure fit, then other facts, adoption last. */
+export function orderReasons(reasons: Reason[]): Reason[] {
+  const k = (r: Reason) => {
+    const c = r.text.split(':')[0];
+    if (HARD_LABELS.includes(c)) return 0;
+    if (r.text.startsWith('Works with') || r.text.startsWith('Runs on or inside')) return 1;
+    if (c === 'Adoption' || c === 'Ecosystem') return 3;
+    return 2;
+  };
+  return reasons.map((r, i) => ({ r, i })).sort((a, b) => k(a.r) - k(b.r) || a.i - b.i).map((x) => x.r);
+}
 
 export type InfraKind = 'framework' | 'data';
 export type Language = 'python' | 'typescript' | 'any';
@@ -145,37 +173,45 @@ export function scoreInfraDetailed(item: ChooserItem, a: InfraAnswers): Scored |
   if (!req(a.oss, item.oss, 'Open source', item.facts.license)) return failed!;
   if (!req(a.mcp, item.mcp, 'MCP', item.facts.mcp)) return failed!;
 
-  let s = ({ 1: 3, 2: 2, 3: 1 } as Record<number, number>)[item.tier] ?? 0;
+  // Ranked fit → maturity → adoption (#359). Hard constraints above are
+  // filters; what's left ranks on how well it fits, then how mature it is,
+  // and only then on how popular.
+  const rank: Rank = { fit: 0, maturity: ({ 1: 3, 2: 2, 3: 1 } as Record<number, number>)[item.tier] ?? 0, adoption: 0 };
   if (a.kind === 'data' && a.existing) {
     const m = `${item.name} ${item.desc}`.match(EXISTING);
     if (m) {
-      s += 3;
+      rank.fit += 1;
       reasons.push({ text: `Runs on or inside ${m[0]}, which you may already operate` });
     }
   }
-  if (item.stars) {
-    s += Math.min(2.5, Math.log10(item.stars) - 2);
-    reasons.push({ text: `Adoption: ${item.facts.gh.value.split(' — ').slice(0, 2).join(' — ')}`, citation: item.facts.gh.citation });
-  }
   if (item.releaseDate && monthsSince(item.releaseDate) <= 6) {
-    s += 1;
+    rank.adoption += 0.5;
     reasons.push({ text: `Recently released: ${item.facts.release.value}`, citation: item.facts.release.citation });
   }
   if (a.language === 'any' && item.facts.runtimes.value) reasons.push({ text: `SDKs: ${item.facts.runtimes.value}`, citation: item.facts.runtimes.citation });
   if (!a.oss && item.oss === 'yes') reasons.push({ text: `Licence: ${item.facts.license.value}`, citation: item.facts.license.citation });
   if (a.hosting === 'any' && item.facts.deployment.value) reasons.push({ text: `Deployment: ${item.facts.deployment.value}`, citation: item.facts.deployment.citation });
-  if (!a.mcp && item.mcp === 'yes' && item.facts.mcp.value) reasons.push({ text: `MCP: ${item.facts.mcp.value}`, citation: item.facts.mcp.citation });
+  if (!a.mcp && item.mcp === 'yes' && item.facts.mcp.value) reasons.push({ text: `MCP support: ${item.facts.mcp.value}`, citation: item.facts.mcp.citation });
   if (item.facts.pricing.value) reasons.push({ text: `Pricing: ${item.facts.pricing.value}`, citation: item.facts.pricing.citation });
   // Thin records (no licence, deployment or repo facts) rank below
   // well-documented ones.
   const known = [item.facts.license, item.facts.deployment, item.facts.gh, item.facts.release].filter((f) => f.value).length;
-  s += known * 0.25;
+  rank.adoption += known * 0.25;
 
   const warning = item.status.severity >= 1 && item.status.status !== 'active'
     ? `${item.status.status}${item.status.note ? ' — ' + item.status.note : ''}`
     : null;
-  if (warning) s -= item.status.severity;
-  return { item, score: Math.round(s * 10) / 10, reasons: reasons.slice(0, 6), unconfirmed, warning };
+  if (warning) rank.maturity -= item.status.severity;
+  // Adoption is a tiebreaker and is labelled as such, after the facts.
+  const facts = reasons.slice(0, 5);
+  if (item.stars) {
+    // Uncapped: as a tiebreaker it has to tell 149k stars from 45k.
+    rank.adoption += Math.max(0, Math.log10(item.stars));
+    facts.push({ text: `Adoption: ${item.facts.gh.value.split(' — ').slice(0, 2).join(' — ')}`, citation: item.facts.gh.citation });
+  }
+  rank.maturity = r1(rank.maturity);
+  rank.adoption = r1(rank.adoption);
+  return { item, score: rankScore(rank), reasons: facts, unconfirmed, warning, rank };
 }
 
 export interface InfraResult {
@@ -202,9 +238,8 @@ export function chooseInfra(items: ChooserItem[], a: InfraAnswers): InfraResult 
     }
     (r.unconfirmed.some((u) => HARD.includes(u)) ? maybe : ok).push(r);
   }
-  const byScore = (x: Scored, y: Scored) => y.score - x.score || (y.item.stars ?? 0) - (x.item.stars ?? 0) || x.item.name.localeCompare(y.item.name);
-  ok.sort(byScore);
-  maybe.sort(byScore);
+  ok.sort(byFit);
+  maybe.sort(byFit);
   // One recommendation per product: same brand ("Qdrant" / "Qdrant Cloud")
   // or same repo ("pgvector" / "PostgreSQL pgvector").
   const seen = new Set<string>();
