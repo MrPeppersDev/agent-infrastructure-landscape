@@ -106,7 +106,7 @@
     <h1>Which memory layer should I use?</h1>
     <p class="lede">
       Answer a few questions and get three picks from {data.items.length} catalogued memory systems. Every reason is a
-      catalogued fact with its source. Archived and shut-down systems are left out. Where the catalog can't confirm a
+      catalogued fact with its source. Picks are ranked on fit; GitHub stars only break ties. Archived and shut-down systems are left out. Where the catalog can't confirm a
       requirement, the system goes under <em>might fit</em> instead of being recommended.
     </p>
   </header>

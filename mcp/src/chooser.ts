@@ -304,31 +304,34 @@ export function score(item: ChooserItem, a: Answers): Scored | 'excluded' {
       unconfirmed.push('its memory model');
     }
   }
-  // Maturity signals. For memory built into a framework or platform, the
-  // repo's stars measure the host (n8n, LlamaIndex…), not its memory, so
-  // they count for less and are labelled as such.
+  // Fit first (#359): tier, fit for an app's memory, fit facts the question
+  // did not already require, documentation depth and a recent release.
+  // GitHub stars are not scored; they break ties in the sort and are
+  // labelled as the tiebreaker. For memory built into a framework or
+  // platform the stars measure the host (n8n, LlamaIndex…), not its memory.
   const hosted = HOSTED_SECTIONS.has(item.section);
   s += { 1: 3, 2: 2, 3: 1 }[item.tier] ?? 0;
   if (a.building === 'app' && item.section === 'Dedicated memory layers') s += 1;
-  if (item.stars) {
-    s += Math.min(2.5, Math.log10(item.stars) - 2) * (hosted ? 0.4 : 1);
-    const gh = item.facts.gh.value.split(' — ').slice(0, 2).join(' — ');
-    reasons.push({ text: hosted ? `Adoption (of the host framework): ${gh}` : `Adoption: ${gh}`, citation: item.facts.gh.citation });
-  }
+  if (!a.oss && item.oss === 'yes') reasons.push({ text: `Licence: ${item.facts.license.value}`, citation: item.facts.license.citation });
+  if (a.hosting === 'any' && item.facts.deployment.value) reasons.push({ text: `Deployment: ${item.facts.deployment.value}`, citation: item.facts.deployment.citation });
+  if (item.facts.pricing.value) reasons.push({ text: `Pricing: ${item.facts.pricing.value}`, citation: item.facts.pricing.citation });
+  const known = [item.facts.license, item.facts.deployment, item.facts.gh, item.facts.release].filter((f) => f.value).length;
+  s += known * 0.25;
   if (item.releaseDate && monthsSince(item.releaseDate) <= 6) {
     s += 1;
     reasons.push({ text: `Recently released: ${item.facts.release.value}`, citation: item.facts.release.citation });
   }
-  if (!a.oss && item.oss === 'yes') reasons.push({ text: `Licence: ${item.facts.license.value}`, citation: item.facts.license.citation });
-  if (a.hosting === 'any' && item.facts.deployment.value) reasons.push({ text: `Deployment: ${item.facts.deployment.value}`, citation: item.facts.deployment.citation });
-  if (item.facts.pricing.value) reasons.push({ text: `Pricing: ${item.facts.pricing.value}`, citation: item.facts.pricing.citation });
+  if (item.stars) {
+    const gh = item.facts.gh.value.split(' — ').slice(0, 2).join(' — ');
+    reasons.push({ text: hosted ? `Adoption of the host framework (tiebreaker): ${gh}` : `Adoption (tiebreaker): ${gh}`, citation: item.facts.gh.citation });
+  }
 
   const warning = item.status.severity >= 1 && item.status.status !== 'active'
     ? `${item.status.status}${item.status.note ? ' — ' + item.status.note : ''}`
     : null;
   if (warning) s -= item.status.severity;
 
-  return { item, score: Math.round(s * 10) / 10, reasons: reasons.slice(0, 6), unconfirmed, warning };
+  return { item, score: Math.round(s * 10) / 10, reasons: reasons.slice(0, 7), unconfirmed, warning };
 }
 
 export function choose(items: ChooserItem[], a: Answers): ChooserResult {

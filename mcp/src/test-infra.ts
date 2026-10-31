@@ -5,7 +5,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { toItem, brand, type ChooserItem } from './chooser.js';
-import { chooseInfra, DEFAULT_INFRA, NEEDS, paramsToInfra, infraToParams, inNeed } from './chooser-infra.js';
+import { chooseInfra, scoreInfraDetailed, DEFAULT_INFRA, NEEDS, paramsToInfra, infraToParams, inNeed } from './chooser-infra.js';
 import { compatibility, worksWith, allLinks, aliasesOf, setAliases } from './compat.js';
 import { buildIndex, search, parseQuery, docText } from './search.js';
 
@@ -68,6 +68,30 @@ for (const kind of ['framework', 'data'] as const) {
   const r = chooseInfra(items, { ...DEFAULT_INFRA.framework, language: 'typescript' });
   check('framework typescript: has picks or might-fits', r.picks.length + r.unconfirmed.length > 0);
   check('framework typescript: Mastra or Vercel AI SDK considered', [...r.picks, ...r.alsoConsider, ...r.unconfirmed].some((s) => /Mastra|Vercel AI SDK/.test(s.item.name)));
+}
+
+{
+  // Fit before adoption (#359): with the same tier, a well-documented record
+  // with a recent release outranks a far more starred one whose licence and
+  // deployment are unknown; stars only break ties and are labelled as such.
+  const base = items.find((i) => i.name === 'Qdrant')!;
+  const today = new Date().toISOString().slice(0, 10);
+  const empty = { value: '', citation: null };
+  const starred: ChooserItem = { ...base, id: 'x-starred', name: 'X Starred', stars: 150000, releaseDate: null, status: { status: 'active', severity: 0, note: '' },
+    facts: { ...base.facts, license: empty, deployment: empty, release: empty, gh: { value: 'x/starred — ~150k stars', citation: 'https://github.com/x/starred' } } };
+  const fit: ChooserItem = { ...base, id: 'y-fit', name: 'Y Fit', stars: 50, releaseDate: today, status: { status: 'active', severity: 0, note: '' },
+    facts: { ...base.facts, release: { value: `v1.0 (${today})`, citation: 'https://example.com/release' }, gh: { value: 'y/fit — 50 stars', citation: 'https://github.com/y/fit' } } };
+  const a = { ...DEFAULT_INFRA.data, oss: true, hosting: 'self' as const };
+  const sx = scoreInfraDetailed(starred, a);
+  const sy = scoreInfraDetailed(fit, a);
+  check('fit-first: documented low-star record outranks undocumented high-star one', 'score' in sy && !('score' in sx && sx.score >= sy.score), JSON.stringify({ sx, sy }).slice(0, 200));
+  if ('reasons' in sy) {
+    check('fit-first: first reason is a must-have, not adoption', !/^Adoption/.test(sy.reasons[0]?.text ?? ''), sy.reasons[0]?.text);
+    check('fit-first: adoption is last and labelled as the tiebreaker', /^Adoption \(tiebreaker\)/.test(sy.reasons[sy.reasons.length - 1]?.text ?? ''), sy.reasons.map((r) => r.text).join(' | '));
+  }
+  const tie: ChooserItem = { ...fit, id: 'z-tie', name: 'Z Tie', stars: 5000 };
+  const r = chooseInfra([fit, tie], a);
+  check('fit-first: equal fit falls back to stars', r.picks[0]?.item.id === 'z-tie', r.picks.map((p) => p.item.id).join(','));
 }
 
 console.log('compat');
