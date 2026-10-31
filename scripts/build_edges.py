@@ -1074,6 +1074,12 @@ def load_curated_integrations(resolver: Resolver) -> list[dict]:
     for path in sorted(INTEGRATIONS_DIR.glob("*.json")):
         for i, row in enumerate(json.loads(path.read_text(encoding="utf-8"))):
             edge = {k: row[k] for k in ("source", "target", "type", "evidence", "citation")}
+            # Optional stamps (#360): when and against which version the
+            # integration was checked. Shown on the compatibility and build
+            # pages; the age lint lists edges older than a year.
+            for k in ("verified_at", "verified_version"):
+                if row.get(k):
+                    edge[k] = row[k]
             for end in ("source", "target"):
                 edge[end] = redirects.get(edge[end], edge[end])
                 if edge[end] not in resolver.by_id:
@@ -1167,6 +1173,10 @@ def validate(edges: list[dict], resolver: Resolver) -> None:
         assert e["evidence"], f"empty evidence: {e}"
         assert e["citation"] and e["citation"].startswith(("http://", "https://")), \
             f"bad citation: {e!r}"
+        if "verified_at" in e:
+            assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(e["verified_at"])), f"bad verified_at: {e!r}"
+        if "verified_version" in e:
+            assert isinstance(e["verified_version"], str) and 0 < len(e["verified_version"]) <= 60, f"bad verified_version: {e!r}"
 
 
 def write_output(edges: list[dict], out_path: Path) -> None:

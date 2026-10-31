@@ -7,6 +7,7 @@
   import { browser } from '$app/environment';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import RecordPicker from '$lib/components/RecordPicker.svelte';
+  import { verifiedStamp } from '$lib/compat';
   import type { CompatPair, CompatEvidence } from '$lib/compat';
 
   let { data }: { data: { links: CompatPair[]; options: { id: string; name: string; section: string; linked: boolean }[] } } = $props();
@@ -48,7 +49,10 @@
     forks: 'forks'
   };
   function evText(e: CompatEvidence): string {
-    if (e.kind === 'edge') return `${name.get(e.from) ?? e.from} ${EDGE[e.type] ?? e.type} ${name.get(e.to) ?? e.to}${e.text ? `: ${e.text}` : ''}`;
+    if (e.kind === 'edge') {
+      const stamp = verifiedStamp(e);
+      return `${name.get(e.from) ?? e.from} ${EDGE[e.type] ?? e.type} ${name.get(e.to) ?? e.to}${e.text ? `: ${e.text}` : ''}${stamp ? ` (${stamp})` : ''}`;
+    }
     return `${name.get(e.in) ?? e.in}'s ${e.cell}: ${e.text}`;
   }
   const LABEL = { documented: 'Documented integration', mentioned: 'Mentioned together', 'not-recorded': 'Not recorded' } as const;

@@ -25,10 +25,24 @@ export interface CompatEdge {
   type: string;
   evidence?: string;
   citation?: string | null;
+  /** When the integration was last checked on the cited page (YYYY-MM-DD, #360). */
+  verified_at?: string;
+  /** The version(s) the cited page names. */
+  verified_version?: string;
+}
+
+/** "verified 2026-10-29 with mem0ai 2.2", or '' when the edge carries no stamp. */
+export function verifiedStamp(e: { verifiedAt?: string | null; verifiedVersion?: string | null }): string {
+  if (!e.verifiedAt && !e.verifiedVersion) return '';
+  return `verified${e.verifiedAt ? ' ' + e.verifiedAt : ''}${e.verifiedVersion ? ' with ' + e.verifiedVersion : ''}`;
+}
+
+function edgeEvidence(e: CompatEdge): CompatEvidence {
+  return { kind: 'edge', type: e.type, from: e.source, to: e.target, text: e.evidence ?? '', citation: e.citation ?? null, verifiedAt: e.verified_at ?? null, verifiedVersion: e.verified_version ?? null };
 }
 
 export type CompatEvidence =
-  | { kind: 'edge'; type: string; from: string; to: string; text: string; citation: string | null }
+  | { kind: 'edge'; type: string; from: string; to: string; text: string; citation: string | null; verifiedAt?: string | null; verifiedVersion?: string | null }
   | { kind: 'cell'; in: string; cell: string; text: string; citation: string | null };
 
 export interface CompatPair {
@@ -126,7 +140,7 @@ export function compatibility(records: CompatRecord[], edges: CompatEdge[], ids:
       for (const e of edges) {
         if (!LINK_EDGES.has(e.type)) continue;
         if ((e.source === a.id && e.target === b.id) || (e.source === b.id && e.target === a.id)) {
-          ev.push({ kind: 'edge', type: e.type, from: e.source, to: e.target, text: e.evidence ?? '', citation: e.citation ?? null });
+          ev.push(edgeEvidence(e));
         }
       }
       ev.push(...mentions(a, b), ...mentions(b, a));
@@ -155,8 +169,8 @@ export function worksWith(records: CompatRecord[], edges: CompatEdge[], id: stri
   };
   for (const e of edges) {
     if (!LINK_EDGES.has(e.type)) continue;
-    if (e.source === id) add(e.target, { kind: 'edge', type: e.type, from: e.source, to: e.target, text: e.evidence ?? '', citation: e.citation ?? null });
-    if (e.target === id) add(e.source, { kind: 'edge', type: e.type, from: e.source, to: e.target, text: e.evidence ?? '', citation: e.citation ?? null });
+    if (e.source === id) add(e.target, edgeEvidence(e));
+    if (e.target === id) add(e.source, edgeEvidence(e));
   }
   for (const r of records) {
     if (r.id === id) continue;
@@ -182,7 +196,7 @@ export function allLinks(records: CompatRecord[], edges: CompatEdge[]): CompatPa
   const ids = new Set(records.map((r) => r.id));
   for (const e of edges) {
     if (!LINK_EDGES.has(e.type) || !ids.has(e.source) || !ids.has(e.target) || e.source === e.target) continue;
-    push(e.source, e.target, { kind: 'edge', type: e.type, from: e.source, to: e.target, text: e.evidence ?? '', citation: e.citation ?? null });
+    push(e.source, e.target, edgeEvidence(e));
   }
   const rxs = records.map((r) => ({ r, rx: aliasesOf(r).map((a) => new RegExp(`(^|[^\\w-])${esc(a)}(?![\\w-])`, 'i')) }));
   for (const inRec of records) {

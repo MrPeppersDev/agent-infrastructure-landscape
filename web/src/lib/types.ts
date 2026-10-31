@@ -315,6 +315,10 @@ export interface Edge {
   evidence: string;
   /** http(s):// URL where evidence can be verified. */
   citation: string;
+  /** When the integration was last checked on the cited page (YYYY-MM-DD, #360). */
+  verified_at?: string;
+  /** The version(s) the cited page names. */
+  verified_version?: string;
   /** Present iff type === 'cites'. From Semantic Scholar. */
   isInfluential?: boolean;
 }

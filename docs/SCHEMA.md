@@ -1303,8 +1303,16 @@ type Edge = {
   evidence: string;          // 1-2 sentence summary of the source phrase / claim that justified the edge
   citation: string;          // URL where the evidence can be verified
   isInfluential?: boolean;   // Optional. Only present on type:"cites" edges. From Semantic Scholar's isInfluential flag.
+  verified_at?: string;      // Optional (#360). YYYY-MM-DD the integration was last checked on the cited page. Never on "cites".
+  verified_version?: string; // Optional (#360). The version(s) the cited page names, e.g. "langchain 1.4.x, mem0ai 2.2". ≤ 60 chars.
 };
 ```
+
+`verified_at` and `verified_version` come from the curated integration files
+(`extraction/integrations/*.json`); the compatibility page, the stack builder
+and `check_compatibility` show them ("verified 2026-10-29 with mem0ai 2.2"),
+and `lint_contradictions.py` lists integration edges verified more than a year
+ago (`edge-verification-old`) so they get re-checked.
 
 ### Edge type enum (10 values)
 
