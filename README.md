@@ -6,7 +6,7 @@
 - **Choose one layer:** memory, framework or data store.
 - **Check a stack you run:** archived, acquired or stale dependencies, with replacements that fit the rest of your stack.
 
-Underneath is an open, comparative catalog of **1,005 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
+Underneath is an open, comparative catalog of **1,006 systems** across the agent stack. Every cell links to the source it came from and carries a verifiability tier. Bots keep it fresh, and anyone can submit a missing system.
 
 **[Build a stack →](https://mrpeppersdev.github.io/agent-infrastructure-landscape/build)** · [Check your stack](https://mrpeppersdev.github.io/agent-infrastructure-landscape/check) · [Choose a component](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose) · [Browse the catalog](https://mrpeppersdev.github.io/agent-infrastructure-landscape/) · [Findings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/findings) · [Submit a system](https://mrpeppersdev.github.io/agent-infrastructure-landscape/submit) · [Raw data (CC-BY-4.0)](./data/landscape.json)
 
