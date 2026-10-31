@@ -139776,6 +139776,9 @@
       "tier": 1,
       "url": "https://bolt.new",
       "last_verified_at": "2026-10-28",
+      "decay_cause": "pivoted",
+      "decay_date": "2024-12-17",
+      "decay_evidence": "https://github.com/stackblitz-labs/bolt.diy",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -1132584,7 +1132587,7 @@
       "name": "UI-TARS",
       "tier": 2,
       "url": "https://github.com/bytedance/UI-TARS",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -1132677,11 +1132680,11 @@
           "last_verified_at": "2026-05-13"
         },
         "latest-release": {
-          "value": "UI-TARS-2 announced (2025-09-04); latest open weights UI-TARS-1.5-7B (2025-04-16)",
-          "citation": "https://github.com/bytedance/UI-TARS",
+          "value": "UI-TARS-desktop / Agent TARS v0.3.1 (2026-10-09); UI-TARS-2 announced 2025-09-04; latest open weights UI-TARS-1.5-7B (2025-04-16)",
+          "citation": "https://github.com/bytedance/UI-TARS-desktop/commits/main",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-10-26"
+          "last_verified_at": "2026-10-31"
         },
         "license": {
           "value": "Apache-2.0",
@@ -1132690,11 +1132693,11 @@
           "tier": "T1"
         },
         "gh": {
-          "value": "bytedance/UI-TARS — ~11.6k stars, last commit 2026-01; UI-TARS-desktop ~39k stars, last commit 2026-10",
-          "citation": "https://github.com/bytedance/UI-TARS",
+          "value": "bytedance/UI-TARS-desktop — ~39.5k stars, last commit 2026-10 (v0.3.1, 2026-10-09); model repo bytedance/UI-TARS — ~11.7k stars, last commit 2025-09",
+          "citation": "https://github.com/bytedance/UI-TARS-desktop",
           "status": "real-data",
           "tier": "T1",
-          "last_verified_at": "2026-10-28"
+          "last_verified_at": "2026-10-31"
         },
         "mindshare": {
           "value": "Front-page HN; benchmarked SOTA on OSWorld at release",
@@ -1133309,7 +1133312,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/ui-tars--gh-bytedance-ui-tars",
           "status": "real-data",
           "tier": "T2"
@@ -1133361,11 +1133364,11 @@
           "verified": true
         },
         "latest-release": {
-          "scrape_url": "https://github.com/bytedance/UI-TARS",
-          "scraped_at": "2026-10-26",
+          "scrape_url": "https://github.com/bytedance/UI-TARS-desktop/commits/main",
+          "scraped_at": "2026-10-31",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "license": {
           "scrape_url": "https://github.com/bytedance/UI-TARS",
@@ -1133375,11 +1133378,11 @@
           "verified": true
         },
         "gh": {
-          "scrape_url": "https://github.com/bytedance/UI-TARS",
-          "scraped_at": "2026-10-28",
+          "scrape_url": "https://github.com/bytedance/UI-TARS-desktop",
+          "scraped_at": "2026-10-31",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
-          "verified": false
+          "verified": true
         },
         "mindshare": {
           "source": "legacy",
@@ -1133718,7 +1133721,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/ui-tars--gh-bytedance-ui-tars",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
