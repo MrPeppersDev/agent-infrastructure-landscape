@@ -84,6 +84,27 @@ ok(withFee.lines[2].monthlyUsd === 0.06, 'embedding line priced');
 const feeOnly = stackCost([{ layer: 'gateway', id: 'gw', name: 'GW' }], { ...pricing, stack: { ...pricing.stack, gatewayFees: [{ id: 'gw', system: 'GW', feePct: 5, source: 'https://gw' }] } }, w);
 ok(feeOnly.lines[0].status === 'unpriced' && feeOnly.lowerBound, 'a fee with no priced model spend stays unpriced');
 
+// self-hosting estimates and the range (#362): unpriced lines get a low–high
+// estimate from the assumptions table; contact-sales lines stay outside.
+const selfHost = {
+  checked: '2026-10-31', note: 'test assumptions',
+  instances: { small: { label: 'S', usdPerHour: 0.1, source: 'https://i/s', confidence: 'medium' as const }, big: { label: 'B', usdPerHour: 1, source: 'https://i/b', confidence: 'high' as const } },
+  layers: { framework: { low: null, high: null, note: 'library' }, memory: { low: 'small', high: 'big', note: 'one instance' } }
+};
+const ranged = stackCost([
+  { layer: 'model', id: 'model-a', name: 'V' },
+  { layer: 'framework', id: 'lib', name: 'Lib' },
+  { layer: 'memory', id: 'mem', name: 'Mem' },
+  { layer: 'observability', id: 'o', name: 'Obs' }
+], { ...pricing, stack: { ...pricing.stack, selfHost, metered: [{ ...obs, plans: [{ name: 'Free', usd: 0, included: 10 }], overage: null }] } }, w);
+const memLine = ranged.lines.find((l) => l.id === 'mem')!;
+ok(memLine.estimate?.lowUsd === 73 && memLine.estimate?.highUsd === 730, `memory estimate = 0.1×730 to 1×730 (got ${JSON.stringify(memLine.estimate)})`);
+ok(ranged.lines.find((l) => l.id === 'lib')?.estimate?.highUsd === 0, 'a library layer estimates to zero');
+ok(ranged.range?.lowUsd === 202.5 + 73 && ranged.range?.highUsd === 202.5 + 730, `range = priced + estimates (got ${ranged.range?.lowUsd}–${ranged.range?.highUsd})`);
+ok(ranged.range?.unquotedLines === 1 && ranged.range?.estimatedLines === 2 && ranged.range?.pricedLines === 1, `range counts priced, estimated and contact-sales lines (got ${JSON.stringify([ranged.range?.pricedLines, ranged.range?.estimatedLines, ranged.range?.unquotedLines])})`);
+ok(ranged.knownMonthlyUsd === 202.5, 'estimates never enter the published-price total');
+ok(stackCost([{ layer: 'memory', id: 'mem', name: 'Mem' }], pricing, w).range === null, 'no assumptions table → no range');
+
 if (failures) {
   console.error(`${failures} stack-cost test(s) failed`);
   process.exit(1);

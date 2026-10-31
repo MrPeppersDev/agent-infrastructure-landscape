@@ -107,14 +107,31 @@ function readme(product: ProductType, plan: StackPlan, self: StackPlan): string 
   if (plan.cost) {
     const c = plan.cost;
     const w = c.workload;
-    L.push(`## Monthly cost at ${w.runsPerDay.toLocaleString('en-US')} runs/day: ${c.lowerBound ? 'at least ' : ''}${money(c.knownMonthlyUsd)}`, '');
-    L.push(`From published list prices (checked ${c.checked}); ${w.llmCallsPerRun} model calls of ${w.inputTokensPerCall} in / ${w.outputTokensPerCall} out tokens per run. Change the workload on [/build](${SITE}/build?product=${product}).`, '');
-    L.push('| Layer | System | Monthly | Plan |', '|---|---|---|---|');
+    const r = c.range && c.range.estimatedLines ? c.range : null;
+    if (r) {
+      L.push(`## Monthly cost at ${w.runsPerDay.toLocaleString('en-US')} runs/day: ${money(r.lowUsd)} to ${money(r.highUsd)}${r.unquotedLines ? ` plus ${r.unquotedLines} "contact sales" line${r.unquotedLines === 1 ? '' : 's'}` : ''}`, '');
+      L.push(`${money(c.knownMonthlyUsd)} from published list prices (checked ${c.checked}); the rest are self-hosting estimates for components with no published price (checked ${r.checked}). ${w.llmCallsPerRun} model calls of ${w.inputTokensPerCall} in / ${w.outputTokensPerCall} out tokens per run. Change the workload on [/build](${SITE}/build?product=${product}).`, '');
+    } else {
+      L.push(`## Monthly cost at ${w.runsPerDay.toLocaleString('en-US')} runs/day: ${c.lowerBound ? 'at least ' : ''}${money(c.knownMonthlyUsd)}`, '');
+      L.push(`From published list prices (checked ${c.checked}); ${w.llmCallsPerRun} model calls of ${w.inputTokensPerCall} in / ${w.outputTokensPerCall} out tokens per run. Change the workload on [/build](${SITE}/build?product=${product}).`, '');
+    }
+    L.push('| Layer | System | Monthly | Plan / assumption |', '|---|---|---|---|');
     for (const x of c.lines) {
-      const amt = x.status === 'priced' ? money(x.monthlyUsd ?? 0) : x.status === 'contact-sales' ? 'contact sales' : '—';
-      L.push(`| ${LAYER_BY_ID[x.layer as LayerId]?.label ?? x.layer} | ${link(x.id)} | ${amt} | ${cell(x.plan || (x.caveat ?? ''))} |`);
+      const amt = x.status === 'priced' ? money(x.monthlyUsd ?? 0) : x.status === 'contact-sales' ? 'contact sales' : x.estimate ? `${money(x.estimate.lowUsd)} to ${money(x.estimate.highUsd)} (estimate)` : '—';
+      const how = x.status === 'priced' || x.status === 'contact-sales' ? x.plan || (x.caveat ?? '') : x.estimate ? `Self-hosting estimate: ${x.estimate.basis}. ${x.estimate.sources.map((u, i) => `[source ${i + 1}](${u})`).join(' ')}` : (x.caveat ?? '');
+      L.push(`| ${LAYER_BY_ID[x.layer as LayerId]?.label ?? x.layer} | ${link(x.id)} | ${amt} | ${cell(how)} |`);
     }
     L.push('');
+    if (r) L.push(`_${r.note}_`, '');
+    const sw = plan.layers.filter((l) => l.exit?.switching?.to);
+    if (sw.length) {
+      L.push('**Cost to switch** (to the exit-path fallback, at this workload):', '');
+      for (const l of sw) {
+        const x = l.exit!.switching!;
+        L.push(`- ${l.label}: ${link(l.pick!.item.id)} → ${link(x.to!.id)}: ${x.deltaNote}${x.sharedIntegrations ? `; documented to work with ${x.sharedWith.slice(0, 3).join(', ')} in this stack` : '; no documented integration with the other picks'}${x.hasMigrationNotes ? '; migration notes in the catalog' : ''}.`);
+      }
+      L.push('');
+    }
   }
 
   L.push('## Self-hosted variant', '');
