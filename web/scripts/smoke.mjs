@@ -122,7 +122,8 @@ try {
   check('/graph mounts the canvas', (await page.locator('canvas').count()) >= 1);
 
   await go('/');
-  const group = (name) => page.locator('nav.topnav .groups details', { hasText: name });
+  // Match the group's own summary, not an item that happens to contain the word.
+  const group = (name) => page.locator('nav.topnav .groups details').filter({ has: page.locator('summary', { hasText: new RegExp('^' + name + '\\b') }) });
   await group('Decide').locator('summary').click();
   await group('Research').locator('summary').click();
   check('Research menu opens', await group('Research').locator('.menu').isVisible());
