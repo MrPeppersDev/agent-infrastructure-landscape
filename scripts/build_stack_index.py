@@ -82,6 +82,24 @@ SEVERITY = {"dead": 3, "archived": 3, "deprecated": 3, "maintenance": 2, "acquir
             "stale": 2, "research-code": 1, "inactive": 2, "active": 0}
 
 
+VERSION = re.compile(r"(?<![\w.])v?(\d+)\.(\d+)(?:\.(\d+))?(?![\d.]*\d{4}-)")
+RELEASE_DATE = re.compile(r"\b(20\d\d-\d\d(?:-\d\d)?)\b")
+
+
+def latest_release(text: str) -> dict | None:
+    """First version number in a latest-release cell ("v2.2.1 (2026-09-25)
+    — mem0ai on PyPI" → {"version": "2.2.1", "date": "2026-09-25"}), or None
+    when the cell has no version (dates alone, "no-release", "n/a")."""
+    if not text or re.match(r"(n/a|no-release|not applicable|none)", text, re.I):
+        return None
+    m = VERSION.search(text)
+    if not m:
+        return None
+    d = RELEASE_DATE.search(text)
+    version = ".".join(x for x in m.groups() if x is not None)
+    return {"version": version, "date": d.group(1) if d else None}
+
+
 def norm_pkg(eco: str, name: str) -> str:
     name = name.strip().lower()
     if eco == "pypi":
@@ -230,11 +248,16 @@ def main() -> int:
         sec = next((s["section"] for s in r["sections"] if s.get("primary")), r["sections"][0]["section"])
         lc = lifecycle(r, today)
         lock = cell(r, "llm-lock")
+        rel = cell(r, "latest-release")
         records[r["id"]] = {
             "name": r["name"], "family": fam.get(sec, "other"), "section": sec,
             "url": r.get("url"), "license": cell(r, "license")[:80],
             "llm_lock": lock[:120] if lock and not re.match(r"(none|no\b|model-agnostic|any)", lock, re.I) else "",
             **lc,
+            # Latest release the catalog knows (#364): first version and date
+            # in the latest-release cell, plus the cell text for display.
+            "latest_release": latest_release(rel),
+            "latest_release_text": rel[:100] if rel and not re.match(r"(n/a|no-release|not applicable)", rel, re.I) else "",
         }
 
     out = {"generatedAt": today.isoformat(), "sourceGeneratedAt": data.get("generatedAt"),

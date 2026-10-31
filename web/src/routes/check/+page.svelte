@@ -299,6 +299,23 @@
         </ul>
       {/if}
 
+      {#if report.drift.length || report.noVersionData}
+        <section class="audit drift">
+          <h2>Version drift</h2>
+          {#if report.drift.length}
+            <ul class="plain">
+              {#each report.drift as d (d.dependency.ecosystem + d.dependency.name)}
+                <li><code>{d.dependency.name}</code> <code>{d.dependency.spec ?? ''}</code> → <a href="{base}/systems/{d.recordId}">{d.name}</a>: {d.note}</li>
+              {/each}
+            </ul>
+          {/if}
+          <p class="hint">
+            Compared against the latest release the catalog records, not the registry; an open lower bound or "latest" gets no verdict.
+            {#if report.noVersionData}{report.noVersionData} catalogued {report.noVersionData === 1 ? 'dependency has' : 'dependencies have'} no release version in the catalog, so no verdict was possible.{/if}
+          </p>
+        </section>
+      {/if}
+
       {#if report.audit.layers.length}
         <section class="audit">
           <h2>Stack audit</h2>
@@ -490,6 +507,8 @@
   .audit .missing li, .audit .plain li { margin: 2px 0; }
   .audit em { color: #d29922; font-style: normal; font-size: 0.85em; }
   .audit .share { margin: 12px 0 0; align-items: center; }
+  .audit.drift code { font-size: 0.85em; background: #1f242b; padding: 1px 4px; border-radius: 4px; }
+  .audit.drift a { color: #58a6ff; text-decoration: none; }
   .toggle {
     display: block;
     font-size: 13px;

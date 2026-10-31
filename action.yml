@@ -13,7 +13,7 @@ inputs:
     required: false
     default: ''
   fail-on:
-    description: '"none" (default: report only), "attention" (fail on any flagged dependency) or "archived" (fail only on archived, deprecated or shut-down ones).'
+    description: '"none" (default: report only), "attention" (fail on any flagged dependency), "archived" (fail only on archived, deprecated or shut-down ones) or "drift" (fail on flagged dependencies and on any pinned behind the catalog''s latest release).'
     required: false
     default: 'none'
   comment:
@@ -39,6 +39,8 @@ inputs:
 outputs:
   attention-count:
     description: 'Number of flagged dependencies.'
+  drift-count:
+    description: 'Number of dependencies pinned behind the catalog''s latest release.'
   matched-count:
     description: 'Number of dependencies found in the catalog.'
   manifests:

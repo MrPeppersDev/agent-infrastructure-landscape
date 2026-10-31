@@ -34,6 +34,16 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Version drift in the stack check (#364)
+
+**What.** `data/stack-index.json` records now carry `latest_release` ({version, date}) parsed from the latest-release cell, plus the cell text. `checkStack` compares the version a manifest pins for an npm or PyPI dependency with that release and reports `behind-major` (pinned major below the catalog's) or `behind-minor` (both on a 0.x line and the pinned minor is older). Only specs that name a version get a verdict: caret, tilde, exact and PEP 440 compatible-release specs do; an open lower bound (`>=0.3`), `latest`, `*`, workspace and git specs do not. Matched dependencies with no release version in the catalog are counted in `noVersionData` and shown as such, never as fine. The web page, the CLI, the Action (new `fail-on: drift`, `drift-count` output, a notice annotation per finding) and `check_stack` all carry it.
+
+**Why.** Roadmap item 2.2 (#364): a project pinning `langchain 0.3` got a clean bill while the catalog's latest release was 1.4. The comparison is against the catalog, not the registry, and says so; the `verified_version` edge field from #360 is the hook for a later "integration verified on a different major" finding once hub pages are re-verified with versions.
+
+**Reversal cost.** Low. One index field and one report field.
+
+---
+
 ## 2026-10-31: The stack check audits the stack, not just its lifecycle (#363)
 
 **What.** `checkStack` (mcp/src/stack-check.ts) now returns an `audit` next to the lifecycle findings: the layers of an agent stack the manifest covers, mapped from each matched dependency's catalog section (`AUDIT_LAYERS`, mirroring the composer's layers with the gateway/serving split by name); the core layers with no catalogued dependency (framework; model, gateway or serving; memory; tools; observability; guardrails), reported only when at least two dependencies matched; vendor concentration (registrable domain of the record URL, or code host plus owner) for vendors covering two or more layers; the licence mix by bucket (open-source, source-available, proprietary, not recorded) from the first clause of each licence cell, with copyleft and mixed flags; and the detected stack as `stack.yml`. The web page renders it with links to the chooser for each missing layer and a stack.yml download; the CLI prints it; the Action adds a collapsed "Stack audit" to its PR comment; `check_stack` returns it. `make action` regenerated the bundle.

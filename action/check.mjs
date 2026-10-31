@@ -105,7 +105,7 @@ async function main() {
   const { index, from } = await loadIndex();
   const replacements = await loadReplacements();
   const links = await loadLinks();
-  const failOn = input('fail-on', 'none'); // none | attention | archived
+  const failOn = input('fail-on', 'none'); // none | attention | archived | drift
   const reports = [];
   for (const p of paths) {
     if (!existsSync(p)) {
@@ -124,6 +124,7 @@ async function main() {
   const findings = reports.flatMap((r) => r.report.attention.map((f) => ({ ...f, path: r.path, text: r.text })));
   const matched = reports.reduce((n, r) => n + r.report.matched.length, 0);
   const severe = findings.filter((f) => f.record.severity >= 3);
+  const drift = reports.flatMap((r) => r.report.drift.map((d) => ({ ...d, path: r.path, text: r.text })));
 
   for (const f of findings) {
     const alts = (f.replacements ?? []).map((a) => (a.fits?.length ? `${a.name} (works with ${a.fits.join(', ')})` : a.name)).join(', ');
@@ -150,6 +151,16 @@ async function main() {
       lines.push(`| \`${f.dependency.name}\` | [${f.record.name}](${site}/systems/${f.recordId}) | **${STATUS_LABEL[f.record.status]}**${f.record.note ? ` — ${f.record.note}` : ''}${ev} | ${alts} | \`${f.path}\` |`);
     }
     lines.push('');
+  }
+  // Version drift (#364): dependencies pinned behind the catalog's latest release.
+  if (drift.length) {
+    lines.push(`**${drift.length}** pinned behind the catalog's latest release:`, '', '| Dependency | Pinned | System | Catalog latest | File |', '|---|---|---|---|---|');
+    for (const d of drift) lines.push(`| \`${d.dependency.name}\` | \`${d.dependency.spec ?? ''}\` | [${d.name}](${site}/systems/${d.recordId}) | ${d.latest.version}${d.latest.date ? ` (${d.latest.date})` : ''} | \`${d.path}\` |`);
+    lines.push('');
+    for (const d of drift) {
+      const lvl = failOn === 'drift' ? 'error' : 'notice';
+      console.log(`::${lvl} file=${escProp(d.path)},line=${lineOf(d.text, d.dependency.name)},title=${escProp(`${d.name} pinned behind ${d.latest.version}`)}::${esc(d.note)}`);
+    }
   }
   // Stack audit (#363): layers covered and missing, from the first manifest
   // with at least two catalogued dependencies.
@@ -183,11 +194,12 @@ async function main() {
   }
 
   setOutput('attention-count', String(findings.length));
+  setOutput('drift-count', String(drift.length));
   setOutput('matched-count', String(matched));
   setOutput('manifests', String(reports.length));
 
-  if ((failOn === 'attention' && findings.length) || (failOn === 'archived' && severe.length)) {
-    console.log(`::error title=AI stack check::${failOn === 'archived' ? severe.length : findings.length} dependencies flagged (fail-on: ${failOn})`);
+  if ((failOn === 'attention' && findings.length) || (failOn === 'archived' && severe.length) || (failOn === 'drift' && (findings.length || drift.length))) {
+    console.log(`::error title=AI stack check::${failOn === 'archived' ? severe.length : failOn === 'drift' ? findings.length + drift.length : findings.length} dependencies flagged (fail-on: ${failOn})`);
     process.exit(1);
   }
 }
