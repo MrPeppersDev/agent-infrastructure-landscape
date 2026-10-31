@@ -176,8 +176,11 @@ def load_benchmark_maxima() -> dict[str, BenchmarkAnchor]:
 # ---------------------------------------------------------------------------
 
 
+# Benchmark tokens start with a letter: with digits allowed at the start
+# of a token the greedy group backtracked into the score itself, so
+# "osworld 66.3%" parsed as benchmark "osworld 6" at 6.3%.
 BENCH_MENTION_RE = re.compile(
-    r"(?P<bench>[a-z0-9][a-z0-9\-_+]*(?:\s+[a-z0-9][a-z0-9\-_+]*){0,3})"
+    r"(?P<bench>[a-z][a-z0-9\-_+]*(?:\s+[a-z][a-z0-9\-_+]*){0,3})"
     r"\s*(?:score|verified)?\s*"
     r"[:~≈=]?\s*"
     r"(?P<score>\d{1,3}(?:\.\d+)?)\s*%",
@@ -221,6 +224,48 @@ def parse_naive_observations(
                 )
                 break
     return obs
+
+
+# ---------------------------------------------------------------------------
+# benchmark-maxima.json refresh (methodology §6): bench_max is the highest
+# score recorded on each benchmark across the catalog's
+# `capability-benchmark-sources` cells. Recomputed on every sweep so the
+# anchors track the current catalog, not an all-time high; written before
+# scoring so every composite in a run uses the same ceilings.
+# ---------------------------------------------------------------------------
+
+
+def compute_benchmark_maxima(
+    records: list[dict],
+    families: dict[str, str],
+) -> dict[str, dict[str, Any]]:
+    """Return {benchmark_id: {"max", "min", "rows", "top_row"}} from the
+    benchmark mentions in every row's sources cell. Only cells that cite
+    at least one URL count: a ceiling has to rest on a published score,
+    not on an "~77% (2026)" estimate. Placeholder cells and unclassified
+    benchmarks are ignored."""
+    out: dict[str, dict[str, Any]] = {}
+    for rec in records:
+        cell = (rec.get("cells") or {}).get("capability-benchmark-sources") or {}
+        text = (cell.get("value") or "").strip()
+        if not text or is_placeholder_text(text) or not extract_urls(text):
+            continue
+        for obs in parse_naive_observations(text, families):
+            cur = out.get(obs.id)
+            if cur is None:
+                out[obs.id] = {"max": obs.score, "min": 0.0, "rows": 1, "top_row": rec["id"]}
+            else:
+                cur["rows"] += 1
+                if obs.score > cur["max"]:
+                    cur["max"] = obs.score
+                    cur["top_row"] = rec["id"]
+    return dict(sorted(out.items()))
+
+
+def write_benchmark_maxima(maxima: dict[str, dict[str, Any]], path: Path = BENCHMARK_MAXIMA_JSON) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {k: dict(sorted(v.items())) for k, v in maxima.items()}
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -574,17 +619,33 @@ def main() -> int:
         print(f"LLM sweep: extraction={EXTRACTION_MODEL} qa={QA_MODEL}")
 
     families = load_benchmark_families()
-    anchors = load_benchmark_maxima()
-    if not anchors:
-        print(
-            "warning: benchmark-maxima.json absent — using per-row anchor fallback "
-            "(staging-only; refuse to merge)",
-            file=sys.stderr,
-        )
     print(f"loaded {len(families)} benchmark → family classifications")
 
     data = json.loads(LANDSCAPE_JSON.read_text(encoding="utf-8"))
     records = data["records"]
+
+    # Refresh the anchors from the catalog before scoring (methodology §6).
+    # --dry-run reports what would change without writing.
+    maxima = compute_benchmark_maxima(records, families)
+    previous = load_benchmark_maxima()
+    moved = [
+        b for b, m in maxima.items()
+        if b not in previous or abs(previous[b].max - m["max"]) > 1e-9
+    ]
+    if maxima and not args.dry_run:
+        write_benchmark_maxima(maxima)
+        print(f"wrote: {BENCHMARK_MAXIMA_JSON.relative_to(ROOT)} ({len(maxima)} benchmarks, {len(moved)} ceilings moved)")
+    elif maxima:
+        print(f"(dry-run) benchmark-maxima.json would anchor {len(maxima)} benchmarks ({len(moved)} ceilings moved)")
+    anchors = load_benchmark_maxima() if not args.dry_run else {
+        b: BenchmarkAnchor(max=float(m["max"]), min=float(m["min"])) for b, m in maxima.items()
+    }
+    if not anchors:
+        print(
+            "warning: no benchmark scores recorded in any capability-benchmark-sources cell — "
+            "using the 100-point anchor fallback (staging-only; refuse to merge)",
+            file=sys.stderr,
+        )
 
     manifest = load_manifest()
     results: list[RowResult] = []

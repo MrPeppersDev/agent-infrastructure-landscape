@@ -37,6 +37,8 @@ jobs:
         run: python3 scripts/test_fetch_opendigger.py
       - name: Repo-health fixtures reproduce expected.json (#365)
         run: python3 scripts/test_fetch_repo_health.py
+      - name: Capability sweep parser and maxima refresh (#128)
+        run: python3 scripts/test_capability_sweep.py
       - name: Contradiction lint (report only)
         run: |
           python3 scripts/lint_contradictions.py --json /tmp/lint.json | tee -a "$GITHUB_STEP_SUMMARY"

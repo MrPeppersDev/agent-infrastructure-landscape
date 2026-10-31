@@ -1,0 +1,1250 @@
+{
+ "models": [
+  {
+   "id": "01-ai-yi-family--01-ai",
+   "name": "01.AI Yi family",
+   "url": "https://www.01.ai/",
+   "tier": 2,
+   "current": "LMSYS Chatbot Arena Yi-Lightning ~GPT-4o tier (2024-10), MMLU Yi-34B ~76% (2023-11), C-Eval Yi-34B ~82% (2023-11)",
+   "status": "estimate"
+  },
+  {
+   "id": "alibaba-qwen-3-family--qwenlm-github-io",
+   "name": "Alibaba Qwen 3 family",
+   "url": "https://qwenlm.github.io/blog/qwen3/",
+   "tier": 1,
+   "current": "MMLU Qwen3-235B ~87% (2025-04), HumanEval Qwen3-Coder ~85% (2025-04), AIME Qwen3 thinking-mode strong (2025-04), LiveCodeBench Qwen3 competitive with R1 (2025-0",
+   "status": "estimate"
+  },
+  {
+   "id": "amazon-nova-family--aboutamazon-com",
+   "name": "Amazon Nova family",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws",
+   "tier": 2,
+   "current": "MMLU Nova Pro ~85% (2024-12), Nova Pro multimodal MMMU competitive mid-tier (2024-12), general capability estimate \u2014 limited public benchmark detail for Premier",
+   "status": "estimate"
+  },
+  {
+   "id": "anthropic-claude-foundation-models--anthropic-com",
+   "name": "Anthropic Claude (foundation models)",
+   "url": "https://www.anthropic.com/claude",
+   "tier": 1,
+   "current": "SWE-bench Verified Opus 4.5 ~80% (2025-11), MMLU Sonnet 4.5 ~89% (2025), GPQA Diamond Opus 4 strong (2025), TAU-bench agentic leading (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "cohere-command-r-command-a--cohere-com",
+   "name": "Cohere Command R+ / Command A",
+   "url": "https://cohere.com/command",
+   "tier": 1,
+   "current": "MMLU Command A ~85% (2025-03), RAG-specialized HELM benchmarks strong (2024), HumanEval Command R+ mid-tier (2024)",
+   "status": "estimate"
+  },
+  {
+   "id": "deepseek-r1-v3-family--deepseek-com",
+   "name": "DeepSeek R1 / V3 family",
+   "url": "https://www.deepseek.com/",
+   "tier": 1,
+   "current": "AIME 2024 R1 ~79% (2025-01), MATH-500 R1 ~97% (2025-01), SWE-bench Verified V3 ~42% (2024-12), MMLU V3 ~88% (2024-12)",
+   "status": "estimate"
+  },
+  {
+   "id": "google-gemini-3-family--blog-google",
+   "name": "Google Gemini 3 family",
+   "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+   "tier": 1,
+   "current": "MMLU Gemini 3 Pro ~92% (2025), GPQA Diamond Gemini 3 Pro frontier-leading (2025), long-context 1M-2M ctx needle-in-haystack near-perfect (2025), SWE-bench Verif",
+   "status": "estimate"
+  },
+  {
+   "id": "meta-llama-4-family--ai-meta-com",
+   "name": "Meta Llama 4 family",
+   "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+   "tier": 1,
+   "current": "MMLU Llama 4 Maverick ~85% (2025-04), Llama 4 Scout 10M-ctx long-context (2025-04), HumanEval Llama 4 competitive (2025-04), GPQA Llama 4 Behemoth previewed (20",
+   "status": "estimate"
+  },
+  {
+   "id": "microsoft-phi-4-family--azure-microsoft-com",
+   "name": "Microsoft Phi-4 family",
+   "url": "https://azure.microsoft.com/en-us/products/phi",
+   "tier": 2,
+   "current": "MMLU Phi-4 ~85% (2024-12), GSM8K Phi-4 ~90% (2024-12), HumanEval Phi-4 ~83% (2024-12), MATH Phi-4 ~80% (2024-12)",
+   "status": "estimate"
+  },
+  {
+   "id": "mistral-large-2-mixtral-family--mistral-ai",
+   "name": "Mistral Large 2 / Mixtral family",
+   "url": "https://mistral.ai/news/mistral-large-2407/",
+   "tier": 1,
+   "current": "MMLU Mistral Large 2 ~84% (2024-07), HumanEval Mistral Large 2 ~92% (2024-07), Mixtral 8x22B MoE competitive open-weights (2024-04)",
+   "status": "estimate"
+  },
+  {
+   "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "name": "OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4)",
+   "url": "https://openai.com/index/introducing-gpt-5/",
+   "tier": 1,
+   "current": "SWE-bench Verified GPT-5 ~74% (2025-08), AIME 2024 o3 ~96% (2024-12), GPQA Diamond o3 ~88% (2024-12), MMLU GPT-5 ~91% (2025-08)",
+   "status": "estimate"
+  },
+  {
+   "id": "reka-core-flash-edge--reka-ai",
+   "name": "Reka Core / Flash / Edge",
+   "url": "https://www.reka.ai/",
+   "tier": 2,
+   "current": "MMLU Reka Core ~83% (2024-04), Reka Core multimodal MMMU mid-tier (2024-04), general capability estimate \u2014 limited recent benchmark publication",
+   "status": "estimate"
+  },
+  {
+   "id": "xai-grok-4--x-ai",
+   "name": "xAI Grok 4",
+   "url": "https://x.ai/news/grok-4",
+   "tier": 1,
+   "current": "Humanity's Last Exam Grok 4 leading (2025-07), AIME 2025 Grok 4 ~95% (2025-07), GPQA Diamond Grok 4 ~88% (2025-07), ARC-AGI-2 Grok 4 frontier-tier (2025-07)",
+   "status": "estimate"
+  }
+ ],
+ "orchestration": [
+  {
+   "id": "adept-act--adept-ai",
+   "name": "Adept ACT",
+   "url": "https://www.adept.ai/",
+   "tier": 3,
+   "current": "ACT-1 multimodal action transformer (2022), general capability estimate \u2014 Adept acqui-hired into Amazon AGI June 2024",
+   "status": "estimate"
+  },
+  {
+   "id": "crewai-enterprise--crewai-com",
+   "name": "CrewAI Enterprise (now CrewAI AMP)",
+   "url": "https://crewai.com/agent-management-platform",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled (framework, capability depends on driving LLM)",
+   "status": "estimate"
+  },
+  {
+   "id": "imbue-formerly-generally-intelligent--imbue-com",
+   "name": "Imbue (formerly Generally Intelligent)",
+   "url": "https://imbue.com/",
+   "tier": 3,
+   "current": "Imbue 70B reasoning model (2024), general capability estimate \u2014 limited public benchmarks",
+   "status": "estimate"
+  },
+  {
+   "id": "instructlab-red-hat-ibm--instructlab-ai",
+   "name": "InstructLab (Red Hat / IBM)",
+   "url": "https://instructlab.ai/",
+   "tier": 2,
+   "current": "IBM Granite 3.0 MMLU ~63% (2024), LAB methodology paper IBM Research (2024)",
+   "status": "estimate"
+  },
+  {
+   "id": "lindy--lindy-ai",
+   "name": "Lindy",
+   "url": "https://www.lindy.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "microsoft-autogen-studio--microsoft-github-io",
+   "name": "Microsoft AutoGen Studio",
+   "url": "https://microsoft.github.io/autogen/dev/user-guide/autogenstudio-user-guide/index.html",
+   "tier": 2,
+   "current": "AutoGen GAIA benchmark leadership 2024 (Microsoft Research), general capability estimate \u2014 framework capability depends on driving LLM",
+   "status": "estimate"
+  },
+  {
+   "id": "multion--multion-ai",
+   "name": "MultiOn (now AGI, Inc.)",
+   "url": "https://theagi.company/",
+   "tier": 2,
+   "current": "MultiOn Agent-Q WebShop SOTA claim (2024), general capability estimate \u2014 no recent benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "reflection-ai--reflection-ai",
+   "name": "Reflection AI",
+   "url": "https://reflection.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 Asimov code-research agent disclosed limited public benchmarks (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "sema4-ai--sema4-ai",
+   "name": "Sema4.ai",
+   "url": "https://sema4.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled (framework, capability depends on driving LLM)",
+   "status": "estimate"
+  },
+  {
+   "id": "steamship--steamship-com",
+   "name": "Steamship",
+   "url": "https://www.steamship.com/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled (hosting layer, capability depends on user code)",
+   "status": "estimate"
+  }
+ ],
+ "frameworks": [
+  {
+   "id": "agency-swarm--gh-vrsen-agency-swarm",
+   "name": "Agency Swarm",
+   "url": "https://github.com/VRSEN/agency-swarm",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "agent2agent-protocol-a2a--google-github-io",
+   "name": "Agent2Agent Protocol (A2A)",
+   "url": "https://a2a-protocol.org/",
+   "tier": 2,
+   "current": "not applicable \u2014 open protocol specification, not a capable runtime system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "agntcy-internet-of-agents--agntcy-org",
+   "name": "AGNTCY (Internet of Agents)",
+   "url": "https://agntcy.org/",
+   "tier": 3,
+   "current": "not applicable \u2014 open standards collective for agent discovery/messaging, not a capable runtime system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "anthropic-computer-use--anthropic-com",
+   "name": "Anthropic Computer Use",
+   "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+   "tier": 1,
+   "current": "Claude 3.5 Sonnet computer use OSWorld 14.9% (Oct 2024), productionised in Sonnet 4.5 with major OSWorld gains (2025), strong on WebArena",
+   "status": "estimate"
+  },
+  {
+   "id": "arcade-dev--arcade-dev",
+   "name": "Arcade.dev",
+   "url": "https://www.arcade.dev/",
+   "tier": 3,
+   "current": "not applicable \u2014 OAuth and tool-execution platform, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "autogen-ag2--gh-ag2ai-ag2",
+   "name": "AutoGen / AG2",
+   "url": "https://github.com/ag2ai/ag2",
+   "tier": 1,
+   "current": "AutoGen-based agents strong on GAIA (Magnetic-One built on AutoGen, 2024), HumanEval / MATH leverage frontier model orchestration (2024-2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "autogpt--gh-significant-gravitas-autogpt",
+   "name": "AutoGPT",
+   "url": "https://github.com/Significant-Gravitas/AutoGPT",
+   "tier": 2,
+   "current": "AutoGPT GAIA bench mid-tier (2023-2024), AgentBench autonomous tasks limited completion rate (2023)",
+   "status": "estimate"
+  },
+  {
+   "id": "babyagi--gh-yoheinakajima-babyagi",
+   "name": "BabyAGI",
+   "url": "https://github.com/yoheinakajima/babyagi",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "beeai-framework--gh-i-am-bee-beeai-framework",
+   "name": "BeeAI Framework",
+   "url": "https://github.com/i-am-bee/beeai-framework",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "burr-dagworks--gh-dagworks-inc-burr",
+   "name": "Burr (DAGWorks)",
+   "url": "https://github.com/apache/burr",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "camel--gh-camel-ai-camel",
+   "name": "CAMEL",
+   "url": "https://github.com/camel-ai/camel",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "claude-agent-sdk--gh-anthropics-claude-agent-sdk-python",
+   "name": "Claude Agent SDK",
+   "url": "https://github.com/anthropics/claude-agent-sdk-python",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "cline-framework--cline-bot",
+   "name": "Cline (framework)",
+   "url": "https://cline.bot/",
+   "tier": 1,
+   "current": "Cline with Claude Sonnet 4.5 strong on SWE-bench Verified (2025), competitive on Aider coding leaderboard, agentic VS Code use",
+   "status": "estimate"
+  },
+  {
+   "id": "composio--composio-dev",
+   "name": "Composio",
+   "url": "https://composio.dev/",
+   "tier": 2,
+   "current": "not applicable \u2014 tool/auth platform for agents, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "crewai--crewai-com",
+   "name": "CrewAI",
+   "url": "https://www.crewai.com/",
+   "tier": 1,
+   "current": "CrewAI used in production multi-agent pipelines (2024-2025); GAIA / WebArena scores leverage underlying frontier models",
+   "status": "estimate"
+  },
+  {
+   "id": "dify--gh-langgenius-dify",
+   "name": "Dify",
+   "url": "https://github.com/langgenius/dify",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "dspy--gh-stanfordnlp-dspy",
+   "name": "DSPy",
+   "url": "https://github.com/stanfordnlp/dspy",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "eliza-ai16z--gh-elizaos-eliza",
+   "name": "Eliza (ai16z)",
+   "url": "https://github.com/elizaOS/eliza",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "genkit--gh-firebase-genkit",
+   "name": "Genkit",
+   "url": "https://github.com/firebase/genkit",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "google-agent-development-kit-adk--gh-google-adk-python",
+   "name": "Google Agent Development Kit (ADK)",
+   "url": "https://github.com/google/adk-python",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "gpt-engineer--gh-antonosika-gpt-engineer",
+   "name": "GPT Engineer",
+   "url": "https://github.com/AntonOsika/gpt-engineer",
+   "tier": 3,
+   "current": "GPT Engineer used GPT-4-class models for spec-to-codebase 2023; spawned Lovable.dev with strong commercial uptake",
+   "status": "estimate"
+  },
+  {
+   "id": "haystack-framework--haystack-deepset-ai",
+   "name": "Haystack (framework)",
+   "url": "https://haystack.deepset.ai/",
+   "tier": 1,
+   "current": "Haystack pipelines used widely for RAG QA on NQ / TriviaQA (2023-2024), enterprise deployments at deepset Cloud",
+   "status": "estimate"
+  },
+  {
+   "id": "inngest--inngest-com",
+   "name": "Inngest",
+   "url": "https://www.inngest.com/",
+   "tier": 1,
+   "current": "not applicable \u2014 event-driven durable workflow platform, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "langchain-framework--langchain-com",
+   "name": "LangChain (framework)",
+   "url": "https://www.langchain.com/",
+   "tier": 1,
+   "current": "LangChain used as substrate for GAIA / WebArena agent benchmarks (2024-2025); dominant orchestrator with LangSmith evaluation",
+   "status": "estimate"
+  },
+  {
+   "id": "langflow--gh-langflow-ai-langflow",
+   "name": "Langflow",
+   "url": "https://github.com/langflow-ai/langflow",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "langgraph-orchestration--langchain-com",
+   "name": "LangGraph (orchestration)",
+   "url": "https://www.langchain.com/langgraph",
+   "tier": 1,
+   "current": "LangGraph adopted at Klarna / Uber / LinkedIn / Replit (2024-2025); used in agentic benchmarks like tau-bench and SWE-bench harnesses",
+   "status": "estimate"
+  },
+  {
+   "id": "llamaindex-framework--llamaindex-ai",
+   "name": "LlamaIndex (framework)",
+   "url": "https://www.llamaindex.ai/",
+   "tier": 1,
+   "current": "LlamaIndex strong on RAG benchmarks NQ / HotpotQA via its query engines (2023-2024); Workflows used in agentic tasks (2024-2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "magnetic-one--microsoft-com",
+   "name": "Magnetic-One",
+   "url": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
+   "tier": 3,
+   "current": "Magnetic-One GAIA 38% (Nov 2024), WebArena 32.1% (2024), AssistantBench 27.7% (2024) \u2014 competitive open multi-agent baseline",
+   "status": "estimate"
+  },
+  {
+   "id": "marvin--askmarvin-ai",
+   "name": "Marvin",
+   "url": "https://www.askmarvin.ai/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "mastra--mastra-ai",
+   "name": "Mastra",
+   "url": "https://mastra.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "mcp-servers-reference--gh-modelcontextprotocol-servers",
+   "name": "MCP Servers (Reference)",
+   "url": "https://github.com/modelcontextprotocol/servers",
+   "tier": 1,
+   "current": "not applicable \u2014 reference protocol server collection, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "metagpt--gh-geekan-metagpt",
+   "name": "MetaGPT",
+   "url": "https://github.com/geekan/MetaGPT",
+   "tier": 2,
+   "current": "MetaGPT ICLR 2024 paper reports SOTA on HumanEval pass@1 for multi-agent setups, strong on SoftwareDev benchmark",
+   "status": "estimate"
+  },
+  {
+   "id": "microsoft-agent-framework--gh-microsoft-agent-framework",
+   "name": "Microsoft Agent Framework",
+   "url": "https://github.com/microsoft/agent-framework",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "microsoft-semantic-kernel--gh-microsoft-semantic-kernel",
+   "name": "Microsoft Semantic Kernel",
+   "url": "https://github.com/microsoft/semantic-kernel",
+   "tier": 1,
+   "current": "Semantic Kernel widely deployed in enterprise .NET (2024-2026); leverages underlying Azure OpenAI / Foundry frontier models",
+   "status": "estimate"
+  },
+  {
+   "id": "model-context-protocol-mcp-spec--modelcontextprotocol-io",
+   "name": "Model Context Protocol (MCP spec)",
+   "url": "https://modelcontextprotocol.io/",
+   "tier": 1,
+   "current": "not applicable \u2014 open protocol specification, not a capable runtime system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "n8n-ai-agent-flows--n8n-io",
+   "name": "n8n (AI agent flows)",
+   "url": "https://n8n.io/",
+   "tier": 1,
+   "current": "n8n AI Agent nodes wrap user-chosen frontier LLMs (Anthropic, OpenAI, etc.); capability tracks the wrapped model on agentic workflows (2024-2026)",
+   "status": "estimate"
+  },
+  {
+   "id": "openai-agents-sdk--gh-openai-openai-agents-python",
+   "name": "OpenAI Agents SDK",
+   "url": "https://github.com/openai/openai-agents-python",
+   "tier": 1,
+   "current": "OpenAI Agents SDK built on Responses API with GPT-4o / o-series models; strong on tau-bench, SWE-bench Verified, GAIA (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "openai-swarm-deprecated--gh-openai-swarm",
+   "name": "OpenAI Swarm (deprecated)",
+   "url": "https://github.com/openai/swarm",
+   "tier": 4,
+   "current": "OpenAI Swarm educational framework (Oct 2024); superseded by OpenAI Agents SDK in Mar 2025 with no formal benchmark publication",
+   "status": "estimate"
+  },
+  {
+   "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+   "name": "OpenDevin / OpenHands",
+   "url": "https://github.com/OpenHands/OpenHands",
+   "tier": 2,
+   "current": "OpenHands SWE-bench Verified ~53% with Claude 3.5 Sonnet (2025), top OSS SWE agent, top of SWE-bench Lite leaderboard among open agents",
+   "status": "estimate"
+  },
+  {
+   "id": "phidata-now-agno--agno-com",
+   "name": "Phidata (now Agno)",
+   "url": "https://www.agno.com/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "pydantic-ai--ai-pydantic-dev",
+   "name": "Pydantic-AI",
+   "url": "https://pydantic.dev/docs/ai/overview/",
+   "tier": 2,
+   "current": "Pydantic-AI delivers type-safe structured outputs; capability scales with chosen frontier model on instruction-following and tool-call benchmarks (2024-2026)",
+   "status": "estimate"
+  },
+  {
+   "id": "restate--restate-dev",
+   "name": "Restate",
+   "url": "https://restate.dev/",
+   "tier": 3,
+   "current": "not applicable \u2014 durable execution platform, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+   "name": "smolagents (Hugging Face)",
+   "url": "https://github.com/huggingface/smolagents",
+   "tier": 2,
+   "current": "smolagents code-agents claim ~55% GAIA validation with frontier models (Dec 2024); strong code-execution agentic pattern",
+   "status": "estimate"
+  },
+  {
+   "id": "strands-agents-aws--strandsagents-com",
+   "name": "Strands Agents (AWS)",
+   "url": "https://strandsagents.com/",
+   "tier": 3,
+   "current": "Strands Agents on Bedrock leverages Claude / Llama frontier models for tau-bench and SWE-bench (2025); used internally at AWS before OSS release",
+   "status": "estimate"
+  },
+  {
+   "id": "temporal--temporal-io",
+   "name": "Temporal",
+   "url": "https://temporal.io/",
+   "tier": 1,
+   "current": "not applicable \u2014 durable execution platform, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "trigger-dev--trigger-dev",
+   "name": "Trigger.dev",
+   "url": "https://trigger.dev/",
+   "tier": 2,
+   "current": "not applicable \u2014 long-running JS jobs platform, not a capable inferencing/reasoning system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "vercel-ai-sdk--sdk-vercel-ai",
+   "name": "Vercel AI SDK",
+   "url": "https://ai-sdk.dev/",
+   "tier": 1,
+   "current": "Vercel AI SDK default in Next.js ecosystem (2024-2026); pairs with frontier models on streaming, tool-call, and agentic patterns",
+   "status": "estimate"
+  }
+ ],
+ "inference": [
+  {
+   "id": "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai",
+   "name": "Agent Router (formerly Envoy AI Gateway)",
+   "url": "https://theagentrouter.ai/",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "agentgateway--agentgateway-dev",
+   "name": "agentgateway",
+   "url": "https://agentgateway.dev/",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "anyscale--anyscale-com",
+   "name": "Anyscale",
+   "url": "https://www.anyscale.com/",
+   "tier": 1,
+   "current": "not applicable \u2014 inference platform infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "baseten--baseten-co",
+   "name": "Baseten",
+   "url": "https://www.baseten.co/",
+   "tier": 1,
+   "current": "not applicable \u2014 inference platform infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "bifrost-maxim-ai--getmaxim-ai",
+   "name": "Bifrost (Maxim AI)",
+   "url": "https://www.getmaxim.ai/bifrost",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "cloudflare-ai-gateway--developers-cloudflare-com",
+   "name": "Cloudflare AI Gateway",
+   "url": "https://developers.cloudflare.com/ai-gateway/",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "fireworks-ai--fireworks-ai",
+   "name": "Fireworks AI",
+   "url": "https://fireworks.ai/",
+   "tier": 1,
+   "current": "not applicable \u2014 inference platform infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "litellm--gh-berriai-litellm",
+   "name": "LiteLLM",
+   "url": "https://github.com/BerriAI/litellm",
+   "tier": 1,
+   "current": "not applicable \u2014 LLM gateway infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "modal--modal-com",
+   "name": "Modal",
+   "url": "https://modal.com/",
+   "tier": 1,
+   "current": "not applicable \u2014 serverless compute infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "octoai-now-nvidia--octo-ai",
+   "name": "OctoAI (now NVIDIA)",
+   "url": "https://octo.ai/",
+   "tier": 2,
+   "current": "not applicable \u2014 inference platform infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "openrouter--openrouter-ai",
+   "name": "OpenRouter",
+   "url": "https://openrouter.ai/",
+   "tier": 1,
+   "current": "not applicable \u2014 LLM gateway infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "portkey-ai--portkey-ai",
+   "name": "Portkey AI",
+   "url": "https://portkey.ai/",
+   "tier": 2,
+   "current": "not applicable \u2014 LLM gateway infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "replicate--replicate-com",
+   "name": "Replicate",
+   "url": "https://replicate.com/",
+   "tier": 1,
+   "current": "not applicable \u2014 inference platform infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "runpod--runpod-io",
+   "name": "RunPod",
+   "url": "https://www.runpod.io/",
+   "tier": 2,
+   "current": "not applicable \u2014 GPU cloud infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "sglang--gh-sgl-project-sglang",
+   "name": "SGLang",
+   "url": "https://github.com/sgl-project/sglang",
+   "tier": 2,
+   "current": "not applicable \u2014 inference engine infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "tensorrt-llm--gh-nvidia-tensorrt-llm",
+   "name": "TensorRT-LLM",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM",
+   "tier": 1,
+   "current": "not applicable \u2014 inference compiler infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "text-generation-inference-tgi--gh-huggingface-text-generation-inference",
+   "name": "Text Generation Inference (TGI)",
+   "url": "https://github.com/huggingface/text-generation-inference",
+   "tier": 2,
+   "current": "not applicable \u2014 inference server infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "together-ai--together-ai",
+   "name": "Together AI",
+   "url": "https://www.together.ai/",
+   "tier": 1,
+   "current": "not applicable \u2014 inference platform infrastructure, not a capable system",
+   "status": "not-applicable"
+  },
+  {
+   "id": "truefoundry-ai-gateway--truefoundry-com",
+   "name": "TrueFoundry AI Gateway",
+   "url": "https://www.truefoundry.com/ai-gateway",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "vercel-ai-gateway--vercel-com",
+   "name": "Vercel AI Gateway",
+   "url": "https://vercel.com/docs/ai-gateway",
+   "tier": 3,
+   "current": "(LLM unverified)",
+   "status": "estimate"
+  },
+  {
+   "id": "vllm--gh-vllm-project-vllm",
+   "name": "vLLM",
+   "url": "https://github.com/vllm-project/vllm",
+   "tier": 1,
+   "current": "not applicable \u2014 inference engine infrastructure, not a capable system",
+   "status": "not-applicable"
+  }
+ ],
+ "coding": [
+  {
+   "id": "aider-harness--aider-chat",
+   "name": "Aider (harness)",
+   "url": "https://aider.chat",
+   "tier": 2,
+   "current": "Aider polyglot leaderboard (2024\u20132025), SWE-bench Verified harness scores with Claude/GPT models (2024\u20132025), Aider code-edit benchmark (2024)",
+   "status": "estimate"
+  },
+  {
+   "id": "amazon-q-developer--aws-amazon-com",
+   "name": "Amazon Q Developer",
+   "url": "https://aws.amazon.com/q/developer/",
+   "tier": 1,
+   "current": "SWE-bench Verified ~13% reported (2024), HumanEval pass@1 with Q Developer agent (2024), AWS-tooling task evals (2024\u20132025)",
+   "status": "estimate"
+  },
+  {
+   "id": "anthropic-computer-use--docs-anthropic-com",
+   "name": "Anthropic Computer Use",
+   "url": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
+   "tier": 1,
+   "current": "OSWorld 14.9% (Oct 2024) \u2192 22%+ (2025), SWE-bench Verified 49% with Sonnet 3.5 (Oct 2024) \u2192 70%+ with Sonnet 4 (2025), WebArena gains (2024)",
+   "status": "estimate"
+  },
+  {
+   "id": "bedrock-agentcore-aws--aws-amazon-com",
+   "name": "Bedrock AgentCore (AWS)",
+   "url": "https://aws.amazon.com/bedrock/agentcore/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 framework-agnostic runtime, capability depends on hosted agent and model choice (Bedrock Claude / Nova) (Jul 2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "bolt-new-stackblitz-harness--bolt-new",
+   "name": "Bolt.new (StackBlitz) \u2014 harness",
+   "url": "https://bolt.new",
+   "tier": 1,
+   "current": "general capability estimate \u2014 runs Anthropic Claude in WebContainer for full-stack apps; no public SWE-bench number but strong real-world deploy track (2024\u2013202",
+   "status": "estimate"
+  },
+  {
+   "id": "charm-crush--gh-charmbracelet-crush",
+   "name": "Charm Crush",
+   "url": "https://github.com/charmbracelet/crush",
+   "tier": 3,
+   "current": "general capability estimate \u2014 multi-model terminal harness with capability depending on backing LLM (2025), no published SWE-bench score",
+   "status": "estimate"
+  },
+  {
+   "id": "chatgpt-codex-cloud-agent--chatgpt-com",
+   "name": "ChatGPT \u2014 Codex (cloud agent)",
+   "url": "https://chatgpt.com/codex",
+   "tier": 1,
+   "current": "SWE-bench Verified 60%+ at launch with codex-1 (May 2025), HumanEval pass@1 SOTA (2025), Aider polyglot leaderboard gains (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "claude-code-anthropic--anthropic-com",
+   "name": "Claude Code (Anthropic)",
+   "url": "https://www.anthropic.com/claude-code",
+   "tier": 1,
+   "current": "SWE-bench Verified 70%+ with Sonnet 4 / Opus 4 (2025), Terminal-Bench SOTA (2025), Aider polyglot leaderboard top tier (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "cline-harness--cline-bot",
+   "name": "Cline (harness)",
+   "url": "https://cline.bot",
+   "tier": 2,
+   "current": "SWE-bench Verified strong with Sonnet 3.5/4 backing (2024\u20132025), Aider polyglot leaderboard scores via Sonnet (2025), general capability estimate",
+   "status": "estimate"
+  },
+  {
+   "id": "cognition-devin-v2-spec-mode--cognition-ai",
+   "name": "Cognition Devin v2 / Spec Mode",
+   "url": "https://cognition.com/",
+   "tier": 1,
+   "current": "SWE-bench Lite 13.86% (original Devin, Mar 2024), Devin 2.0 / Spec Mode reported SWE-bench Verified mid-50s with frontier models (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "continue-dev-harness--continue-dev",
+   "name": "Continue.dev",
+   "url": "https://continue.dev",
+   "tier": 2,
+   "current": "general capability estimate \u2014 multi-model IDE plugin; capability tracks the backing LLM (Claude / GPT / local); no published SWE-bench number for harness itself",
+   "status": "estimate"
+  },
+  {
+   "id": "cursor-ide--cursor-com",
+   "name": "Cursor (IDE)",
+   "url": "https://cursor.com",
+   "tier": 1,
+   "current": "SWE-bench Verified 65%+ with frontier model backing (2025), Cursor Bench internal evals (2025), Aider polyglot scores via Sonnet/GPT (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "github-copilot-agent-mode--gh-features-copilot",
+   "name": "GitHub Copilot (Agent Mode)",
+   "url": "https://github.com/features/copilot",
+   "tier": 1,
+   "current": "SWE-bench Verified ~55\u201360% Agent Mode with Claude / GPT-5 backing (2025), HumanEval / MBPP completion benchmarks (2024\u20132025), Copilot internal evals (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "github-copilot-workspace--githubnext-com",
+   "name": "GitHub Copilot Workspace",
+   "url": "https://githubnext.com/projects/copilot-workspace",
+   "tier": 1,
+   "current": "SWE-bench Verified mid-50s reported with Claude backing (2025), Copilot Coding Agent GA evals (2025), general capability estimate",
+   "status": "estimate"
+  },
+  {
+   "id": "goose-block--block-github-io",
+   "name": "Goose (Block)",
+   "url": "https://goose-docs.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 multi-model on-machine agent; capability tracks backing LLM (Anthropic / OpenAI / local) (2024\u20132025)",
+   "status": "estimate"
+  },
+  {
+   "id": "jetbrains-ai-assistant--jetbrains-com",
+   "name": "JetBrains AI Assistant",
+   "url": "https://www.jetbrains.com/ai/",
+   "tier": 1,
+   "current": "general capability estimate \u2014 IDE assistant with multi-model backing; HumanEval / completion benchmarks track backing LLM (2024\u20132025)",
+   "status": "estimate"
+  },
+  {
+   "id": "jetbrains-junie--jetbrains-com",
+   "name": "JetBrains Junie",
+   "url": "https://www.jetbrains.com/junie/",
+   "tier": 2,
+   "current": "SWE-bench Verified ~53% reported with Claude backing (2025), JetBrains-internal SWE evals (2025), general capability estimate",
+   "status": "estimate"
+  },
+  {
+   "id": "kiro--kiro-dev",
+   "name": "Kiro",
+   "url": "https://kiro.dev",
+   "tier": 1,
+   "current": "general capability estimate \u2014 spec-driven harness with Claude Sonnet 3.7/4 + Amazon Nova backing; SWE-bench Verified inherits backing LLM scores (Jul 2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "lovable-dev-harness--lovable-dev",
+   "name": "Lovable.dev \u2014 harness",
+   "url": "https://lovable.dev",
+   "tier": 1,
+   "current": "general capability estimate \u2014 prompt-to-full-stack app builder; backed by frontier LLMs, strong real-world deploy track 2025, no public SWE-bench number",
+   "status": "estimate"
+  },
+  {
+   "id": "magic-dev--magic-dev",
+   "name": "Magic.dev",
+   "url": "https://magic.dev",
+   "tier": 2,
+   "current": "general capability estimate \u2014 LTM-2-Mini claimed 100M-token context (Aug 2024), HashHop synthetic eval (Aug 2024), no public SWE-bench score",
+   "status": "estimate"
+  },
+  {
+   "id": "manus-ai--manus-im",
+   "name": "Manus AI",
+   "url": "https://manus.im",
+   "tier": 2,
+   "current": "GAIA general-assistant benchmark SOTA reported at launch (Mar 2025), general capability estimate \u2014 cloud sandbox autonomous agent",
+   "status": "estimate"
+  },
+  {
+   "id": "metagpt-harness--gh-foundationagents-metagpt",
+   "name": "MetaGPT (harness)",
+   "url": "https://github.com/FoundationAgents/MetaGPT",
+   "tier": 2,
+   "current": "HumanEval pass@1 85.9% reported (2023), MBPP pass@1 87.7% (2023), SoftwareDev internal eval (2023)",
+   "status": "estimate"
+  },
+  {
+   "id": "openai-codex-cli--gh-openai-codex",
+   "name": "OpenAI Codex CLI",
+   "url": "https://github.com/openai/codex",
+   "tier": 1,
+   "current": "SWE-bench Verified 60%+ with o3 / o4-mini / codex-1 (Apr 2025), Aider polyglot leaderboard scores (2025), Terminal-Bench gains (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "opencode-sst--opencode-ai",
+   "name": "Opencode (SST)",
+   "url": "https://opencode.ai",
+   "tier": 2,
+   "current": "general capability estimate \u2014 multi-model OSS terminal harness; SWE-bench Verified inherits backing LLM (Sonnet / GPT) scores (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "openhands-all-hands-ai--all-hands-dev",
+   "name": "OpenHands (All Hands AI)",
+   "url": "https://www.openhands.dev/",
+   "tier": 1,
+   "current": "SWE-bench Verified 53% with Claude Sonnet (2024), 60%+ with Sonnet 4 (2025), Aider polyglot leaderboard (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "replit-agent-v3--replit-com",
+   "name": "Replit Agent v3",
+   "url": "https://replit.com/ai",
+   "tier": 1,
+   "current": "general capability estimate \u2014 cloud IDE with autonomous coding agent backed by Claude (2025); no public SWE-bench Verified score for harness itself",
+   "status": "estimate"
+  },
+  {
+   "id": "roo-code--roocode-com",
+   "name": "Roo Code",
+   "url": "https://github.com/RooCodeInc/Roo-Code",
+   "tier": 3,
+   "current": "general capability estimate \u2014 Cline fork with modes; SWE-bench Verified inherits backing LLM scores (Sonnet / GPT) (2024\u20132025)",
+   "status": "estimate"
+  },
+  {
+   "id": "smol-developer--gh-smol-ai-developer",
+   "name": "smol-developer",
+   "url": "https://github.com/smol-ai/developer",
+   "tier": 3,
+   "current": "general capability estimate \u2014 early-2023 minimalist single-prompt loop; subsumed by later harnesses, no maintained benchmark numbers",
+   "status": "estimate"
+  },
+  {
+   "id": "sourcegraph-cody-agent--sourcegraph-com",
+   "name": "Sourcegraph Cody (agent)",
+   "url": "https://sourcegraph.com/cody",
+   "tier": 1,
+   "current": "Cody context bench code-search retrieval evals (2024), general capability estimate \u2014 agentic chat tracks backing LLM (Claude / GPT / Gemini)",
+   "status": "estimate"
+  },
+  {
+   "id": "v0-vercel--v0-app",
+   "name": "v0 (Vercel)",
+   "url": "https://v0.app",
+   "tier": 1,
+   "current": "general capability estimate \u2014 prompt-to-Next.js app builder with multi-LLM backing; strong shadcn/ui generation track record (2024\u20132025), no public SWE-bench",
+   "status": "estimate"
+  },
+  {
+   "id": "windsurf-codeium-openai--windsurf-com",
+   "name": "Windsurf (now Devin Desktop)",
+   "url": "https://devin.ai/desktop",
+   "tier": 1,
+   "current": "SWE-bench Verified 60%+ via Cascade with Sonnet backing (2025), Aider polyglot leaderboard (2025), Windsurf internal Flow + Memories evals (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "zed-agentic-editing--zed-dev",
+   "name": "Zed (Agentic Editing)",
+   "url": "https://zed.dev",
+   "tier": 1,
+   "current": "general capability estimate \u2014 Rust-native editor with Agentic Editing; capability tracks backing LLM (Claude / local) (2024\u20132025)",
+   "status": "estimate"
+  }
+ ],
+ "harnesses": [
+  {
+   "id": "alphasense--alpha-sense-com",
+   "name": "AlphaSense",
+   "url": "https://www.alpha-sense.com/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "hebbia--hebbia-com",
+   "name": "Hebbia",
+   "url": "https://www.hebbia.com/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "iris-ai--iris-ai-2",
+   "name": "Iris.ai",
+   "url": "https://iris.ai/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "liner--liner-com",
+   "name": "Liner",
+   "url": "https://liner.com/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "openai-deep-research--openai-com",
+   "name": "OpenAI Deep Research",
+   "url": "https://openai.com/index/introducing-deep-research/",
+   "tier": 1,
+   "current": "Humanity's Last Exam 26.6% (Feb 2025), GAIA validation 67%+ (2025), GPQA Diamond ~78% via o3 base (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "perplexity-deep-research--perplexity-ai",
+   "name": "Perplexity Deep Research",
+   "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research",
+   "tier": 1,
+   "current": "Humanity's Last Exam 21.1% (Feb 2025 per Perplexity), SimpleQA 93.9% (Feb 2025 per Perplexity)",
+   "status": "estimate"
+  },
+  {
+   "id": "sakana-ai-scientist--sakana-ai",
+   "name": "Sakana AI Scientist",
+   "url": "https://sakana.ai/ai-scientist/",
+   "tier": 2,
+   "current": "AI Scientist v1 paper arXiv 2408.06292 (Aug 2024), AI Scientist-v2 update (2025); per-paper cost ~$15 reported in v1",
+   "status": "estimate"
+  },
+  {
+   "id": "scite-ai--scite-ai-2",
+   "name": "scite.ai",
+   "url": "https://scite.ai/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "stanford-storm--storm-genie-stanford-edu",
+   "name": "Stanford STORM",
+   "url": "https://storm.genie.stanford.edu/",
+   "tier": 2,
+   "current": "NAACL 2024 paper (arXiv 2402.14207); FreshWiki / WildSeek benchmark evaluations from STORM paper (2024)",
+   "status": "estimate"
+  },
+  {
+   "id": "you-com-research--you-com",
+   "name": "You.com Research",
+   "url": "https://you.com/research",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  }
+ ],
+ "browser": [
+  {
+   "id": "brave-leo--brave-com",
+   "name": "Brave Leo",
+   "url": "https://brave.com/leo/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "browserbase--browserbase-com",
+   "name": "Browserbase",
+   "url": "https://www.browserbase.com/",
+   "tier": 1,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "dia-atlassian--diabrowser-com",
+   "name": "Dia (Atlassian)",
+   "url": "https://www.diabrowser.com",
+   "tier": 1,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "fellou--fellou-ai",
+   "name": "Fellou",
+   "url": "https://fellou.ai/",
+   "tier": 1,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "microsoft-edge-copilot-mode-journeys--blogs-windows-com",
+   "name": "Microsoft Edge Copilot Mode + Journeys (now Copilot in Edge)",
+   "url": "https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/",
+   "tier": 1,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "opera-ai-formerly-aria--blogs-opera-com",
+   "name": "Opera AI (formerly Aria)",
+   "url": "https://blogs.opera.com/news/2025/02/aria-gets-memory-feature-new-ai-feature-drop/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "perplexity-comet--perplexity-ai",
+   "name": "Perplexity Comet",
+   "url": "https://www.perplexity.ai/comet",
+   "tier": 1,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "sigma-private-ai-browser--sigmabrowser-com",
+   "name": "Sigma (Private AI Browser)",
+   "url": "https://www.sigmabrowser.com/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  }
+ ],
+ "computer-use": [
+  {
+   "id": "browser-use--browser-use-com",
+   "name": "Browser Use",
+   "url": "https://browser-use.com/",
+   "tier": 1,
+   "current": "WebVoyager ~89% maintainer-claimed (2024-2025), general capability estimate \u2014 no specific benchmark recalled for additional tasks",
+   "status": "estimate"
+  },
+  {
+   "id": "bytebot--bytebot-ai",
+   "name": "Bytebot",
+   "url": "https://bytebot.ai/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled (depends on underlying LLM: Claude / GPT-4 / Gemini)",
+   "status": "estimate"
+  },
+  {
+   "id": "claude-for-chrome--anthropic-com",
+   "name": "Claude for Chrome",
+   "url": "https://claude.com/resources/articles/claude-for-chrome",
+   "tier": 1,
+   "current": "Claude 3.5 Sonnet OSWorld 22.0% (2024), Claude Sonnet 4 SWE-Bench Verified ~70% (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "highlight-ai--highlightai-com",
+   "name": "Highlight AI",
+   "url": "https://highlightai.com/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "hyperbrowser--hyperbrowser-ai",
+   "name": "Hyperbrowser",
+   "url": "https://www.hyperbrowser.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled (browser infrastructure, capability depends on driving LLM)",
+   "status": "estimate"
+  },
+  {
+   "id": "lutra-ai--lutra-ai",
+   "name": "Lutra AI",
+   "url": "https://lutra.ai/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "magnitude--magnitude-run",
+   "name": "Magnitude",
+   "url": "https://magnitude.dev/",
+   "tier": 3,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "openai-operator--openai-com",
+   "name": "OpenAI Operator",
+   "url": "https://openai.com/index/introducing-operator/",
+   "tier": 1,
+   "current": "CUA WebArena 58.1% (Jan 2025), CUA OSWorld 38.1% (Jan 2025), WebVoyager 87% (2025)",
+   "status": "estimate"
+  },
+  {
+   "id": "project-mariner--deepmind-google",
+   "name": "Project Mariner",
+   "url": "https://labs.google.com/mariner/",
+   "tier": 1,
+   "current": "Project Mariner WebVoyager 83.5% (Dec 2024), Gemini 2.0 MMLU ~85% (2024)",
+   "status": "estimate"
+  },
+  {
+   "id": "skyvern--skyvern-com",
+   "name": "Skyvern",
+   "url": "https://www.skyvern.com/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "stagehand--stagehand-dev",
+   "name": "Stagehand",
+   "url": "https://www.stagehand.dev/",
+   "tier": 1,
+   "current": "general capability estimate \u2014 no specific benchmark recalled",
+   "status": "estimate"
+  },
+  {
+   "id": "steel-dev--steel-dev",
+   "name": "Steel.dev",
+   "url": "https://steel.dev/",
+   "tier": 2,
+   "current": "general capability estimate \u2014 no specific benchmark recalled (infrastructure layer)",
+   "status": "estimate"
+  },
+  {
+   "id": "ui-tars--gh-bytedance-ui-tars",
+   "name": "UI-TARS",
+   "url": "https://github.com/bytedance/UI-TARS",
+   "tier": 2,
+   "current": "UI-TARS OSWorld 24.6% (Jan 2025, arXiv 2501.12326), UI-TARS ScreenSpot-V2 91.4% (2025)",
+   "status": "estimate"
+  }
+ ]
+}
