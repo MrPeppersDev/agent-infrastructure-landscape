@@ -1154,7 +1154,7 @@
       "name": "01.AI Yi family",
       "tier": 2,
       "url": "https://www.01.ai/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -1815,10 +1815,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "LMSYS Chatbot Arena Yi-Lightning ~GPT-4o tier (2024-10), MMLU Yi-34B ~76% (2023-11), C-Eval Yi-34B ~82% (2023-11)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "humaneval: 83.5% (Yi-Lightning, 0-shot, 2025-01-22) https://arxiv.org/abs/2412.01253 · aider-polyglot: 12.9% (yi-lightning, 2024-12-23) https://aider.chat/docs/leaderboards/ · gpqa: 50.9% (Yi-Lightning, 0-shot, 2025-01-22) https://arxiv.org/abs/2412.01253",
+          "citation": "https://arxiv.org/abs/2412.01253",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -1893,7 +1893,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/01-ai-yi-family--01-ai",
           "status": "real-data",
           "tier": "T2"
@@ -2225,10 +2225,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://arxiv.org/abs/2412.01253",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -2278,7 +2279,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/01-ai-yi-family--01-ai",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -47694,7 +47695,7 @@
       "name": "Aider (harness)",
       "tier": 2,
       "url": "https://aider.chat",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -48340,10 +48341,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "Aider polyglot leaderboard (2024–2025), SWE-bench Verified harness scores with Claude/GPT models (2024–2025), Aider code-edit benchmark (2024)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "aider-polyglot: 88.0% (gpt-5 (high), diff edit format, leaderboard entry 2025-08-23) https://aider.chat/docs/leaderboards/",
+          "citation": "https://aider.chat/docs/leaderboards/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -48419,7 +48420,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/aider-harness--aider-chat",
           "status": "real-data",
           "tier": "T2"
@@ -48765,10 +48766,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://aider.chat/docs/leaderboards/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -48825,7 +48827,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/aider-harness--aider-chat",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -52225,7 +52227,7 @@
       "name": "Alibaba Qwen 3 family",
       "tier": 1,
       "url": "https://qwenlm.github.io/blog/qwen3/",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -52886,10 +52888,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Qwen3-235B ~87% (2025-04), HumanEval Qwen3-Coder ~85% (2025-04), AIME Qwen3 thinking-mode strong (2025-04), LiveCodeBench Qwen3 competitive with R1 (2025-04)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "livecodebench: 90.3% (Qwen3.8-27B, LiveCodeBench v6, 2026-08) https://huggingface.co/Qwen/Qwen3.8-27B · osworld: 84.3% (Qwen3.8-27B, OSWorld-Verified, 2026-08) https://huggingface.co/Qwen/Qwen3.8-27B · longbench-v2: 66.3% (Qwen3.8-Max, 2026-08) https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B · aider-polyglot: 59.6% (Qwen3 235B A22B, no think, 2025-05-09) https://aider.chat/docs/leaderboards/ · gpqa: 92.6% (Qwen3.8-Max, GPQA Diamond, 2026-08) https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+          "citation": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -52964,7 +52966,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/alibaba-qwen-3-family--qwenlm-github-io",
           "status": "real-data",
           "tier": "T2"
@@ -53381,10 +53383,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -53434,7 +53437,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/alibaba-qwen-3-family--qwenlm-github-io",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -61724,7 +61727,7 @@
       "name": "Amazon Nova family",
       "tier": 2,
       "url": "https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -62385,10 +62388,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Nova Pro ~85% (2024-12), Nova Pro multimodal MMMU competitive mid-tier (2024-12), general capability estimate — limited public benchmark detail for Premier",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "swe-bench-verified: 70.0% (Nova 2 Pro, with inference-time scaling and internal agentic scaffolding; 61.5% without, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · livecodebench: 74.6% (Nova 2 Pro, LiveCodeBench v5 Jul 2024–Jan 2025 subset, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · tau-bench: 92.7% (Nova 2 Pro, τ²-bench Telecom; 77.7% Retail-Verified, 65.2% Airline-Verified, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · humaneval: 89.0% (Nova Pro, pass@1 0-shot, 2025-03-17) https://arxiv.org/abs/2506.12103 · aime: 92.3% (Nova 2 Pro, AIME 2025, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+          "citation": "https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -62463,7 +62466,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/amazon-nova-family--aboutamazon-com",
           "status": "real-data",
           "tier": "T2"
@@ -62795,10 +62798,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -62848,7 +62852,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/amazon-nova-family--aboutamazon-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -62860,7 +62864,7 @@
       "name": "Amazon Q Developer",
       "tier": 1,
       "url": "https://aws.amazon.com/q/developer/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "decay_cause": "superseded",
       "decay_evidence": "https://aws.amazon.com/jp/blogs/news/amazon-q-developer-end-of-support-announcement/",
       "sections": [
@@ -63508,10 +63512,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "SWE-bench Verified ~13% reported (2024), HumanEval pass@1 with Q Developer agent (2024), AWS-tooling task evals (2024–2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "swe-bench-verified: 65.4% (Amazon Q Developer Agent (v20250405-dev), model undisclosed, leaderboard entry 2025-04-05) https://www.swebench.com",
+          "citation": "https://www.swebench.com",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -63586,7 +63590,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/amazon-q-developer--aws-amazon-com",
           "status": "real-data",
           "tier": "T2"
@@ -64012,10 +64016,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.swebench.com",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -64065,7 +64070,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/amazon-q-developer--aws-amazon-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -69713,7 +69718,7 @@
       "name": "Anthropic Claude (foundation models)",
       "tier": 1,
       "url": "https://www.anthropic.com/claude",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -70374,10 +70379,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "SWE-bench Verified Opus 4.5 ~80% (2025-11), MMLU Sonnet 4.5 ~89% (2025), GPQA Diamond Opus 4 strong (2025), TAU-bench agentic leading (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "osworld: 81.8% (Claude Opus 5.5, OSWorld 2.1 partial score, max effort; 48.7% strict pass, 2026-09-22) https://www.anthropic.com/news/claude-opus-5-5 · aider-polyglot: 72.0% (claude-opus-4-20250514, 32k thinking, 2025-05-25) https://aider.chat/docs/leaderboards/ · hle: 67.7% (Claude Opus 5.5, with tools, 2026-09-22) https://www.anthropic.com/news/claude-opus-5-5",
+          "citation": "https://www.anthropic.com/news/claude-opus-5-5",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -70452,7 +70457,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/anthropic-claude-foundation-models--anthropic-com",
           "status": "real-data",
           "tier": "T2"
@@ -70878,10 +70883,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.anthropic.com/news/claude-opus-5-5",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -70931,7 +70937,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/anthropic-claude-foundation-models--anthropic-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -72207,7 +72213,7 @@
       "name": "Anthropic Computer Use",
       "tier": 1,
       "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -72853,10 +72859,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "Claude 3.5 Sonnet computer use OSWorld 14.9% (Oct 2024), productionised in Sonnet 4.5 with major OSWorld gains (2025), strong on WebArena",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "osworld: 86.0% (claude-fable-5[1m], 100 steps, OSWorld-Verified leaderboard entry 2026-08-01) https://osworld-v1.xlang.ai/",
+          "citation": "https://osworld-v1.xlang.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -72931,7 +72937,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/anthropic-computer-use--anthropic-com",
           "status": "real-data",
           "tier": "T2"
@@ -73356,10 +73362,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://osworld-v1.xlang.ai/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -73409,7 +73416,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/anthropic-computer-use--anthropic-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -73435,7 +73442,7 @@
       "name": "Anthropic Computer Use",
       "tier": 1,
       "url": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -74081,10 +74088,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "OSWorld 14.9% (Oct 2024) → 22%+ (2025), SWE-bench Verified 49% with Sonnet 3.5 (Oct 2024) → 70%+ with Sonnet 4 (2025), WebArena gains (2024)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "osworld: 86.0% (claude-fable-5[1m], 100 steps, OSWorld-Verified leaderboard entry 2026-08-01) https://osworld-v1.xlang.ai/",
+          "citation": "https://osworld-v1.xlang.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -74159,7 +74166,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/anthropic-computer-use--docs-anthropic-com",
           "status": "real-data",
           "tier": "T2"
@@ -74588,10 +74595,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://osworld-v1.xlang.ai/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -74641,7 +74649,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/anthropic-computer-use--docs-anthropic-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -101569,7 +101577,7 @@
       "name": "AutoGen / AG2",
       "tier": 1,
       "url": "https://github.com/ag2ai/ag2",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -102215,10 +102223,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "AutoGen-based agents strong on GAIA (Magnetic-One built on AutoGen, 2024), HumanEval / MATH leverage frontier model orchestration (2024-2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "gaia: 32.2% (Multi-Agent Experiment v0.1 (powered by AutoGen), MSR AI Frontiers, test set, leaderboard entry 2024-03-01) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -102294,7 +102302,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/autogen-ag2--gh-ag2ai-ag2",
           "status": "real-data",
           "tier": "T2"
@@ -102725,10 +102733,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -102785,7 +102794,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/autogen-ag2--gh-ag2ai-ag2",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -105175,7 +105184,7 @@
       "name": "AutoGPT",
       "tier": 2,
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -105821,10 +105830,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "AutoGPT GAIA bench mid-tier (2023-2024), AgentBench autonomous tasks limited completion rate (2023)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "gaia: 5.0% (AutoGPT4, AutoGPT, test set, leaderboard entry 2023-11-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -105900,7 +105909,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/autogpt--gh-significant-gravitas-autogpt",
           "status": "real-data",
           "tier": "T2"
@@ -106243,10 +106252,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -106303,7 +106313,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/autogpt--gh-significant-gravitas-autogpt",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -147134,7 +147144,7 @@
       "name": "Browser Use",
       "tier": 1,
       "url": "https://browser-use.com/",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -147780,10 +147790,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "WebVoyager ~89% maintainer-claimed (2024-2025), general capability estimate — no specific benchmark recalled for additional tasks",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "webvoyager: 89.1% (Browser Use + GPT-4o, 586 tasks, vendor technical report 2024-12-15; WebVoyager is outside the composite's three families) https://browser-use.com/posts/sota-technical-report",
+          "citation": "https://browser-use.com/posts/sota-technical-report",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -147859,7 +147869,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/browser-use--browser-use-com",
           "status": "real-data",
           "tier": "T2"
@@ -148296,10 +148306,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://browser-use.com/posts/sota-technical-report",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -148363,7 +148374,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/browser-use--browser-use-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -160919,7 +160930,7 @@
       "name": "CAMEL",
       "tier": 3,
       "url": "https://github.com/camel-ai/camel",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -161533,10 +161544,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "(LLM unverified)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "gaia: 69.1% (OWL - Workforce, CAMEL-AI & HKU, validation set, leaderboard entry 2025-04-17) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "(LLM unverified)",
@@ -161612,7 +161623,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/camel--gh-camel-ai-camel",
           "status": "real-data",
           "tier": "T2"
@@ -162283,10 +162294,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-10-26",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-10-26",
@@ -162364,7 +162376,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/camel--gh-camel-ai-camel",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -219266,7 +219278,7 @@
       "name": "Cohere Command R+ / Command A",
       "tier": 1,
       "url": "https://cohere.com/command",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -219927,10 +219939,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Command A ~85% (2025-03), RAG-specialized HELM benchmarks strong (2024), HumanEval Command R+ mid-tier (2024)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "tau-bench: 85.0% (Command A+ command-a-plus-05-2026, τ²-Bench Telecom, 2026-05-20) https://cohere.com/blog/command-a-plus · aider-polyglot: 12.0% (command-a-03-2025, 2025-03-14) https://aider.chat/docs/leaderboards/",
+          "citation": "https://cohere.com/blog/command-a-plus",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -220005,7 +220017,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/cohere-command-r-command-a--cohere-com",
           "status": "real-data",
           "tier": "T2"
@@ -220337,10 +220349,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://cohere.com/blog/command-a-plus",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -220390,7 +220403,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/cohere-command-r-command-a--cohere-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -277470,7 +277483,7 @@
       "name": "DeepSeek R1 / V3 family",
       "tier": 1,
       "url": "https://www.deepseek.com/",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -278131,10 +278144,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "AIME 2024 R1 ~79% (2025-01), MATH-500 R1 ~97% (2025-01), SWE-bench Verified V3 ~42% (2024-12), MMLU V3 ~88% (2024-12)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "swe-bench-verified: 80.6% (DeepSeek-V4-Pro-Max, 2026-04-26) https://arxiv.org/abs/2606.19348 · livecodebench: 93.5% (DeepSeek-V4-Pro-Max, pass@1, 2026-04-26) https://arxiv.org/abs/2606.19348 · longbench-v2: 51.5% (DeepSeek-V4-Pro-Base, 1-shot EM, 2026-04-26) https://arxiv.org/abs/2606.19348 · aider-polyglot: 74.2% (DeepSeek-V3.2-Exp Reasoner, 2025-10-03) https://aider.chat/docs/leaderboards/ · gpqa: 90.1% (DeepSeek-V4-Pro-Max, GPQA Diamond, 2026-04-26) https://arxiv.org/abs/2606.19348",
+          "citation": "https://arxiv.org/abs/2606.19348",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -278209,7 +278222,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/deepseek-r1-v3-family--deepseek-com",
           "status": "real-data",
           "tier": "T2"
@@ -278629,10 +278642,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://arxiv.org/abs/2606.19348",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -278682,7 +278696,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/deepseek-r1-v3-family--deepseek-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -396172,7 +396186,7 @@
       "name": "Google Gemini 3 family",
       "tier": 1,
       "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -396833,10 +396847,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Gemini 3 Pro ~92% (2025), GPQA Diamond Gemini 3 Pro frontier-leading (2025), long-context 1M-2M ctx needle-in-haystack near-perfect (2025), SWE-bench Verified Gemini 3 strong (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "osworld: 81.5% (Gemini 4 Carbon, OSWorld 2.1 offline 82-task subset partial score, max over 3 single-attempt runs, 2026-10) https://deepmind.google/models/gemini/ · aider-polyglot: 83.1% (gemini-2.5-pro-preview-06-05, 32k think, 2025-06-06) https://aider.chat/docs/leaderboards/",
+          "citation": "https://deepmind.google/models/gemini/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -396911,7 +396925,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/google-gemini-3-family--blog-google",
           "status": "real-data",
           "tier": "T2"
@@ -397243,10 +397257,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://deepmind.google/models/gemini/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -397296,7 +397311,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/google-gemini-3-family--blog-google",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -596896,7 +596911,7 @@
       "name": "Magnetic-One",
       "tier": 3,
       "url": "https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/",
-      "last_verified_at": "2026-10-27",
+      "last_verified_at": "2026-10-31",
       "decay_cause": "superseded",
       "decay_evidence": "https://github.com/microsoft/autogen",
       "sections": [
@@ -597544,10 +597559,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "Magnetic-One GAIA 38% (Nov 2024), WebArena 32.1% (2024), AssistantBench 27.7% (2024) — competitive open multi-agent baseline",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "gaia: 37.9% (Magentic-1 (o1), MSR AI Frontiers, test set, leaderboard entry 2024-10-19) https://huggingface.co/spaces/gaia-benchmark/leaderboard · webarena: 32.8% (Magentic-One with GPT-4o, all 812 tasks, paper arXiv 2411.04468 2024-11) https://arxiv.org/abs/2411.04468",
+          "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -597623,7 +597638,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-27",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/magnetic-one--microsoft-com",
           "status": "real-data",
           "tier": "T2"
@@ -597954,10 +597969,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -598014,7 +598030,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/magnetic-one--microsoft-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -703210,7 +703226,7 @@
       "name": "Meta Llama 4 family",
       "tier": 1,
       "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -703871,10 +703887,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Llama 4 Maverick ~85% (2025-04), Llama 4 Scout 10M-ctx long-context (2025-04), HumanEval Llama 4 competitive (2025-04), GPQA Llama 4 Behemoth previewed (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "livecodebench: 43.4% (Llama 4 Maverick instruct, 2024-10-01 to 2025-02-01 window, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md · mbpp: 77.6% (Llama 4 Maverick pre-trained, 3-shot pass@1, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md · aider-polyglot: 15.6% (Llama 4 Maverick, 2025-04-06) https://aider.chat/docs/leaderboards/ · gpqa: 69.8% (Llama 4 Maverick instruct, GPQA Diamond, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+          "citation": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+          "status": "real-data",
+          "tier": "T1"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -703949,7 +703965,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/meta-llama-4-family--ai-meta-com",
           "status": "real-data",
           "tier": "T2"
@@ -704281,10 +704297,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -704334,7 +704351,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/meta-llama-4-family--ai-meta-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -708091,7 +708108,7 @@
       "name": "MetaGPT",
       "tier": 2,
       "url": "https://github.com/geekan/MetaGPT",
-      "last_verified_at": "2026-10-27",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -708737,10 +708754,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MetaGPT ICLR 2024 paper reports SOTA on HumanEval pass@1 for multi-agent setups, strong on SoftwareDev benchmark",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "humaneval: 85.9% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352 · mbpp: 87.7% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352",
+          "citation": "https://arxiv.org/abs/2308.00352",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -708815,7 +708832,7 @@
           "tier": "T2"
         },
         "freshness-date": {
-          "value": "2026-10-27",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/metagpt--gh-geekan-metagpt",
           "status": "real-data",
           "tier": "T2"
@@ -709149,10 +709166,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://arxiv.org/abs/2308.00352",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -709209,7 +709227,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/metagpt--gh-geekan-metagpt",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -709235,7 +709253,7 @@
       "name": "MetaGPT (harness)",
       "tier": 2,
       "url": "https://github.com/FoundationAgents/MetaGPT",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -709881,10 +709899,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "HumanEval pass@1 85.9% reported (2023), MBPP pass@1 87.7% (2023), SoftwareDev internal eval (2023)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "humaneval: 85.9% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352 · mbpp: 87.7% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352",
+          "citation": "https://arxiv.org/abs/2308.00352",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -709960,7 +709978,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/metagpt-harness--gh-foundationagents-metagpt",
           "status": "real-data",
           "tier": "T2"
@@ -710303,10 +710321,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://arxiv.org/abs/2308.00352",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -710363,7 +710382,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/metagpt-harness--gh-foundationagents-metagpt",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -720681,7 +720700,7 @@
       "name": "Microsoft Phi-4 family",
       "tier": 2,
       "url": "https://azure.microsoft.com/en-us/products/phi",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -721342,10 +721361,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Phi-4 ~85% (2024-12), GSM8K Phi-4 ~90% (2024-12), HumanEval Phi-4 ~83% (2024-12), MATH Phi-4 ~80% (2024-12)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "livecodebench: 53.8% (Phi-4-reasoning, 2024-08 to 2025-01 window, 2025-04-30) https://arxiv.org/abs/2504.21318 · gpqa: 69.3% (Phi-4-reasoning-plus, GPQA Diamond, 2025-04-30) https://arxiv.org/abs/2504.21318 · aime: 81.3% (Phi-4-reasoning-plus, AIME 2024, 2025-04-30) https://arxiv.org/abs/2504.21318",
+          "citation": "https://arxiv.org/abs/2504.21318",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -721420,7 +721439,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/microsoft-phi-4-family--azure-microsoft-com",
           "status": "real-data",
           "tier": "T2"
@@ -721757,10 +721776,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://arxiv.org/abs/2504.21318",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -721810,7 +721830,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/microsoft-phi-4-family--azure-microsoft-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -734655,7 +734675,7 @@
       "name": "Mistral Large 2 / Mixtral family",
       "tier": 1,
       "url": "https://mistral.ai/news/mistral-large-2407/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -735316,10 +735336,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "MMLU Mistral Large 2 ~84% (2024-07), HumanEval Mistral Large 2 ~92% (2024-07), Mixtral 8x22B MoE competitive open-weights (2024-04)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "swe-bench-verified: 77.6% (Mistral Medium 3.5, 2026-05-22) https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5 · swe-bench-verified: 72.2% (Devstral 2 123B, 2025-12-09) https://mistral.ai/news/devstral-2-vibe-cli",
+          "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -735394,7 +735414,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/mistral-large-2-mixtral-family--mistral-ai",
           "status": "real-data",
           "tier": "T2"
@@ -735732,10 +735752,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -735785,7 +735806,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/mistral-large-2-mixtral-family--mistral-ai",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -809494,7 +809515,7 @@
       "name": "OpenAI Deep Research",
       "tier": 1,
       "url": "https://openai.com/index/introducing-deep-research/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -810140,10 +810161,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "Humanity's Last Exam 26.6% (Feb 2025), GAIA validation 67%+ (2025), GPQA Diamond ~78% via o3 base (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "gaia: 67.4% (OpenAI deep research, validation set, as quoted by Hugging Face open-deep-research post 2025-02-04) https://huggingface.co/blog/open-deep-research · mle-bench: 11.0% (post-mitigation deep research, bronze-medal pass@1, system card 2025-02-25) https://cdn.openai.com/deep-research-system-card.pdf · swe-lancer: 53.0% (post-mitigation deep research with browsing, IC SWE Diamond tasks solved, system card 2025-02-25) https://cdn.openai.com/deep-research-system-card.pdf",
+          "citation": "https://cdn.openai.com/deep-research-system-card.pdf",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -810218,7 +810239,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-deep-research--openai-com",
           "status": "real-data",
           "tier": "T2"
@@ -810635,9 +810656,10 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
+          "scrape_url": "https://cdn.openai.com/deep-research-system-card.pdf",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": false
         },
         "capability-last-verified": {
@@ -810688,7 +810710,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-deep-research--openai-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -813357,7 +813379,7 @@
       "name": "OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4)",
       "tier": 1,
       "url": "https://openai.com/index/introducing-gpt-5/",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -814018,10 +814040,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "SWE-bench Verified GPT-5 ~74% (2025-08), AIME 2024 o3 ~96% (2024-12), GPQA Diamond o3 ~88% (2024-12), MMLU GPT-5 ~91% (2025-08)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "aider-polyglot: 88.0% (gpt-5 high, 2025-08-23) https://aider.chat/docs/leaderboards/ · osworld: 80.9% (GPT-6 Astra, OSWorld 2.1 offline 82-task subset, as reproduced from OpenAI's published evaluation by Google DeepMind, 2026-10) https://deepmind.google/models/gemini/ · livecodebench: 86.8% (GPT-5 high, Jan–May 2025 window, as reproduced from OpenAI-reported results by xAI, 2025-09-19) https://x.ai/news/grok-4-fast",
+          "citation": "https://aider.chat/docs/leaderboards/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -814096,7 +814118,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
           "status": "real-data",
           "tier": "T2"
@@ -814434,9 +814456,10 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
+          "scrape_url": "https://aider.chat/docs/leaderboards/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": false
         },
         "capability-last-verified": {
@@ -814487,7 +814510,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -815639,7 +815662,7 @@
       "name": "OpenAI Operator",
       "tier": 1,
       "url": "https://openai.com/index/introducing-operator/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "decay_cause": "superseded",
       "decay_evidence": "https://operator.chatgpt.com/",
       "sections": [
@@ -816287,10 +816310,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "CUA WebArena 58.1% (Jan 2025), CUA OSWorld 38.1% (Jan 2025), WebVoyager 87% (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "osworld: 31.4% (computer-use-preview, 100 steps, OSWorld-Verified leaderboard entry 2025-07-28) https://osworld-v1.xlang.ai/ · webarena: 58.1% (OpenAI Operator, result source OpenAI CUA system card, leaderboard entry 2025-01) https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?usp=sharing",
+          "citation": "https://osworld-v1.xlang.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -816365,7 +816388,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-operator--openai-com",
           "status": "real-data",
           "tier": "T2"
@@ -816785,10 +816808,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://osworld-v1.xlang.ai/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -816838,7 +816862,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-operator--openai-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -823020,7 +823044,7 @@
       "name": "OpenDevin / OpenHands",
       "tier": 2,
       "url": "https://github.com/OpenHands/OpenHands",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -823666,10 +823690,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "OpenHands SWE-bench Verified ~53% with Claude 3.5 Sonnet (2025), top OSS SWE agent, top of SWE-bench Lite leaderboard among open agents",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "swe-bench-verified: 71.8% (OpenHands + GPT-5, leaderboard entry 2025-08-07) https://www.swebench.com · gaia: 37.2% (OpenHands v0.28.1, test set, leaderboard entry 2025-06-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard · mle-bench: 4.9% (OpenHands + gpt-4o-2024-08-06, any-medal, leaderboard entry 2024-10-08) https://github.com/openai/mle-bench",
+          "citation": "https://www.swebench.com",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -823745,7 +823769,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/opendevin-openhands--gh-all-hands-ai-openhands",
           "status": "real-data",
           "tier": "T2"
@@ -824082,10 +824106,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.swebench.com",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -824142,7 +824167,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/opendevin-openhands--gh-all-hands-ai-openhands",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -825282,7 +825307,7 @@
       "name": "OpenHands (All Hands AI)",
       "tier": 1,
       "url": "https://www.openhands.dev/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent IDEs & coding harnesses",
@@ -825933,10 +825958,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "SWE-bench Verified 53% with Claude Sonnet (2024), 60%+ with Sonnet 4 (2025), Aider polyglot leaderboard (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "swe-bench-verified: 71.8% (OpenHands + GPT-5, leaderboard entry 2025-08-07) https://www.swebench.com · gaia: 37.2% (OpenHands v0.28.1, test set, leaderboard entry 2025-06-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard · mle-bench: 4.9% (OpenHands + gpt-4o-2024-08-06, any-medal, leaderboard entry 2024-10-08) https://github.com/openai/mle-bench",
+          "citation": "https://www.swebench.com",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -826012,7 +826037,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openhands-all-hands-ai--all-hands-dev",
           "status": "real-data",
           "tier": "T2"
@@ -826435,10 +826460,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.swebench.com",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -826495,7 +826521,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openhands-all-hands-ai--all-hands-dev",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -889744,7 +889770,7 @@
       "name": "Project Mariner",
       "tier": 1,
       "url": "https://labs.google.com/mariner/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "decay_cause": "archived",
       "decay_evidence": "https://labs.google.com/mariner/",
       "sections": [
@@ -890392,10 +890418,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "Project Mariner WebVoyager 83.5% (Dec 2024), Gemini 2.0 MMLU ~85% (2024)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "webvoyager: 83.5% (Project Mariner, Gemini 2.0, single-agent setup, Google blog 2024-12-11; WebVoyager is outside the composite's three families) https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/",
+          "citation": "https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -890470,7 +890496,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/project-mariner--deepmind-google",
           "status": "real-data",
           "tier": "T2"
@@ -890887,10 +890913,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -890926,7 +890953,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/project-mariner--deepmind-google",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1025974,7 +1026001,7 @@
       "name": "Skyvern",
       "tier": 2,
       "url": "https://www.skyvern.com/",
-      "last_verified_at": "2026-10-26",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Computer-use & desktop agents",
@@ -1026620,10 +1026647,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "general capability estimate — no specific benchmark recalled",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "webvoyager: 85.9% (Skyvern 2.0 + GPT-4o, vendor report 2025-01-16; WebVoyager is outside the composite's three families) https://www.skyvern.com/blog/skyvern-2-0-state-of-the-art-web-navigation-with-85-8-on-webvoyager-eval/",
+          "citation": "https://www.skyvern.com/blog/skyvern-2-0-state-of-the-art-web-navigation-with-85-8-on-webvoyager-eval/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -1026699,7 +1026726,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-26",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/skyvern--skyvern-com",
           "status": "real-data",
           "tier": "T2"
@@ -1027045,10 +1027072,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://www.skyvern.com/blog/skyvern-2-0-state-of-the-art-web-navigation-with-85-8-on-webvoyager-eval/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -1027112,7 +1027140,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/skyvern--skyvern-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1032357,7 +1032385,7 @@
       "name": "smolagents (Hugging Face)",
       "tier": 2,
       "url": "https://github.com/huggingface/smolagents",
-      "last_verified_at": "2026-10-27",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Agent frameworks (no first-party memory layer)",
@@ -1033003,10 +1033031,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "smolagents code-agents claim ~55% GAIA validation with frontier models (Dec 2024); strong code-execution agentic pattern",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "gaia: 49.8% (open Deep Research (pass@1), HF smolagents, test set, leaderboard entry 2025-02-10) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -1033082,7 +1033110,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-27",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/smolagents-hugging-face--gh-huggingface-smolagents",
           "status": "real-data",
           "tier": "T2"
@@ -1033419,10 +1033447,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -1033486,7 +1033515,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/smolagents-hugging-face--gh-huggingface-smolagents",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1134722,10 +1134751,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "UI-TARS OSWorld 24.6% (Jan 2025, arXiv 2501.12326), UI-TARS ScreenSpot-V2 91.4% (2025)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "osworld: 53.1% (UI-TARS-2-2509, 100 steps, OSWorld-Verified leaderboard entry 2025-10-14) https://osworld-v1.xlang.ai/",
+          "citation": "https://osworld-v1.xlang.ai/",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -1135150,10 +1135179,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://osworld-v1.xlang.ai/",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -1172559,7 +1172589,7 @@
       "name": "xAI Grok 4",
       "tier": 1,
       "url": "https://x.ai/news/grok-4",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-10-31",
       "sections": [
         {
           "section": "Foundation models (substrate reference)",
@@ -1173220,10 +1173250,10 @@
           "tier": "T3"
         },
         "capability-benchmark-sources": {
-          "value": "Humanity's Last Exam Grok 4 leading (2025-07), AIME 2025 Grok 4 ~95% (2025-07), GPQA Diamond Grok 4 ~88% (2025-07), ARC-AGI-2 Grok 4 frontier-tier (2025-07)",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
+          "value": "livecodebench: 80.0% (Grok 4 Fast, Jan–May 2025 window, pass@1; Grok 4 79.0%, 2025-09-19) https://x.ai/news/grok-4-fast · aider-polyglot: 79.6% (grok-4 high, 2025-07-11) https://aider.chat/docs/leaderboards/ · gpqa: 87.5% (Grok 4, GPQA Diamond, 2025-09-19) https://x.ai/news/grok-4-fast",
+          "citation": "https://x.ai/news/grok-4-fast",
+          "status": "real-data",
+          "tier": "T2"
         },
         "capability-last-verified": {
           "value": "2026-06-29",
@@ -1173298,7 +1173328,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-10-31",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/xai-grok-4--x-ai",
           "status": "real-data",
           "tier": "T2"
@@ -1173645,10 +1173675,11 @@
           "verified": false
         },
         "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
+          "scrape_url": "https://x.ai/news/grok-4-fast",
+          "scraped_at": "2026-10-31",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": true
         },
         "capability-last-verified": {
           "generated_at": "2026-06-29",
@@ -1173698,7 +1173729,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/xai-grok-4--x-ai",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-10-31",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true

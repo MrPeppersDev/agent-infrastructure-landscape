@@ -1,0 +1,164 @@
+[
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "LMSYS Chatbot Arena Yi-Lightning ~GPT-4o tier (2024-10), MMLU Yi-34B ~76% (2023-11), C-Eval Yi-34B ~82% (2023-11)",
+    "new": "humaneval: 83.5% (Yi-Lightning, 0-shot, 2025-01-22) https://arxiv.org/abs/2412.01253 · aider-polyglot: 12.9% (yi-lightning, 2024-12-23) https://aider.chat/docs/leaderboards/ · gpqa: 50.9% (Yi-Lightning, 0-shot, 2025-01-22) https://arxiv.org/abs/2412.01253",
+    "citation": "https://arxiv.org/abs/2412.01253",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "alibaba-qwen-3-family--qwenlm-github-io",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Qwen3-235B ~87% (2025-04), HumanEval Qwen3-Coder ~85% (2025-04), AIME Qwen3 thinking-mode strong (2025-04), LiveCodeBench Qwen3 competitive with R1 (2025-0",
+    "new": "livecodebench: 90.3% (Qwen3.8-27B, LiveCodeBench v6, 2026-08) https://huggingface.co/Qwen/Qwen3.8-27B · osworld: 84.3% (Qwen3.8-27B, OSWorld-Verified, 2026-08) https://huggingface.co/Qwen/Qwen3.8-27B · longbench-v2: 66.3% (Qwen3.8-Max, 2026-08) https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B · aider-polyglot: 59.6% (Qwen3 235B A22B, no think, 2025-05-09) https://aider.chat/docs/leaderboards/ · gpqa: 92.6% (Qwen3.8-Max, GPQA Diamond, 2026-08) https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+    "citation": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Nova Pro ~85% (2024-12), Nova Pro multimodal MMMU competitive mid-tier (2024-12), general capability estimate — limited public benchmark detail for Premier",
+    "new": "swe-bench-verified: 70.0% (Nova 2 Pro, with inference-time scaling and internal agentic scaffolding; 61.5% without, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · livecodebench: 74.6% (Nova 2 Pro, LiveCodeBench v5 Jul 2024–Jan 2025 subset, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · tau-bench: 92.7% (Nova 2 Pro, τ²-bench Telecom; 77.7% Retail-Verified, 65.2% Airline-Verified, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · humaneval: 89.0% (Nova Pro, pass@1 0-shot, 2025-03-17) https://arxiv.org/abs/2506.12103 · aime: 92.3% (Nova 2 Pro, AIME 2025, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+    "citation": "https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-claude-foundation-models--anthropic-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "SWE-bench Verified Opus 4.5 ~80% (2025-11), MMLU Sonnet 4.5 ~89% (2025), GPQA Diamond Opus 4 strong (2025), TAU-bench agentic leading (2025)",
+    "new": "osworld: 81.8% (Claude Opus 5.5, OSWorld 2.1 partial score, max effort; 48.7% strict pass, 2026-09-22) https://www.anthropic.com/news/claude-opus-5-5 · aider-polyglot: 72.0% (claude-opus-4-20250514, 32k thinking, 2025-05-25) https://aider.chat/docs/leaderboards/ · hle: 67.7% (Claude Opus 5.5, with tools, 2026-09-22) https://www.anthropic.com/news/claude-opus-5-5",
+    "citation": "https://www.anthropic.com/news/claude-opus-5-5",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cohere-command-r-command-a--cohere-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Command A ~85% (2025-03), RAG-specialized HELM benchmarks strong (2024), HumanEval Command R+ mid-tier (2024)",
+    "new": "tau-bench: 85.0% (Command A+ command-a-plus-05-2026, τ²-Bench Telecom, 2026-05-20) https://cohere.com/blog/command-a-plus · aider-polyglot: 12.0% (command-a-03-2025, 2025-03-14) https://aider.chat/docs/leaderboards/",
+    "citation": "https://cohere.com/blog/command-a-plus",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "AIME 2024 R1 ~79% (2025-01), MATH-500 R1 ~97% (2025-01), SWE-bench Verified V3 ~42% (2024-12), MMLU V3 ~88% (2024-12)",
+    "new": "swe-bench-verified: 80.6% (DeepSeek-V4-Pro-Max, 2026-04-26) https://arxiv.org/abs/2606.19348 · livecodebench: 93.5% (DeepSeek-V4-Pro-Max, pass@1, 2026-04-26) https://arxiv.org/abs/2606.19348 · longbench-v2: 51.5% (DeepSeek-V4-Pro-Base, 1-shot EM, 2026-04-26) https://arxiv.org/abs/2606.19348 · aider-polyglot: 74.2% (DeepSeek-V3.2-Exp Reasoner, 2025-10-03) https://aider.chat/docs/leaderboards/ · gpqa: 90.1% (DeepSeek-V4-Pro-Max, GPQA Diamond, 2026-04-26) https://arxiv.org/abs/2606.19348",
+    "citation": "https://arxiv.org/abs/2606.19348",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Gemini 3 Pro ~92% (2025), GPQA Diamond Gemini 3 Pro frontier-leading (2025), long-context 1M-2M ctx needle-in-haystack near-perfect (2025), SWE-bench Verif",
+    "new": "osworld: 81.5% (Gemini 4 Carbon, OSWorld 2.1 offline 82-task subset partial score, max over 3 single-attempt runs, 2026-10) https://deepmind.google/models/gemini/ · aider-polyglot: 83.1% (gemini-2.5-pro-preview-06-05, 32k think, 2025-06-06) https://aider.chat/docs/leaderboards/",
+    "citation": "https://deepmind.google/models/gemini/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Llama 4 Maverick ~85% (2025-04), Llama 4 Scout 10M-ctx long-context (2025-04), HumanEval Llama 4 competitive (2025-04), GPQA Llama 4 Behemoth previewed (20",
+    "new": "livecodebench: 43.4% (Llama 4 Maverick instruct, 2024-10-01 to 2025-02-01 window, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md · mbpp: 77.6% (Llama 4 Maverick pre-trained, 3-shot pass@1, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md · aider-polyglot: 15.6% (Llama 4 Maverick, 2025-04-06) https://aider.chat/docs/leaderboards/ · gpqa: 69.8% (Llama 4 Maverick instruct, GPQA Diamond, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+    "citation": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Phi-4 ~85% (2024-12), GSM8K Phi-4 ~90% (2024-12), HumanEval Phi-4 ~83% (2024-12), MATH Phi-4 ~80% (2024-12)",
+    "new": "livecodebench: 53.8% (Phi-4-reasoning, 2024-08 to 2025-01 window, 2025-04-30) https://arxiv.org/abs/2504.21318 · gpqa: 69.3% (Phi-4-reasoning-plus, GPQA Diamond, 2025-04-30) https://arxiv.org/abs/2504.21318 · aime: 81.3% (Phi-4-reasoning-plus, AIME 2024, 2025-04-30) https://arxiv.org/abs/2504.21318",
+    "citation": "https://arxiv.org/abs/2504.21318",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Mistral Large 2 ~84% (2024-07), HumanEval Mistral Large 2 ~92% (2024-07), Mixtral 8x22B MoE competitive open-weights (2024-04)",
+    "new": "swe-bench-verified: 77.6% (Mistral Medium 3.5, 2026-05-22) https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5 · swe-bench-verified: 72.2% (Devstral 2 123B, 2025-12-09) https://mistral.ai/news/devstral-2-vibe-cli",
+    "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "SWE-bench Verified GPT-5 ~74% (2025-08), AIME 2024 o3 ~96% (2024-12), GPQA Diamond o3 ~88% (2024-12), MMLU GPT-5 ~91% (2025-08)",
+    "new": "aider-polyglot: 88.0% (gpt-5 high, 2025-08-23) https://aider.chat/docs/leaderboards/ · osworld: 80.9% (GPT-6 Astra, OSWorld 2.1 offline 82-task subset, as reproduced from OpenAI's published evaluation by Google DeepMind, 2026-10) https://deepmind.google/models/gemini/ · livecodebench: 86.8% (GPT-5 high, Jan–May 2025 window, as reproduced from OpenAI-reported results by xAI, 2025-09-19) https://x.ai/news/grok-4-fast",
+    "citation": "https://aider.chat/docs/leaderboards/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "verified": false,
+  "updates": [],
+  "note": "Checked reka.ai/news index, Reka Flash 3 (2025-03-10), Reka Flash 3.1 + Reka Quant (2025-07-10), Reka Edge (2026-03-11), Reka EdgeQ (2026-09-22), Nexus (2025-03-10), and the Hugging Face cards RekaAI/reka-flash-3.1 and reka-flash-3 (404). The only listed benchmark mentioned is LiveCodeBench v5, given only as a relative gain ('improves by 10 points' over Flash 3) with no absolute score; Flash 3 reports MMLU-Pro 65.0 (excluded family) and Edge/EdgeQ report only vision benchmarks (RefCOCO, MLVU). No primary-source number for any code/agentic/long-context benchmark."
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Humanity's Last Exam Grok 4 leading (2025-07), AIME 2025 Grok 4 ~95% (2025-07), GPQA Diamond Grok 4 ~88% (2025-07), ARC-AGI-2 Grok 4 frontier-tier (2025-07)",
+    "new": "livecodebench: 80.0% (Grok 4 Fast, Jan–May 2025 window, pass@1; Grok 4 79.0%, 2025-09-19) https://x.ai/news/grok-4-fast · aider-polyglot: 79.6% (grok-4 high, 2025-07-11) https://aider.chat/docs/leaderboards/ · gpqa: 87.5% (Grok 4, GPQA Diamond, 2025-09-19) https://x.ai/news/grok-4-fast",
+    "citation": "https://x.ai/news/grok-4-fast",
+    "confidence": "high"
+   }
+  ]
+ }
+]

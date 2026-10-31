@@ -1,0 +1,223 @@
+[
+  {
+    "id": "aider-harness--aider-chat",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "Aider polyglot leaderboard (2024–2025), SWE-bench Verified harness scores with Claude/GPT models (2024–2025), Aider code-edit benchmark (2024)",
+        "new": "aider-polyglot: 88.0% (gpt-5 (high), diff edit format, leaderboard entry 2025-08-23) https://aider.chat/docs/leaderboards/",
+        "citation": "https://aider.chat/docs/leaderboards/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "amazon-q-developer--aws-amazon-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "SWE-bench Verified ~13% reported (2024), HumanEval pass@1 with Q Developer agent (2024), AWS-tooling task evals (2024–2025)",
+        "new": "swe-bench-verified: 65.4% (Amazon Q Developer Agent (v20250405-dev), model undisclosed, leaderboard entry 2025-04-05) https://www.swebench.com",
+        "citation": "https://www.swebench.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "anthropic-computer-use--docs-anthropic-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "OSWorld 14.9% (Oct 2024) → 22%+ (2025), SWE-bench Verified 49% with Sonnet 3.5 (Oct 2024) → 70%+ with Sonnet 4 (2025), WebArena gains (2024)",
+        "new": "osworld: 86.0% (claude-fable-5[1m], 100 steps, OSWorld-Verified leaderboard entry 2026-08-01) https://osworld-v1.xlang.ai/",
+        "citation": "https://osworld-v1.xlang.ai/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "claude-code-anthropic--anthropic-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "SWE-bench Verified 70%+ with Sonnet 4 / Opus 4 (2025), Terminal-Bench SOTA (2025), Aider polyglot leaderboard top tier (2025)",
+        "new": "webarena: 68.0% (Claude Code + GBOX MCP, result source GBOX AI, leaderboard entry 2025-10) https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?usp=sharing",
+        "citation": "https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?usp=sharing",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "metagpt-harness--gh-foundationagents-metagpt",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "HumanEval pass@1 85.9% reported (2023), MBPP pass@1 87.7% (2023), SoftwareDev internal eval (2023)",
+        "new": "humaneval: 85.9% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352 · mbpp: 87.7% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352",
+        "citation": "https://arxiv.org/abs/2308.00352",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "openhands-all-hands-ai--all-hands-dev",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "SWE-bench Verified 53% with Claude Sonnet (2024), 60%+ with Sonnet 4 (2025), Aider polyglot leaderboard (2025)",
+        "new": "swe-bench-verified: 71.8% (OpenHands + GPT-5, leaderboard entry 2025-08-07) https://www.swebench.com · gaia: 37.2% (OpenHands v0.28.1, test set, leaderboard entry 2025-06-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard · mle-bench: 4.9% (OpenHands + gpt-4o-2024-08-06, any-medal, leaderboard entry 2024-10-08) https://github.com/openai/mle-bench",
+        "citation": "https://www.swebench.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "openai-operator--openai-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "CUA WebArena 58.1% (Jan 2025), CUA OSWorld 38.1% (Jan 2025), WebVoyager 87% (2025)",
+        "new": "osworld: 31.4% (computer-use-preview, 100 steps, OSWorld-Verified leaderboard entry 2025-07-28) https://osworld-v1.xlang.ai/ · webarena: 58.1% (OpenAI Operator, result source OpenAI CUA system card, leaderboard entry 2025-01) https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?usp=sharing",
+        "citation": "https://osworld-v1.xlang.ai/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ui-tars--gh-bytedance-ui-tars",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "UI-TARS OSWorld 24.6% (Jan 2025, arXiv 2501.12326), UI-TARS ScreenSpot-V2 91.4% (2025)",
+        "new": "osworld: 53.1% (UI-TARS-2-2509, 100 steps, OSWorld-Verified leaderboard entry 2025-10-14) https://osworld-v1.xlang.ai/",
+        "citation": "https://osworld-v1.xlang.ai/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "openai-deep-research--openai-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "Humanity's Last Exam 26.6% (Feb 2025), GAIA validation 67%+ (2025), GPQA Diamond ~78% via o3 base (2025)",
+        "new": "gaia: 67.4% (OpenAI deep research, validation set, as quoted by Hugging Face open-deep-research post 2025-02-04) https://huggingface.co/blog/open-deep-research · mle-bench: 11.0% (post-mitigation deep research, bronze-medal pass@1, system card 2025-02-25) https://cdn.openai.com/deep-research-system-card.pdf · swe-lancer: 53.0% (post-mitigation deep research with browsing, IC SWE Diamond tasks solved, system card 2025-02-25) https://cdn.openai.com/deep-research-system-card.pdf",
+        "citation": "https://cdn.openai.com/deep-research-system-card.pdf",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "anthropic-computer-use--anthropic-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "Claude 3.5 Sonnet computer use OSWorld 14.9% (Oct 2024), productionised in Sonnet 4.5 with major OSWorld gains (2025), strong on WebArena",
+        "new": "osworld: 86.0% (claude-fable-5[1m], 100 steps, OSWorld-Verified leaderboard entry 2026-08-01) https://osworld-v1.xlang.ai/",
+        "citation": "https://osworld-v1.xlang.ai/",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "autogen-ag2--gh-ag2ai-ag2",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "AutoGen-based agents strong on GAIA (Magnetic-One built on AutoGen, 2024), HumanEval / MATH leverage frontier model orchestration (2024-2025)",
+        "new": "gaia: 32.2% (Multi-Agent Experiment v0.1 (powered by AutoGen), MSR AI Frontiers, test set, leaderboard entry 2024-03-01) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "autogpt--gh-significant-gravitas-autogpt",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "AutoGPT GAIA bench mid-tier (2023-2024), AgentBench autonomous tasks limited completion rate (2023)",
+        "new": "gaia: 5.0% (AutoGPT4, AutoGPT, test set, leaderboard entry 2023-11-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "camel--gh-camel-ai-camel",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "(LLM unverified)",
+        "new": "gaia: 69.1% (OWL - Workforce, CAMEL-AI & HKU, validation set, leaderboard entry 2025-04-17) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "magnetic-one--microsoft-com",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "Magnetic-One GAIA 38% (Nov 2024), WebArena 32.1% (2024), AssistantBench 27.7% (2024) — competitive open multi-agent baseline",
+        "new": "gaia: 37.9% (Magentic-1 (o1), MSR AI Frontiers, test set, leaderboard entry 2024-10-19) https://huggingface.co/spaces/gaia-benchmark/leaderboard · webarena: 32.8% (Magentic-One with GPT-4o, all 812 tasks, paper arXiv 2411.04468 2024-11) https://arxiv.org/abs/2411.04468",
+        "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "metagpt--gh-geekan-metagpt",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "MetaGPT ICLR 2024 paper reports SOTA on HumanEval pass@1 for multi-agent setups, strong on SoftwareDev benchmark",
+        "new": "humaneval: 85.9% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352 · mbpp: 87.7% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352",
+        "citation": "https://arxiv.org/abs/2308.00352",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "OpenHands SWE-bench Verified ~53% with Claude 3.5 Sonnet (2025), top OSS SWE agent, top of SWE-bench Lite leaderboard among open agents",
+        "new": "swe-bench-verified: 71.8% (OpenHands + GPT-5, leaderboard entry 2025-08-07) https://www.swebench.com · gaia: 37.2% (OpenHands v0.28.1, test set, leaderboard entry 2025-06-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard · mle-bench: 4.9% (OpenHands + gpt-4o-2024-08-06, any-medal, leaderboard entry 2024-10-08) https://github.com/openai/mle-bench",
+        "citation": "https://www.swebench.com",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+    "verified": true,
+    "updates": [
+      {
+        "cell": "capability-benchmark-sources",
+        "old": "smolagents code-agents claim ~55% GAIA validation with frontier models (Dec 2024); strong code-execution agentic pattern",
+        "new": "gaia: 49.8% (open Deep Research (pass@1), HF smolagents, test set, leaderboard entry 2025-02-10) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+        "confidence": "high"
+      }
+    ]
+  }
+]

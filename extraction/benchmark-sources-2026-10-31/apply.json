@@ -1,0 +1,411 @@
+[
+ {
+  "id": "01-ai-yi-family--01-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "LMSYS Chatbot Arena Yi-Lightning ~GPT-4o tier (2024-10), MMLU Yi-34B ~76% (2023-11), C-Eval Yi-34B ~82% (2023-11)",
+    "new": "humaneval: 83.5% (Yi-Lightning, 0-shot, 2025-01-22) https://arxiv.org/abs/2412.01253 · aider-polyglot: 12.9% (yi-lightning, 2024-12-23) https://aider.chat/docs/leaderboards/ · gpqa: 50.9% (Yi-Lightning, 0-shot, 2025-01-22) https://arxiv.org/abs/2412.01253",
+    "citation": "https://arxiv.org/abs/2412.01253",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "alibaba-qwen-3-family--qwenlm-github-io",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Qwen3-235B ~87% (2025-04), HumanEval Qwen3-Coder ~85% (2025-04), AIME Qwen3 thinking-mode strong (2025-04), LiveCodeBench Qwen3 competitive with R1 (2025-0",
+    "new": "livecodebench: 90.3% (Qwen3.8-27B, LiveCodeBench v6, 2026-08) https://huggingface.co/Qwen/Qwen3.8-27B · osworld: 84.3% (Qwen3.8-27B, OSWorld-Verified, 2026-08) https://huggingface.co/Qwen/Qwen3.8-27B · longbench-v2: 66.3% (Qwen3.8-Max, 2026-08) https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B · aider-polyglot: 59.6% (Qwen3 235B A22B, no think, 2025-05-09) https://aider.chat/docs/leaderboards/ · gpqa: 92.6% (Qwen3.8-Max, GPQA Diamond, 2026-08) https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+    "citation": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "amazon-nova-family--aboutamazon-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Nova Pro ~85% (2024-12), Nova Pro multimodal MMMU competitive mid-tier (2024-12), general capability estimate — limited public benchmark detail for Premier",
+    "new": "swe-bench-verified: 70.0% (Nova 2 Pro, with inference-time scaling and internal agentic scaffolding; 61.5% without, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · livecodebench: 74.6% (Nova 2 Pro, LiveCodeBench v5 Jul 2024–Jan 2025 subset, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · tau-bench: 92.7% (Nova 2 Pro, τ²-bench Telecom; 77.7% Retail-Verified, 65.2% Airline-Verified, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf · humaneval: 89.0% (Nova Pro, pass@1 0-shot, 2025-03-17) https://arxiv.org/abs/2506.12103 · aime: 92.3% (Nova 2 Pro, AIME 2025, 2025-12-02) https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+    "citation": "https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-claude-foundation-models--anthropic-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "SWE-bench Verified Opus 4.5 ~80% (2025-11), MMLU Sonnet 4.5 ~89% (2025), GPQA Diamond Opus 4 strong (2025), TAU-bench agentic leading (2025)",
+    "new": "osworld: 81.8% (Claude Opus 5.5, OSWorld 2.1 partial score, max effort; 48.7% strict pass, 2026-09-22) https://www.anthropic.com/news/claude-opus-5-5 · aider-polyglot: 72.0% (claude-opus-4-20250514, 32k thinking, 2025-05-25) https://aider.chat/docs/leaderboards/ · hle: 67.7% (Claude Opus 5.5, with tools, 2026-09-22) https://www.anthropic.com/news/claude-opus-5-5",
+    "citation": "https://www.anthropic.com/news/claude-opus-5-5",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "cohere-command-r-command-a--cohere-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Command A ~85% (2025-03), RAG-specialized HELM benchmarks strong (2024), HumanEval Command R+ mid-tier (2024)",
+    "new": "tau-bench: 85.0% (Command A+ command-a-plus-05-2026, τ²-Bench Telecom, 2026-05-20) https://cohere.com/blog/command-a-plus · aider-polyglot: 12.0% (command-a-03-2025, 2025-03-14) https://aider.chat/docs/leaderboards/",
+    "citation": "https://cohere.com/blog/command-a-plus",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "deepseek-r1-v3-family--deepseek-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "AIME 2024 R1 ~79% (2025-01), MATH-500 R1 ~97% (2025-01), SWE-bench Verified V3 ~42% (2024-12), MMLU V3 ~88% (2024-12)",
+    "new": "swe-bench-verified: 80.6% (DeepSeek-V4-Pro-Max, 2026-04-26) https://arxiv.org/abs/2606.19348 · livecodebench: 93.5% (DeepSeek-V4-Pro-Max, pass@1, 2026-04-26) https://arxiv.org/abs/2606.19348 · longbench-v2: 51.5% (DeepSeek-V4-Pro-Base, 1-shot EM, 2026-04-26) https://arxiv.org/abs/2606.19348 · aider-polyglot: 74.2% (DeepSeek-V3.2-Exp Reasoner, 2025-10-03) https://aider.chat/docs/leaderboards/ · gpqa: 90.1% (DeepSeek-V4-Pro-Max, GPQA Diamond, 2026-04-26) https://arxiv.org/abs/2606.19348",
+    "citation": "https://arxiv.org/abs/2606.19348",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "google-gemini-3-family--blog-google",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Gemini 3 Pro ~92% (2025), GPQA Diamond Gemini 3 Pro frontier-leading (2025), long-context 1M-2M ctx needle-in-haystack near-perfect (2025), SWE-bench Verif",
+    "new": "osworld: 81.5% (Gemini 4 Carbon, OSWorld 2.1 offline 82-task subset partial score, max over 3 single-attempt runs, 2026-10) https://deepmind.google/models/gemini/ · aider-polyglot: 83.1% (gemini-2.5-pro-preview-06-05, 32k think, 2025-06-06) https://aider.chat/docs/leaderboards/",
+    "citation": "https://deepmind.google/models/gemini/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "meta-llama-4-family--ai-meta-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Llama 4 Maverick ~85% (2025-04), Llama 4 Scout 10M-ctx long-context (2025-04), HumanEval Llama 4 competitive (2025-04), GPQA Llama 4 Behemoth previewed (20",
+    "new": "livecodebench: 43.4% (Llama 4 Maverick instruct, 2024-10-01 to 2025-02-01 window, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md · mbpp: 77.6% (Llama 4 Maverick pre-trained, 3-shot pass@1, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md · aider-polyglot: 15.6% (Llama 4 Maverick, 2025-04-06) https://aider.chat/docs/leaderboards/ · gpqa: 69.8% (Llama 4 Maverick instruct, GPQA Diamond, 2025-04-05) https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+    "citation": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "microsoft-phi-4-family--azure-microsoft-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Phi-4 ~85% (2024-12), GSM8K Phi-4 ~90% (2024-12), HumanEval Phi-4 ~83% (2024-12), MATH Phi-4 ~80% (2024-12)",
+    "new": "livecodebench: 53.8% (Phi-4-reasoning, 2024-08 to 2025-01 window, 2025-04-30) https://arxiv.org/abs/2504.21318 · gpqa: 69.3% (Phi-4-reasoning-plus, GPQA Diamond, 2025-04-30) https://arxiv.org/abs/2504.21318 · aime: 81.3% (Phi-4-reasoning-plus, AIME 2024, 2025-04-30) https://arxiv.org/abs/2504.21318",
+    "citation": "https://arxiv.org/abs/2504.21318",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "mistral-large-2-mixtral-family--mistral-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MMLU Mistral Large 2 ~84% (2024-07), HumanEval Mistral Large 2 ~92% (2024-07), Mixtral 8x22B MoE competitive open-weights (2024-04)",
+    "new": "swe-bench-verified: 77.6% (Mistral Medium 3.5, 2026-05-22) https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5 · swe-bench-verified: 72.2% (Devstral 2 123B, 2025-12-09) https://mistral.ai/news/devstral-2-vibe-cli",
+    "citation": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "SWE-bench Verified GPT-5 ~74% (2025-08), AIME 2024 o3 ~96% (2024-12), GPQA Diamond o3 ~88% (2024-12), MMLU GPT-5 ~91% (2025-08)",
+    "new": "aider-polyglot: 88.0% (gpt-5 high, 2025-08-23) https://aider.chat/docs/leaderboards/ · osworld: 80.9% (GPT-6 Astra, OSWorld 2.1 offline 82-task subset, as reproduced from OpenAI's published evaluation by Google DeepMind, 2026-10) https://deepmind.google/models/gemini/ · livecodebench: 86.8% (GPT-5 high, Jan–May 2025 window, as reproduced from OpenAI-reported results by xAI, 2025-09-19) https://x.ai/news/grok-4-fast",
+    "citation": "https://aider.chat/docs/leaderboards/",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "reka-core-flash-edge--reka-ai",
+  "verified": false,
+  "updates": [],
+  "note": "Checked reka.ai/news index, Reka Flash 3 (2025-03-10), Reka Flash 3.1 + Reka Quant (2025-07-10), Reka Edge (2026-03-11), Reka EdgeQ (2026-09-22), Nexus (2025-03-10), and the Hugging Face cards RekaAI/reka-flash-3.1 and reka-flash-3 (404). The only listed benchmark mentioned is LiveCodeBench v5, given only as a relative gain ('improves by 10 points' over Flash 3) with no absolute score; Flash 3 reports MMLU-Pro 65.0 (excluded family) and Edge/EdgeQ report only vision benchmarks (RefCOCO, MLVU). No primary-source number for any code/agentic/long-context benchmark."
+ },
+ {
+  "id": "xai-grok-4--x-ai",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Humanity's Last Exam Grok 4 leading (2025-07), AIME 2025 Grok 4 ~95% (2025-07), GPQA Diamond Grok 4 ~88% (2025-07), ARC-AGI-2 Grok 4 frontier-tier (2025-07)",
+    "new": "livecodebench: 80.0% (Grok 4 Fast, Jan–May 2025 window, pass@1; Grok 4 79.0%, 2025-09-19) https://x.ai/news/grok-4-fast · aider-polyglot: 79.6% (grok-4 high, 2025-07-11) https://aider.chat/docs/leaderboards/ · gpqa: 87.5% (Grok 4, GPQA Diamond, 2025-09-19) https://x.ai/news/grok-4-fast",
+    "citation": "https://x.ai/news/grok-4-fast",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "aider-harness--aider-chat",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Aider polyglot leaderboard (2024–2025), SWE-bench Verified harness scores with Claude/GPT models (2024–2025), Aider code-edit benchmark (2024)",
+    "new": "aider-polyglot: 88.0% (gpt-5 (high), diff edit format, leaderboard entry 2025-08-23) https://aider.chat/docs/leaderboards/",
+    "citation": "https://aider.chat/docs/leaderboards/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "amazon-q-developer--aws-amazon-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "SWE-bench Verified ~13% reported (2024), HumanEval pass@1 with Q Developer agent (2024), AWS-tooling task evals (2024–2025)",
+    "new": "swe-bench-verified: 65.4% (Amazon Q Developer Agent (v20250405-dev), model undisclosed, leaderboard entry 2025-04-05) https://www.swebench.com",
+    "citation": "https://www.swebench.com",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-computer-use--docs-anthropic-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "OSWorld 14.9% (Oct 2024) → 22%+ (2025), SWE-bench Verified 49% with Sonnet 3.5 (Oct 2024) → 70%+ with Sonnet 4 (2025), WebArena gains (2024)",
+    "new": "osworld: 86.0% (claude-fable-5[1m], 100 steps, OSWorld-Verified leaderboard entry 2026-08-01) https://osworld-v1.xlang.ai/",
+    "citation": "https://osworld-v1.xlang.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "metagpt-harness--gh-foundationagents-metagpt",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "HumanEval pass@1 85.9% reported (2023), MBPP pass@1 87.7% (2023), SoftwareDev internal eval (2023)",
+    "new": "humaneval: 85.9% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352 · mbpp: 87.7% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352",
+    "citation": "https://arxiv.org/abs/2308.00352",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openhands-all-hands-ai--all-hands-dev",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "SWE-bench Verified 53% with Claude Sonnet (2024), 60%+ with Sonnet 4 (2025), Aider polyglot leaderboard (2025)",
+    "new": "swe-bench-verified: 71.8% (OpenHands + GPT-5, leaderboard entry 2025-08-07) https://www.swebench.com · gaia: 37.2% (OpenHands v0.28.1, test set, leaderboard entry 2025-06-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard · mle-bench: 4.9% (OpenHands + gpt-4o-2024-08-06, any-medal, leaderboard entry 2024-10-08) https://github.com/openai/mle-bench",
+    "citation": "https://www.swebench.com",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-operator--openai-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "CUA WebArena 58.1% (Jan 2025), CUA OSWorld 38.1% (Jan 2025), WebVoyager 87% (2025)",
+    "new": "osworld: 31.4% (computer-use-preview, 100 steps, OSWorld-Verified leaderboard entry 2025-07-28) https://osworld-v1.xlang.ai/ · webarena: 58.1% (OpenAI Operator, result source OpenAI CUA system card, leaderboard entry 2025-01) https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?usp=sharing",
+    "citation": "https://osworld-v1.xlang.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "ui-tars--gh-bytedance-ui-tars",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "UI-TARS OSWorld 24.6% (Jan 2025, arXiv 2501.12326), UI-TARS ScreenSpot-V2 91.4% (2025)",
+    "new": "osworld: 53.1% (UI-TARS-2-2509, 100 steps, OSWorld-Verified leaderboard entry 2025-10-14) https://osworld-v1.xlang.ai/",
+    "citation": "https://osworld-v1.xlang.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "openai-deep-research--openai-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Humanity's Last Exam 26.6% (Feb 2025), GAIA validation 67%+ (2025), GPQA Diamond ~78% via o3 base (2025)",
+    "new": "gaia: 67.4% (OpenAI deep research, validation set, as quoted by Hugging Face open-deep-research post 2025-02-04) https://huggingface.co/blog/open-deep-research · mle-bench: 11.0% (post-mitigation deep research, bronze-medal pass@1, system card 2025-02-25) https://cdn.openai.com/deep-research-system-card.pdf · swe-lancer: 53.0% (post-mitigation deep research with browsing, IC SWE Diamond tasks solved, system card 2025-02-25) https://cdn.openai.com/deep-research-system-card.pdf",
+    "citation": "https://cdn.openai.com/deep-research-system-card.pdf",
+    "confidence": "medium"
+   }
+  ]
+ },
+ {
+  "id": "anthropic-computer-use--anthropic-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Claude 3.5 Sonnet computer use OSWorld 14.9% (Oct 2024), productionised in Sonnet 4.5 with major OSWorld gains (2025), strong on WebArena",
+    "new": "osworld: 86.0% (claude-fable-5[1m], 100 steps, OSWorld-Verified leaderboard entry 2026-08-01) https://osworld-v1.xlang.ai/",
+    "citation": "https://osworld-v1.xlang.ai/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "autogen-ag2--gh-ag2ai-ag2",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "AutoGen-based agents strong on GAIA (Magnetic-One built on AutoGen, 2024), HumanEval / MATH leverage frontier model orchestration (2024-2025)",
+    "new": "gaia: 32.2% (Multi-Agent Experiment v0.1 (powered by AutoGen), MSR AI Frontiers, test set, leaderboard entry 2024-03-01) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "autogpt--gh-significant-gravitas-autogpt",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "AutoGPT GAIA bench mid-tier (2023-2024), AgentBench autonomous tasks limited completion rate (2023)",
+    "new": "gaia: 5.0% (AutoGPT4, AutoGPT, test set, leaderboard entry 2023-11-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "camel--gh-camel-ai-camel",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "(LLM unverified)",
+    "new": "gaia: 69.1% (OWL - Workforce, CAMEL-AI & HKU, validation set, leaderboard entry 2025-04-17) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "magnetic-one--microsoft-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Magnetic-One GAIA 38% (Nov 2024), WebArena 32.1% (2024), AssistantBench 27.7% (2024) — competitive open multi-agent baseline",
+    "new": "gaia: 37.9% (Magentic-1 (o1), MSR AI Frontiers, test set, leaderboard entry 2024-10-19) https://huggingface.co/spaces/gaia-benchmark/leaderboard · webarena: 32.8% (Magentic-One with GPT-4o, all 812 tasks, paper arXiv 2411.04468 2024-11) https://arxiv.org/abs/2411.04468",
+    "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "metagpt--gh-geekan-metagpt",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "MetaGPT ICLR 2024 paper reports SOTA on HumanEval pass@1 for multi-agent setups, strong on SoftwareDev benchmark",
+    "new": "humaneval: 85.9% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352 · mbpp: 87.7% (MetaGPT with executable feedback, pass@1, paper arXiv 2308.00352 v7 2024-11-01) https://arxiv.org/abs/2308.00352",
+    "citation": "https://arxiv.org/abs/2308.00352",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "OpenHands SWE-bench Verified ~53% with Claude 3.5 Sonnet (2025), top OSS SWE agent, top of SWE-bench Lite leaderboard among open agents",
+    "new": "swe-bench-verified: 71.8% (OpenHands + GPT-5, leaderboard entry 2025-08-07) https://www.swebench.com · gaia: 37.2% (OpenHands v0.28.1, test set, leaderboard entry 2025-06-03) https://huggingface.co/spaces/gaia-benchmark/leaderboard · mle-bench: 4.9% (OpenHands + gpt-4o-2024-08-06, any-medal, leaderboard entry 2024-10-08) https://github.com/openai/mle-bench",
+    "citation": "https://www.swebench.com",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "smolagents-hugging-face--gh-huggingface-smolagents",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "smolagents code-agents claim ~55% GAIA validation with frontier models (Dec 2024); strong code-execution agentic pattern",
+    "new": "gaia: 49.8% (open Deep Research (pass@1), HF smolagents, test set, leaderboard entry 2025-02-10) https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "citation": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "browser-use--browser-use-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "WebVoyager ~89% maintainer-claimed (2024-2025), general capability estimate — no specific benchmark recalled for additional tasks",
+    "new": "webvoyager: 89.1% (Browser Use + GPT-4o, 586 tasks, vendor technical report 2024-12-15; WebVoyager is outside the composite's three families) https://browser-use.com/posts/sota-technical-report",
+    "citation": "https://browser-use.com/posts/sota-technical-report",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "skyvern--skyvern-com",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "general capability estimate — no specific benchmark recalled",
+    "new": "webvoyager: 85.9% (Skyvern 2.0 + GPT-4o, vendor report 2025-01-16; WebVoyager is outside the composite's three families) https://www.skyvern.com/blog/skyvern-2-0-state-of-the-art-web-navigation-with-85-8-on-webvoyager-eval/",
+    "citation": "https://www.skyvern.com/blog/skyvern-2-0-state-of-the-art-web-navigation-with-85-8-on-webvoyager-eval/",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "project-mariner--deepmind-google",
+  "verified": true,
+  "updates": [
+   {
+    "cell": "capability-benchmark-sources",
+    "old": "Project Mariner WebVoyager 83.5% (Dec 2024), Gemini 2.0 MMLU ~85% (2024)",
+    "new": "webvoyager: 83.5% (Project Mariner, Gemini 2.0, single-agent setup, Google blog 2024-12-11; WebVoyager is outside the composite's three families) https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/",
+    "citation": "https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/",
+    "confidence": "high"
+   }
+  ]
+ }
+]

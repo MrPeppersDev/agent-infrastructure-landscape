@@ -1,0 +1,42 @@
+# capability-benchmark-sources — foundation-model rows (2026-10-31)
+
+Method: WebFetch on vendor pages and PDFs (pdftotext for the Opus 5.5 system card, Nova 2 report, GPT-5 system card, Gemini 4 Carbon evaluation PDF, Muse Spark 1.1 report), 7 WebSearch calls in total. The aider polyglot leaderboard (https://aider.chat/docs/leaderboards/, last updated 2025-11-20) is the only official benchmark site that rendered without JavaScript; swebench.com, livecodebench.github.io and osworld-v1.xlang.ai load their tables client-side and returned no rows. A recurring finding: every 2026 flagship announcement (Opus 5.5, GPT-6 Astra, Gemini 4 Carbon/Argon, Grok 4.7, Mistral Large 4, DeepSeek V4.1, Qwen3.8-Max, Command A+) has dropped SWE-bench Verified / Aider / tau-bench in favour of Terminal-Bench 4.0, DeepSWE v1.1, SWE-bench Pro, FrontierCode, OSWorld 2.x and AutomationBench, so many composite-family entries come from the latest vendor document that still reports a listed benchmark.
+
+## 01.AI Yi
+Fetched 01.ai (timeline only, Yi-Lightning Oct 2024, no numbers/links) and the Yi-Lightning technical report arXiv 2412.01253 (abs + HTML, v5 2025-01-22): HumanEval 83.5, GPQA 50.9 in Tables 1–2; no MBPP/LiveCodeBench/long-context tables. Aider leaderboard has yi-lightning at 12.9% (2024-12-23). No newer model found on 01.ai.
+
+## Alibaba Qwen 3
+qwenlm.github.io/blog stops at Sep 2025 and qwen.ai/blog is JS-only; github.com/QwenLM shows Qwen3.8 as the pinned flagship (Qwen3.8-2.4T-A95B released 2026-08-12, Qwen3.8-27B 2026-08-14). The 2.4T card reports Qwen3.8-Max on SWE-bench Pro, Terminal Bench 2.1, GPQA Diamond, HLE, MRCR v2 256K (92.9, not a listed id) and LongBench v2 66.3; the 27B card adds LiveCodeBench v6 90.3 and OSWorld-Verified 84.3 (the Max card has neither, so the 27B is named explicitly). Aider: Qwen3 235B A22B 59.6% (2025-05-09).
+
+## Amazon Nova
+aws.amazon.com/nova pages list Nova 2 Lite/Sonic only with no numbers; Nova 2 Pro (preview) is documented in the Amazon Nova 2 technical report (amazon.science, 2025-12-02, PDF on cdn.amazon.science): Table 4 SWE-Bench Verified 61.5 / 70.0 (70.0 is with inference-time scaling + internal agentic scaffolding), Terminal-Bench 1.0 41.3, LiveCodeBench v5 74.6; Table 2 τ²-bench Telecom 92.7, Retail-Verified 77.7, Airline-Verified 65.2, BFCL v4. HumanEval 89.0 comes from the earlier Nova (Pro) report arXiv 2506.12103 (2025-03-17), whose Premier numbers were not in the fetched text.
+
+## Anthropic Claude
+anthropic.com/news lists Opus 5.5 (2026-09-22), Sonnet 5.5 (2026-09-28), Haiku 5.5 (2026-10-07). The Opus 5.5 post and system card (Table 8.1.A) report SWE-bench Pro/Multilingual/Multimodal, Terminal-Bench 4.0, FrontierCode, CursorBench, HLE, GDPval-AA, AutomationBench and OSWorld 2.0/2.1 (81.8 partial / 48.7 strict) — no SWE-bench Verified, τ²-bench or Aider. The Opus 4.5 post's table is an image (text gives no numbers), so the catalog's old "~80%" SWE-bench Verified could not be re-sourced; only the aider entry for claude-opus-4 (72.0%, 2025-05-25) covers the code family.
+
+## Cohere Command
+Newest Command post is Command A+ (2026-05-20, command-a-plus-05-2026, 218B MoE). Text numbers: τ²-Bench Telecom 85% (from 37%), Terminal-Bench Hard 25%, MMMU 75.1, MMMU Pro 63, AA Index 37; docs.cohere.com and the HF cards (bf16/fp8/w4a4) carry no benchmark tables. Command A tech report arXiv 2504.00698 HTML returned 404 and its abstract has no numbers. Aider: command-a-03-2025 12.0% (2025-03-14).
+
+## DeepSeek
+deepseek.com/github org/api-docs list deepseek-v4-pro and DeepSeek-V4.1-Flash-1017 (news 2026-10-17, numbers only in a PNG). HF cards for V4-Pro-0813 and V4.1-Flash-1017 report HLE, Terminal Bench 2.1/4.0, DeepSWE, NL2Repo, AutomationBench etc. but none of the listed ids. The DeepSeek-V4 technical report arXiv 2606.19348 (submitted 2026-04-26; note the id/month mismatch flagged by the fetcher) Tables 6–7 give V4-Pro-Max SWE Verified 80.6, LiveCodeBench 93.5, Codeforces 3206, BrowseComp 83.4, MRCR 1M 83.5, GPQA Diamond 90.1, MMLU-Pro 87.5, HLE 37.7; Table 1 LongBench-V2 51.5 for V4-Pro-Base (base model, so named). Aider: DeepSeek-V3.2-Exp Reasoner 74.2% (2025-10-03).
+
+## Google Gemini
+deepmind.google/models/gemini/ now leads with Gemini 4 Carbon (blog 2026-10-28) and Gemini 4 Argon (2026-10-13); its table covers AA Index, Vals, SWE-sweep, FrontierSWE 2, Terminal-Bench 4.0, Agents' Last Exam, OSWorld-2.1 (offline 82-task subset) 81.5, AutomationBench, GraphWalks 256k–1M 96.2 (long-context but not a listed id), cyber benchmarks. The Carbon evaluation PDF confirms methodology (pass@1, max over 3 runs); the Carbon blog, Argon blog and Argon model card PDF contain no listed benchmarks; blog.google/.../gemini-3/ (the row URL) is 404. Aider: gemini-2.5-pro-preview-06-05 83.1% (2025-06-06).
+
+## Meta Llama
+ai.meta.com/blog has no Llama posts any more; Meta's current flagship is Muse Spark 1.1 (2026-07-09), whose post and 100+ page Evaluation Report (static-resource PDF) give capability results only as Figure 44 image and describe OSWorld-Verified, OSWorld 2.0, Terminal-Bench 2.1, SWE-Bench Pro, DeepSWE, MRCR v2 methodology without numbers (the only text figure is a safety eval: 24/42 SWE-Bench Verified Hard tasks solved at least once). The Llama 4 model card on GitHub (2025-04-05) is the primary source used: LiveCodeBench 43.4 (Maverick instruct), MBPP 77.6 (Maverick pre-trained, 3-shot), GPQA Diamond 69.8; Aider Llama 4 Maverick 15.6% (2025-04-06).
+
+## Microsoft Phi
+azure.microsoft.com/products/phi lists up to Phi-4-multimodal with no numbers; HF shows Phi-4-reasoning-vision-15B (2026-03-04) as the newest Phi, but its tech report arXiv 2603.03975 reports only vision/GUI benchmarks (ScreenSpot-v2 88.2 etc.). Numbers used come from the Phi-4-reasoning technical report arXiv 2504.21318 (2025-04-30) Table 1: LiveCodeBench (2024-08 to 2025-01) 53.8 reasoning / 53.1 reasoning-plus, GPQA Diamond 69.3, AIME 2024 81.3, Codeforces 1736; HumanEval is reported only as HumanEvalPlus (92.9), not mapped.
+
+## Mistral
+mistral.ai/news: Mistral Large 4 (2026-10-06) and the open-weight "Le Chonk" release (2026-10-29) report DeepSWE 1.1, SWE-Atlas-QnA, Terminal-Bench 4, AA Coding Agent Index, Cybench, BrowseComp — none of the listed ids (HF card Mistral-Large-4-1T-A52B likewise; tech report "coming soon"). Mistral Medium 3.5 (2026-05-22) states SWE-Bench Verified 77.6% and τ³-Telecom 91.4 (τ³, not τ²; not mapped); Devstral 2 (2025-12-09) gives SWE-bench Verified 72.2% (Devstral Small 2 68.0%). Mistral 3 / Large 3 post (2025-12-02) has charts only. Aider's Codestral 25.01 11.1% omitted as not representative.
+
+## OpenAI GPT
+openai.com returns 403 for every path (news index, GPT-5 post, GPT-6 Astra post incl. localized variants) via both WebFetch and curl; cdn.openai.com serves the GPT-5 system card (2025-08-13) but its SWE-bench Verified, MLE-bench and SWE-Lancer results are figure images, so no number could be read. Search confirms GPT-6 Astra (2026-09-03) is the flagship; no system-card PDF URL was found. Entries therefore mix the official aider leaderboard (gpt-5 high 88.0%, high confidence) with vendor numbers reproduced on other vendors' pages: OSWorld 2.1 offline 80.9% for GPT-6 Astra on deepmind.google (sourced from OpenAI's published evaluation) and LiveCodeBench 86.8% for GPT-5 (high) on x.ai/news/grok-4-fast. Row confidence set to medium accordingly.
+
+## Reka
+verified=false. See the note in models.json: news index (newest: Reka Edge 2026-03-11, EdgeQ 2026-09-22, Edge on OpenRouter 2026-04-14), Flash 3 / Flash 3.1 posts and HF cards give only a relative LiveCodeBench gain, MMLU-Pro 65.0 and vision benchmarks. Reka's current models (Edge 7B, Flash 3.1 21B) are small/multimodal; no primary-source score for any listed benchmark.
+
+## xAI Grok
+x.ai/news index is 403 but individual posts load. docs.x.ai lists grok-4.7 as the newest flagship; the Grok 4.7 post (2026-09-21) reports CursorBench 4.0, DeepSWE v1.1 71.0, Terminal-Bench 4.0 37.6, EEBench, AA Briefcase, GDPval; Grok 4.6 (2026-08-12) and Grok 4.5 (2026-07-16) likewise report DeepSWE, SWE-bench Pro 64.7, Terminal Bench 2.1/3.0, FrontierCode — none of the listed ids. The Grok 4 Fast post (2025-09-19) is the last with LiveCodeBench (Jan–May 2025): Grok 4 Fast 80.0, Grok 4 79.0, plus GPQA Diamond 87.5 (Grok 4); the Grok 4 post (2025-07-09) has HLE/ARC-AGI-2 only. Aider: grok-4 (high) 79.6% (2025-07-11).
