@@ -43,7 +43,7 @@ import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
 import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
 import type { Answers } from '../../mcp/dist/chooser.js';
-import { checkManifest, STATUS_LABEL } from '../../mcp/dist/stack-check.js';
+import { checkManifest, STATUS_LABEL, LICENCE_LABEL } from '../../mcp/dist/stack-check.js';
 import { planStack, slimPlan, toOpml, PRODUCTS, LAYERS, SITE } from '../../mcp/dist/composer.js';
 import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
 import { writeFileSync } from 'node:fs';
@@ -188,6 +188,14 @@ program
         lines.push(`    record: landscape show ${f.recordId}`);
       }
       if (!report.attention.length && !opts.all) lines.push('\n  Nothing archived, deprecated, acquired or stale among the catalogued dependencies.');
+      const a = report.audit;
+      if (a.layers.length) {
+        lines.push('', 'Stack audit (by catalog section):');
+        for (const l of a.layers) lines.push(`  ${l.label}: ${l.systems.map((s) => s.name).join(', ')}`);
+        if (a.missing.length) lines.push(`  not detected: ${a.missing.map((m) => m.label.toLowerCase()).join(', ')}  (only catalogued dependencies count)`);
+        for (const c of a.concentration) lines.push(`  vendor concentration: ${c.vendor} covers ${c.layers.join(', ')} (${c.systems.join(', ')})`);
+        lines.push(`  licences: ${a.licences.map((b) => `${LICENCE_LABEL[b.bucket].toLowerCase()} ${b.systems.length}`).join(' · ')}`);
+      }
       lines.push(`\nindex built ${report.indexGeneratedAt}`);
       emit(lines.join('\n'));
     }

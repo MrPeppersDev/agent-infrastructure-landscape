@@ -34,6 +34,18 @@ that were on the table.
 
 ---
 
+## 2026-10-31: The stack check audits the stack, not just its lifecycle (#363)
+
+**What.** `checkStack` (mcp/src/stack-check.ts) now returns an `audit` next to the lifecycle findings: the layers of an agent stack the manifest covers, mapped from each matched dependency's catalog section (`AUDIT_LAYERS`, mirroring the composer's layers with the gateway/serving split by name); the core layers with no catalogued dependency (framework; model, gateway or serving; memory; tools; observability; guardrails), reported only when at least two dependencies matched; vendor concentration (registrable domain of the record URL, or code host plus owner) for vendors covering two or more layers; the licence mix by bucket (open-source, source-available, proprietary, not recorded) from the first clause of each licence cell, with copyleft and mixed flags; and the detected stack as `stack.yml`. The web page renders it with links to the chooser for each missing layer and a stack.yml download; the CLI prints it; the Action adds a collapsed "Stack audit" to its PR comment; `check_stack` returns it. `make action` regenerated the bundle.
+
+**Why.** Roadmap item 2.1 (#363): an engineer reworking a project needs to know which layers they have and lack, how concentrated they are on one vendor and which licences they mix, not only what is archived. The checker already parsed manifests and matched the catalog; the audit reads the same index, so it works offline in every surface.
+
+**Honesty rules.** "Not detected" means the catalog saw no dependency for that layer; the page and the Action say so. Licence buckets are read from the first clause only and flag mixed cells rather than guessing.
+
+**Reversal cost.** Low. One additional field; nothing else depends on it.
+
+---
+
 ## 2026-10-31: Catalog silos: focused views over one dataset
 
 **What.** `taxonomy/silos.json` defines catalog silos: a named set of sections (which may cross product families), the table columns that audience scans first, whether the memory taxonomy applies, and the decision tools, research views, best-of lists, MCP tools and CLI commands for that job. The web app renders `/catalogs` (index), `/catalogs/<silo>` (landing: counts, lifecycle mix, sections, most-referenced systems, recent changes, tools, exports) and `/catalogs/<silo>/browse` (the shared table with the silo's rows and columns). The home table is the Atlas: every row, every column. Eleven silos ship: the five product families (memory, agents, retrieval, models, research) and six use-case views (coding agents; security, governance and identity; evals and observability; voice, computer-use and embodied; assistant and personal memory; vertical and domain agents). Cross-cutting silos get their own `api/catalogs/<id>.json` / `.csv`; family silos reuse the family export. `llms.txt` lists them. The table view was extracted into `CatalogView.svelte` so the Atlas and every browse page share one implementation.

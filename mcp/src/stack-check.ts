@@ -116,6 +116,9 @@ export interface StackReport {
   unmatched: Dependency[];
   summary: Record<StackStatus, number>;
   indexGeneratedAt: string;
+  /** Which layers of an agent stack the manifest covers and lacks, vendor
+   * concentration and licence mix (#363). */
+  audit: StackAudit;
 }
 
 // ---------------------------------------------------------------------------
@@ -417,6 +420,7 @@ export function checkStack(deps: Dependency[], index: StackIndex, format = 'list
     unmatched,
     summary,
     indexGeneratedAt: index.generatedAt,
+    audit: auditStack(matched),
   };
 }
 
@@ -435,6 +439,189 @@ function adviseUpgrades(matched: Finding[], links: Links): void {
     ranked.sort((a, b) => b.n - a.n || a.i - b.i);
     f.replacements = ranked.slice(0, 3).map((x) => x.r);
   }
+}
+
+
+// ---------------------------------------------------------------------------
+// Stack audit (#363): which layers of an agent stack the manifest covers (by
+// the catalog section of each matched dependency), which common layers it
+// lacks, how concentrated it is on one vendor and what licences it mixes.
+// Everything comes from the stack index, so it runs wherever the checker
+// runs: browser, CLI, GitHub Action and MCP. Only catalogued dependencies
+// count; "not detected" means the catalog saw nothing for that layer, not
+// that the project has nothing.
+// ---------------------------------------------------------------------------
+
+export type AuditLayer =
+  | 'framework' | 'orchestration' | 'model' | 'gateway' | 'serving' | 'memory' | 'vectors' | 'graph' | 'embeddings'
+  | 'tools' | 'sandbox' | 'browser' | 'voice' | 'observability' | 'guardrails' | 'other';
+
+export interface AuditLayerDef {
+  id: AuditLayer;
+  label: string;
+  role: string;
+  sections: string[];
+  /** Splits a shared section by name (gateways vs serving). */
+  match?: RegExp;
+  /** Site path that helps pick one. */
+  choose: string;
+}
+
+/** Order matters: the first definition whose section (and name pattern)
+ * matches wins, so `gateway` sits before `serving`. Mirrors the layers of
+ * the stack composer (composer.ts) using only what the stack index holds. */
+export const AUDIT_LAYERS: AuditLayerDef[] = [
+  { id: 'framework', label: 'Agent framework', role: 'Defines agents, tool calls and control flow in code.', sections: ['Agent frameworks (no first-party memory layer)', 'Multi-agent orchestration platforms'], choose: '/choose/framework' },
+  { id: 'orchestration', label: 'Durable execution', role: 'Keeps long-running and multi-agent workflows alive across failures and restarts.', sections: ['Durable execution & workflow engines'], choose: '/choose/framework' },
+  { id: 'model', label: 'Foundation model', role: 'The LLM the agents reason with.', sections: ['Foundation models (substrate reference)'], choose: '/build' },
+  { id: 'gateway', label: 'Model gateway', role: 'One API in front of every model: routing, fallbacks, caching, budgets and rate limits.', sections: ['Inference platforms & gateways'], match: /gateway|proxy|router|litellm|portkey|openrouter|universal|multi-provider/i, choose: '/build' },
+  { id: 'serving', label: 'Model serving', role: 'Runs open-weight models on your own GPUs or a GPU cloud.', sections: ['Inference platforms & gateways'], choose: '/build' },
+  { id: 'memory', label: 'Memory layer', role: 'Remembers users, facts and past sessions across conversations.', sections: ['Dedicated memory layers', 'Framework-embedded memory', 'Retrieval-as-memory hybrids', 'Coding-agent memory', 'Platform-provider memory', 'Claude Code memory mechanisms', 'File-backed / editor paradigms', 'Browser-agent memory', 'Personal AI / PKM / lifelogging memory', 'Voice-first / wearable AI memory', 'Vertical / domain-specific AI memory'], choose: '/choose' },
+  { id: 'vectors', label: 'Vector store', role: 'Stores embeddings for retrieval (RAG) and semantic search.', sections: ['Vector-database infrastructure', 'Search platforms (non-memory)', 'Enterprise-search adjacencies'], choose: '/choose/data' },
+  { id: 'graph', label: 'Knowledge graph', role: 'Stores entities and relationships for graph retrieval.', sections: ['Knowledge-graph platforms'], choose: '/choose/data' },
+  { id: 'embeddings', label: 'Embeddings / reranker', role: 'Turns text into vectors and reranks retrieved results.', sections: ['Embedding & reranker services'], choose: '/choose/data' },
+  { id: 'tools', label: 'Tools, auth and MCP', role: 'Gives agents authenticated access to external apps and APIs, scoped per user.', sections: ['Agent identity & auth', 'MCP gateways & registries'], choose: '/choose/framework' },
+  { id: 'sandbox', label: 'Code sandbox', role: 'Runs agent-generated code in isolation.', sections: ['AI sandbox & runtime environments'], choose: '/choose/framework' },
+  { id: 'browser', label: 'Browser / computer use', role: 'Lets agents browse the web or operate a desktop.', sections: ['Computer-use & desktop agents'], choose: '/build' },
+  { id: 'voice', label: 'Voice runtime', role: 'Real-time speech in and out: transport, STT, TTS, turn-taking.', sections: ['Voice agent platforms'], choose: '/build' },
+  { id: 'observability', label: 'Evals & observability', role: 'Traces every step, runs evaluations, catches regressions.', sections: ['Evaluation & observability platforms', 'Memory observability & monitoring', 'Memory benchmarks & evaluation'], choose: '/build' },
+  { id: 'guardrails', label: 'Guardrails & security', role: 'Screens inputs and outputs for prompt injection, data leaks and unsafe actions.', sections: ['Guardrails & AI security', 'Memory governance, privacy & safety'], choose: '/build' }
+];
+
+export const AUDIT_LAYER_BY_ID: Record<string, AuditLayerDef> = Object.fromEntries(AUDIT_LAYERS.map((l) => [l.id, l]));
+
+/** Layers every agent product is expected to have; a group counts as
+ * covered when any of its layers is present. */
+const CORE_LAYERS: AuditLayer[][] = [['framework'], ['model', 'gateway', 'serving'], ['memory'], ['tools'], ['observability'], ['guardrails']];
+
+export function auditLayerOf(rec: Pick<IndexRecord, 'section' | 'name'>): AuditLayer {
+  for (const l of AUDIT_LAYERS) {
+    if (!l.sections.includes(rec.section)) continue;
+    if (l.match && !l.match.test(rec.name)) continue;
+    return l.id;
+  }
+  return 'other';
+}
+
+export type LicenceBucket = 'open-source' | 'source-available' | 'proprietary' | 'unknown';
+
+export const LICENCE_LABEL: Record<LicenceBucket, string> = {
+  'open-source': 'Open source',
+  'source-available': 'Source-available',
+  proprietary: 'Proprietary',
+  unknown: 'Licence not recorded'
+};
+
+const OSI_RE = /\b(MIT|Apache|BSD|MPL|LGPL|AGPL|GPL|ISC|Unlicense|CC0|CC[- ]BY|PostgreSQL|EPL|Artistic|Zlib|BSL-1\.0)\b/i;
+const SOURCE_AVAILABLE_RE = /\b(BSL|Business Source|SSPL|Elastic[- ]?(License|2\.0)|ELv2|FSL|Functional Source|RSAL|Commons Clause|source[- ]available|PolyForm|Server Side Public)\b/i;
+const PROPRIETARY_RE = /proprietary|closed|commercial|not open|no public|not OSS|SaaS|custom licen[cs]e|model licen[cs]e|terms of service|all rights reserved/i;
+
+/** Classify a licence cell by its first clause (before ";" or "("); the
+ * rest of the cell often lists exceptions. BSL-1.0 is the Boost licence
+ * (OSI), not Business Source, so it is tested first. */
+export function licenceBucket(licence: string): { bucket: LicenceBucket; copyleft: boolean; mixed: boolean } {
+  const full = (licence ?? '').trim();
+  if (!full) return { bucket: 'unknown', copyleft: false, mixed: false };
+  const first = full.split(/[;(]/)[0].trim();
+  const open = OSI_RE.test(first) && !/^\s*(SSPL|BSL(?!-1\.0))/i.test(first);
+  const bucket: LicenceBucket = SOURCE_AVAILABLE_RE.test(first) && !/BSL-1\.0/.test(first)
+    ? 'source-available'
+    : open
+      ? 'open-source'
+      : PROPRIETARY_RE.test(first) || PROPRIETARY_RE.test(full)
+        ? 'proprietary'
+        : 'unknown';
+  const rest = full.slice(first.length);
+  const mixed = bucket === 'open-source' && (SOURCE_AVAILABLE_RE.test(rest) || PROPRIETARY_RE.test(rest));
+  return { bucket, copyleft: /\b(AGPL|GPL|SSPL)\b/i.test(first) && !/\bLGPL\b/i.test(first), mixed };
+}
+
+/** Vendor key for concentration: the registrable domain of the record's
+ * URL (docs.langchain.com → langchain.com); for code hosts, host + owner. */
+export function vendorOf(rec: Pick<IndexRecord, 'url'>, fallback: string): string {
+  const m = (rec.url ?? '').match(/^https?:\/\/(?:www\.)?([^/?#]+)(\/[^/?#]+)?/i);
+  if (!m) return fallback;
+  const host = m[1].toLowerCase();
+  if (/^(github\.com|gitlab\.com|huggingface\.co|bitbucket\.org)$/.test(host)) return host + (m[2] ?? '').toLowerCase();
+  const parts = host.split('.');
+  return parts.length > 2 ? parts.slice(-2).join('.') : host;
+}
+
+export interface StackAudit {
+  /** Detected layers in stack order, each with the catalogued systems in it. */
+  layers: { layer: AuditLayer; label: string; systems: { id: string; name: string; status: StackStatus }[] }[];
+  /** Core layers with no catalogued dependency; empty unless at least two
+   * dependencies matched (one package is not a stack). */
+  missing: { layer: AuditLayer; label: string; role: string; choose: string }[];
+  /** Vendors covering two or more layers. */
+  concentration: { vendor: string; layers: AuditLayer[]; systems: string[] }[];
+  /** Licence mix by bucket, from the licence cell of each matched system. */
+  licences: { bucket: LicenceBucket; systems: { id: string; name: string; licence: string; copyleft: boolean; mixed: boolean }[] }[];
+  /** The detected stack as stack.yml, one system per layer, for /build and
+   * for watching with `landscape check stack.yml`. */
+  stackYaml: string;
+}
+
+export function auditStack(matched: Finding[]): StackAudit {
+  // One entry per system (a manifest can name the same package twice).
+  const seen = new Set<string>();
+  const systems = matched.filter((f) => (seen.has(f.recordId) ? false : (seen.add(f.recordId), true)));
+  const byLayer = new Map<AuditLayer, StackAudit['layers'][number]>();
+  for (const f of systems) {
+    const layer = auditLayerOf(f.record);
+    const row = byLayer.get(layer) ?? { layer, label: AUDIT_LAYER_BY_ID[layer]?.label ?? 'Other catalogued systems', systems: [] };
+    row.systems.push({ id: f.recordId, name: f.record.name, status: f.record.status });
+    byLayer.set(layer, row);
+  }
+  const order = [...AUDIT_LAYERS.map((l) => l.id), 'other' as AuditLayer];
+  const layers = order.filter((l) => byLayer.has(l)).map((l) => byLayer.get(l)!);
+
+  const have = new Set(layers.map((l) => l.layer));
+  const missing = systems.length >= 2
+    ? CORE_LAYERS.filter((group) => !group.some((l) => have.has(l))).map((group) => {
+        const d = AUDIT_LAYER_BY_ID[group[0]];
+        return { layer: d.id, label: group.length > 1 ? 'Model, gateway or serving' : d.label, role: d.role, choose: d.choose };
+      })
+    : [];
+
+  const vendors = new Map<string, { layers: Set<AuditLayer>; systems: string[] }>();
+  for (const f of systems) {
+    const layer = auditLayerOf(f.record);
+    if (layer === 'other') continue;
+    const v = vendorOf(f.record, f.recordId);
+    const row = vendors.get(v) ?? { layers: new Set<AuditLayer>(), systems: [] };
+    row.layers.add(layer);
+    row.systems.push(f.record.name);
+    vendors.set(v, row);
+  }
+  const concentration = [...vendors]
+    .filter(([, v]) => v.layers.size >= 2)
+    .map(([vendor, v]) => ({ vendor, layers: order.filter((l) => v.layers.has(l)), systems: v.systems }))
+    .sort((a, b) => b.layers.length - a.layers.length || a.vendor.localeCompare(b.vendor));
+
+  const buckets = new Map<LicenceBucket, StackAudit['licences'][number]>();
+  for (const f of systems) {
+    const lb = licenceBucket(f.record.license);
+    const row = buckets.get(lb.bucket) ?? { bucket: lb.bucket, systems: [] };
+    row.systems.push({ id: f.recordId, name: f.record.name, licence: f.record.license, copyleft: lb.copyleft, mixed: lb.mixed });
+    buckets.set(lb.bucket, row);
+  }
+  const bucketOrder: LicenceBucket[] = ['open-source', 'source-available', 'proprietary', 'unknown'];
+  const licences = bucketOrder.filter((b) => buckets.has(b)).map((b) => buckets.get(b)!);
+
+  const yaml = [
+    '# Stack detected from your manifest by the AI Agent Infrastructure Landscape (stack audit).',
+    '# Check it any time: npx landscape check stack.yml, or the "AI stack check" GitHub Action.',
+    'version: 1',
+    'components:'
+  ];
+  for (const l of layers) {
+    if (l.layer === 'other') continue;
+    const [first, ...rest] = l.systems;
+    yaml.push(`  ${l.layer}: ${first.id}  # ${first.name.replace(/#/g, '')}`);
+    for (const r of rest) yaml.push(`  # also ${l.layer}: ${r.id}  # ${r.name.replace(/#/g, '')}`);
+  }
+  return { layers, missing, concentration, licences, stackYaml: yaml.join('\n') + '\n' };
 }
 
 export function checkManifest(
