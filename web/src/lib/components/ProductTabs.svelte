@@ -4,7 +4,9 @@
   // It drives the same `product` facet the filter rail exposes, so the
   // selection round-trips through the URL (?product=memory).
   import { filters } from '$lib/stores/filters';
+  import { base } from '$app/paths';
   import { getFamilies, familyCounts } from '$lib/families';
+  import { siloForFamily } from '$lib/silos';
   import type { LandscapeRecord } from '$lib/types';
 
   let { records }: { records: LandscapeRecord[] } = $props();
@@ -59,9 +61,12 @@
     {#if activeFamily}
       <strong>{activeFamily.name}:</strong> {activeFamily.tagline}
       <span class="aud">For: {activeFamily.audience}</span>
+      {#if siloForFamily(activeFamily.id)}
+        <a class="open" href="{base}/catalogs/{siloForFamily(activeFamily.id)?.id}">Open the {activeFamily.name} catalog →</a>
+      {/if}
     {:else}
-      Five catalogs in one dataset. Start with <button type="button" class="link" onclick={() => pick('memory')}>Agent Memory</button>,
-      or pick the layer of the agent stack you're choosing.
+      Every system in one table. Filter by layer here, or open a <a class="open" href="{base}/catalogs">focused catalog</a>
+      for one audience: memory, frameworks, retrieval, models, research, coding agents, security, evals and more.
     {/if}
   </p>
 </nav>
@@ -107,6 +112,14 @@
     margin: 4px 2px 0;
     font-size: 13px;
     color: #8b949e;
+  }
+  .open {
+    margin-left: 8px;
+    color: #58a6ff;
+    text-decoration: none;
+  }
+  .open:hover {
+    text-decoration: underline;
   }
   .aud {
     margin-left: 8px;

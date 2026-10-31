@@ -119,3 +119,13 @@ Direction agreed with the maintainer: the product is a stack planner and auditor
 **Phase 2:** [#363](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/363) extend check into a stack audit (layers, missing layers, concentration, licence mix) · [#364](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/364) version drift and deprecation findings, `fail-on: drift` in the Action · [#365](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/365) maintainer-health signals on system pages and in the audit · [#366](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/366) procurement / security-review sheet for a stack.
 
 Phase 3 (scaffold generator, context packs for coding agents, per-stack changes page, collapsing the site around three doors) is not filed yet; see the 2026-10-30 session notes before filing.
+
+## 8. Catalog silos (2026-10-31)
+
+Shipped: `taxonomy/silos.json`, `/catalogs`, `/catalogs/<silo>`, `/catalogs/<silo>/browse`, the Catalogs nav group, per-silo exports and the llms.txt section (DECISIONS.md, 2026-10-31). Follow-ups, in order:
+
+1. **MCP and CLI silo scoping.** `--silo <id>` on the stdio server and worker path per silo so an agent configured for one job sees that silo's tools (`mcpTools` in silos.json) and `search_records` / `ask_catalog` default to its sections. CLI: `landscape --silo coding search …`.
+2. **Per-silo feeds and OG images.** `feeds/catalogs/<silo>.xml` from the same change events the landing page shows; the OG generator already emits one SVG per route.
+3. **Silo-aware choosers.** `/choose` and `/build` accept `?silo=` to preselect the matching product preset and scope the candidate pool; the landing-page tiles then deep-link with it.
+4. **Depth badge.** Fill rate within the silo's columns → full / standard / listed per record, shown in the browse table and preferred as a tiebreaker in the choosers (never an exclusion).
+5. **Design pass per silo**: the memory table and the models table want different densities; review `columns` in silos.json with real users.

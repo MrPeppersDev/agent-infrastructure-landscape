@@ -38,6 +38,12 @@ try { history = read('history.json'); } catch { /* optional */ }
 const families = JSON.parse(readFileSync(resolve(__dirname, '..', '..', 'taxonomy', 'families.json'), 'utf8')).families;
 const famOf = new Map();
 for (const f of families) for (const s of f.sections) famOf.set(s, f.id);
+// Catalog silos (taxonomy/silos.json): focused views that may cross families.
+// Family silos reuse the family export; the cross-cutting ones get their own.
+const silos = JSON.parse(readFileSync(resolve(__dirname, '..', '..', 'taxonomy', 'silos.json'), 'utf8')).silos;
+for (const s of silos) {
+  for (const sec of s.sections) if (!famOf.has(sec)) throw new Error(`taxonomy/silos.json: silo "${s.id}" names unknown section "${sec}"`);
+}
 
 const records = landscape.records ?? [];
 const primary = (r) => (r.sections.find((s) => s.primary) ?? r.sections[0])?.section ?? '';
@@ -136,8 +142,9 @@ const csvCell = (v) => {
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 };
 const catalogs = [];
-for (const f of [...families, { id: 'all', name: 'Full catalog', sections: null }]) {
-  const rows = records.filter((r) => f.id === 'all' || famOf.get(primary(r)) === f.id);
+const crossCut = silos.filter((s) => !s.family).map((s) => ({ id: s.id, name: s.name, sections: new Set(s.sections), cross: true }));
+for (const f of [...families, ...crossCut, { id: 'all', name: 'Full catalog', sections: null }]) {
+  const rows = records.filter((r) => (f.id === 'all' ? true : f.cross ? f.sections.has(primary(r)) : famOf.get(primary(r)) === f.id));
   // Columns empty for every row of this catalog are dropped (#334): the
   // memory taxonomy outside the memory catalogs, for instance.
   const full = rows.map((r) => Object.fromEntries(COLS.map(([k, fn]) => [k, fn(r)])));
@@ -231,6 +238,10 @@ write('llms.txt', `# AI Agent Infrastructure Landscape
 - [Compatibility](${PUBLIC}/compatibility): do these systems work together? Integration evidence for every pair, with sources.
 - [Compare](${PUBLIC}/compare): head-to-head pages; [compare up to five](${PUBLIC}/compare/many).
 - [Findings](${PUBLIC}/findings): headline findings from the catalog.
+
+## Catalogs (one audience at a time; the home table is every system)
+
+${silos.map((s) => `- [${s.name}](${PUBLIC}/catalogs/${s.id}): ${s.tagline} Table: ${PUBLIC}/catalogs/${s.id}/browse`).join('\n')}
 
 ## Machine-readable data (static JSON, no auth)
 

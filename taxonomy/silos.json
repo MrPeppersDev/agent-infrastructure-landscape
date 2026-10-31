@@ -1,0 +1,346 @@
+{
+  "_doc": "Catalog silos: focused views over the one dataset, each for an audience and a job. A silo is a set of sections (which may cross product families), the table columns that audience scans first, and the decision tools, research views and exports that apply to it. Records are never removed or duplicated: the Atlas (the home table) shows every row and every column; a silo shows its rows and its columns. Edit this file to add or change a silo; the web app, the exports and llms.txt read it. Section names must match taxonomy/families.json.",
+  "version": "1.0.0",
+  "silos": [
+    {
+      "id": "memory",
+      "family": "memory",
+      "name": "Agent Memory",
+      "short": "Memory",
+      "tagline": "Shipping memory layers, memory features and memory products for AI agents.",
+      "audience": "Builders choosing how their agent remembers.",
+      "description": "Dedicated memory services, memory inside frameworks and platforms, coding-agent memory and vertical memory products, described on the seven memory axes (storage, retrieval, persistence, update, unit, governance, conflict) plus contradiction handling, forgetting policy, backend storage and MCP support.",
+      "sections": [
+        "Dedicated memory layers",
+        "Framework-embedded memory",
+        "Platform-provider memory",
+        "Retrieval-as-memory hybrids",
+        "Claude Code memory mechanisms",
+        "Coding-agent memory",
+        "Browser-agent memory",
+        "File-backed / editor paradigms",
+        "Personal AI / PKM / lifelogging memory",
+        "Voice-first / wearable AI memory",
+        "Vertical / domain-specific AI memory",
+        "Memory governance, privacy & safety",
+        "Memory observability & monitoring"
+      ],
+      "taxonomy": true,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "tax:storage", "tax:conflict", "contradiction", "forgetting", "backend-storage", "mcp-support", "deployment", "license", "latest-release", "gh", "verified"],
+      "decide": [
+        { "label": "Choose a memory layer", "path": "/choose", "blurb": "A few questions, three cited picks and a side-by-side table." },
+        { "label": "What will memory cost?", "path": "/costs", "blurb": "Monthly cost of managed memory layers at your workload, from published prices." },
+        { "label": "Does it work with my stack?", "path": "/compatibility", "blurb": "Integration evidence between a memory layer, a framework and a store." },
+        { "label": "Alternatives and migrations", "path": "/alternatives", "blurb": "Live options that do the same job, and how to move off an archived one." }
+      ],
+      "research": [
+        { "label": "Memory benchmarks", "path": "/benchmarks" },
+        { "label": "Benchmark trust", "path": "/analyses/benchmark-trust" },
+        { "label": "Evaluation gap", "path": "/analyses/eval-gap" },
+        { "label": "Memory architecture archetypes", "path": "/analyses/archetypes" }
+      ],
+      "bestOf": ["agent-memory-with-mcp", "open-source-agent-memory", "self-hostable-agent-memory", "soc2-compliant-agent-memory", "hipaa-compliant-agent-memory", "gdpr-compliant-agent-memory"],
+      "mcpTools": ["choose_memory_layer", "estimate_memory_cost", "check_compatibility", "find_alternatives", "compare"],
+      "cli": ["landscape choose", "landscape compat <ids…>", "landscape alternatives <id>"]
+    },
+    {
+      "id": "agents",
+      "family": "agents",
+      "name": "Agent Frameworks & Harnesses",
+      "short": "Agents",
+      "tagline": "Frameworks, harnesses, IDEs and runtimes that agents are built and run in.",
+      "audience": "Builders choosing an agent stack.",
+      "description": "Code-first frameworks, multi-agent orchestration, coding IDEs and harnesses, computer-use and voice agents, sandboxes, identity and auth, MCP gateways and durable execution, compared on language, hosting, licence, protocol support and lifecycle.",
+      "sections": [
+        "Agent frameworks (no first-party memory layer)",
+        "Multi-agent orchestration platforms",
+        "Agent IDEs & coding harnesses",
+        "Use-case-specific agent harnesses",
+        "Computer-use & desktop agents",
+        "Voice agent platforms",
+        "AI sandbox & runtime environments",
+        "Agent identity & auth",
+        "MCP gateways & registries",
+        "Durable execution & workflow engines"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "runtimes", "llm-lock", "mcp-support", "a2a-support", "deployment", "license", "latest-release", "gh", "verified"],
+      "decide": [
+        { "label": "Build a whole stack", "path": "/build", "blurb": "One cited pick per layer for the product you are building, with risk, cost and a stack.yml." },
+        { "label": "Choose a framework", "path": "/choose/framework", "blurb": "Frameworks, durable execution, tools and auth, no-code builders and sandboxes." },
+        { "label": "Check your stack", "path": "/check", "blurb": "Paste a manifest to find archived, acquired or stale dependencies." },
+        { "label": "Do these work together?", "path": "/compatibility", "blurb": "Documented integrations for every pair in a stack." }
+      ],
+      "research": [
+        { "label": "Reference blueprints", "path": "/build" },
+        { "label": "Head-to-head comparisons", "path": "/compare" },
+        { "label": "What changed", "path": "/changes" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["plan_stack", "choose_framework_or_store", "check_stack", "check_compatibility", "find_alternatives"],
+      "cli": ["landscape stack", "landscape choose-stack framework", "landscape check <manifest>"]
+    },
+    {
+      "id": "retrieval",
+      "family": "data",
+      "name": "Retrieval & Data Infrastructure",
+      "short": "Retrieval",
+      "tagline": "Vector stores, knowledge graphs, embeddings and search that memory is built on.",
+      "audience": "Builders picking storage and retrieval substrate.",
+      "description": "Vector databases, graph platforms, embedding and reranker services and search engines, compared on deployment, pricing, backend, consistency, multi-tenancy and the memory layers and frameworks each one is documented to work with.",
+      "sections": [
+        "Vector-database infrastructure",
+        "Knowledge-graph platforms",
+        "Embedding & reranker services",
+        "Search platforms (non-memory)",
+        "Enterprise-search adjacencies"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "deployment", "pricing", "multi-tenancy", "consistency", "mcp-support", "license", "latest-release", "gh", "verified"],
+      "decide": [
+        { "label": "Choose a vector or graph database", "path": "/choose/data", "blurb": "Three cited picks for your language, hosting and must-haves." },
+        { "label": "What will a vector store cost?", "path": "/costs?tab=vector", "blurb": "Published list prices at your volume; not published is said so." },
+        { "label": "Does it work with my memory layer?", "path": "/compatibility", "blurb": "Integration evidence between stores, memory layers and frameworks." },
+        { "label": "Alternatives", "path": "/alternatives", "blurb": "Live options ranked by shared design and must-haves." }
+      ],
+      "research": [
+        { "label": "Head-to-head comparisons", "path": "/compare" },
+        { "label": "What changed", "path": "/changes" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["choose_framework_or_store", "estimate_vector_store_cost", "check_compatibility", "find_alternatives"],
+      "cli": ["landscape choose-stack data", "landscape compat <ids…>"]
+    },
+    {
+      "id": "models",
+      "family": "models-ops",
+      "name": "Models, Serving & Ops",
+      "short": "Models & Ops",
+      "tagline": "Foundation models, inference, training, evaluation and observability around agents.",
+      "audience": "Teams operating agents in production.",
+      "description": "Foundation model families, inference platforms and gateways, training infrastructure, evaluation and observability platforms, guardrails and robotics stacks, with list prices, licences, deployment options and release dates.",
+      "sections": [
+        "Foundation models (substrate reference)",
+        "Inference platforms & gateways",
+        "Training infrastructure",
+        "Evaluation & observability platforms",
+        "Robotics foundation models & agent stacks",
+        "Guardrails & AI security"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "pricing", "deployment", "license", "otel", "latest-release", "gh", "funding", "verified"],
+      "decide": [
+        { "label": "Build a whole stack", "path": "/build", "blurb": "Model, gateway, evals and guardrails layers picked together, with the monthly bill." },
+        { "label": "Check your stack", "path": "/check", "blurb": "Find deprecated models, acquired vendors and stale SDKs in a manifest." },
+        { "label": "Do these work together?", "path": "/compatibility", "blurb": "Provider pages, gateway routes and tracing integrations." }
+      ],
+      "research": [
+        { "label": "Cost economics", "path": "/analyses/cost-economics" },
+        { "label": "Observability coverage", "path": "/analyses/observability" },
+        { "label": "What changed", "path": "/changes" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["plan_stack", "check_stack", "check_compatibility", "recent_changes"],
+      "cli": ["landscape stack", "landscape check <manifest>", "landscape recent"]
+    },
+    {
+      "id": "research",
+      "family": "memory-research",
+      "name": "Memory Research & Benchmarks",
+      "short": "Research",
+      "tagline": "Papers, benchmarks and ideas behind agent memory, before they ship as products.",
+      "audience": "Researchers and teams evaluating memory claims.",
+      "description": "Method papers, benchmarks and evaluation suites, research systems and informal proposals, with citation counts, code release, reproducibility and the lineage and influence graph that connects them to shipping products.",
+      "sections": [
+        "Memory benchmarks & evaluation",
+        "Recent method papers — theorized, no distinct product",
+        "Research / specialised systems",
+        "Theoretical / informal — ideas without a paper"
+      ],
+      "taxonomy": true,
+      "columns": ["name", "tier", "section", "type", "created", "citations", "code-release", "repro", "tax:storage", "tax:retrieval", "license", "gh", "verified"],
+      "decide": [
+        { "label": "Memory benchmarks", "path": "/benchmarks", "blurb": "Reproduced runs versus vendor-reported scores, with the setup behind each number." },
+        { "label": "Ask the catalog", "path": "/search", "blurb": "Describe a method or a benchmark in plain words." }
+      ],
+      "research": [
+        { "label": "Lineages", "path": "/lineages" },
+        { "label": "Citation and influence graph", "path": "/graph" },
+        { "label": "Timeline", "path": "/timeline" },
+        { "label": "Leaderboards", "path": "/leaderboards" },
+        { "label": "Findings", "path": "/findings" },
+        { "label": "All analyses", "path": "/analyses" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["search_records", "find_related", "compare", "system_history"],
+      "cli": ["landscape search", "landscape related <id>"]
+    },
+    {
+      "id": "coding",
+      "name": "Coding Agents",
+      "short": "Coding",
+      "tagline": "IDEs, coding harnesses, the memory they keep and the sandboxes they run in.",
+      "audience": "Developers choosing or building a coding agent.",
+      "description": "Agent IDEs and command-line coding harnesses, coding-agent memory and context files, Claude Code memory mechanisms, editor paradigms and the sandboxes agent-written code runs in, compared on licence, hosting, MCP support and lifecycle.",
+      "sections": [
+        "Agent IDEs & coding harnesses",
+        "Coding-agent memory",
+        "Claude Code memory mechanisms",
+        "File-backed / editor paradigms",
+        "AI sandbox & runtime environments"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "mcp-support", "deployment", "pricing", "license", "latest-release", "gh", "verified"],
+      "decide": [
+        { "label": "Build a coding-agent stack", "path": "/build?product=coding-agent", "blurb": "Framework, model, sandbox, memory, evals and guardrails for a coding agent." },
+        { "label": "Memory for a coding agent", "path": "/choose", "blurb": "Pick \"a coding agent or developer tool\" to scope the chooser." },
+        { "label": "Choose a sandbox", "path": "/choose/framework", "blurb": "Pick \"a sandbox to run agent-generated code\"." },
+        { "label": "Check your stack", "path": "/check", "blurb": "Paste a package.json or MCP config to find archived or acquired tools." }
+      ],
+      "research": [
+        { "label": "Claude Code vs Cursor vs Codex", "path": "/compare" },
+        { "label": "What changed", "path": "/changes" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["plan_stack", "choose_memory_layer", "check_stack", "find_alternatives"],
+      "cli": ["landscape stack --product coding-agent", "landscape check <manifest>"]
+    },
+    {
+      "id": "security",
+      "name": "Security, Governance & Identity",
+      "short": "Security",
+      "tagline": "Guardrails, memory governance, agent identity and MCP gateways.",
+      "audience": "Security reviewers and platform teams putting agents into production.",
+      "description": "Guardrail and AI-security products, memory governance and privacy layers, agent identity and authorization, and MCP gateways and registries, with compliance, data-handling, encryption and access-control cells and their sources.",
+      "sections": [
+        "Guardrails & AI security",
+        "Memory governance, privacy & safety",
+        "Agent identity & auth",
+        "MCP gateways & registries"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "compliance", "data-handling", "encryption", "sso-rbac", "deployment", "license", "latest-release", "verified"],
+      "decide": [
+        { "label": "Build a stack with guardrails", "path": "/build", "blurb": "Guardrails, identity and MCP layers picked with the rest, mapped to the OWASP LLM Top 10." },
+        { "label": "Tools and auth for agents", "path": "/choose/framework", "blurb": "Pick \"tools and auth for agents\" to scope the chooser." },
+        { "label": "Check your stack", "path": "/check", "blurb": "Find archived or acquired security components in a manifest or MCP config." }
+      ],
+      "research": [
+        { "label": "SOC 2 memory systems", "path": "/best/soc2-compliant-agent-memory" },
+        { "label": "HIPAA memory systems", "path": "/best/hipaa-compliant-agent-memory" },
+        { "label": "What changed", "path": "/changes" }
+      ],
+      "bestOf": ["soc2-compliant-agent-memory", "hipaa-compliant-agent-memory", "gdpr-compliant-agent-memory", "iso-27001-agent-memory"],
+      "mcpTools": ["plan_stack", "check_stack", "search_records"],
+      "cli": ["landscape stack", "landscape check <manifest>"]
+    },
+    {
+      "id": "evals",
+      "name": "Evals & Observability",
+      "short": "Evals",
+      "tagline": "Evaluation platforms, tracing, memory monitoring and the benchmarks behind them.",
+      "audience": "Teams deciding how to test and watch agents in production.",
+      "description": "Evaluation and observability platforms, memory observability tools and memory benchmarks, compared on OpenTelemetry support, deployment, pricing, licence and the frameworks and gateways each is documented to trace.",
+      "sections": [
+        "Evaluation & observability platforms",
+        "Memory observability & monitoring",
+        "Memory benchmarks & evaluation"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "otel", "deployment", "pricing", "license", "latest-release", "gh", "verified"],
+      "decide": [
+        { "label": "Evals in a whole stack", "path": "/build", "blurb": "The evals and observability layer picked with the framework and gateway it has to trace." },
+        { "label": "Memory benchmarks", "path": "/benchmarks", "blurb": "Reproduced runs versus vendor-reported scores." },
+        { "label": "Does it trace my stack?", "path": "/compatibility", "blurb": "Integration evidence between tracing tools, frameworks and gateways." }
+      ],
+      "research": [
+        { "label": "Observability coverage", "path": "/analyses/observability" },
+        { "label": "Evaluation gap", "path": "/analyses/eval-gap" },
+        { "label": "Benchmark trust", "path": "/analyses/benchmark-trust" }
+      ],
+      "bestOf": ["agent-memory-with-opentelemetry", "agent-memory-with-langsmith", "agent-memory-with-langfuse", "agent-memory-with-datadog"],
+      "mcpTools": ["plan_stack", "check_compatibility", "search_records"],
+      "cli": ["landscape stack", "landscape compat <ids…>"]
+    },
+    {
+      "id": "embodied",
+      "name": "Voice, Computer-use & Embodied Agents",
+      "short": "Voice & Embodied",
+      "tagline": "Voice agent platforms, wearable memory, computer-use agents and robotics stacks.",
+      "audience": "Builders of agents that speak, see a screen or act in the world.",
+      "description": "Voice agent platforms, voice-first and wearable memory products, computer-use and desktop agents and robotics foundation models, with modalities, deployment, pricing and lifecycle.",
+      "sections": [
+        "Voice agent platforms",
+        "Voice-first / wearable AI memory",
+        "Computer-use & desktop agents",
+        "Robotics foundation models & agent stacks"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "modalities", "deployment", "pricing", "license", "latest-release", "gh", "verified"],
+      "decide": [
+        { "label": "Build a voice-agent stack", "path": "/build?product=voice-agent", "blurb": "Voice runtime, model, memory and evals picked together." },
+        { "label": "Ask the catalog", "path": "/search", "blurb": "For example: managed voice agent platform." },
+        { "label": "Alternatives", "path": "/alternatives", "blurb": "Live options when a platform is acquired or shut down." }
+      ],
+      "research": [
+        { "label": "What changed", "path": "/changes" },
+        { "label": "Timeline", "path": "/timeline" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["plan_stack", "ask_catalog", "find_alternatives"],
+      "cli": ["landscape stack --product voice-agent", "landscape search"]
+    },
+    {
+      "id": "assistants",
+      "name": "Assistant & Personal Memory",
+      "short": "Assistants",
+      "tagline": "How ChatGPT, Claude, Gemini and personal-knowledge tools remember you.",
+      "audience": "Product teams and users comparing the memory inside assistants.",
+      "description": "Platform-provider memory features, personal AI and lifelogging products and browser-agent memory, compared on what they store, how they handle contradictions and forgetting, import and export, and data handling.",
+      "sections": [
+        "Platform-provider memory",
+        "Personal AI / PKM / lifelogging memory",
+        "Browser-agent memory"
+      ],
+      "taxonomy": true,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "tax:unit", "contradiction", "forgetting", "import-export", "data-handling", "pricing", "latest-release", "verified"],
+      "decide": [
+        { "label": "Compare two assistants' memory", "path": "/compare", "blurb": "Head-to-head pages across 19 dimensions." },
+        { "label": "Ask the catalog", "path": "/search", "blurb": "For example: memory that handles contradictions." }
+      ],
+      "research": [
+        { "label": "Memory architecture archetypes", "path": "/analyses/archetypes" },
+        { "label": "What changed", "path": "/changes" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["compare", "search_records", "system_history"],
+      "cli": ["landscape compare <ids…>", "landscape show <id>"]
+    },
+    {
+      "id": "vertical",
+      "name": "Vertical & Domain Agents",
+      "short": "Vertical",
+      "tagline": "Agents and memory built for one industry: legal, health, support, sales, science, gaming.",
+      "audience": "Buyers and builders in a specific domain.",
+      "description": "Use-case-specific agent harnesses and domain-specific memory products, with validated verticals, compliance, pricing, funding and lifecycle, so a buyer can see who is still shipping in their field.",
+      "sections": [
+        "Use-case-specific agent harnesses",
+        "Vertical / domain-specific AI memory"
+      ],
+      "taxonomy": false,
+      "columns": ["name", "lifecycle", "tier", "section", "type", "validated-verticals", "compliance", "pricing", "funding", "deployment", "latest-release", "verified"],
+      "decide": [
+        { "label": "Build a support-agent stack", "path": "/build?product=support-agent", "blurb": "The reference stack for customer support, checked against production write-ups." },
+        { "label": "Ask the catalog", "path": "/search", "blurb": "For example: healthcare agent with HIPAA." },
+        { "label": "Alternatives", "path": "/alternatives", "blurb": "Live options when a vendor is acquired or shuts down." }
+      ],
+      "research": [
+        { "label": "What changed", "path": "/changes" },
+        { "label": "Leaderboards", "path": "/leaderboards" }
+      ],
+      "bestOf": [],
+      "mcpTools": ["ask_catalog", "search_records", "find_alternatives"],
+      "cli": ["landscape search", "landscape alternatives <id>"]
+    }
+  ]
+}

@@ -24,6 +24,8 @@ The catalog is split into five product families. Each one stands on its own; the
 
 The section → family map lives in [`taxonomy/families.json`](./taxonomy/families.json).
 
+**Focused catalogs.** The same dataset is also served one audience at a time at [`/catalogs`](https://mrpeppersdev.github.io/agent-infrastructure-landscape/catalogs): the five families above plus use-case views for coding agents, security and identity, evals and observability, voice and embodied agents, assistant memory and vertical agents. Each shows its rows, the columns that audience scans first and the decision tools that apply; the home table is the Atlas with every row and every column. Defined in [`taxonomy/silos.json`](./taxonomy/silos.json).
+
 ## Questions it answers
 
 - *Which memory layer / agent framework / vector database should I use?* → [**/choose**](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose), [/choose/framework](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose/framework), [/choose/data](https://mrpeppersdev.github.io/agent-infrastructure-landscape/choose/data): a few questions, three picks with cited reasons, a side-by-side table
