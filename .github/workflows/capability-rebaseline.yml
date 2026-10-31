@@ -66,16 +66,34 @@ jobs:
         run: |
           python scripts/capability_rebaseline.py
 
+      # LLM capability sweep (#128/#129). Stages a dated
+      # data/_baselines/capability-sweep-YYYY-MM-DD.json plus the manifest;
+      # it never writes landscape.json (merge is a reviewed step:
+      # `capability_sweep.py --merge-into-landscape --sweep <file>`).
+      # Skips with a notice until the ANTHROPIC_API_KEY secret exists.
+      - name: Capability sweep (LLM path)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::notice title=Capability sweep::Skipped: add the ANTHROPIC_API_KEY repository secret to run the LLM sweep (#128/#129)."
+            exit 0
+          fi
+          pip install anthropic
+          python scripts/capability_sweep.py
+
       - name: Commit baseline + FINDINGS
         run: |
           set -euo pipefail
           if git diff --quiet data/_baselines/ docs/FINDINGS-*.md 2>/dev/null \
-              && ! git status --porcelain data/_baselines docs | grep -qE '(rebaseline-|FINDINGS-)'; then
+              && ! git status --porcelain data/_baselines docs | grep -qE '(rebaseline-|FINDINGS-|capability-sweep-)'; then
             echo "no rebaseline output to commit"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/_baselines/rebaseline-*.json docs/FINDINGS-*.md
+          git add data/_baselines/capability-sweep-*.json 2>/dev/null || true
           git commit -m "chore(rebaseline): weekly capability snapshot" || true
           git push || true

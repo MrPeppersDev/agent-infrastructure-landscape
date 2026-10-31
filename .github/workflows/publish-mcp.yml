@@ -1,0 +1,89 @@
+# Publish the MCP server (#358): landscape-mcp to npm, then the MCP Registry.
+#
+# Manual (Actions → Publish MCP server → Run workflow) or on a `data-v*` tag,
+# which is the dataset release cadence the npm version tracks (mcp/README.md).
+# Needs one secret, NPM_TOKEN (an npm granular access token with publish
+# rights on landscape-mcp and "bypass 2FA" for automation). The registry
+# step needs no secret: mcp-publisher signs in with this workflow's GitHub
+# OIDC token, which is allowed to publish io.github.MrPeppersDev/* servers
+# because the workflow runs in that owner's repository.
+#
+# Order matters: the registry checks that the npm package carries the
+# `mcpName` in package.json, so npm publish runs first. Keep the version
+# equal in mcp/package.json and mcp/server.json.
+name: Publish MCP server
+
+on:
+  workflow_dispatch:
+    inputs:
+      registry_only:
+        description: 'Skip npm publish (the version is already on npm) and only publish to the MCP Registry.'
+        type: boolean
+        default: false
+  push:
+    tags: ['data-v*']
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-mcp
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Versions agree
+        run: |
+          set -euo pipefail
+          pkg=$(node -p "require('./package.json').version")
+          srv=$(node -p "require('./server.json').version")
+          pkgs=$(node -p "require('./server.json').packages[0].version")
+          name=$(node -p "require('./package.json').mcpName")
+          srvname=$(node -p "require('./server.json').name")
+          test "$pkg" = "$srv" -a "$pkg" = "$pkgs" || { echo "::error title=Publish MCP server::version mismatch: package.json $pkg, server.json $srv / $pkgs"; exit 1; }
+          test "$name" = "$srvname" || { echo "::error title=Publish MCP server::mcpName $name != server.json name $srvname"; exit 1; }
+          echo "publishing $name $pkg"
+
+      - name: Build and test
+        run: |
+          npm ci
+          npm run build
+          npm test
+
+      - name: Publish to npm
+        if: ${{ !inputs.registry_only }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error title=Publish MCP server::Add the NPM_TOKEN secret (npm granular token with publish rights on landscape-mcp) or re-run with registry_only."
+            exit 1
+          fi
+          npm publish --access public --provenance
+
+      - name: Install mcp-publisher
+        run: |
+          set -euo pipefail
+          os=$(uname -s | tr '[:upper:]' '[:lower:]')
+          arch=$(uname -m | sed 's/x86_64/amd64/; s/aarch64/arm64/')
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_${os}_${arch}.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher --version
+
+      - name: Publish to the MCP Registry
+        run: |
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish
