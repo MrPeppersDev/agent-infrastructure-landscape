@@ -34,6 +34,18 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Maintainer-health signals from the GitHub API (#365)
+
+**What.** A daily workflow (`repo-health.yml`, `scripts/fetch_repo_health.py`) reads four GitHub API payloads per repo in `data/stack-index.json#repos` and reduces them to: issues opened in the last 90 days and the share that are closed or have a comment; the median age of open issues in the sample; releases in the last 12 months and the newest release date; the bus factor (contributors needed to reach half of the sampled commits) and the top contributor's share; archived. It writes `data/repo-health.json` on a rolling basis (about 120 repos a run, oldest first, within the GITHUB_TOKEN rate limit) and commits it. `build_stack_index.py` copies the numbers into each record's `health`; `healthConcerns()` in `stack-check.ts` names a concern when under 30% of 10+ recent issues got a reply, when there is no release in a year and no commit for six months, when one contributor wrote 80%+ of sampled commits, or when the repo is archived. The system page shows a "Maintainer health" line, the stack audit lists concerns among matched dependencies (and counts those without data), the Action and CLI print them, and the leaderboards gain "Most depended-on, with a maintainer-health concern". Fixtures under `extraction/repo-health-fixtures/` pin the reduction.
+
+**Why.** Roadmap item 2.3 (#365): stars and last-commit dates do not answer "if I file a bug, does anyone answer, and how often do they ship". Low health on a system many others depend on is the warning that matters most and was invisible.
+
+**Rules.** Numbers come from the API payloads only, with the as-of date shown; a repo the bot has not reached yet reads "no health data", never healthy. Samples are the 100 most recent issues and the top 100 contributors, so very busy repos are described, not measured exactly, and the page says "sampled".
+
+**Reversal cost.** Low. Delete the workflow and the file; the fields are optional everywhere.
+
+---
+
 ## 2026-10-31: The stack bill is a range; switching cost per layer (#362)
 
 **What.** `data/pricing/stack.json` gains `selfHost`: five reference instances at list price (AWS t3.medium, m6i.large, r6i.xlarge and g5.xlarge from EC2Instances.info, a third-party index, confidence medium; Lambda 1× H100 from the vendor's page) and, per layer, the low and high instance to assume for a component with no published price, or none for a library. `stackCost` fills an `estimate` (low, high, basis, sources) on each unpriced line and returns `range`: published prices plus estimates, with the number of priced, estimated and "contact sales" lines; "contact sales" lines stay outside the range and are named. The builder's heading reads "$low to $high plus N contact-sales lines" and lists the assumption under each estimated line; blueprint READMEs do the same. Each layer's exit path gains `switching`: the monthly delta to the fallback where both sides have a published price (or why not), how many of the other picks the fallback is documented to work with, and whether migration notes exist.

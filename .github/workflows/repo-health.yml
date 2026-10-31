@@ -1,0 +1,50 @@
+# Daily maintainer-health refresh (#365): for the GitHub repos the catalog
+# tracks, read issue responsiveness, release cadence and commit concentration
+# from the GitHub API and commit data/repo-health.json. Rolling: about 120
+# repos a run, oldest first, so the whole catalog refreshes weekly within the
+# GITHUB_TOKEN rate limit. build_stack_index.py copies the numbers into
+# data/stack-index.json on the next `make build`, where the system page,
+# the stack check and the leaderboards read them.
+name: Repo health
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-health
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch repo health (GitHub API)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/fetch_repo_health.py --max-repos 120
+
+      - name: Commit the refreshed file
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/repo-health.json; then
+            echo "no change to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/repo-health.json
+          git commit -m "chore(health): daily repo-health refresh" || true
+          git push || true

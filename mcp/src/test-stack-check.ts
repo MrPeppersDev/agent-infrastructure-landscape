@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkManifest, parseManifest, licenceBucket, vendorOf, pinnedVersion, type StackIndex } from './stack-check.js';
+import { checkManifest, parseManifest, licenceBucket, vendorOf, pinnedVersion, healthConcerns, type StackIndex } from './stack-check.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 function findIndex(): string {
@@ -172,6 +172,19 @@ function check(name: string, cond: boolean, detail = '') {
   const r = checkManifest(JSON.stringify({ dependencies: { zero: '^0.4.0', nov: '^1.0.0' } }), idx, { filename: 'package.json' });
   check('0.x minors count as drift', r.drift[0]?.level === 'behind-minor' && r.drift[0].recordId === 'z', JSON.stringify(r.drift));
   check('no release version → counted, not judged', r.noVersionData === 1 && !r.drift.some((x) => x.recordId === 'n'));
+}
+
+// maintainer health (#365)
+{
+  const h = { repo: 'a/b', as_of: '2026-10-31', issues_90d: 12, responded_share: 0.2, open_issue_median_age_days: 90, releases_12mo: 0, latest_release_at: null, bus_factor: 1, top_contributor_share: 0.9, archived: false };
+  const why = healthConcerns(h, '2026-01');
+  check('health: low response, no release and one maintainer are all named', why.length === 3, why.join(' | '));
+  check('health: a healthy repo raises nothing', healthConcerns({ ...h, responded_share: 0.8, releases_12mo: 4, bus_factor: 3, top_contributor_share: 0.4 }, '2026-10').length === 0);
+  check('health: few issues is not a signal', healthConcerns({ ...h, issues_90d: 2, responded_share: null, releases_12mo: 1, bus_factor: 2 }, '2026-10').length === 0);
+  const rec = (name: string, health: unknown) => ({ name, family: 'x', section: 'Dedicated memory layers', url: null, license: 'MIT', llm_lock: '', status: 'active', severity: 0, note: '', context: '', evidence: null, last_commit: '2026-01', health });
+  const idx = { generatedAt: 't', packages: { 'npm:sick': 's', 'npm:unknown': 'u' }, repos: {}, records: { s: rec('Sick', h), u: rec('Unknown', null) } } as unknown as StackIndex;
+  const r = checkManifest(JSON.stringify({ dependencies: { sick: '^1', unknown: '^1' } }), idx, { filename: 'package.json' });
+  check('audit lists low-health systems and counts unknown ones', r.audit.health.length === 1 && r.audit.health[0].id === 's' && r.audit.healthUnknown === 1, JSON.stringify([r.audit.health, r.audit.healthUnknown]));
 }
 console.log(failures ? `\n${failures} failure(s)` : '\nall stack-check tests passed');
 process.exit(failures ? 1 : 0);

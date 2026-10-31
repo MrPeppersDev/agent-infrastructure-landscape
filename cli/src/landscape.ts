@@ -200,6 +200,8 @@ program
         if (a.missing.length) lines.push(`  not detected: ${a.missing.map((m) => m.label.toLowerCase()).join(', ')}  (only catalogued dependencies count)`);
         for (const c of a.concentration) lines.push(`  vendor concentration: ${c.vendor} covers ${c.layers.join(', ')} (${c.systems.join(', ')})`);
         lines.push(`  licences: ${a.licences.map((b) => `${LICENCE_LABEL[b.bucket].toLowerCase()} ${b.systems.length}`).join(' · ')}`);
+        for (const h of a.health) lines.push(`  maintainer health: ${h.name}: ${h.why.join('; ')} (GitHub, as of ${h.asOf})`);
+        if (a.healthUnknown) lines.push(`  (${a.healthUnknown} catalogued dependencies have no health data yet)`);
       }
       lines.push(`\nindex built ${report.indexGeneratedAt}`);
       emit(lines.join('\n'));

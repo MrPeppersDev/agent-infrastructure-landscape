@@ -349,6 +349,17 @@
               {/each}
             </ul>
           {/if}
+          {#if report.audit.health.length || report.audit.healthUnknown}
+            <h3>Maintainer health</h3>
+            {#if report.audit.health.length}
+              <ul class="plain">
+                {#each report.audit.health as h (h.id)}
+                  <li><a href="{base}/systems/{h.id}">{h.name}</a>: {h.why.join('; ')} <span class="n">(GitHub, as of {h.asOf})</span></li>
+                {/each}
+              </ul>
+            {/if}
+            {#if report.audit.healthUnknown}<p class="hint">{report.audit.healthUnknown} catalogued {report.audit.healthUnknown === 1 ? 'dependency has' : 'dependencies have'} no health data yet (the repo-health bot refreshes about 120 repos a day).</p>{/if}
+          {/if}
           <h3>Licences</h3>
           <ul class="plain">
             {#each report.audit.licences as b (b.bucket)}
@@ -503,6 +514,7 @@
   .audit .layers td { padding: 3px 0; }
   .audit .layers a, .audit .missing a, .audit .go { color: #58a6ff; text-decoration: none; }
   .audit .st { color: #d29922; font-size: 0.85em; }
+  .audit .n { color: #6e7681; font-size: 0.82em; }
   .audit .missing, .audit .plain { margin: 0; padding-left: 1.2rem; font-size: 0.92rem; }
   .audit .missing li, .audit .plain li { margin: 2px 0; }
   .audit em { color: #d29922; font-style: normal; font-size: 0.85em; }
