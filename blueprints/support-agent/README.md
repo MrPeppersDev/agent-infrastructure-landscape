@@ -102,6 +102,203 @@ _Infrastructure estimates for components with no published price, assumed self-h
 - Evals & observability: [Arize Phoenix](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/arize-phoenix--phoenix-arize-com) → [OpenLLMetry (Traceloop)](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openllmetry-traceloop--gh-traceloop-openllmetry): OpenLLMetry (Traceloop) is beyond its published plans at this workload (contact sales); documented to work with LangChain (framework), OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4), LiteLLM in this stack.
 - Guardrails & security: [NVIDIA NeMo Guardrails](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/nvidia-nemo-guardrails--docs-nvidia-com) → [Presidio](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/presidio--presidio-dataprivacystack-org): no published price for one side; documented to work with OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4), LiteLLM in this stack.
 
+## Security review sheet
+
+<details><summary>Attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing for every pick, with sources</summary>
+
+## Agent framework: [LangChain (framework)](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/langchain-framework--langchain-com)
+
+Lifecycle: active · catalog record verified 2026-10-27 · vendor: https://www.langchain.com/
+
+| Item | Value |
+|---|---|
+| Attestations | not published |
+| Compliance (as stated) | not published |
+| Data handling | not published |
+| Encryption | not published |
+| SSO / RBAC | not published |
+| Deployment | Both (self-hosted + managed cloud) — OSS library; agents deploy to LangSmith Deployment (cloud, hybrid or self-hosted) ([source](https://docs.langchain.com/langsmith/deployment)) |
+| Deployment locus | local ([source](https://github.com/langchain-ai/langchain)) |
+| Licence | MIT (OSS framework) ([source](https://www.langchain.com/)) |
+| Licensing model | open-source ([source](https://www.langchain.com/)) |
+| SDK languages | python, typescript ([source](https://raw.githubusercontent.com/langchain-ai/langchainjs/main/README.md)) |
+| Protocols | mcp-client ([source](https://docs.langchain.com/oss/python/langchain/mcp)) |
+| Maturity | ga ([source](https://docs.langchain.com/oss/python/release-policy)) |
+| HQ | San Francisco, CA, USA. ([source](https://www.crunchbase.com/organization/langchain)) |
+| Pricing | not published |
+
+## Foundation model: [OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4)](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com)
+
+Lifecycle: active · catalog record verified 2026-10-28 · vendor: https://openai.com/index/introducing-gpt-5/
+
+| Item | Value |
+|---|---|
+| Attestations | gdpr, hipaa, soc2-type2 ([source](https://openai.com/enterprise-privacy/)) |
+| Compliance (as stated) | SOC 2 Type II, ISO 27001, ISO 27017/18, ISO 42001, HIPAA (Enterprise/API w/ BAA), FedRAMP High (Azure GovCloud) ([source](https://openai.com/index/introducing-gpt-5/)) |
+| Data handling | Never trains on API/Enterprise data; consumer opt-out via Settings ([source](https://openai.com/index/introducing-gpt-5/)) |
+| Encryption | not published ([trust page](https://openai.com/enterprise-privacy/)) |
+| SSO / RBAC | not published ([trust page](https://openai.com/enterprise-privacy/)) |
+| Deployment | Managed-only — OpenAI API + ChatGPT, also Microsoft Azure and AWS Bedrock (separate gpt-oss open-weight models exist) ([source](https://openai.com/blog/gpt-6-astra)) |
+| Deployment locus | cloud ([source](https://developers.openai.com/api/docs/models/gpt-5)) |
+| Licence | proprietary (API only) ([source](https://openai.com/blog/gpt-6-astra)) |
+| Licensing model | commercial ([source](https://openai.com/blog/gpt-6-astra)) |
+| SDK languages | csharp, go, java, python, rest, ruby, typescript ([source](https://developers.openai.com/api/docs/libraries)) |
+| Protocols | mcp-client ([source](https://developers.openai.com/api/docs/guides/tools-connectors-mcp)) |
+| Maturity | not published ([trust page](https://openai.com/enterprise-privacy/)) |
+| HQ | San Francisco, US ([source](https://openai.com/index/introducing-gpt-5/)) |
+| Pricing | API flagship GPT-6 Astra $10 input / $50 output per 1M tokens (Fast mode 2x price); ChatGPT Free / Go / Plus / Pro / Business / Enterprise plans ([source](https://openai.com/blog/gpt-6-astra)) |
+
+## Model gateway: [LiteLLM](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/litellm--gh-berriai-litellm)
+
+Lifecycle: active · catalog record verified 2026-10-27 · vendor: https://github.com/BerriAI/litellm
+
+| Item | Value |
+|---|---|
+| Attestations | soc2-type2 ([source](https://docs.litellm.ai/docs/data_security)) |
+| Compliance (as stated) | not published ([trust page](https://docs.litellm.ai/docs/data_security)) |
+| Data handling | not published ([trust page](https://docs.litellm.ai/docs/data_security)) |
+| Encryption | not published ([trust page](https://docs.litellm.ai/docs/data_security)) |
+| SSO / RBAC | not published ([trust page](https://docs.litellm.ai/docs/data_security)) |
+| Deployment | Self-hosted only — SDK and proxy; Enterprise self-hosted or air-gapped ([source](https://www.litellm.ai/enterprise)) |
+| Deployment locus | local ([source](https://raw.githubusercontent.com/BerriAI/litellm/main/README.md)) |
+| Licence | MIT (except enterprise/ directory, commercial license) ([source](https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE)) |
+| Licensing model | open-core ([source](https://raw.githubusercontent.com/BerriAI/litellm/main/LICENSE)) |
+| SDK languages | python, rest ([source](https://raw.githubusercontent.com/BerriAI/litellm/main/README.md)) |
+| Protocols | a2a, mcp-client, mcp-server, openai-compatible, opentelemetry ([source](https://docs.litellm.ai/docs/mcp)) |
+| Maturity | ga ([source](https://raw.githubusercontent.com/BerriAI/litellm/main/README.md)) |
+| HQ | not published ([trust page](https://docs.litellm.ai/docs/data_security)) |
+| Pricing | OSS free; Enterprise custom pricing (30-day self-hosted trial key) ([source](https://www.litellm.ai/enterprise)) |
+
+## Memory layer: [Mem0](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/mem0--mem0-ai)
+
+Lifecycle: active · catalog record verified 2026-10-23 · vendor: https://mem0.ai/
+
+| Item | Value |
+|---|---|
+| Attestations | gdpr, hipaa, soc2-type1 ([source](https://trust.mem0.ai/)) |
+| Compliance (as stated) | SOC 2 Type II, HIPAA-ready ([source](https://mem0.ai/security)) |
+| Data handling | Trains on de-identified/aggregated data (see privacy policy); enterprise controls not publicly detailed ([source](https://mem0.ai/privacy-policy)) |
+| Encryption | AES-256 at rest, TLS in transit; BYOK supported; SOC 2 Type I (Type II in progress), HIPAA-ready ([source](https://mem0.ai/security)) |
+| SSO / RBAC | SSO + RBAC ([source](https://mem0.ai/security)) |
+| Deployment | Both ([source](https://mem0.ai/blog/self-host-mem0-docker)) |
+| Deployment locus | hybrid ([source](https://docs.mem0.ai/open-source/overview)) |
+| Licence | Apache-2.0 ([source](https://github.com/mem0ai/mem0/blob/main/LICENSE)) |
+| Licensing model | open-core ([source](https://mem0.ai/pricing)) |
+| SDK languages | python, rest, typescript ([source](https://docs.mem0.ai/llms.txt)) |
+| Protocols | mcp-server ([source](https://docs.mem0.ai/platform/mem0-mcp)) |
+| Maturity | not published ([trust page](https://trust.mem0.ai/)) |
+| HQ | US ([source](https://www.crunchbase.com/organization/mem0ai)) |
+| Pricing | Free + paid ([source](https://mem0.ai/pricing)) |
+
+## Vector store: [Milvus](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/milvus--milvus-io)
+
+Lifecycle: active · catalog record verified 2026-10-26 · vendor: https://milvus.io/
+
+| Item | Value |
+|---|---|
+| Attestations | not published ([trust page](https://zilliz.com/security)) |
+| Compliance (as stated) | SOC 2 Type II; HIPAA (Zilliz Cloud); ISO 27001 ([source](https://zilliz.com/security)) |
+| Data handling | Customer data not used for model training; Zilliz Cloud data isolation enforced ([source](https://zilliz.com/privacy-policy)) |
+| Encryption | AES-256 at rest, TLS 1.2+ in transit (Zilliz Cloud); CMEK (GA on Zilliz Cloud) ([source](https://docs.zilliz.com/docs/data-security)) |
+| SSO / RBAC | RBAC only ([source](https://milvus.io/docs/rbac.md)) |
+| Deployment | Both (self-hosted OSS + Zilliz Cloud managed) ([source](https://milvus.io/)) |
+| Deployment locus | hybrid ([source](https://milvus.io/)) |
+| Licence | Apache-2.0 ([source](https://github.com/milvus-io/milvus/blob/main/LICENSE)) |
+| Licensing model | open-source ([source](https://github.com/milvus-io/milvus/blob/main/LICENSE)) |
+| SDK languages | go, java, python, rest, typescript ([source](https://milvus.io/llms.txt)) |
+| Protocols | mcp-server ([source](https://github.com/zilliztech/mcp-server-milvus)) |
+| Maturity | ga ([source](https://milvus.io/llms.txt)) |
+| HQ | US (San Francisco CA — Zilliz HQ) ([source](https://techcrunch.com/2022/08/24/zilliz-the-startup-behind-the-milvus-open-source-vector-database-for-ai-applications-raises-60m-and-relocates-to-sf/)) |
+| Pricing | free (OSS); managed via Zilliz Cloud (free tier, then usage-based) ([source](https://zilliz.com/pricing)) |
+
+## Embeddings / reranker: [OpenAI Embeddings](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/openai-embeddings--platform-openai-com)
+
+Lifecycle: active · catalog record verified 2026-10-27 · vendor: https://platform.openai.com/docs/guides/embeddings
+
+| Item | Value |
+|---|---|
+| Attestations | ccpa, csa-star, gdpr, iso27001, iso27017, iso27018, iso27701, iso42001, soc2-type2, soc3 ([source](https://trust.openai.com/)) |
+| Compliance (as stated) | not published ([trust page](https://trust.openai.com/)) |
+| Data handling | not published ([trust page](https://trust.openai.com/)) |
+| Encryption | not published ([trust page](https://trust.openai.com/)) |
+| SSO / RBAC | not published ([trust page](https://trust.openai.com/)) |
+| Deployment | Managed-only — OpenAI API ([source](https://platform.openai.com/docs/guides/embeddings)) |
+| Deployment locus | cloud ([source](https://developers.openai.com/api/docs/guides/embeddings)) |
+| Licence | proprietary; SDKs Apache-2.0 ([source](https://github.com/openai/openai-python)) |
+| Licensing model | commercial ([source](https://github.com/openai/openai-python)) |
+| SDK languages | csharp, go, java, python, rest, ruby, typescript ([source](https://platform.openai.com/docs/libraries)) |
+| Protocols | not published ([trust page](https://trust.openai.com/)) |
+| Maturity | not published ([trust page](https://trust.openai.com/)) |
+| HQ | US ([source](https://platform.openai.com/docs/guides/embeddings)) |
+| Pricing | text-embedding-3-small $0.02 per 1M tokens; text-embedding-3-large $0.13 per 1M tokens ([source](https://platform.openai.com/docs/models/text-embedding-3-small)) |
+
+## Tools, auth and MCP: [Composio](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/composio--composio-dev)
+
+Lifecycle: active · catalog record verified 2026-10-26 · vendor: https://composio.dev/
+
+| Item | Value |
+|---|---|
+| Attestations | iso27001, soc2-type2 ([source](https://trust.composio.dev/)) |
+| Compliance (as stated) | not published ([trust page](https://trust.composio.dev/)) |
+| Data handling | not published ([trust page](https://trust.composio.dev/)) |
+| Encryption | not published ([trust page](https://trust.composio.dev/)) |
+| SSO / RBAC | not published ([trust page](https://trust.composio.dev/)) |
+| Deployment | Managed-only — hosted API + MCP endpoints (Helm charts published for Kubernetes deploys) ([source](https://github.com/ComposioHQ)) |
+| Deployment locus | cloud ([source](https://docs.composio.dev/docs/self-hosting)) |
+| Licence | MIT (SDKs) ([source](https://github.com/composiohq/composio)) |
+| Licensing model | open-source ([source](https://github.com/composiohq/composio)) |
+| SDK languages | python, typescript ([source](https://github.com/ComposioHQ/composio)) |
+| Protocols | mcp-server ([source](https://github.com/ComposioHQ/composio)) |
+| Maturity | not published ([trust page](https://trust.composio.dev/)) |
+| HQ | San Francisco, CA, USA / Bengaluru, India. ([source](https://www.crunchbase.com/organization/composio)) |
+| Pricing | not published ([trust page](https://trust.composio.dev/)) |
+
+## Evals & observability: [Arize Phoenix](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/arize-phoenix--phoenix-arize-com)
+
+Lifecycle: active · catalog record verified 2026-10-27 · vendor: https://phoenix.arize.com/
+
+| Item | Value |
+|---|---|
+| Attestations | not published |
+| Compliance (as stated) | not published |
+| Data handling | not published |
+| Encryption | not published |
+| SSO / RBAC | not published |
+| Deployment | not published |
+| Deployment locus | hybrid ([source](https://arize.com/phoenix/)) |
+| Licence | Elastic-2.0 ([source](https://raw.githubusercontent.com/Arize-ai/phoenix/main/LICENSE)) |
+| Licensing model | commercial ([source](https://raw.githubusercontent.com/Arize-ai/phoenix/main/LICENSE)) |
+| SDK languages | python, rest, typescript ([source](https://arize.com/docs/phoenix/llms.txt)) |
+| Protocols | mcp-server, opentelemetry ([source](https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md)) |
+| Maturity | not published |
+| HQ | not published |
+| Pricing | not published |
+
+## Guardrails & security: [NVIDIA NeMo Guardrails](https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/nvidia-nemo-guardrails--docs-nvidia-com)
+
+Lifecycle: active · catalog record verified 2026-10-29 · vendor: https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview
+
+| Item | Value |
+|---|---|
+| Attestations | not published |
+| Compliance (as stated) | not published |
+| Data handling | not published |
+| Encryption | not published |
+| SSO / RBAC | not published |
+| Deployment | not published |
+| Deployment locus | not published |
+| Licence | Apache-2.0 ([source](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview)) |
+| Licensing model | open-source ([source](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview)) |
+| SDK languages | python ([source](https://pypi.org/project/nemoguardrails/)) |
+| Protocols | openai-compatible, opentelemetry ([source](https://docs.nvidia.com/nemo/guardrails/about-nemo-guardrails-library/overview)) |
+| Maturity | beta ([source](https://pypi.org/project/nemoguardrails/)) |
+| HQ | not published |
+| Pricing | not published |
+
+</details>
+
+Download the same sheet as CSV from [/build](https://mrpeppersdev.github.io/agent-infrastructure-landscape/build?product=support-agent) or with `landscape stack support-agent --sheet sheet.csv`.
+
 ## Self-hosted variant
 
 `stack.self-hosted.yml` picks only self-hostable components and adds model serving. `docker-compose.yml` starts the ones with an official single-image setup; it is a local starter, not a production deployment.

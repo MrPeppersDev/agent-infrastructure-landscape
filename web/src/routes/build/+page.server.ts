@@ -5,6 +5,7 @@ import { getRecords, getEdges } from '$lib/data';
 import { toItem, POOLS, type StackStatusLite } from '$lib/chooser';
 import { LAYERS } from '../../../../mcp/src/composer';
 import { INTEGRATION_CELLS } from '../../../../mcp/src/compat';
+import { SHEET_COLUMNS } from '../../../../mcp/src/procurement';
 import stackIndex from '../../../../data/stack-index.json';
 import migrations from '../../../../data/migrations.json';
 import stackPricing from '../../../../data/pricing/stack.json';
@@ -15,7 +16,7 @@ export const prerender = true;
 
 // desc / claims mentions only ever make a pair "mentioned", never
 // "documented", so they're left out to keep the page small.
-const KEEP_CELLS = new Set([...Object.keys(INTEGRATION_CELLS).filter((c) => c !== 'desc' && c !== 'claims'), 'developer-activity-opendigger']);
+const KEEP_CELLS = new Set([...Object.keys(INTEGRATION_CELLS).filter((c) => c !== 'desc' && c !== 'claims'), 'developer-activity-opendigger', ...SHEET_COLUMNS.map((c) => c.slug)]);
 const LINK_EDGES = new Set(['integrates-with', 'built-on', 'runtime-dependency', 'extends', 'forks']);
 
 export const load = () => {
@@ -34,6 +35,7 @@ export const load = () => {
     url: r.url,
     sections: r.sections,
     taxonomy: {},
+    last_verified_at: r.last_verified_at ?? null,
     cells: Object.fromEntries(Object.entries(r.cells).filter(([k]) => KEEP_CELLS.has(k)))
   }));
   const edges = getEdges()

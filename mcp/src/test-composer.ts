@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { toItem, type ChooserItem } from './chooser.js';
 import { setAliases } from './compat.js';
 import { planStack, slimPlan, toOpml, PRODUCTS, LAYER_BY_ID, type ProductType, type StackAnswers } from './composer.js';
+import { procurementSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
 import { checkManifest, parseManifest } from './stack-check.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -60,6 +61,16 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
     ok(!!sw && sw.sharedIntegrations === sw.sharedWith.length && !sw.sharedWith.includes(l.pick!.item.name), `${product}/${l.layer}: shared integrations count other picks only`);
   }
   if (p.cost?.range) ok(p.cost.range.lowUsd >= p.cost.knownMonthlyUsd && p.cost.range.highUsd >= p.cost.range.lowUsd, `${product}: cost range brackets the published total`);
+
+  // procurement sheet (#366): one row per pick; every value has a source
+  {
+    const sheet = procurementSheet(p, ctx.records as never, 'https://example.test');
+    ok(sheet.rows.length === p.layers.filter((l) => l.pick).length, `${product}: sheet has one row per pick`);
+    ok(sheet.rows.every((r) => sheet.columns.every((c) => !r.cells[c.slug].value || r.cells[c.slug].citation)), `${product}: every published sheet value carries a citation`);
+    const csv = sheetToCsv(sheet);
+    ok(csv.split('\n')[0].startsWith('layer,system,id,catalog_page') && csv.split('\n').length === sheet.rows.length + 2, `${product}: CSV has a header and one line per row`);
+    ok(sheetToMarkdown(sheet).includes('| Attestations |'), `${product}: Markdown sheet lists attestations`);
+  }
 
   // stack.yml round-trips through the stack checker
   const parsed = parseManifest(p.stackYaml, { filename: 'stack.yml' });

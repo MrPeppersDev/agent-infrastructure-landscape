@@ -16,6 +16,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadChooserItems, loadRecords, loadEdges, loadMigrations, loadPricing, loadVectorPricing, loadStackPricing } from './data.js';
 import { planStack, PRODUCTS, LAYER_BY_ID, SITE, type ProductType, type StackPlan, type LayerId } from './composer.js';
+import { procurementSheet, sheetToMarkdown } from './procurement.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const OUT = join(ROOT, 'blueprints');
@@ -134,6 +135,11 @@ function readme(product: ProductType, plan: StackPlan, self: StackPlan): string 
     }
   }
 
+  // Security review sheet (#366): the buyer cells of every pick with sources.
+  const sheet = procurementSheet(plan, loadRecords() as never, SITE);
+  L.push('## Security review sheet', '', '<details><summary>Attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing for every pick, with sources</summary>', '');
+  L.push(sheetToMarkdown(sheet).split('\n').slice(4).join('\n'));
+  L.push('</details>', '', `Download the same sheet as CSV from [/build](${SITE}/build?product=${product}) or with \`landscape stack ${product} --sheet sheet.csv\`.`, '');
   L.push('## Self-hosted variant', '');
   L.push('`stack.self-hosted.yml` picks only self-hostable components and adds model serving. `docker-compose.yml` starts the ones with an official single-image setup; it is a local starter, not a production deployment.', '');
   L.push('| Layer | Pick |', '|---|---|');

@@ -10,6 +10,7 @@
   import { verifiedStamp } from '$lib/compat';
   import type { ChooserItem, RecordLike } from '$lib/chooser';
   import { planStack, toOpml, PRODUCTS, LAYERS, DEFAULT_STACK, type StackAnswers, type LayerId, type ProductType } from '../../../../mcp/src/composer';
+  import { procurementSheet, sheetToCsv, sheetToMarkdown } from '../../../../mcp/src/procurement';
   import { SITE_URL } from '$lib/site';
   import type { CompatEdge } from '../../../../mcp/src/compat';
   import { DEFAULT_STACK_WORKLOAD, type StackWorkload } from '../../../../mcp/src/stack-costs';
@@ -87,6 +88,11 @@
   }
   const yamlHref = $derived(`data:text/yaml;charset=utf-8,${encodeURIComponent(plan.stackYaml)}`);
   const opmlHref = $derived(`data:text/x-opml;charset=utf-8,${encodeURIComponent(toOpml(plan.answers, plan.layers, SITE_URL))}`);
+  // Procurement / security-review sheet (#366): the buyer cells of every pick with their sources.
+  const sheet = $derived(procurementSheet(plan, data.records as never, SITE_URL));
+  const sheetCsvHref = $derived(`data:text/csv;charset=utf-8,${encodeURIComponent(sheetToCsv(sheet))}`);
+  const sheetMdHref = $derived(`data:text/markdown;charset=utf-8,${encodeURIComponent(sheetToMarkdown(sheet))}`);
+  const published = $derived(sheet.rows.reduce((n, r) => n + sheet.columns.filter((c) => r.cells[c.slug].value).length, 0));
   const shareHref = $derived(
     'https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/new?' +
       new URLSearchParams({ template: 'stack-report.yml', title: `Stack report: ${PRODUCTS[answers.product].label}`, stack: plan.stackYaml }).toString()
@@ -307,6 +313,39 @@
   {/if}
 
   <section>
+    <h2>Security review sheet</h2>
+    <p class="muted">
+      For procurement and security review: attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing for every pick, each with the page it was read from.
+      {published} of {sheet.rows.length * sheet.columns.length} values are published; the rest read "not published" and link the vendor's trust page where the catalog has one.
+    </p>
+    <p class="actions">
+      <a class="dl" href={sheetCsvHref} download="security-review-sheet.csv">Download CSV</a>
+      <a class="dl" href={sheetMdHref} download="security-review-sheet.md">Download Markdown</a>
+    </p>
+    <details class="sheet">
+      <summary>Preview</summary>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>System</th>{#each sheet.columns.slice(0, 7) as c (c.slug)}<th>{c.label}</th>{/each}</tr></thead>
+          <tbody>
+            {#each sheet.rows as r (r.id)}
+              <tr>
+                <td>{r.label}</td>
+                <td><a href="{base}/systems/{r.id}">{r.name}</a>{#if r.lifecycle !== 'active'}<br /><em>{r.lifecycle}</em>{/if}</td>
+                {#each sheet.columns.slice(0, 7) as c (c.slug)}
+                  {@const cell = r.cells[c.slug]}
+                  <td class="note">{#if cell.value}{cell.value}{#if cell.citation} <a class="cite" href={cell.citation} target="_blank" rel="noopener noreferrer">↗</a>{/if}{:else}<em>not published</em>{#if r.trustPage} <a class="cite" href={r.trustPage} target="_blank" rel="noopener noreferrer" title="Vendor trust page">↗</a>{/if}{/if}</td>
+                {/each}
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">The downloads carry all {sheet.columns.length} columns and a source column for each.</p>
+    </details>
+  </section>
+
+  <section>
     <h2>Evaluation plan</h2>
     <p>
       {#if plan.evals.observability}Trace and evaluate with <a href="{base}/systems/{plan.evals.observability.id}">{plan.evals.observability.name}</a>.{:else}Add an evals &amp; observability layer.{/if}
@@ -363,6 +402,8 @@
   .warn { color: #d29922; font-size: 13px; margin: 6px 0 0; }
   .unconf, .exit { color: #8b949e; font-size: 12px; margin: 8px 0 0; }
   .muted.small { font-size: 12px; margin-top: 8px; }
+  .sheet summary { cursor: pointer; color: #8b949e; font-size: 13px; margin: 6px 0; }
+  .sheet td.note { max-width: 220px; font-size: 12px; }
   .none { color: #d29922; font-size: 13px; }
   .tag { margin-left: 6px; font-size: 11px; color: #d29922; border: 1px solid #d29922; border-radius: 999px; padding: 0 6px; }
   .whynot { margin-top: 8px; font-size: 12px; color: #8b949e; }

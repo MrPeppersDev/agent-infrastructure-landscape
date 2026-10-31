@@ -44,6 +44,7 @@ import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
 import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js';
 import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL, LICENCE_LABEL } from '../../mcp/dist/stack-check.js';
+import { procurementSheet, sheetToCsv, sheetToMarkdown } from '../../mcp/dist/procurement.js';
 import { planStack, slimPlan, toOpml, PRODUCTS, LAYERS, SITE } from '../../mcp/dist/composer.js';
 import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
 import { writeFileSync } from 'node:fs';
@@ -292,8 +293,9 @@ program
   .option('--compliance <codes>', 'attestations every hosted service must publish, e.g. soc2-type2,hipaa')
   .option('-o, --out <file>', 'also write the stack.yml to this file')
   .option('--opml <file>', 'also write an OPML bundle of every component\'s change feed (import into a feed reader)')
+  .option('--sheet <file>', 'also write a procurement / security-review sheet for the picks (.csv or .md by extension)')
   .option('--json', 'emit JSON')
-  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string; opml?: string }, cmd: Command) => {
+  .action((product: string | undefined, o: { language: string; hosting: string; oss?: boolean; mcp?: boolean; add?: string; avoid?: string; pin?: string; compliance?: string; out?: string; opml?: string; sheet?: string }, cmd: Command) => {
     const p = (product ?? 'support-agent') as ProductType;
     if (!(p in PRODUCTS)) die(`product must be one of ${Object.keys(PRODUCTS).join(', ')}`);
     const list = (v?: string) => (v ? v.split(',').map((x) => x.trim()).filter(Boolean) : undefined);
@@ -312,6 +314,10 @@ program
     }, a);
     if (o.out) writeFileSync(o.out, plan.stackYaml);
     if (o.opml) writeFileSync(o.opml, toOpml(plan.answers, plan.layers, SITE));
+    if (o.sheet) {
+      const sheet = procurementSheet(plan, loadRecords() as never, SITE);
+      writeFileSync(o.sheet, /\.md$/i.test(o.sheet) ? sheetToMarkdown(sheet) : sheetToCsv(sheet));
+    }
     if (globalOpts(cmd).json) return emit(JSON.stringify(slimPlan(plan), null, 2));
     const lines: string[] = [`${plan.product} — risk ${plan.risk.level} (${plan.risk.score})`, ''];
     for (const l of plan.layers) {
