@@ -430,6 +430,7 @@
               <a href={relUrl(e.target)}>{data.relatedNames[e.target] ?? e.target}</a>
               <span class="rel">{e.types.map((t) => edgeLabel[t] ?? t).join(' · ')}</span>
               {#if e.evidence}<span class="ev">— {e.evidence}</span>{/if}
+              {#if e.verified_at}<span class="ev">(verified {e.verified_at}{e.verified_version ? ` with ${e.verified_version}` : ''})</span>{/if}
             </li>
           {/each}
         </ul>
@@ -442,6 +443,7 @@
               <a href={relUrl(e.source)}>{data.relatedNames[e.source] ?? e.source}</a>
               <span class="rel">{e.types.map((t) => edgeLabel[t] ?? t).join(' · ')}</span>
               {#if e.evidence}<span class="ev">— {e.evidence}</span>{/if}
+              {#if e.verified_at}<span class="ev">(verified {e.verified_at}{e.verified_version ? ` with ${e.verified_version}` : ''})</span>{/if}
             </li>
           {/each}
         </ul>

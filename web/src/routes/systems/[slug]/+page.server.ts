@@ -34,7 +34,7 @@ function byPair(list: Edge[], other: (e: Edge) => string): PairEdge[] {
     if (!row) rows.set(other(e), { ...e, types: [e.type] });
     else {
       if (!row.types.includes(e.type)) row.types.push(e.type);
-      if ((e.evidence ?? '').length > (row.evidence ?? '').length) Object.assign(row, { evidence: e.evidence, citation: e.citation });
+      if ((e.evidence ?? '').length > (row.evidence ?? '').length) Object.assign(row, { evidence: e.evidence, citation: e.citation, verified_at: e.verified_at, verified_version: e.verified_version });
     }
   }
   return [...rows.values()];

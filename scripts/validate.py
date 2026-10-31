@@ -278,6 +278,14 @@ def gate_schema() -> None:
         # 7.2.9 citation must be http(s)
         if not _is_http_url(e.get("citation", "")):
             edge_errors.append(f"{tag}: citation must be non-empty http(s) URL")
+        # 7.2.11 optional verification stamps (#360): verified_at is a date,
+        # verified_version a short string; neither belongs on cites edges.
+        if "verified_at" in e and not (isinstance(e["verified_at"], str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", e["verified_at"])):
+            edge_errors.append(f"{tag}: verified_at must match YYYY-MM-DD")
+        if "verified_version" in e and not (isinstance(e["verified_version"], str) and 0 < len(e["verified_version"]) <= 60):
+            edge_errors.append(f"{tag}: verified_version must be a string of 1-60 chars")
+        if e["type"] == "cites" and ("verified_at" in e or "verified_version" in e):
+            edge_errors.append(f"{tag}: verification stamps not allowed on cites edges")
         # 7.2.10 evidence non-empty string ≤ 500
         ev = e.get("evidence", "")
         if not isinstance(ev, str) or not ev:

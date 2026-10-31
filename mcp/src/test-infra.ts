@@ -102,6 +102,7 @@ console.log('compat');
   const mq = r.pairs.find((p) => [p.a, p.b].includes(mem0) && [p.a, p.b].includes(qdrant));
   check('Mem0 + Qdrant documented', mq?.status === 'documented', mq?.status);
   check('evidence carries a source', !!mq?.evidence.some((e) => e.citation));
+  check('curated edge evidence carries a verification date (#360)', !!mq?.evidence.some((e) => e.kind === 'edge' && /^\d{4}-\d{2}-\d{2}$/.test(e.verifiedAt ?? '')), JSON.stringify(mq?.evidence.filter((e) => e.kind === 'edge')).slice(0, 200));
   const missing = compatibility(L.records, E, [mem0, 'no-such-id']);
   check('unknown ids reported', missing.missing.includes('no-such-id'));
   check('works-with Qdrant lists Mem0', worksWith(L.records, E, qdrant).some((w) => w.id === mem0));

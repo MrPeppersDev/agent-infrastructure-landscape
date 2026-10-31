@@ -7,7 +7,7 @@
   import { browser } from '$app/environment';
   import { goto } from '$app/navigation';
   import SeoHead from '$lib/components/SeoHead.svelte';
-  import '$lib/compat';
+  import { verifiedStamp } from '$lib/compat';
   import type { ChooserItem, RecordLike } from '$lib/chooser';
   import { planStack, toOpml, PRODUCTS, LAYERS, DEFAULT_STACK, type StackAnswers, type LayerId, type ProductType } from '../../../../mcp/src/composer';
   import { SITE_URL } from '$lib/site';
@@ -225,7 +225,7 @@
         {#each documented as p (p.a + p.b)}
           <li>
             <strong>{nameOf.get(p.a)}</strong> + <strong>{nameOf.get(p.b)}</strong>
-            {#if p.evidence[0]}— {p.evidence[0].text}{#if p.evidence[0].citation} <a class="cite" href={p.evidence[0].citation} target="_blank" rel="noopener noreferrer">↗</a>{/if}{/if}
+            {#if p.evidence[0]}— {p.evidence[0].text}{#if p.evidence[0].kind === 'edge' && verifiedStamp(p.evidence[0])} ({verifiedStamp(p.evidence[0])}){/if}{#if p.evidence[0].citation} <a class="cite" href={p.evidence[0].citation} target="_blank" rel="noopener noreferrer">↗</a>{/if}{/if}
           </li>
         {/each}
       </ul>

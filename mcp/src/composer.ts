@@ -17,7 +17,7 @@
 
 import { brand, POOLS, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting, type RecordLike } from './chooser.js';
 import { scoreInfraDetailed, FW_SECTIONS, NOT_A_FRAMEWORK, type Language, type InfraAnswers, type Exclusion } from './chooser-infra.js';
-import { compatibility, type CompatEdge, type CompatEvidence } from './compat.js';
+import { compatibility, verifiedStamp, type CompatEdge, type CompatEvidence } from './compat.js';
 import { stackCost, DEFAULT_STACK_WORKLOAD, type StackCost, type StackPricing, type StackWorkload } from './stack-costs.js';
 import type { VendorPricing } from './costs.js';
 import type { VectorPricing } from './vector-costs.js';
@@ -254,7 +254,8 @@ function pairEvidence(ctx: ComposerContext, byId: Map<string, RecordLike>, a: st
 function evidenceReason(withName: string, p: PairResult): Reason {
   const e = p.evidence[0];
   const text = e ? (e.kind === 'edge' ? e.text : `${e.cell}: ${e.text}`) : '';
-  return { text: `Works with ${withName}${text ? ': ' + text : ''}`, citation: e?.citation ?? null };
+  const stamp = e?.kind === 'edge' ? verifiedStamp(e) : '';
+  return { text: `Works with ${withName}${text ? ': ' + text : ''}${stamp ? ` (${stamp})` : ''}`, citation: e?.citation ?? null };
 }
 
 function participants(r: RecordLike | undefined): { n: number | null; citation: string | null } {

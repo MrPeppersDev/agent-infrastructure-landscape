@@ -14,6 +14,16 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Integration edges carry a verification date and version (#360)
+
+**What.** Edges may carry two optional fields, `verified_at` (YYYY-MM-DD) and `verified_version` (free text, ≤ 60 chars), never on `cites` edges. The curated integration files under `extraction/integrations/` set them; `build_edges.py` copies them through, gate 1 validates them, and `docs/SCHEMA.md` §4 documents them. All 1,997 hub-derived `integrates-with` edges from 2026-10-29 are stamped with that date; no version is recorded yet because those pages were integration indexes, not versioned matrices. The compatibility page, the stack builder's pair list and "Works with" reasons, the system page's edge lists and `check_compatibility` / `plan_stack` show "verified 2026-10-29" (and "with <version>" when present). `lint_contradictions.py` gains `edge-verification-old`: an integration edge verified more than a year ago, so it gets re-checked.
+
+**Why.** Roadmap item 1.3 (#360): "a docs page exists" is weak evidence for someone pinning versions. A date makes the claim honest about its age; a version field gives the version-drift audit (#364) something to compare against as hubs are re-verified.
+
+**Reversal cost.** Low. The fields are optional; nothing reads them except the renderers and the lint.
+
+---
+
 ## 2026-10-31: Choosers and composer rank on fit; adoption is the tiebreaker (#359)
 
 **What.** `chooser.ts`, `chooser-infra.ts` and `composer.ts` no longer add GitHub stars to a candidate's score. The score is now: hard requirements (still exclusions), tier, fit facts the question did not already require (SDKs, licence, deployment, MCP, pricing), documentation depth (licence, deployment, repo and release facts present), a recent release, and in the composer the documented integrations with earlier picks and ecosystem breadth. Stars break ties in the sort and appear last in the reasons as "Adoption (tiebreaker)". For model families they are not shown at all and do not break ties. The "why not" text for a tie says so. Blueprints regenerated.
