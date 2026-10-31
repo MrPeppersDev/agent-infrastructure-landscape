@@ -14,6 +14,18 @@ that were on the table.
 
 ---
 
+## 2026-10-31: Benchmark sources cite URLs; ceilings come from the catalog (#128)
+
+**What.** `capability-benchmark-sources` cells on 31 rows (12 foundation-model vendors, 19 agent products and frameworks) now carry `benchmark-id: score% (model, detail, date) URL` entries read from vendor pages, model cards, papers and official leaderboards (`extraction/benchmark-sources-2026-10-31/REPORT.md`). `capability_sweep.py` recomputes `data/_baselines/benchmark-maxima.json` from those cells before scoring, passes the row's name and note to the extraction prompt, and no longer mis-parses whole-number scores.
+
+**Why.** The LLM sweep only reads URLs, and no cell had one, so the ANTHROPIC_API_KEY alone would have bought nothing. Methodology §6 says the ceiling is the highest score recorded in the catalog; nothing wrote that file, so every composite would have used the 100-point fallback the merge step is told to refuse. A ceiling now needs a cited score: estimate prose such as "~77% (2026)" cannot move it.
+
+**Rules.** Only scores the page attributes to the row's own system. A third party's run of a product with an add-on is not a measurement of the product. Competitor-page reproductions and quotes of a vendor's number are `medium` and say so in the cell. Benchmarks outside the three families may be recorded for documentation and contribute nothing.
+
+**Reversal cost.** Low. The cells are ordinary `real-data` cells with citations; the maxima file is regenerated on every run.
+
+---
+
 ## 2026-10-31: Integration edges carry a verification date and version (#360)
 
 **What.** Edges may carry two optional fields, `verified_at` (YYYY-MM-DD) and `verified_version` (free text, ≤ 60 chars), never on `cites` edges. The curated integration files under `extraction/integrations/` set them; `build_edges.py` copies them through, gate 1 validates them, and `docs/SCHEMA.md` §4 documents them. All 1,997 hub-derived `integrates-with` edges from 2026-10-29 are stamped with that date; no version is recorded yet because those pages were integration indexes, not versioned matrices. The compatibility page, the stack builder's pair list and "Works with" reasons, the system page's edge lists and `check_compatibility` / `plan_stack` show "verified 2026-10-29" (and "with <version>" when present). `lint_contradictions.py` gains `edge-verification-old`: an integration edge verified more than a year ago, so it gets re-checked.

@@ -162,6 +162,11 @@ class LLMClient:
                         '  {"benchmark_id": "<id>", "score": <number>, '
                         '"run_date": "<YYYY-MM-DD or null>"}\n\n'
                         "Rules:\n"
+                        "- The user message names the SUBJECT (the catalog row) and "
+                        "may quote the catalog's note naming its model variants. "
+                        "Extract only scores the page attributes to the subject or "
+                        "its own models. Vendor pages compare against competitors: "
+                        "skip every competitor column, even when it is higher.\n"
                         "- benchmark_id MUST be one of the known ids listed below. "
                         "Map page names onto them (e.g. 'SWE-Bench Verified' -> "
                         "'swe-bench-verified'). Skip results for any benchmark not "
@@ -184,9 +189,22 @@ class LLMClient:
         return self._extraction_system
 
     def extract_benchmarks(
-        self, url: str, page_text: str, benchmark_ids: list[str]
+        self,
+        url: str,
+        page_text: str,
+        benchmark_ids: list[str],
+        subject: Optional[str] = None,
+        hint: Optional[str] = None,
     ) -> list[dict]:
-        """Haiku over one fetched URL → [{benchmark_id, score, run_date}]."""
+        """Haiku over one fetched URL → [{benchmark_id, score, run_date}].
+
+        `subject` is the catalog row's name and `hint` the row's own
+        benchmark-sources note; both go in the per-URL user turn (the
+        cached system prompt stays identical across rows) so a comparison
+        table yields the subject's column, not the best competitor's."""
+        header = f"Subject: {subject}\n" if subject else ""
+        if hint:
+            header += f"Catalog note on the subject's models and scores: {hint}\n"
         resp = self.client.messages.create(
             model=self.extraction_model,
             max_tokens=1500,
@@ -195,7 +213,7 @@ class LLMClient:
                 {
                     "role": "user",
                     "content": (
-                        f"Source URL: {url}\n\nPage text:\n{page_text}"
+                        f"{header}Source URL: {url}\n\nPage text:\n{page_text}"
                     ),
                 }
             ],

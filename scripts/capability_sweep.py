@@ -302,10 +302,14 @@ def llm_extract_observations(
     urls: list[str],
     families: dict[str, str],
     default_trust: float = 50.0,
+    subject: Optional[str] = None,
+    hint: Optional[str] = None,
 ) -> tuple[list[BenchmarkObservation], list[str], dict[str, Optional[str]]]:
     """Haiku over each linked URL. Returns (observations,
     verified_urls, run_dates_by_benchmark). A URL is 'verified' when
-    it yielded ≥1 extraction that matched the families map."""
+    it yielded ≥1 extraction that matched the families map. `subject`
+    (row name) and `hint` (the row's sources text) tell the extractor
+    whose column to read on a comparison table."""
     from _llm_client import fetch_url_text  # lazy: --no-llm stays stdlib
 
     benchmark_ids = sorted(families)
@@ -318,7 +322,9 @@ def llm_extract_observations(
             print(f"  warn: {url}: {page_text}", file=sys.stderr)
             continue
         try:
-            triples = llm.extract_benchmarks(url, page_text, benchmark_ids)
+            triples = llm.extract_benchmarks(
+                url, page_text, benchmark_ids, subject=subject, hint=hint
+            )
         except Exception as exc:  # noqa: BLE001 — per-URL isolation
             print(f"  warn: extraction failed for {url}: {exc}", file=sys.stderr)
             continue
@@ -384,7 +390,9 @@ def sweep_row(
         urls = extract_urls(src_text)
         result.sources_seen = urls if urls else [src_text]
         obs, verified_urls, run_dates = ([], [], {}) if not urls else (
-            llm_extract_observations(llm, urls, families)
+            llm_extract_observations(
+                llm, urls, families, subject=row.get("name"), hint=src_text
+            )
         )
         result.sources_verified = verified_urls
         # Fallback for benchmarks stated inline in the cell text but not
