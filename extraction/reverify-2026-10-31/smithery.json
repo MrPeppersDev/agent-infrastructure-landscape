@@ -1,0 +1,25 @@
+[
+  {
+    "id": "smithery--smithery-ai",
+    "verified": true,
+    "lifecycle": "acquired",
+    "lifecycle_note": "Now part of Arcade.dev. On 2026-10-31 Smithery shut down its API, Connect, Toolbox, accounts and API keys, server URLs on run.tools and server.smithery.ai, and deprecated its CLI and SDKs; smithery.ai continues only as a public, non-proxied MCP registry powered by Arcade.dev.",
+    "lifecycle_citation": "https://smithery.ai/future",
+    "updates": [
+      {
+        "cell": "desc",
+        "old": "Catalog and connection layer for MCP servers",
+        "new": "Public directory of MCP servers, now part of Arcade.dev. Until 2026-10-31 it was also a connection layer (hosted MCP proxy, Connect, Toolbox, managed credentials, API, CLI and SDKs); those shut down that day, and verified servers' registry pages now list direct MCP URLs.",
+        "citation": "https://smithery.ai/future",
+        "confidence": "high"
+      },
+      {
+        "cell": "claims",
+        "old": "📣 Smithery's MCP Proxy and managed identity shut down on October 31.",
+        "new": "Smithery remains a public (non-proxied) MCP registry powered by Arcade.dev; server URLs on run.tools and server.smithery.ai, the Smithery API, Connect, Toolbox, accounts and API keys stop working on 2026-10-31, and the CLI and SDKs are deprecated.",
+        "citation": "https://smithery.ai/future",
+        "confidence": "high"
+      }
+    ]
+  }
+]

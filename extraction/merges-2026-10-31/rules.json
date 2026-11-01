@@ -1,0 +1,12 @@
+{
+  "_doc": "Duplicate-record merge found while testing fit-first ranking (#359). Apply with scripts/merge_records.py; the kept record's section is then set to Foundation models (substrate reference) by hand (see README.md).",
+  "date": "2026-10-31",
+  "rules": [
+    {
+      "keep": "jamba-ai21-labs--ai21-com",
+      "drop": ["jamba-ai21--ai21-com"],
+      "aliases": ["Jamba"],
+      "reason": "Both records describe AI21 Labs' Jamba hybrid SSM-Transformer model family (ai21.com/jamba and its launch post). It is a foundation model, not a memory layer or a method paper."
+    }
+  ]
+}
