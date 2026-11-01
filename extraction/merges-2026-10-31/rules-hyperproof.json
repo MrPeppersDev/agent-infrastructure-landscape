@@ -1,0 +1,12 @@
+{
+  "_doc": "Hyperproof's AI trust-center product no longer exists on its own: /trust-center/ returns 404 and the feature is part of the main platform (https://hyperproof.io/product/hyperproof-ai/). Checked 2026-11-01, extraction/reverify-2026-11-01/notes.md. Applied with scripts/merge_records.py.",
+  "date": "2026-11-01",
+  "rules": [
+    {
+      "keep": "hyperproof--hyperproof-io",
+      "drop": ["hyperproof-ai-trust-center--hyperproof-io"],
+      "aliases": ["Hyperproof AI Trust Center"],
+      "reason": "The AI trust center is now a feature of the Hyperproof platform, not a separate product."
+    }
+  ]
+}
