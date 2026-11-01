@@ -222,15 +222,36 @@ def parse_ombharatiya(path: Path) -> Iterator[dict]:
 
 # --- matching -------------------------------------------------------------
 
+_URL_IN_TEXT = re.compile(r"https?://[^\s,;)\]]+")
+_PAREN = re.compile(r"\s*\([^)]*\)")
+
+
+def _bare_name(name: str) -> str:
+    """'Memory Store (now MemStore)' → 'memory store'; 'GraphRAG (Microsoft)' → 'graphrag'."""
+    return _PAREN.sub("", name or "").strip().lower()
+
+
 def index_landscape(records: list[dict]) -> dict:
+    """URLs to match on: the record URL first, then the repo and project
+    links its gh / links cells cite (a product page is often the record URL
+    while an upstream list links the repo). Names also match exactly once
+    a trailing parenthetical is dropped."""
     by_url: dict[str, str] = {}
+    by_name: dict[str, str] = {}
     names: list[tuple[str, str]] = []
     for r in records:
-        url = normalize_url(r.get("url"))
-        if url and url not in by_url:
-            by_url[url] = r["id"]
-        names.append((r["id"], (r.get("name") or "").strip()))
-    return {"by_url": by_url, "names": names}
+        urls = [r.get("url")]
+        for slug in ("gh", "links"):
+            c = (r.get("cells") or {}).get(slug) or {}
+            urls += [c.get("citation")] + _URL_IN_TEXT.findall(str(c.get("value") or ""))
+        for u in urls:
+            url = normalize_url(u)
+            if url and url not in by_url:
+                by_url[url] = r["id"]
+        name = (r.get("name") or "").strip()
+        names.append((r["id"], name))
+        by_name.setdefault(_bare_name(name), r["id"])
+    return {"by_url": by_url, "by_name": by_name, "names": names}
 
 
 def try_url_match(row: dict, idx: dict) -> tuple[str, str] | None:
@@ -239,6 +260,9 @@ def try_url_match(row: dict, idx: dict) -> tuple[str, str] | None:
         norm = normalize_url(candidate)
         if norm and norm in idx["by_url"]:
             return idx["by_url"][norm], kind
+    bare = _bare_name(row.get("name") or "")
+    if bare and bare in idx.get("by_name", {}):
+        return idx["by_name"][bare], "name"
     return None
 
 
