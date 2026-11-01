@@ -30,7 +30,7 @@
 />
 <JsonLd data={datasetLd({ recordCount: data.recordCount, edgeCount: data.edgeCount })} />
 
-<CatalogView {data} title="AI Agent Infrastructure Landscape" columns={COMPACT_COLUMNS}>
+<CatalogView {data} title="AI Agent Stack: the full catalog" columns={COMPACT_COLUMNS}>
   {#snippet banner()}
     <StartHere hidden={busy} />
     <ProductTabs records={data.records} />
