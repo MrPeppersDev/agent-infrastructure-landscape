@@ -6,7 +6,8 @@ const ROOT = new URL('../../', import.meta.url).pathname;
 const FILES: Record<string, string> = {
   'landscape.json': 'data/landscape.json', 'landscape.edges.json': 'data/landscape.edges.json', 'stack-index.json': 'data/stack-index.json',
   'families.json': 'taxonomy/families.json', 'migrations.json': 'data/migrations.json', 'history.json': 'data/history.json',
-  'system-aliases.json': 'taxonomy/system-aliases.json', 'pricing-memory.json': 'data/pricing/memory.json', 'pricing-vector.json': 'data/pricing/vector.json', 'pricing-stack.json': 'data/pricing/stack.json'
+  'system-aliases.json': 'taxonomy/system-aliases.json', 'pricing-memory.json': 'data/pricing/memory.json', 'pricing-vector.json': 'data/pricing/vector.json', 'pricing-stack.json': 'data/pricing/stack.json',
+  'silos.json': 'taxonomy/silos.json'
 };
 const handle = createHandler(async (f) => JSON.parse(readFileSync(ROOT + FILES[f], 'utf8')));
 let failures = 0;
@@ -50,5 +51,24 @@ const batch = await post([{ jsonrpc: '2.0', id: 4, method: 'ping' }, { jsonrpc: 
 check('batch', Array.isArray(batch.json) && batch.json.length === 2);
 const get = await handle(new Request('https://x/mcp'));
 check('GET /mcp → 405 (no SSE)', get.status === 405);
+// Silo endpoints (HANDOFF §8.1): /mcp/<silo> lists the core tools plus the silo's own and searches its sections.
+const postTo = async (path: string, body: unknown) => {
+  const r = await handle(new Request(`https://x${path}`, { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' }, body: JSON.stringify(body) }));
+  return { status: r.status, json: await r.json() };
+};
+const silo = await postTo('/mcp/retrieval', { jsonrpc: '2.0', id: 1, method: 'tools/list' });
+const siloTools = silo.json.result.tools.map((t: { name: string }) => t.name);
+check('/mcp/retrieval lists its tools', siloTools.includes('estimate_vector_store_cost') && siloTools.includes('ask_catalog') && !siloTools.includes('estimate_memory_cost'), siloTools.join(','));
+const memAsk = await postTo('/mcp/memory', { jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'ask_catalog', arguments: { query: 'graph', limit: 20 } } });
+const memIds = memAsk.json.result.structuredContent.results.map((h: { id: string }) => h.id);
+const MEM = JSON.parse(readFileSync(ROOT + 'taxonomy/silos.json', 'utf8')).silos.find((s: { id: string }) => s.id === 'memory');
+const LAND = JSON.parse(readFileSync(ROOT + 'data/landscape.json', 'utf8')).records as { id: string; sections: { section: string; primary: boolean }[] }[];
+const primaryOf = (id: string) => LAND.find((r) => r.id === id)!.sections.find((s) => s.primary)!.section;
+check('/mcp/memory ask_catalog stays in the silo', memIds.length > 0 && memIds.every((id: string) => MEM.sections.includes(primaryOf(id))));
+const hidden = await postTo('/mcp/memory', { jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'plan_stack', arguments: {} } });
+check('a tool outside the silo is refused', hidden.json.error?.code === -32602);
+check('unknown silo → 404', (await handle(new Request('https://x/mcp/nope', { method: 'POST', body: '{}' }))).status === 404);
+const root = await (await handle(new Request('https://x/'))).json();
+check('GET / lists silo endpoints', root.silos.some((s: { id: string; endpoint: string }) => s.id === 'coding' && s.endpoint.endsWith('/mcp/coding')));
 if (failures) { console.error(`${failures} failure(s)`); process.exit(1); }
 console.log('all worker tests passed');

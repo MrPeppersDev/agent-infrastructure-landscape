@@ -29,6 +29,11 @@ const PROTOCOL_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05'];
 const MEMORY_FAMILIES = new Set(['memory', 'memory-research']);
 type Rec = { id: string; name: string; url: string | null; tier: number; sections: { section: string; primary: boolean }[]; cells: Record<string, { value?: string; citation?: string | null; status?: string }>; taxonomy: unknown; last_verified_at?: string };
 
+/** A catalog silo (taxonomy/silos.json): `/mcp/<id>` serves only its tools and searches its sections. */
+type Silo = { id: string; name: string; sections: string[]; mcpTools?: string[] };
+/** Tools every silo endpoint keeps, next to the silo's own. */
+const SILO_CORE = ['ask_catalog', 'get_system'];
+
 interface Data {
   records: Rec[];
   edges: unknown[];
@@ -41,7 +46,9 @@ interface Data {
   vectorPricing: { checked: string; vendors: VectorPricing[] };
   stackPricing: StackPricing;
   redirects: Record<string, string>;
-  search?: SearchIndex;
+  /** Plain-language search index per silo ('' = whole catalog). */
+  search: Map<string, SearchIndex>;
+  silos: Silo[];
   replacements?: Record<string, { id: string; name: string; why: string[] }[]>;
   links?: Links;
 }
@@ -139,35 +146,43 @@ export function createHandler(load: Loader) {
   let dataP: Promise<Data> | null = null;
   const getData = () =>
     (dataP ??= (async () => {
-      const [L, E, I, F, M, H, A, P, V, SP] = await Promise.all([
+      const [L, E, I, F, M, H, A, P, V, SP, SI] = await Promise.all([
         load('landscape.json'), load('landscape.edges.json'), load('stack-index.json'), load('families.json'),
         load('migrations.json').catch(() => ({ notes: [] })), load('history.json').catch(() => ({ records: {} })),
         load('system-aliases.json').catch(() => ({ aliases: {} })), load('pricing-memory.json').catch(() => ({ checked: '', vendors: [] })),
         load('pricing-vector.json').catch(() => ({ checked: '', vendors: [] })),
-        load('pricing-stack.json').catch(() => ({ checked: '', models: [], metered: [] }))
-      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }, { checked: string; vendors: VectorPricing[] }, StackPricing];
+        load('pricing-stack.json').catch(() => ({ checked: '', models: [], metered: [] })),
+        load('silos.json').catch(() => ({ silos: [] }))
+      ]) as [{ records: Rec[] }, { edges: unknown[] }, StackIndex, { families: { id: string; sections: string[] }[] }, { notes: { id: string }[] }, { records: Record<string, unknown[]> }, { aliases: Record<string, string[]>; redirects?: Record<string, string> }, { checked: string; vendors: VendorPricing[] }, { checked: string; vendors: VectorPricing[] }, StackPricing, { silos: Silo[] }];
       const fam = new Map<string, string>();
       for (const f of F.families) for (const s of f.sections) fam.set(s, f.id);
       setAliases(A.aliases);
       const items = L.records.map((r) => toItem(r as never, I.records[r.id] as never));
       return {
         records: L.records, edges: E.edges, index: I, famOf: (s: string) => fam.get(s) ?? 'other', items,
-        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, vectorPricing: V, stackPricing: SP, redirects: A.redirects ?? {}
+        migrations: new Map(M.notes.map((n) => [n.id, n])), history: H.records, pricing: P, vectorPricing: V, stackPricing: SP, redirects: A.redirects ?? {},
+        search: new Map(), silos: SI.silos
       };
     })().catch((e) => {
       dataP = null;
       throw e;
     }));
 
-  async function call(name: string, args: Record<string, unknown>): Promise<unknown> {
+  async function call(name: string, args: Record<string, unknown>, silo: Silo | null = null): Promise<unknown> {
     const d = await getData();
     // Ids of merged-away records resolve to the record they were folded into.
     const resolve = (v: unknown) => (typeof v === 'string' ? (d.redirects[v] ?? v) : v);
     const a = { ...args, ...('id' in args ? { id: resolve(args.id) } : {}), ...(Array.isArray(args.ids) ? { ids: args.ids.map(resolve) } : {}) };
     switch (name) {
       case 'ask_catalog': {
-        d.search ??= buildIndex(d.records.map((r, n) => ({ item: d.items[n], text: docText(r.cells), family: d.famOf(d.items[n].section) })));
-        const r = search(d.search, String(a.query ?? ''), Math.min(50, Number(a.limit ?? 10)));
+        const key = silo?.id ?? '';
+        if (!d.search.has(key)) {
+          const docs = d.records
+            .map((r, n) => ({ item: d.items[n], text: docText(r.cells), family: d.famOf(d.items[n].section) }))
+            .filter((x) => !silo || silo.sections.includes(x.item.section));
+          d.search.set(key, buildIndex(docs));
+        }
+        const r = search(d.search.get(key)!, String(a.query ?? ''), Math.min(50, Number(a.limit ?? 10)));
         return { requirements: r.constraints.map((c) => c.label), rankedBy: r.terms, considered: r.considered, results: r.hits.map((h) => ({ ...h, page: `${SITE}/systems/${h.id}` })) };
       }
       case 'choose_memory_layer': {
@@ -228,7 +243,10 @@ export function createHandler(load: Loader) {
   }
 
   type Msg = { jsonrpc: '2.0'; id?: string | number | null; method?: string; params?: Record<string, unknown> };
-  async function rpc(m: Msg): Promise<object | null> {
+  const toolsFor = (silo: Silo | null) =>
+    silo ? TOOLS.filter((t) => SILO_CORE.includes(t.name) || (silo.mcpTools ?? []).includes(t.name)) : TOOLS;
+
+  async function rpc(m: Msg, silo: Silo | null = null): Promise<object | null> {
     const isNote = m.id === undefined || m.id === null;
     const ok = (result: unknown) => ({ jsonrpc: '2.0', id: m.id, result });
     const err = (code: number, message: string) => ({ jsonrpc: '2.0', id: m.id ?? null, error: { code, message } });
@@ -241,18 +259,20 @@ export function createHandler(load: Loader) {
           protocolVersion: PROTOCOL_VERSIONS.includes(want) ? want : PROTOCOL_VERSIONS[0],
           capabilities: { tools: { listChanged: false } },
           serverInfo: { name: 'agent-infrastructure-landscape', title: 'AI Agent Infrastructure Landscape', version: '1.0.0' },
-          instructions: 'Read-only, citation-backed catalog of 950+ AI agent systems. Start with ask_catalog to find ids, then get_system, find_alternatives or check_compatibility. Every fact carries a source URL.'
+          instructions: silo
+            ? `Read-only, citation-backed ${silo.name} catalog (${silo.sections.length} sections of the AI agent infrastructure landscape). Start with ask_catalog to find ids, then get_system. Every fact carries a source URL. The whole catalog is at /mcp.`
+            : 'Read-only, citation-backed catalog of 950+ AI agent systems. Start with ask_catalog to find ids, then get_system, find_alternatives or check_compatibility. Every fact carries a source URL. Per-silo endpoints: /mcp/<silo> (see GET /).'
         });
       }
       case 'ping':
         return ok({});
       case 'tools/list':
-        return ok({ tools: TOOLS });
+        return ok({ tools: toolsFor(silo) });
       case 'tools/call': {
         const name = String(m.params?.name ?? '');
-        if (!TOOLS.some((t) => t.name === name)) return err(-32602, `unknown tool ${name}`);
+        if (!toolsFor(silo).some((t) => t.name === name)) return err(-32602, `unknown tool ${name}`);
         try {
-          const out = await call(name, (m.params?.arguments as Record<string, unknown>) ?? {});
+          const out = await call(name, (m.params?.arguments as Record<string, unknown>) ?? {}, silo);
           return ok({ content: [{ type: 'text', text: JSON.stringify(out, null, 1) }], structuredContent: out });
         } catch (e) {
           return ok({ content: [{ type: 'text', text: (e as Error).message }], isError: true });
@@ -273,10 +293,22 @@ export function createHandler(load: Loader) {
   return async function handle(req: Request): Promise<Response> {
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
     const url = new URL(req.url);
+    // /mcp/<silo> scopes the endpoint to one catalog silo (HANDOFF §8.1).
+    const siloId = url.pathname.match(/^\/mcp\/([a-z0-9-]+)\/?$/)?.[1] ?? null;
+    let silo: Silo | null = null;
+    if (siloId) {
+      const silos = (await getData()).silos;
+      silo = silos.find((s) => s.id === siloId) ?? null;
+      if (!silo) return Response.json({ error: `unknown silo "${siloId}"`, silos: silos.map((s) => s.id) }, { status: 404, headers: CORS });
+    }
     if (req.method === 'GET') {
       if (url.pathname === '/' || url.pathname === '/health') {
+        const silos = await getData().then((d) => d.silos, () => [] as Silo[]);
         return new Response(
-          JSON.stringify({ name: 'AI Agent Infrastructure Landscape MCP', transport: 'streamable-http (stateless)', endpoint: `${url.origin}/mcp`, tools: TOOLS.map((t) => t.name), site: SITE }),
+          JSON.stringify({
+            name: 'AI Agent Infrastructure Landscape MCP', transport: 'streamable-http (stateless)', endpoint: `${url.origin}/mcp`, tools: TOOLS.map((t) => t.name), site: SITE,
+            silos: silos.map((s) => ({ id: s.id, name: s.name, endpoint: `${url.origin}/mcp/${s.id}`, tools: toolsFor(s).map((t) => t.name) }))
+          }),
           { headers: { 'content-type': 'application/json', ...CORS } }
         );
       }
@@ -290,7 +322,7 @@ export function createHandler(load: Loader) {
       return Response.json({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error' } }, { status: 400, headers: CORS });
     }
     const msgs = Array.isArray(body) ? (body as Msg[]) : [body as Msg];
-    const out = (await Promise.all(msgs.map(rpc))).filter((x): x is object => x !== null);
+    const out = (await Promise.all(msgs.map((m) => rpc(m, silo)))).filter((x): x is object => x !== null);
     if (!out.length) return new Response(null, { status: 202, headers: CORS });
     return Response.json(Array.isArray(body) ? out : out[0], { headers: CORS });
   };

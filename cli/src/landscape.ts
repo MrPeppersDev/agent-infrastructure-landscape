@@ -37,6 +37,7 @@ import {
 } from '../../mcp/dist/citation-prediction.js';
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
+import { loadSilos, siloById, inSilo, type Silo } from '../../mcp/dist/data.js';
 import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, gateTaxonomy, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
@@ -96,6 +97,7 @@ program
   .version('1.0.0')
   .option('--json', 'emit machine-readable JSON to stdout')
   .option('--csv', 'emit CSV to stdout (tabular subcommands only)')
+  .option('--silo <id>', 'scope search to one catalog silo (see `landscape silos`)')
   .showHelpAfterError();
 
 /**
@@ -116,6 +118,19 @@ function globalOpts(cmd: Command): FormatOptions {
     json: !!(rootOpts.json || cmdOpts.json),
     csv: !!(rootOpts.csv || cmdOpts.csv)
   };
+}
+
+/** The silo from the root `--silo` flag, or null. Exits on an unknown id. */
+function siloOpt(cmd: Command): Silo | null {
+  let root: Command = cmd;
+  while (root.parent) root = root.parent;
+  const id = root.opts<{ silo?: string }>().silo ?? process.env.LANDSCAPE_SILO;
+  if (!id) return null;
+  try {
+    return siloById(id);
+  } catch (e) {
+    die((e as Error).message);
+  }
 }
 
 function emit(s: string): void {
@@ -141,7 +156,9 @@ program
   .option('--json', 'emit JSON')
   .option('--csv', 'emit CSV')
   .action((query: string, opts: { section?: string; tier?: number; limit?: number }, cmd: Command) => {
-    const records = loadRecords();
+    // With --silo, search defaults to the silo's sections; -s still reaches the whole catalog.
+    const silo = siloOpt(cmd);
+    const records = silo && !opts.section ? loadRecords().filter((r) => inSilo(r, silo)) : loadRecords();
     const result = searchRecords(records, {
       query,
       section: opts.section,
@@ -149,6 +166,25 @@ program
       limit: opts.limit
     });
     emit(formatSearch(result, globalOpts(cmd)));
+  });
+
+program
+  .command('silos')
+  .description('List the catalog silos: focused views over one dataset, each with its sections and tools.')
+  .option('--json', 'emit JSON')
+  .action((_opts, cmd: Command) => {
+    const records = loadRecords();
+    const rows = loadSilos().map((s) => ({
+      id: s.id,
+      name: s.name,
+      systems: records.filter((r) => inSilo(r, s)).length,
+      sections: s.sections.length,
+      mcpTools: s.mcpTools ?? [],
+      cli: s.cli ?? []
+    }));
+    if (globalOpts(cmd).json) return emit(JSON.stringify(rows, null, 2));
+    emit(rows.map((r) => `${r.id.padEnd(11)} ${String(r.systems).padStart(4)} systems  ${r.name}\n            tools: ${r.mcpTools.join(', ')}`).join('\n'));
+    emit('\nScope search with `landscape --silo <id> search …`, the MCP server with `--silo <id>`, the hosted endpoint with /mcp/<id>.');
   });
 
 // ===========================================================================

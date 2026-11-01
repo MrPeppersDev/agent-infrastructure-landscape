@@ -14,7 +14,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
-import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, gateTaxonomy, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
+import { loadRecords, loadEdges, getMeta, loadFamilies, familyIdForSection, gateTaxonomy, siloById, inSilo, type Silo, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, loadMigrations, loadHistory, loadSystemAliases, loadRedirects } from './data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS, type InfraAnswers } from './chooser-infra.js';
 import { compatibility, worksWith, setAliases } from './compat.js';
 import { buildIndex, search as askSearch, docText, type SearchIndex } from './search.js';
@@ -87,7 +87,19 @@ function jsonResult<T>(value: T) {
   };
 }
 
+/** Discovery tools every silo keeps, next to the silo's own `mcpTools`. */
+const SILO_CORE_TOOLS = ['search_records', 'ask_catalog', 'get_record', 'find_related', 'list_sections', 'list_products', 'recent_changes', 'system_history'];
+
+/** `--silo <id>` or LANDSCAPE_SILO scopes the server to one catalog silo. */
+function siloFromArgs(argv: string[], env: Record<string, string | undefined>): Silo | null {
+  const i = argv.indexOf('--silo');
+  const eq = argv.find((a) => a.startsWith('--silo='));
+  const id = i >= 0 ? argv[i + 1] : eq ? eq.slice(7) : env.LANDSCAPE_SILO;
+  return id ? siloById(id) : null;
+}
+
 async function main() {
+  const silo = siloFromArgs(process.argv.slice(2), process.env);
   const meta = (() => {
     try {
       // Trigger eager load so we fail fast if the data files are missing.
@@ -103,7 +115,9 @@ async function main() {
     {
       name: 'landscape-mcp',
       version: '1.0.0',
-      description: `AI agent infrastructure landscape catalog. Schema ${meta.schemaVersion}, generated ${meta.generatedAt}.`
+      description: silo
+        ? `AI agent infrastructure landscape, ${silo.name} catalog: ${silo.sections.length} sections of the full catalog. Schema ${meta.schemaVersion}, generated ${meta.generatedAt}.`
+        : `AI agent infrastructure landscape catalog. Schema ${meta.schemaVersion}, generated ${meta.generatedAt}.`
     },
     {
       capabilities: {
@@ -123,9 +137,12 @@ async function main() {
     ...('record_id' in a ? { record_id: resolveId(a.record_id) } : {}),
     ...(Array.isArray(a.ids) ? { ids: a.ids.map(resolveId) } : {})
   });
+  // With a silo, only the discovery tools and the silo's own tools are listed,
+  // so an agent configured for one job sees the tools for that job.
+  const allowed = silo ? new Set([...SILO_CORE_TOOLS, ...(silo.mcpTools ?? [])]) : null;
   const register = server.registerTool.bind(server) as (...a: unknown[]) => unknown;
   server.registerTool = ((name: string, config: unknown, cb: (...a: unknown[]) => unknown) =>
-    register(name, config, (...a: unknown[]) =>
+    allowed && !allowed.has(name) ? undefined : register(name, config, (...a: unknown[]) =>
       a.length > 1 ? cb(resolveArgs(a[0] as Record<string, unknown>), ...a.slice(1)) : cb(...a)
     )) as typeof server.registerTool;
 
@@ -185,7 +202,10 @@ async function main() {
       }
     },
     async (args) => {
-      const records = loadRecords();
+      const all = loadRecords();
+      // In a silo, search defaults to its sections; an explicit section or
+      // product filter still reaches the whole catalog.
+      const records = silo && !args.section && !args.product ? all.filter((r) => inSilo(r, silo)) : all;
       return jsonResult(searchRecords(records, args));
     }
   );
@@ -405,7 +425,7 @@ async function main() {
     async (args) => {
       if (!askIndex) {
         const items = new Map(loadChooserItems().map((i) => [i.id, i]));
-        askIndex = buildIndex(loadRecords().map((r) => {
+        askIndex = buildIndex(loadRecords().filter((r) => !silo || inSilo(r, silo)).map((r) => {
           const item = items.get(r.id)!;
           return { item, text: docText(r.cells), family: familyIdForSection(item.section) };
         }));

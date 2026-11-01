@@ -85,6 +85,16 @@ mcp-publisher publish                 # reads server.json
 
 npm version tracks the bundled `data-vX.Y.Z` tag; bump on dataset releases only. Pin to a specific version (e.g. `landscape-mcp@1.0.0`) when you care about reproducibility — otherwise `npx -y landscape-mcp` picks up whichever dataset shipped most recently.
 
+## One silo only
+
+`--silo <id>` (or `LANDSCAPE_SILO=<id>`) scopes the server to one [catalog silo](../taxonomy/silos.json), such as `memory`, `coding`, `retrieval` or `security`. `landscape silos` lists them all. A scoped server lists only the discovery tools (`search_records`, `ask_catalog`, `get_record`, `find_related`, `list_sections`, `list_products`, `recent_changes`, `system_history`) plus the silo's own tools. `search_records` and `ask_catalog` then search the silo's sections; an explicit `section` or `product` filter still reaches the whole catalog.
+
+```sh
+claude mcp add landscape-memory -- node /absolute/path/to/repo/mcp/dist/server.js --silo memory
+```
+
+The CLI takes the same flag: `landscape --silo coding search "memory"`.
+
 ## Tools
 
 All 13 tools are read-only. Inputs are JSON; outputs are JSON-serialisable.

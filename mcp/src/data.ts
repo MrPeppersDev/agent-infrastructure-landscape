@@ -114,6 +114,47 @@ export function loadFamilies(): Family[] {
   return cachedFamilies;
 }
 
+// ---------------------------------------------------------------------------
+// Catalog silos (taxonomy/silos.json): focused views over the one dataset.
+// `--silo <id>` scopes the MCP server and CLI to one (HANDOFF §8.1).
+// ---------------------------------------------------------------------------
+
+export interface Silo {
+  id: string;
+  name: string;
+  tagline?: string;
+  sections: string[];
+  mcpTools?: string[];
+  cli?: string[];
+}
+
+let cachedSilos: Silo[] | null = null;
+
+export function loadSilos(): Silo[] {
+  if (cachedSilos) return cachedSilos;
+  for (const path of [join(DATA_DIR, 'silos.json'), join(DATA_DIR, '..', 'taxonomy', 'silos.json')]) {
+    if (existsSync(path)) {
+      cachedSilos = (JSON.parse(readFileSync(path, 'utf-8')) as { silos: Silo[] }).silos;
+      return cachedSilos;
+    }
+  }
+  cachedSilos = [];
+  return cachedSilos;
+}
+
+/** The silo with this id; throws with the valid ids when there is none. */
+export function siloById(id: string): Silo {
+  const s = loadSilos().find((x) => x.id === id);
+  if (!s) throw new Error(`unknown silo "${id}"; valid: ${loadSilos().map((x) => x.id).join(', ')}`);
+  return s;
+}
+
+/** A record belongs to a silo by its primary section, as on the site. */
+export function inSilo(r: Pick<LandscapeRecord, 'sections'>, silo: Silo): boolean {
+  const primary = r.sections.find((s) => s.primary) ?? r.sections[0];
+  return silo.sections.includes(primary?.section ?? '');
+}
+
 /** Family id for a primary section name, or 'other'. */
 export function familyIdForSection(section: string): string {
   for (const f of loadFamilies()) if (f.sections.includes(section)) return f.id;
