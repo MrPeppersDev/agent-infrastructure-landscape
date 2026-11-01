@@ -11,6 +11,7 @@ import { setAliases } from './compat.js';
 import { planStack, slimPlan, toOpml, PRODUCTS, LAYER_BY_ID, type ProductType, type StackAnswers } from './composer.js';
 import { procurementSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
 import { checkManifest, parseManifest } from './stack-check.js';
+import { contextPack, answersFromStackYaml } from './context-pack.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 function find(name: string): string {
@@ -162,6 +163,19 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
     if (r.text.startsWith('Works with')) ok(r.citation === null || /^https?:/.test(r.citation ?? ''), `integration reason cites a URL: ${r.text}`);
   }
   ok(p.pairs.every((x) => ['documented', 'mentioned', 'not-recorded'].includes(x.status)), 'pair statuses are never "incompatible"');
+}
+
+// --- context pack (#398): a stack.yml round-trips into the pack -----------
+{
+  const yml = readFileSync(join(find('landscape.json'), '..', '..', 'blueprints', 'coding-agent', 'stack.yml'), 'utf-8');
+  const ids = [...yml.split('components:')[1].matchAll(/^\s+(\w+): ([\w.-]+)/gm)].map((m) => m[2]);
+  const a = answersFromStackYaml(yml);
+  ok(a.product === 'coding-agent' && Object.keys(a.pin ?? {}).length === ids.length, 'stack.yml answers keep the product and pin every component');
+  const plan = planStack(ctx, a);
+  ok(ids.every((id) => plan.layers.some((l) => l.pick?.item.id === id)), 'a pinned stack keeps every stack.yml component');
+  const md = contextPack(plan, INDEX.packages, 'https://example.test', '2026-11-01');
+  ok(md.startsWith('## AI agent stack') && ids.every((id) => md.includes('`' + id + '`')), 'the pack names every component by id');
+  ok(['### Components', '### Working rules', 'landscape check'].every((s) => md.includes(s)), 'the pack has its sections and points at landscape check');
 }
 
 if (failures) {

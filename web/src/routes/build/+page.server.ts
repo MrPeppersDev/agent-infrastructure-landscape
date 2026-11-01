@@ -44,5 +44,7 @@ export const load = () => {
   const notes = (migrations as unknown as { notes: { id: string; summary: string; sources: string[] }[] }).notes
     .filter((n) => ids.has(n.id))
     .map(({ id, summary, sources }) => ({ id, summary, sources }));
-  return { items, records, edges, migrations: notes, pricing: { stack: stackPricing, memory: memoryPricing, vector: vectorPricing } };
+  // Package names of the candidates, for the context pack (#398).
+  const packages = Object.fromEntries(Object.entries((stackIndex as unknown as { packages: Record<string, string> }).packages).filter(([, id]) => ids.has(id)));
+  return { items, records, edges, migrations: notes, pricing: { stack: stackPricing, memory: memoryPricing, vector: vectorPricing }, packages };
 };

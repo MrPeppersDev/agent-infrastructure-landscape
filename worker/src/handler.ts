@@ -19,6 +19,7 @@ import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '
 import { alternativesFor } from '../../mcp/src/chooser.js';
 import { attentionIds, linksFromEdges, type Links } from '../../mcp/src/stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers } from '../../mcp/src/composer.js';
+import { contextPack, answersFromStackYaml } from '../../mcp/src/context-pack.js';
 import { procurementSheet, auditSheet, sheetToCsv, sheetToMarkdown, type ProcurementSheet } from '../../mcp/src/procurement.js';
 import type { StackPricing } from '../../mcp/src/stack-costs.js';
 
@@ -124,6 +125,16 @@ export const TOOLS = [
     } }
   },
   {
+    name: 'context_pack',
+    description: 'A Markdown section for AGENTS.md or CLAUDE.md: the system chosen per layer (catalog id, packages, docs), documented integrations between them, lifecycle warnings, exit paths and working rules for a coding agent. Pass a stack.yml (from plan_stack, /build or a blueprint), or a product preset.',
+    inputSchema: { type: 'object', properties: {
+      stack: S.str('stack.yml contents; every component is kept as-is.'),
+      product: S.enum(Object.keys(PRODUCTS), 'used when no stack is given (default support-agent)'),
+      language: S.enum(['python', 'typescript', 'any'], 'required SDK language'),
+      hosting: S.enum(['self', 'managed', 'any'], 'self-hosted or managed')
+    } }
+  },
+  {
     name: 'plan_stack',
     description: 'Compose a whole agent stack in one call: one cited pick per layer (framework, model, gateway, memory, vector store, embeddings, tools/auth, sandbox, browser, voice, evals, guardrails) with why-not for runners-up, exit paths, documented integrations between picks, a risk score from cited facts, an OWASP LLM Top 10 coverage map, an eval plan and a stack.yml for check_stack.',
     inputSchema: { type: 'object', properties: {
@@ -226,6 +237,11 @@ export function createHandler(load: Loader) {
         if (!r) throw new Error(`no record ${a.id}; use ask_catalog to find ids`);
         const cells = Object.fromEntries(Object.entries(r.cells).filter(([, c]) => c?.value && !EMPTY.has(c.status ?? '')).map(([k, c]) => [k, { value: c.value, citation: c.citation ?? null }]));
         return { id: r.id, name: r.name, url: r.url, section: r.sections.find((s) => s.primary)?.section, tier: r.tier, last_verified_at: r.last_verified_at ?? null, lifecycle: d.index.records[r.id] ?? { status: 'active' }, migration: d.migrations.get(r.id) ?? null, history: d.history[r.id] ?? [], taxonomy: MEMORY_FAMILIES.has(d.famOf(r.sections.find((s) => s.primary)?.section ?? '')) ? r.taxonomy : null, cells, page: `${SITE}/systems/${r.id}` };
+      }
+      case 'context_pack': {
+        const ans = a.stack ? answersFromStackYaml(String(a.stack)) : (a as unknown as StackAnswers);
+        const plan = planStack({ items: d.items, records: d.records as never, edges: d.edges as never, migrations: d.migrations as never }, ans);
+        return { markdown: contextPack(plan, d.index.packages, SITE) };
       }
       case 'plan_stack': {
         const plan = planStack(

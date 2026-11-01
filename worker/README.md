@@ -8,7 +8,7 @@ claude mcp add --transport http landscape https://<your-worker>.workers.dev/mcp
 
 In Cursor, Claude Desktop or any client that supports remote servers, use the URL `https://<your-worker>.workers.dev/mcp`.
 
-**Tools (10):** `ask_catalog`, `plan_stack`, `choose_memory_layer`, `choose_framework_or_store`, `check_stack`, `find_alternatives`, `check_compatibility`, `get_system`, `estimate_memory_cost`, `estimate_vector_store_cost`. They use the same logic as the website, the [local stdio server](../mcp) (25 tools) and the [CLI](../cli). Data is read from this repo's `main` branch and cached at the edge for an hour, so a merge reaches the endpoint without a redeploy.
+**Tools (11):** `ask_catalog`, `plan_stack`, `context_pack`, `choose_memory_layer`, `choose_framework_or_store`, `check_stack`, `find_alternatives`, `check_compatibility`, `get_system`, `estimate_memory_cost`, `estimate_vector_store_cost`. They use the same logic as the website, the [local stdio server](../mcp) (25 tools) and the [CLI](../cli). Data is read from this repo's `main` branch and cached at the edge for an hour, so a merge reaches the endpoint without a redeploy.
 
 **One silo:** `https://<your-worker>.workers.dev/mcp/<silo>` (for example `/mcp/memory` or `/mcp/coding`) lists `ask_catalog` and `get_system` plus that silo's tools from `taxonomy/silos.json`, and `ask_catalog` searches only the silo's sections. `GET /` lists every silo endpoint.
 

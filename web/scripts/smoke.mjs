@@ -76,6 +76,8 @@ try {
   await go('/compare/mem0--mem0-ai--vs--zep-graphiti--getzep-com');
   check('compare page shows source badges (#333 follow-up)', (await page.locator('td .src').count()) > 3);
   await go('/build?product=coding-agent&language=typescript');
+  const ctxHref = (await page.locator('a.dl.ctx').getAttribute('href')) ?? '';
+  check('/build offers a context pack for coding agents (#398)', decodeURIComponent(ctxHref).includes('### Working rules'));
   const fb = await page.locator('.layer a.feedback').first().getAttribute('href');
   check('/build has a "Was this pick right?" link per pick', !!fb && fb.includes('template=pick-feedback.yml') && fb.includes('product%3Dcoding-agent'), fb ?? '');
   check('/build maps OWASP risks', (await texts('td.st')).length === 10);
