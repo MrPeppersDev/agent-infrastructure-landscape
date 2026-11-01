@@ -345,7 +345,7 @@
   "npm:openclaw": "openclaw-memory--docs-openclaw-ai",
   "npm:opencode": "opencode-sst--opencode-ai",
   "npm:opencode-ai": "opencode-sst--opencode-ai",
-  "npm:openhands": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "npm:openhands": "openhands-all-hands-ai--all-hands-dev",
   "npm:openinference": "openinference--gh-arize-ai-openinference",
   "npm:openllmetry": "openllmetry-traceloop--gh-traceloop-openllmetry",
   "npm:openmemory": "openmemory--gh-caviraoss-openmemory",
@@ -794,7 +794,7 @@
   "pypi:memwal": "memwal-walrus--decrypt-co",
   "pypi:meta-memory": "meta-memory--arxiv-2509-20754",
   "pypi:metaflow": "outerbounds--outerbounds-com",
-  "pypi:metagpt": "metagpt--gh-geekan-metagpt",
+  "pypi:metagpt": "metagpt-harness--gh-foundationagents-metagpt",
   "pypi:milvus": "milvus--milvus-io",
   "pypi:mind2web": "mind2web--osu-nlp-group-github-io",
   "pypi:mistral-inference": "mistral-large-2-mixtral-family--mistral-ai",
@@ -829,8 +829,8 @@
   "pypi:openbb": "openbb--openbb-co",
   "pypi:openclaw": "openclaw-memory--docs-openclaw-ai",
   "pypi:opencode": "opencode-sst--opencode-ai",
-  "pypi:openhands": "opendevin-openhands--gh-all-hands-ai-openhands",
-  "pypi:openhands-ai": "opendevin-openhands--gh-all-hands-ai-openhands",
+  "pypi:openhands": "openhands-all-hands-ai--all-hands-dev",
+  "pypi:openhands-ai": "openhands-all-hands-ai--all-hands-dev",
   "pypi:openinference": "openinference--gh-arize-ai-openinference",
   "pypi:openinference-instrumentation": "arize-phoenix--phoenix-arize-com",
   "pypi:openinference-semantic-conventions": "openinference--gh-arize-ai-openinference",
@@ -2305,7 +2305,6 @@
   "openbmb/toolbench": "toolllm--arxiv-2307-16789",
   "openbq-org/openbb": "openbb--openbb-co",
   "openclaw/openclaw": "openclaw-memory--docs-openclaw-ai",
-  "openhands/openhands": "opendevin-openhands--gh-all-hands-ai-openhands",
   "openmind/om1": "openmind-om1--openmind-org",
   "openrlhf/openrlhf": "openrlhf--gh-openrlhf-openrlhf",
   "opensearch-project/opensearch": "opensearch-aws--opensearch-org",
@@ -2604,7 +2603,18 @@
     "date": "2026-09-09"
    },
    "latest_release_text": "v1.15.0 (2026-09-09)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 21,
+    "responded_share": 0.24,
+    "open_issue_median_age_days": 11,
+    "releases_12mo": 4,
+    "latest_release_at": "2026-09-09",
+    "bus_factor": 2,
+    "top_contributor_share": 0.33,
+    "archived": false,
+    "repo": "huggingface/accelerate"
+   }
   },
   "ace-agentic-context-engineering--arxiv-2510-04618": {
    "name": "ACE — Agentic Context Engineering",
@@ -2666,7 +2676,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-04-21",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 178,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-04-08",
+    "bus_factor": 1,
+    "top_contributor_share": 0.51,
+    "archived": true,
+    "repo": "memodb-io/acontext"
+   }
   },
   "activeloop-deep-lake--activeloop-ai": {
    "name": "Activeloop Deep Lake",
@@ -3130,7 +3151,18 @@
     "date": "2026-04-08"
    },
    "latest_release_text": "v1.9.4 2026-04-08",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 6,
+    "latest_release_at": "2026-04-08",
+    "bus_factor": 1,
+    "top_contributor_share": 0.96,
+    "archived": false,
+    "repo": "josh-xt/agixt"
+   }
   },
   "agno-phidata-memory--docs-phidata-com": {
    "name": "Agno (Phidata) Memory",
@@ -3419,7 +3451,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 557,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "jianghoucheng/alphaedit"
+   }
   },
   "alphasense--alpha-sense-com": {
    "name": "AlphaSense",
@@ -3561,7 +3604,18 @@
     "date": "2026-10-17"
    },
    "latest_release_text": "v0.13.5 (2026-10-17)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 49,
+    "latest_release_at": "2026-10-17",
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "ldclabs/anda-hippocampus"
+   }
   },
   "androidworld--gh-google-research-android-world": {
    "name": "AndroidWorld",
@@ -3578,7 +3632,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 5,
+    "responded_share": 0.6,
+    "open_issue_median_age_days": 362,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 3,
+    "top_contributor_share": 0.3,
+    "archived": false,
+    "repo": "google-research/android_world"
+   }
   },
   "anthropic-circuit-tracing--transformer-circuits-pub": {
    "name": "Anthropic Circuit Tracing",
@@ -3634,29 +3699,12 @@
    "latest_release_text": "",
    "health": null
   },
-  "anthropic-computer-use--anthropic-com": {
-   "name": "Anthropic Computer Use",
-   "family": "agents",
-   "section": "Agent frameworks (no first-party memory layer)",
-   "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-   "license": "proprietary (Claude API feature)",
-   "llm_lock": "searched not found",
-   "status": "active",
-   "severity": 0,
-   "note": "",
-   "context": "launched Oct 2024 as a Claude 3.5 Sonnet beta, now the computer_toolset_20260801 toolset on Claude 5.x models.",
-   "evidence": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-   "last_commit": null,
-   "latest_release": null,
-   "latest_release_text": "computer_toolset_20260801 (tool version; no beta header required)",
-   "health": null
-  },
   "anthropic-computer-use--docs-anthropic-com": {
    "name": "Anthropic Computer Use",
    "family": "agents",
-   "section": "Agent IDEs & coding harnesses",
+   "section": "Computer-use & desktop agents",
    "url": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
-   "license": "",
+   "license": "proprietary (Claude API feature)",
    "llm_lock": "",
    "status": "active",
    "severity": 0,
@@ -4214,7 +4262,18 @@
     "date": "2025-09-30"
    },
    "latest_release_text": "python-v0.7.5 (2025-09-30) — unchanged; no newer release",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 18,
+    "responded_share": 0.56,
+    "open_issue_median_age_days": 32,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-09-30",
+    "bus_factor": 5,
+    "top_contributor_share": 0.16,
+    "archived": false,
+    "repo": "microsoft/autogen"
+   }
   },
   "autoglm-zhipu-ai--xiao9905-github-io": {
    "name": "AutoGLM (Zhipu AI)",
@@ -4271,7 +4330,18 @@
     "date": "2026-10-04"
    },
    "latest_release_text": "v0.3.27 (2026-10-04)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 14,
+    "responded_share": 0.57,
+    "open_issue_median_age_days": 1,
+    "releases_12mo": 40,
+    "latest_release_at": "2026-10-31",
+    "bus_factor": 1,
+    "top_contributor_share": 0.58,
+    "archived": false,
+    "repo": "marker-inc-korea/autorag"
+   }
   },
   "aws-bedrock-agentcore-memory--docs-aws-amazon-com": {
    "name": "AWS Bedrock AgentCore Memory",
@@ -4660,7 +4730,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-23",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 19,
+    "responded_share": 0.84,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 34,
+    "latest_release_at": "2026-09-28",
+    "bus_factor": 1,
+    "top_contributor_share": 0.65,
+    "archived": false,
+    "repo": "i-am-bee/beeai-framework"
+   }
   },
   "bench-tau-bench-bench--taubench-com": {
    "name": "τ-bench (tau-bench / τ²-bench)",
@@ -4796,7 +4877,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-29",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 9,
+    "responded_share": 0.11,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 2,
+    "top_contributor_share": 0.32,
+    "archived": false,
+    "repo": "maximhq/bifrost"
+   }
   },
   "bland-ai--bland-ai": {
    "name": "Bland AI",
@@ -5174,7 +5266,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 654,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 2,
+    "top_contributor_share": 0.3,
+    "archived": false,
+    "repo": "hhhuang/cag"
+   }
   },
   "callrail-conversation-intelligence--callrail-com": {
    "name": "CallRail Conversation Intelligence",
@@ -5618,7 +5721,18 @@
     "date": "2026-01-05"
    },
    "latest_release_text": "v1.0.7 (2026-01-05)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 269,
+    "releases_12mo": 2,
+    "latest_release_at": "2026-01-05",
+    "bus_factor": 1,
+    "top_contributor_share": 0.91,
+    "archived": false,
+    "repo": "memvid/claude-brain"
+   }
   },
   "claude-code-anthropic--anthropic-com": {
    "name": "Claude Code (Anthropic)",
@@ -6320,7 +6434,18 @@
     "date": "2025-06-04"
    },
    "latest_release_text": "v0.5.0 (2025-06-04)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 15,
+    "responded_share": 0.4,
+    "open_issue_median_age_days": 291,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-06-04",
+    "bus_factor": 8,
+    "top_contributor_share": 0.12,
+    "archived": false,
+    "repo": "hpcaitech/colossalai"
+   }
   },
   "comet-ml--comet-com": {
    "name": "Comet ML",
@@ -6473,7 +6598,18 @@
     "date": "2021-10-04"
    },
    "latest_release_text": "0.4.0 2021-10-04",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 2140,
+    "releases_12mo": 0,
+    "latest_release_at": "2021-10-04",
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "lucidrains/compressive-transformer-pytorch"
+   }
   },
   "confident-ai-deepeval--confident-ai-com": {
    "name": "Confident AI / DeepEval",
@@ -6770,7 +6906,18 @@
    "last_commit": "2024-10",
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 786,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.83,
+    "archived": false,
+    "repo": "huskyinsalt/crag"
+   }
   },
   "creator": {
    "name": "CREATOR",
@@ -7050,7 +7197,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 2,
+    "responded_share": null,
+    "open_issue_median_age_days": 452,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.8,
+    "archived": false,
+    "repo": "jennyzzt/dgm"
+   }
   },
   "databricks-vector-search--databricks-com": {
    "name": "Databricks Vector Search (now Databricks AI Search)",
@@ -7445,7 +7603,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-26",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 27,
+    "responded_share": 0.78,
+    "open_issue_median_age_days": 1,
+    "releases_12mo": 25,
+    "latest_release_at": "2026-10-23",
+    "bus_factor": 10,
+    "top_contributor_share": 0.11,
+    "archived": false,
+    "repo": "langgenius/dify"
+   }
   },
   "distilabel--gh-argilla-io-distilabel": {
    "name": "Distilabel",
@@ -7993,7 +8162,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 471,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "hyunghona/emu"
+   }
   },
   "endor-labs--endorlabs-com": {
    "name": "Endor Labs",
@@ -8454,7 +8634,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 1012,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.58,
+    "archived": false,
+    "repo": "jzbjyb/flare"
+   }
   },
   "flex--arxiv-2511-06449": {
    "name": "FLEX",
@@ -8791,7 +8982,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-21",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 26,
+    "responded_share": 0.62,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-11-01",
+    "bus_factor": 14,
+    "top_contributor_share": 0.07,
+    "archived": false,
+    "repo": "google-gemini/gemini-cli"
+   }
   },
   "generative-agents--arxiv-2304-03442": {
    "name": "Generative Agents",
@@ -8808,7 +9010,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "no releases",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 886,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.84,
+    "archived": false,
+    "repo": "joonspk-research/generative_agents"
+   }
   },
   "generative-agents-park-et-al--arxiv-2304-03442": {
    "name": "Generative Agents (Park et al.)",
@@ -9009,7 +9222,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.55,
+    "archived": true,
+    "repo": "githubnext/copilot-workspace-user-manual"
+   }
   },
   "gitpod-ai-features--gitpod-io": {
    "name": "Gitpod AI features (now Ona)",
@@ -9026,7 +9250,18 @@
    "last_commit": "2026-10",
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 58,
+    "responded_share": 0.98,
+    "open_issue_median_age_days": 94,
+    "releases_12mo": 0,
+    "latest_release_at": "2023-06-05",
+    "bus_factor": 8,
+    "top_contributor_share": 0.09,
+    "archived": false,
+    "repo": "gitpod-io/gitpod"
+   }
   },
   "glama-mcp--glama-ai": {
    "name": "Glama MCP",
@@ -9077,7 +9312,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-29",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 2,
+    "responded_share": null,
+    "open_issue_median_age_days": 5,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-27",
+    "bus_factor": 2,
+    "top_contributor_share": 0.41,
+    "archived": false,
+    "repo": "golemcloud/golem"
+   }
   },
   "gong--gong-io": {
    "name": "Gong",
@@ -9114,7 +9360,18 @@
     "date": "2026-08-07"
    },
    "latest_release_text": "v2.6.3 (2026-08-07)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 44,
+    "responded_share": 0.39,
+    "open_issue_median_age_days": 1,
+    "releases_12mo": 63,
+    "latest_release_at": "2026-10-23",
+    "bus_factor": 4,
+    "top_contributor_share": 0.2,
+    "archived": false,
+    "repo": "google/adk-python"
+   }
   },
   "google-agent-development-kit-adk--gh-google-adk-python": {
    "name": "Google Agent Development Kit (ADK)",
@@ -9222,7 +9479,18 @@
     "date": "2026-10-20"
    },
    "latest_release_text": "v2.6.0 (2026-10-20) — google-cloud-aiplatform",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 13,
+    "responded_share": 0.31,
+    "open_issue_median_age_days": 10,
+    "releases_12mo": 55,
+    "latest_release_at": "2026-10-28",
+    "bus_factor": 5,
+    "top_contributor_share": 0.27,
+    "archived": false,
+    "repo": "googleapis/python-aiplatform"
+   }
   },
   "goose-block--block-github-io": {
    "name": "Goose (Block)",
@@ -9380,7 +9648,18 @@
     "date": "2026-10-08"
    },
    "latest_release_text": "v3.3.0 (2026-10-08)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 35,
+    "responded_share": 0.74,
+    "open_issue_median_age_days": 27,
+    "releases_12mo": 15,
+    "latest_release_at": "2026-10-08",
+    "bus_factor": 2,
+    "top_contributor_share": 0.29,
+    "archived": false,
+    "repo": "microsoft/graphrag"
+   }
   },
   "grok-memory-xai--maginative-com": {
    "name": "Grok Memory (xAI)",
@@ -9448,7 +9727,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-08-26",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 9,
+    "responded_share": 0.67,
+    "open_issue_median_age_days": 76,
+    "releases_12mo": 15,
+    "latest_release_at": "2026-08-14",
+    "bus_factor": 2,
+    "top_contributor_share": 0.29,
+    "archived": false,
+    "repo": "guardrails-ai/guardrails"
+   }
   },
   "gwm-gaussian-world-models--gaussian-world-model-github-io": {
    "name": "GWM (Gaussian World Models)",
@@ -9578,7 +9868,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-09-03",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 2,
+    "responded_share": null,
+    "open_issue_median_age_days": 39,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "memtensor/halumem"
+   }
   },
   "hami--nature-com": {
    "name": "HAMI",
@@ -9612,7 +9913,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 2429,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 2,
+    "top_contributor_share": 0.45,
+    "archived": true,
+    "repo": "google-deepmind/hanabi-learning-environment"
+   }
   },
   "harvey-memory--harvey-ai": {
    "name": "Harvey Memory",
@@ -9646,7 +9958,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-29",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 15,
+    "responded_share": 0.47,
+    "open_issue_median_age_days": 6,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-29",
+    "bus_factor": 3,
+    "top_contributor_share": 0.24,
+    "archived": false,
+    "repo": "hatchet-dev/hatchet"
+   }
   },
   "haystack-framework--haystack-deepset-ai": {
    "name": "Haystack (framework)",
@@ -9785,7 +10108,18 @@
     "date": "2025-11-07"
    },
    "latest_release_text": "v1.8.3 (2025-11-07) — @helicone/helpers",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 27,
+    "responded_share": 0.37,
+    "open_issue_median_age_days": 71,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-08-21",
+    "bus_factor": 2,
+    "top_contributor_share": 0.43,
+    "archived": false,
+    "repo": "helicone/helicone"
+   }
   },
   "helmet--arxiv-2410-02694": {
    "name": "HELMET",
@@ -10001,7 +10335,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 336,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.78,
+    "archived": false,
+    "repo": "hhy-huang/hirag"
+   }
   },
   "honcho-plastic-labs--honcho-dev": {
    "name": "Honcho (Plastic Labs)",
@@ -10089,7 +10434,18 @@
     "date": "2026-10-05"
    },
    "latest_release_text": "v5.1.0 (2026-10-05)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 16,
+    "responded_share": 0.44,
+    "open_issue_median_age_days": 10,
+    "releases_12mo": 16,
+    "latest_release_at": "2026-10-05",
+    "bus_factor": 2,
+    "top_contributor_share": 0.35,
+    "archived": false,
+    "repo": "huggingface/datasets"
+   }
   },
   "hugging-face-inference-api-embeddings--huggingface-co": {
    "name": "Hugging Face Inference API (Embeddings)",
@@ -10109,7 +10465,18 @@
     "date": "2026-10-23"
    },
    "latest_release_text": "v2.3.0 (2026-10-23) — huggingface_hub",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 11,
+    "responded_share": 0.55,
+    "open_issue_median_age_days": 115,
+    "releases_12mo": 5,
+    "latest_release_at": "2026-09-15",
+    "bus_factor": 2,
+    "top_contributor_share": 0.36,
+    "archived": false,
+    "repo": "huggingface/text-embeddings-inference"
+   }
   },
   "hugging-face-lerobot--huggingface-co": {
    "name": "Hugging Face LeRobot",
@@ -10129,7 +10496,18 @@
     "date": "2026-08-03"
    },
    "latest_release_text": "v0.6.1 (2026-08-03)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 16,
+    "responded_share": 0.5,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 8,
+    "latest_release_at": "2026-08-03",
+    "bus_factor": 4,
+    "top_contributor_share": 0.22,
+    "archived": false,
+    "repo": "huggingface/lerobot"
+   }
   },
   "human-like-remembering-and-forgetting--dl-acm-org": {
    "name": "Human-Like Remembering and Forgetting",
@@ -10166,7 +10544,18 @@
     "date": "2025-05-09"
    },
    "latest_release_text": "v0.8.38 (2025-05-09) — humanloop SDK, final",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 478,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-05-22",
+    "bus_factor": 1,
+    "top_contributor_share": 0.63,
+    "archived": false,
+    "repo": "humanloop/humanloop-python"
+   }
   },
   "hume-evi--hume-ai": {
    "name": "Hume EVI",
@@ -10251,7 +10640,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-21",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 11,
+    "latest_release_at": "2026-10-21",
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "louis030195/hyperconsciousness"
+   }
   },
   "hyperproof--hyperproof-io": {
    "name": "Hyperproof",
@@ -10347,7 +10747,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-29",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 45,
+    "responded_share": 0.2,
+    "open_issue_median_age_days": 4,
+    "releases_12mo": 20,
+    "latest_release_at": "2026-10-20",
+    "bus_factor": 4,
+    "top_contributor_share": 0.36,
+    "archived": false,
+    "repo": "ibm/mcp-context-forge"
+   }
   },
   "ibm-meta-tokens--arxiv-2506-00307": {
    "name": "IBM Meta-Tokens",
@@ -10398,7 +10809,18 @@
    "last_commit": "2026-10",
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 106,
+    "releases_12mo": 1,
+    "latest_release_at": "2026-07-09",
+    "bus_factor": 2,
+    "top_contributor_share": 0.43,
+    "archived": false,
+    "repo": "imbue-ai/mngr"
+   }
   },
   "implicitmembench--arxiv-2604-08064": {
    "name": "ImplicitMemBench",
@@ -10503,7 +10925,18 @@
     "date": "2026-10-22"
    },
    "latest_release_text": "v4.26.0 (2026-10-22)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 6,
+    "responded_share": 1.0,
+    "open_issue_median_age_days": 9,
+    "releases_12mo": 78,
+    "latest_release_at": "2026-10-28",
+    "bus_factor": 4,
+    "top_contributor_share": 0.26,
+    "archived": false,
+    "repo": "inngest/inngest"
+   }
   },
   "inngest-agentkit-network-state--agentkit-inngest-com": {
    "name": "Inngest AgentKit — Network State",
@@ -10520,7 +10953,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 7,
+    "responded_share": 1.0,
+    "open_issue_median_age_days": 181,
+    "releases_12mo": 1,
+    "latest_release_at": "2025-11-13",
+    "bus_factor": 3,
+    "top_contributor_share": 0.22,
+    "archived": false,
+    "repo": "inngest/agent-kit"
+   }
   },
   "inspect-ai--inspect-aisi-org-uk": {
    "name": "Inspect AI",
@@ -10557,7 +11001,18 @@
     "date": "2025-05-05"
    },
    "latest_release_text": "v0.26.1 (2025-05-05)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 229,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-05-05",
+    "bus_factor": 4,
+    "top_contributor_share": 0.32,
+    "archived": true,
+    "repo": "instructlab/instructlab"
+   }
   },
   "intercom-fin--fin-ai": {
    "name": "Intercom Fin",
@@ -10608,7 +11063,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-01-12",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 2,
+    "responded_share": null,
+    "open_issue_median_age_days": 529,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.53,
+    "archived": false,
+    "repo": "invariantlabs-ai/invariant"
+   }
   },
   "inworld-ai--inworld-ai": {
    "name": "Inworld AI",
@@ -10855,7 +11321,18 @@
     "date": "2025-09-04"
    },
    "latest_release_text": "v0.3.18 (2025-09-04) — kscale SDK",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 668,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-05-26",
+    "bus_factor": 2,
+    "top_contributor_share": 0.41,
+    "archived": false,
+    "repo": "kscalelabs/kos"
+   }
   },
   "kag--arxiv-2409-13731": {
    "name": "KAG",
@@ -10963,7 +11440,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-19",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 22,
+    "responded_share": 0.36,
+    "open_issue_median_age_days": 52,
+    "releases_12mo": 3,
+    "latest_release_at": "2026-10-12",
+    "bus_factor": 5,
+    "top_contributor_share": 0.2,
+    "archived": false,
+    "repo": "kong/kong"
+   }
   },
   "krutrim-kruti-ola--ai-labs-olakrutrim-com": {
    "name": "Krutrim Kruti (Ola)",
@@ -11000,7 +11488,18 @@
     "date": "2025-10-10"
    },
    "latest_release_text": "0.11.3 (final release; repository archived 2025-10-10)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 415,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-10-10",
+    "bus_factor": 3,
+    "top_contributor_share": 0.24,
+    "archived": true,
+    "repo": "kuzudb/kuzu"
+   }
   },
   "label-studio-humansignal--labelstud-io": {
    "name": "Label Studio (HumanSignal)",
@@ -11020,7 +11519,18 @@
     "date": "2026-09-29"
    },
    "latest_release_text": "v1.23.2 (2026-09-29)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 24,
+    "responded_share": 0.5,
+    "open_issue_median_age_days": 26,
+    "releases_12mo": 5,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 6,
+    "top_contributor_share": 0.21,
+    "archived": false,
+    "repo": "humansignal/label-studio"
+   }
   },
   "labelbox--labelbox-com": {
    "name": "Labelbox",
@@ -11040,7 +11550,18 @@
     "date": "2026-10-22"
    },
    "latest_release_text": "v7.17.0 (2026-10-22) — labelbox SDK",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 14,
+    "latest_release_at": "2026-10-22",
+    "bus_factor": 6,
+    "top_contributor_share": 0.21,
+    "archived": false,
+    "repo": "labelbox/labelbox-python"
+   }
   },
   "labgenius--labgenius-app": {
    "name": "LabGenius",
@@ -11111,7 +11632,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-16",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 3,
+    "responded_share": 0.33,
+    "open_issue_median_age_days": 12,
+    "releases_12mo": 31,
+    "latest_release_at": "2026-10-16",
+    "bus_factor": 2,
+    "top_contributor_share": 0.35,
+    "archived": false,
+    "repo": "lmnr-ai/lmnr"
+   }
   },
   "lancedb--lancedb-com": {
    "name": "LanceDB",
@@ -11131,7 +11663,18 @@
     "date": "2026-10-07"
    },
    "latest_release_text": "v0.40.0 (2026-10-07)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 20,
+    "responded_share": 0.65,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-29",
+    "bus_factor": 7,
+    "top_contributor_share": 0.14,
+    "archived": false,
+    "repo": "lancedb/lancedb"
+   }
   },
   "langchain-framework--langchain-com": {
    "name": "LangChain (framework)",
@@ -11151,7 +11694,18 @@
     "date": "2026-10-21"
    },
    "latest_release_text": "v1.4.7 (2026-10-21)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 24,
+    "responded_share": 0.88,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-29",
+    "bus_factor": 5,
+    "top_contributor_share": 0.13,
+    "archived": false,
+    "repo": "langchain-ai/langchain"
+   }
   },
   "langflow--gh-langflow-ai-langflow": {
    "name": "Langflow",
@@ -11168,7 +11722,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-22",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 11,
+    "responded_share": 0.45,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 48,
+    "latest_release_at": "2026-10-22",
+    "bus_factor": 2,
+    "top_contributor_share": 0.4,
+    "archived": false,
+    "repo": "langflow-ai/langflow"
+   }
   },
   "langflow-memory--docs-langflow-org": {
    "name": "Langflow Memory",
@@ -11208,7 +11773,18 @@
     "date": null
    },
    "latest_release_text": "v4.27.0 (Sep 1; page shows no year, presumably 2026)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 14,
+    "responded_share": 0.43,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-29",
+    "bus_factor": 5,
+    "top_contributor_share": 0.16,
+    "archived": false,
+    "repo": "langfuse/langfuse"
+   }
   },
   "langgraph-orchestration--langchain-com": {
    "name": "LangGraph (orchestration)",
@@ -11228,7 +11804,18 @@
     "date": "2026-10-26"
    },
    "latest_release_text": "v1.2.18 (2026-10-26)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 31,
+    "responded_share": 0.61,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 5,
+    "top_contributor_share": 0.15,
+    "archived": false,
+    "repo": "langchain-ai/langgraph"
+   }
   },
   "langgraph-persistence--docs-langchain-com": {
    "name": "LangGraph Persistence",
@@ -11268,7 +11855,18 @@
     "date": "2025-10-27"
    },
    "latest_release_text": "v0.0.30 (2025-10-27) — PyPI",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 10,
+    "responded_share": 0.3,
+    "open_issue_median_age_days": 314,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 2,
+    "top_contributor_share": 0.39,
+    "archived": false,
+    "repo": "langchain-ai/langmem"
+   }
   },
   "langsmith--langchain-com": {
    "name": "LangSmith",
@@ -11305,7 +11903,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 553,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "ibm/larimar"
+   }
   },
   "lasso-security--lasso-security": {
    "name": "Lasso Security",
@@ -11461,7 +12070,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-22",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 11,
+    "responded_share": 0.73,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-31",
+    "bus_factor": 3,
+    "top_contributor_share": 0.33,
+    "archived": false,
+    "repo": "letta-ai/letta-code"
+   }
   },
   "letta-memgpt--letta-com": {
    "name": "Letta / MemGPT",
@@ -11535,7 +12155,18 @@
     "date": "2026-09-02"
    },
    "latest_release_text": "v1.5.7 (2026-09-02)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 31,
+    "responded_share": 0.35,
+    "open_issue_median_age_days": 19,
+    "releases_12mo": 24,
+    "latest_release_at": "2026-09-02",
+    "bus_factor": 1,
+    "top_contributor_share": 0.68,
+    "archived": false,
+    "repo": "hkuds/lightrag"
+   }
   },
   "lightrag--gh-hkuds-lightrag": {
    "name": "LightRAG",
@@ -11725,7 +12356,18 @@
     "date": "2026-08-27"
    },
    "latest_release_text": "v1.7.1 (2026-08-27) — livekit-agents (Python)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 21,
+    "responded_share": 0.29,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 60,
+    "latest_release_at": "2026-10-29",
+    "bus_factor": 3,
+    "top_contributor_share": 0.27,
+    "archived": false,
+    "repo": "livekit/agents"
+   }
   },
   "liveperson-conversation-context-service--developers-liveperson-com": {
    "name": "LivePerson Conversation Context Service",
@@ -11762,7 +12404,18 @@
     "date": "2026-05-30"
    },
    "latest_release_text": "v0.9.5 (2026-05-30)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 18,
+    "responded_share": 0.22,
+    "open_issue_median_age_days": 23,
+    "releases_12mo": 2,
+    "latest_release_at": "2026-05-30",
+    "bus_factor": 1,
+    "top_contributor_share": 0.76,
+    "archived": false,
+    "repo": "hiyouga/llamafactory"
+   }
   },
   "llamaindex-framework--llamaindex-ai": {
    "name": "LlamaIndex (framework)",
@@ -11972,7 +12625,18 @@
     "date": "2026-10-07"
    },
    "latest_release_text": "2.0.2 (2026-10-07) — desktop app, labelled beta testing",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 8,
+    "responded_share": 0.38,
+    "open_issue_median_age_days": 7,
+    "releases_12mo": 4,
+    "latest_release_at": "2026-10-25",
+    "bus_factor": 2,
+    "top_contributor_share": 0.48,
+    "archived": false,
+    "repo": "logseq/logseq"
+   }
   },
   "longbench--arxiv-2308-14508": {
    "name": "LongBench",
@@ -12077,7 +12741,18 @@
     "date": "2023-08-27"
    },
    "latest_release_text": "v0.1.2 (2023-08-27) — loralib",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 971,
+    "releases_12mo": 0,
+    "latest_release_at": "2021-09-16",
+    "bus_factor": 1,
+    "top_contributor_share": 0.57,
+    "archived": false,
+    "repo": "microsoft/lora"
+   }
   },
   "lovable--lovable-dev": {
    "name": "Lovable",
@@ -12357,7 +13032,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "v0.x ongoing on GitHub",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 53,
+    "responded_share": 0.83,
+    "open_issue_median_age_days": 17,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 2,
+    "top_contributor_share": 0.49,
+    "archived": false,
+    "repo": "magnitudedev/magnitude"
+   }
   },
   "mamba--arxiv-2312-00752": {
    "name": "Mamba",
@@ -12428,7 +13114,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 125,
+    "releases_12mo": 16,
+    "latest_release_at": "2026-04-07",
+    "bus_factor": 3,
+    "top_contributor_share": 0.24,
+    "archived": false,
+    "repo": "marqo-ai/marqo"
+   }
   },
   "marvin--askmarvin-ai": {
    "name": "Marvin",
@@ -12468,7 +13165,18 @@
     "date": "2026-10-21"
    },
    "latest_release_text": "v1.79.0 (2026-10-21)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 22,
+    "responded_share": 1.0,
+    "open_issue_median_age_days": 1,
+    "releases_12mo": 98,
+    "latest_release_at": "2026-10-28",
+    "bus_factor": 8,
+    "top_contributor_share": 0.12,
+    "archived": false,
+    "repo": "mastra-ai/mastra"
+   }
   },
   "mastra-memory--mastra-ai": {
    "name": "Mastra Memory",
@@ -12653,7 +13361,18 @@
     "date": "2026-08-13"
    },
    "latest_release_text": "v1.53.1 (2026-08-13)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 17,
+    "responded_share": 0.65,
+    "open_issue_median_age_days": 18,
+    "releases_12mo": 63,
+    "latest_release_at": "2026-10-26",
+    "bus_factor": 3,
+    "top_contributor_share": 0.29,
+    "archived": false,
+    "repo": "meilisearch/meilisearch"
+   }
   },
   "mem--arxiv-2509-25911": {
    "name": "Mem-α",
@@ -12707,7 +13426,18 @@
     "date": "2026-09-25"
    },
    "latest_release_text": "v2.2.1 (2026-09-25) — mem0ai on PyPI",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 34,
+    "responded_share": 0.76,
+    "open_issue_median_age_days": 5,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-09-25",
+    "bus_factor": 5,
+    "top_contributor_share": 0.19,
+    "archived": false,
+    "repo": "mem0ai/mem0"
+   }
   },
   "mem0-mcp-official--gh-mem0ai-mem0-mcp": {
    "name": "Mem0 MCP (official)",
@@ -12724,7 +13454,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "no releases",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 2,
+    "top_contributor_share": 0.38,
+    "archived": true,
+    "repo": "mem0ai/mem0-mcp"
+   }
   },
   "mem0-security-openmemory--mem0-ai": {
    "name": "Mem0 Security / OpenMemory",
@@ -12826,7 +13567,18 @@
     "date": "2024-10-22"
    },
    "latest_release_text": "v0.1.5 2024-10-22",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 870,
+    "releases_12mo": 0,
+    "latest_release_at": "2024-10-22",
+    "bus_factor": 2,
+    "top_contributor_share": 0.47,
+    "archived": false,
+    "repo": "kingjulio8238/memary"
+   }
   },
   "membart": {
    "name": "MemBART",
@@ -13013,7 +13765,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 26,
+    "responded_share": 0.23,
+    "open_issue_median_age_days": 10,
+    "releases_12mo": 15,
+    "latest_release_at": "2026-10-21",
+    "bus_factor": 5,
+    "top_contributor_share": 0.12,
+    "archived": false,
+    "repo": "memgraph/memgraph"
+   }
   },
   "memguide--arxiv-2505-20231": {
    "name": "MemGuide",
@@ -13101,7 +13864,18 @@
     "date": "2026-05-18"
    },
    "latest_release_text": "v0.3.9 (2026-05-18)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 43,
+    "responded_share": 0.09,
+    "open_issue_median_age_days": 11,
+    "releases_12mo": 22,
+    "latest_release_at": "2026-10-08",
+    "bus_factor": 4,
+    "top_contributor_share": 0.21,
+    "archived": false,
+    "repo": "memmachine/memmachine"
+   }
   },
   "memmachine-paper--arxiv-2604-04853": {
    "name": "MemMachine (paper)",
@@ -13138,7 +13912,18 @@
     "date": "2025-11-08"
    },
    "latest_release_text": "memobase Python SDK 0.0.27 (PyPI, 2025-11-08); no tagged GitHub releases",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 3,
+    "responded_share": 0.0,
+    "open_issue_median_age_days": 354,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.87,
+    "archived": false,
+    "repo": "memodb-io/memobase"
+   }
   },
   "memobrain--arxiv-2601-08079": {
    "name": "MemoBrain",
@@ -13172,7 +13957,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "lujunru/memochat"
+   }
   },
   "memolet--doi-org": {
    "name": "Memolet",
@@ -13246,7 +14042,18 @@
     "date": "2026-10-21"
    },
    "latest_release_text": "MemoraX Code 0.1.21 (npm @memorax/memorax-code, 2026-10-21)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 7,
+    "responded_share": 0.43,
+    "open_issue_median_age_days": 40,
+    "releases_12mo": 17,
+    "latest_release_at": "2026-10-26",
+    "bus_factor": 1,
+    "top_contributor_share": 0.95,
+    "archived": false,
+    "repo": "memorax-ai/memorax-code"
+   }
   },
   "memori--gh-memorilabs-memori": {
    "name": "Memori",
@@ -13266,7 +14073,18 @@
     "date": "2026-05-28"
    },
    "latest_release_text": "v3.3.6 (2026-05-28)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 10,
+    "responded_share": 0.4,
+    "open_issue_median_age_days": 12,
+    "releases_12mo": 32,
+    "latest_release_at": "2026-05-28",
+    "bus_factor": 3,
+    "top_contributor_share": 0.29,
+    "archived": false,
+    "repo": "memorilabs/memori"
+   }
   },
   "memori-gibsonai--gh-gibsonai-memori": {
    "name": "Memori (GibsonAI) (now Memori Labs)",
@@ -13334,7 +14152,18 @@
     "date": null
    },
    "latest_release_text": "v0.5.2 (Sep 11; page shows no year, presumably 2026)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 45,
+    "responded_share": 0.58,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 14,
+    "latest_release_at": "2026-09-11",
+    "bus_factor": 2,
+    "top_contributor_share": 0.34,
+    "archived": false,
+    "repo": "matrixorigin/memoria"
+   }
   },
   "memories-ai-lvmm-2-0-project-luci--memories-ai": {
    "name": "Memories.ai LVMM 2.0 / Project LUCI",
@@ -13614,7 +14443,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "no releases",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 278,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.86,
+    "archived": false,
+    "repo": "hust-ai-hyz/memoryagentbench"
+   }
   },
   "memoryarena--arxiv-2602-16313": {
    "name": "MemoryArena",
@@ -13736,7 +14576,18 @@
     "date": "2026-04-23"
    },
    "latest_release_text": "v2.0.14 2026-04-23",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 38,
+    "responded_share": 0.66,
+    "open_issue_median_age_days": 17,
+    "releases_12mo": 50,
+    "latest_release_at": "2026-10-29",
+    "bus_factor": 6,
+    "top_contributor_share": 0.13,
+    "archived": false,
+    "repo": "memtensor/memos"
+   }
   },
   "memp--arxiv-2508-06433": {
    "name": "Memp",
@@ -13773,7 +14624,18 @@
     "date": "2026-05-01"
    },
    "latest_release_text": "v3.3.4 2026-05-01",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 15,
+    "responded_share": 0.47,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 19,
+    "latest_release_at": "2026-10-14",
+    "bus_factor": 1,
+    "top_contributor_share": 0.59,
+    "archived": false,
+    "repo": "mempalace/mempalace"
+   }
   },
   "memr--arxiv-2512-20237": {
    "name": "MemR³",
@@ -13946,7 +14808,18 @@
     "date": "2026-05-27"
    },
    "latest_release_text": "v2.0.140 (2026-05-27)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 4,
+    "responded_share": 0.5,
+    "open_issue_median_age_days": 186,
+    "releases_12mo": 10,
+    "latest_release_at": "2026-05-27",
+    "bus_factor": 2,
+    "top_contributor_share": 0.26,
+    "archived": false,
+    "repo": "memvid/memvid"
+   }
   },
   "memwal-walrus--decrypt-co": {
    "name": "MemWal (now Walrus Memory)",
@@ -14034,7 +14907,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "No Llama release found after Llama 4 Scout + Maverick (2025-04-05); successor Muse family: Muse Spar",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 11,
+    "responded_share": 0.36,
+    "open_issue_median_age_days": 406,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 4,
+    "top_contributor_share": 0.31,
+    "archived": false,
+    "repo": "meta-llama/llama"
+   }
   },
   "meta-llama-protections-llama-guard-prompt-guard-llamafirewall--dev-meta-ai": {
    "name": "Meta Llama Protections (Llama Guard, Prompt Guard, LlamaFirewall)",
@@ -14051,7 +14935,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-12",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 7,
+    "responded_share": 0.43,
+    "open_issue_median_age_days": 119,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 5,
+    "top_contributor_share": 0.19,
+    "archived": false,
+    "repo": "meta-llama/purplellama"
+   }
   },
   "meta-memory--arxiv-2509-20754": {
    "name": "Meta-Memory",
@@ -14068,7 +14963,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 401,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "itsbaymax/meta-memory"
+   }
   },
   "metagpt--arxiv-2308-00352": {
    "name": "MetaGPT",
@@ -14101,28 +15007,8 @@
     "repo": "foundationagents/metagpt"
    }
   },
-  "metagpt--gh-geekan-metagpt": {
-   "name": "MetaGPT",
-   "family": "agents",
-   "section": "Agent frameworks (no first-party memory layer)",
-   "url": "https://github.com/geekan/MetaGPT",
-   "license": "MIT",
-   "llm_lock": "searched not found",
-   "status": "active",
-   "severity": 0,
-   "note": "",
-   "context": "",
-   "evidence": "https://github.com/geekan/MetaGPT",
-   "last_commit": "2026-01",
-   "latest_release": {
-    "version": "0.8.2",
-    "date": "2025-03-09"
-   },
-   "latest_release_text": "v0.8.2 (2025-03-09)",
-   "health": null
-  },
   "metagpt-harness--gh-foundationagents-metagpt": {
-   "name": "MetaGPT (harness)",
+   "name": "MetaGPT",
    "family": "agents",
    "section": "Agent IDEs & coding harnesses",
    "url": "https://github.com/FoundationAgents/MetaGPT",
@@ -14173,7 +15059,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-24",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 36,
+    "responded_share": 0.72,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 6,
+    "top_contributor_share": 0.14,
+    "archived": false,
+    "repo": "microsoft/agent-framework"
+   }
   },
   "microsoft-agent-governance-toolkit--gh-microsoft-agent-governance-toolkit": {
    "name": "Microsoft Agent Governance Toolkit",
@@ -14193,7 +15090,18 @@
     "date": "2026-06-11"
    },
    "latest_release_text": "v4.1.0 (2026-06-11)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 5,
+    "responded_share": 1.0,
+    "open_issue_median_age_days": 7,
+    "releases_12mo": 19,
+    "latest_release_at": "2026-06-09",
+    "bus_factor": 2,
+    "top_contributor_share": 0.35,
+    "archived": false,
+    "repo": "microsoft/agent-governance-toolkit"
+   }
   },
   "microsoft-autogen-studio--microsoft-github-io": {
    "name": "Microsoft AutoGen Studio",
@@ -14281,7 +15189,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-27",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 8,
+    "responded_share": 0.38,
+    "open_issue_median_age_days": 172,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.64,
+    "archived": false,
+    "repo": "microsoft/mcp-gateway"
+   }
   },
   "microsoft-phi-4-family--azure-microsoft-com": {
    "name": "Microsoft Phi-4 family",
@@ -14298,7 +15217,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "Phi-4-reasoning-vision-15B (2026-03)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 2,
+    "top_contributor_share": 0.37,
+    "archived": false,
+    "repo": "microsoft/phi-3cookbook"
+   }
   },
   "microsoft-recall--microsoft-com": {
    "name": "Microsoft Recall",
@@ -14335,7 +15265,18 @@
     "date": "2026-10-06"
    },
    "latest_release_text": "v1.45.0 (2026-10-06)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 13,
+    "responded_share": 0.69,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 39,
+    "latest_release_at": "2026-10-28",
+    "bus_factor": 7,
+    "top_contributor_share": 0.14,
+    "archived": false,
+    "repo": "microsoft/semantic-kernel"
+   }
   },
   "milvus--milvus-io": {
    "name": "Milvus",
@@ -14719,7 +15660,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 1180,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "leesureman/mot"
+   }
   },
   "mpo": {
    "name": "MPO",
@@ -15043,7 +15995,18 @@
     "date": null
    },
    "latest_release_text": "v0.9.x series (active as of 2024)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 266,
+    "releases_12mo": 1,
+    "latest_release_at": "2026-04-22",
+    "bus_factor": 2,
+    "top_contributor_share": 0.43,
+    "archived": false,
+    "repo": "heiner/nle"
+   }
   },
   "neural-episodic-control--arxiv-1703-01988": {
    "name": "Neural Episodic Control",
@@ -15105,7 +16068,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "no releases",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 944,
+    "releases_12mo": 1,
+    "latest_release_at": "2026-05-30",
+    "bus_factor": 2,
+    "top_contributor_share": 0.34,
+    "archived": false,
+    "repo": "gkamradt/llmtest_needleinahaystack"
+   }
   },
   "nl2gensym--arxiv-2510-09355": {
    "name": "NL2GenSym",
@@ -15882,26 +16856,6 @@
    "latest_release_text": "v1.19.4 (2026-10-22)",
    "health": null
   },
-  "opendevin-openhands--gh-all-hands-ai-openhands": {
-   "name": "OpenDevin / OpenHands",
-   "family": "agents",
-   "section": "Agent frameworks (no first-party memory layer)",
-   "url": "https://github.com/OpenHands/OpenHands",
-   "license": "MIT",
-   "llm_lock": "searched not found",
-   "status": "active",
-   "severity": 0,
-   "note": "",
-   "context": "Open-source SWE agent platform (renamed from OpenDevin to OpenHands).",
-   "evidence": "https://github.com/OpenHands/OpenHands",
-   "last_commit": "2026-10",
-   "latest_release": {
-    "version": "1.33.0",
-    "date": "2026-10-23"
-   },
-   "latest_release_text": "v1.33.0 (2026-10-23) — OpenHands Agent Canvas; Python openhands-sdk v1.58.2 (2026-10-25)",
-   "health": null
-  },
   "openevidence-deepconsult-visits--openevidence-com": {
    "name": "OpenEvidence (DeepConsult + Visits)",
    "family": "memory",
@@ -15920,7 +16874,7 @@
    "health": null
   },
   "openhands-all-hands-ai--all-hands-dev": {
-   "name": "OpenHands (All Hands AI)",
+   "name": "OpenHands",
    "family": "agents",
    "section": "Agent IDEs & coding harnesses",
    "url": "https://www.openhands.dev/",
@@ -16433,7 +17387,18 @@
     "date": "2026-10-01"
    },
    "latest_release_text": "v0.21.2 (2026-10-01) — peft",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 35,
+    "responded_share": 0.83,
+    "open_issue_median_age_days": 9,
+    "releases_12mo": 8,
+    "latest_release_at": "2026-10-01",
+    "bus_factor": 2,
+    "top_contributor_share": 0.34,
+    "archived": false,
+    "repo": "huggingface/peft"
+   }
   },
   "pentera--pentera-io": {
    "name": "Pentera",
@@ -16856,7 +17821,18 @@
     "date": "2026-10-19"
    },
    "latest_release_text": "v4.7.16 (2026-10-19)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 35,
+    "responded_share": 0.97,
+    "open_issue_median_age_days": 2,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 1,
+    "top_contributor_share": 0.51,
+    "archived": false,
+    "repo": "mervinpraison/praisonai"
+   }
   },
   "prefect--prefect-io": {
    "name": "Prefect",
@@ -17029,7 +18005,18 @@
     "date": "2026-08-19"
    },
    "latest_release_text": "v1.5.16 (2026-08-19) — promptlayer",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 3,
+    "responded_share": 0.0,
+    "open_issue_median_age_days": 71,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 2,
+    "top_contributor_share": 0.4,
+    "archived": false,
+    "repo": "magnivorg/prompt-layer-library"
+   }
   },
   "protect-ai--protectai-com": {
    "name": "Protect AI",
@@ -17154,7 +18141,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-29",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 64,
+    "responded_share": 0.34,
+    "open_issue_median_age_days": 1,
+    "releases_12mo": 9,
+    "latest_release_at": "2026-09-04",
+    "bus_factor": 4,
+    "top_contributor_share": 0.23,
+    "archived": false,
+    "repo": "microsoft/pyrit"
+   }
   },
   "qdrant--qdrant-tech": {
    "name": "Qdrant",
@@ -17372,7 +18370,18 @@
     "date": "2026-04-02"
    },
    "latest_release_text": "v0.1.0 2026-04-02",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": null,
+    "releases_12mo": 1,
+    "latest_release_at": "2026-04-02",
+    "bus_factor": null,
+    "top_contributor_share": null,
+    "archived": false,
+    "repo": "goweft/ratine"
+   }
   },
   "ray-train--docs-ray-io": {
    "name": "Ray Train",
@@ -17460,7 +18469,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "no releases",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 4,
+    "responded_share": 0.0,
+    "open_issue_median_age_days": 924,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.65,
+    "archived": false,
+    "repo": "google-research/language"
+   }
   },
   "reasoningbank--arxiv-2509-25140": {
    "name": "ReasoningBank",
@@ -17933,7 +18953,18 @@
     "date": "2023-10-30"
    },
    "latest_release_text": "v0.3.9 (2023-10-30)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 1459,
+    "releases_12mo": 0,
+    "latest_release_at": "2023-10-30",
+    "bus_factor": 1,
+    "top_contributor_share": 0.94,
+    "archived": false,
+    "repo": "lucidrains/retro-pytorch"
+   }
   },
   "retroformer--arxiv-2308-02151": {
    "name": "Retroformer",
@@ -18001,7 +19032,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 596,
+    "releases_12mo": 0,
+    "latest_release_at": "2025-08-08",
+    "bus_factor": 3,
+    "top_contributor_share": 0.24,
+    "archived": false,
+    "repo": "ironclad/rivet"
+   }
   },
   "rl-based-continual-learning-as-memory--cameronrwolfe-substack-com": {
    "name": "RL-Based Continual Learning as Memory",
@@ -18222,7 +19264,18 @@
     "date": "2026-09-09"
    },
    "latest_release_text": "v5.5.1 (2026-09-09) — rsl-rl-lib",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 3,
+    "responded_share": 0.67,
+    "open_issue_median_age_days": 94,
+    "releases_12mo": 16,
+    "latest_release_at": "2026-10-28",
+    "bus_factor": 2,
+    "top_contributor_share": 0.41,
+    "archived": false,
+    "repo": "leggedrobotics/rsl_rl"
+   }
   },
   "ruler--arxiv-2404-06654": {
    "name": "RULER",
@@ -18616,7 +19669,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-10-22",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 11,
+    "responded_share": 0.64,
+    "open_issue_median_age_days": 4,
+    "releases_12mo": 100,
+    "latest_release_at": "2026-10-31",
+    "bus_factor": 1,
+    "top_contributor_share": 0.77,
+    "archived": false,
+    "repo": "mediar-ai/screenpipe"
+   }
   },
   "scrintal--scrintal-com": {
    "name": "Scrintal",
@@ -19185,7 +20249,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 872,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.86,
+    "archived": true,
+    "repo": "microsoft/smartplay"
+   }
   },
   "smithery--smithery-ai": {
    "name": "Smithery",
@@ -19239,7 +20314,18 @@
     "date": "2026-05-29"
    },
    "latest_release_text": "v1.26.0 (2026-05-29)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 32,
+    "responded_share": 0.53,
+    "open_issue_median_age_days": 12,
+    "releases_12mo": 4,
+    "latest_release_at": "2026-05-29",
+    "bus_factor": 2,
+    "top_contributor_share": 0.39,
+    "archived": false,
+    "repo": "huggingface/smolagents"
+   }
   },
   "smolagents-memory--huggingface-co": {
    "name": "smolagents Memory",
@@ -19804,7 +20890,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 607,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 1.0,
+    "archived": false,
+    "repo": "li-z-q/structrag"
+   }
   },
   "stytch-connected-apps--stytch-com": {
    "name": "Stytch Connected Apps",
@@ -20221,7 +21318,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "last commit 2026-07-11",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 4,
+    "responded_share": 0.0,
+    "open_issue_median_age_days": 188,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 4,
+    "top_contributor_share": 0.24,
+    "archived": false,
+    "repo": "harbor-framework/terminal-bench-1"
+   }
   },
   "tesla-fsd-v13-occupancy-4d-world--thinkautonomous-ai": {
    "name": "Tesla FSD V13 — Occupancy + 4D World (now FSD v14)",
@@ -20278,7 +21386,18 @@
     "date": "2025-12-19"
    },
    "latest_release_text": "v3.3.7 (2025-12-19)",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 462,
+    "releases_12mo": 1,
+    "latest_release_at": "2025-12-19",
+    "bus_factor": 2,
+    "top_contributor_share": 0.26,
+    "archived": true,
+    "repo": "huggingface/text-generation-inference"
+   }
   },
   "textworld--gh-microsoft-textworld": {
    "name": "TextWorld",
@@ -20437,7 +21556,18 @@
     "date": "2023-12-21"
    },
    "latest_release_text": "0.0.30 2023-12-21",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 0,
+    "responded_share": null,
+    "open_issue_median_age_days": 1108,
+    "releases_12mo": 0,
+    "latest_release_at": "2023-12-21",
+    "bus_factor": 1,
+    "top_contributor_share": 0.87,
+    "archived": false,
+    "repo": "lucidrains/toolformer-pytorch"
+   }
   },
   "toolgen--arxiv-2410-03439": {
    "name": "ToolGen",
@@ -20644,7 +21774,18 @@
    "last_commit": null,
    "latest_release": null,
    "latest_release_text": "",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 1,
+    "responded_share": null,
+    "open_issue_median_age_days": 2588,
+    "releases_12mo": 0,
+    "latest_release_at": null,
+    "bus_factor": 1,
+    "top_contributor_share": 0.54,
+    "archived": false,
+    "repo": "kimiyoung/transformer-xl"
+   }
   },
   "transformerfam--arxiv-2404-09173": {
    "name": "TransformerFAM",
@@ -20701,7 +21842,18 @@
     "date": "2026-10-15"
    },
    "latest_release_text": "v1.16.0 (2026-10-15) — trl",
-   "health": null
+   "health": {
+    "as_of": "2026-11-01",
+    "issues_90d": 26,
+    "responded_share": 0.69,
+    "open_issue_median_age_days": 3,
+    "releases_12mo": 37,
+    "latest_release_at": "2026-10-30",
+    "bus_factor": 2,
+    "top_contributor_share": 0.32,
+    "archived": false,
+    "repo": "huggingface/trl"
+   }
   },
   "truefoundry-ai-gateway--truefoundry-com": {
    "name": "TrueFoundry AI Gateway",

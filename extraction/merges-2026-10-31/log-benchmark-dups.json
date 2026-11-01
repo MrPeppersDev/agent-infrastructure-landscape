@@ -1,0 +1,62 @@
+{
+ "date": "2026-11-01",
+ "merges": [
+  {
+   "kept_id": "anthropic-computer-use--docs-anthropic-com",
+   "name": "Anthropic Computer Use",
+   "renamed_from": null,
+   "dropped": [
+    {
+     "id": "anthropic-computer-use--anthropic-com",
+     "name": "Anthropic Computer Use",
+     "cells_filled": [
+      "license",
+      "runtimes",
+      "compliance-certifications",
+      "sdk-languages"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Both records are Anthropic's computer use tool: one points at its docs page, the other at the October 2024 launch post."
+  },
+  {
+   "kept_id": "openhands-all-hands-ai--all-hands-dev",
+   "name": "OpenHands",
+   "renamed_from": "OpenHands (All Hands AI)",
+   "dropped": [
+    {
+     "id": "opendevin-openhands--gh-all-hands-ai-openhands",
+     "name": "OpenDevin / OpenHands",
+     "cells_filled": [
+      "mcp-support",
+      "commit-trajectory",
+      "download-trajectory",
+      "sdk-languages",
+      "protocol-support"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Same project: OpenHands (formerly OpenDevin), github.com/OpenHands/OpenHands, maintained by All Hands AI."
+  },
+  {
+   "kept_id": "metagpt-harness--gh-foundationagents-metagpt",
+   "name": "MetaGPT",
+   "renamed_from": "MetaGPT (harness)",
+   "dropped": [
+    {
+     "id": "metagpt--gh-geekan-metagpt",
+     "name": "MetaGPT",
+     "cells_filled": [
+      "runtimes",
+      "download-trajectory",
+      "sdk-languages"
+     ]
+    }
+   ],
+   "cells_edited": [],
+   "reason": "Same repository: github.com/geekan/MetaGPT now redirects to github.com/FoundationAgents/MetaGPT."
+  }
+ ]
+}

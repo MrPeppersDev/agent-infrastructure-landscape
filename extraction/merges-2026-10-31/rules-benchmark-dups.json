@@ -1,0 +1,25 @@
+{
+  "_doc": "Duplicate pairs surfaced by the benchmark-URL research pass (extraction/benchmark-sources-2026-10-31/REPORT.md, Follow-ups). Applied with scripts/merge_records.py. The kept record is the one with more real-data cells; Anthropic Computer Use then moves to Computer-use & desktop agents by hand (see README.md).",
+  "date": "2026-11-01",
+  "rules": [
+    {
+      "keep": "anthropic-computer-use--docs-anthropic-com",
+      "drop": ["anthropic-computer-use--anthropic-com"],
+      "reason": "Both records are Anthropic's computer use tool: one points at its docs page, the other at the October 2024 launch post."
+    },
+    {
+      "keep": "openhands-all-hands-ai--all-hands-dev",
+      "drop": ["opendevin-openhands--gh-all-hands-ai-openhands"],
+      "name": "OpenHands",
+      "aliases": ["OpenDevin", "OpenDevin / OpenHands", "OpenHands (All Hands AI)"],
+      "reason": "Same project: OpenHands (formerly OpenDevin), github.com/OpenHands/OpenHands, maintained by All Hands AI."
+    },
+    {
+      "keep": "metagpt-harness--gh-foundationagents-metagpt",
+      "drop": ["metagpt--gh-geekan-metagpt"],
+      "name": "MetaGPT",
+      "aliases": ["MetaGPT (harness)"],
+      "reason": "Same repository: github.com/geekan/MetaGPT now redirects to github.com/FoundationAgents/MetaGPT."
+    }
+  ]
+}
