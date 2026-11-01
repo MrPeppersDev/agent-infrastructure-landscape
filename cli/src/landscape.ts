@@ -46,11 +46,11 @@ import { choose, alternatives, DEFAULT_ANSWERS } from '../../mcp/dist/chooser.js
 import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL, LICENCE_LABEL } from '../../mcp/dist/stack-check.js';
 import { procurementSheet, sheetToCsv, sheetToMarkdown } from '../../mcp/dist/procurement.js';
+import { contextPack, answersFromStackYaml } from '../../mcp/dist/context-pack.js';
 import { planStack, slimPlan, toOpml, PRODUCTS, LAYERS, SITE } from '../../mcp/dist/composer.js';
 import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'node:fs';
 import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
-import { readFileSync } from 'node:fs';
 import type { EdgeType } from '../../mcp/dist/tools.js';
 import {
   formatSearch,
@@ -313,6 +313,21 @@ program
     if (r.alsoConsider.length) lines.push('', `also consider: ${r.alsoConsider.map((x) => x.item.name).join(', ')}`);
     if (r.unconfirmed.length) lines.push(`might fit (unconfirmed): ${r.unconfirmed.map((x) => x.item.name).join(', ')}`);
     emit(lines.join('\n'));
+  });
+
+program
+  .command('context')
+  .description('A Markdown section for AGENTS.md / CLAUDE.md describing your stack to a coding agent: the system per layer with ids, packages and docs, documented integrations, lifecycle warnings, exit paths and working rules.')
+  .argument('[stackfile]', 'a stack.yml (from `landscape stack`, /build or a blueprint); omit to plan one from --product')
+  .option('--product <p>', `${Object.keys(PRODUCTS).join(' | ')} (when no stack.yml is given)`, 'support-agent')
+  .option('--out <file>', 'write to a file instead of stdout (e.g. AGENTS.md, appended if it exists)')
+  .action((stackfile: string | undefined, o: { product: string; out?: string }) => {
+    const answers = stackfile ? answersFromStackYaml(readFileSync(stackfile, 'utf-8')) : ({ product: o.product } as StackAnswers);
+    const plan = planStack({ items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never }, answers);
+    const md = contextPack(plan, loadStackIndex().packages, SITE);
+    if (!o.out) return emit(md);
+    appendFileSync(o.out, (existsSync(o.out) ? '\n' : '') + md);
+    process.stderr.write(`landscape: wrote the context pack to ${o.out}\n`);
   });
 
 program

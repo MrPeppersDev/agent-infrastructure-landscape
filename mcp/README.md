@@ -95,6 +95,10 @@ claude mcp add landscape-memory -- node /absolute/path/to/repo/mcp/dist/server.j
 
 The CLI takes the same flag: `landscape --silo coding search "memory"`.
 
+## Context pack for coding agents
+
+`context_pack` returns a short Markdown section for `AGENTS.md` or `CLAUDE.md`. It lists the system chosen for each layer of a stack (catalog id, packages, docs), the documented integrations between them, lifecycle warnings and exit paths, and working rules that point the agent at `check_stack` and `get_record`. Pass a `stack.yml` from `plan_stack`, /build or a blueprint to describe that exact stack. The CLI does the same with `landscape context stack.yml --out AGENTS.md`, and /build has a download.
+
 ## Tools
 
 All 13 tools are read-only. Inputs are JSON; outputs are JSON-serialisable.

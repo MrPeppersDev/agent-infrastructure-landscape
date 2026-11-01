@@ -22,7 +22,7 @@ const init = await post({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {
 check('initialize', init.json.result.protocolVersion === '2025-06-18' && !!init.json.result.capabilities.tools);
 check('initialized notification → 202', (await post({ jsonrpc: '2.0', method: 'notifications/initialized' })).status === 202);
 const list = await post({ jsonrpc: '2.0', id: 2, method: 'tools/list' });
-check('tools/list', list.json.result.tools.length === 10);
+check('tools/list', list.json.result.tools.length === 11);
 const ask = await callTool('ask_catalog', { query: 'self-hosted vector db with MCP, python', limit: 5 });
 check('ask_catalog', !ask.isError && ask.structuredContent.results.length > 0, JSON.stringify(ask).slice(0, 200));
 const ch = await callTool('check_stack', { manifest: '{"dependencies":{"flowise":"^3","mem0ai":"^2"}}', filename: 'package.json' });
@@ -55,6 +55,10 @@ const chSheet = await callTool('check_stack', { manifest: '{"dependencies":{"mem
 check('check_stack sheet: one row per catalogued system, with CSV', chSheet.structuredContent.sheet?.rows?.length >= 1 && chSheet.structuredContent.sheet.csv.includes('compliance-certifications'), JSON.stringify(chSheet).slice(0, 200));
 const planSheet = await callTool('plan_stack', { product: 'support-agent', sheet: true });
 check('plan_stack sheet: one row per pick', planSheet.structuredContent.sheet?.rows?.length === planSheet.structuredContent.layers.filter((l: { pick: unknown }) => l.pick).length);
+const stackYml = readFileSync(ROOT + 'blueprints/support-agent/stack.yml', 'utf8');
+const pack = await callTool('context_pack', { stack: stackYml });
+const md = pack.structuredContent?.markdown ?? '';
+check('context_pack keeps every stack.yml component', [...stackYml.split('components:')[1].matchAll(/^\s+\w+: ([\w.-]+)/gm)].every((m) => md.includes('`' + m[1] + '`')) && md.includes('### Working rules'), md.slice(0, 200));
 // Silo endpoints (HANDOFF §8.1): /mcp/<silo> lists the core tools plus the silo's own and searches its sections.
 const postTo = async (path: string, body: unknown) => {
   const r = await handle(new Request(`https://x${path}`, { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' }, body: JSON.stringify(body) }));

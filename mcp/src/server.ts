@@ -24,6 +24,7 @@ import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '
 import { checkManifest } from './stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, SITE, type StackAnswers, type LayerId, type ProductType } from './composer.js';
 import { procurementSheet, auditSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
+import { contextPack, answersFromStackYaml } from './context-pack.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
   searchRecords,
@@ -408,6 +409,35 @@ async function main() {
       if (!args.sheet) return jsonResult(slim);
       const sheet = procurementSheet(plan, loadRecords() as never, SITE);
       return jsonResult({ ...slim, sheet: { ...sheet, csv: sheetToCsv(sheet), markdown: sheetToMarkdown(sheet) } });
+    }
+  );
+
+  // -----------------------------------------------------------------------
+  // context_pack (#398): an AGENTS.md / CLAUDE.md section for a stack
+  // -----------------------------------------------------------------------
+  server.registerTool(
+    'context_pack',
+    {
+      title: 'Context pack for coding agents',
+      description:
+        'A short Markdown section to keep in AGENTS.md or CLAUDE.md: the system chosen for each layer of the ' +
+        'stack (catalog id, packages, docs), the documented integrations between them, lifecycle warnings and ' +
+        'exit paths, and working rules that point the agent at check_stack and get_record. Pass a stack.yml ' +
+        '(from plan_stack, /build or a blueprint) to describe that exact stack, or the same answers as plan_stack.',
+      inputSchema: {
+        stack: z.string().optional().describe('stack.yml contents; every component is kept as-is.'),
+        product: z.enum(Object.keys(PRODUCTS) as [ProductType, ...ProductType[]]).optional().describe('Used when no stack is given (default support-agent).'),
+        language: z.enum(['python', 'typescript', 'any']).optional(),
+        hosting: z.enum(['self', 'managed', 'any']).optional(),
+        oss: z.boolean().optional(),
+        mcp: z.boolean().optional()
+      }
+    },
+    async (args) => {
+      const { stack, ...rest } = args;
+      const a = stack ? answersFromStackYaml(stack) : (Object.fromEntries(Object.entries(rest).filter(([, v]) => v !== undefined)) as unknown as StackAnswers);
+      const plan = planStack({ items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never }, a);
+      return { content: [{ type: 'text' as const, text: contextPack(plan, loadStackIndex().packages, SITE) }] };
     }
   );
 

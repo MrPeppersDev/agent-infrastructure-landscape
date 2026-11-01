@@ -11,11 +11,12 @@
   import type { ChooserItem, RecordLike } from '$lib/chooser';
   import { planStack, toOpml, PRODUCTS, LAYERS, DEFAULT_STACK, type StackAnswers, type LayerId, type ProductType } from '../../../../mcp/src/composer';
   import { procurementSheet, sheetToCsv, sheetToMarkdown } from '../../../../mcp/src/procurement';
+  import { contextPack } from '../../../../mcp/src/context-pack';
   import { SITE_URL } from '$lib/site';
   import type { CompatEdge } from '../../../../mcp/src/compat';
   import { DEFAULT_STACK_WORKLOAD, type StackWorkload } from '../../../../mcp/src/stack-costs';
 
-  let { data }: { data: { items: ChooserItem[]; records: RecordLike[]; edges: CompatEdge[]; migrations: { id: string; summary: string; sources: string[] }[]; pricing: unknown } } = $props();
+  let { data }: { data: { items: ChooserItem[]; records: RecordLike[]; edges: CompatEdge[]; migrations: { id: string; summary: string; sources: string[] }[]; pricing: unknown; packages: Record<string, string> } } = $props();
 
   const OPTIONAL: LayerId[] = ['voice', 'browser', 'sandbox', 'graph', 'orchestration', 'tools', 'memory'];
   const COMPLIANCE: [string, string][] = [['soc2-type2', 'SOC 2 Type II'], ['iso27001', 'ISO 27001'], ['hipaa', 'HIPAA'], ['gdpr', 'GDPR'], ['iso42001', 'ISO 42001'], ['fedramp', 'FedRAMP']];
@@ -87,6 +88,8 @@
     }
   }
   const yamlHref = $derived(`data:text/yaml;charset=utf-8,${encodeURIComponent(plan.stackYaml)}`);
+  // Context pack for coding agents (#398): the same Markdown as `landscape context` and the context_pack tool.
+  const contextHref = $derived(`data:text/markdown;charset=utf-8,${encodeURIComponent(contextPack(plan, data.packages, SITE_URL))}`);
   const opmlHref = $derived(`data:text/x-opml;charset=utf-8,${encodeURIComponent(toOpml(plan.answers, plan.layers, SITE_URL))}`);
   // Procurement / security-review sheet (#366): the buyer cells of every pick with their sources.
   const sheet = $derived(procurementSheet(plan, data.records as never, SITE_URL));
@@ -368,6 +371,7 @@
     <p class="actions">
       <button type="button" onclick={copyYaml}>{copied ? 'Copied' : 'Copy'}</button>
       <a class="dl" href={yamlHref} download="stack.yml">Download</a>
+      <a class="dl ctx" href={contextHref} download="AGENTS-stack.md" title="A Markdown section for AGENTS.md or CLAUDE.md that tells a coding agent which system fills each layer, how they connect and where to check">Context pack for coding agents</a>
       <a class="dl" href={opmlHref} download="stack-feeds.opml" title="Import into a feed reader to follow every component's recorded changes">Watch (OPML feeds)</a>
       <a class="dl" href={shareHref} target="_blank" rel="noopener noreferrer" title="Open a GitHub issue reporting the stack you run">Share: we use this stack</a>
     </p>
