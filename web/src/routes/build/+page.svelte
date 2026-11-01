@@ -373,6 +373,7 @@
       <a class="dl" href={yamlHref} download="stack.yml">Download</a>
       <a class="dl ctx" href={contextHref} download="AGENTS-stack.md" title="A Markdown section for AGENTS.md or CLAUDE.md that tells a coding agent which system fills each layer, how they connect and where to check">Context pack for coding agents</a>
       <a class="dl" href={opmlHref} download="stack-feeds.opml" title="Import into a feed reader to follow every component's recorded changes">Watch (OPML feeds)</a>
+      <a class="dl stack-changes" href="{base}/changes#ids={plan.layers.filter((l) => l.pick).map((l) => l.pick!.item.id).join(',')}" title="The recorded changes to the systems in this stack, on one page you can bookmark">What changed in this stack</a>
       <a class="dl" href={shareHref} target="_blank" rel="noopener noreferrer" title="Open a GitHub issue reporting the stack you run">Share: we use this stack</a>
     </p>
   </section>
