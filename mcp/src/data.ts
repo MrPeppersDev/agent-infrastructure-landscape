@@ -155,6 +155,14 @@ export function inSilo(r: Pick<LandscapeRecord, 'sections'>, silo: Silo): boolea
   return silo.sections.includes(primary?.section ?? '');
 }
 
+/** Official container setups for self-hostable systems (data/blueprints/images.json). */
+export function loadImages(): import('./scaffold.js').Image[] {
+  for (const path of [join(DATA_DIR, 'images.json'), join(DATA_DIR, 'blueprints', 'images.json')]) {
+    if (existsSync(path)) return JSON.parse(readFileSync(path, 'utf-8'));
+  }
+  return [];
+}
+
 /** Family id for a primary section name, or 'other'. */
 export function familyIdForSection(section: string): string {
   for (const f of loadFamilies()) if (f.sections.includes(section)) return f.id;
