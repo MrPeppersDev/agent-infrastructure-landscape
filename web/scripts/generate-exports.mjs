@@ -8,6 +8,7 @@
 //   /api/fill-rates.json            share of systems with a value, per cell column
 //   /feeds/<id>.xml                 Atom feed of one system's recorded changes
 //   /changes.xml                    Atom feed of the latest 100 changes catalog-wide
+//   /feeds/catalogs/<silo>.xml      the same for one catalog silo (taxonomy/silos.json)
 //   /llms.txt                       regenerated with live counts and the endpoints above
 //
 // Everything is static and derived from data/*.json, so agents and other
@@ -218,6 +219,25 @@ write('changes.xml', feed({
   entries: all.map(({ id, ev }) => entry(id, ev))
 }));
 
+// One feed per catalog silo (HANDOFF §8.2): the latest 100 changes to the
+// systems whose primary section is in the silo.
+const primaryOf = new Map(records.map((r) => [r.id, primary(r)]));
+for (const s of silos) {
+  const secs = new Set(s.sections);
+  const evs = Object.entries(history.records ?? {})
+    .filter(([id]) => secs.has(primaryOf.get(redirects[id] ?? id)))
+    .flatMap(([id, list]) => list.map((ev) => ({ id: redirects[id] ?? id, ev })))
+    .sort((a, b) => b.ev.date.localeCompare(a.ev.date) || a.id.localeCompare(b.id))
+    .slice(0, 100);
+  write(`feeds/catalogs/${s.id}.xml`, feed({
+    title: `${s.name} — changes`,
+    subtitle: `The latest lifecycle, licence, release, pricing and hosting changes in the ${s.name} catalog of the AI Agent Infrastructure Landscape.`,
+    self: `${baseUrl}/feeds/catalogs/${s.id}.xml`, alt: `${baseUrl}/catalogs/${s.id}`,
+    updated: iso(evs[0]?.ev.date ?? history.baseline ?? '2026-01-01'),
+    entries: evs.map(({ id, ev }) => entry(id, ev))
+  }));
+}
+
 // ---- llms.txt ----------------------------------------------------------------
 const dataAsOf = records.reduce((m, r) => ((r.last_verified_at ?? '') > m ? r.last_verified_at : m), '');
 const famLines = catalogs.filter((c) => c.id !== 'all')
@@ -241,7 +261,7 @@ write('llms.txt', `# AI Agent Infrastructure Landscape
 
 ## Catalogs (one audience at a time; the home table is every system)
 
-${silos.map((s) => `- [${s.name}](${PUBLIC}/catalogs/${s.id}): ${s.tagline} Table: ${PUBLIC}/catalogs/${s.id}/browse`).join('\n')}
+${silos.map((s) => `- [${s.name}](${PUBLIC}/catalogs/${s.id}): ${s.tagline} Table: ${PUBLIC}/catalogs/${s.id}/browse. Changes (Atom): ${PUBLIC}/feeds/catalogs/${s.id}.xml`).join('\n')}
 
 ## Machine-readable data (static JSON, no auth)
 
