@@ -10,6 +10,8 @@
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { auditSheet, sheetToCsv, sheetToMarkdown } from '../../../../mcp/src/procurement';
+  import { SITE_URL } from '$lib/site';
   import {
     checkManifest,
     STATUS_LABEL,
@@ -158,6 +160,29 @@
     a.href = URL.createObjectURL(new Blob([report.audit.stackYaml], { type: 'text/yaml' }));
     a.download = 'stack.yml';
     a.click();
+  }
+  // Security-review sheet for the checked stack (#366 follow-up). The page
+  // ships only the stack index, so the buyer cells are fetched per system
+  // from /api/systems/<id>.json when asked for.
+  let sheetState = $state<'idle' | 'busy' | 'error'>('idle');
+  async function downloadSheet(fmt: 'csv' | 'md') {
+    if (!report) return;
+    sheetState = 'busy';
+    try {
+      const ids = [...new Set(report.matched.map((f) => f.recordId))];
+      const records = await Promise.all(
+        ids.map((id) => fetch(`${base}/api/systems/${id}.json`).then((r) => (r.ok ? r.json() : Promise.reject(new Error(`${id}: HTTP ${r.status}`)))))
+      );
+      const sheet = auditSheet(report, records as never, SITE_URL);
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([fmt === 'csv' ? sheetToCsv(sheet) : sheetToMarkdown(sheet)], { type: fmt === 'csv' ? 'text/csv' : 'text/markdown' }));
+      a.download = `security-review-sheet.${fmt}`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+      sheetState = 'idle';
+    } catch {
+      sheetState = 'error';
+    }
   }
   function downloadOpml() {
     if (!report) return;
@@ -371,6 +396,9 @@
           </ul>
           <div class="share">
             <button type="button" onclick={downloadYaml} title="The detected stack as stack.yml, one system per layer; check it again later or open it in the builder">Download stack.yml</button>
+            <button type="button" class="sheet-csv" onclick={() => downloadSheet('csv')} disabled={sheetState === 'busy'} title="Attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing for every catalogued system you use, each with its source">Security review sheet (CSV)</button>
+            <button type="button" onclick={() => downloadSheet('md')} disabled={sheetState === 'busy'}>(Markdown)</button>
+            {#if sheetState === 'error'}<span class="hint">Couldn't load the system data; try again.</span>{/if}
             <a class="go" href="{base}/build">Plan the missing layers in the builder →</a>
           </div>
         </section>

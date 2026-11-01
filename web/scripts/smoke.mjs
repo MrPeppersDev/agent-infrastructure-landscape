@@ -65,6 +65,9 @@ try {
   const findings = await texts('.finding .head');
   check('/check permalink restores the result', findings.length >= 2, JSON.stringify(findings));
   check('/check links migration notes', (await page.locator('a[href*="#migrate"]').count()) > 0);
+  const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 20000 }), page.locator('button.sheet-csv').click()]);
+  const sheetCsv = await readFile(await dl.path(), 'utf8');
+  check('/check security-review sheet downloads with one row per catalogued system', sheetCsv.split('\n').filter(Boolean).length >= 3 && sheetCsv.startsWith('layer,system'), sheetCsv.slice(0, 120));
 
   await go('/build?product=coding-agent&language=typescript');
   const layers = await texts('.layer h2');

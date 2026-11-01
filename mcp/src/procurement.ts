@@ -6,6 +6,18 @@
 
 import type { StackPlan } from './composer.js';
 import type { RecordLike } from './chooser.js';
+import { auditLayerOf, AUDIT_LAYERS, type StackReport } from './stack-check.js';
+
+/** One system to put on a sheet: its layer and identity. */
+export interface SheetEntry {
+  layer: string;
+  label: string;
+  id: string;
+  name: string;
+  url: string | null;
+  lifecycle: string;
+  lifecycleNote: string;
+}
 
 export interface SheetColumn {
   slug: string;
@@ -73,31 +85,59 @@ function cellOf(r: RecordLike | undefined, slug: string, enumList = false): Shee
 }
 
 export function procurementSheet(plan: StackPlan, records: RecordLike[], site: string, today: string = new Date().toISOString().slice(0, 10)): ProcurementSheet {
+  const entries: SheetEntry[] = plan.layers.flatMap((l) =>
+    l.pick
+      ? [{ layer: l.layer, label: l.label, id: l.pick.item.id, name: l.pick.item.name, url: l.pick.item.url, lifecycle: l.pick.item.status.status, lifecycleNote: l.pick.item.status.note ?? '' }]
+      : []
+  );
+  return sheetFor(plan.product, entries, records, site, today);
+}
+
+/**
+ * The sheet for a stack that was checked rather than planned (/check,
+ * `check_stack`): one row per catalogued system the manifest uses, under
+ * the audit layer of its section.
+ */
+export function auditSheet(report: StackReport, records: RecordLike[], site: string, today: string = new Date().toISOString().slice(0, 10)): ProcurementSheet {
+  const label = new Map(AUDIT_LAYERS.map((l) => [l.id, l.label]));
+  const seen = new Set<string>();
+  const entries: SheetEntry[] = [];
+  for (const f of report.matched) {
+    if (seen.has(f.recordId)) continue;
+    seen.add(f.recordId);
+    const layer = auditLayerOf(f.record);
+    entries.push({ layer, label: label.get(layer) ?? 'Other', id: f.recordId, name: f.record.name, url: f.record.url ?? null, lifecycle: f.record.status, lifecycleNote: f.record.note ?? '' });
+  }
+  const order = new Map(AUDIT_LAYERS.map((l, i) => [l.id, i]));
+  entries.sort((a, b) => (order.get(a.layer as never) ?? 99) - (order.get(b.layer as never) ?? 99) || a.name.localeCompare(b.name));
+  return sheetFor('Checked stack', entries, records, site, today);
+}
+
+/** The sheet for any list of catalogued systems. */
+export function sheetFor(product: string, entries: SheetEntry[], records: RecordLike[], site: string, today: string = new Date().toISOString().slice(0, 10)): ProcurementSheet {
   const byId = new Map(records.map((r) => [r.id, r]));
   const rows: SheetRow[] = [];
-  for (const l of plan.layers) {
-    if (!l.pick) continue;
-    const item = l.pick.item;
-    const r = byId.get(item.id);
+  for (const e of entries) {
+    const r = byId.get(e.id);
     const cells: Record<string, SheetCell> = {};
     for (const col of SHEET_COLUMNS) cells[col.slug] = cellOf(r, col.slug, col.enumList);
     const trust = cells['compliance-certifications'].citation ?? cells.compliance.citation ?? cells.encryption.citation ?? null;
     rows.push({
-      layer: l.layer,
-      label: l.label,
-      id: item.id,
-      name: item.name,
-      url: item.url,
-      page: `${site}/systems/${item.id}`,
-      lifecycle: item.status.status,
-      lifecycleNote: item.status.note ?? '',
+      layer: e.layer,
+      label: e.label,
+      id: e.id,
+      name: e.name,
+      url: e.url,
+      page: `${site}/systems/${e.id}`,
+      lifecycle: e.lifecycle,
+      lifecycleNote: e.lifecycleNote,
       verifiedAt: (r as { last_verified_at?: string } | undefined)?.last_verified_at ?? null,
       trustPage: trust,
       cells
     });
   }
   return {
-    product: plan.product,
+    product,
     generatedAt: today,
     site,
     columns: SHEET_COLUMNS,

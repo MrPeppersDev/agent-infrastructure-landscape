@@ -23,7 +23,7 @@ import { loadPricing, loadVectorPricing, loadStackPricing } from './data.js';
 import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from './vector-costs.js';
 import { checkManifest } from './stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, SITE, type StackAnswers, type LayerId, type ProductType } from './composer.js';
-import { procurementSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
+import { procurementSheet, auditSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
 import { choose, alternatives, DEFAULT_ANSWERS, type Answers } from './chooser.js';
 import {
   searchRecords,
@@ -251,14 +251,17 @@ async function main() {
         'dependencies are catalogued systems that are archived, deprecated, in maintenance mode, ' +
         'acquired, renamed, stale (no commits in 12+ months) or locked to one model vendor. ' +
         '`attention` lists the ones that need action, most severe first, each with the catalog ' +
-        'record id (use get_record for detail), an evidence URL and up to three live `replacements`.',
+        'record id (use get_record for detail), an evidence URL and up to three live `replacements`. ' +
+        '`audit` lists the agent-stack layers covered and missing, vendor concentration and licence mix; ' +
+        '`drift` lists dependencies pinned behind the catalog\'s latest release. `sheet: true` adds a security-review sheet.',
       inputSchema: {
         manifest: z.string().describe('The manifest file contents, or one package per line (npm:/pypi: prefixes optional).'),
         filename: z.string().optional().describe('Original filename, e.g. "requirements.txt" (helps format detection).'),
         format: z
           .enum(['package.json', 'requirements.txt', 'pyproject.toml', 'mcp-config', 'stack.yml', 'list'])
           .optional()
-          .describe('Force a format instead of auto-detecting.')
+          .describe('Force a format instead of auto-detecting.'),
+        sheet: z.boolean().optional().describe('Also return a procurement / security-review sheet for the catalogued systems the manifest uses: attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing, each with its source (rows plus CSV and Markdown).')
       }
     },
     async (args) => {
@@ -268,7 +271,9 @@ async function main() {
         replacements: loadReplacements(),
         links: loadLinks()
       });
-      return jsonResult(report);
+      if (!args.sheet) return jsonResult(report);
+      const sheet = auditSheet(report, loadRecords() as never, SITE);
+      return jsonResult({ ...report, sheet: { ...sheet, csv: sheetToCsv(sheet), markdown: sheetToMarkdown(sheet) } });
     }
   );
 
