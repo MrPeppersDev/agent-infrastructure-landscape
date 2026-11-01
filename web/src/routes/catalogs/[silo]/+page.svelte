@@ -43,6 +43,9 @@
   path={path}
 />
 <JsonLd data={ld} />
+<svelte:head>
+  <link rel="alternate" type="application/atom+xml" title="{s.name} — changes" href="{base}/feeds/catalogs/{s.id}.xml" />
+</svelte:head>
 
 <article class="wrap">
   <header>
@@ -123,7 +126,10 @@
           <li><time datetime={e.date}>{e.date}</time> <a href="{base}/systems/{e.id}">{e.name}</a> <span>{e.text}</span></li>
         {/each}
       </ul>
-      <p class="more"><a href="{base}/changes">Everything that changed →</a></p>
+      <p class="more">
+        <a href="{base}/feeds/catalogs/{s.id}.xml">Subscribe to this catalog's changes (Atom)</a> ·
+        <a href="{base}/changes">Everything that changed →</a>
+      </p>
     </section>
   {/if}
 

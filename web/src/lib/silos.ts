@@ -78,12 +78,37 @@ const COMPACT_WIDTH: Record<string, number> = {
   name: 220, lifecycle: 110, tier: 60, section: 210, type: 260, verified: 100
 };
 
-/** The silo's default table columns, with compact widths. */
+/** How completely a record is described in one silo (HANDOFF §8.4). */
+export type Depth = 'full' | 'standard' | 'listed';
+
+export const DEPTH_LABEL: Record<Depth, string> = { full: 'Full', standard: 'Standard', listed: 'Listed' };
+
+/**
+ * Depth = the share of the silo's own cell columns that carry a real or
+ * estimated value: full at 80% or more, standard at 50% or more, listed
+ * below that. It describes the record, never filters it.
+ */
+export function depthOf(r: Pick<LandscapeRecord, 'cells'>, silo: Silo): { depth: Depth; filled: number; total: number } {
+  const slugs = silo.columns.filter((k) => COLUMN_BY_KEY[k]?.isCell);
+  const filled = slugs.filter((k) => {
+    const c = (r.cells as Record<string, { status?: string; value?: string } | undefined>)[k];
+    return !!c && (c.status === 'real-data' || c.status === 'estimate') && !!String(c.value ?? '').trim();
+  }).length;
+  const share = slugs.length ? filled / slugs.length : 0;
+  return { depth: share >= 0.8 ? 'full' : share >= 0.5 ? 'standard' : 'listed', filled, total: slugs.length };
+}
+
+const DEPTH_COLUMN: ColumnDef = { key: 'depth', label: 'Depth', group: 'identity', width: 90, derived: true };
+
+/** The silo's default table columns, with compact widths, plus the depth badge after the status. */
 export function siloColumns(silo: Silo): ColumnDef[] {
-  return silo.columns.map((k) => {
+  const cols: ColumnDef[] = silo.columns.map((k) => {
     const c = COLUMN_BY_KEY[k];
     return { ...c, width: COMPACT_WIDTH[k] ?? Math.min(c.width ?? 160, 200) };
   });
+  const at = cols.findIndex((c) => c.key === 'lifecycle');
+  cols.splice(at >= 0 ? at + 1 : 1, 0, DEPTH_COLUMN);
+  return cols;
 }
 
 /** Id of the flattened JSON / CSV export for a silo (web/scripts/generate-exports.mjs). */

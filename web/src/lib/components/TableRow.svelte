@@ -5,6 +5,7 @@
   import TaxonomyCell from './TaxonomyCell.svelte';
   import { hasMemoryTaxonomy, primarySectionOf } from '$lib/families';
   import { LIFECYCLE_LABEL, LIFECYCLE_TONE } from '$lib/lifecycle-labels';
+  import { DEPTH_LABEL } from '$lib/silos';
   import { corroboration } from '$lib/source-class.js';
   import { searchQuery, highlightPlain } from '$lib/stores/search';
 
@@ -76,6 +77,12 @@
     {:else if col.key === 'third-party'}
       {@const c = corroboration(record)}
       <td class="cell" data-col={col.key}><div class="clip" title="{c.thirdParty} of {c.cited} cited facts have a third-party source">{c.thirdParty} / {c.cited}</div></td>
+    {:else if col.key === 'depth'}
+      <td class="cell" data-col={col.key}><div class="clip">
+        {#if record.depth}
+          <span class="depth {record.depth.depth}" title="{record.depth.filled} of {record.depth.total} of this catalog's columns filled">{DEPTH_LABEL[record.depth.depth]}</span>
+        {/if}
+      </div></td>
     {:else if col.key === 'verified'}
       <td class="cell" data-col={col.key}><div class="clip">{record.last_verified_at ?? ''}</div></td>
     {:else if col.isTaxonomy}
@@ -131,6 +138,9 @@
     border: 1px solid;
     white-space: nowrap;
   }
+  .depth { display: inline-block; padding: 0 6px; border-radius: 3px; font-size: 10.5px; font-weight: 600; line-height: 1.6; border: 1px solid #30363d; color: #8b949e; white-space: nowrap; cursor: help; }
+  .depth.full { color: #8fc99a; border-color: #2c5235; }
+  .depth.standard { color: #8fb3c9; border-color: #2c4253; }
   .life.ok { background: #1f3a26; color: #8fc99a; border-color: #2c5235; }
   .life.info { background: #1f2e3a; color: #8fb3c9; border-color: #2c4253; }
   .life.warn { background: #3a2e1f; color: #d29922; border-color: #5d4720; }

@@ -277,6 +277,8 @@ export interface LandscapeRecord {
    * table (#331). Absent reads as active.
    */
   lifecycle?: import('../../../mcp/src/stack-check').StackStatus;
+  /** Depth within the silo being browsed (/catalogs/<silo>/browse), attached by its loader. */
+  depth?: { depth: 'full' | 'standard' | 'listed'; filled: number; total: number };
 }
 
 /** See PHASE_2_SPEC.html §3.4 for the model. */
