@@ -196,9 +196,9 @@
                   {:else if cell.status === 'not-applicable'}
                     <span class="no-data na">{cell.value || 'not applicable'}</span>
                   {:else if cell.status === 'no-data'}
-                    <span class="no-data">—</span>
+                    <span class="no-data" title="Nobody has researched this field for this system yet">not checked</span>
                   {:else if cell.status === 'depth-floor-reached'}
-                    <span class="no-data">{cell.value || 'searched not found'}</span>
+                    <span class="no-data" title="Searched; no public statement found">{cell.value || 'not published'}</span>
                     {#if cell.citation}
                       <a class="cite" href={cell.citation} target="_blank" rel="noopener noreferrer">↗</a>
                     {/if}
