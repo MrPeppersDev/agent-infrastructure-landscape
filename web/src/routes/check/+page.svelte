@@ -277,7 +277,7 @@
         <button type="button" onclick={() => copy('md')}>{copied === 'md' ? 'Copied ✓' : 'Copy as Markdown (for a PR)'}</button>
         {#if report.matched.length}
           <button type="button" onclick={downloadOpml} title="An OPML file of change feeds for every catalogued dependency; import it into any feed reader">Watch these {new Set(report.matched.map((f) => f.recordId)).size} systems (feeds)</button>
-          <a class="stack-changes" href="{base}/changes#ids={[...new Set(report.matched.map((f) => f.recordId))].join(',')}" title="The recorded changes to the systems in this stack, on one page you can bookmark">What changed in this stack →</a>
+          <a class="stack-changes" rel="external" href="{base}/changes#ids={[...new Set(report.matched.map((f) => f.recordId))].join(',')}" title="The recorded changes to the systems in this stack, on one page you can bookmark">What changed in this stack →</a>
         {/if}
       </div>
 
