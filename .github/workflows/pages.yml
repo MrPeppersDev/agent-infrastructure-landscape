@@ -32,6 +32,7 @@ on:
 
 permissions:
   contents: read
+  actions: read  # bot_status.py reads workflow runs for /status
   pages: write
   id-token: write
 
@@ -51,6 +52,11 @@ jobs:
 
       - name: Rebuild change history
         run: python3 scripts/build_history.py
+
+      - name: Bot status for /status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/bot_status.py
 
       - name: Setup Node
         uses: actions/setup-node@v4

@@ -218,6 +218,8 @@ try {
   const agentsCsv = (await readFile(join(BUILD, 'api/catalogs/agents.csv'), 'utf8')).split('\n')[0].split(',');
   check('catalog CSV drops all-empty columns', !agentsCsv.includes('storage') && agentsCsv.includes('license'), agentsCsv.join(','));
 
+  await go('/status');
+  check('/status renders (bot table, or the not-available note in local builds)', (await page.locator('table tbody tr').count()) > 5 || (await page.locator('p.none').count()) === 1);
   // #399: /changes#ids= shows one stack's changes.
   await go('/changes#ids=mem0--mem0-ai,smithery--smithery-ai');
   const stackNames = await texts('section.week li .name');

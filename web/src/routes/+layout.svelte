@@ -86,6 +86,7 @@
       label: 'Data',
       items: [
         { path: '/data', label: 'Data & API' },
+        { path: '/status', label: 'Bot status' },
         { path: '/submit', label: 'Submit a system' },
         { path: '/about', label: 'About' }
       ]
