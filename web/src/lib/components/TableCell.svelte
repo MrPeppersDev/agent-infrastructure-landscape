@@ -4,7 +4,7 @@
   //   real-data           → value as-is, append cite ↗ if citation present
   //   not-applicable      → italicised muted text
   //   depth-floor-reached → muted text + cite link
-  //   no-data             → empty muted span
+  //   no-data             → muted dash, "not checked" on hover
   //   estimate            → maintainer-judgement value (T3 — see §3a)
   //
   // We use {@html cell.value} because cell values are trusted and may
@@ -45,7 +45,7 @@
   <!-- Column doesn't apply to this kind of system: keep the grid quiet. -->
   <span class="no-data na" title={cell.value || 'not applicable'}>·</span>
 {:else if cell.status === 'depth-floor-reached'}
-  <span class="no-data">{cell.value || 'searched not found'}</span>
+  <span class="no-data" title="Searched; no public statement found">{cell.value || 'not published'}</span>
   {#if cell.citation}
     <a class="cite" href={cell.citation} target="_blank" rel="noopener noreferrer">↗</a>
   {/if}
@@ -53,7 +53,7 @@
     >{tierGlyph(cell.tier)}</span
   >
 {:else if cell.status === 'no-data'}
-  <span class="no-data"></span>
+  <span class="no-data" title="Not checked yet">–</span>
   <span class="tier-badge tier-{cell.tier}" title={tierTitle(cell.tier)}
     >{tierGlyph(cell.tier)}</span
   >
