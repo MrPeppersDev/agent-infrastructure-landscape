@@ -9,6 +9,17 @@ A citation-backed catalog of ~964 AI agent systems, published as a SvelteKit sit
 - **Reports go inline.** The maintainer reads results in chat, not in separate report files, and wants links for everything.
 - Commit messages end with a `Co-Authored-By:` line. PR bodies end with the generated-with footer.
 
+## Writing style for site copy
+
+One editorial voice on every page, README and PR:
+
+- Plain words for an engineer choosing a stack. Say what a page does in its first sentence.
+- Name the source and the date for every fact, number or verdict. If nothing was checked, say "not published" or "not checked", never leave it implied.
+- Keep internal vocabulary out of user copy: no "Phase 2", "Gate 4", "§", issue numbers or commit hashes on pages. They belong in `docs/`.
+- Adoption is never the reason for a pick. It is a tiebreaker and is labelled as one.
+- Show disagreement between sources instead of averaging it, and keep "unknown" visible.
+- Prefer short sentences, sentence-case headings and numerals for counts. Avoid hype words ("revolutionary", "seamless", "powerful").
+
 ## The pipeline (Path A)
 
 `data/landscape.json` is the source of truth. Everything else is derived from it.

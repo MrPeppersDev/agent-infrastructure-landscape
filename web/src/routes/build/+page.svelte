@@ -97,6 +97,10 @@
     'https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/new?' +
       new URLSearchParams({ template: 'stack-report.yml', title: `Stack report: ${PRODUCTS[answers.product].label}`, stack: plan.stackYaml }).toString()
   );
+  // "Was this pick right?" (product review): a pre-filled pick-feedback issue.
+  const feedbackHref = (layer: string, id: string) =>
+    'https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/new?' +
+    new URLSearchParams({ template: 'pick-feedback.yml', title: `Pick feedback: ${layer}`, layer, pick: id, answers: `${SITE_URL}/build${toParams(answers) ? '?' + toParams(answers) : ''}` }).toString();
   const triLabel = (t: string) => (t === 'yes' ? 'yes' : t === 'no' ? 'no' : 'unknown');
 </script>
 
@@ -191,6 +195,7 @@
           <p class="pickline">
             <a class="name" href="{base}/systems/{l.pick.item.id}">{l.pick.item.name}</a>
             {#if l.pickUnconfirmed}<span class="tag" title="Every option left has a must-have the catalog can't confirm">unconfirmed</span>{/if}
+            <a class="feedback" href={feedbackHref(l.layer, l.pick.item.id)} target="_blank" rel="noopener noreferrer" title="Tell us whether this pick fits your project">Was this pick right?</a>
           </p>
           {#if l.pick.warning}<p class="warn">⚠ {l.pick.warning}</p>{/if}
           <ul class="reasons">
@@ -427,4 +432,5 @@
   .workload label { display: grid; gap: 4px; font-size: 12px; color: #8b949e; }
   .workload input { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; padding: 4px 8px; font: inherit; font-size: 13px; width: 100%; box-sizing: border-box; }
   code { background: #161b22; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+  .feedback { margin-left: 8px; font-size: 0.75rem; color: #8b949e; }
 </style>

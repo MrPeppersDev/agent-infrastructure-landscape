@@ -45,6 +45,14 @@ body:
       placeholder: https://
     validations:
       required: true
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who is correcting
+      description: Vendors and maintainers are welcome to confirm or dispute their own rows. Corrections are applied from the public source either way.
+      options:
+        - "A reader or user"
+        - "The vendor or a maintainer of this system"
   - type: textarea
     id: notes
     attributes:

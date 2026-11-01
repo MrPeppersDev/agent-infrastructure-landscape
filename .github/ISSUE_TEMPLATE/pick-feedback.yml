@@ -1,0 +1,50 @@
+name: Pick feedback
+description: Tell us whether a stack-builder pick was right for you. Opened from the "Was this pick right?" link on /build.
+title: "Pick feedback: <layer>"
+labels: ["pick-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. Picks rank on fit with your answers, then maturity, with adoption only breaking ties
+        (docs/DECISIONS.md, 2026-10-31). Reports here feed the golden stack questions that guard the
+        ranking in CI (mcp/src/golden-stacks.ts). The fields below are pre-filled from the builder.
+  - type: input
+    id: layer
+    attributes:
+      label: Layer
+      placeholder: memory
+    validations:
+      required: true
+  - type: input
+    id: pick
+    attributes:
+      label: Pick (record id)
+      placeholder: mem0--mem0-ai
+    validations:
+      required: true
+  - type: input
+    id: answers
+    attributes:
+      label: Builder link
+      description: The /build URL with your answers.
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Was it right?
+      options:
+        - "Yes, this is what I would choose"
+        - "No, I would choose something else"
+        - "It is ruled out for me for a reason the builder doesn't ask about"
+    validations:
+      required: true
+  - type: input
+    id: instead
+    attributes:
+      label: What would you pick instead?
+      description: A record id or name, if you answered no.
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The fact or requirement that decides it. A link to a public source helps.

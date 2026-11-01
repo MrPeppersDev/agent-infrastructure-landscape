@@ -1,0 +1,1450 @@
+{
+ "support-default": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "support-ts-self-soc2": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "llamaindex-framework--llamaindex-ai",
+    "openai-agents-sdk--gh-openai-openai-agents-python"
+   ]
+  },
+  "model": {
+   "pick": "mistral-large-2-mixtral-family--mistral-ai",
+   "accept": [
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere-command-r-command-a--cohere-com",
+    "jamba-ai21-labs--ai21-com"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "memory": {
+   "pick": "hindsight-vectorize--hindsight-vectorize-io",
+   "accept": [
+    "hindsight-vectorize--hindsight-vectorize-io",
+    "zep-graphiti--getzep-com",
+    "supermemory--supermemory-ai"
+   ]
+  },
+  "vectors": {
+   "pick": "qdrant--qdrant-tech",
+   "accept": [
+    "qdrant--qdrant-tech",
+    "chroma--trychroma-com",
+    "lancedb--lancedb-com"
+   ]
+  },
+  "embeddings": {
+   "pick": "cohere-embed--cohere-com",
+   "accept": [
+    "cohere-embed--cohere-com",
+    "hugging-face-inference-api-embeddings--huggingface-co",
+    "mixedbread-ai--mixedbread-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+   ]
+  },
+  "observability": {
+   "pick": "braintrust--braintrust-dev",
+   "accept": [
+    "braintrust--braintrust-dev",
+    "langfuse--langfuse-com",
+    "laminar--laminar-sh"
+   ]
+  },
+  "guardrails": {
+   "pick": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+   "accept": [
+    "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+    "pillar-security--pillar-security",
+    "lakera-guard-lakera-red--lakera-ai"
+   ]
+  },
+  "serving": {
+   "pick": "baseten--baseten-co",
+   "accept": [
+    "baseten--baseten-co",
+    "vllm--gh-vllm-project-vllm",
+    "fireworks-ai--fireworks-ai"
+   ]
+  }
+ },
+ "support-python-managed": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "portkey-ai--portkey-ai",
+    "openrouter--openrouter-ai"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+   ]
+  },
+  "observability": {
+   "pick": "openllmetry-traceloop--gh-traceloop-openllmetry",
+   "accept": [
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+   "accept": [
+    "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+    "lasso-security--lasso-security",
+    "pillar-security--pillar-security"
+   ]
+  }
+ },
+ "support-hipaa": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "truefoundry-ai-gateway--truefoundry-com",
+   "accept": [
+    "truefoundry-ai-gateway--truefoundry-com",
+    "vercel-ai-gateway--vercel-com",
+    "portkey-ai--portkey-ai"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "supermemory--supermemory-ai"
+   ]
+  },
+  "vectors": {
+   "pick": "weaviate--weaviate-io",
+   "accept": [
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co",
+    "qdrant--qdrant-tech"
+   ]
+  },
+  "embeddings": {
+   "pick": "sentence-transformers--sbert-net",
+   "accept": [
+    "sentence-transformers--sbert-net",
+    "voyage-ai-mongodb--voyageai-com",
+    "jina-ai-embeddings--jina-ai"
+   ]
+  },
+  "tools": {
+   "pick": "descope-agentic-identity-hub--descope-com",
+   "accept": [
+    "descope-agentic-identity-hub--descope-com",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "observability": {
+   "pick": "braintrust--braintrust-dev",
+   "accept": [
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com",
+    "confident-ai-deepeval--confident-ai-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "amazon-bedrock-guardrails--aws-amazon-com",
+   "accept": [
+    "amazon-bedrock-guardrails--aws-amazon-com",
+    "pillar-security--pillar-security",
+    "lakera-guard-lakera-red--lakera-ai"
+   ]
+  }
+ },
+ "coding-default": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "memory": {
+   "pick": "claude-mem--gh-thedotmack-claude-mem",
+   "accept": [
+    "claude-mem--gh-thedotmack-claude-mem",
+    "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+    "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "presidio--presidio-dataprivacystack-org",
+   "accept": [
+    "presidio--presidio-dataprivacystack-org",
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "coding-ts-oss": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "llamaindex-framework--llamaindex-ai",
+    "openai-agents-sdk--gh-openai-openai-agents-python"
+   ]
+  },
+  "model": {
+   "pick": "mistral-large-2-mixtral-family--mistral-ai",
+   "accept": [
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere-command-r-command-a--cohere-com",
+    "deepseek-r1-v3-family--deepseek-com"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "agentgateway--agentgateway-dev",
+    "portkey-ai--portkey-ai"
+   ]
+  },
+  "memory": {
+   "pick": "claude-mem--gh-thedotmack-claude-mem",
+   "accept": [
+    "claude-mem--gh-thedotmack-claude-mem",
+    "official-mcp-memory-server--gh-modelcontextprotocol-servers",
+    "hindsight-mcp--hindsight-vectorize-io"
+   ]
+  },
+  "sandbox": {
+   "pick": "e2b--e2b-dev",
+   "accept": [
+    "e2b--e2b-dev",
+    "daytona--daytona-io",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+   ]
+  },
+  "observability": {
+   "pick": "openinference--gh-arize-ai-openinference",
+   "accept": [
+    "openinference--gh-arize-ai-openinference",
+    "langfuse--langfuse-com",
+    "laminar--laminar-sh"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "arthur-engine--gh-arthur-ai-arthur-engine"
+   ]
+  }
+ },
+ "coding-self": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "google-gemini-3-family--blog-google",
+   "accept": [
+    "google-gemini-3-family--blog-google",
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere-command-r-command-a--cohere-com"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "portkey-ai--portkey-ai",
+    "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai"
+   ]
+  },
+  "memory": {
+   "pick": "claude-mem--gh-thedotmack-claude-mem",
+   "accept": [
+    "claude-mem--gh-thedotmack-claude-mem",
+    "codebase-memory-mcp-deusdata--gh-deusdata-codebase-memory-mcp",
+    "mcp-memory-service-doobidoo--gh-doobidoo-mcp-memory-service"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "observability": {
+   "pick": "braintrust--braintrust-dev",
+   "accept": [
+    "braintrust--braintrust-dev",
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "openinference--gh-arize-ai-openinference"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "guardrails-ai--guardrailsai-com"
+   ]
+  },
+  "serving": {
+   "pick": "vllm--gh-vllm-project-vllm",
+   "accept": [
+    "vllm--gh-vllm-project-vllm",
+    "baseten--baseten-co",
+    "sglang--gh-sgl-project-sglang"
+   ]
+  }
+ },
+ "research-default": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "browser": {
+   "pick": "browser-use--browser-use-com",
+   "accept": [
+    "browser-use--browser-use-com",
+    "stagehand--stagehand-dev",
+    "browserbase--browserbase-com"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "research-python-oss": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "mistral-large-2-mixtral-family--mistral-ai",
+   "accept": [
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere-command-r-command-a--cohere-com",
+    "deepseek-r1-v3-family--deepseek-com"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "agentgateway--agentgateway-dev",
+    "portkey-ai--portkey-ai"
+   ]
+  },
+  "browser": {
+   "pick": "stagehand--stagehand-dev",
+   "accept": [
+    "stagehand--stagehand-dev",
+    "browser-use--browser-use-com",
+    "skyvern--skyvern-com"
+   ]
+  },
+  "sandbox": {
+   "pick": "e2b--e2b-dev",
+   "accept": [
+    "e2b--e2b-dev",
+    "daytona--daytona-io",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "sentence-transformers--sbert-net",
+   "accept": [
+    "sentence-transformers--sbert-net",
+    "jina-ai-embeddings--jina-ai",
+    "nomic-embed--nomic-ai"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "letta-memgpt--letta-com",
+    "cognee--cognee-ai"
+   ]
+  },
+  "observability": {
+   "pick": "openllmetry-traceloop--gh-traceloop-openllmetry",
+   "accept": [
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "openinference--gh-arize-ai-openinference",
+    "langfuse--langfuse-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "guardrails-ai--guardrailsai-com"
+   ]
+  }
+ },
+ "voice-default": {
+  "voice": {
+   "pick": "livekit-agents--docs-livekit-io",
+   "accept": [
+    "livekit-agents--docs-livekit-io",
+    "pipecat-daily--pipecat-ai",
+    "vapi--vapi-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "observability": {
+   "pick": "braintrust--braintrust-dev",
+   "accept": [
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com",
+    "arize-phoenix--phoenix-arize-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "pyrit--microsoft-github-io"
+   ]
+  }
+ },
+ "voice-managed": {
+  "voice": {
+   "pick": "livekit-agents--docs-livekit-io",
+   "accept": [
+    "livekit-agents--docs-livekit-io",
+    "pipecat-daily--pipecat-ai",
+    "vapi--vapi-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+   ]
+  },
+  "observability": {
+   "pick": "braintrust--braintrust-dev",
+   "accept": [
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com",
+    "agentops--agentops-ai"
+   ]
+  },
+  "guardrails": {
+   "pick": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+   "accept": [
+    "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+    "lasso-security--lasso-security",
+    "pillar-security--pillar-security"
+   ]
+  }
+ },
+ "multi-default": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "orchestration": {
+   "pick": "n8n-ai-agent-flows--n8n-io",
+   "accept": [
+    "n8n-ai-agent-flows--n8n-io",
+    "crewai--crewai-com",
+    "langgraph-orchestration--langchain-com"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "langsmith--langchain-com",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "presidio--presidio-dataprivacystack-org",
+   "accept": [
+    "presidio--presidio-dataprivacystack-org",
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "multi-ts": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "llamaindex-framework--llamaindex-ai",
+    "openai-agents-sdk--gh-openai-openai-agents-python"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "orchestration": {
+   "pick": "langgraph-orchestration--langchain-com",
+   "accept": [
+    "langgraph-orchestration--langchain-com",
+    "inngest--inngest-com",
+    "restate--restate-dev"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "multi-self-oss": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "mistral-large-2-mixtral-family--mistral-ai",
+   "accept": [
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere-command-r-command-a--cohere-com",
+    "deepseek-r1-v3-family--deepseek-com"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "portkey-ai--portkey-ai",
+    "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai"
+   ]
+  },
+  "orchestration": {
+   "pick": "crewai--crewai-com",
+   "accept": [
+    "crewai--crewai-com",
+    "langgraph-orchestration--langchain-com",
+    "restate--restate-dev"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "letta-memgpt--letta-com",
+    "zep-graphiti--getzep-com"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  },
+  "observability": {
+   "pick": "openllmetry-traceloop--gh-traceloop-openllmetry",
+   "accept": [
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "openinference--gh-arize-ai-openinference",
+    "langfuse--langfuse-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "guardrails-ai--guardrailsai-com"
+   ]
+  },
+  "serving": {
+   "pick": "vllm--gh-vllm-project-vllm",
+   "accept": [
+    "vllm--gh-vllm-project-vllm",
+    "sglang--gh-sgl-project-sglang",
+    "tensorrt-llm--gh-nvidia-tensorrt-llm"
+   ]
+  }
+ },
+ "rag-default": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "rag-self": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "google-gemini-3-family--blog-google",
+   "accept": [
+    "google-gemini-3-family--blog-google",
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "cohere-command-r-command-a--cohere-com"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "portkey-ai--portkey-ai",
+    "agent-router-formerly-envoy-ai-gateway--theagentrouter-ai"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "qdrant--qdrant-tech",
+    "weaviate--weaviate-io"
+   ]
+  },
+  "embeddings": {
+   "pick": "cohere-embed--cohere-com",
+   "accept": [
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net",
+    "voyage-ai-mongodb--voyageai-com"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "observability": {
+   "pick": "openllmetry-traceloop--gh-traceloop-openllmetry",
+   "accept": [
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "langfuse--langfuse-com",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "guardrails-ai--guardrailsai-com"
+   ]
+  },
+  "serving": {
+   "pick": "vllm--gh-vllm-project-vllm",
+   "accept": [
+    "vllm--gh-vllm-project-vllm",
+    "baseten--baseten-co",
+    "sglang--gh-sgl-project-sglang"
+   ]
+  }
+ },
+ "rag-mcp": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ },
+ "rag-gdpr": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "google-gemini-3-family--blog-google",
+    "xai-grok-4--x-ai"
+   ]
+  },
+  "gateway": {
+   "pick": "openrouter--openrouter-ai",
+   "accept": [
+    "openrouter--openrouter-ai",
+    "truefoundry-ai-gateway--truefoundry-com",
+    "vercel-ai-gateway--vercel-com"
+   ]
+  },
+  "vectors": {
+   "pick": "qdrant--qdrant-tech",
+   "accept": [
+    "qdrant--qdrant-tech",
+    "supabase-vector--supabase-com",
+    "lancedb--lancedb-com"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "hugging-face-inference-api-embeddings--huggingface-co",
+    "mixedbread-ai--mixedbread-com"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "n8n-ai-agent-memory--docs-n8n-io",
+    "supermemory--supermemory-ai"
+   ]
+  },
+  "observability": {
+   "pick": "braintrust--braintrust-dev",
+   "accept": [
+    "braintrust--braintrust-dev",
+    "langsmith--langchain-com",
+    "pydantic-logfire--pydantic-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "amazon-bedrock-guardrails--aws-amazon-com",
+   "accept": [
+    "amazon-bedrock-guardrails--aws-amazon-com",
+    "lakera-guard-lakera-red--lakera-ai",
+    "hackerone-hai--hackerone-com"
+   ]
+  }
+ },
+ "support-browser-sandbox": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+   "accept": [
+    "openai-gpt-family-gpt-5-gpt-4o-o3-o4--openai-com",
+    "anthropic-claude-foundation-models--anthropic-com",
+    "google-gemini-3-family--blog-google"
+   ]
+  },
+  "gateway": {
+   "pick": "litellm--gh-berriai-litellm",
+   "accept": [
+    "litellm--gh-berriai-litellm",
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
+   ]
+  },
+  "memory": {
+   "pick": "mem0--mem0-ai",
+   "accept": [
+    "mem0--mem0-ai",
+    "zep-graphiti--getzep-com",
+    "letta-memgpt--letta-com"
+   ]
+  },
+  "vectors": {
+   "pick": "milvus--milvus-io",
+   "accept": [
+    "milvus--milvus-io",
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
+   ]
+  },
+  "embeddings": {
+   "pick": "openai-embeddings--platform-openai-com",
+   "accept": [
+    "openai-embeddings--platform-openai-com",
+    "cohere-embed--cohere-com",
+    "sentence-transformers--sbert-net"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "arcade-dev--arcade-dev",
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
+   ]
+  },
+  "observability": {
+   "pick": "arize-phoenix--phoenix-arize-com",
+   "accept": [
+    "arize-phoenix--phoenix-arize-com",
+    "openllmetry-traceloop--gh-traceloop-openllmetry",
+    "braintrust--braintrust-dev"
+   ]
+  },
+  "guardrails": {
+   "pick": "nvidia-nemo-guardrails--docs-nvidia-com",
+   "accept": [
+    "nvidia-nemo-guardrails--docs-nvidia-com",
+    "presidio--presidio-dataprivacystack-org",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  },
+  "browser": {
+   "pick": "browser-use--browser-use-com",
+   "accept": [
+    "browser-use--browser-use-com",
+    "stagehand--stagehand-dev",
+    "browserbase--browserbase-com"
+   ]
+  },
+  "sandbox": {
+   "pick": "daytona--daytona-io",
+   "accept": [
+    "daytona--daytona-io",
+    "e2b--e2b-dev",
+    "modal-sandboxes--modal-com"
+   ]
+  }
+ },
+ "coding-iso27001": {
+  "framework": {
+   "pick": "langchain-framework--langchain-com",
+   "accept": [
+    "langchain-framework--langchain-com",
+    "crewai--crewai-com",
+    "llamaindex-framework--llamaindex-ai"
+   ]
+  },
+  "model": {
+   "pick": "anthropic-claude-foundation-models--anthropic-com",
+   "accept": [
+    "anthropic-claude-foundation-models--anthropic-com",
+    "mistral-large-2-mixtral-family--mistral-ai",
+    "jamba-ai21-labs--ai21-com"
+   ]
+  },
+  "gateway": {
+   "pick": "portkey-ai--portkey-ai",
+   "accept": [
+    "portkey-ai--portkey-ai",
+    "vercel-ai-gateway--vercel-com",
+    "cloudflare-ai-gateway--developers-cloudflare-com"
+   ]
+  },
+  "memory": {
+   "pick": "lovable--lovable-dev",
+   "accept": [
+    "lovable--lovable-dev",
+    "cursor-memories--docs-cursor-com",
+    "claude-mem--gh-thedotmack-claude-mem"
+   ]
+  },
+  "sandbox": {
+   "pick": "anchor-anchor-browser--anchorbrowser-io",
+   "accept": [
+    "anchor-anchor-browser--anchorbrowser-io",
+    "workato-ai-workflow-bot-builder--workato-com",
+    "daytona--daytona-io"
+   ]
+  },
+  "tools": {
+   "pick": "composio--composio-dev",
+   "accept": [
+    "composio--composio-dev",
+    "descope-agentic-identity-hub--descope-com",
+    "cloudflare-mcp-server-portals--developers-cloudflare-com"
+   ]
+  },
+  "observability": {
+   "pick": "langsmith--langchain-com",
+   "accept": [
+    "langsmith--langchain-com",
+    "langfuse--langfuse-com",
+    "datadog-agent-observability-llm-observability--datadoghq-com"
+   ]
+  },
+  "guardrails": {
+   "pick": "pillar-security--pillar-security",
+   "accept": [
+    "pillar-security--pillar-security",
+    "promptfoo--promptfoo-dev",
+    "google-cloud-model-armor--cloud-google-com"
+   ]
+  }
+ }
+}

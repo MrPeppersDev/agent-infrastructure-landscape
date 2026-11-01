@@ -28,6 +28,20 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import { sectionToSlug } from '$lib/seo/slugs';
+  import { sourceClass, citationUrl, SOURCE_TITLE } from '$lib/source-class.js';
+
+  // Cell behind each at-a-glance row, for its source link and badge (#333).
+  const SLUG: Record<string, string> = {
+    Type: 'type', Created: 'created', 'Latest release': 'latest-release', License: 'license', GitHub: 'gh', Pricing: 'pricing',
+    Funding: 'funding', 'Backend storage': 'backend-storage', Deployment: 'deployment', 'API surface': 'api-surface',
+    Embedding: 'embedding-model', 'Multi-tenancy': 'multi-tenancy', MCP: 'mcp-support', A2A: 'a2a-support', OpenTelemetry: 'otel',
+    'Optimised for': 'optimised-for', 'Anti-fit': 'anti-fit'
+  };
+  function sourceOf(r: SlimRecord, label: string): { href: string; cls: ReturnType<typeof sourceClass> } | null {
+    const c = SLUG[label] ? r.cells[SLUG[label] as keyof typeof r.cells] : undefined;
+    const href = c?.status === 'real-data' ? citationUrl(c.citation) : null;
+    return href ? { href, cls: sourceClass(href, r) } : null;
+  }
 
   let { left, right }: { left: SlimRecord; right: SlimRecord } = $props();
 
@@ -191,8 +205,16 @@
               >{#if r.right}<a href="{base}/category/{sectionToSlug(r.right)}">{r.right}</a>{:else}—{/if}</td
             >
           {:else}
-            <td>{r.left ?? '—'}</td>
-            <td>{r.right ?? '—'}</td>
+            {#each [[left, r.left], [right, r.right]] as [rec, v]}
+              {@const src = v ? sourceOf(rec as SlimRecord, r.label) : null}
+              <td>
+                {v ?? '—'}
+                {#if src}
+                  <a class="cite" href={src.href} rel="nofollow noopener" title="Source">↗</a>
+                  {#if src.cls && src.cls !== 'catalog'}<span class="src" title={SOURCE_TITLE[src.cls]}>{src.cls}</span>{/if}
+                {/if}
+              </td>
+            {/each}
           {/if}
         </tr>
       {/each}
@@ -303,4 +325,6 @@
       grid-template-columns: 1fr;
     }
   }
+  .cite { font-size: 0.75em; margin-left: 2px; color: #8b949e; text-decoration: none; }
+  .src { display: inline-block; margin-left: 4px; padding: 0 4px; font-size: 0.68rem; color: #8b949e; border: 1px solid #30363d; border-radius: 3px; cursor: help; }
 </style>
