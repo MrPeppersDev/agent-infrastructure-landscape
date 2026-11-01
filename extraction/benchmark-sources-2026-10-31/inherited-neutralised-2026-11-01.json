@@ -1,0 +1,37 @@
+[
+  {
+    "id": "anthropic-claude-memory--platform-claude-com",
+    "old": "SWE-bench Verified ~77% (2026), MMLU ~89% (2025), GPQA Diamond ~84% (2025), inherits Claude Opus/Sonnet capability",
+    "new": "no benchmark of its own; capability comes from the Claude model in use (see Anthropic Claude (foundation models))"
+  },
+  {
+    "id": "anthropic-managed-agents-memory--platform-claude-com",
+    "old": "SWE-bench Verified ~77% (2026), inherits Claude frontier model capability, MMLU ~89% (2025)",
+    "new": "no benchmark of its own; capability comes from the Claude model in use (see Anthropic Claude (foundation models))"
+  },
+  {
+    "id": "aws-bedrock-agentcore-memory--docs-aws-amazon-com",
+    "old": "model-agnostic memory layer; inherits Claude/Nova/Llama frontier benchmarks (SWE-bench Verified ~77%, MMLU ~88%, 2025-2026)",
+    "new": "no benchmark of its own; model-agnostic memory layer, capability comes from the configured model (Claude, Nova, Llama and others)"
+  },
+  {
+    "id": "microsoft-copilot-memory--learn-microsoft-com",
+    "old": "inherits GPT-4/5-class capability via M365 Copilot: MMLU ~89% (2025), SWE-bench Verified ~75% (2025-2026)",
+    "new": "no benchmark of its own; capability comes from the GPT model behind Microsoft 365 Copilot (see OpenAI GPT family)"
+  },
+  {
+    "id": "mistral-agents-api--docs-mistral-ai",
+    "old": "inherits Mistral Large 2/Medium capability: MMLU ~84% (2024-2025), HumanEval ~92% (2024)",
+    "new": "no benchmark of its own; capability comes from the Mistral model in use (see Mistral Large 2 / Mixtral family)"
+  },
+  {
+    "id": "openai-chatgpt-memory--openai-com",
+    "old": "inherits GPT-4o/5 capability: MMLU ~89% (2025), GPQA Diamond ~83% (2025), SWE-bench Verified ~75% (2026)",
+    "new": "no benchmark of its own; capability comes from the ChatGPT model in use (see OpenAI GPT family)"
+  },
+  {
+    "id": "openai-realtime-api--platform-openai-com",
+    "old": "GPT-4o MMLU 88.7% (2024), GPT-4o speech-to-speech native (Oct 2024), HumanEval ~90% (2024)",
+    "new": "no benchmark of its own; capability comes from the GPT realtime model in use (see OpenAI GPT family)"
+  }
+]
