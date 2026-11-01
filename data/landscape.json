@@ -57873,7 +57873,7 @@
       "name": "AlphaSense",
       "tier": 2,
       "url": "https://www.alpha-sense.com/",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -58000,11 +58000,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$4B val Jun-2024 ($650M growth round; BDT + MSP)",
-          "citation": "https://www.alpha-sense.com/",
+          "value": "Over $1B total; $350M Jun-2026 at $7.5B val (Vitruvian + Accenture Ventures + J.P. Morgan Asset Management)",
+          "citation": "https://www.alpha-sense.com/press/alphasense-raises-350m-at-7-5b-valuation-and-surpasses-600m-in-annual-recurring-revenue/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "6000+ enterprise (85% of S&P 100; 80% of top-10 PE firms)",
@@ -58597,7 +58597,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/alphasense--alpha-sense-com",
           "status": "real-data",
           "tier": "T2"
@@ -58669,7 +58669,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.alpha-sense.com/press/alphasense-raises-350m-at-7-5b-valuation-and-surpasses-600m-in-annual-recurring-revenue/",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -58972,7 +58975,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/alphasense--alpha-sense-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -78044,7 +78047,7 @@
       "name": "Apex Security",
       "tier": 2,
       "url": "https://www.apex.security/",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -78171,11 +78174,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$7M seed Apr-2024 (Sequoia + Index Ventures)",
-          "citation": "https://www.apex.security/",
+          "value": "Acquired by Tenable · announced 2025-05-29, closed by 2025-07-30 (terms undisclosed); previously $7M seed Apr-2024 (Sequoia + Index Ventures)",
+          "citation": "https://www.sec.gov/Archives/edgar/data/1660280/000166028025000087/q22025financialresults-ear.htm",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "not applicable — wrong section",
@@ -78768,7 +78771,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/apex-security--apex-security",
           "status": "real-data",
           "tier": "T2"
@@ -78840,7 +78843,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.sec.gov/Archives/edgar/data/1660280/000166028025000087/q22025financialresults-ear.htm",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -79123,7 +79129,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/apex-security--apex-security",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -207597,7 +207603,7 @@
       "name": "Coalfire AI Operations",
       "tier": 3,
       "url": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -208020,8 +208026,8 @@
           "tier": "T2"
         },
         "links": {
-          "value": "www.coalfire.com/services/managed-services/aiops",
-          "citation": "https://www.coalfire.com/",
+          "value": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
+          "citation": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
           "status": "real-data",
           "tier": "T2"
         },
@@ -208321,7 +208327,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/coalfire-ai-operations--coalfire-com",
           "status": "real-data",
           "tier": "T2"
@@ -208592,7 +208598,10 @@
           "verified": true
         },
         "links": {
-          "source": "legacy",
+          "scrape_url": "https://coalfire.com/services/advisory/ai-security-and-trust-engineering",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "commit-trajectory": {
@@ -208679,7 +208688,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/coalfire-ai-operations--coalfire-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -224848,7 +224857,7 @@
       "name": "Common Room",
       "tier": 3,
       "url": "https://www.commonroom.io/",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -224975,11 +224984,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$32M Series B Mar-2024 (Greylock + Index + Madrona)",
-          "citation": "https://www.commonroom.io/",
+          "value": "Acquired by Zoom · 2026-07 (announced 2026-07-02, closed July 2026; terms undisclosed)",
+          "citation": "https://www.zoom.com/en/blog/zoom-to-acquire-common-room/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "Notion, Figma, Asana, Loom + developer-tools companies",
@@ -225572,7 +225581,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/common-room--commonroom-io",
           "status": "real-data",
           "tier": "T2"
@@ -225644,7 +225653,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.zoom.com/en/blog/zoom-to-acquire-common-room/",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -225947,7 +225959,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/common-room--commonroom-io",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -266315,7 +266327,7 @@
       "name": "Databricks Vector Search (now Databricks AI Search)",
       "tier": 1,
       "url": "https://www.databricks.com/product/artificial-intelligence/ai-search",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Vector-database infrastructure",
@@ -266452,11 +266464,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "$20.2B total over 14 rounds; $62B valuation Dec 2024",
-          "citation": "https://www.crunchbase.com/organization/databricks",
+          "value": "$5B strategic round closed Aug-2026 at $190B valuation (Coatue lead)",
+          "citation": "https://www.databricks.com/company/newsroom/press-releases/databricks-grows-80-yoy-surpasses-7b-revenue-run-rate-scales",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "9000+ companies including AT&T, Shell, Burberry, Toyota, Adobe; 500+ with >$1M ARR",
@@ -267049,7 +267061,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/databricks-vector-search--databricks-com",
           "status": "real-data",
           "tier": "T2"
@@ -267124,7 +267136,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.databricks.com/company/newsroom/press-releases/databricks-grows-80-yoy-surpasses-7b-revenue-run-rate-scales",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -267437,7 +267452,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/databricks-vector-search--databricks-com",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -320830,7 +320845,7 @@
       "name": "Endor Labs",
       "tier": 3,
       "url": "https://www.endorlabs.com/",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -320957,11 +320972,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "$70M Series A Oct-2023 ($200M val); $93M total",
-          "citation": "https://www.endorlabs.com/",
+          "value": "$93M Series B Apr-2025 (DFJ Growth + Salesforce Ventures); $70M Series A Oct-2023",
+          "citation": "https://endorlabs.com/learn/why-we-raised-a-93m-series-b-in-this-market",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "HubSpot, Carta, Klaviyo + Fortune 500",
@@ -321554,7 +321569,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/endor-labs--endorlabs-com",
           "status": "real-data",
           "tier": "T2"
@@ -321626,7 +321641,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://endorlabs.com/learn/why-we-raised-a-93m-series-b-in-this-market",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -321926,7 +321944,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/endor-labs--endorlabs-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -501054,7 +501072,7 @@
       "name": "K-Scale Labs",
       "tier": 3,
       "url": "https://www.kscale.dev/",
-      "last_verified_at": "2026-10-27",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Robotics foundation models & agent stacks",
@@ -501122,8 +501140,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Open-source humanoid robot maker — K-Scale OS (Kos), Stompy and KBot humanoids. YC W24. Pitched as the 'open-source humanoid' alternative to Figure / Tesla — full hardware + software OSS.",
-          "citation": "https://www.kscale.dev/",
+          "value": "Shut down in late 2025 and open-sourced its IP, per its former COO. Open-source humanoid robot maker — K-Scale OS (Kos), Stompy and KBot humanoids. YC W24. Pitched as the 'open-source humanoid' alternative to Figure / Tesla — full hardware + software OSS.",
+          "citation": "https://www.therobotreport.com/6-lessons-learned-watching-a-robotics-startup-die-from-the-inside/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -501779,7 +501797,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-27",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/k-scale-labs--kscale-dev",
           "status": "real-data",
           "tier": "T2"
@@ -501815,8 +501833,11 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://www.therobotreport.com/6-lessons-learned-watching-a-robotics-startup-die-from-the-inside/",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "claims": {
           "source": "legacy",
@@ -502167,7 +502188,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/k-scale-labs--kscale-dev",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -736025,7 +736046,7 @@
       "name": "MLflow",
       "tier": 1,
       "url": "https://mlflow.org/",
-      "last_verified_at": "2026-10-27",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Training infrastructure",
@@ -736152,11 +736173,11 @@
           "last_verified_at": "2026-05-12"
         },
         "funding": {
-          "value": "OSS project — sponsored by Databricks (Databricks raised $43.2B at $62B valuation 2024-12, $10B Series J 2024-12).",
-          "citation": "https://www.databricks.com/company/newsroom/press-releases/databricks-announces-10-billion-series-j",
+          "value": "OSS project sponsored by Databricks (Databricks closed a $5B strategic round at a $190B valuation, Aug-2026)",
+          "citation": "https://www.databricks.com/company/newsroom/press-releases/databricks-grows-80-yoy-surpasses-7b-revenue-run-rate-scales",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "Microsoft, R Studio, Alibaba, Booking.com, Toyota; Apache-2.0 widely adopted across enterprise ML.",
@@ -736750,7 +736771,7 @@
           "last_verified_at": "2026-10-28"
         },
         "freshness-date": {
-          "value": "2026-10-27",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/mlflow--mlflow-org",
           "status": "real-data",
           "tier": "T2"
@@ -736828,7 +736849,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.databricks.com/company/newsroom/press-releases/databricks-grows-80-yoy-surpasses-7b-revenue-run-rate-scales",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -737138,7 +737162,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/mlflow--mlflow-org",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1017982,7 +1018006,7 @@
       "name": "Sinequa",
       "tier": 1,
       "url": "https://www.sinequa.com",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Enterprise-search adjacencies",
@@ -1018124,11 +1018148,11 @@
           "last_verified_at": "2026-05-06"
         },
         "funding": {
-          "value": "Acquired by ChapsVision · 2024-11",
-          "citation": "https://www.businesswire.com/news/home/20241118794850/en/ChapsVision-Strengthens-AI-Capabilities-With-Sinequa-Acquisition-and-Completes-New-US$90M-Funding-Round",
+          "value": "Acquired by ChapsVision · 2024-11-18",
+          "citation": "https://www.sinequa.com/company/press/chapsvision-strengthens-ai-capabilities-with-sinequa-acquisition-and-completes-new-us90m-funding-round/",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-12"
+          "last_verified_at": "2026-11-01"
         },
         "customers": {
           "value": "201-500 ppl no data (acquired by ChapsVision Nov 2024)",
@@ -1018721,7 +1018745,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/sinequa--sinequa-com",
           "status": "real-data",
           "tier": "T2"
@@ -1018793,7 +1018817,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://www.sinequa.com/company/press/chapsvision-strengthens-ai-capabilities-with-sinequa-acquisition-and-completes-new-us90m-funding-round/",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -1019196,7 +1019223,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/sinequa--sinequa-com",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1107887,7 +1107914,7 @@
       "name": "Toplyne",
       "tier": 3,
       "url": "https://www.toplyne.io/",
-      "last_verified_at": "2026-10-28",
+      "last_verified_at": "2026-11-01",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -1107955,8 +1107982,8 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Founded 2021; PLG-revenue intelligence — predicts which free users will convert, sales-ready signals. $17.5M Series A May-2023 (Tiger Global + Sequoia + Together Fund). Pivoted to AI-agent positioning 2024.",
-          "citation": "https://www.toplyne.io/",
+          "value": "Wound down in October 2024; the CEO said capital would be returned to investors. Founded 2021; PLG-revenue intelligence — predicts which free users will convert, sales-ready signals. $17.5M Series A May-2023 (Tiger Global + Sequoia + Together Fund). Pivoted to AI-agent positioning 2024.",
+          "citation": "https://inc42.com/?p=481809",
           "status": "real-data",
           "tier": "T2"
         },
@@ -1108611,7 +1108638,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-28",
+          "value": "2026-11-01",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/toplyne--toplyne-io",
           "status": "real-data",
           "tier": "T2"
@@ -1108647,8 +1108674,11 @@
           "verified": true
         },
         "desc": {
-          "source": "legacy",
-          "verified": true
+          "scrape_url": "https://inc42.com/?p=481809",
+          "scraped_at": "2026-11-01",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
+          "verified": false
         },
         "claims": {
           "source": "legacy",
@@ -1108966,7 +1108996,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/toplyne--toplyne-io",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-01",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true

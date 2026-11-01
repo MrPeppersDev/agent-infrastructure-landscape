@@ -20,9 +20,13 @@ Policy (deliberately conservative — this is published data):
     with the citation URL; `verified` is true only for high-confidence
     updates, so medium-confidence values stay visibly unconfirmed.
   * Verified rows get their row-level last_verified_at bumped to --date.
-  * lifecycle archived/deprecated/dead → decay_cause (archived/superseded/
-    archived) with the lifecycle citation as decay_evidence. Acquired and
-    renamed rows usually still ship, so they are reported, not decayed.
+  * lifecycle archived/deprecated → decay_cause (archived/superseded) with
+    the lifecycle citation as decay_evidence. Acquired and renamed rows
+    usually still ship, so they are reported, not decayed. A dead row gets
+    no decay_cause: the schema has no "shut down" cause, and "archived"
+    made the stack index say "repository archived" (Smithery, 2026-10-31).
+    Put the shutdown in the desc or funding cell instead ("shut down …"),
+    which build_stack_index.py reads as dead.
 
 Usage:
     python3 scripts/apply_reverify.py --date 2026-10-22 extraction/reverify-2026-10/result-*.json
@@ -42,7 +46,7 @@ from extract import VOLATILE_CELL_SLUGS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 LANDSCAPE = ROOT / "data" / "landscape.json"
-DECAY_MAP = {"archived": "archived", "deprecated": "superseded", "dead": "archived"}
+DECAY_MAP = {"archived": "archived", "deprecated": "superseded"}
 _URL = re.compile(r"^https?://\S+$")
 
 
