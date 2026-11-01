@@ -1,6 +1,21 @@
-# Handoff — open work (as of 2026-10-29, evening)
+# Handoff — open work (as of 2026-11-01)
 
 Conventions are in [`../CLAUDE.md`](../CLAUDE.md). Work top to bottom, one PR per item, and merge once CI is green.
+
+## Done on 2026-10-31 and 2026-11-01
+
+- **Data:**
+  - [#390](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/390): the duplicate Jamba records merged into Foundation models; Smithery recorded after its 2026-10-31 shutdown.
+  - [#393](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/393): three duplicate pairs merged (the two Anthropic computer-use rows, two OpenHands rows, two MetaGPT rows); seven memory-layer cells that inherited a model's benchmark score are placeholders now.
+  - [#405](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/405): the open data questions from section 2 (Sinequa, Apex → Tenable, Common Room → Zoom, AlphaSense, Endor, Databricks/MLflow funding, Coalfire links, K-Scale and Toplyne shutdowns), plus Hyperproof AI Trust Center merged into Hyperproof. `apply_reverify.py` no longer writes `decay_cause: archived` for a `dead` lifecycle. Report: `extraction/reverify-2026-11-01/REPORT.md`.
+  - [#404](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/404): the external-landscape importer also matches on repo links and bare names ([#391](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/391)); new candidates 927 → 877.
+- **Catalog silos (section 8):** MCP, worker and CLI scoping by silo ([#394](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/394)), per-silo change feeds and a depth badge ([#395](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/395)).
+- **Stack auditor follow-ups (section 7):** the security-review sheet for a checked stack, and `sheet` on the hosted MCP's `check_stack` and `plan_stack` ([#396](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/396)).
+- **Roadmap phase 3:** context pack for coding agents, `context_pack` tool and `landscape context` ([#401](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/401), [#398](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/398)); per-stack "what changed" at `/changes#ids=` and `landscape init` writing a starter project ([#402](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/402), [#397](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/397), [#399](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/399)). The "three doors" home page is not built: it conflicts with the maintainer's decision to keep the Atlas home. Raise it with them before building.
+- **Product review items:**
+  - Golden stack questions run in CI (`mcp/src/golden-stacks.*`, 20 queries; `--update` re-records them), "Was this pick right?" feedback on `/build` with a `pick-feedback` issue form, a "Who is correcting" field on the correction form for vendors, source badges on compare pages, the home `<h1>`, and the writing style section in CLAUDE.md ([#400](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/400)).
+  - Daily bot snapshots in `docs/` keep 30 days; monthly dataset releases tagged `dataset-YYYY-MM`; a public bot status page at `/status` ([#403](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/403)).
+  - Cells nobody researched read "not checked"; searched-but-absent cells read "not published" ([#404](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/404)).
 
 ## Done on 2026-10-29 (second half)
 
@@ -52,12 +67,17 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 
 ## 2. Open data questions
 
-- **Primary sources still needed:** Sinequa's acquisition date (ChapsVision), Apex Security's deal closing (Tenable), Common Room → Zoom (only the CEO's post), funding for AlphaSense, 11x, Gong, Apollo, Endor and Anvilogic, and K-Scale Labs / Vellum lifecycle.
-- **Rows that may need re-pointing or removal:** linq-ai (linq.ai is now an unrelated company; maybe LinqAlpha), reggie-ai (parked domain; maybe Regie.ai), toplyne (dead site), and the Coalfire AIOps and Hyperproof Trust Center product pages (404).
-- **Pachyderm:** pachyderm.com still doesn't respond; the repo isn't archived.
+- **Still open after the 2026-11-01 pass** (`extraction/reverify-2026-11-01/REPORT.md`):
+  - linq-ai: linq.ai is an unrelated company now. Re-point the record (probably LinqAlpha) and research it fresh.
+  - reggie-ai: parked domain, and nothing in the record matches Regie.ai. Retire or rebuild.
+  - Pachyderm: repo not archived (last commit 2025-01-09), site unreachable, no end-of-life notice. Leave as is until one appears.
+  - Anvilogic: the Series C date needs the company's own announcement.
+  - 11x, Gong, Apollo: no newer primary round found.
+  - K-Scale Labs and Toplyne shutdowns are medium confidence (secondary reporting of a founder's statement).
+- **Vellum:** shuts down its hosted platform on 2026-11-02. Mark it dead together with Hume EVI at the 2026-11-14 check-in.
 - **Hume EVI:** after 2026-11-13, set lifecycle `dead` with decay cause.
 - **Schema v1.1.0 (#150 option 1 + #166):** decided 2026-10-28. All four steps are done: the schema and gate 8, the OpenDigger fetcher, the derived backfill with the #166 facets and MCP filters, and the research backfill. Locus is filled on 546 of 695 product rows, positioning on 629, and the YC accelerator on 60 (`extraction/v1.1-backfill/REPORT.md`). Lifecycle leads re-verified 2026-10-29 (`extraction/reverify-2026-10-29/REPORT.md`, retries in `reverify-2026-10-29b/`); open-core estimates reviewed and wrong-section rows handled (`extraction/fixes-2026-10-29/REPORT.md`); 95 more locus/positioning cells filled with a headless browser (`extraction/gaps-2026-10-29/REPORT.md`). Next: (1) mark Hume EVI and Vellum dead after their shutdown dates (2026-11-13, 2026-11-02; a check-in is scheduled for 2026-11-14); (2) the gaps-report leads are done (`extraction/reverify-2026-10-29c/REPORT.md`); still open there: Adept (bot wall) and Cellon (no primary page left, removal candidate); (3) non-YC accelerators backfilled on 50 rows (`extraction/accelerators-2026-10-29/REPORT.md`); Plug and Play and the SPC/Neo/Pear near-misses need a visible primary statement before they count. Anthropic Auto Dream and Pluto AI were removed (`extraction/removals-2026-10-29/`). Locally, svelte-check needs `NODE_OPTIONS=--max-old-space-size=6144`.
-- **Blocked:** #128 needs the `ANTHROPIC_API_KEY` repository secret. #129 is wired: the Sunday `capability-rebaseline.yml` runs `scripts/capability_sweep.py` once the secret exists (it prints a notice and skips until then) and commits the staged `data/_baselines/capability-sweep-<date>.json`; merging a staged sweep into `landscape.json` stays a reviewed step (`--merge-into-landscape`). #132 waits on the first real sweep. The benchmark-URL research pass is done: 31 rows cite primary sources (`extraction/benchmark-sources-2026-10-31/REPORT.md`), and the sweep now writes `benchmark-maxima.json` from them (12 benchmarks anchored). Still open before #132: (1) add the benchmarks the 2026 flagships actually report (Terminal-Bench 4.0, DeepSWE, SWE-bench Pro, FrontierCode, OSWorld 2.x, AutomationBench, MRCR, GraphWalks) to `docs/benchmark-families.yml`, then re-run the research pass on the model rows; (2) merge the duplicate pairs the pass surfaced (two Anthropic computer-use rows, two OpenHands rows, two MetaGPT rows); (3) turn the memory-layer cells that "inherit" a model's SWE-bench score into placeholders so they do not score.
+- **Blocked:** #128 needs the `ANTHROPIC_API_KEY` repository secret. #129 is wired: the Sunday `capability-rebaseline.yml` runs `scripts/capability_sweep.py` once the secret exists (it prints a notice and skips until then) and commits the staged `data/_baselines/capability-sweep-<date>.json`; merging a staged sweep into `landscape.json` stays a reviewed step (`--merge-into-landscape`). #132 waits on the first real sweep. The benchmark-URL research pass is done: 31 rows cite primary sources (`extraction/benchmark-sources-2026-10-31/REPORT.md`), and the sweep now writes `benchmark-maxima.json` from them (12 benchmarks anchored). Still open before #132: (1) add the benchmarks the 2026 flagships actually report (Terminal-Bench 4.0, DeepSWE, SWE-bench Pro, FrontierCode, OSWorld 2.x, AutomationBench, MRCR, GraphWalks) to `docs/benchmark-families.yml`, then re-run the research pass on the model rows; (2) and (3), the duplicate merges and the inherited scores, are done in [#393](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/393).
 
 - **Stack builder program (2026-10-29, maintainer-approved):** the whole-stack composer is live: `/build`, MCP `plan_stack`, CLI `landscape stack` and `stack.yml` checking (DECISIONS.md, 2026-10-29). Still in progress, in order:
   1. ~~Integration edges~~ done: 1,396 edges from 53 hubs' official integration pages (`extraction/integrations/REPORT.md`). Add a hub by dropping another JSON file there.
@@ -105,10 +125,7 @@ A fresh-eyes review of the live site and dataset filed one issue per finding. Al
 - [#336](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/336) → [#374](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/374): `/changes`, a weekly "What changed" page from `data/history.json` and the stack index.
 - Data fix found along the way, [#375](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/375): 59 `code-release` cells cited `https://no data - …`. They are now `depth-floor-reached` with the paper as citation. A new lint rule, `bad-citation`, catches this.
 
-**Follow-ups:**
-- The committed `data/history.json` was last built on 2026-10-23. `pages.yml` rebuilds it on every deploy, so the live `/changes` and change logs are current, but local and PR builds show older history. Run `make history` and commit it when convenient.
-- The home page `<h1>` still reads "AI Agent Infrastructure Landscape"; the brand in the nav is "AI Agent Stack".
-- Compare pages show values without citations, so they have no source badges.
+**Follow-ups:** all three done in [#400](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/400) (history refreshed, home `<h1>`, compare-page badges).
 
 ## 7. Stack-auditor roadmap, phases 1 and 2 (2026-10-30; status 2026-10-31)
 
@@ -118,14 +135,22 @@ Direction agreed with the maintainer: the product is a stack planner and auditor
 
 **Needs the maintainer:** [#358](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/358) add `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` and run **Deploy MCP worker**; add `NPM_TOKEN` and run **Publish MCP server** (`.github/workflows/publish-mcp.yml`, also fires on `data-v*` tags; the MCP Registry step signs in with GitHub OIDC and needs no secret) · [#361](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/361) add `OPENAI_API_KEY` (plus the optional hosted-system keys) and run **Memory benchmark** once · #128 / #132 wait on `ANTHROPIC_API_KEY` (see Blocked above). Intake #194 / #299 (Ghost Beacon, GBR-2500) was done in PR #386 under the rule that user submissions are added and described honestly: tier 4, dated first/last commit, no stars, self-reported figures marked unverifiable.
 
-**Follow-ups filed in DECISIONS:** `verified_version` on edges is empty until hub pages are re-verified with versions (then #364 can flag "integration verified on a different major"); the security-review sheet for an audited `/check` stack needs the buyer cells in the browser; the MCP worker does not yet expose `sheet` or the audit.
+**Follow-ups filed in DECISIONS:** `verified_version` on edges is empty until hub pages are re-verified with versions (then #364 can flag "integration verified on a different major"); the `/check` sheet and the worker's `sheet` option shipped in [#396](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/396).
 
 ## 8. Catalog silos (2026-10-31)
 
 Shipped: `taxonomy/silos.json`, `/catalogs`, `/catalogs/<silo>`, `/catalogs/<silo>/browse`, the Catalogs nav group, per-silo exports and the llms.txt section (DECISIONS.md, 2026-10-31). Follow-ups, in order:
 
-1. **MCP and CLI silo scoping.** `--silo <id>` on the stdio server and worker path per silo so an agent configured for one job sees that silo's tools (`mcpTools` in silos.json) and `search_records` / `ask_catalog` default to its sections. CLI: `landscape --silo coding search …`.
-2. **Per-silo feeds and OG images.** `feeds/catalogs/<silo>.xml` from the same change events the landing page shows; the OG generator already emits one SVG per route.
-3. **Silo-aware choosers.** `/choose` and `/build` accept `?silo=` to preselect the matching product preset and scope the candidate pool; the landing-page tiles then deep-link with it.
-4. **Depth badge.** Fill rate within the silo's columns → full / standard / listed per record, shown in the browse table and preferred as a tiebreaker in the choosers (never an exclusion).
+1. ~~MCP and CLI silo scoping~~ done in [#394](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/394): `--silo` / `LANDSCAPE_SILO` on the stdio server, `/mcp/<silo>` on the worker, `landscape --silo` and `landscape silos` in the CLI.
+2. ~~Per-silo feeds~~ done in [#395](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/395): `feeds/catalogs/<silo>.xml`.
+3. **Silo-aware choosers:** not built. The landing-page tiles already deep-link into `/choose` and `/build` with `?product=`, which covers the case. Revisit only if users ask for a scoped candidate pool.
+4. ~~Depth badge~~ done in [#395](https://github.com/MrPeppersDev/agent-infrastructure-landscape/pull/395): Full (≥ 80% of the silo's columns filled), Standard (≥ 50%) or Listed, shown after the lifecycle column. Not yet used as a chooser tiebreaker.
 5. **Design pass per silo**: the memory table and the models table want different densities; review `columns` in silos.json with real users.
+
+## 9. Other open items
+
+- **Integration versions:** `verified_version` on edges stays empty until hub pages are re-verified with versions (follow-up to [#360](https://github.com/MrPeppersDev/agent-infrastructure-landscape/issues/360)).
+- **Benchmarks:** decide which 2026 flagship benchmarks to add to `docs/benchmark-families.yml` (section 2, Blocked), then re-run the research pass on the model rows.
+- **Self-hosted plan:** the self-hosted blueprint picks Gemini as its model, which is a hosted API. The model rows need a self-hostable signal the composer can filter on.
+- **Ideas from the product review that need the maintainer:** a citable DOI for the dataset (Zenodo), a real name and domain, user sessions to watch people pick a stack, and outreach (section 4).
+- **Parallel sessions:** another session works on this repo too. Check open PRs and recent merges on `main` before starting an item. It has force-pushed its own branch before, so don't build on its branches.
