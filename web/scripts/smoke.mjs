@@ -73,6 +73,11 @@ try {
   const layers = await texts('.layer h2');
   check('/build shows the coding-agent layers', layers.length >= 7 && layers.some((l) => /sandbox/i.test(l)), JSON.stringify(layers));
   check('/build has picks and a stack.yml', (await texts('.layer .name')).length >= 6 && /components:/.test((await texts('pre.yaml'))[0] ?? ''));
+  await go('/compare/mem0--mem0-ai--vs--zep-graphiti--getzep-com');
+  check('compare page shows source badges (#333 follow-up)', (await page.locator('td .src').count()) > 3);
+  await go('/build?product=coding-agent&language=typescript');
+  const fb = await page.locator('.layer a.feedback').first().getAttribute('href');
+  check('/build has a "Was this pick right?" link per pick', !!fb && fb.includes('template=pick-feedback.yml') && fb.includes('product%3Dcoding-agent'), fb ?? '');
   check('/build maps OWASP risks', (await texts('td.st')).length === 10);
 
   await go('/choose/framework');
