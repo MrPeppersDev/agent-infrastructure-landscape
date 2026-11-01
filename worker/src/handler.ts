@@ -19,6 +19,7 @@ import { vectorEstimateAll, DEFAULT_VECTOR_WORKLOAD, type VectorPricing } from '
 import { alternativesFor } from '../../mcp/src/chooser.js';
 import { attentionIds, linksFromEdges, type Links } from '../../mcp/src/stack-check.js';
 import { planStack, slimPlan, PRODUCTS, LAYERS, type StackAnswers } from '../../mcp/src/composer.js';
+import { procurementSheet, auditSheet, sheetToCsv, sheetToMarkdown, type ProcurementSheet } from '../../mcp/src/procurement.js';
 import type { StackPricing } from '../../mcp/src/stack-costs.js';
 
 export type Loader = (file: string) => Promise<unknown>;
@@ -88,8 +89,8 @@ export const TOOLS = [
   },
   {
     name: 'check_stack',
-    description: 'Paste a package.json, requirements.txt, pyproject.toml or MCP config; returns AI dependencies that are archived, deprecated, acquired, in maintenance mode, renamed or stale, with evidence and live replacements.',
-    inputSchema: { type: 'object', properties: { manifest: S.str('File contents.'), filename: S.str('Optional file name, helps format detection.') }, required: ['manifest'] }
+    description: 'Paste a package.json, requirements.txt, pyproject.toml or MCP config; returns AI dependencies that are archived, deprecated, acquired, in maintenance mode, renamed or stale, with evidence and live replacements, plus an audit (agent-stack layers covered and missing, vendor concentration, licence mix) and version drift. sheet: true adds a security-review sheet.',
+    inputSchema: { type: 'object', properties: { manifest: S.str('File contents.'), filename: S.str('Optional file name, helps format detection.'), sheet: { type: 'boolean', description: 'Also return a procurement / security-review sheet for the catalogued systems used (CSV and Markdown included).' } }, required: ['manifest'] }
   },
   {
     name: 'find_alternatives',
@@ -135,12 +136,14 @@ export const TOOLS = [
       avoid: { type: 'array', items: S.str('record id'), description: 'record ids never to pick' },
       pin: { type: 'object', additionalProperties: S.str('record id'), description: 'layer → record id' },
       compliance: { type: 'array', items: S.str('attestation code, e.g. soc2-type2, hipaa, iso27001'), description: 'attestations every hosted service must publish' },
+      sheet: { type: 'boolean', description: 'Also return a procurement / security-review sheet for the picks: attestations, data handling, encryption, SSO/RBAC, deployment, licence, SDKs, protocols, maturity, HQ and pricing, each with its source (CSV and Markdown included).' },
       workload: { type: 'object', description: 'cost-estimate workload: runsPerDay, llmCallsPerRun, inputTokensPerCall, outputTokensPerCall, toolCallsPerRun, users, sandboxMinutesPerRun, browserMinutesPerRun, voiceMinutesPerRun, vectors, embeddingTokensPerRun (all numbers, all optional)' }
     } }
   }
 ];
 
 const EMPTY = new Set(['no-data', 'not-applicable', 'depth-floor-reached']);
+const withText = (s: ProcurementSheet) => ({ ...s, csv: sheetToCsv(s), markdown: sheetToMarkdown(s) });
 
 export function createHandler(load: Loader) {
   let dataP: Promise<Data> | null = null;
@@ -204,7 +207,8 @@ export function createHandler(load: Loader) {
           Object.entries(alternativesFor(d.records as never, attentionIds(d.index), d.famOf, d.index.records as never, 6)).map(([id, l]) => [id, l.map(({ id, name, why }) => ({ id, name, why }))])
         );
         d.links ??= linksFromEdges(d.edges as never);
-        return checkManifest(String(a.manifest ?? ''), d.index, { filename: a.filename ? String(a.filename) : undefined, replacements: d.replacements, links: d.links });
+        const report = checkManifest(String(a.manifest ?? ''), d.index, { filename: a.filename ? String(a.filename) : undefined, replacements: d.replacements, links: d.links });
+        return a.sheet ? { ...report, sheet: withText(auditSheet(report, d.records as never, SITE)) } : report;
       }
       case 'find_alternatives': {
         const t = d.items.find((i) => i.id === a.id);
@@ -228,7 +232,8 @@ export function createHandler(load: Loader) {
           { items: d.items, records: d.records as never, edges: d.edges as never, migrations: d.migrations as never, pricing: { stack: d.stackPricing, memory: d.pricing, vector: d.vectorPricing } },
           a as unknown as StackAnswers
         );
-        return slimPlan(plan, SITE);
+        const slim = slimPlan(plan, SITE);
+        return a.sheet ? { ...slim, sheet: withText(procurementSheet(plan, d.records as never, SITE)) } : slim;
       }
       case 'estimate_memory_cost': {
         const w = { ...DEFAULT_WORKLOAD, ...Object.fromEntries(Object.entries(a).filter(([, v]) => typeof v === 'number')) };

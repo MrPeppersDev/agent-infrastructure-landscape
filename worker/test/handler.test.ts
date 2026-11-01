@@ -51,6 +51,10 @@ const batch = await post([{ jsonrpc: '2.0', id: 4, method: 'ping' }, { jsonrpc: 
 check('batch', Array.isArray(batch.json) && batch.json.length === 2);
 const get = await handle(new Request('https://x/mcp'));
 check('GET /mcp → 405 (no SSE)', get.status === 405);
+const chSheet = await callTool('check_stack', { manifest: '{"dependencies":{"mem0ai":"^2","@langchain/core":"^1"}}', filename: 'package.json', sheet: true });
+check('check_stack sheet: one row per catalogued system, with CSV', chSheet.structuredContent.sheet?.rows?.length >= 1 && chSheet.structuredContent.sheet.csv.includes('compliance-certifications'), JSON.stringify(chSheet).slice(0, 200));
+const planSheet = await callTool('plan_stack', { product: 'support-agent', sheet: true });
+check('plan_stack sheet: one row per pick', planSheet.structuredContent.sheet?.rows?.length === planSheet.structuredContent.layers.filter((l: { pick: unknown }) => l.pick).length);
 // Silo endpoints (HANDOFF §8.1): /mcp/<silo> lists the core tools plus the silo's own and searches its sections.
 const postTo = async (path: string, body: unknown) => {
   const r = await handle(new Request(`https://x${path}`, { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' }, body: JSON.stringify(body) }));
