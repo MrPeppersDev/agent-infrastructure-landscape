@@ -76,6 +76,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/cron_recommendation_drift.py
+          # Keep the last 30 days of snapshots; git holds the rest.
+          python scripts/prune_snapshots.py --keep-days 30
 
       - name: Commit today's snapshot
         run: |
@@ -86,6 +88,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/drift-*.md
+          git add -A -- 'docs/drift-*.md'
           git commit -m "chore(drift): daily recommendation-drift snapshot" || true
           git push || true
