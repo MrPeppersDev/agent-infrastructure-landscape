@@ -3,6 +3,7 @@
   // licence changes, newest first, grouped by week. The Atom feed at
   // /changes.xml is the machine twin.
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import { page } from '$app/state';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import type { ChangeEntry, ChangeType } from './+page.server';
@@ -29,9 +30,21 @@
 
   let types = $state(new Set<ChangeType>());
   let family = $state('');
+  // A stack's changes only (#399): /changes#ids=a,b,c, linked from /check and /build.
+  let stackIds = $state<Set<string> | null>(null);
+  onMount(() => {
+    const read = () => {
+      const m = location.hash.match(/(?:^#|&)ids=([^&]+)/);
+      stackIds = m ? new Set(decodeURIComponent(m[1]).split(',').filter(Boolean)) : null;
+    };
+    read();
+    addEventListener('hashchange', read);
+    return () => removeEventListener('hashchange', read);
+  });
   const shown = $derived(
-    data.entries.filter((e) => (types.size === 0 || types.has(e.type)) && (!family || e.family === family))
+    data.entries.filter((e) => (!stackIds || stackIds.has(e.id)) && (types.size === 0 || types.has(e.type)) && (!family || e.family === family))
   );
+  const quiet = $derived(stackIds ? [...stackIds].filter((id) => !data.entries.some((e) => e.id === id)).length : 0);
 
   function toggle(t: ChangeType) {
     const next = new Set(types);
@@ -80,7 +93,13 @@
 />
 
 <main class="page">
-  <h1>What changed</h1>
+  <h1>{stackIds ? 'What changed in your stack' : 'What changed'}</h1>
+  {#if stackIds}
+    <p class="stack-note">
+      Showing the recorded changes to the {stackIds.size} catalogued systems in your stack{#if quiet}; {quiet} of them {quiet === 1 ? 'has' : 'have'} no recorded change yet{/if}.
+      Bookmark this page to come back to it. <a href="{base}/changes" onclick={() => (stackIds = null)}>Show the whole catalog</a>
+    </p>
+  {/if}
   <p class="lede">
     Lifecycle events, price, release, funding and licence changes, and new systems across the catalog, newest first.
     Each entry links to its source and to the pull request that recorded it. Also as a feed:
@@ -165,4 +184,5 @@
   .name { font-weight: 600; margin-right: 6px; }
   .note { color: #c9d1d9; }
   .src { font-size: 12px; margin-left: 6px; color: #8b949e; }
+  .stack-note { background: #161f29; border: 1px solid #2c4253; border-radius: 6px; padding: 8px 12px; color: #c9d1d9; }
 </style>

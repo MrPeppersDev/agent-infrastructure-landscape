@@ -38,7 +38,7 @@ import {
 import { betweenModels, recommendForProject } from '../../mcp/dist/recommender.js';
 import type { RecommendCategory, StructuredForm } from '../../mcp/dist/recommender.js';
 import { loadSilos, siloById, inSilo, type Silo } from '../../mcp/dist/data.js';
-import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, gateTaxonomy, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
+import { loadRecords, loadEdges, getMeta, loadStackIndex, loadReplacements, loadLinks, loadChooserItems, familyIdForSection, gateTaxonomy, loadImages, loadMigrations, loadSystemAliases, loadRedirects, loadPricing, loadVectorPricing, loadStackPricing } from '../../mcp/dist/data.js';
 import { chooseInfra, DEFAULT_INFRA, NEEDS } from '../../mcp/dist/chooser-infra.js';
 import type { InfraAnswers, InfraKind } from '../../mcp/dist/chooser-infra.js';
 import { compatibility, worksWith, setAliases } from '../../mcp/dist/compat.js';
@@ -47,9 +47,11 @@ import type { Answers } from '../../mcp/dist/chooser.js';
 import { checkManifest, STATUS_LABEL, LICENCE_LABEL } from '../../mcp/dist/stack-check.js';
 import { procurementSheet, sheetToCsv, sheetToMarkdown } from '../../mcp/dist/procurement.js';
 import { contextPack, answersFromStackYaml } from '../../mcp/dist/context-pack.js';
+import { initFiles } from '../../mcp/dist/scaffold.js';
 import { planStack, slimPlan, toOpml, PRODUCTS, LAYERS, SITE } from '../../mcp/dist/composer.js';
 import type { StackAnswers, LayerId, ProductType } from '../../mcp/dist/composer.js';
-import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from 'node:fs';
+import { join } from 'node:path';
 import type { ManifestFormat } from '../../mcp/dist/stack-check.js';
 import type { EdgeType } from '../../mcp/dist/tools.js';
 import {
@@ -313,6 +315,30 @@ program
     if (r.alsoConsider.length) lines.push('', `also consider: ${r.alsoConsider.map((x) => x.item.name).join(', ')}`);
     if (r.unconfirmed.length) lines.push(`might fit (unconfirmed): ${r.unconfirmed.map((x) => x.item.name).join(', ')}`);
     emit(lines.join('\n'));
+  });
+
+program
+  .command('init')
+  .description('Write a starter for a stack into a folder: stack.yml, docker-compose.yml for the self-hostable picks, .env.example, a security-review sheet, a context pack for coding agents and a README with next steps.')
+  .argument('[stackfile]', 'a stack.yml to start from (every component kept); omit to plan one')
+  .option('--product <p>', `${Object.keys(PRODUCTS).join(' | ')} (when no stack.yml is given)`, 'support-agent')
+  .option('--language <l>', 'python | typescript | any', 'any')
+  .option('--hosting <h>', 'self | managed | any', 'any')
+  .option('--oss', 'require open-source licences')
+  .option('--dir <path>', 'folder to write into (created if missing)', '.')
+  .option('--force', 'overwrite files that already exist')
+  .action((stackfile: string | undefined, o: { product: string; language: string; hosting: string; oss?: boolean; dir: string; force?: boolean }) => {
+    const answers = stackfile
+      ? answersFromStackYaml(readFileSync(stackfile, 'utf-8'))
+      : ({ product: o.product, language: o.language, hosting: o.hosting, oss: !!o.oss } as StackAnswers);
+    const plan = planStack({ items: loadChooserItems(), records: loadRecords() as never, edges: loadEdges() as never, migrations: loadMigrations() as never }, answers);
+    const files = initFiles(plan, { images: loadImages(), packages: loadStackIndex().packages, records: loadRecords() as never });
+    const clash = Object.keys(files).filter((f) => existsSync(join(o.dir, f)));
+    if (clash.length && !o.force) die(`these files already exist in ${o.dir}: ${clash.join(', ')} (use --force to overwrite)`);
+    mkdirSync(o.dir, { recursive: true });
+    for (const [f, text] of Object.entries(files)) writeFileSync(join(o.dir, f), text);
+    emit(`Wrote ${Object.keys(files).length} files to ${o.dir}: ${Object.keys(files).join(', ')}`);
+    emit(`Next: cp .env.example .env, then docker compose up -d for the self-hostable parts. Check the stack any time with landscape check ${join(o.dir, 'stack.yml')}.`);
   });
 
 program

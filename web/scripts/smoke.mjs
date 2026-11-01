@@ -218,6 +218,10 @@ try {
   const agentsCsv = (await readFile(join(BUILD, 'api/catalogs/agents.csv'), 'utf8')).split('\n')[0].split(',');
   check('catalog CSV drops all-empty columns', !agentsCsv.includes('storage') && agentsCsv.includes('license'), agentsCsv.join(','));
 
+  // #399: /changes#ids= shows one stack's changes.
+  await go('/changes#ids=mem0--mem0-ai,smithery--smithery-ai');
+  const stackNames = await texts('section.week li .name');
+  check('/changes#ids= lists only the stack\'s systems', stackNames.length > 0 && stackNames.every((n) => /Mem0|Smithery/.test(n)) && /your stack/.test((await texts('h1'))[0] ?? ''), stackNames.slice(0, 4).join(', '));
   // #336: /changes lists events by week, with type filters.
   await go('/changes');
   const weeksN = await page.locator('section.week').count();

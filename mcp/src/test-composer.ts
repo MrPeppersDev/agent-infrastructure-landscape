@@ -12,6 +12,7 @@ import { planStack, slimPlan, toOpml, PRODUCTS, LAYER_BY_ID, type ProductType, t
 import { procurementSheet, sheetToCsv, sheetToMarkdown } from './procurement.js';
 import { checkManifest, parseManifest } from './stack-check.js';
 import { contextPack, answersFromStackYaml } from './context-pack.js';
+import { initFiles } from './scaffold.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 function find(name: string): string {
@@ -176,6 +177,20 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   const md = contextPack(plan, INDEX.packages, 'https://example.test', '2026-11-01');
   ok(md.startsWith('## AI agent stack') && ids.every((id) => md.includes('`' + id + '`')), 'the pack names every component by id');
   ok(['### Components', '### Working rules', 'landscape check'].every((s) => md.includes(s)), 'the pack has its sections and points at landscape check');
+}
+
+// --- landscape init (#397): the starter files match the plan --------------
+{
+  const images = JSON.parse(readFileSync(join(find('landscape.json'), '..', 'blueprints', 'images.json'), 'utf-8'));
+  const plan = planStack(ctx, { product: 'rag-copilot', hosting: 'self' } as StackAnswers);
+  const files = initFiles(plan, { images, packages: INDEX.packages, records: L.records, site: 'https://example.test', today: '2026-11-01' });
+  ok(['stack.yml', 'docker-compose.yml', '.env.example', 'security-review.csv', 'AGENTS-stack.md', 'README.md'].every((f) => f in files), 'init writes the six starter files');
+  const picks = plan.layers.filter((l) => l.pick).map((l) => l.pick!.item.id);
+  ok(picks.every((id) => files['stack.yml'].includes(id)), 'init stack.yml lists every pick');
+  const withImage = plan.layers.filter((l) => l.pick && images.some((im: { id: string; image: string; depends_on?: string[] }) => im.id === l.pick!.item.id && im.image && !im.depends_on?.length));
+  ok(withImage.every((l) => files['docker-compose.yml'].includes(`  ${l.layer}:`)), 'compose starts every pick with an official single image');
+  ok(plan.layers.filter((l) => l.pick).every((l) => files['.env.example'].includes(l.pick!.item.name)), '.env.example covers every pick');
+  ok(files['security-review.csv'].split('\n').filter(Boolean).length === picks.length + 1, 'the sheet has one row per pick');
 }
 
 if (failures) {
