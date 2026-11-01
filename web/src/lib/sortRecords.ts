@@ -27,6 +27,7 @@ function extractSortValue(record: LandscapeRecord, column: string): number | str
   if (column === 'lifecycle') return LIFECYCLE_ORDER.indexOf(record.lifecycle ?? 'active');
   if (column === 'section') return primarySectionOf(record).toLowerCase();
   if (column === 'verified') return record.last_verified_at ?? '';
+  if (column === 'depth') return record.depth ? record.depth.filled / Math.max(1, record.depth.total) : '';
   if (column === 'third-party') return corroboration(record).thirdParty;
 
   const axis = taxonomyAxisOf(column);

@@ -109,6 +109,10 @@ try {
   const codingHeads = await texts('thead th');
   check('/catalogs/coding/browse shows only coding rows', codingCount > 50 && codingCount < 200, `${codingCount} systems`);
   check('/catalogs/coding/browse uses the silo columns', codingHeads.some((h) => /MCP/.test(h)) && !codingHeads.some((h) => /Storage/.test(h)), JSON.stringify(codingHeads));
+  const depths = await texts('.row td[data-col="depth"]');
+  check('/catalogs/coding/browse shows a depth badge per row (§8.4)', depths.length > 0 && depths.every((d) => ['Full', 'Standard', 'Listed'].includes(d)), depths.slice(0, 3).join(','));
+  const feedXml = await readFile(join(BUILD, 'feeds/catalogs/coding.xml'), 'utf8').catch(() => '');
+  check('per-silo change feed exists (§8.2)', feedXml.includes('<feed') && feedXml.includes('/catalogs/coding'));
 
   // Pages fed by slimmed records (#324): they must still render their data.
   await go('/leaderboards');
