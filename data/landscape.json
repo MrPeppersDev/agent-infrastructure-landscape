@@ -552142,10 +552142,10 @@
     },
     {
       "id": "linq-ai--linq-ai",
-      "name": "Linq AI",
+      "name": "LinqAlpha",
       "tier": 3,
-      "url": "https://www.linq.ai/",
-      "last_verified_at": "2026-10-29",
+      "url": "https://www.linqalpha.com/",
+      "last_verified_at": "2026-11-02",
       "sections": [
         {
           "section": "Use-case-specific agent harnesses",
@@ -552207,20 +552207,20 @@
       },
       "cells": {
         "type": {
-          "value": "AI agent for financial analysts",
-          "citation": "https://www.linq.ai/",
+          "value": "Multi-agent AI research platform for investment professionals",
+          "citation": "https://www.linqalpha.com/",
           "status": "real-data",
           "tier": "T2"
         },
         "desc": {
-          "value": "Founded 2023; AI-agent platform for financial analysts — multi-step research, data cleansing, model-building. Small seed round; competes in the AlphaSense / Hebbia / Rogo broader space at lower price point. As of 2026-10-29 linq.ai belongs to an unrelated higher-education company, so this product's current home is unconfirmed.",
-          "citation": "https://www.linq.ai/",
+          "value": "Founded 2022; multi-agent AI platform for investment research used by hedge funds, asset managers and investment banks: market-signal monitoring, company screening, fundamental and sentiment analysis across 57,000+ companies in 30+ languages. Over 70 financial institutions as customers (July 2026).",
+          "citation": "https://www.linqalpha.com/",
           "status": "real-data",
           "tier": "T2"
         },
         "claims": {
-          "value": "2023-founded; financial-analyst AI agent; seed funded",
-          "citation": "https://www.linq.ai/",
+          "value": "Domain-specialized multi-agent AI for investment research; 70+ financial institutions; $22M Series A (Jul-2026)",
+          "citation": "https://kyodonewsprwire.jp/release/202607021906",
           "status": "real-data",
           "tier": "T2"
         },
@@ -552231,11 +552231,11 @@
           "tier": "T3"
         },
         "created": {
-          "value": "2023 (founded)",
-          "citation": "https://www.linq.ai/",
+          "value": "2022 (founded)",
+          "citation": "https://www.linqalpha.com/about-us",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-05-14"
+          "last_verified_at": "2026-11-02"
         },
         "latest-release": {
           "value": "not applicable — wrong section",
@@ -552272,11 +552272,11 @@
           "last_verified_at": "2026-05-13"
         },
         "funding": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
+          "value": "$22M Series A Jul-2026 (AVP + Atinum Investment + GFT Ventures); $30M+ total per the company",
+          "citation": "https://kyodonewsprwire.jp/release/202607021906",
+          "status": "real-data",
+          "tier": "T2",
+          "last_verified_at": "2026-11-02"
         },
         "customers": {
           "value": "not applicable — wrong section",
@@ -552309,14 +552309,14 @@
           "tier": "T3"
         },
         "hq": {
-          "value": "San Francisco",
-          "citation": "https://www.linq.ai/",
+          "value": "New York",
+          "citation": "https://kyodonewsprwire.jp/release/202607021906",
           "status": "real-data",
           "tier": "T2"
         },
         "founders": {
-          "value": "Linq AI founders",
-          "citation": "https://www.linq.ai/",
+          "value": "Jacob Choi, Subeen Pang, Jin Kim, Hojun Choi",
+          "citation": "https://kyodonewsprwire.jp/release/202607021906",
           "status": "real-data",
           "tier": "T2"
         },
@@ -552556,20 +552556,20 @@
           "tier": "T3"
         },
         "pros": {
-          "value": "Niche entry in finance-AI agent space at lower price point.",
-          "citation": "https://www.linq.ai/",
+          "value": "Built for investment research only; covers 57,000+ companies in 30+ languages",
+          "citation": "https://www.linqalpha.com/",
           "status": "real-data",
           "tier": "T2"
         },
         "cons": {
-          "value": "Early-stage; tiny footprint vs Rogo/Hebbia; brand confusion with multiple 'Linq' products.",
+          "value": "Name easily confused with Linq (linq.ai), an unrelated higher-education software company",
           "citation": "https://www.linq.ai/",
           "status": "real-data",
           "tier": "T2"
         },
         "links": {
-          "value": "www.linq.ai/",
-          "citation": "https://www.linq.ai/",
+          "value": "www.linqalpha.com/ · www.linqalpha.com/about-us",
+          "citation": "https://www.linqalpha.com/about-us",
           "status": "real-data",
           "tier": "T2"
         },
@@ -552846,7 +552846,7 @@
         },
         "licensing-bucket": {
           "value": "commercial",
-          "citation": "https://www.linq.ai/",
+          "citation": "https://www.linqalpha.com/",
           "status": "real-data",
           "tier": "T2"
         },
@@ -552869,7 +552869,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-11-02",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/linq-ai--linq-ai",
           "status": "real-data",
           "tier": "T2"
@@ -552901,18 +552901,24 @@
       },
       "_provenance": {
         "type": {
-          "source": "legacy",
+          "scrape_url": "https://www.linqalpha.com/",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "desc": {
-          "scrape_url": "https://www.linq.ai/",
-          "scraped_at": "2026-10-29",
+          "scrape_url": "https://www.linqalpha.com/",
+          "scraped_at": "2026-11-02",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
         },
         "claims": {
-          "source": "legacy",
+          "scrape_url": "https://kyodonewsprwire.jp/release/202607021906",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "modalities": {
@@ -552920,7 +552926,10 @@
           "verified": true
         },
         "created": {
-          "source": "legacy",
+          "scrape_url": "https://www.linqalpha.com/about-us",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "latest-release": {
@@ -552944,7 +552953,10 @@
           "verified": true
         },
         "funding": {
-          "source": "legacy",
+          "scrape_url": "https://kyodonewsprwire.jp/release/202607021906",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "customers": {
@@ -552968,11 +552980,17 @@
           "verified": true
         },
         "hq": {
-          "source": "legacy",
+          "scrape_url": "https://kyodonewsprwire.jp/release/202607021906",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "founders": {
-          "source": "legacy",
+          "scrape_url": "https://kyodonewsprwire.jp/release/202607021906",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "volume": {
@@ -553132,15 +553150,24 @@
           "verified": true
         },
         "pros": {
-          "source": "legacy",
+          "scrape_url": "https://www.linqalpha.com/",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "cons": {
-          "source": "legacy",
+          "scrape_url": "https://www.linq.ai/",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "links": {
-          "source": "legacy",
+          "scrape_url": "https://www.linqalpha.com/about-us",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
+          "source": "scrape",
           "verified": true
         },
         "commit-trajectory": {
@@ -553212,9 +553239,9 @@
           "verified": false
         },
         "licensing-bucket": {
-          "scrape_url": "https://www.linq.ai/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
+          "scrape_url": "https://www.linqalpha.com/",
+          "scraped_at": "2026-11-02",
+          "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
         },
@@ -553227,7 +553254,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/linq-ai--linq-ai",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-11-02",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -924039,1102 +924066,6 @@
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/reflexion--arxiv-2303-11366",
           "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
-          "source": "scrape",
-          "verified": true
-        }
-      }
-    },
-    {
-      "id": "reggie-ai--reggie-ai",
-      "name": "Reggie.ai",
-      "tier": 3,
-      "url": "https://www.reggie.ai/",
-      "last_verified_at": "2026-10-29",
-      "decay_cause": "archived",
-      "decay_evidence": "https://www.reggie.ai/",
-      "sections": [
-        {
-          "section": "Use-case-specific agent harnesses",
-          "subsection": "— Sales / GTM / outbound agents",
-          "primary": true,
-          "reason": null
-        }
-      ],
-      "taxonomy": {
-        "storage": [
-          {
-            "value": "none-trivial",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "retrieval": [
-          {
-            "value": "none",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "persistence": [
-          {
-            "value": "session-only",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "update": [
-          {
-            "value": "agent-controlled",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "unit": [
-          {
-            "value": "turn",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "governance": [
-          {
-            "value": "opaque",
-            "primary": true,
-            "reason": null
-          }
-        ],
-        "conflict": [
-          {
-            "value": "out-of-scope",
-            "primary": true,
-            "reason": null
-          }
-        ]
-      },
-      "cells": {
-        "type": {
-          "value": "AI sales agents (Reggie)",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "desc": {
-          "value": "Founded 2023; AI sales-agent product — autonomous outbound, meeting booking, follow-up. $4.7M seed Jul-2024 (Lightspeed + Mantis). Direct competitor in the 11x.ai / Artisan AI / Bland niche. As of 2026-10 the reggie.ai domain is parked and listed for sale on GoDaddy; the product appears discontinued.",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "claims": {
-          "value": "$4.7M seed Jul-2024 (Lightspeed + Mantis); autonomous outbound SDR agent",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "modalities": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "created": {
-          "value": "2023 (founded)",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
-        },
-        "latest-release": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "license": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "gh": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "mindshare": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "citations": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "funding": {
-          "value": "$4.7M seed Jul-2024 (Lightspeed + Mantis)",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2",
-          "last_verified_at": "2026-05-14"
-        },
-        "customers": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "pricing": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "compliance": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "data-handling": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "deployment": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "hq": {
-          "value": "San Francisco",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "founders": {
-          "value": "Reggie founders (Tomer Sole + Yair Snir)",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "volume": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "perf": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "repro": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "code-release": {
-          "value": "not applicable — not OSS",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "api-surface": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "latency": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "throughput": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "backend-storage": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "multi-tenancy": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "encryption": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "sso-rbac": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "embedding-model": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "consistency": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "versioning": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "tombstoning": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "schema-evolution": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "namespace": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "contradiction": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "forgetting": {
-          "value": "not applicable — not a memory product",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "mcp-support": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "a2a-support": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "otel": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "webhooks": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "import-export": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "integration-count": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "orchestration": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "programmatic-control": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "vendor-benchmarks": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-13"
-        },
-        "pricing-specifics": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "agent-abstraction": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "memory-primitives": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "llm-lock": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "runtimes": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "session-handling": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "validated-verticals": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "time-to-running": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "anti-fit": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "optimised-for": {
-          "value": "autonomous outbound SDR",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "adjacent-infrastructure": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "pros": {
-          "value": "Lightspeed-backed; AI-SDR niche participation.",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "cons": {
-          "value": "Early-stage; competing with much-better-funded 11x.ai.",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "links": {
-          "value": "www.reggie.ai/",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "obs-langsmith": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-opentelemetry": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-datadog": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-helicone": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-weave": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-langfuse": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-arize": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "obs-custom": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-token-budget": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-prompt-caching": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-semantic-caching": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-batching": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-model-routing": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-streaming-only": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-observability-cost-attribution": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-langsmith-evals": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-braintrust": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-weights-and-biases-agent": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-helicone-evals": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-custom-test-harness": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-human-loop": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "eval-production-traffic-replay": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "commit-trajectory": {
-          "value": "not applicable — no GitHub repo",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "citation-trajectory": {
-          "value": "not applicable — non-paper row",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "download-trajectory": {
-          "value": "not applicable — not published as a package",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3",
-          "last_verified_at": "2026-05-14"
-        },
-        "cost-input-usd-per-mtok": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-output-usd-per-mtok": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-tier": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-pricing-model": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "cost-last-verified": {
-          "value": "not applicable — wrong section",
-          "citation": null,
-          "status": "not-applicable",
-          "tier": "T3"
-        },
-        "capability-composite-score": {
-          "value": "52",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-band": {
-          "value": "competent",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-benchmark-sources": {
-          "value": "general capability estimate — no specific benchmark recalled",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-last-verified": {
-          "value": "2026-06-29",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "capability-code-score": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "capability-agentic-score": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "capability-longcontext-score": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "use-case-tags": {
-          "value": "scoped-agentic, long-running-session",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "use-case-anti-tags": {
-          "value": "code-generation-focused, offline-capable",
-          "citation": null,
-          "status": "estimate",
-          "tier": "T3"
-        },
-        "adoption-accelerator": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "architecture-deployment-locus": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "licensing-bucket": {
-          "value": "commercial",
-          "citation": "https://www.reggie.ai/",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "positioning-platform-vs-product": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "taxonomy-three-layer-rollup": {
-          "value": "agent-infra",
-          "citation": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
-          "status": "real-data",
-          "tier": "T1"
-        },
-        "developer-activity-opendigger": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "freshness-date": {
-          "value": "2026-10-29",
-          "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/reggie-ai--reggie-ai",
-          "status": "real-data",
-          "tier": "T2"
-        },
-        "compliance-certifications": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "sdk-languages": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "protocol-support": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        },
-        "maturity": {
-          "value": "",
-          "citation": null,
-          "status": "no-data",
-          "tier": "T3"
-        }
-      },
-      "_provenance": {
-        "type": {
-          "source": "legacy",
-          "verified": true
-        },
-        "desc": {
-          "scrape_url": "https://www.reggie.ai/",
-          "scraped_at": "2026-10-29",
-          "script": "scripts/apply_reverify.py",
-          "source": "scrape",
-          "verified": false
-        },
-        "claims": {
-          "source": "legacy",
-          "verified": true
-        },
-        "modalities": {
-          "source": "legacy",
-          "verified": true
-        },
-        "created": {
-          "source": "legacy",
-          "verified": true
-        },
-        "latest-release": {
-          "source": "legacy",
-          "verified": true
-        },
-        "license": {
-          "source": "legacy",
-          "verified": true
-        },
-        "gh": {
-          "source": "legacy",
-          "verified": true
-        },
-        "mindshare": {
-          "source": "legacy",
-          "verified": true
-        },
-        "citations": {
-          "source": "legacy",
-          "verified": true
-        },
-        "funding": {
-          "source": "legacy",
-          "verified": true
-        },
-        "customers": {
-          "source": "legacy",
-          "verified": true
-        },
-        "pricing": {
-          "source": "legacy",
-          "verified": true
-        },
-        "compliance": {
-          "source": "legacy",
-          "verified": true
-        },
-        "data-handling": {
-          "source": "legacy",
-          "verified": true
-        },
-        "deployment": {
-          "source": "legacy",
-          "verified": true
-        },
-        "hq": {
-          "source": "legacy",
-          "verified": true
-        },
-        "founders": {
-          "source": "legacy",
-          "verified": true
-        },
-        "volume": {
-          "source": "legacy",
-          "verified": true
-        },
-        "perf": {
-          "source": "legacy",
-          "verified": true
-        },
-        "repro": {
-          "source": "legacy",
-          "verified": true
-        },
-        "code-release": {
-          "source": "legacy",
-          "verified": true
-        },
-        "api-surface": {
-          "source": "legacy",
-          "verified": true
-        },
-        "latency": {
-          "source": "legacy",
-          "verified": true
-        },
-        "throughput": {
-          "source": "legacy",
-          "verified": true
-        },
-        "backend-storage": {
-          "source": "legacy",
-          "verified": true
-        },
-        "multi-tenancy": {
-          "source": "legacy",
-          "verified": true
-        },
-        "encryption": {
-          "source": "legacy",
-          "verified": true
-        },
-        "sso-rbac": {
-          "source": "legacy",
-          "verified": true
-        },
-        "embedding-model": {
-          "source": "legacy",
-          "verified": true
-        },
-        "consistency": {
-          "source": "legacy",
-          "verified": true
-        },
-        "versioning": {
-          "source": "legacy",
-          "verified": true
-        },
-        "tombstoning": {
-          "source": "legacy",
-          "verified": true
-        },
-        "schema-evolution": {
-          "source": "legacy",
-          "verified": true
-        },
-        "namespace": {
-          "source": "legacy",
-          "verified": true
-        },
-        "contradiction": {
-          "source": "legacy",
-          "verified": true
-        },
-        "forgetting": {
-          "source": "legacy",
-          "verified": true
-        },
-        "mcp-support": {
-          "source": "legacy",
-          "verified": true
-        },
-        "a2a-support": {
-          "source": "legacy",
-          "verified": true
-        },
-        "otel": {
-          "source": "legacy",
-          "verified": true
-        },
-        "webhooks": {
-          "source": "legacy",
-          "verified": true
-        },
-        "import-export": {
-          "source": "legacy",
-          "verified": true
-        },
-        "integration-count": {
-          "source": "legacy",
-          "verified": true
-        },
-        "orchestration": {
-          "source": "legacy",
-          "verified": true
-        },
-        "programmatic-control": {
-          "source": "legacy",
-          "verified": true
-        },
-        "vendor-benchmarks": {
-          "source": "legacy",
-          "verified": true
-        },
-        "pricing-specifics": {
-          "source": "legacy",
-          "verified": true
-        },
-        "agent-abstraction": {
-          "source": "legacy",
-          "verified": true
-        },
-        "memory-primitives": {
-          "source": "legacy",
-          "verified": true
-        },
-        "llm-lock": {
-          "source": "legacy",
-          "verified": true
-        },
-        "runtimes": {
-          "source": "legacy",
-          "verified": true
-        },
-        "session-handling": {
-          "source": "legacy",
-          "verified": true
-        },
-        "validated-verticals": {
-          "source": "legacy",
-          "verified": true
-        },
-        "time-to-running": {
-          "source": "legacy",
-          "verified": true
-        },
-        "anti-fit": {
-          "source": "legacy",
-          "verified": true
-        },
-        "optimised-for": {
-          "source": "legacy",
-          "verified": true
-        },
-        "adjacent-infrastructure": {
-          "source": "legacy",
-          "verified": true
-        },
-        "pros": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cons": {
-          "source": "legacy",
-          "verified": true
-        },
-        "links": {
-          "source": "legacy",
-          "verified": true
-        },
-        "commit-trajectory": {
-          "source": "legacy",
-          "verified": true
-        },
-        "citation-trajectory": {
-          "source": "legacy",
-          "verified": true
-        },
-        "download-trajectory": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-input-usd-per-mtok": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-output-usd-per-mtok": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-tier": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-pricing-model": {
-          "source": "legacy",
-          "verified": true
-        },
-        "cost-last-verified": {
-          "source": "legacy",
-          "verified": true
-        },
-        "capability-composite-score": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "capability-band": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "capability-benchmark-sources": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "capability-last-verified": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "use-case-tags": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "use-case-anti-tags": {
-          "generated_at": "2026-06-29",
-          "model_id": "claude-opus-4-7",
-          "source": "llm",
-          "verified": false
-        },
-        "licensing-bucket": {
-          "scrape_url": "https://www.reggie.ai/",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
-          "source": "scrape",
-          "verified": true
-        },
-        "taxonomy-three-layer-rollup": {
-          "scrape_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape/blob/main/docs/schema/section-to-three-layer-rollup.json",
-          "scraped_at": "2026-10-28",
-          "script": "scripts/derive_v1_1_cells.py",
-          "source": "scrape",
-          "verified": true
-        },
-        "freshness-date": {
-          "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/reggie-ai--reggie-ai",
-          "scraped_at": "2026-10-29",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
