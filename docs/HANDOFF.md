@@ -92,7 +92,7 @@ Listed at the end of `extraction/reverify-2026-10-28/REPORT.md`: five OpenReview
 These need a human. List them back to the maintainer, with links, if they're still open.
 - **Hosted MCP:** add the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, then run **Deploy MCP worker** (see `worker/README.md`). Once it's live, add the endpoint URL to `README.md`, `/data`, `llms.txt` (`web/scripts/generate-exports.mjs`) and `mcp/README.md`.
 - **Benchmark:** add the repo secret `OPENAI_API_KEY`, then run the **Memory benchmark** workflow. Results land on a `bench/results-<run>` branch; a PR from it publishes [/benchmarks](https://mrpeppersdev.github.io/agent-infrastructure-landscape/benchmarks).
-- **Bot PRs:** Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests". Until then the correction and intake bots post a compare link (confirmed in #285).
+- ~~**Bot PRs:**~~ the maintainer turned on "Allow GitHub Actions to create and approve pull requests" (reported 2026-11-02). No bot has opened a PR since, so the next correction or intake run is the first real test: it should open a PR instead of posting a compare link (the last compare link was on #299, 2026-10-28).
 - **npm + MCP Registry:** `cd mcp && npm publish` (landscape-mcp 1.0.1, needs their npm login), then `mcp-publisher login github` and `mcp-publisher publish` (reads `mcp/server.json`; see `mcp/README.md`).
 - **Housekeeping:**
   - Close spam issues #194 and #175.
