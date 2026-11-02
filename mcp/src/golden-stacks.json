@@ -123,11 +123,11 @@
    ]
   },
   "tools": {
-   "pick": "composio--composio-dev",
+   "pick": "arcade-dev--arcade-dev",
    "accept": [
-    "composio--composio-dev",
     "arcade-dev--arcade-dev",
-    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+    "mcp-servers-reference--gh-modelcontextprotocol-servers",
+    "descope-agentic-identity-hub--descope-com"
    ]
   },
   "observability": {
@@ -173,11 +173,11 @@
    ]
   },
   "gateway": {
-   "pick": "litellm--gh-berriai-litellm",
+   "pick": "portkey-ai--portkey-ai",
    "accept": [
-    "litellm--gh-berriai-litellm",
     "portkey-ai--portkey-ai",
-    "openrouter--openrouter-ai"
+    "openrouter--openrouter-ai",
+    "agentgateway--agentgateway-dev"
    ]
   },
   "memory": {
@@ -192,8 +192,8 @@
    "pick": "milvus--milvus-io",
    "accept": [
     "milvus--milvus-io",
-    "weaviate--weaviate-io",
-    "elasticsearch-opensearch--elastic-co"
+    "qdrant--qdrant-tech",
+    "weaviate--weaviate-io"
    ]
   },
   "embeddings": {
@@ -201,7 +201,7 @@
    "accept": [
     "openai-embeddings--platform-openai-com",
     "cohere-embed--cohere-com",
-    "sentence-transformers--sbert-net"
+    "voyage-ai-mongodb--voyageai-com"
    ]
   },
   "tools": {
@@ -209,23 +209,23 @@
    "accept": [
     "composio--composio-dev",
     "arcade-dev--arcade-dev",
-    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
    ]
   },
   "observability": {
-   "pick": "openllmetry-traceloop--gh-traceloop-openllmetry",
+   "pick": "langsmith--langchain-com",
    "accept": [
-    "openllmetry-traceloop--gh-traceloop-openllmetry",
-    "braintrust--braintrust-dev",
-    "langsmith--langchain-com"
+    "langsmith--langchain-com",
+    "langfuse--langfuse-com",
+    "braintrust--braintrust-dev"
    ]
   },
   "guardrails": {
-   "pick": "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
+   "pick": "lasso-security--lasso-security",
    "accept": [
-    "hiddenlayer-aisec-platform-2-0--hiddenlayer-com",
     "lasso-security--lasso-security",
-    "pillar-security--pillar-security"
+    "pillar-security--pillar-security",
+    "promptfoo--promptfoo-dev"
    ]
   }
  },
@@ -445,11 +445,11 @@
    ]
   },
   "model": {
-   "pick": "google-gemini-3-family--blog-google",
+   "pick": "mistral-large-2-mixtral-family--mistral-ai",
    "accept": [
-    "google-gemini-3-family--blog-google",
     "mistral-large-2-mixtral-family--mistral-ai",
-    "cohere-command-r-command-a--cohere-com"
+    "cohere-command-r-command-a--cohere-com",
+    "deepseek-r1-v3-family--deepseek-com"
    ]
   },
   "gateway": {
@@ -469,19 +469,19 @@
    ]
   },
   "sandbox": {
-   "pick": "daytona--daytona-io",
+   "pick": "e2b--e2b-dev",
    "accept": [
-    "daytona--daytona-io",
     "e2b--e2b-dev",
-    "modal-sandboxes--modal-com"
+    "modal-sandboxes--modal-com",
+    "coder-com--coder-com"
    ]
   },
   "tools": {
-   "pick": "composio--composio-dev",
+   "pick": "arcade-dev--arcade-dev",
    "accept": [
-    "composio--composio-dev",
     "arcade-dev--arcade-dev",
-    "ibm-contextforge-mcp-gateway--ibm-github-io"
+    "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
    ]
   },
   "observability": {
@@ -769,7 +769,7 @@
    "accept": [
     "composio--composio-dev",
     "arcade-dev--arcade-dev",
-    "mcp-servers-reference--gh-modelcontextprotocol-servers"
+    "ibm-contextforge-mcp-gateway--ibm-github-io"
    ]
   },
   "observability": {
@@ -979,19 +979,19 @@
    ]
   },
   "tools": {
-   "pick": "composio--composio-dev",
+   "pick": "arcade-dev--arcade-dev",
    "accept": [
-    "composio--composio-dev",
     "arcade-dev--arcade-dev",
-    "ibm-contextforge-mcp-gateway--ibm-github-io"
+    "ibm-contextforge-mcp-gateway--ibm-github-io",
+    "mcp-servers-reference--gh-modelcontextprotocol-servers"
    ]
   },
   "sandbox": {
-   "pick": "daytona--daytona-io",
+   "pick": "e2b--e2b-dev",
    "accept": [
-    "daytona--daytona-io",
     "e2b--e2b-dev",
-    "modal-sandboxes--modal-com"
+    "modal-sandboxes--modal-com",
+    "coder-com--coder-com"
    ]
   },
   "observability": {
@@ -1095,11 +1095,11 @@
    ]
   },
   "model": {
-   "pick": "google-gemini-3-family--blog-google",
+   "pick": "mistral-large-2-mixtral-family--mistral-ai",
    "accept": [
-    "google-gemini-3-family--blog-google",
     "mistral-large-2-mixtral-family--mistral-ai",
-    "cohere-command-r-command-a--cohere-com"
+    "cohere-command-r-command-a--cohere-com",
+    "deepseek-r1-v3-family--deepseek-com"
    ]
   },
   "gateway": {
@@ -1114,8 +1114,8 @@
    "pick": "milvus--milvus-io",
    "accept": [
     "milvus--milvus-io",
-    "qdrant--qdrant-tech",
-    "weaviate--weaviate-io"
+    "weaviate--weaviate-io",
+    "elasticsearch-opensearch--elastic-co"
    ]
   },
   "embeddings": {
@@ -1130,8 +1130,8 @@
    "pick": "mem0--mem0-ai",
    "accept": [
     "mem0--mem0-ai",
-    "zep-graphiti--getzep-com",
-    "letta-memgpt--letta-com"
+    "letta-memgpt--letta-com",
+    "cognee--cognee-ai"
    ]
   },
   "observability": {

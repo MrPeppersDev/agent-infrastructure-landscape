@@ -32,6 +32,6 @@ services:
 #   Foundation model: Mistral Large 2 / Mixtral family — library or hosted-only; no container
 #   Memory layer: Mem0 — No published server image: docker-compose builds from server/dev.Dockerfile (API 8888->8000, dashboard 3000). README: 'at minimum set POSTGRES_PASSWORD and OPENAI_API_KEY'.
 #   Embeddings / reranker: Sentence Transformers — library or hosted-only; no container
-#   Tools, auth and MCP: Composio — library or hosted-only; no container
+#   Tools, auth and MCP: Arcade.dev — library or hosted-only; no container
 #   Evals & observability: OpenLLMetry (Traceloop) — library or hosted-only; no container
 #   Guardrails & security: NVIDIA NeMo Guardrails — library or hosted-only; no container
