@@ -8,7 +8,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
@@ -24,7 +24,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | LlamaIndex (framework), OpenAI Agents SDK |
+| framework | LangChain (framework) | Vercel AI SDK, LlamaIndex (framework) |
 | model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, Jamba (AI21 Labs) |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | memory | Hindsight (Vectorize) | Zep & Graphiti, Supermemory |
@@ -41,7 +41,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Haystack (framework) |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | Portkey AI | OpenRouter, agentgateway |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
@@ -57,7 +57,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | TrueFoundry AI Gateway | Vercel AI Gateway, Portkey AI |
 | memory | Mem0 | Zep & Graphiti, Supermemory |
@@ -73,10 +73,10 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
-| memory | claude-mem | codebase-memory-mcp (DeusData), mcp-memory-service (doobidoo) |
+| memory | claude-mem | mcp-memory-service (doobidoo), codebase-memory-mcp (DeusData) |
 | sandbox | Daytona | e2b, Modal Sandboxes |
 | tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
 | observability | Arize Phoenix | Braintrust, LangSmith |
@@ -88,14 +88,14 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | LlamaIndex (framework), OpenAI Agents SDK |
+| framework | LangChain (framework) | Vercel AI SDK, LlamaIndex (framework) |
 | model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | agentgateway, Portkey AI |
 | memory | claude-mem | Official MCP Memory server, Hindsight MCP |
 | sandbox | e2b | Daytona, Modal Sandboxes |
 | tools | Composio | Arcade.dev, MCP Servers (Reference) |
 | observability | OpenInference | Langfuse, Laminar |
-| guardrails | NVIDIA NeMo Guardrails | Presidio, Arthur Engine |
+| guardrails | NVIDIA NeMo Guardrails | Arthur Engine, Presidio |
 
 ## coding-self
 
@@ -103,10 +103,10 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | Portkey AI, Agent Router (formerly Envoy AI Gateway) |
-| memory | claude-mem | codebase-memory-mcp (DeusData), mcp-memory-service (doobidoo) |
+| memory | claude-mem | mcp-memory-service (doobidoo), codebase-memory-mcp (DeusData) |
 | sandbox | e2b | Modal Sandboxes, Coder.com |
 | tools | Arcade.dev | IBM ContextForge MCP Gateway, MCP Servers (Reference) |
 | observability | Braintrust | OpenLLMetry (Traceloop), OpenInference |
@@ -119,7 +119,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | browser | Browser Use | Stagehand, Browserbase |
@@ -136,7 +136,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Haystack (framework) |
 | model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | agentgateway, Portkey AI |
 | browser | Stagehand | Browser Use, Skyvern |
@@ -155,7 +155,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 |---|---|---|
 | voice | LiveKit Agents | Pipecat (Daily), Vapi |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
 | tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
 | observability | Braintrust | LangSmith, Arize Phoenix |
@@ -169,7 +169,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 |---|---|---|
 | voice | LiveKit Agents | Pipecat (Daily), Vapi |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
 | tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
 | observability | Braintrust | LangSmith, AgentOps |
@@ -181,7 +181,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | orchestration | n8n (AI agent flows) | CrewAI, LangGraph (orchestration) |
@@ -197,7 +197,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | LlamaIndex (framework), OpenAI Agents SDK |
+| framework | LangChain (framework) | Vercel AI SDK, LlamaIndex (framework) |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | orchestration | LangGraph (orchestration) | Inngest, Restate |
@@ -213,7 +213,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | Portkey AI, Agent Router (formerly Envoy AI Gateway) |
 | orchestration | CrewAI | LangGraph (orchestration), Restate |
@@ -230,7 +230,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | vectors | Milvus | Weaviate, Elasticsearch |
@@ -245,7 +245,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | Portkey AI, Agent Router (formerly Envoy AI Gateway) |
 | vectors | Milvus | Weaviate, Elasticsearch |
@@ -261,7 +261,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | vectors | Milvus | Weaviate, Elasticsearch |
@@ -276,7 +276,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Google Gemini 3 family, xAI Grok 4 |
 | gateway | OpenRouter | TrueFoundry AI Gateway, Vercel AI Gateway |
 | vectors | Qdrant | Supabase Vector, LanceDB |
@@ -291,7 +291,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | gateway | LiteLLM | OpenRouter, agentgateway |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
@@ -309,7 +309,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 
 | Layer | Pick | Also accepted |
 |---|---|---|
-| framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
+| framework | LangChain (framework) | CrewAI, Vercel AI SDK |
 | model | Anthropic Claude (foundation models) | Mistral Large 2 / Mixtral family, Jamba (AI21 Labs) |
 | gateway | Portkey AI | Vercel AI Gateway, Cloudflare AI Gateway |
 | memory | Lovable | Cursor Memories, claude-mem |
