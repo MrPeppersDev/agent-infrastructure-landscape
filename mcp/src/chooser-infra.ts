@@ -11,7 +11,7 @@
 //
 // Pure and dependency-free apart from chooser.ts.
 
-import { brand, monthsSince, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting } from './chooser.js';
+import { brand, byScoreThenDepth, monthsSince, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting } from './chooser.js';
 
 export type InfraKind = 'framework' | 'data';
 export type Language = 'python' | 'typescript' | 'any';
@@ -205,7 +205,7 @@ export function chooseInfra(items: ChooserItem[], a: InfraAnswers): InfraResult 
     }
     (r.unconfirmed.some((u) => HARD.includes(u)) ? maybe : ok).push(r);
   }
-  const byScore = (x: Scored, y: Scored) => y.score - x.score || (y.item.stars ?? 0) - (x.item.stars ?? 0) || x.item.name.localeCompare(y.item.name);
+  const byScore = (x: Scored, y: Scored) => byScoreThenDepth(x, y);
   ok.sort(byScore);
   maybe.sort(byScore);
   // One recommendation per product: same brand ("Qdrant" / "Qdrant Cloud")

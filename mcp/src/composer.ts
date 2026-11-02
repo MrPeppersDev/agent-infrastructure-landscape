@@ -15,7 +15,7 @@
 //
 // Pure and dependency-free apart from its sibling modules.
 
-import { brand, POOLS, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting, type RecordLike } from './chooser.js';
+import { brand, byScoreThenDepth, POOLS, type ChooserItem, type Fact, type Reason, type Scored, type Tri, type Hosting, type RecordLike } from './chooser.js';
 import { scoreInfraDetailed, FW_SECTIONS, NOT_A_FRAMEWORK, type Language, type InfraAnswers, type Exclusion } from './chooser-infra.js';
 import { compatibility, verifiedStamp, type CompatEdge, type CompatEvidence } from './compat.js';
 import { stackCost, DEFAULT_STACK_WORKLOAD, type StackCost, type StackPricing, type StackWorkload } from './stack-costs.js';
@@ -362,8 +362,9 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       if (picked.some((p) => p.item.id === i.id)) r.score -= 5;
       (r.unconfirmed.some((u) => HARD.includes(u)) ? maybe : ok).push(r);
     }
-    const tiebreak = (x: Scored, y: Scored) => (lid === 'model' ? 0 : (y.item.stars ?? 0) - (x.item.stars ?? 0));
-    const byScore = (x: Scored, y: Scored) => y.score - x.score || tiebreak(x, y) || x.item.name.localeCompare(y.item.name);
+    // Model families: stars measure open-weight repos, not use, so they
+    // don't break ties there.
+    const byScore = (x: Scored, y: Scored) => byScoreThenDepth(x, y, lid !== 'model');
     ok.sort(byScore);
     maybe.sort(byScore);
     const seen = new Set<string>();

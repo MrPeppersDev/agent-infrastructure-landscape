@@ -95,6 +95,10 @@ export interface ChooserItem {
   stars: number | null;
   releaseDate: string | null;
   status: StackStatusLite;
+  /** Documentation depth over the decision facts above: 2 full (≥ 80%
+   * filled), 1 standard (≥ 50%), 0 listed. A tiebreaker before adoption,
+   * never a filter. Same thresholds as the silo tables' depth badge. */
+  depth: 0 | 1 | 2;
 }
 
 // ---------------------------------------------------------------------------
@@ -160,6 +164,19 @@ function stars(gh: string): number | null {
   return Number.isFinite(n) ? Math.round(m[2] ? n * 1000 : n) : null;
 }
 
+const DEPTH_FACTS = ['license', 'deployment', 'mcp', 'pricing', 'release', 'gh', 'sdk', 'protocols', 'maturity', 'compliance'] as const;
+
+/** Share of the decision facts a chooser reads that the record fills. */
+export function depthTier(facts: Record<(typeof DEPTH_FACTS)[number], Fact>): 0 | 1 | 2 {
+  const share = DEPTH_FACTS.filter((k) => facts[k].value).length / DEPTH_FACTS.length;
+  return share >= 0.8 ? 2 : share >= 0.5 ? 1 : 0;
+}
+
+/** Score, then documentation depth, then adoption, then name. */
+export function byScoreThenDepth(x: { score: number; item: ChooserItem }, y: { score: number; item: ChooserItem }, adoption = true): number {
+  return y.score - x.score || (y.item.depth ?? 0) - (x.item.depth ?? 0) || (adoption ? (y.item.stars ?? 0) - (x.item.stars ?? 0) : 0) || x.item.name.localeCompare(y.item.name);
+}
+
 export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: string; severity: number; note: string }): ChooserItem {
   const lic = fact(r, 'license');
   const dep = fact(r, 'deployment');
@@ -174,6 +191,21 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
   const date = rel.value.match(/(20\d\d-\d\d-\d\d)/);
   const section = r.sections.find((s) => s.primary)?.section ?? r.sections[0]?.section ?? '';
   const decay = (r as unknown as { decay_cause?: string }).decay_cause;
+  const facts = {
+    license: lic,
+    deployment: dep,
+    mcp,
+    pricing: fact(r, 'pricing'),
+    release: rel,
+    gh,
+    conflictText: fact(r, 'contradiction'),
+    runtimes: fact(r, 'runtimes'),
+    api: fact(r, 'api-surface'),
+    sdk: fact(r, 'sdk-languages'),
+    protocols,
+    maturity: fact(r, 'maturity'),
+    compliance: fact(r, 'compliance-certifications')
+  };
   return {
     id: r.id,
     name: r.name,
@@ -185,27 +217,14 @@ export function toItem(r: LandscapeRecord, status?: StackStatusLite | { status: 
     ...hosting(dep.value, oss, hasRepo),
     oss,
     mcp: /\bmcp-(server|client)\b/.test(protocols.value) ? 'yes' : mcpTri(mcp.value),
-    facts: {
-      license: lic,
-      deployment: dep,
-      mcp,
-      pricing: fact(r, 'pricing'),
-      release: rel,
-      gh,
-      conflictText: fact(r, 'contradiction'),
-      runtimes: fact(r, 'runtimes'),
-      api: fact(r, 'api-surface'),
-      sdk: fact(r, 'sdk-languages'),
-      protocols,
-      maturity: fact(r, 'maturity'),
-      compliance: fact(r, 'compliance-certifications')
-    },
+    facts,
     storage: tax(r, 'storage'),
     unit: tax(r, 'unit'),
     conflict: tax(r, 'conflict'),
     retrieval: tax(r, 'retrieval'),
     stars: stars(gh.value),
     releaseDate: date ? date[1] : null,
+    depth: depthTier(facts),
     status:
       status ??
       (decay ? { status: decay, severity: decay === 'research-complete' ? 1 : 3, note: decay } : { status: 'active', severity: 0, note: '' })
@@ -356,7 +375,7 @@ export function choose(items: ChooserItem[], a: Answers): ChooserResult {
     const hardUnknown = r.unconfirmed.some((u) => ['Self-hostable', 'Managed service', 'Open source', 'MCP'].includes(u));
     (hardUnknown ? maybe : ok).push(r);
   }
-  const byScore = (x: Scored, y: Scored) => y.score - x.score || (y.item.stars ?? 0) - (x.item.stars ?? 0) || x.item.name.localeCompare(y.item.name);
+  const byScore = (x: Scored, y: Scored) => byScoreThenDepth(x, y);
   ok.sort(byScore);
   maybe.sort(byScore);
   return {
