@@ -193,6 +193,19 @@ for (const product of Object.keys(PRODUCTS) as ProductType[]) {
   ok(files['security-review.csv'].split('\n').filter(Boolean).length === picks.length + 1, 'the sheet has one row per pick');
 }
 
+// --- self-hosting keeps closed models and managed-only services out -----
+{
+  const recs = new Map(L.records.map((r: { id: string; cells: Record<string, { value?: string }> }) => [r.id, r]));
+  for (const product of ['support-agent', 'coding-agent', 'voice-agent', 'rag-copilot'] as const) {
+    const plan = planStack(ctx, { product, hosting: 'self' } as StackAnswers);
+    const model = plan.layers.find((l) => l.layer === 'model')?.pick;
+    const lic = (recs.get(model?.item.id ?? '') as { cells: Record<string, { value?: string }> } | undefined)?.cells.license?.value ?? '';
+    ok(!!model && !/not applicable|^proprietary/i.test(lic), `${product} self-hosted: the model has open weights (${model?.item.name}: ${lic.slice(0, 40)})`);
+    const managedOnly = plan.layers.filter((l) => l.pick && /^managed[- ]only/i.test((recs.get(l.pick.item.id) as { cells: Record<string, { value?: string }> } | undefined)?.cells.deployment?.value ?? ''));
+    ok(managedOnly.length === 0, `${product} self-hosted: no managed-only pick (${managedOnly.map((l) => l.pick!.item.name).join(', ')})`);
+  }
+}
+
 if (failures) {
   console.error(`${failures} composer test(s) failed`);
   process.exit(1);

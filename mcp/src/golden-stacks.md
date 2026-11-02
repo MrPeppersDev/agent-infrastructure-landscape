@@ -30,7 +30,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 | memory | Hindsight (Vectorize) | Zep & Graphiti, Supermemory |
 | vectors | Qdrant | Chroma, LanceDB |
 | embeddings | Cohere Embed | Hugging Face Inference API (Embeddings), Mixedbread AI |
-| tools | Composio | Arcade.dev, MCP Servers (Reference) |
+| tools | Arcade.dev | MCP Servers (Reference), Descope Agentic Identity Hub |
 | observability | Braintrust | Langfuse, Laminar |
 | guardrails | HiddenLayer AISec Platform 2.0 | Pillar Security, Lakera Guard / Lakera Red |
 | serving | Baseten | vLLM, Fireworks AI |
@@ -43,13 +43,13 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 |---|---|---|
 | framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
-| gateway | LiteLLM | Portkey AI, OpenRouter |
+| gateway | Portkey AI | OpenRouter, agentgateway |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
-| vectors | Milvus | Weaviate, Elasticsearch |
-| embeddings | OpenAI Embeddings | Cohere Embed, Sentence Transformers |
-| tools | Composio | Arcade.dev, MCP Servers (Reference) |
-| observability | OpenLLMetry (Traceloop) | Braintrust, LangSmith |
-| guardrails | HiddenLayer AISec Platform 2.0 | Lasso Security, Pillar Security |
+| vectors | Milvus | Qdrant, Weaviate |
+| embeddings | OpenAI Embeddings | Cohere Embed, Voyage AI (MongoDB) |
+| tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
+| observability | LangSmith | Langfuse, Braintrust |
+| guardrails | Lasso Security | Pillar Security, Promptfoo |
 
 ## support-hipaa
 
@@ -104,11 +104,11 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 | Layer | Pick | Also accepted |
 |---|---|---|
 | framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
-| model | Google Gemini 3 family | Mistral Large 2 / Mixtral family, Cohere Command R+ / Command A |
+| model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | Portkey AI, Agent Router (formerly Envoy AI Gateway) |
 | memory | claude-mem | codebase-memory-mcp (DeusData), mcp-memory-service (doobidoo) |
-| sandbox | Daytona | e2b, Modal Sandboxes |
-| tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
+| sandbox | e2b | Modal Sandboxes, Coder.com |
+| tools | Arcade.dev | IBM ContextForge MCP Gateway, MCP Servers (Reference) |
 | observability | Braintrust | OpenLLMetry (Traceloop), OpenInference |
 | guardrails | NVIDIA NeMo Guardrails | Presidio, Guardrails AI |
 | serving | vLLM | Baseten, SGLang |
@@ -171,7 +171,7 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 | model | OpenAI GPT family (GPT-5 / GPT-4o / o3 / o4) | Anthropic Claude (foundation models), Google Gemini 3 family |
 | framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
 | memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
-| tools | Composio | Arcade.dev, MCP Servers (Reference) |
+| tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
 | observability | Braintrust | LangSmith, AgentOps |
 | guardrails | HiddenLayer AISec Platform 2.0 | Lasso Security, Pillar Security |
 
@@ -218,8 +218,8 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 | gateway | LiteLLM | Portkey AI, Agent Router (formerly Envoy AI Gateway) |
 | orchestration | CrewAI | LangGraph (orchestration), Restate |
 | memory | Mem0 | Letta / MemGPT, Zep & Graphiti |
-| tools | Composio | Arcade.dev, IBM ContextForge MCP Gateway |
-| sandbox | Daytona | e2b, Modal Sandboxes |
+| tools | Arcade.dev | IBM ContextForge MCP Gateway, MCP Servers (Reference) |
+| sandbox | e2b | Modal Sandboxes, Coder.com |
 | observability | OpenLLMetry (Traceloop) | OpenInference, Langfuse |
 | guardrails | NVIDIA NeMo Guardrails | Presidio, Guardrails AI |
 | serving | vLLM | SGLang, TensorRT-LLM |
@@ -246,11 +246,11 @@ Recorded picks for the twenty golden plan_stack questions (`mcp/src/golden-stack
 | Layer | Pick | Also accepted |
 |---|---|---|
 | framework | LangChain (framework) | CrewAI, LlamaIndex (framework) |
-| model | Google Gemini 3 family | Mistral Large 2 / Mixtral family, Cohere Command R+ / Command A |
+| model | Mistral Large 2 / Mixtral family | Cohere Command R+ / Command A, DeepSeek R1 / V3 family |
 | gateway | LiteLLM | Portkey AI, Agent Router (formerly Envoy AI Gateway) |
-| vectors | Milvus | Qdrant, Weaviate |
+| vectors | Milvus | Weaviate, Elasticsearch |
 | embeddings | Cohere Embed | Sentence Transformers, Voyage AI (MongoDB) |
-| memory | Mem0 | Zep & Graphiti, Letta / MemGPT |
+| memory | Mem0 | Letta / MemGPT, Cognee |
 | observability | OpenLLMetry (Traceloop) | Langfuse, Braintrust |
 | guardrails | NVIDIA NeMo Guardrails | Presidio, Guardrails AI |
 | serving | vLLM | Baseten, SGLang |

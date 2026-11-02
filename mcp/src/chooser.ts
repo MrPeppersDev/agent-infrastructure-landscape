@@ -133,9 +133,15 @@ function hosting(dep: string, lic: Tri, hasRepo: boolean): { selfHost: Tri; mana
     // deployment cell is empty.
     return { selfHost: lic === 'yes' && hasRepo ? 'yes' : 'unknown', managed: 'unknown' };
   }
+  // The cell opens with its class ("Managed-only — …", "Self-hosted only — …");
+  // when it does, the class wins over words later in the cell, so a
+  // managed-only service that mentions Kubernetes or an open-source SDK
+  // stays managed-only.
+  if (/^(managed[- ]only|managed cloud only|cloud[- ]only|cloud-managed)\b/i.test(dep)) return { selfHost: 'no', managed: 'yes' };
+  if (/^(self-hosted only|local-only)\b/i.test(dep)) return { selfHost: 'yes', managed: 'no' };
   const both = /\bboth\b/i.test(dep);
   const self = both || /self[- ]?host|on[- ]?prem|local|offline|open[- ]source|docker|kubernetes|library|embedded|in[- ]process|pip install|npm install|byoc|vpc/i.test(dep);
-  const man = both || /managed|cloud|saas|hosted|\bapi\b|platform/i.test(dep);
+  const man = both || /managed|cloud|saas|(?<!self[- ])hosted|\bapi\b|platform/i.test(dep);
   return { selfHost: self ? 'yes' : lic === 'yes' && hasRepo ? 'yes' : 'no', managed: man ? 'yes' : 'no' };
 }
 

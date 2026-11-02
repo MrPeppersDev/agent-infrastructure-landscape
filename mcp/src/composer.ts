@@ -280,6 +280,8 @@ function participants(r: RecordLike | undefined): { n: number | null; citation: 
   }
 }
 
+/** A model licence cell that names published weights. */
+const OPEN_WEIGHTS = /\b(apache|mit|bsd|open[- ]weights?|community licen[cs]e|research licen[cs]e|gemma)\b/i;
 const SOURCE_AVAILABLE = /\b(BSL|business source|FSL|functional source|SSPL|elastic licen[cs]e|ELv2|polyform|commons clause|source[- ]available)\b/i;
 const RELICENSED = /\b(relicens|changed (its |the )?licen[cs]e|moved (from|to) .{0,30}licen[cs]e|licen[cs]e change)/i;
 
@@ -313,6 +315,13 @@ export function planStack(ctx: ComposerContext, answers: StackAnswers): StackPla
       const r = scoreInfraDetailed(i, la);
       if ('excluded' in r) {
         excluded.push({ item: i, why: r });
+        continue;
+      }
+      // Self-hosting the stack means running the model yourself, which
+      // needs published weights. The licence cell says whether there are
+      // any; "on-prem" deals for closed models don't count.
+      if (lid === 'model' && a.hosting === 'self' && !OPEN_WEIGHTS.test(i.facts.license.value ?? '')) {
+        excluded.push({ item: i, why: { excluded: 'no open weights to run on your own servers', fact: i.facts.license } });
         continue;
       }
       if (a.compliance?.length && !l.library) {
