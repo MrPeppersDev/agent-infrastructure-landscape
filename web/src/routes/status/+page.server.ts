@@ -9,7 +9,8 @@ export const prerender = true;
 
 export type BotRun = { at: string; event?: string; status?: string; conclusion?: string | null; url: string };
 export type Bot = { name: string; file: string; url: string; lastRun: BotRun | null; lastSuccess: BotRun | null; recentRuns: number; recentFailures: number };
-export type BotStatus = { available: true; generatedAt: string; repo: string; workflows: Bot[] } | { available: false; reason?: string };
+export type Usage = { npmPackage: string; npmLastWeek: number | null; npmLastMonth: number | null; stars: number | null; forks: number | null };
+export type BotStatus = ({ available: true; generatedAt: string; repo: string; workflows: Bot[] } | { available: false; reason?: string }) & { usage?: Usage };
 
 export function load(): { status: BotStatus } {
   const data = Object.values(files)[0] as BotStatus | undefined;

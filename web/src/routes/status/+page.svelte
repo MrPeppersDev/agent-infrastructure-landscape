@@ -1,6 +1,7 @@
 <script lang="ts">
   // /status: when each of the catalog's bots last ran and last succeeded.
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import { base } from '$app/paths';
   import type { BotStatus, Bot } from './+page.server';
 
   let { data }: { data: { status: BotStatus } } = $props();
@@ -53,9 +54,26 @@
       deploy; meanwhile see <a href="{REPO}/actions">the repository's Actions tab</a>.
     </p>
   {/if}
+
+  {#if data.status.usage}
+    {@const u = data.status.usage}
+    {@const n = (v: number | null) => (v == null ? 'not available' : v.toLocaleString('en-US'))}
+    <h2 id="usage">Usage</h2>
+    <p class="meta">Public counts taken at the same deploy. Page views are in Cloudflare Web Analytics (see <a href="{base}/data#privacy">Privacy</a>).</p>
+    <table class="usage">
+      <tbody>
+        <tr><td><a href="https://www.npmjs.com/package/{u.npmPackage}" rel="noopener">{u.npmPackage}</a> downloads, last 7 days</td><td class="num">{n(u.npmLastWeek)}</td></tr>
+        <tr><td>{u.npmPackage} downloads, last 30 days</td><td class="num">{n(u.npmLastMonth)}</td></tr>
+        <tr><td><a href={REPO} rel="noopener">GitHub</a> stars</td><td class="num">{n(u.stars)}</td></tr>
+        <tr><td>GitHub forks</td><td class="num">{n(u.forks)}</td></tr>
+      </tbody>
+    </table>
+  {/if}
 </main>
 
 <style>
+  h2 { margin: 32px 0 4px; font-size: 20px; color: #f0f6fc; }
+  table.usage { max-width: 480px; }
   .page { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; color: #c9d1d9; line-height: 1.55; }
   h1 { margin: 0 0 8px; font-size: 28px; color: #f0f6fc; }
   a { color: #58a6ff; }
