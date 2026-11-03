@@ -14,6 +14,18 @@ that were on the table.
 
 ---
 
+## 2026-11-03: The composite knows the benchmarks 2026 flagships report (#128)
+
+**What.** `docs/benchmark-families.yml` gains an "ADDED 2026-11-03" section, pending maintainer ratification: code (swe-bench-pro, deepswe, swe-sweep, nl2repo-bench, frontiercode ~, swe-atlas-qna ?, frontierswe ?), agentic (terminal-bench for 4.x and terminal-bench-2 for 2.x ~, osworld-2, automationbench, browsecomp ~, agents-last-exam ~, cybench ?), longcontext (mrcr ~, graphwalks ~), and seventeen excluded ids (indices, Elo ratings, win rates, knowledge and maths sets, superseded Terminal-Bench versions and subsets). Each entry names the official page it rests on (`extraction/benchmark-sources-2026-11-03/benchmark-descriptions.md`). Nine foundation-model rows' `capability-benchmark-sources` cells were rewritten from the vendors' 2026 flagship pages (`extraction/benchmark-sources-2026-11-03/REPORT.md`); Meta's row is renamed "Meta Llama 4 family (now Muse)".
+
+**Why.** Every 2026 flagship announcement dropped SWE-bench Verified, Aider and tau-bench for Terminal-Bench 4.0, DeepSWE, SWE-bench Pro, OSWorld 2.x and the rest, so the model rows' composites were resting on 2025 models.
+
+**Rules.** A new task set gets a new id (osworld-2, terminal-bench-2); a bug-fix release of the same tasks does not (OSWorld 2.1, Terminal-Bench 2.1). Superseded versions and vendor subsets are excluded ids so `canonical_benchmark_id()` stops at them instead of folding them into a scored id. Metrics that are not bounded percentages (Elo, ratings, win rates, indices) are excluded. Where every vendor publishes only a partial-credit score (OSWorld 2.x), cells record it and give the strict rate in parentheses. Competitor columns on a vendor's page are never a source for that competitor.
+
+**Reversal cost.** Low. Delete the YAML section and the ids vanish from the sweep; the cells are ordinary `real-data` cells with citations.
+
+---
+
 ## 2026-10-31: Benchmark sources cite URLs; ceilings come from the catalog (#128)
 
 **What.** `capability-benchmark-sources` cells on 31 rows (12 foundation-model vendors, 19 agent products and frameworks) now carry `benchmark-id: score% (model, detail, date) URL` entries read from vendor pages, model cards, papers and official leaderboards (`extraction/benchmark-sources-2026-10-31/REPORT.md`). `capability_sweep.py` recomputes `data/_baselines/benchmark-maxima.json` from those cells before scoring, passes the row's name and note to the extraction prompt, and no longer mis-parses whole-number scores.
