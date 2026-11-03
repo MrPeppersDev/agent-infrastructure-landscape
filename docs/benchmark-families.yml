@@ -516,14 +516,28 @@ terminal-bench:
   added: 2026-11-03
   source: https://www.tbench.ai/
   rationale: |
-    Stanford / Laude Institute (2025-05; 2.0 2025-11, 2.1 2026-05, 4.0
-    2026-08). English instruction, Docker environment, test script;
-    tasks span software engineering, sysadmin, data and ML work.
-    Metric is resolution rate. Agentic rather than code because the
-    tasks are end-to-end terminal work with planning and tool use, and
-    many are not code edits. Versions are not score-comparable; cells
-    name the version. "Terminal-Bench Hard" is an Artificial Analysis
-    subset and folds into this id with the subset named.
+    Stanford / Laude Institute. This id is Terminal-Bench 4.x (2026-08,
+    66 tasks, flat 8-hour timeout, "continuous benchmark" with semantic
+    versioning). English instruction, Docker environment, test script;
+    tasks span software engineering, sysadmin, data and ML work; metric
+    is resolution rate. Agentic rather than code because the tasks are
+    end-to-end terminal work with planning and tool use, and many are
+    not code edits. 4.0 removed and rewrote tasks of 2.1, and scores
+    halve between the two, so 2.x is a separate id (terminal-bench-2)
+    and the short-lived 3.0, the 80-task "1.0", the Artificial Analysis
+    "Hard" subset and Terminal-Bench-Science are excluded ids below so
+    they never fold into this one.
+
+terminal-bench-2:
+  family: agentic
+  confidence: medium
+  added: 2026-11-03
+  source: https://www.tbench.ai/news/terminal-bench-2-1
+  rationale: |
+    Terminal-Bench 2.0 (2025-11) and 2.1 (2026-05, same 89 tasks with 28
+    fixed). Same task shape and metric as terminal-bench; kept apart
+    because its scores (85-90 for 2026 flagships) are not comparable
+    with 4.x (40-66). Vendors still print it.
 
 osworld-2:
   family: agentic
@@ -536,7 +550,10 @@ osworld-2:
     human-hours, about 318 tool calls) with a binary completion metric
     at 500 steps and a secondary partial reward. "OSWorld 2.1" is the
     2026-09 bug-fix code release of the same tasks. OSWorld and
-    OSWorld-Verified stay under `osworld`.
+    OSWorld-Verified stay under `osworld`. Every vendor publishes the
+    partial reward and only some the binary rate, so cells record the
+    partial score and give the binary rate in parentheses; Google's
+    number is an 82-task offline subset and says so.
 
 automationbench:
   family: agentic
@@ -734,3 +751,43 @@ artificial-analysis-coding-agent-index:
     Equal-weight average of FrontierCode 1.1, Terminal-Bench 4.0 and
     SWE-Atlas-QnA-AA (v2.0, 2026-10). An index over benchmarks that are
     classified individually above.
+
+terminal-bench-1:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://www.tbench.ai/news/announcement
+  rationale: |
+    The 80-task 2025-05 release ("Terminal-Bench-Core-v0", printed as
+    1.0 by vendors). Superseded twice; excluded so it never folds into
+    terminal-bench.
+
+terminal-bench-3:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://www.tbench.ai/news
+  rationale: |
+    The 2026-07 release, replaced by 4.0 within a month. Excluded so it
+    never folds into terminal-bench.
+
+terminal-bench-hard:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artificialanalysis.ai/evaluations/terminalbench-hard
+  rationale: |
+    Artificial Analysis's "hard subset" of an unstated Terminal-Bench
+    version, now in its legacy evaluations. Excluded so it never folds
+    into terminal-bench.
+
+terminal-bench-science:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artificialanalysis.ai/methodology/intelligence-benchmarking
+  rationale: |
+    Terminal-Bench-Science 0.1, an Artificial Analysis science task set
+    in its Intelligence Index v5.0. Scientific computing rather than
+    one of the three families; excluded so it never folds into
+    terminal-bench.

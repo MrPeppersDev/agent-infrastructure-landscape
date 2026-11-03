@@ -36,28 +36,39 @@ def test_parse_variants() -> None:
 
 
 def test_canonical_ids_fold_versions_and_variants() -> None:
-    fam = dict(FAMILIES, **{"osworld-2": "agentic", "terminal-bench": "agentic", "tau-bench": "agentic",
-                            "arc-agi": "excluded", "arc-agi-2": "excluded", "longbench": "longcontext",
-                            "longbench-v2": "longcontext"})
+    fam = dict(FAMILIES, **{"osworld-2": "agentic", "terminal-bench": "agentic", "terminal-bench-2": "agentic",
+                            "tau-bench": "agentic", "longbench": "longcontext", "longbench-v2": "longcontext"})
+    excluded = frozenset({"arc-agi", "arc-agi-2", "hle", "terminal-bench-3", "terminal-bench-hard"})
     cases = {
         "swe-bench-verified": "swe-bench-verified",
         "SWE-Bench Verified": "swe-bench-verified",
         "osworld-2.1": "osworld-2",
         "OSWorld 2.0": "osworld-2",
+        "OSWorld V2.1": "osworld-2",
         "osworld-verified": "osworld",
         "terminal-bench-4.0": "terminal-bench",
-        "Terminal-Bench 2.1": "terminal-bench",
+        "Terminal-Bench 2.1": "terminal-bench-2",
+        "Terminal-Bench 3.0": None,
+        "terminal-bench-hard": None,
         "tau-bench-telecom": "tau-bench",
-        "arc-agi-2": "arc-agi-2",
+        "arc-agi-2": None,
+        "hle-diamond": None,
         "longbench-v2": "longbench-v2",
         "swe-bench": None,
         "swe": None,
     }
-    got = {k: cs.canonical_benchmark_id(k, fam) for k in cases}
+    got = {k: cs.canonical_benchmark_id(k, fam, excluded) for k in cases}
     assert got == cases, {k: (got[k], v) for k, v in cases.items() if got[k] != v}
     # The regex path uses the same folding.
-    parsed = [(o.id, o.score) for o in cs.parse_naive_observations("osworld-2.1: 81.8% · terminal-bench-4.0: 66.0%", fam)]
+    parsed = [(o.id, o.score) for o in cs.parse_naive_observations(
+        "osworld-2.1: 81.8% · terminal-bench-4.0: 66.0% · terminal-bench-3.0: 30.0% · hle: 67.7%", fam, excluded=excluded)]
     assert parsed == [("osworld-2", 81.8), ("terminal-bench", 66.0)], parsed
+    # The real file: every excluded id resolves to None, every classified id to itself.
+    real_fam, real_excl = cs.load_benchmark_families(), cs.load_excluded_benchmark_ids()
+    assert real_excl and not (set(real_fam) & real_excl)
+    assert all(cs.canonical_benchmark_id(k, real_fam, real_excl) == k for k in real_fam)
+    assert all(cs.canonical_benchmark_id(k, real_fam, real_excl) is None for k in real_excl)
+    assert cs.canonical_benchmark_id("Terminal-Bench-Science 0.1", real_fam, real_excl) is None
 
 
 def test_extract_urls_and_placeholders() -> None:

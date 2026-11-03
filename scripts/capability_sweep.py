@@ -124,10 +124,9 @@ class RowResult:
 # ---------------------------------------------------------------------------
 
 
-def load_benchmark_families() -> dict[str, str]:
-    """Return {benchmark_id: family_str} — 'excluded' family is dropped
-    (its benchmarks contribute zero and are not passed to compute_row).
-    Entries with `family: null` are also dropped."""
+def _read_family_lines() -> dict[str, str]:
+    """Every `id: family` pair in benchmark-families.yml, excluded ones
+    included."""
     text = BENCHMARK_FAMILIES_YML.read_text(encoding="utf-8")
     out: dict[str, str] = {}
     current_id: Optional[str] = None
@@ -142,11 +141,29 @@ def load_benchmark_families() -> dict[str, str]:
             continue
         m = re.match(r"^\s+family:\s*(\S+)\s*$", stripped)
         if m and current_id is not None:
-            fam = m.group(1)
-            if fam in ("code", "agentic", "longcontext"):
-                out[current_id] = fam
+            out[current_id] = m.group(1)
             current_id = None
     return out
+
+
+def load_benchmark_families() -> dict[str, str]:
+    """Return {benchmark_id: family_str} — 'excluded' family is dropped
+    (its benchmarks contribute zero and are not passed to compute_row).
+    Entries with `family: null` are also dropped."""
+    return {
+        k: v for k, v in _read_family_lines().items()
+        if v in ("code", "agentic", "longcontext")
+    }
+
+
+EXCLUDED_IDS: frozenset[str] = frozenset()  # filled by main() / tests via load_excluded_benchmark_ids()
+
+
+def load_excluded_benchmark_ids() -> frozenset[str]:
+    """Ids the file lists as excluded. canonical_benchmark_id() stops at
+    them, so "hle-diamond" or "terminal-bench-3.0" never fold into a
+    classified umbrella id."""
+    return frozenset(k for k, v in _read_family_lines().items() if v not in ("code", "agentic", "longcontext"))
 
 
 # ---------------------------------------------------------------------------
@@ -199,6 +216,7 @@ def parse_naive_observations(
     text: str,
     families: dict[str, str],
     default_trust: float = 50.0,
+    excluded: frozenset[str] = frozenset(),
 ) -> list[BenchmarkObservation]:
     """Extract {benchmark, score} tuples from cell text using a regex.
 
@@ -211,7 +229,7 @@ def parse_naive_observations(
         raw = m.group("bench").strip().lower()
         # "swe-bench verified" → "swe-bench-verified"; versions and
         # variants fold into their umbrella id (canonical_benchmark_id).
-        key = canonical_benchmark_id(raw, families)
+        key = canonical_benchmark_id(raw, families, excluded)
         if key is not None and key not in seen:
             seen.add(key)
             obs.append(
@@ -249,7 +267,7 @@ def compute_benchmark_maxima(
         text = (cell.get("value") or "").strip()
         if not text or is_placeholder_text(text) or not extract_urls(text):
             continue
-        for obs in parse_naive_observations(text, families):
+        for obs in parse_naive_observations(text, families, excluded=EXCLUDED_IDS):
             cur = out.get(obs.id)
             if cur is None:
                 out[obs.id] = {"max": obs.score, "min": 0.0, "rows": 1, "top_row": rec["id"]}
@@ -286,27 +304,40 @@ def extract_urls(text: str) -> list[str]:
     return out
 
 
-def canonical_benchmark_id(raw: str, families: dict[str, str]) -> Optional[str]:
+def canonical_benchmark_id(
+    raw: str,
+    families: dict[str, str],
+    excluded: frozenset[str] = frozenset(),
+) -> Optional[str]:
     """Map a reported benchmark name onto the families map (umbrella
     rule, §3.2): the exact slug first, then the slug without a trailing
-    version ("osworld-2.1" -> "osworld-2", "terminal-bench-4.0" ->
-    "terminal-bench"), then hyphen-prefixes from longest to shortest
-    ("tau-bench-telecom" -> "tau-bench", "osworld-verified" ->
-    "osworld"). The longest-first order keeps "osworld-2.1" away from
-    plain "osworld" and "arc-agi-2" away from "arc-agi"."""
+    minor version ("osworld-2.1" -> "osworld-2", "osworld-v2.1" too),
+    then hyphen-prefixes from longest to shortest ("terminal-bench-4.0"
+    -> "terminal-bench", "tau-bench-telecom" -> "tau-bench",
+    "osworld-verified" -> "osworld"). The walk stops at an excluded id
+    ("terminal-bench-3.0" -> terminal-bench-3, excluded -> None), so a
+    superseded version or an index never folds into a scored id."""
     candidate = re.sub(r"\s+", "-", raw.strip().lower())
-    if candidate in families:
-        return candidate
+    candidate = re.sub(r"-v(?=\d)", "-", candidate) if candidate not in families else candidate
+    known = set(families) | set(excluded)
+
+    def _resolve(key: str) -> Optional[str]:
+        if key in known:
+            return key if key in families else None
+        return None
+
+    if candidate in known:
+        return _resolve(candidate)
     # Drop only the minor part of a trailing version ("osworld-2.1" ->
-    # "osworld-2"); the hyphen-prefix walk below handles "-4" and "-v2".
+    # "osworld-2"); the hyphen-prefix walk below handles "-4".
     unversioned = re.sub(r"(\d)\.\d+$", r"\1", candidate)
-    if unversioned in families:
-        return unversioned
+    if unversioned in known:
+        return _resolve(unversioned)
     parts = unversioned.split("-")
     for n in range(len(parts) - 1, 0, -1):
         key = "-".join(parts[:n])
-        if key in families:
-            return key
+        if key in known:
+            return _resolve(key)
     return None
 
 
@@ -343,7 +374,7 @@ def llm_extract_observations(
             continue
         matched_any = False
         for t in triples:
-            bid = canonical_benchmark_id(t["benchmark_id"], families)
+            bid = canonical_benchmark_id(t["benchmark_id"], families, EXCLUDED_IDS)
             if bid is None:
                 continue
             matched_any = True
@@ -413,11 +444,11 @@ def sweep_row(
         # feed the composite but do NOT count toward verification.
         have = {o.id for o in obs}
         obs += [
-            o for o in parse_naive_observations(src_text, families)
+            o for o in parse_naive_observations(src_text, families, excluded=EXCLUDED_IDS)
             if o.id not in have
         ]
     else:
-        obs = parse_naive_observations(src_text, families)
+        obs = parse_naive_observations(src_text, families, excluded=EXCLUDED_IDS)
         result.sources_seen = [src_text]
 
     if not obs:
@@ -640,7 +671,9 @@ def main() -> int:
         print(f"LLM sweep: extraction={EXTRACTION_MODEL} qa={QA_MODEL}")
 
     families = load_benchmark_families()
-    print(f"loaded {len(families)} benchmark → family classifications")
+    global EXCLUDED_IDS
+    EXCLUDED_IDS = load_excluded_benchmark_ids()
+    print(f"loaded {len(families)} benchmark → family classifications ({len(EXCLUDED_IDS)} excluded ids)")
 
     data = json.loads(LANDSCAPE_JSON.read_text(encoding="utf-8"))
     records = data["records"]
