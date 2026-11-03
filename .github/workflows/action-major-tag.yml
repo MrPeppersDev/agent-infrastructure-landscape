@@ -1,0 +1,36 @@
+# Keep the major-version tag of the "AI stack check" Action current.
+#
+# Users pin `uses: MrPeppersDev/agent-infrastructure-landscape@v1`. When a
+# release tagged vX.Y.Z is published (Releases → Draft a new release, which
+# is also where the Marketplace listing is published), this moves the `vX`
+# tag to the same commit, so @v1 always means the latest v1.x.y release.
+# Tags that aren't vX.Y.Z (for example data-v2.1.0) are ignored.
+name: Action major tag
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  move-major-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - name: Move vX to this release
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$TAG" =~ ^v([0-9]+)\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::notice title=Action major tag::$TAG is not vX.Y.Z; nothing to move."
+            exit 0
+          fi
+          major="v${BASH_REMATCH[1]}"
+          git tag -f "$major" "$TAG^{commit}"
+          git push -f origin "refs/tags/$major"
+          echo "::notice title=Action major tag::$major now points at $TAG ($(git rev-parse --short "$TAG^{commit}"))"
