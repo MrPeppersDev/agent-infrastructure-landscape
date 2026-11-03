@@ -14,8 +14,13 @@ In Cursor, Claude Desktop or any client that supports remote servers, use the UR
 
 ## Deploy
 
-1. Create a free Cloudflare account and an API token from the *Edit Cloudflare Workers* template.
-2. Add the token as the repo secret `CLOUDFLARE_API_TOKEN`, and your account id as `CLOUDFLARE_ACCOUNT_ID`.
-3. Run the **Deploy MCP worker** workflow (Actions tab). Locally, run `cd worker && npx wrangler deploy` instead.
+Cloudflare Workers Builds deploys this folder on every push to `main`. In the Cloudflare dashboard, the Worker `agent-infrastructure-landscape` → **Settings → Build** needs:
+- Git repository: this repo. Production branch: `main`.
+- Root directory: `worker`. Build command: none. Deploy command: `npx wrangler deploy`.
+- Build watch paths, Include: `worker/*` and `mcp/src/*`. Data changes need no redeploy, so this saves build minutes.
+
+The endpoint is `https://agent-infrastructure-landscape.<subdomain>.workers.dev/mcp`. `workers_dev = true` in `wrangler.toml` keeps that URL on.
+
+The **Deploy MCP worker** workflow is an alternative for deploying from GitHub Actions. It needs the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, and skips the deploy with a notice when they're missing. Locally, run `cd worker && npx wrangler deploy`.
 
 Test locally with `npx tsx test/handler.test.ts`. It runs the handler against the repo's data files.
