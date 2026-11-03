@@ -73,6 +73,9 @@ jobs:
         working-directory: web
         env:
           BASE_PATH: /agent-infrastructure-landscape
+          # Page counts (Cloudflare Web Analytics, cookieless). Empty until the
+          # repo variable CF_BEACON_TOKEN is set; then the beacon loads.
+          VITE_CF_BEACON_TOKEN: ${{ vars.CF_BEACON_TOKEN }}
         run: npm run build
 
       - name: Upload Pages artifact

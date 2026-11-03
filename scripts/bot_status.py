@@ -51,6 +51,30 @@ def status(repo: str, token: str) -> dict:
     return {"available": True, "generatedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "repo": repo, "workflows": out}
 
 
+def _get(url: str, token: str = "") -> dict | None:
+    req = urllib.request.Request(url, headers={"Accept": "application/json", **({"Authorization": f"Bearer {token}"} if token else {})})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return json.loads(r.read())
+    except Exception:
+        return None
+
+
+def usage(repo: str, token: str) -> dict:
+    """Public counts for /status: npm downloads of the MCP server and the
+    repo's stars and forks. Each is null when its API doesn't answer."""
+    week = _get("https://api.npmjs.org/downloads/point/last-week/landscape-mcp") or {}
+    month = _get("https://api.npmjs.org/downloads/point/last-month/landscape-mcp") or {}
+    gh = _get(f"https://api.github.com/repos/{repo}", token) or {}
+    return {
+        "npmPackage": "landscape-mcp",
+        "npmLastWeek": week.get("downloads"),
+        "npmLastMonth": month.get("downloads"),
+        "stars": gh.get("stargazers_count"),
+        "forks": gh.get("forks_count"),
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", "MrPeppersDev/agent-infrastructure-landscape"))
@@ -63,6 +87,7 @@ def main() -> int:
         data = status(a.repo, token)
     except Exception as e:  # the page says "not available" rather than failing the deploy
         data = {"available": False, "reason": str(e)[:200]}
+    data["usage"] = usage(a.repo, token)
     Path(a.out).write_text(json.dumps(data, indent=1) + "\n")
     print(f"bot_status: {'%d workflows' % len(data['workflows']) if data.get('available') else 'not available (' + data['reason'] + ')'} → {a.out}")
     return 0

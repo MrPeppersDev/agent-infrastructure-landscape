@@ -112,6 +112,13 @@
     Every system page has a <strong>Suggest a correction</strong> link. It opens a pre-filled issue; a bot checks the source,
     patches the cell and opens a pull request for review. New systems go through <a href="{base}/submit">Submit</a>.
   </p>
+
+  <h2 id="privacy">Privacy</h2>
+  <p>
+    The site counts page views with <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a>.
+    It sets no cookies and stores no personal data, so there is no consent banner. The hosted MCP endpoint keeps no request
+    log of its own. Download and star counts are on <a href="{base}/status">Bot status</a>.
+  </p>
 </main>
 
 <style>

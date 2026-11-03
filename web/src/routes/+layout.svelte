@@ -3,6 +3,10 @@
   import { page } from '$app/state';
   import { base } from '$app/paths';
   import JsonLd from '$lib/components/JsonLd.svelte';
+  // Cloudflare Web Analytics (no cookies, no personal data): only when the
+  // Pages build sets VITE_CF_BEACON_TOKEN from the CF_BEACON_TOKEN repo
+  // variable. Local and PR builds load nothing.
+  const BEACON: string = import.meta.env.VITE_CF_BEACON_TOKEN ?? '';
   import { websiteLd, organizationLd } from '$lib/seo/jsonld';
   import { getSilos } from '$lib/silos';
 
@@ -112,6 +116,9 @@
     href="{base}/feed.xml"
   />
   <link rel="alternate" type="application/atom+xml" title="AI Agent Infrastructure Landscape — changes" href="{base}/changes.xml" />
+  {#if BEACON}
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: BEACON })}></script>
+  {/if}
 </svelte:head>
 
 <JsonLd data={siteLd} />
