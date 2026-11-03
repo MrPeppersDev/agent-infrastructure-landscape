@@ -4,7 +4,9 @@
 #
 # Generated: 2026-07-01
 # Ratification status: RATIFIED 2026-07-01 — maintainer approved the
-# full draft. The two deferred entries were resolved 2026-07-10 via
+# full draft.
+# Entries in the "ADDED 2026-11-03" section at the end are PENDING
+# ratification; see that section's header. The two deferred entries were resolved 2026-07-10 via
 # #133: `alphacode` → excluded, `swe-lancer` → agentic.
 #
 # ==============================================================================
@@ -408,3 +410,327 @@ swe-lancer:
     confidence: the IC component has code-generation character; if
     rows ever report IC and Manager scores separately, reconsider a
     split at that time.
+
+# ==============================================================================
+# ADDED 2026-11-03 — benchmarks the 2026 flagship announcements report
+# ==============================================================================
+# Status: PENDING MAINTAINER RATIFICATION. Every 2026 flagship post (Opus 5.5,
+# GPT-6 Astra, Gemini 4, Grok 4.7, Mistral Large 4, DeepSeek V4, Qwen3.8,
+# Command A+) reports benchmarks the file above does not know, so the
+# model rows' composites were resting on 2025 models. Facts below come from
+# each benchmark's official source, collected in
+# extraction/benchmark-sources-2026-11-03/benchmark-descriptions.md; the
+# `source` line names the page read. The ~ and ? entries want a second
+# opinion. Umbrella rule (§3.2) still applies: versions of one benchmark
+# (Terminal-Bench 2.1 vs 4.0) share an id and the cell text names the
+# version; a new task set gets a new id (osworld-2).
+
+# --- code ---------------------------------------------------------------------
+
+swe-bench-pro:
+  family: code
+  confidence: high
+  added: 2026-11-03
+  source: https://arxiv.org/abs/2509.16941
+  rationale: |
+    Scale AI (2025-09). Given a codebase and an issue, produce a patch;
+    1,865 problems over 41 repos, public / held-out / commercial splits.
+    Metric is pass@1 resolve rate. Same task shape as swe-bench-verified
+    with harder, contamination-resistant instances.
+
+deepswe:
+  family: code
+  confidence: high
+  added: 2026-11-03
+  source: https://deepswe.datacurve.ai/blog/deepswe
+  rationale: |
+    Datacurve (2026-05, v1.1 2026-06). 113 long-horizon engineering tasks
+    written from scratch across 91 repos in five languages, each with an
+    executable verifier; pass@1 pass rate. v1.1 changed execution and
+    grading, not the tasks, so versions share this id.
+
+swe-sweep:
+  family: code
+  confidence: high
+  added: 2026-11-03
+  source: https://swesweep.com/
+  rationale: |
+    Meta Superintelligence Labs et al. (2026). Discover and repair as
+    many bugs as possible in 100 real repositories (4.1k bugs) with no
+    issue text or hints; metric is the micro-average of bugs resolved
+    with the original suite still passing.
+
+nl2repo-bench:
+  family: code
+  confidence: high
+  added: 2026-11-03
+  source: https://arxiv.org/abs/2512.12730
+  rationale: |
+    Ding et al. (2025-12). Build a complete installable Python library
+    from a requirements document, graded by the upstream repo's own
+    pytest suite; average test pass rate. Vendors print "NL2Repo".
+
+frontiercode:
+  family: code
+  confidence: medium
+  added: 2026-11-03
+  source: https://cognition.com/blog/frontier-code
+  rationale: |
+    Cognition (2026-06). 150 maintainer-authored tasks (Diamond 50, Main
+    100, Extended 150) judged on mergeability. Two metrics coexist: a
+    pass rate and a weighted rubric score; Artificial Analysis's
+    "FrontierCode 1.1 / 2.0" are its own implementations reporting the
+    rubric score. Medium because cells must say which metric and whose
+    run; the task set is private.
+
+swe-atlas-qna:
+  family: code
+  confidence: low
+  added: 2026-11-03
+  source: https://huggingface.co/datasets/ScaleAI/SWE-Atlas-QnA
+  rationale: |
+    Scale AI (2026-05). 124 questions about pinned repositories graded
+    by an LLM judge against an expert rubric; task resolve rate. It is
+    code comprehension rather than editing (modifying files fails the
+    task), so "coding assistance" fits only loosely. Maintainer: confirm
+    code or move to excluded.
+
+frontierswe:
+  family: code
+  confidence: low
+  added: 2026-11-03
+  source: https://www.frontierswe.com/
+  rationale: |
+    Proximal Labs (2026). 34 performance-engineering, computational-
+    science and ML-research tasks, 5 trials each with a 20-hour budget;
+    reward is a category-gated 0-1 value reported as mean@5, not a
+    percent-resolved rate. Low confidence: bounded and comparable
+    across rows, but a different kind of number. Maintainer: confirm
+    or exclude.
+
+# --- agentic ------------------------------------------------------------------
+
+terminal-bench:
+  family: agentic
+  confidence: medium
+  added: 2026-11-03
+  source: https://www.tbench.ai/
+  rationale: |
+    Stanford / Laude Institute (2025-05; 2.0 2025-11, 2.1 2026-05, 4.0
+    2026-08). English instruction, Docker environment, test script;
+    tasks span software engineering, sysadmin, data and ML work.
+    Metric is resolution rate. Agentic rather than code because the
+    tasks are end-to-end terminal work with planning and tool use, and
+    many are not code edits. Versions are not score-comparable; cells
+    name the version. "Terminal-Bench Hard" is an Artificial Analysis
+    subset and folds into this id with the subset named.
+
+osworld-2:
+  family: agentic
+  confidence: high
+  added: 2026-11-03
+  source: https://osworld-v2.xlang.ai/
+  rationale: |
+    XLANG Lab, HKU (2026-06). A new task set, not a version of
+    `osworld`: 108 long-horizon computer-use workflows (median 1.6
+    human-hours, about 318 tool calls) with a binary completion metric
+    at 500 steps and a secondary partial reward. "OSWorld 2.1" is the
+    2026-09 bug-fix code release of the same tasks. OSWorld and
+    OSWorld-Verified stay under `osworld`.
+
+automationbench:
+  family: agentic
+  confidence: high
+  added: 2026-11-03
+  source: https://arxiv.org/abs/2604.18934
+  rationale: |
+    Zapier (2026-04). Business-process tasks in simulated SaaS
+    environments (CRM, calendar, inbox) where the agent discovers REST
+    tools and must reach an expected final state; strict full-task pass
+    rate on a private held-out set. AutomationBench-AA (Artificial
+    Analysis, 657 private tasks, share of objectives completed) is a
+    different metric and folds into this id with the variant named.
+
+browsecomp:
+  family: agentic
+  confidence: medium
+  added: 2026-11-03
+  source: https://arxiv.org/abs/2504.12516
+  rationale: |
+    OpenAI (2025-04). 1,266 questions that need persistent web browsing
+    to find entangled, hard-to-locate facts; accuracy with a model
+    grader. Agentic because the capability measured is multi-step tool
+    use; medium because the output is a short answer, not a task state.
+
+agents-last-exam:
+  family: agentic
+  confidence: medium
+  added: 2026-11-03
+  source: https://arxiv.org/abs/2606.05405
+  rationale: |
+    Berkeley RDI (2026-06). Long-horizon, economically valuable tasks
+    with verifiable outcomes mapped to occupations; average full pass
+    rate. Medium because the task pool is growing (1,500+ toward
+    5,000), so scores shift with the release used.
+
+cybench:
+  family: agentic
+  confidence: low
+  added: 2026-11-03
+  source: https://cybench.github.io/
+  rationale: |
+    Stanford (2024-08). 40 professional capture-the-flag tasks with
+    subtasks; "% solved" unguided or subtask-guided. Multi-step tool
+    use in a harness fits agentic, but the domain is offensive
+    security only. Maintainer: confirm or exclude.
+
+# --- longcontext --------------------------------------------------------------
+
+mrcr:
+  family: longcontext
+  confidence: medium
+  added: 2026-11-03
+  source: https://huggingface.co/datasets/openai/mrcr
+  rationale: |
+    OpenAI dataset (2025-04), after Gemini's MRCR eval (2024-09). Find
+    the i-th of several identical asks hidden in a synthetic
+    conversation; context bins from 4k to 1M tokens. Metric is a 0-1
+    string-similarity ratio (partial credit), reported as a percentage;
+    cells name the context bin. No official "v2" exists.
+
+graphwalks:
+  family: longcontext
+  confidence: medium
+  added: 2026-11-03
+  source: https://huggingface.co/datasets/openai/graphwalks
+  rationale: |
+    OpenAI dataset (2025-04). BFS or parent lookup over an edge list up
+    to about 1.75M characters; metric is F1 over the returned node set.
+    Long-context by construction; medium because F1 is not a pass rate.
+
+# --- excluded -----------------------------------------------------------------
+
+cursorbench:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://cursor.com/cursorbench
+  rationale: |
+    Cursor's internal evaluation on tasks from real Cursor sessions;
+    the metric is undefined on the page and no dataset is released.
+    Same logic as chatbot-arena: a vendor leaderboard, not a dataset.
+
+gdpval:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://arxiv.org/abs/2510.04374
+  rationale: |
+    OpenAI (2025-10). Deliverables across 44 occupations graded by
+    blinded pairwise comparison against human experts; win rate. A
+    relative-to-human measure of knowledge work, not one of the three
+    families.
+
+gdpval-aa:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artificialanalysis.ai/evaluations/gdpval-aa
+  rationale: |
+    Artificial Analysis's Elo over OpenAI's GDPval tasks. An Elo is not
+    a bounded percentage and cannot be min-max normalised with the rest.
+
+aa-briefcase:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artificialanalysis.ai/evaluations/aa-briefcase
+  rationale: |
+    Artificial Analysis private knowledge-work evaluation reported as a
+    combined Elo. Excluded for the same reason as gdpval-aa.
+
+eebench:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://eebench.org/
+  rationale: |
+    atopile's electrical-engineering design benchmark on private tasks,
+    scored 0.65 technical + 0.35 cost-efficiency. A domain-specific
+    engineering score, not one of the three families.
+
+hle:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://lastexam.ai/
+  rationale: |
+    Humanity's Last Exam (CAIS and Scale AI, 2025-01): 2,500 closed-
+    ended academic questions; accuracy. General knowledge and
+    reasoning, like mmlu and gpqa. HLE-Diamond (Artificial Analysis
+    subset) folds in here for documentation.
+
+arc-agi-2:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://arcprize.org/arc-agi/2/
+  rationale: |
+    ARC Prize (2025-03). Grid puzzles scored pass@2. Excluded for the
+    same reason as arc-agi: abstraction, not one of the three families.
+
+aime:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions
+  rationale: |
+    Competition mathematics (AIME 2024 / 2025 problem sets) that vendors
+    report as accuracy. Mathematics is not one of the three families.
+
+mmmu:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://mmmu-benchmark.github.io/
+  rationale: |
+    College-level multimodal questions (2023-11); accuracy. Vision and
+    knowledge, not one of the three families. MMMU-Pro likewise.
+
+codeforces-rating:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://codeforces.com/
+  rationale: |
+    A competitive-programming Elo-style rating, unbounded and not a
+    percentage; codeforces.com could not be fetched (bot wall), so the
+    exclusion rests on the metric type alone.
+
+vals-index:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://www.vals.ai/benchmarks/vals_index
+  rationale: |
+    A GDP-weighted index over Vals AI's own benchmark runs. Indices
+    aggregate other results and would double-count their constituents.
+
+artificial-analysis-intelligence-index:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artificialanalysis.ai/methodology/intelligence-benchmarking
+  rationale: |
+    Composite of nine evaluations (v5.0, 2026-10). An index, excluded for
+    the same reason as vals-index.
+
+artificial-analysis-coding-agent-index:
+  family: excluded
+  confidence: high
+  added: 2026-11-03
+  source: https://artificialanalysis.ai/methodology/coding-agents-benchmarking
+  rationale: |
+    Equal-weight average of FrontierCode 1.1, Terminal-Bench 4.0 and
+    SWE-Atlas-QnA-AA (v2.0, 2026-10). An index over benchmarks that are
+    classified individually above.

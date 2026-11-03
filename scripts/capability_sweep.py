@@ -179,8 +179,10 @@ def load_benchmark_maxima() -> dict[str, BenchmarkAnchor]:
 # Benchmark tokens start with a letter: with digits allowed at the start
 # of a token the greedy group backtracked into the score itself, so
 # "osworld 66.3%" parsed as benchmark "osworld 6" at 6.3%.
+# A "." is part of a token only before a digit ("osworld-2.1"), so a
+# sentence-ending period never sticks to a benchmark name.
 BENCH_MENTION_RE = re.compile(
-    r"(?P<bench>[a-z][a-z0-9\-_+]*(?:\s+[a-z][a-z0-9\-_+]*){0,3})"
+    r"(?P<bench>[a-z](?:[a-z0-9\-_+]|\.(?=\d))*(?:\s+[a-z](?:[a-z0-9\-_+]|\.(?=\d))*){0,3})"
     r"\s*(?:score|verified)?\s*"
     r"[:~≈=]?\s*"
     r"(?P<score>\d{1,3}(?:\.\d+)?)\s*%",
@@ -207,22 +209,19 @@ def parse_naive_observations(
     seen: set[str] = set()
     for m in BENCH_MENTION_RE.finditer(text):
         raw = m.group("bench").strip().lower()
-        # Canonicalise "swe-bench verified" → "swe-bench-verified" etc.
-        candidate = re.sub(r"\s+", "-", raw)
-        # Also try the head token for umbrella matches.
-        for key in (candidate, candidate.split("-")[0]):
-            if key in families and key not in seen:
-                seen.add(key)
-                score = float(m.group("score"))
-                obs.append(
-                    BenchmarkObservation(
-                        id=key,
-                        score=score,
-                        trust=default_trust,
-                        family=families[key],  # type: ignore[arg-type]
-                    )
+        # "swe-bench verified" → "swe-bench-verified"; versions and
+        # variants fold into their umbrella id (canonical_benchmark_id).
+        key = canonical_benchmark_id(raw, families)
+        if key is not None and key not in seen:
+            seen.add(key)
+            obs.append(
+                BenchmarkObservation(
+                    id=key,
+                    score=float(m.group("score")),
+                    trust=default_trust,
+                    family=families[key],  # type: ignore[arg-type]
                 )
-                break
+            )
     return obs
 
 
@@ -288,10 +287,24 @@ def extract_urls(text: str) -> list[str]:
 
 
 def canonical_benchmark_id(raw: str, families: dict[str, str]) -> Optional[str]:
-    """Map a model-reported benchmark id onto the families map, trying
-    the exact slug then the head token (umbrella match)."""
+    """Map a reported benchmark name onto the families map (umbrella
+    rule, §3.2): the exact slug first, then the slug without a trailing
+    version ("osworld-2.1" -> "osworld-2", "terminal-bench-4.0" ->
+    "terminal-bench"), then hyphen-prefixes from longest to shortest
+    ("tau-bench-telecom" -> "tau-bench", "osworld-verified" ->
+    "osworld"). The longest-first order keeps "osworld-2.1" away from
+    plain "osworld" and "arc-agi-2" away from "arc-agi"."""
     candidate = re.sub(r"\s+", "-", raw.strip().lower())
-    for key in (candidate, candidate.split("-")[0]):
+    if candidate in families:
+        return candidate
+    # Drop only the minor part of a trailing version ("osworld-2.1" ->
+    # "osworld-2"); the hyphen-prefix walk below handles "-4" and "-v2".
+    unversioned = re.sub(r"(\d)\.\d+$", r"\1", candidate)
+    if unversioned in families:
+        return unversioned
+    parts = unversioned.split("-")
+    for n in range(len(parts) - 1, 0, -1):
+        key = "-".join(parts[:n])
         if key in families:
             return key
     return None

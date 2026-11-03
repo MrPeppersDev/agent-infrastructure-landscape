@@ -35,6 +35,31 @@ def test_parse_variants() -> None:
     assert cs.parse_naive_observations("general capability estimate — no specific benchmark", FAMILIES) == []
 
 
+def test_canonical_ids_fold_versions_and_variants() -> None:
+    fam = dict(FAMILIES, **{"osworld-2": "agentic", "terminal-bench": "agentic", "tau-bench": "agentic",
+                            "arc-agi": "excluded", "arc-agi-2": "excluded", "longbench": "longcontext",
+                            "longbench-v2": "longcontext"})
+    cases = {
+        "swe-bench-verified": "swe-bench-verified",
+        "SWE-Bench Verified": "swe-bench-verified",
+        "osworld-2.1": "osworld-2",
+        "OSWorld 2.0": "osworld-2",
+        "osworld-verified": "osworld",
+        "terminal-bench-4.0": "terminal-bench",
+        "Terminal-Bench 2.1": "terminal-bench",
+        "tau-bench-telecom": "tau-bench",
+        "arc-agi-2": "arc-agi-2",
+        "longbench-v2": "longbench-v2",
+        "swe-bench": None,
+        "swe": None,
+    }
+    got = {k: cs.canonical_benchmark_id(k, fam) for k in cases}
+    assert got == cases, {k: (got[k], v) for k, v in cases.items() if got[k] != v}
+    # The regex path uses the same folding.
+    parsed = [(o.id, o.score) for o in cs.parse_naive_observations("osworld-2.1: 81.8% · terminal-bench-4.0: 66.0%", fam)]
+    assert parsed == [("osworld-2", 81.8), ("terminal-bench", 66.0)], parsed
+
+
 def test_extract_urls_and_placeholders() -> None:
     assert cs.extract_urls(CELL) == [
         "https://www.anthropic.com/news/claude-opus-4-5",
@@ -64,6 +89,7 @@ def test_maxima_from_catalog_cells() -> None:
 if __name__ == "__main__":
     test_parse_scores_whole_numbers()
     test_parse_variants()
+    test_canonical_ids_fold_versions_and_variants()
     test_extract_urls_and_placeholders()
     test_maxima_from_catalog_cells()
     print("capability_sweep: parser, URL extraction and maxima refresh ok")
