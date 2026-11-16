@@ -456800,7 +456800,7 @@
       "name": "Hume EVI",
       "tier": 1,
       "url": "https://dev.hume.ai/voice/docs/speech-to-speech-evi/overview",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-11-16",
       "sections": [
         {
           "section": "Voice agent platforms",
@@ -456868,7 +456868,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Hume's Empathic Voice Interface (EVI) — voice agent platform with vocal-affect understanding, using Hume's proprietary speech-prosody models. Hume will shut down the EVI and TTS APIs on 2026-11-13 (announced in its docs). Hume raised $50M Series B Mar-2024 (EQT).",
+          "value": "Hume's Empathic Voice Interface (EVI) — voice agent platform with vocal-affect understanding, using Hume's proprietary speech-prosody models. Hume shut down the EVI and TTS APIs on 2026-11-13, as announced in its docs; by 2026-11-16 its EVI and TTS doc pages redirect to the Audio Decisions API docs. Hume raised $50M Series B Mar-2024 (EQT).",
           "citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
           "status": "real-data",
           "tier": "T2"
@@ -456893,11 +456893,11 @@
           "last_verified_at": "2026-05-14"
         },
         "latest-release": {
-          "value": "EVI 3 and EVI 4-mini; the EVI API shuts down on 2026-11-13",
+          "value": "EVI 3 and EVI 4-mini (final); the EVI API shut down on 2026-11-13",
           "citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
           "status": "real-data",
           "tier": "T2",
-          "last_verified_at": "2026-10-28"
+          "last_verified_at": "2026-11-16"
         },
         "license": {
           "value": "not applicable — not OSS",
@@ -457524,7 +457524,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-11-16",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/hume-evi--hume-ai",
           "status": "real-data",
           "tier": "T2"
@@ -457561,7 +457561,7 @@
         },
         "desc": {
           "scrape_url": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-16",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
@@ -457580,7 +457580,7 @@
         },
         "latest-release": {
           "scrape_url": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
-          "scraped_at": "2026-10-28",
+          "scraped_at": "2026-11-16",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
@@ -457927,7 +457927,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/hume-evi--hume-ai",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-11-16",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
@@ -1138836,7 +1138836,7 @@
       "name": "Vellum AI",
       "tier": 2,
       "url": "https://www.vellum.ai/",
-      "last_verified_at": "2026-10-29",
+      "last_verified_at": "2026-11-16",
       "sections": [
         {
           "section": "Evaluation & observability platforms",
@@ -1138904,7 +1138904,7 @@
           "tier": "T2"
         },
         "desc": {
-          "value": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud). Vellum announced its hosted Personal Assistant Platform will be shut down on 2026-11-02 and that it will no longer actively maintain the open-source repo.",
+          "value": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud). Vellum shut down its hosted Personal Assistant Platform: per its shutdown page, hosted assistants are switched off after a final export on 2026-11-07, and downloads close and hosted data is deleted on 2026-12-13. Vellum no longer actively maintains the open-source repo; a founding engineer maintains a fork, Cadet, for self-hosters.",
           "citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
           "status": "real-data",
           "tier": "T2"
@@ -1139560,7 +1139560,7 @@
           "tier": "T3"
         },
         "freshness-date": {
-          "value": "2026-10-29",
+          "value": "2026-11-16",
           "citation": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/vellum-ai--vellum-ai",
           "status": "real-data",
           "tier": "T2"
@@ -1139597,7 +1139597,7 @@
         },
         "desc": {
           "scrape_url": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-11-16",
           "script": "scripts/apply_reverify.py",
           "source": "scrape",
           "verified": true
@@ -1139931,7 +1139931,7 @@
         },
         "freshness-date": {
           "scrape_url": "https://mrpeppersdev.github.io/agent-infrastructure-landscape/systems/vellum-ai--vellum-ai",
-          "scraped_at": "2026-10-29",
+          "scraped_at": "2026-11-16",
           "script": "scripts/derive_v1_1_cells.py",
           "source": "scrape",
           "verified": true
