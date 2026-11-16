@@ -1,0 +1,41 @@
+[
+ {
+  "id": "vellum-ai--vellum-ai",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "Hosted Personal Assistant Platform shut down: final export and switch-off from 2026-11-07; downloads close and hosted data is deleted 2026-12-13 (vendor's shutdown page, checked 2026-11-16).",
+  "lifecycle_citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "",
+    "new": "Originally an enterprise LLM development platform (prompts, workflows, evals). It pivoted to a personal AI assistant (open-source vellum-assistant plus Vellum Cloud). Vellum shut down its hosted Personal Assistant Platform: per its shutdown page, hosted assistants are switched off after a final export on 2026-11-07, and downloads close and hosted data is deleted on 2026-12-13. Vellum no longer actively maintains the open-source repo; a founding engineer maintains a fork, Cadet, for self-hosters.",
+    "citation": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+    "confidence": "high"
+   }
+  ]
+ },
+ {
+  "id": "hume-evi--hume-ai",
+  "verified": true,
+  "lifecycle": "dead",
+  "lifecycle_note": "EVI and TTS APIs shut down 2026-11-13 as announced; by 2026-11-16 Hume's EVI and TTS doc pages redirect to its Audio Decisions API docs, the homepage no longer lists them, and the EVI API endpoint returns 404.",
+  "lifecycle_citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
+  "updates": [
+   {
+    "cell": "desc",
+    "old": "",
+    "new": "Hume's Empathic Voice Interface (EVI) \u2014 voice agent platform with vocal-affect understanding, using Hume's proprietary speech-prosody models. Hume shut down the EVI and TTS APIs on 2026-11-13, as announced in its docs; by 2026-11-16 its EVI and TTS doc pages redirect to the Audio Decisions API docs. Hume raised $50M Series B Mar-2024 (EQT).",
+    "citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
+    "confidence": "high"
+   },
+   {
+    "cell": "latest-release",
+    "old": "",
+    "new": "EVI 3 and EVI 4-mini (final); the EVI API shut down on 2026-11-13",
+    "citation": "https://dev.hume.ai/docs/speech-to-speech-evi/overview",
+    "confidence": "high"
+   }
+  ]
+ }
+]
